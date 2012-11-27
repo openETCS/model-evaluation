@@ -1,0 +1,81 @@
+(* copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
+      -- Mitsubishi Electric R&D Centre Europe *)
+
+(* Reference: UNISIG SUBSET-026-3 v3.2.0 *)
+
+(** Location, Continuous Profile Data and Non-continuous Profile Data *)
+module Section_3_6_3_2
+  use import int.Int
+  use import array.Array
+
+  (* §3.6.3.2.1 *)
+  type cont_entry 'a = { cont_distance : int;
+                         cont_value : 'a }
+  type continuous_profile_and_location_data 'a = array (cont_entry 'a)
+
+  (* WARNING: non continuous profile data not formalized *)
+
+  (* §3.6.3.2.2 *)
+  type container = continuous_profile_and_location_data int
+  function f (c : container) (i : int) : int = c[i].cont_distance
+  clone sum.Sum with type container = container, function f = f
+
+  function sum_before_n (profile : continuous_profile_and_location_data int)
+                        (n : int) : int =
+    Sum.sum profile 0 n
+
+  predicate valid_continuous_profile
+      (profile : continuous_profile_and_location_data 'a) =
+    length profile >= 1
+    (* c) *)
+    /\ (forall i:int. 0 <= i < length profile
+          -> profile[i].cont_distance >= 0)
+
+  val get_cont_value (profile : continuous_profile_and_location_data int)
+                     (distance_from_LRBG : int) (previous_data : int) : int
+      requires { valid_continuous_profile profile }
+      ensures
+        { (* a) *)
+          (forall i:int. 0 <= i < length profile
+            -> (result = profile[i].cont_value <->
+                sum_before_n profile i <= distance_from_LRBG
+                                               < sum_before_n profile (i+1) ))
+          (* b) *)
+          /\ distance_from_LRBG < profile[0].cont_distance
+               <-> result = previous_data
+          (* d *)
+          /\ distance_from_LRBG >= sum_before_n profile (length profile) <->
+               result = profile[length profile - 1].cont_value }
+
+ let proof_case_e p d prev (n : int)
+     requires { valid_continuous_profile p
+                /\ 1 <= n < length p /\ p[n+1].cont_distance = 0
+                /\ sum_before_n p n <= d < sum_before_n p (n+1) }
+     ensures { result = p[n].cont_value } =
+   assert { sum_before_n p n = sum_before_n p (n+1) };
+   get_cont_value p d prev
+end
+
+(** Definition of Static Speed Restriction *)
+module Section_3_11_2
+  use export map.Map
+
+  (* §3.11.2.1: not formalized *)
+
+  (* §3.11.2.2 *)
+  type static_speed_restriction_category =
+       | Static_speed_profile
+       | Temporary_speed_restriction
+       (* WARNING: other speed restrictions are not formalized *)
+
+  (* §3.11.2.3 *)
+  type static_speed_restriction_categories 'a
+    = map static_speed_restriction_category 'a
+
+  (* §3.11.2.4 *)
+  constant train_length : int
+
+  (* §3.11.2.5: deleted *)
+
+  (* §3.11.2.6: not formalized *)
+end
