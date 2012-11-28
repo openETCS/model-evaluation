@@ -29,6 +29,7 @@ end
 
 (** Gradients *)
 module Section_3_11_12
+  use import ref.Ref
   use import section_3_6.Section_3_6_3_2
 
   (* §3.11.12.1: not formalized *)
@@ -44,5 +45,17 @@ module Section_3_11_12
   (* §3.11.12.4: not formalized *)
 
   (* §3.11.12.5 *)
-  constant default_gradient_for_TSR_supervision : gradient_profile
+  (* fixme: following is impossible to in Why3 because it is impossible
+            to store mutable object (here array) into other mutable object
+            (here the ref). One possible workaround: define non-mutable
+            Staticarray.
+
+  val default_gradient_for_TSR_supervision : ref gradient_profile
+  function read_gradient_via_balise_groups : gradient_profile
+
+  let update_default_gradient_via_balise () : () =
+    default_gradient_for_TSR_supervision := read_gradient_via_balise_groups
+  *)
+
+  (* §3.11.12.6: not formalized *)
 end
