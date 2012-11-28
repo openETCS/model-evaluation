@@ -1,0 +1,86 @@
+(* copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
+      -- Mitsubishi Electric R&D Centre Europe *)
+
+(* Reference: UNISIG SUBSET-026-3 v3.2.0 *)
+
+(** Transitions Conditions Table *)
+module Section_4_6_3
+  use import int.Int
+
+  (* Individual condition elements *)
+
+  (* WARNING: no all conditions are modeled. *)
+  predicate an_acknowledge_request_for_shunting_is_displayed_to_the_driver
+
+  predicate driver_acknowledges
+
+  predicate driver_isolates_ERTMS_ETCS_on_board_equipment
+
+  predicate driver_selects_shunting_mode
+
+  function ertms_etcs_level : int
+  constant ertms_etcs_level_ntc : int = 4
+  axiom allowed_ertms_etcs_levels : 0 <= ertms_etcs_level <= 4
+
+  predicate ma_ssp_gradient_on_board
+
+  predicate no_specific_mode_is_required_by_a_mode_profile
+
+  predicate note_5__conditions_for_shunting_mode
+
+  predicate reception_of_information_shunting_granted_by_rbc
+
+  predicate train_is_at_standstill
+
+  predicate valid_train_data_is_stored_on_board
+
+
+  (* Conditions *)
+  predicate condition_1 = driver_isolates_ERTMS_ETCS_on_board_equipment
+
+  predicate condition_5 =
+    train_is_at_standstill
+    /\ (ertms_etcs_level = 0 \/ ertms_etcs_level = ertms_etcs_level_ntc
+        \/ ertms_etcs_level = 1)
+    /\ driver_selects_shunting_mode
+
+  predicate condition_6 =
+    train_is_at_standstill
+    /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+    /\ reception_of_information_shunting_granted_by_rbc
+
+  predicate condition_10 =
+    valid_train_data_is_stored_on_board
+    /\ ma_ssp_gradient_on_board
+    /\ no_specific_mode_is_required_by_a_mode_profile
+
+  predicate condition_50 =
+    an_acknowledge_request_for_shunting_is_displayed_to_the_driver
+    /\ driver_acknowledges
+    /\ note_5__conditions_for_shunting_mode
+end
+
+(** Transitions Table *)
+module Section_4_6_2
+  use import int.Int
+  use import Section_4_6_3
+
+  function priority : int
+  axiom priority_levels : 1 <= priority <= 7
+
+  predicate transition_SB_to_SH =
+    (condition_5 \/ condition_6 \/ condition_50) /\ priority = 7
+
+  predicate transition_SB_to_FS =
+    condition_10 /\ priority = 7
+
+  predicate transition_SB_to_IS =
+    condition_1 /\ priority = 1
+
+  (* §4.6.1.5 *)
+  goal disjoint_SB_transitions :
+    not(transition_SB_to_SH /\ transition_SB_to_FS)
+    /\ not(transition_SB_to_SH /\ transition_SB_to_IS)
+    /\ not(transition_SB_to_FS /\ transition_SB_to_IS)
+
+end
