@@ -1,7 +1,7 @@
 (* copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
       -- Mitsubishi Electric R&D Centre Europe *)
 
-(* Reference: UNISIG SUBSET-026-3 v3.2.0 *)
+(* Reference: UNISIG SUBSET-026-3 v3.3.0 *)
 
 (** Location, Continuous Profile Data and Non-continuous Profile Data *)
 module Section_3_6_3_2

@@ -1,10 +1,11 @@
 (* copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
       -- Mitsubishi Electric R&D Centre Europe *)
 
-(* Reference: UNISIG SUBSET-026-3 v3.2.0 *)
+(* Reference: UNISIG SUBSET-026-3 v3.3.0 *)
 
 (** Definition of Static Speed Restriction *)
 module Section_3_11_2
+  use import int.Int
   use export map.Map
 
   (* §3.11.2.1: not formalized *)
@@ -20,11 +21,12 @@ module Section_3_11_2
     = map static_speed_restriction_category 'a
 
   (* §3.11.2.4 *)
-  constant train_length : int
+  predicate passed_static_speed_restriction_continuity (train_length : int)
+        (cat : static_speed_restriction_category)
 
   (* §3.11.2.5: deleted *)
 
-  (* §3.11.2.6: not formalized *)
+  (* §3.11.2.6: deleted *)
 end
 
 (** Gradients *)
