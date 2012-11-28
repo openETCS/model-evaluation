@@ -1,0 +1,48 @@
+(* copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
+      -- Mitsubishi Electric R&D Centre Europe *)
+
+(* Reference: UNISIG SUBSET-026-3 v3.2.0 *)
+
+(** Definition of Static Speed Restriction *)
+module Section_3_11_2
+  use export map.Map
+
+  (* §3.11.2.1: not formalized *)
+
+  (* §3.11.2.2 *)
+  type static_speed_restriction_category =
+       | Static_speed_profile
+       | Temporary_speed_restriction
+       (* WARNING: other speed restrictions are not formalized *)
+
+  (* §3.11.2.3 *)
+  type static_speed_restriction_categories 'a
+    = map static_speed_restriction_category 'a
+
+  (* §3.11.2.4 *)
+  constant train_length : int
+
+  (* §3.11.2.5: deleted *)
+
+  (* §3.11.2.6: not formalized *)
+end
+
+(** Gradients *)
+module Section_3_11_12
+  use import section_3_6.Section_3_6_3_2
+
+  (* §3.11.12.1: not formalized *)
+
+  (* §3.11.12.2 *)
+  type gradient_profile = continuous_profile_and_location_data int
+
+  (* §3.11.12.3 *)
+  predicate uphill_slope (p : gradient_profile) (n : int) = p[n].value >= 0
+
+  predicate downhill_slope (p : gradient_profile) (n : int) = p[n].value <= 0
+
+  (* §3.11.12.4: not formalized *)
+
+  (* §3.11.12.5 *)
+  constant default_gradient_for_TSR_supervision : gradient_profile
+end

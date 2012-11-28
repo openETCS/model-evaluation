@@ -5,8 +5,8 @@
 
 (** Location, Continuous Profile Data and Non-continuous Profile Data *)
 module Section_3_6_3_2
-  use import int.Int
-  use import array.Array
+  use export int.Int
+  use export array.Array
 
   (* §3.6.3.2.1 *)
   type entry 'a = { distance : int;
@@ -15,7 +15,6 @@ module Section_3_6_3_2
 
   (* WARNING: non continuous profile data not formalized *)
 
-  (* §3.6.3.2.2 *)
   (* Why3 voodoo incantations. ;-) Objective is to compute sum of
      distance elements. *)
   type container = continuous_profile_and_location_data int
@@ -26,6 +25,7 @@ module Section_3_6_3_2
                         (n : int) : int =
     Sum.sum profile 0 n
 
+  (* §3.6.3.2.2 *)
   predicate valid_continuous_profile
       (profile : continuous_profile_and_location_data 'a) =
     length profile >= 1
@@ -56,28 +56,6 @@ module Section_3_6_3_2
      ensures { result = p[n].value } =
    assert { sum_before_n p n = sum_before_n p (n+1) };
    get_value p d prev
-end
 
-(** Definition of Static Speed Restriction *)
-module Section_3_11_2
-  use export map.Map
-
-  (* §3.11.2.1: not formalized *)
-
-  (* §3.11.2.2 *)
-  type static_speed_restriction_category =
-       | Static_speed_profile
-       | Temporary_speed_restriction
-       (* WARNING: other speed restrictions are not formalized *)
-
-  (* §3.11.2.3 *)
-  type static_speed_restriction_categories 'a
-    = map static_speed_restriction_category 'a
-
-  (* §3.11.2.4 *)
-  constant train_length : int
-
-  (* §3.11.2.5: deleted *)
-
-  (* §3.11.2.6: not formalized *)
+  (* starting from §3.6.3.2.3, end of section §3.6.3.2 is not formalized *)
 end
