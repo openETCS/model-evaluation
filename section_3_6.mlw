@@ -49,6 +49,7 @@ module Section_3_6_3_2
           /\ distance_from_LRBG >= sum_before_n profile (length profile) <->
                result = profile[length profile - 1].value }
 
+ (* e) *)
  let proof_case_e p d prev (n : int)
      requires { valid_continuous_profile p
                 /\ 1 <= n < length p /\ p[n+1].distance = 0
