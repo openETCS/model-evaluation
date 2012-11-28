@@ -9,15 +9,17 @@ module Section_3_6_3_2
   use import array.Array
 
   (* §3.6.3.2.1 *)
-  type cont_entry 'a = { cont_distance : int;
-                         cont_value : 'a }
-  type continuous_profile_and_location_data 'a = array (cont_entry 'a)
+  type entry 'a = { distance : int;
+                         value : 'a }
+  type continuous_profile_and_location_data 'a = array (entry 'a)
 
   (* WARNING: non continuous profile data not formalized *)
 
   (* §3.6.3.2.2 *)
+  (* Why3 voodoo incantations. ;-) Objective is to compute sum of
+     distance elements. *)
   type container = continuous_profile_and_location_data int
-  function f (c : container) (i : int) : int = c[i].cont_distance
+  function f (c : container) (i : int) : int = c[i].distance
   clone sum.Sum with type container = container, function f = f
 
   function sum_before_n (profile : continuous_profile_and_location_data int)
@@ -29,31 +31,31 @@ module Section_3_6_3_2
     length profile >= 1
     (* c) *)
     /\ (forall i:int. 0 <= i < length profile
-          -> profile[i].cont_distance >= 0)
+          -> profile[i].distance >= 0)
 
-  val get_cont_value (profile : continuous_profile_and_location_data int)
+  val get_value (profile : continuous_profile_and_location_data int)
                      (distance_from_LRBG : int) (previous_data : int) : int
       requires { valid_continuous_profile profile }
       ensures
         { (* a) *)
           (forall i:int. 0 <= i < length profile
-            -> (result = profile[i].cont_value <->
+            -> (result = profile[i].value <->
                 sum_before_n profile i <= distance_from_LRBG
                                                < sum_before_n profile (i+1) ))
           (* b) *)
-          /\ distance_from_LRBG < profile[0].cont_distance
+          /\ distance_from_LRBG < profile[0].distance
                <-> result = previous_data
           (* d *)
           /\ distance_from_LRBG >= sum_before_n profile (length profile) <->
-               result = profile[length profile - 1].cont_value }
+               result = profile[length profile - 1].value }
 
  let proof_case_e p d prev (n : int)
      requires { valid_continuous_profile p
-                /\ 1 <= n < length p /\ p[n+1].cont_distance = 0
+                /\ 1 <= n < length p /\ p[n+1].distance = 0
                 /\ sum_before_n p n <= d < sum_before_n p (n+1) }
-     ensures { result = p[n].cont_value } =
+     ensures { result = p[n].value } =
    assert { sum_before_n p n = sum_before_n p (n+1) };
-   get_cont_value p d prev
+   get_value p d prev
 end
 
 (** Definition of Static Speed Restriction *)
