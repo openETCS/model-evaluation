@@ -106,7 +106,7 @@ module Section_3_5_3
    (* WARNING: requirement for RIU not formalized *)
 
   (* §3.5.3.4.1 *)
-  axiom onboard_new_com_restriction :
+  axiom ax_3_5_3_4_1 :
     forall rbc: rbc.
       ((* a *) (start_of_mission
                 /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
@@ -122,12 +122,12 @@ module Section_3_5_3
       -> not(on_board_equipement_initiate_communication_session rbc)
 
   (* §3.5.3.5 *)
-  type rbc_telephone_number
+  type telephone_number
   type action_t = Establish_session | Terminate_session
 
   type contact_order = { rbc_identity : rbc;
-                         rbc_telephone_number : rbc_telephone_number;
-                         action_to_perform : action_t;
+                         rbc_telephone_number : telephone_number;
+                         rbc_contact_action : action_t;
                          applies_to_sleeping_units : bool }
 
   (* §3.5.3.5.1: not formalized *)
@@ -145,4 +145,18 @@ module Section_3_5_3
        /\ communication_session_established rbc1
        /\ not(accepting_rbc rbc2 /\ handing_over_rbc rbc1) )
       -> terminate_communication_session rbc1
+
+  (* §3.5.3.5.3 *)
+  type order_to_contact_accepting_rbc =
+    { accepting_rbc_identity : rbc;
+      accepting_rbc_telephone_number : telephone_number;
+      contact_accepting_rbc_applies_to_sleeping_units : bool }
+
+  (* §3.5.3.6 *)
+  type radio_infill_unit
+
+  type order_to_contact_radio_infill_unit =
+    { radio_infill_unit_identity : radio_infill_unit;
+      radio_infill_unit_telephone_number : telephone_number;
+      riu_contact_action : action_t }
 end
