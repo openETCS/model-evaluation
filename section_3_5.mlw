@@ -50,9 +50,14 @@ end
 
 (** Establishing a communication session *)
 module Section_3_5_3
-  use import etcs_level.ETCS_level
   use import bool.Bool
+  use import option.Option
+  use import ref.Ref
+  use import int.Int
+
+  use import etcs_level.ETCS_level
   use import Section_3_5_2
+  use import appendix_a_3_1.Appendix_A_3_1
 
   (* §3.5.3.1 *)
   predicate on_board_equipement_initiate_communication_session
@@ -161,4 +166,51 @@ module Section_3_5_3
     { radio_infill_unit_identity : radio_infill_unit;
       radio_infill_unit_telephone_number : telephone_number;
       riu_contact_action : action_t }
+
+  (* §3.5.3.7 *)
+  predicate terminate_communication_session_received_from_trackside
+
+  predicate train_passes_level_transition_border_with_front_end
+
+  predicate train_passes_rbc_rbc_border_with_front_end
+
+  predicate train_passes_start_of_announced_radio_hole_with_front_end
+
+  predicate order_to_establish_com_different_rbc_and_not_accepting_rbc
+
+  val setup_safe_radio_connection (re : remote_entity)
+                                             : option communication_session
+
+  val send_msg_Initiation_of_radio_communication (c : communication_session)
+                                                                          : ()
+
+  let establish_new_connection (re : remote_entity) : () =
+    (* a *)
+    let session = ref None in
+    if start_of_mission then
+      let count = ref 1 in
+      while (!session = None ||
+             !count <= number_of_times_try_establish_safe_radio_connection) do
+        session := setup_safe_radio_connection re;
+        count := !count + 1
+      done
+    else
+      (* not part of on-going Start of Mission procedure *)
+      while not(!session <> None
+                && end_of_mission
+                && terminate_communication_session_received_from_trackside
+                && train_passes_level_transition_border_with_front_end
+                && order_to_establish_com_different_rbc_and_not_accepting_rbc
+                && train_passes_rbc_rbc_border_with_front_end
+                && train_passes_start_of_announced_radio_hole_with_front_end
+                && (match re with RIU _ -> True | _ -> False end = True
+                    && ertms_etcs_level <> 1) ) do
+        session := setup_safe_radio_connection re
+      done;
+    (* b *)
+    match !session with
+    | Some s -> send_msg_Initiation_of_radio_communication s
+                (* case c not formalized *)
+    | None -> ()
+    end
 end
