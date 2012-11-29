@@ -1,0 +1,148 @@
+(*
+copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
+                               -- Mitsubishi Electric R&D Centre Europe
+
+Licensed under the EUPL V.1.1 or - as soon they will be approved by
+the European Commission - subsequent versions of the EUPL (the
+"Licence");
+You may not use this work except in compliance with the Licence.
+
+You may obtain a copy of the Licence at:
+
+  http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the Licence is distributed on an "AS IS" basis,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied.
+
+See the Licence for the specific language governing permissions and
+limitations under the Licence.
+*)
+
+(* Reference: UNISIG SUBSET-026-3 v3.3.0 *)
+
+(** Management of Radio Communication *)
+
+(* §3.5.1.1: not formalized *)
+
+(** General *)
+module Section_3_5_2
+  (* §3.5.2.1 *)
+  type remote_entity_t
+  type communication_session = { remote_entity : remote_entity_t }
+
+  (* §3.5.2.2: not formalized *)
+
+  (* §3.5.2.3 *)
+  type system_version
+  type information
+  function initiation_of_a_communication_session (v: system_version)
+                                                              : information
+  function version_not_compatible (v: system_version) : information
+
+  axiom same_version : forall v:system_version.
+    initiation_of_a_communication_session v = version_not_compatible v
+end
+
+(** Establishing a communication session *)
+module Section_3_5_3
+  use import etcs_level.ETCS_level
+  use import bool.Bool
+
+  type rbc
+  type infill_unit
+
+  (* §3.5.3.1 *)
+  predicate on_board_equipement_initiate_communication_session (rbc : rbc)
+  predicate rbc_initiate_communication_session (ifu : infill_unit)
+
+  (* §3.5.3.2 *)
+  predicate infill_unit_initiate_communication_session
+  axiom infill_never_initiate_com :
+    not(infill_unit_initiate_communication_session)
+
+  (* §3.5.3.3: not formalized *)
+
+  (* §3.5.3.4 *)
+  predicate start_of_mission
+
+  predicate ordered_from_trackside
+
+  predicate mode_change_to_be_reported_to_rbc (rbc : rbc)
+
+  predicate end_of_mission
+
+  predicate driver_manually_changed_level
+
+  predicate train_front_reaches_end_of_announced_radio_hole
+
+  predicate
+   previous_com_session_terminated_loss_safe_radio_connection (rbc : rbc)
+
+  predicate start_of_mission_procedure_completed
+
+  predicate communication_session_established (rbc : rbc)
+
+  predicate communication_session_being_established (rbc : rbc)
+
+  axiom onboard_establish_communication :
+    forall rbc: rbc.
+    on_board_equipement_initiate_communication_session rbc
+    <->
+    ((* a *) (start_of_mission
+              /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+     \/ (* b *) ordered_from_trackside
+     \/ (* c *) (mode_change_to_be_reported_to_rbc rbc
+                 /\ not(end_of_mission)
+                 /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+     \/ (* d *) (driver_manually_changed_level
+                 /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+     \/ (* e *) train_front_reaches_end_of_announced_radio_hole
+     \/ (* f *) previous_com_session_terminated_loss_safe_radio_connection rbc
+     \/ (* g *) (start_of_mission_procedure_completed
+                 /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+                 /\ not(communication_session_established rbc)) )
+   (* WARNING: requirement for RIU not formalized *)
+
+  (* §3.5.3.4.1 *)
+  axiom onboard_new_com_restriction :
+    forall rbc: rbc.
+      ((* a *) (start_of_mission
+                /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+       \/ (* b *) ordered_from_trackside
+       \/ (* c *) (mode_change_to_be_reported_to_rbc rbc
+                   /\ not(end_of_mission)
+                   /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+       \/ (* d *) (driver_manually_changed_level
+                   /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+       \/ (* e *) train_front_reaches_end_of_announced_radio_hole )
+      -> (communication_session_established rbc
+          \/ communication_session_being_established rbc)
+      -> not(on_board_equipement_initiate_communication_session rbc)
+
+  (* §3.5.3.5 *)
+  type rbc_telephone_number
+  type action_t = Establish_session | Terminate_session
+
+  type contact_order = { rbc_identity : rbc;
+                         rbc_telephone_number : rbc_telephone_number;
+                         action_to_perform : action_t;
+                         applies_to_sleeping_units : bool }
+
+  (* §3.5.3.5.1: not formalized *)
+
+  (* §3.5.3.5.2 *)
+  predicate terminate_communication_session (rbc : rbc)
+
+  predicate accepting_rbc (rbc : rbc)
+
+  predicate handing_over_rbc (rbc : rbc)
+
+  axiom ax_3_5_3_5_2 :
+    forall rbc1 rbc2:rbc. rbc1 <> rbc2 ->
+      (on_board_equipement_initiate_communication_session rbc2
+       /\ communication_session_established rbc1
+       /\ not(accepting_rbc rbc2 /\ handing_over_rbc rbc1) )
+      -> terminate_communication_session rbc1
+end

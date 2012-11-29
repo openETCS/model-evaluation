@@ -25,6 +25,7 @@ limitations under the Licence.
 (** Transitions Conditions Table *)
 module Section_4_6_3
   use import int.Int
+  use import etcs_level.ETCS_level
 
   (* Individual condition elements *)
 
@@ -36,10 +37,6 @@ module Section_4_6_3
   predicate driver_isolates_ERTMS_ETCS_on_board_equipment
 
   predicate driver_selects_shunting_mode
-
-  function ertms_etcs_level : int
-  constant ertms_etcs_level_ntc : int = 4
-  axiom allowed_ertms_etcs_levels : 0 <= ertms_etcs_level <= 4
 
   predicate ma_ssp_gradient_on_board
 
