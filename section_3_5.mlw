@@ -29,8 +29,11 @@ limitations under the Licence.
 (** General *)
 module Section_3_5_2
   (* §3.5.2.1 *)
-  type remote_entity_t
-  type communication_session = { remote_entity : remote_entity_t }
+  type rbc
+  type radio_infill_unit
+
+  type remote_entity = RBC rbc | RIU radio_infill_unit
+  type communication_session = { remote_entity : remote_entity }
 
   (* §3.5.2.2: not formalized *)
 
@@ -49,13 +52,12 @@ end
 module Section_3_5_3
   use import etcs_level.ETCS_level
   use import bool.Bool
-
-  type rbc
-  type infill_unit
+  use import Section_3_5_2
 
   (* §3.5.3.1 *)
-  predicate on_board_equipement_initiate_communication_session (rbc : rbc)
-  predicate rbc_initiate_communication_session (ifu : infill_unit)
+  predicate on_board_equipement_initiate_communication_session
+              (re : remote_entity)
+  predicate rbc_initiate_communication_session
 
   (* §3.5.3.2 *)
   predicate infill_unit_initiate_communication_session
@@ -69,7 +71,7 @@ module Section_3_5_3
 
   predicate ordered_from_trackside
 
-  predicate mode_change_to_be_reported_to_rbc (rbc : rbc)
+  predicate mode_change_to_be_reported_to_rbc
 
   predicate end_of_mission
 
@@ -78,48 +80,50 @@ module Section_3_5_3
   predicate train_front_reaches_end_of_announced_radio_hole
 
   predicate
-   previous_com_session_terminated_loss_safe_radio_connection (rbc : rbc)
+   previous_com_session_terminated_loss_safe_radio_connection
+    (re : remote_entity)
 
   predicate start_of_mission_procedure_completed
 
-  predicate communication_session_established (rbc : rbc)
+  predicate communication_session_established (re : remote_entity)
 
-  predicate communication_session_being_established (rbc : rbc)
+  predicate communication_session_being_established (re : remote_entity)
 
-  axiom onboard_establish_communication :
+  (* question: following axiom is only for RBC or also for RIU? *)
+  axiom ax_3_5_3_4 :
     forall rbc: rbc.
-    on_board_equipement_initiate_communication_session rbc
+    on_board_equipement_initiate_communication_session (RBC rbc)
     <->
     ((* a *) (start_of_mission
               /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
      \/ (* b *) ordered_from_trackside
-     \/ (* c *) (mode_change_to_be_reported_to_rbc rbc
+     \/ (* c *) (mode_change_to_be_reported_to_rbc
                  /\ not(end_of_mission)
                  /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
      \/ (* d *) (driver_manually_changed_level
                  /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
      \/ (* e *) train_front_reaches_end_of_announced_radio_hole
-     \/ (* f *) previous_com_session_terminated_loss_safe_radio_connection rbc
+     \/ (* f *) previous_com_session_terminated_loss_safe_radio_connection
+                  (RBC rbc)
      \/ (* g *) (start_of_mission_procedure_completed
                  /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
-                 /\ not(communication_session_established rbc)) )
-   (* WARNING: requirement for RIU not formalized *)
+                 /\ not(communication_session_established (RBC rbc))) )
 
   (* §3.5.3.4.1 *)
   axiom ax_3_5_3_4_1 :
-    forall rbc: rbc.
+    forall re: remote_entity.
       ((* a *) (start_of_mission
                 /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
        \/ (* b *) ordered_from_trackside
-       \/ (* c *) (mode_change_to_be_reported_to_rbc rbc
+       \/ (* c *) (mode_change_to_be_reported_to_rbc
                    /\ not(end_of_mission)
                    /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
        \/ (* d *) (driver_manually_changed_level
                    /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
        \/ (* e *) train_front_reaches_end_of_announced_radio_hole )
-      -> (communication_session_established rbc
-          \/ communication_session_being_established rbc)
-      -> not(on_board_equipement_initiate_communication_session rbc)
+      -> (communication_session_established re
+          \/ communication_session_being_established re)
+      -> not(on_board_equipement_initiate_communication_session re)
 
   (* §3.5.3.5 *)
   type telephone_number
@@ -133,7 +137,7 @@ module Section_3_5_3
   (* §3.5.3.5.1: not formalized *)
 
   (* §3.5.3.5.2 *)
-  predicate terminate_communication_session (rbc : rbc)
+  predicate terminate_communication_session (re : remote_entity)
 
   predicate accepting_rbc (rbc : rbc)
 
@@ -141,10 +145,10 @@ module Section_3_5_3
 
   axiom ax_3_5_3_5_2 :
     forall rbc1 rbc2:rbc. rbc1 <> rbc2 ->
-      (on_board_equipement_initiate_communication_session rbc2
-       /\ communication_session_established rbc1
+      (on_board_equipement_initiate_communication_session (RBC rbc2)
+       /\ communication_session_established (RBC rbc1)
        /\ not(accepting_rbc rbc2 /\ handing_over_rbc rbc1) )
-      -> terminate_communication_session rbc1
+      -> terminate_communication_session (RBC rbc1)
 
   (* §3.5.3.5.3 *)
   type order_to_contact_accepting_rbc =
@@ -153,8 +157,6 @@ module Section_3_5_3
       contact_accepting_rbc_applies_to_sleeping_units : bool }
 
   (* §3.5.3.6 *)
-  type radio_infill_unit
-
   type order_to_contact_radio_infill_unit =
     { radio_infill_unit_identity : radio_infill_unit;
       radio_infill_unit_telephone_number : telephone_number;
