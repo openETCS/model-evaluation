@@ -135,8 +135,13 @@ module Section_3_5_3
   type telephone_number
   type action_t = Establish_session | Terminate_session
 
-  type contact_order = { rbc_identity : rbc;
-                         rbc_telephone_number : telephone_number;
+  type rbc_identity = New_RBC rbc | Last_known_RBC (* §3.5.3.13 *)
+
+  type rbc_telephone_number = Use_onboard_short_number (* §3.5.3.15 *)
+                              | RBC_tel telephone_number
+
+  type contact_order = { rbc_identity : rbc_identity;
+                         rbc_telephone_number : rbc_telephone_number;
                          rbc_contact_action : action_t;
                          applies_to_sleeping_units : bool }
 
@@ -244,4 +249,57 @@ module Section_3_5_3
       send_msg_No_compatible_version_supported c;
       inform_driver ();
       terminate_communication_session c
+
+  (* §3.5.3.9: not formalized / trackside *)
+
+  (* §3.5.3.9.1: deleted *)
+
+  (* §3.5.3.10 *)
+  (* a: not formalized / trackside *)
+  (* b: not formalized / trackside *)
+
+  (* c *)
+  let onboard_receives_Initiation_of_communication_session
+                                                (c : communication_session) =
+    on_board_communication_session_established :=
+      Set.add c !on_board_communication_session_established;
+
+    send_msg_Session_establised c onboard_telephone_number
+
+  (* d: not formalized / trackside *)
+
+  (* §3.5.3.11 *)
+  type timestamp
+  type lrbg_identity
+
+  type first_rbc_message = { timestamp : option timestamp;
+                             lrbg_id : option lrbg_identity }
+
+  let handle_first_rbc_message (m : first_rbc_message) =
+    assert { m.timestamp = None && m.lrbg_id = None }
+
+  (* §3.5.3.12: not formalized / note *)
+
+
+  (* §3.5.3.15 *)
+  val contact_rbc (rbc_tel : rbc_telephone_number) : ()
+
+  (* §3.5.3.13 *)
+  val onboard_last_known_rbc_telephone_number : ref (option telephone_number)
+
+  let handle_Contact_rbc_order (o : contact_order) =
+    match o.rbc_identity with
+    | Last_known_RBC ->
+      match !onboard_last_known_rbc_telephone_number with (* §3.5.3.13.1 *)
+      | None -> ()
+      | Some rbc_tel -> contact_rbc (RBC_tel rbc_tel)
+      end
+    | New_RBC rbc -> contact_rbc o.rbc_telephone_number
+    end
+
+   (* §3.5.3.14: not formalized *)
+
+   (* §3.5.3.15.1: not formalized / note *)
+
+   (* §3.5.3.16: not formalized / repetition of §3.5.3.13 and §3.5.3.13.1 *)
 end
