@@ -54,6 +54,7 @@ module Section_3_5_3
   use import option.Option
   use import ref.Ref
   use import int.Int
+  use import set.Set
 
   use import etcs_level.ETCS_level
   use import Section_3_5_2
@@ -209,8 +210,38 @@ module Section_3_5_3
       done;
     (* b *)
     match !session with
-    | Some s -> send_msg_Initiation_of_radio_communication s
+    | Some c -> send_msg_Initiation_of_radio_communication c
                 (* case c not formalized *)
     | None -> ()
     end
+
+  (* §3.5.3.8 *)
+  val on_board_communication_session_established :
+                                              ref (set communication_session)
+
+  val send_msg_Session_establised (c : communication_session)
+                                  (t : telephone_number) : ()
+
+  val send_msg_No_compatible_version_supported (c : communication_session) : ()
+
+  predicate compatible_system_version_with_trackside
+
+  constant onboard_telephone_number : telephone_number
+
+  val inform_driver () : ()
+
+  val terminate_communication_session (c : communication_session) : ()
+
+  let onboard_receives_system_version (c: communication_session) =
+    on_board_communication_session_established :=
+      Set.add c !on_board_communication_session_established;
+
+    if compatible_system_version_with_trackside then
+      (* a *)
+      send_msg_Session_establised c onboard_telephone_number
+    else
+      (* b *)
+      send_msg_No_compatible_version_supported c;
+      inform_driver ();
+      terminate_communication_session c
 end
