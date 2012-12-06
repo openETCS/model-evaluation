@@ -3,6 +3,7 @@ WHY3:=/usr/local/stow/why3-0.80/bin/why3 -C why3.conf -I .
 
 MLW_FILES= \
 	etcs_level.mlw \
+	etcs_mode.mlw \
 	appendix_a_3_1.mlw \
 	section_3_5.mlw \
 	section_3_6.mlw \
