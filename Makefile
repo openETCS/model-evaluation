@@ -8,7 +8,8 @@ MLW_FILES= \
 	section_3_5.mlw \
 	section_3_6.mlw \
 	section_3_11.mlw \
-	section_4_6.mlw
+	section_4_6.mlw \
+	section_5_9.mlw
 
 MLW_CHECK=$(MLW_FILES:%.mlw=%.why3-check)
 
