@@ -46,7 +46,7 @@ end
 module Section_5_9_2
   use import int.Int
   use import Section_5_9_1
-  use import etcs_level.ETCS_level
+  use export etcs_level.ETCS_level
   use import appendix_a_3_1.Appendix_A_3_1
 
   (* §5.9.2.1 *)
@@ -102,4 +102,83 @@ module Section_5_9_2
        \/ on_sight_mode_profile_given)
       /\ onboard_mode = On_Sight)
      -> not(on_sight_mode_acknowledgment_requested_to_driver)
+end
+
+(** On Sight is requested for a further location *)
+module Section_5_9_3
+  use import int.Int
+
+  use import Section_5_9_1
+  use import Section_5_9_2
+  use import appendix_a_3_1.Appendix_A_3_1
+
+  (* §5.9.3.1 *)
+  predicate on_sight_at_further_location
+
+  predicate beginning_on_sight_area_not_reached =
+    on_sight_at_further_location
+    /\ ((ertms_etcs_level = 1 /\ on_sight_mode_profile_given_by_balise_group)
+        \/
+        ((ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+         /\ on_sight_mode_profile_given) )
+
+  (* §5.9.3.2 *)
+  function distance_between_estimated_front_end_of_train_and_beginning_on_sight
+    : int
+
+  constant on_sight_acknowledgment_distance : int
+
+  function current_speed : int
+
+  function on_sight_mode_speed_limit : int
+
+  lemma sec_5_9_3_2 :
+    (distance_between_estimated_front_end_of_train_and_beginning_on_sight
+       < on_sight_acknowledgment_distance
+     /\ current_speed < on_sight_mode_speed_limit
+     /\ onboard_mode <> On_Sight)
+    -> on_sight_mode_acknowledgment_requested_to_driver
+
+  (* §5.9.3.3: not formalized / note *)
+
+  (* §5.9.3.4 *)
+  lemma sec_5_9_3_4 :
+    on_sight_mode_acknowledgment_requested_to_driver
+    /\ (distance_between_estimated_front_end_of_train_and_beginning_on_sight
+          >= on_sight_acknowledgment_distance
+        \/ current_speed >= on_sight_mode_speed_limit)
+    -> on_sight_mode_acknowledgment_requested_to_driver
+
+  (* §5.9.3.5 *)
+  function beginning_of_on_sight_area : int
+
+  function eoa : int
+  function svl : int
+  function release_speed : int
+
+  lemma sec_5_9_3_5 :
+    onboard_mode <> On_Sight
+    -> (eoa = beginning_of_on_sight_area
+        \/
+        (eoa = beginning_of_on_sight_area
+         /\ svl = beginning_of_on_sight_area
+         /\ release_speed = 0) )
+
+  (* §5.9.3.6 *)
+  predicate driver_acknowledges_on_sight_mode
+
+  lemma sec_5_9_3_6 :
+    driver_acknowledges_on_sight_mode -> onboard_mode = On_Sight
+
+  (* §5.9.3.7 *)
+  lemma sec_5_9_3_7 :
+    (max_safe_front_end_entered_on_sight_area
+     /\ not(driver_acknowledges_on_sight_mode))
+    -> (onboard_mode = On_Sight /\ acknowledgement_request_displayed_to_driver)
+
+  (* §5.9.3.8 *)
+  lemma sec_5_9_3_8 : (* same as lemma sec_5_9_2_7 *)
+    (on_sight_mode_acknowledgment_requested_to_driver
+     /\ on_sight_acknowledgment_timer > driver_acknowledgment_time)
+    -> service_brake_command_due_to_on_sight
 end
