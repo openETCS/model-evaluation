@@ -26,4 +26,7 @@ limitations under the Licence.
 module Appendix_A_3_1
   constant number_of_times_try_establish_safe_radio_connection : int =
              3
+
+  constant driver_acknowledgment_time : int = 5 (* s *)
+  constant t_ack : int = driver_acknowledgment_time
 end

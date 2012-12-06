@@ -24,8 +24,7 @@ limitations under the Licence.
 
 (** General Requirements *)
 module Section_5_9_1
-  use import ref.Ref
-  use import etcs_mode.Section_4_3_2
+  use export etcs_mode.Section_4_3_2
 
   (* §5.9.1.1 *)
   predicate train_before_on_sight_area
@@ -40,4 +39,67 @@ module Section_5_9_1
 
   (* §5.9.1.2 *)
   predicate on_sight_mode_acknowledgment_requested_to_driver
+end
+
+(** On Sight is requested for concurrent location (from modes
+    different from Stand By and Post Trip) *)
+module Section_5_9_2
+  use import int.Int
+  use import Section_5_9_1
+  use import etcs_level.ETCS_level
+  use import appendix_a_3_1.Appendix_A_3_1
+
+  (* §5.9.2.1 *)
+  predicate on_sight_mode_profile_given_by_balise_group
+
+  lemma sec_5_9_2_1 :
+    (ertms_etcs_level = 1 /\ on_sight_mode_profile_given_by_balise_group)
+    -> onboard_mode = On_Sight
+
+  (* §5.9.2.2 *)
+  predicate on_sight_mode_profile_given
+
+  predicate max_safe_front_end_entered_on_sight_area
+
+  lemma sec_5_9_2_2 :
+    ((ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+     /\ on_sight_mode_profile_given
+     /\ max_safe_front_end_entered_on_sight_area)
+    -> onboard_mode = On_Sight
+
+  (* §5.9.2.3 *)
+  predicate acknowledgement_request_displayed_to_driver
+
+  lemma sec_5_9_2_3 :
+    onboard_mode = On_Sight -> on_sight_mode_acknowledgment_requested_to_driver
+
+  lemma sec_5_9_2_3_II :
+    on_sight_mode_acknowledgment_requested_to_driver
+      -> acknowledgement_request_displayed_to_driver
+
+  (* §5.9.2.4 *)
+  predicate service_brake_command
+
+  predicate service_brake_command_due_to_on_sight
+
+  axiom sec_5_9_2_4 :
+    service_brake_command_due_to_on_sight -> service_brake_command
+
+  function on_sight_acknowledgment_timer : int
+
+  lemma sec_5_9_2_4_II :
+    (on_sight_mode_acknowledgment_requested_to_driver
+     /\ on_sight_acknowledgment_timer > driver_acknowledgment_time)
+    -> service_brake_command_due_to_on_sight
+
+   (* §5.9.2.5: not formalized / note *)
+
+   (* §5.9.2.6: not formalized / note *)
+
+   (* §5.9.2.7 *)
+   lemma sec_5_9_2_7 :
+     ((on_sight_mode_profile_given_by_balise_group
+       \/ on_sight_mode_profile_given)
+      /\ onboard_mode = On_Sight)
+     -> not(on_sight_mode_acknowledgment_requested_to_driver)
 end
