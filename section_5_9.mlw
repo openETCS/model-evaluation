@@ -45,7 +45,7 @@ end
     different from Stand By and Post Trip) *)
 module Section_5_9_2
   use import int.Int
-  use import Section_5_9_1
+  use export Section_5_9_1
   use export etcs_level.ETCS_level
   use import appendix_a_3_1.Appendix_A_3_1
 
@@ -195,5 +195,27 @@ module Section_5_9_4
     on_sight_mode_profile_evaluation
     <-> (ertms_etcs_level = 1 \/ ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
 
-  (* §5.9.4.2: not formalized / how to express copy/paste? Is it implicit? *)
+  (* §5.9.4.2: not formalized / how to express copy/paste? Is it implicit
+     through the previous formalizations? *)
+end
+
+(** On Sight from Stand By and Post Trip Mode *)
+module Section_5_9_5
+  use import Section_5_9_2
+  use import Section_5_9_3
+
+  (* §5.9.5.1 *)
+  predicate start_of_mission_procedure
+  predicate train_trip_procedure
+
+  lemma sec_5_9_5_1 :
+    ((start_of_mission_procedure \/ train_trip_procedure)
+     /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+     /\ on_sight_mode_profile_given
+     /\ max_safe_front_end_entered_on_sight_area)
+    -> on_sight_mode_acknowledgment_requested_to_driver
+
+  (* §5.9.5.2 *)
+  lemma sec_5_9_5_2 : (* same as lemma sec_5_9_3_6 *)
+    driver_acknowledges_on_sight_mode -> onboard_mode = On_Sight
 end
