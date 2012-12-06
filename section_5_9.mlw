@@ -182,3 +182,18 @@ module Section_5_9_3
      /\ on_sight_acknowledgment_timer > driver_acknowledgment_time)
     -> service_brake_command_due_to_on_sight
 end
+
+(** On Sight from Unfitted or SN mode *)
+module Section_5_9_4
+  use import Section_5_9_1
+  use import etcs_level.ETCS_level
+
+  (* §5.9.4.1 *)
+  predicate on_sight_mode_profile_evaluation
+
+  lemma sec_5_9_4_1 :
+    on_sight_mode_profile_evaluation
+    <-> (ertms_etcs_level = 1 \/ ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+
+  (* §5.9.4.2: not formalized / how to express copy/paste? Is it implicit? *)
+end
