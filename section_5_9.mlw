@@ -219,3 +219,55 @@ module Section_5_9_5
   lemma sec_5_9_5_2 : (* same as lemma sec_5_9_3_6 *)
     driver_acknowledges_on_sight_mode -> onboard_mode = On_Sight
 end
+
+(** Exit of On Sight mode *)
+module Section_5_9_6
+  use import int.Int
+
+  use import Section_5_9_1
+  use import Section_5_9_3
+
+  (* §5.9.6.1.1 *)
+  predicate min_safe_front_end_of_train_passes_end_of_on_sight_area
+
+  lemma sec_5_9_6_1_1 :
+    min_safe_front_end_of_train_passes_end_of_on_sight_area
+    -> onboard_mode <> On_Sight
+
+  (* §5.9.6.2.1 *)
+  function end_of_on_sight_area : int
+
+  predicate on_sight_area_ends_at_the_eoa_of_current_ma
+
+  lemma sec_5_9_6_2_1 :
+    on_sight_area_ends_at_the_eoa_of_current_ma
+    <-> end_of_on_sight_area = eoa
+
+  (* §5.9.6.2.2 *)
+  predicate receive_new_movement_authority
+
+  lemma sec_5_9_6_2_2 :
+    on_sight_area_ends_at_the_eoa_of_current_ma
+    -> receive_new_movement_authority
+
+  (* §5.9.6.2.3: not formalized / note *)
+
+  (* §5.9.6.2.4: not formalized / note *)
+
+  (* §5.9.6.3.1 *)
+  predicate on_sight_area_ends_before_the_eoa_of_current_ma
+
+  lemma sec_5_9_6_3_1 :
+    on_sight_area_ends_before_the_eoa_of_current_ma
+    <-> end_of_on_sight_area < eoa
+
+  (* §5.9.6.3.2 *)
+  lemma sec_5_9_6_3_2 :
+    on_sight_area_ends_before_the_eoa_of_current_ma
+    -> (onboard_mode = Full_Supervision
+        \/ onboard_mode = Limited_Supervision
+        \/ onboard_mode = Shunting)
+end
+
+(* §5.9.7: not formalized / how to handle the graph and link it with previous
+   formalization? *)
