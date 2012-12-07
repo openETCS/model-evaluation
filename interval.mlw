@@ -1,0 +1,48 @@
+(*
+copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
+                               -- Mitsubishi Electric R&D Centre Europe
+
+Licensed under the EUPL V.1.1 or - as soon they will be approved by
+the European Commission - subsequent versions of the EUPL (the
+"Licence");
+You may not use this work except in compliance with the Licence.
+
+You may obtain a copy of the Licence at:
+
+  http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the Licence is distributed on an "AS IS" basis,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied.
+
+See the Licence for the specific language governing permissions and
+limitations under the Licence.
+*)
+
+theory Interval
+  use import int.Int
+
+  type interval
+  type interval_item
+
+  function make (min: int) (max:int) : interval
+
+  function from_int (x: int) : interval_item
+
+  predicate in_interval (interval: interval) (x: interval_item)
+
+  axiom interval_range_definition:
+    forall x min max:int.
+      in_interval (make min max) (from_int x) <-> min <= x <= max
+end
+
+theory IntervalTest
+  use import Interval
+
+  constant i : interval = make 3 7
+
+  goal g1: in_interval i (from_int 4)
+
+  goal g2: not(in_interval i (from_int 2))
+end
