@@ -30,11 +30,15 @@ theory Interval
 
   function from_int (x: int) : interval_item
 
+  function to_int (i : interval_item) : int
+
   predicate in_interval (interval: interval) (x: interval_item)
 
   axiom interval_range_definition:
     forall x min max:int.
       in_interval (make min max) (from_int x) <-> min <= x <= max
+
+  axiom to_from_definition: forall x:int. (to_int (from_int x)) = x
 end
 
 theory IntervalTest
@@ -45,4 +49,8 @@ theory IntervalTest
   goal g1: in_interval i (from_int 4)
 
   goal g2: not(in_interval i (from_int 2))
+end
+
+theory IntegerConstants
+  constant two_power_32_minus_one : int = 4294967295
 end

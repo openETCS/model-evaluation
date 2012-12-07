@@ -28,6 +28,10 @@ module Section_8_7_2
 
   type movement_authority_message =
     { m3_nid_message: nid_message;
+      m3_l_message: l_message;
+      m3_t_train: t_train;
+      m3_m_ack: m_ack;
+      (* fixme: unfinished message description *)
     }
 
   axiom sec_8_7_2: forall m: movement_authority_message.
