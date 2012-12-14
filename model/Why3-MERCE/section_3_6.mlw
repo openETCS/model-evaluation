@@ -1,0 +1,81 @@
+(*
+copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
+                               -- Mitsubishi Electric R&D Centre Europe
+
+Licensed under the EUPL V.1.1 or - as soon they will be approved by
+the European Commission - subsequent versions of the EUPL (the
+"Licence");
+You may not use this work except in compliance with the Licence.
+
+You may obtain a copy of the Licence at:
+
+  http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the Licence is distributed on an "AS IS" basis,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied.
+
+See the Licence for the specific language governing permissions and
+limitations under the Licence.
+*)
+
+(* Reference: UNISIG SUBSET-026-3 v3.3.0 *)
+
+(** Location, Continuous Profile Data and Non-continuous Profile Data *)
+module Section_3_6_3_2
+  use export int.Int
+  use export array.Array
+
+  (* §3.6.3.2.1 *)
+  type entry 'a = { distance : int;
+                         value : 'a }
+  type continuous_profile_and_location_data 'a = array (entry 'a)
+
+  (* WARNING: non continuous profile data not formalized *)
+
+  (* Why3 voodoo incantations. ;-) Objective is to compute sum of
+     distance elements. *)
+  type container = continuous_profile_and_location_data int
+  function f (c : container) (i : int) : int = c[i].distance
+  clone sum.Sum with type container = container, function f = f
+
+  function sum_before_n (profile : continuous_profile_and_location_data int)
+                        (n : int) : int =
+    Sum.sum profile 0 n
+
+  (* §3.6.3.2.2 *)
+  predicate valid_continuous_profile
+      (profile : continuous_profile_and_location_data 'a) =
+    length profile >= 1
+    (* c) *)
+    /\ (forall i:int. 0 <= i < length profile
+          -> profile[i].distance >= 0)
+
+  val get_value (profile : continuous_profile_and_location_data int)
+                     (distance_from_LRBG : int) (previous_data : int) : int
+      requires { valid_continuous_profile profile }
+      ensures
+        { (* a) *)
+          (forall i:int. 0 <= i < length profile
+            -> (result = profile[i].value <->
+                sum_before_n profile i <= distance_from_LRBG
+                                               < sum_before_n profile (i+1) ))
+          (* b) *)
+          /\ distance_from_LRBG < profile[0].distance
+               <-> result = previous_data
+          (* d *)
+          /\ distance_from_LRBG >= sum_before_n profile (length profile) <->
+               result = profile[length profile - 1].value }
+
+ (* e) *)
+ let proof_case_e p d prev (n : int)
+     requires { valid_continuous_profile p
+                /\ 1 <= n < length p /\ p[n+1].distance = 0
+                /\ sum_before_n p n <= d < sum_before_n p (n+1) }
+     ensures { result = p[n].value } =
+   assert { sum_before_n p n = sum_before_n p (n+1) };
+   get_value p d prev
+
+  (* starting from §3.6.3.2.3, end of section §3.6.3.2 is not formalized *)
+end

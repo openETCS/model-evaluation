@@ -1,0 +1,273 @@
+(*
+copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
+                               -- Mitsubishi Electric R&D Centre Europe
+
+Licensed under the EUPL V.1.1 or - as soon they will be approved by
+the European Commission - subsequent versions of the EUPL (the
+"Licence");
+You may not use this work except in compliance with the Licence.
+
+You may obtain a copy of the Licence at:
+
+  http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the Licence is distributed on an "AS IS" basis,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied.
+
+See the Licence for the specific language governing permissions and
+limitations under the Licence.
+*)
+
+(* Reference: UNISIG SUBSET-026-3 v3.3.0 *)
+
+(** General Requirements *)
+module Section_5_9_1
+  use export etcs_mode.Section_4_3_2
+
+  (* §5.9.1.1 *)
+  predicate train_before_on_sight_area
+
+  predicate train_reaches_on_sight_area
+
+  function onboard_mode : etcs_mode
+
+  lemma sec_5_9_1_1 :
+    onboard_mode = On_Sight
+     -> (train_before_on_sight_area \/ train_reaches_on_sight_area)
+
+  (* §5.9.1.2 *)
+  predicate on_sight_mode_acknowledgment_requested_to_driver
+end
+
+(** On Sight is requested for concurrent location (from modes
+    different from Stand By and Post Trip) *)
+module Section_5_9_2
+  use import int.Int
+  use export Section_5_9_1
+  use export etcs_level.ETCS_level
+  use import appendix_a_3_1.Appendix_A_3_1
+
+  (* §5.9.2.1 *)
+  predicate on_sight_mode_profile_given_by_balise_group
+
+  lemma sec_5_9_2_1 :
+    (ertms_etcs_level = 1 /\ on_sight_mode_profile_given_by_balise_group)
+    -> onboard_mode = On_Sight
+
+  (* §5.9.2.2 *)
+  predicate on_sight_mode_profile_given
+
+  predicate max_safe_front_end_entered_on_sight_area
+
+  lemma sec_5_9_2_2 :
+    ((ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+     /\ on_sight_mode_profile_given
+     /\ max_safe_front_end_entered_on_sight_area)
+    -> onboard_mode = On_Sight
+
+  (* §5.9.2.3 *)
+  predicate acknowledgement_request_displayed_to_driver
+
+  lemma sec_5_9_2_3 :
+    onboard_mode = On_Sight -> on_sight_mode_acknowledgment_requested_to_driver
+
+  lemma sec_5_9_2_3_II :
+    on_sight_mode_acknowledgment_requested_to_driver
+      -> acknowledgement_request_displayed_to_driver
+
+  (* §5.9.2.4 *)
+  predicate service_brake_command
+
+  predicate service_brake_command_due_to_on_sight
+
+  axiom sec_5_9_2_4 :
+    service_brake_command_due_to_on_sight -> service_brake_command
+
+  function on_sight_acknowledgment_timer : int
+
+  lemma sec_5_9_2_4_II :
+    (on_sight_mode_acknowledgment_requested_to_driver
+     /\ on_sight_acknowledgment_timer > driver_acknowledgment_time)
+    -> service_brake_command_due_to_on_sight
+
+   (* §5.9.2.5: not formalized / note *)
+
+   (* §5.9.2.6: not formalized / note *)
+
+   (* §5.9.2.7 *)
+   lemma sec_5_9_2_7 :
+     ((on_sight_mode_profile_given_by_balise_group
+       \/ on_sight_mode_profile_given)
+      /\ onboard_mode = On_Sight)
+     -> not(on_sight_mode_acknowledgment_requested_to_driver)
+end
+
+(** On Sight is requested for a further location *)
+module Section_5_9_3
+  use import int.Int
+
+  use import Section_5_9_1
+  use import Section_5_9_2
+  use import appendix_a_3_1.Appendix_A_3_1
+
+  (* §5.9.3.1 *)
+  predicate on_sight_at_further_location
+
+  predicate beginning_on_sight_area_not_reached =
+    on_sight_at_further_location
+    /\ ((ertms_etcs_level = 1 /\ on_sight_mode_profile_given_by_balise_group)
+        \/
+        ((ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+         /\ on_sight_mode_profile_given) )
+
+  (* §5.9.3.2 *)
+  function distance_between_estimated_front_end_of_train_and_beginning_on_sight
+    : int
+
+  constant on_sight_acknowledgment_distance : int
+
+  function current_speed : int
+
+  function on_sight_mode_speed_limit : int
+
+  lemma sec_5_9_3_2 :
+    (distance_between_estimated_front_end_of_train_and_beginning_on_sight
+       < on_sight_acknowledgment_distance
+     /\ current_speed < on_sight_mode_speed_limit
+     /\ onboard_mode <> On_Sight)
+    -> on_sight_mode_acknowledgment_requested_to_driver
+
+  (* §5.9.3.3: not formalized / note *)
+
+  (* §5.9.3.4 *)
+  lemma sec_5_9_3_4 :
+    on_sight_mode_acknowledgment_requested_to_driver
+    /\ (distance_between_estimated_front_end_of_train_and_beginning_on_sight
+          >= on_sight_acknowledgment_distance
+        \/ current_speed >= on_sight_mode_speed_limit)
+    -> on_sight_mode_acknowledgment_requested_to_driver
+
+  (* §5.9.3.5 *)
+  function beginning_of_on_sight_area : int
+
+  function eoa : int
+  function svl : int
+  function release_speed : int
+
+  lemma sec_5_9_3_5 :
+    onboard_mode <> On_Sight
+    -> (eoa = beginning_of_on_sight_area
+        \/
+        (eoa = beginning_of_on_sight_area
+         /\ svl = beginning_of_on_sight_area
+         /\ release_speed = 0) )
+
+  (* §5.9.3.6 *)
+  predicate driver_acknowledges_on_sight_mode
+
+  lemma sec_5_9_3_6 :
+    driver_acknowledges_on_sight_mode -> onboard_mode = On_Sight
+
+  (* §5.9.3.7 *)
+  lemma sec_5_9_3_7 :
+    (max_safe_front_end_entered_on_sight_area
+     /\ not(driver_acknowledges_on_sight_mode))
+    -> (onboard_mode = On_Sight /\ acknowledgement_request_displayed_to_driver)
+
+  (* §5.9.3.8 *)
+  lemma sec_5_9_3_8 : (* same as lemma sec_5_9_2_7 *)
+    (on_sight_mode_acknowledgment_requested_to_driver
+     /\ on_sight_acknowledgment_timer > driver_acknowledgment_time)
+    -> service_brake_command_due_to_on_sight
+end
+
+(** On Sight from Unfitted or SN mode *)
+module Section_5_9_4
+  use import Section_5_9_1
+  use import etcs_level.ETCS_level
+
+  (* §5.9.4.1 *)
+  predicate on_sight_mode_profile_evaluation
+
+  lemma sec_5_9_4_1 :
+    on_sight_mode_profile_evaluation
+    <-> (ertms_etcs_level = 1 \/ ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+
+  (* §5.9.4.2: not formalized / how to express copy/paste? Is it implicit
+     through the previous formalizations? *)
+end
+
+(** On Sight from Stand By and Post Trip Mode *)
+module Section_5_9_5
+  use import Section_5_9_2
+  use import Section_5_9_3
+
+  (* §5.9.5.1 *)
+  predicate start_of_mission_procedure
+  predicate train_trip_procedure
+
+  lemma sec_5_9_5_1 :
+    ((start_of_mission_procedure \/ train_trip_procedure)
+     /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+     /\ on_sight_mode_profile_given
+     /\ max_safe_front_end_entered_on_sight_area)
+    -> on_sight_mode_acknowledgment_requested_to_driver
+
+  (* §5.9.5.2 *)
+  lemma sec_5_9_5_2 : (* same as lemma sec_5_9_3_6 *)
+    driver_acknowledges_on_sight_mode -> onboard_mode = On_Sight
+end
+
+(** Exit of On Sight mode *)
+module Section_5_9_6
+  use import int.Int
+
+  use import Section_5_9_1
+  use import Section_5_9_3
+
+  (* §5.9.6.1.1 *)
+  predicate min_safe_front_end_of_train_passes_end_of_on_sight_area
+
+  lemma sec_5_9_6_1_1 :
+    min_safe_front_end_of_train_passes_end_of_on_sight_area
+    -> onboard_mode <> On_Sight
+
+  (* §5.9.6.2.1 *)
+  function end_of_on_sight_area : int
+
+  predicate on_sight_area_ends_at_the_eoa_of_current_ma
+
+  lemma sec_5_9_6_2_1 :
+    on_sight_area_ends_at_the_eoa_of_current_ma
+    <-> end_of_on_sight_area = eoa
+
+  (* §5.9.6.2.2 *)
+  predicate receive_new_movement_authority
+
+  lemma sec_5_9_6_2_2 :
+    on_sight_area_ends_at_the_eoa_of_current_ma
+    -> receive_new_movement_authority
+
+  (* §5.9.6.2.3: not formalized / note *)
+
+  (* §5.9.6.2.4: not formalized / note *)
+
+  (* §5.9.6.3.1 *)
+  predicate on_sight_area_ends_before_the_eoa_of_current_ma
+
+  lemma sec_5_9_6_3_1 :
+    on_sight_area_ends_before_the_eoa_of_current_ma
+    <-> end_of_on_sight_area < eoa
+
+  (* §5.9.6.3.2 *)
+  lemma sec_5_9_6_3_2 :
+    on_sight_area_ends_before_the_eoa_of_current_ma
+    -> (onboard_mode = Full_Supervision
+        \/ onboard_mode = Limited_Supervision
+        \/ onboard_mode = Shunting)
+end
+
+(* §5.9.7: not formalized / how to handle the graph and link it with previous
+   formalization? *)

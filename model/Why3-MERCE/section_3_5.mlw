@@ -1,0 +1,305 @@
+(*
+copyright 2012 David MENTRE <d.mentre@fr.merce.mee.com>
+                               -- Mitsubishi Electric R&D Centre Europe
+
+Licensed under the EUPL V.1.1 or - as soon they will be approved by
+the European Commission - subsequent versions of the EUPL (the
+"Licence");
+You may not use this work except in compliance with the Licence.
+
+You may obtain a copy of the Licence at:
+
+  http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the Licence is distributed on an "AS IS" basis,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied.
+
+See the Licence for the specific language governing permissions and
+limitations under the Licence.
+*)
+
+(* Reference: UNISIG SUBSET-026-3 v3.3.0 *)
+
+(** Management of Radio Communication *)
+
+(* §3.5.1.1: not formalized *)
+
+(** General *)
+module Section_3_5_2
+  (* §3.5.2.1 *)
+  type rbc
+  type radio_infill_unit
+
+  type remote_entity = RBC rbc | RIU radio_infill_unit
+  type communication_session = { remote_entity : remote_entity }
+
+  (* §3.5.2.2: not formalized *)
+
+  (* §3.5.2.3 *)
+  type system_version
+  type information
+  function initiation_of_a_communication_session (v: system_version)
+                                                              : information
+  function version_not_compatible (v: system_version) : information
+
+  axiom same_version : forall v:system_version.
+    initiation_of_a_communication_session v = version_not_compatible v
+end
+
+(** Establishing a communication session *)
+module Section_3_5_3
+  use import bool.Bool
+  use import option.Option
+  use import ref.Ref
+  use import int.Int
+  use import set.Set
+
+  use import etcs_level.ETCS_level
+  use import Section_3_5_2
+  use import appendix_a_3_1.Appendix_A_3_1
+
+  (* §3.5.3.1 *)
+  predicate on_board_equipement_initiate_communication_session
+              (re : remote_entity)
+  predicate rbc_initiate_communication_session
+
+  (* §3.5.3.2 *)
+  predicate infill_unit_initiate_communication_session
+  axiom infill_never_initiate_com :
+    not(infill_unit_initiate_communication_session)
+
+  (* §3.5.3.3: not formalized *)
+
+  (* §3.5.3.4 *)
+  predicate start_of_mission
+
+  predicate ordered_from_trackside
+
+  predicate mode_change_to_be_reported_to_rbc
+
+  predicate end_of_mission
+
+  predicate driver_manually_changed_level
+
+  predicate train_front_reaches_end_of_announced_radio_hole
+
+  predicate
+   previous_com_session_terminated_loss_safe_radio_connection
+    (re : remote_entity)
+
+  predicate start_of_mission_procedure_completed
+
+  predicate communication_session_established (re : remote_entity)
+
+  predicate communication_session_being_established (re : remote_entity)
+
+  (* question: following axiom is only for RBC or also for RIU? *)
+  axiom ax_3_5_3_4 :
+    forall rbc: rbc.
+    on_board_equipement_initiate_communication_session (RBC rbc)
+    <->
+    ((* a *) (start_of_mission
+              /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+     \/ (* b *) ordered_from_trackside
+     \/ (* c *) (mode_change_to_be_reported_to_rbc
+                 /\ not(end_of_mission)
+                 /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+     \/ (* d *) (driver_manually_changed_level
+                 /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+     \/ (* e *) train_front_reaches_end_of_announced_radio_hole
+     \/ (* f *) previous_com_session_terminated_loss_safe_radio_connection
+                  (RBC rbc)
+     \/ (* g *) (start_of_mission_procedure_completed
+                 /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3)
+                 /\ not(communication_session_established (RBC rbc))) )
+
+  (* §3.5.3.4.1 *)
+  axiom ax_3_5_3_4_1 :
+    forall re: remote_entity.
+      ((* a *) (start_of_mission
+                /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+       \/ (* b *) ordered_from_trackside
+       \/ (* c *) (mode_change_to_be_reported_to_rbc
+                   /\ not(end_of_mission)
+                   /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+       \/ (* d *) (driver_manually_changed_level
+                   /\ (ertms_etcs_level = 2 \/ ertms_etcs_level = 3))
+       \/ (* e *) train_front_reaches_end_of_announced_radio_hole )
+      -> (communication_session_established re
+          \/ communication_session_being_established re)
+      -> not(on_board_equipement_initiate_communication_session re)
+
+  (* §3.5.3.5 *)
+  type telephone_number
+  type action_t = Establish_session | Terminate_session
+
+  type rbc_identity = New_RBC rbc | Last_known_RBC (* §3.5.3.13 *)
+
+  type rbc_telephone_number = Use_onboard_short_number (* §3.5.3.15 *)
+                              | RBC_tel telephone_number
+
+  type contact_order = { rbc_identity : rbc_identity;
+                         rbc_telephone_number : rbc_telephone_number;
+                         rbc_contact_action : action_t;
+                         applies_to_sleeping_units : bool }
+
+  (* §3.5.3.5.1: not formalized *)
+
+  (* §3.5.3.5.2 *)
+  predicate terminate_communication_session (re : remote_entity)
+
+  predicate accepting_rbc (rbc : rbc)
+
+  predicate handing_over_rbc (rbc : rbc)
+
+  axiom ax_3_5_3_5_2 :
+    forall rbc1 rbc2:rbc. rbc1 <> rbc2 ->
+      (on_board_equipement_initiate_communication_session (RBC rbc2)
+       /\ communication_session_established (RBC rbc1)
+       /\ not(accepting_rbc rbc2 /\ handing_over_rbc rbc1) )
+      -> terminate_communication_session (RBC rbc1)
+
+  (* §3.5.3.5.3 *)
+  type order_to_contact_accepting_rbc =
+    { accepting_rbc_identity : rbc;
+      accepting_rbc_telephone_number : telephone_number;
+      contact_accepting_rbc_applies_to_sleeping_units : bool }
+
+  (* §3.5.3.6 *)
+  type order_to_contact_radio_infill_unit =
+    { radio_infill_unit_identity : radio_infill_unit;
+      radio_infill_unit_telephone_number : telephone_number;
+      riu_contact_action : action_t }
+
+  (* §3.5.3.7 *)
+  predicate terminate_communication_session_received_from_trackside
+
+  predicate train_passes_level_transition_border_with_front_end
+
+  predicate train_passes_rbc_rbc_border_with_front_end
+
+  predicate train_passes_start_of_announced_radio_hole_with_front_end
+
+  predicate order_to_establish_com_different_rbc_and_not_accepting_rbc
+
+  val setup_safe_radio_connection (re : remote_entity)
+                                             : option communication_session
+
+  val send_msg_Initiation_of_radio_communication (c : communication_session)
+                                                                          : ()
+
+  let establish_new_connection (re : remote_entity) : () =
+    (* a *)
+    let session = ref None in
+    if start_of_mission then
+      let count = ref 1 in
+      while (!session = None ||
+             !count <= number_of_times_try_establish_safe_radio_connection) do
+        session := setup_safe_radio_connection re;
+        count := !count + 1
+      done
+    else
+      (* not part of on-going Start of Mission procedure *)
+      while not(!session <> None
+                && end_of_mission
+                && terminate_communication_session_received_from_trackside
+                && train_passes_level_transition_border_with_front_end
+                && order_to_establish_com_different_rbc_and_not_accepting_rbc
+                && train_passes_rbc_rbc_border_with_front_end
+                && train_passes_start_of_announced_radio_hole_with_front_end
+                && (match re with RIU _ -> True | _ -> False end = True
+                    && ertms_etcs_level <> 1) ) do
+        session := setup_safe_radio_connection re
+      done;
+    (* b *)
+    match !session with
+    | Some c -> send_msg_Initiation_of_radio_communication c
+                (* case c not formalized *)
+    | None -> ()
+    end
+
+  (* §3.5.3.8 *)
+  val on_board_communication_session_established :
+                                              ref (set communication_session)
+
+  val send_msg_Session_establised (c : communication_session)
+                                  (t : telephone_number) : ()
+
+  val send_msg_No_compatible_version_supported (c : communication_session) : ()
+
+  predicate compatible_system_version_with_trackside
+
+  constant onboard_telephone_number : telephone_number
+
+  val inform_driver () : ()
+
+  val terminate_communication_session (c : communication_session) : ()
+
+  let onboard_receives_system_version (c: communication_session) =
+    on_board_communication_session_established :=
+      Set.add c !on_board_communication_session_established;
+
+    if compatible_system_version_with_trackside then
+      (* a *)
+      send_msg_Session_establised c onboard_telephone_number
+    else
+      (* b *)
+      send_msg_No_compatible_version_supported c;
+      inform_driver ();
+      terminate_communication_session c
+
+  (* §3.5.3.9: not formalized / trackside *)
+
+  (* §3.5.3.9.1: deleted *)
+
+  (* §3.5.3.10 *)
+  (* a: not formalized / trackside *)
+  (* b: not formalized / trackside *)
+
+  (* c *)
+  let onboard_receives_Initiation_of_communication_session
+                                                (c : communication_session) =
+    on_board_communication_session_established :=
+      Set.add c !on_board_communication_session_established;
+
+    send_msg_Session_establised c onboard_telephone_number
+
+  (* d: not formalized / trackside *)
+
+  (* §3.5.3.11 *)
+  type timestamp
+  type lrbg_identity
+
+  type first_rbc_message = { timestamp : option timestamp;
+                             lrbg_id : option lrbg_identity }
+
+  let handle_first_rbc_message (m : first_rbc_message) =
+    assert { m.timestamp = None && m.lrbg_id = None }
+
+  (* §3.5.3.12: not formalized / note *)
+
+
+  (* §3.5.3.15 *)
+  val contact_rbc (rbc_tel : rbc_telephone_number) : ()
+
+  (* §3.5.3.13 *)
+  val onboard_last_known_rbc_telephone_number : ref (option telephone_number)
+
+  let handle_Contact_rbc_order (o : contact_order) =
+    match o.rbc_identity with
+    | Last_known_RBC ->
+      match !onboard_last_known_rbc_telephone_number with (* §3.5.3.13.1 *)
+      | None -> ()
+      | Some rbc_tel -> contact_rbc (RBC_tel rbc_tel)
+      end
+    | New_RBC rbc -> contact_rbc o.rbc_telephone_number
+    end
+
+   (* §3.5.3.14: not formalized *)
+
+   (* §3.5.3.15.1: not formalized / note *)
+
+   (* §3.5.3.16: not formalized / repetition of §3.5.3.13 and §3.5.3.13.1 *)
+end
