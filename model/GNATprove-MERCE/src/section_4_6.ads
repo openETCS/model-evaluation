@@ -93,7 +93,11 @@ Package Section_4_6 is
    -- §4.6.1.5
    function disjoint_condition_transitions return Boolean is
      (NOT(condition_transition_SB_to_SH = True
-          AND condition_transition_SB_to_FS = True));
+          AND condition_transition_SB_to_FS = True)
+      AND NOT(condition_transition_SB_to_SH = True
+              AND condition_transition_SB_to_IS = True)
+      AND NOT(condition_transition_SB_to_FS = True
+              AND condition_transition_SB_to_IS = True));
 
    function transition(mode : etcs_mode_t) return etcs_mode_t
    with
