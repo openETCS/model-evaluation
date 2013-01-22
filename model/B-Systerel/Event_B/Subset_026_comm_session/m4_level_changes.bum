@@ -117,4 +117,7 @@
 <org.eventb.core.invariant name="evta" org.eventb.core.comment="" org.eventb.core.label="inv6" org.eventb.core.predicate="position_radio_hole ∈ BOOL"/>
 <org.eventb.core.variable name="evtd" org.eventb.core.identifier="signal_radio_hole"/>
 <org.eventb.core.invariant name="evte" org.eventb.core.label="inv7" org.eventb.core.predicate="signal_radio_hole ∈ BOOL"/>
+<org.eventb.core.event name="evth" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_session">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_session"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

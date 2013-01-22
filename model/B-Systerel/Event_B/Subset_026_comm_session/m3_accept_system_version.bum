@@ -42,7 +42,6 @@
 <org.eventb.core.action name=")" org.eventb.core.assignment="termination_sessions ≔ termination_sessions ∖ {l_partner}" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="evt;" org.eventb.core.comment="" org.eventb.core.identifier="termination_sessions"/>
-<org.eventb.core.invariant name="evt&gt;" org.eventb.core.comment="only established sessions can be terminated" org.eventb.core.label="inv1" org.eventb.core.predicate="termination_sessions ⊆ incoming_sessions ∪ outgoing_sessions"/>
 <org.eventb.core.seesContext name="evt?" org.eventb.core.target="c2_system_version_mode"/>
 <org.eventb.core.invariant name="evtA" org.eventb.core.comment="Sylvain's safety property" org.eventb.core.label="inv2" org.eventb.core.predicate="RBC ∩ outgoing_sessions ⊆ system_version_compatible"/>
 <org.eventb.core.variable name="evtC" org.eventb.core.identifier="accepting"/>
@@ -57,4 +56,8 @@
 <org.eventb.core.action name="(" org.eventb.core.assignment="accepting ≔ accepting ∖ {l_partner}" org.eventb.core.label="act1"/>
 <org.eventb.core.parameter name=")" org.eventb.core.identifier="l_partner"/>
 </org.eventb.core.event>
+<org.eventb.core.event name="evtG" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_session">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_session"/>
+</org.eventb.core.event>
+<org.eventb.core.invariant name="evtH" org.eventb.core.label="inv4" org.eventb.core.predicate="termination_sessions ⊆ entities ∖ {my_entity}"/>
 </org.eventb.core.machineFile>

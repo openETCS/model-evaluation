@@ -46,4 +46,7 @@
 <org.eventb.core.invariant name="evt6" org.eventb.core.label="inv4" org.eventb.core.predicate="contacted_by ∩ (incoming_sessions ∪ outgoing_sessions) = ∅"/>
 <org.eventb.core.invariant name="evt7" org.eventb.core.comment="" org.eventb.core.label="inv5" org.eventb.core.predicate="contacted ∩ (incoming_sessions ∪ outgoing_sessions) = ∅"/>
 <org.eventb.core.invariant name="evt8" org.eventb.core.label="inv6" org.eventb.core.predicate="incoming_sessions ∩ RIU = ∅"/>
+<org.eventb.core.event name="evt9" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_session">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_session"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

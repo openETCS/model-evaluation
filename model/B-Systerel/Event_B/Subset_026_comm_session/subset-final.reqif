@@ -6387,7 +6387,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-488c3b64-212f-4cdd-84b0-24b792abb5c0">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_after_timeout  any l_partner   where    @grd5 l_partner ∉ in_sessions ∪ out_sessions ∪ contacted ∪ contacted_by    @grd3 l_partner ∈ on_track    @grd6 l_partner ∈ terminated_ER_connections  then    @act2 contacted ≔ contacted ∪ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#evu*">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_after_timeout  where    @grd6 l_partner ∈ terminated_ER_connectionsend~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#evu*">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6520,6 +6520,78 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         <SPEC-OBJECT IDENTIFIER="rmf-722e9887-73d4-4aa9-9d87-0b6f8ac6e13d">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="event receive_contact_order_non_accept  where    @grd3 l_partner ∈ RIU ∪ (RBC ∖ (RBC ∩ accepting))  then    @act2 termination_sessions ≔ termination_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))end~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.event#evtB">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-817a031a-3015-47ed-89e1-b41caea884c6">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_perform_end_of_mission  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ establish_ER_connection    @grd3 signal_mode_change = TRUE ∧ current_mode = EOM  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var3">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-71f158b3-a123-49c4-945a-216013435236">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_RIU_leave_L1  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ RIU    @grd3 signal_level_change = TRUE ∧ current_level ≠ L1  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var6">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-395384a0-e17f-46a2-98c3-a5481f177ede">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_pass_radio_hole  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ establish_ER_connection    @grd3 signal_radio_hole = TRUE ∧ position_radio_hole = TRUE  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var5">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-e690cfab-c40f-4fd4-84a1-57b2daa9e1ce">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_pass_level_transition  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ establish_ER_connection    @grd3 signal_level_change = TRUE ∧ current_level ∈ {L0, L1, NTC}  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var4">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-8e194793-55a0-4a3a-8b10-c37154d7ea39">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_RBC_border  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ RBC    @grd3 signal_RBC_border = TRUE  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var8">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-326db5b0-f3e6-4820-bb37-1f3ae045b29f">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_other_RBC_non_accept  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ RBC    @grd3 RBC ∩ accepting ∩ contacted_by ≠ ∅  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var;">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6760,6 +6832,114 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
           </TARGET>
           <SOURCE>
             <SPEC-OBJECT-REF>f71c9e7b55cf0636a1b3a5e0e538e3df</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-c4b63523-ded8-42b4-a144-c4af7b7fed6b">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-817a031a-3015-47ed-89e1-b41caea884c6</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>e366830187024dbd652b520052a9c68d</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-e6c433d2-ab4b-493b-a254-8c82edc9ed21">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-71f158b3-a123-49c4-945a-216013435236</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>c1a8ae8938be9d7cbc00fe49ada3edb7</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-9674fd91-825b-40ab-ba76-c1dff5a0623d">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-395384a0-e17f-46a2-98c3-a5481f177ede</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_9cc2a973483bd287f644a3f5a7fe29cd</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-3c9f113d-61ca-4e82-b1b2-0826f65c4971">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-e690cfab-c40f-4fd4-84a1-57b2daa9e1ce</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_5ccf4f2cabb0cc0600ed3b6791b632e9</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-31d979dc-1680-43a4-a915-35876a842577">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-8e194793-55a0-4a3a-8b10-c37154d7ea39</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_7f7fc2733a21e9c5fcc236330f1bec4f</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-c6bcbb89-29c4-4813-bb8a-f0c52671c508">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-326db5b0-f3e6-4820-bb37-1f3ae045b29f</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>ea3935212299c8b830702003ecad5869</SPEC-OBJECT-REF>
           </SOURCE>
           <TYPE>
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
