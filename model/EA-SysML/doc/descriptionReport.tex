@@ -1,0 +1,47 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage[english]{babel}
+\usepackage{ae,aecompl}   % best than T1 fontenc
+\geometry{reset,
+  papersize={210mm,297mm},
+  text={170mm,250mm},
+  headheight=50pt,
+  headsep=10pt,
+  hoffset=0cm,
+  voffset=0cm,
+}
+
+
+\graphicspath{{schema/pdf/}}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+
+\title{Radio Communication Managment \\
+    {\it ERTMS Subset-026-3.5}}
+
+\author{C{\'e}cile Braunstein\\University of Bremen\\
+cecile@informatik.uni-bremen.de}
+\date{\today}                                           % Activate to display a given date or no date
+
+\pagestyle{plain}
+\begin{document}
+
+
+\maketitle
+
+% --------------------------------------------------------------------------------------
+\begin{abstract}
+This document describes the model of the radio communication management The
+model has be made from the specification description of the ERTMS subset-026-3.5
+baseline 3.
+\end{abstract}
+
+\input{modelDescription}
+\end{document}  
