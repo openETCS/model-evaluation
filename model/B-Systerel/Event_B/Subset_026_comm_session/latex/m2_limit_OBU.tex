@@ -1,0 +1,157 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
+\usepackage {bsymb,b2latex}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr,lastpage,color}
+\lhead{\rm An Event-B Specification of m2\_limit\_OBU}
+\rhead {\rm Page \thepage~of \pageref{LastPage}}
+\lfoot{}\cfoot{}\rfoot{}
+\pagestyle{fancy}
+%---------------------------------------------------------
+\begin{document}
+\thispagestyle{empty}
+\begin{description}
+\BTitle{m2\_limit\_OBU}{22Jan2013}{01:58:17 PM}
+\MACHINE{m2\_limit\_OBU}
+\REFINES{m1\_directional\_communication}
+\SEES{c1\_entity\_types}
+\VARIABLES
+	\begin{description}
+		\Item{ incoming\_sessions }
+		\ItemY{ outgoing\_sessions }{}
+		\Item{ contacted }
+		\ItemY{ contacted\_by }{}
+	\end{description}
+\INVARIANTS
+	\begin{description}
+		\nItemY{ inv1 }{ incoming\_sessions \bunion  outgoing\_sessions \subseteq  on\_track }{ 		\\\hspace*{1,4 cm}  limit model to OBU -$>$  only on$\_$track communication partners }
+		\nItemY{ inv2 }{ contacted \subseteq  on\_track }{  }
+		\nItemY{ inv3 }{ contacted\_by \subseteq  on\_track }{  }
+		\nItem{ inv4 }{ contacted\_by \binter  (incoming\_sessions \bunion  outgoing\_sessions) = \emptyset  }
+		\nItemY{ inv5 }{ contacted \binter  (incoming\_sessions \bunion  outgoing\_sessions) = \emptyset  }{  }
+		\nItem{ inv6 }{ incoming\_sessions \binter  RIU = \emptyset  }
+	\end{description}
+\EVENTS
+	\INITIALISATION
+		\\\textit{extended}\cmt{ }
+		\begin{description}
+		\BeginAct
+			\begin{description}
+			\nItemX{ act2 }{ incoming\_sessions :=  \emptyset  }
+			\nItemX{ act3 }{ outgoing\_sessions :=  \emptyset  }
+			\nItem{ act4 }{ contacted :=  \emptyset  }
+			\nItem{ act5 }{ contacted\_by :=  \emptyset  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {incoming\_communication}
+	\EXTD {incoming\_communication}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\ItemXY{l\_partner }{ }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItemX{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }
+			\nItemXY{ grd2 }{ l\_partner \in  entities \setminus  \{ l\_partner\}  }{ } 
+			\nItem{ grd3 }{ l\_partner \in  on\_track \setminus  RIU }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemXY{ act1 }{ incoming\_sessions :=  incoming\_sessions \bunion  \{ l\_partner\}  }{  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {outgoing\_communciation}
+	\EXTD {outgoing\_communciation}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\ItemXY{l\_partner }{ }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItemX{ grd2 }{ l\_partner \in  entities \setminus  \{ l\_partner\}  }
+			\nItemXY{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }{ } 
+			\nItem{ grd3 }{ l\_partner \in  on\_track }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act1 }{ outgoing\_sessions :=  outgoing\_sessions \bunion  \{ l\_partner\}  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {receive\_contact\_order}\cmt{		\\\hspace*{4,8 cm}  RBC can order contact (cf. 3.5.3.4.b) }
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{l\_partner }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItemY{ grd1 }{ l\_partner \notin  contacted \bunion  contacted\_by \bunion  incoming\_sessions \bunion  outgoing\_sessions }{ } 
+			\nItem{ grd2 }{ l\_partner \in  on\_track }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItem{ act1 }{ contacted\_by :=  contacted\_by \bunion  \{ l\_partner\}  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {initiate\_session\_after\_contact}\cmt{		\\\hspace*{6,6 cm}  (cf. 3.5.3.4 b) / (cf. 3.5.3.5.2) }
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{l\_partner }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted }
+			\nItemY{ grd2 }{ l\_partner \in  contacted\_by }{ } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemY{ act1 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+			\nItemY{ act2 }{ contacted\_by :=  contacted\_by \setminus  \{ l\_partner\}  }{  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {initiate\_session\_no\_contact}\cmt{		\\\hspace*{6 cm}  no contact order, i.e., one ofthe other cases of 3.5.3.4 }
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\ItemY{l\_partner }{ }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+			\nItemY{ grd3 }{ l\_partner \in  on\_track }{ } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {terminate\_communication}
+	\EXTD {terminate\_communication}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\ItemX{l\_partner }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItemX{ grd1 }{ l\_partner \in  incoming\_sessions \bunion  outgoing\_sessions }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act1 }{ incoming\_sessions :=  incoming\_sessions \setminus  \{ l\_partner\}  }
+			\nItemX{ act2 }{ outgoing\_sessions :=  outgoing\_sessions \setminus  \{ l\_partner\}  }
+			\end{description}
+		\EndAct
+		\end{description}
+\END
+\end{description}
+\end{document}

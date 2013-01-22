@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="c2_system_version_mode"/>
+<org.eventb.core.carrierSet name="(" org.eventb.core.comment="" org.eventb.core.identifier="ERTMS_level"/>
+<org.eventb.core.constant name=")" org.eventb.core.identifier="NTC"/>
+<org.eventb.core.constant name="*" org.eventb.core.identifier="L0"/>
+<org.eventb.core.constant name="+" org.eventb.core.identifier="L1"/>
+<org.eventb.core.constant name="," org.eventb.core.identifier="L2"/>
+<org.eventb.core.constant name="-" org.eventb.core.comment="" org.eventb.core.identifier="L3"/>
+<org.eventb.core.axiom name="." org.eventb.core.label="axm1" org.eventb.core.predicate="partition(ERTMS_level, {NTC, L0, L1, L2, L3})"/>
+<org.eventb.core.constant name="/" org.eventb.core.comment="start of mission" org.eventb.core.identifier="SOM"/>
+<org.eventb.core.constant name="0" org.eventb.core.comment="end of mission" org.eventb.core.identifier="EOM"/>
+<org.eventb.core.constant name="1" org.eventb.core.comment="while mission" org.eventb.core.identifier="MIS"/>
+<org.eventb.core.carrierSet name="2" org.eventb.core.identifier="train_mode"/>
+<org.eventb.core.axiom name="3" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(train_mode, {SOM, EOM, MIS})"/>
+</org.eventb.core.contextFile>
