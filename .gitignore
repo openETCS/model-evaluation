@@ -1,4 +1,4 @@
 *~
 *.bak
-model/GNATprove-MERCE/build/
+model/GNATprove-MERCE/obj/
 model/GNATprove-MERCE/gnatprove.out
