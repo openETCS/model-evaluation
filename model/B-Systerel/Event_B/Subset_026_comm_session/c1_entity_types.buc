@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="c0_entities"/>
+<org.eventb.core.constant name="(" org.eventb.core.identifier="RBC"/>
+<org.eventb.core.constant name=")" org.eventb.core.identifier="RIU"/>
+<org.eventb.core.constant name="*" org.eventb.core.comment="" org.eventb.core.identifier="OBU"/>
+<org.eventb.core.axiom name="+" org.eventb.core.comment="" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(entities,RBC,RIU,OBU)"/>
+<org.eventb.core.constant name="," org.eventb.core.identifier="on_track"/>
+<org.eventb.core.constant name="-" org.eventb.core.comment="" org.eventb.core.identifier="on_board"/>
+<org.eventb.core.axiom name="." org.eventb.core.label="axm2" org.eventb.core.predicate="on_track = RIU ∪ RBC"/>
+<org.eventb.core.axiom name="/" org.eventb.core.comment="" org.eventb.core.label="axm3" org.eventb.core.predicate="on_board = OBU"/>
+<org.eventb.core.axiom name="0" org.eventb.core.label="axm4" org.eventb.core.predicate="my_entity ∈ on_board"/>
+</org.eventb.core.contextFile>

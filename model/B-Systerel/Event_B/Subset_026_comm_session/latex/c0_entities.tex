@@ -1,0 +1,29 @@
+% \documentclass[10pt,a4paper]{report}
+% \usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
+% \usepackage {bsymb,b2latex}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fancyhdr,lastpage,color}
+% \lhead{\rm An Event-B Specification of c0\_entities}
+% \rhead {\rm Page \thepage~of \pageref{LastPage}}
+% \lfoot{}\cfoot{}\rfoot{}
+% \pagestyle{fancy}
+% %---------------------------------------------------------
+% \begin{document}
+% \thispagestyle{empty}
+\begin{description}
+% \BTitle{c0\_entities}{22Jan2013}{01:58:17 PM}
+\CONTEXT{c0\_entities}
+\SETS
+        \begin{description}
+                \Item{ entities }
+        \end{description}
+\CONSTANTS
+        \begin{description}
+                \Item{ my\_entity }
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ my\_entity \in  entities }	\end{description}
+\END
+\end{description}
+% \end{document}

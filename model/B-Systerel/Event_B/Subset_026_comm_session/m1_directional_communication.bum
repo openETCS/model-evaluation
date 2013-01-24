@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="m0_basic_comm"/>
+<org.eventb.core.seesContext name="(" org.eventb.core.target="c0_entities"/>
+<org.eventb.core.event name="*" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="incoming_sessions ≔ ∅" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="outgoing_sessions ≔ ∅" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="+" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="incoming_communication">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="establish_communication"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="incoming_sessions ≔ incoming_sessions ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ entities ∖ {l_partner}"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="/" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="outgoing_communciation">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="establish_communication"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ entities ∖ {l_partner}"/>
+<org.eventb.core.guard name="'" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="outgoing_sessions ≔ outgoing_sessions ∪ {l_partner}" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="terminate_communication">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="terminate_communication"/>
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="incoming_sessions ≔ incoming_sessions ∖ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="outgoing_sessions ≔ outgoing_sessions ∖ {l_partner}" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="-" org.eventb.core.identifier="incoming_sessions"/>
+<org.eventb.core.variable name="." org.eventb.core.identifier="outgoing_sessions"/>
+<org.eventb.core.invariant name="0" org.eventb.core.comment="" org.eventb.core.label="inv1" org.eventb.core.predicate="comm_sessions = incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.invariant name="1" org.eventb.core.label="inv2" org.eventb.core.predicate="incoming_sessions ∩ outgoing_sessions = ∅"/>
+<org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="drop_session">
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="incoming_sessions ≔ incoming_sessions ∖ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="outgoing_sessions ≔ outgoing_sessions ∖ {l_partner}" org.eventb.core.label="act2"/>
+<org.eventb.core.refinesEvent name="+" org.eventb.core.target="terminate_communication"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

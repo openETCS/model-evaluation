@@ -1,0 +1,94 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
+\usepackage {bsymb,b2latex}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr,lastpage,color}
+\lhead{\rm An Event-B Specification of m1\_directional\_communication}
+\rhead {\rm Page \thepage~of \pageref{LastPage}}
+\lfoot{}\cfoot{}\rfoot{}
+\pagestyle{fancy}
+%---------------------------------------------------------
+\begin{document}
+\thispagestyle{empty}
+\begin{description}
+\BTitle{m1\_directional\_communication}{22Jan2013}{01:58:17 PM}
+\MACHINE{m1\_directional\_communication}
+\REFINES{m0\_basic\_comm}
+\SEES{c0\_entities}
+\VARIABLES
+	\begin{description}
+		\Item{ incoming\_sessions }
+		\Item{ outgoing\_sessions }
+	\end{description}
+\INVARIANTS
+	\begin{description}
+		\nItemY{ inv1 }{ comm\_sessions = incoming\_sessions \bunion  outgoing\_sessions }{  }
+		\nItem{ inv2 }{ incoming\_sessions \binter  outgoing\_sessions = \emptyset  }
+	\end{description}
+\EVENTS
+	\INITIALISATION\cmt{ }
+		\begin{description}
+		\BeginAct
+			\begin{description}
+			\nItem{ act2 }{ incoming\_sessions :=  \emptyset  }
+			\nItem{ act3 }{ outgoing\_sessions :=  \emptyset  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {incoming\_communication}
+	\REF {establish\_communication}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\ItemY{l\_partner }{ }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }
+			\nItemY{ grd2 }{ l\_partner \in  entities \setminus  \{ l\_partner\}  }{ } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemY{ act1 }{ incoming\_sessions :=  incoming\_sessions \bunion  \{ l\_partner\}  }{  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {outgoing\_communciation}
+	\REF {establish\_communication}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\ItemY{l\_partner }{ }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd2 }{ l\_partner \in  entities \setminus  \{ l\_partner\}  }
+			\nItemY{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }{ } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItem{ act1 }{ outgoing\_sessions :=  outgoing\_sessions \bunion  \{ l\_partner\}  }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {terminate\_communication}
+	\REF {terminate\_communication}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\Item{l\_partner }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItem{ grd1 }{ l\_partner \in  incoming\_sessions \bunion  outgoing\_sessions }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItem{ act1 }{ incoming\_sessions :=  incoming\_sessions \setminus  \{ l\_partner\}  }
+			\nItem{ act2 }{ outgoing\_sessions :=  outgoing\_sessions \setminus  \{ l\_partner\}  }
+			\end{description}
+		\EndAct
+		\end{description}
+\END
+\end{description}
+\end{document}
