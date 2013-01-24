@@ -61,7 +61,22 @@ Package Section_3_5_3 is
      Pre => ((Authorize_New_Communication_Session = True) -- §3.5.3.4
              and (not Connections.Contains(destination)) -- §3.5.3.4.1
              -- FIXME: what should we do for cases f and g?
-            );
+            ),
+     Post => (Connections.Contains(destination));
 
    -- §3.5.3.3 not formalized (Note)
+
+   type Telephone_Number_t is range 0..20_000; -- FIXME refine range
+   type RBC_Contact_Action_t is (Establish_Session, Terminate_Session);
+
+   -- §3.5.3.5
+   procedure Contact_RBC(RBC_identity : RBC_RIU_ID_t;
+                         RBC_number : Telephone_Number_t;
+                         Action : RBC_Contact_Action_t;
+                         Apply_To_Sleeping_Units : Boolean);
+
+   -- §3.5.3.5.1 to be formalized. The content of table §3.5.3.16 should be
+   -- incorporated as above operation post-condition (if possible)
+
+
 end;

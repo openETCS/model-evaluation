@@ -22,8 +22,15 @@
 -- Reference: UNISIG SUBSET-026-3 v3.3.0
 
 package body Section_3_5_3 is
-   procedure Initiate_Communication_Session(destination : RBC_RIU_ID_t)
-   is
+   procedure Initiate_Communication_Session(destination : RBC_RIU_ID_t) is
+   begin
+      null;
+   end;
+
+   procedure Contact_RBC(RBC_identity : RBC_RIU_ID_t;
+                         RBC_number : Telephone_Number_t;
+                         Action : RBC_Contact_Action_t;
+                         Apply_To_Sleeping_Units : Boolean) is
    begin
       null;
    end;
