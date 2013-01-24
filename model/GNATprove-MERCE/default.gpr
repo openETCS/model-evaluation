@@ -1,0 +1,19 @@
+project Default is
+
+   for Source_Dirs use ("src/**");
+   for Object_Dir use "obj/";
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-g", "-O2", "-gnat12");
+   end Compiler;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-j4");
+   end Builder;
+
+   package Prove is
+      for Switches use ("-j4");
+   end Prove;
+
+end Default;
+
