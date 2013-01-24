@@ -21,11 +21,11 @@
 
 -- Reference: UNISIG SUBSET-026-3 v3.3.0
 
-with ETCS_Level;
-use ETCS_Level;
+with ETCS_Level; use ETCS_Level;
 
-with Com_Map;
-use Com_Map;
+with Data_Types; use Data_Types;
+
+with Com_Map; use Com_Map;
 
 Package Section_3_5_3 is
    -- §3.5.3.4
@@ -66,9 +66,6 @@ Package Section_3_5_3 is
 
    -- §3.5.3.3 not formalized (Note)
 
-   type Telephone_Number_t is range 0..20_000; -- FIXME refine range
-   type RBC_Contact_Action_t is (Establish_Session, Terminate_Session);
-
    -- §3.5.3.5
    procedure Contact_RBC(RBC_identity : RBC_RIU_ID_t;
                          RBC_number : Telephone_Number_t;
@@ -78,5 +75,6 @@ Package Section_3_5_3 is
    -- §3.5.3.5.1 to be formalized. The content of table §3.5.3.16 should be
    -- incorporated as above operation post-condition (if possible)
 
-
+   -- §3.5.3.5.3 and §3.5.3.6 not formalized (FIXME). Should be similar to
+   -- §3.5.3.5
 end;
