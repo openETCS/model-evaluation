@@ -3041,13 +3041,7 @@ When powered-off, ERTMS/ETCS on-board equipment shall memorize the last received
                 <ATTRIBUTE-DEFINITION-XHTML-REF>_7040467c1c578c64488061dae2dbf553</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div>
-
-3.5.3.2A Radio Infill Unit (see section F
-<xhtml:b>Erreur ! Source du renvoi introuvable.</xhtml:b>
-) shall never initiate a communication session.
-
-</xhtml:div>
+                <xhtml:div>A Radio Infill Unit (see section F <xhtml:strong>Erreur ! Source du renvoi introuvable.</xhtml:strong> ) shall never initiate a communication session.</xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
             <ATTRIBUTE-VALUE-ENUMERATION>
@@ -3058,7 +3052,7 @@ When powered-off, ERTMS/ETCS on-board equipment shall memorize the last received
                 <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_181d25a3ed4a7835b6bceb449f994b88</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-ENUMERATION>
-            <ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.5.3.2">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6733907f-04c6-4336-922c-6d4a6640b255</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -5498,13 +5492,7 @@ b)The telephone number of the Radio Infill Unit
                 <ATTRIBUTE-DEFINITION-XHTML-REF>_7040467c1c578c64488061dae2dbf553</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div>
-
-3.5.2.3The information Initiation of a Communication Session and Version not Compatible (see sections F3.5.3 and F
-<xhtml:b>Erreur ! Source du renvoi introuvable.</xhtml:b>
-) shall be the same in every system version.
-
-</xhtml:div>
+                <xhtml:div>The information Initiation of a Communication Session and Version not Compatible (see sections F3.5.3 and F <xhtml:strong>Erreur ! Source du renvoi introuvable.</xhtml:strong> ) shall be the same in every system version.</xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
             <ATTRIBUTE-VALUE-ENUMERATION>
@@ -5515,7 +5503,7 @@ b)The telephone number of the Radio Infill Unit
                 <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_181d25a3ed4a7835b6bceb449f994b88</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-ENUMERATION>
-            <ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.5.2.3">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6733907f-04c6-4336-922c-6d4a6640b255</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6543,7 +6531,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-71f158b3-a123-49c4-945a-216013435236">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_RIU_leave_L1  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ RIU    @grd3 signal_level_change = TRUE ∧ current_level ≠ L1  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var6">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_RIU_leave_L1  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ RIU    @grd3 signal_level_change = TRUE ∧ current_level ≠ L1    @grd4 current_mode ≠ SOM  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var6">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6555,7 +6543,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-395384a0-e17f-46a2-98c3-a5481f177ede">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_pass_radio_hole  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ establish_ER_connection    @grd3 signal_radio_hole = TRUE ∧ position_radio_hole = TRUE  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var5">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_pass_radio_hole  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ establish_ER_connection    @grd3 signal_radio_hole = TRUE ∧ position_radio_hole = TRUE    @grd4 current_mode ≠ SOM  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var5">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6567,7 +6555,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-e690cfab-c40f-4fd4-84a1-57b2daa9e1ce">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_pass_level_transition  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ establish_ER_connection    @grd3 signal_level_change = TRUE ∧ current_level ∈ {L0, L1, NTC}  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var4">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_pass_level_transition  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ establish_ER_connection    @grd3 signal_level_change = TRUE ∧ current_level ∈ {L0, L1, NTC}    @grd4 current_mode ≠ SOM  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var4">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6579,7 +6567,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-8e194793-55a0-4a3a-8b10-c37154d7ea39">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_RBC_border  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ RBC    @grd3 signal_RBC_border = TRUE  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var8">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_RBC_border  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ RBC    @grd3 signal_RBC_border = TRUE    @grd4 current_mode ≠ SOM  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var8">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6591,7 +6579,43 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-326db5b0-f3e6-4820-bb37-1f3ae045b29f">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_other_RBC_non_accept  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ RBC    @grd3 RBC ∩ accepting ∩ contacted_by ≠ ∅  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var;">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_other_RBC_non_accept  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ RBC    @grd3 RBC ∩ accepting ∩ contacted_by ≠ ∅    @grd4 current_mode ≠ SOM  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var;">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-4a2cb304-53bd-4d38-aa46-411611fb2c62">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event receive_information_incompatible  where    @grd4 l_partner ∉ system_version_compatible  then    @act2 termination_sessions ≔ termination_sessions ∪ {l_partner}end~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.event#evt=">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-b8ba2faa-2dc0-44b6-8085-baaa0d939592">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event receive_information_compatible  where    @grd4 l_partner ∈ system_version_compatibleend~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.event#evt6">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-c81e2147-5a65-40fb-9c2c-057bc251f6ae">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event establish_ER_connection  any l_partner   where    @grd1 l_partner ∈ contacted    @grd2 l_partner ∈ establish_ER_connection    @grd3 current_mode = SOM  then    @act1 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}    @act2 ER_connections ≔ ER_connections ∪ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#evu(">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6940,6 +6964,60 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
           </TARGET>
           <SOURCE>
             <SPEC-OBJECT-REF>ea3935212299c8b830702003ecad5869</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-db57a628-7052-446d-abf1-372eeca6e29f">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-4a2cb304-53bd-4d38-aa46-411611fb2c62</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>abe5dda6618bb2665b0c7639ab2d047b</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-e30b6f01-635d-4dfa-885f-d993f6c4e0e8">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-b8ba2faa-2dc0-44b6-8085-baaa0d939592</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>f378095ae247061b4ca05597a235dbf3</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-eccb1363-0da2-460d-85da-b4a3a66fdb63">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-c81e2147-5a65-40fb-9c2c-057bc251f6ae</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_9eebade6bbea2966a0a8c01bd913da7b</SPEC-OBJECT-REF>
           </SOURCE>
           <TYPE>
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
@@ -7959,7 +8037,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration configuration:specification="f34aca591c730a01eec348f3579e127-5">
             <configuration:columns>
-              <configuration:Column configuration:label="Section" configuration:width="175"/>
+              <configuration:Column configuration:label="Section" configuration:width="105"/>
               <configuration:Column configuration:label="Description" configuration:width="466"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>

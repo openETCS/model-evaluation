@@ -42,7 +42,7 @@ communication the subsection \ref{subsec:inputoutput} will give more details.
 \subsection{Abstraction}
 \label{subsec:abstaction}
 The MoRC model has been made by direct translation of the specification described
-in ERTMS subset-026-3.5 In order to keep the complexity of low, some
+in ERTMS subset-026-3.5 In order to keep the complexity low, some
 abstractions have been made. The model's behaviour would be refined in a next step
 of the model's design process. In a first step we focus on the communication
 protocol between the MoRC and the RTM. This leads us to abstract some behaviours.
@@ -76,33 +76,57 @@ into account.
 \caption{\label{fig:interfaces} Radio control manager interfaces.}
 \end{figure}
 
+\subsubsection{RTM interface}
+\verb+MessageOut+, \verb+MessageIn+ are the Euroradio messages, their
+possible values are defined in the subset-026-8.4 and the subset-026-7.4. The
+test cases define by the subset-076 are performed by analysing the recording of
+these messages. In our model we have consider only the relevant messages.
+Furthermore, messages are decomposed in variable and packets, these are not
+taken into account by our modeling. Our model considers messages only as a number corresponding to an action. 
+Table \ref{table:Messages} summarizes the considered messages, the message name
+are those used in the model, Id and Packets are those defined in Subset-026-7
+and Subset-026-8.
+
+\begin{table}[htbp]
+  \begin{tabular}{lclp{.4\textwidth}}\hline
+  Message Name & Id & Packets& Description \\\hline
+  \verb+TERM_SESSION_TRACK+& 24 & Packet 42 ; Q\_RBC = 0& The RBC orders the EVC to {\bf terminate} a communication with RBC \\
+   \verb+INIT_SESSION_ORDER+ & 24 &Packet 42 ; Q\_RBC = 0 & 
+   The RBC {\bf orders the initiation} of a communication \\
+  \verb+SYS_VERSION+ & 32 & & The RBC {\bf acknowledge the initiation} of a
+  communication and gives its system version \\
+  \verb+INIT_SESSION_TRACK+ & 38 & &  The RBC {\bf initiates} a communication \\
+  \verb+TERM_ACK+ & 39 & &  The RBC {\bf acknoledge} the termination of a communication \\
+  \verb+TRANS_OVER_ORDER+ & 131 & & The RBC orders a {\bf transition over} another RBC \\
+  \verb+SYS_NO_COMP+ & 154 &&The EVC {\bf acknowledge the establishment with error}. \\
+  \verb+INIT_SESSION+& 155 &&  The EVC {\bf initiates} a communication \\
+  \verb+TERM_SESSION+ & 156&&The EVC {\bf terminates} a communication  \\
+  \verb+SESSION_ESTABLISHED+ & 159 & & The EVC {\bf acknowledge the establishment} of a communication \\
+  \verb+NO_MESSAGE+ & 255 & & No messages are send. \\
+  \hline
+  \end{tabular}
+  \caption{\label{table:Messages} Messages exchange during The Managment of
+  Radio Communication}
+\end{table}
+
 \begin{description}
-\item \verb+MessageOut+, \verb+MessageIn+ are the Euroradio messages, their
-possible values are defined in the subset-026-8.4 and the subset-026-7.4.
- In our model, we consider the following events :
-  \begin{itemize}
-  \item The RBC orders the EVC to {\bf terminate} a communication with RBC \\
-  (\verb+MessageOut = TERM_SESSION_TRACK+);
-  \item The RBC {\bf initiates} a communication \\
-  (\verb+MessageOut = INIT_SESSION_TRACK+) ;
-  \item The RBC orders a {\bf transition over} another RBC \\
-  (\verb+MessageOut = INIT_TRAN_OVER+) ;
-  \item The RBC {\bf acknowledge the initiation} of a communication and its
-  system version \\
-  (\verb+MessageOut = SYS_VERSION+);
-  \item The RBC {\bf acknowledge the termination} of a communication \\
-  (\verb+MessageOut = TERM_ACK+);
-  \item The EVC {\bf initiates} a communication \\
-  (\verb+MessageIn = INIT_SESSION+) ;
-  \item The EVC {\bf acknowledge the establishment} of a communication \\
-  (\verb+MessageOut = SESSION_ESTABLISHED+);
-  \item The EVC {\bf acknowledge the establishment with error} of a communication \\
-  (\verb+MessageOut = SYS_NO_COMP+);
-  \item The EVC {\bf terminates} a communication  \\
-  (\verb+MessageOut = TERM_SESSION+).
-  \end{itemize}
+\item \verb+NID_Rbc+ identifies the RBC it joins the \verb+NID_RBC+ and
+\verb+NID_C+ (Subset026-3).
 \item \verb+setUp+,\verb+reqSetUp+,\verb+releaseSetUp+ messages are used for setting
 or releasing a safe radio communication.
+\item \verb+radioHole+ may have the value \verb+BEGIN+, \verb+INSIDE+,
+\verb+END+ or
+\verb+NONE+ regarding if the train enters, leaves or is in a announced radioHole 
+are compatible.
+\end{description}
+
+\subsubsection{Interface with others on board functions}
+The different cases to initiate or terminate a communication have been abstract
+by a single signal. Since the behavior is the same regardless the different
+events, we assume that others tasks of the EVC will activate the signal wen
+needed.
+
+\begin{description}
 \item \verb+orderOnBoard+ represents the order from the on-board EVC to initiate
 or terminate a communication. The possible values are the following ones~: 
   \begin{itemize}
@@ -123,18 +147,8 @@ or terminate a communication. The possible values are the following ones~:
 	\item The balise group orders to end up a radio communication.
 	\end{itemize}
   \end{itemize}
-The order shhould also include  (3.5.3.5)
-\begin{itemize}
-\item The identity and the telephone number of the RBC
-\item The action to be performed
-\item whether it applies also to the sleeping units
-\end{itemize}
 \item \verb+isCompatible+ is set to 1 if a the track and the on-board systems
 (function system version managment)
-\item \verb+radioHole+ may have the value \verb+BEGIN+, \verb+INSIDE+,
-\verb+END+ or
-\verb+NONE+ regarding if the train enters, leaves or is in a announced radioHole 
-are compatible.
 \end{description}
 
 % ----------------------------------------------------
@@ -151,7 +165,8 @@ are detailed in subset-026-7.
 \item \verb+safeRadioLink+ $\in \{\mathtt{NOCOM, COM, LOST}\}$ indicates if a safe radio communication is on.
 \item \verb+radoComSession+ $\in \{\mathtt{TERMINATED, ESTABLISHED}\}$: indicates if a radio session is established with the track.
 \end{itemize} 
-
+Note that the \verb+safeRadioLink+ may be used for the messages given to the
+driver.
 
 % ----------------------------------------------------
 \subsection{Behaviour}

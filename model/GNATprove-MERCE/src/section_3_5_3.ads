@@ -21,16 +21,25 @@
 
 -- Reference: UNISIG SUBSET-026-3 v3.3.0
 
-with ETCS_Level;
-use ETCS_Level;
+with ETCS_Level; use ETCS_Level;
 
-with Com_Map;
-use Com_Map;
+with Data_Types; use Data_Types;
+
+with Com_Map; use Com_Map;
 
 Package Section_3_5_3 is
-   -- ง3.5.3.4
+   -- FIXME using SRS sections as package name is probably not the best approach
+
+   -- ยง3.5.3.4
    Start_Of_Mission : Boolean;
+   End_of_Mission : Boolean;
    Track_Side_New_Communication_Order : Boolean;
+   Track_Side_Terminate_Communication_Order : Boolean;
+   Train_Passes_Level_Transition_Border : Boolean;
+   Train_Passes_RBC_RBC_Border : Boolean;
+   Train_Passes_Start_Of_Announced_Radio_Hole : Boolean;
+   Order_To_Contact_Different_RBC : Boolean;
+   Contact_Order_Not_For_Accepting_RBC : Boolean;
    Mode_Change_Report_To_RBC_Not_Considered_As_End_Of_Mission : Boolean; -- to be refined
    Manual_Level_Change : Boolean;
    Train_Front_Reaches_End_Of_Radio_Hole : Boolean;
@@ -43,25 +52,43 @@ Package Section_3_5_3 is
 
    function Authorize_New_Communication_Session return Boolean is
      ((Start_Of_Mission = True
-       and (ertms_etcs_level = 2 or ertms_etcs_level = 3)) -- ง3.5.3.4.a
-      and Track_Side_New_Communication_Order = True -- ง3.5.3.4.b
+       and (ertms_etcs_level = 2 or ertms_etcs_level = 3)) -- ยง3.5.3.4.a
+      and Track_Side_New_Communication_Order = True -- ยง3.5.3.4.b
       and (Mode_Change_Report_To_RBC_Not_Considered_As_End_Of_Mission = True
-           and (ertms_etcs_level = 2 or ertms_etcs_level = 3))-- ง3.5.3.4.c
+           and (ertms_etcs_level = 2 or ertms_etcs_level = 3))-- ยง3.5.3.4.c
       and (Manual_Level_Change = True
-           and (ertms_etcs_level = 2 or ertms_etcs_level = 3)) -- ง3.5.3.4.d
-      and Train_Front_Reaches_End_Of_Radio_Hole = True -- ง3.5.3.4.e
-      and Previous_Communication_Loss = True -- ง3.5.3.4.f
+           and (ertms_etcs_level = 2 or ertms_etcs_level = 3)) -- ยง3.5.3.4.d
+      and Train_Front_Reaches_End_Of_Radio_Hole = True -- ยง3.5.3.4.e
+      and Previous_Communication_Loss = True -- ยง3.5.3.4.f
       and (Start_Of_Mission_Procedure_Completed_Without_Com = True
-           and (ertms_etcs_level = 2 or ertms_etcs_level = 3)) -- ง3.5.3.4.g
+           and (ertms_etcs_level = 2 or ertms_etcs_level = 3)) -- ยง3.5.3.4.g
      );
 
-   -- ง3.5.3.1 and ง3.5.3.2 implicitly fulfilled as we model on-board
-   procedure Initiate_Communication_Session(destination : RBC_RIU_ID_t)
+   -- ยง3.5.3.1 and ยง3.5.3.2 implicitly fulfilled as we model on-board
+   procedure Initiate_Communication_Session(destination : RBC_RIU_ID_t;
+                                            phone : Telephone_Number_t)
    with
-     Pre => ((Authorize_New_Communication_Session = True) -- ง3.5.3.4
-             and (not Connections.Contains(destination)) -- ง3.5.3.4.1
+     Pre => ((Authorize_New_Communication_Session = True) -- ยง3.5.3.4
+             and (not Connections.Contains(destination)) -- ยง3.5.3.4.1
              -- FIXME: what should we do for cases f and g?
-            );
+            ),
+     Post => (Connections.Contains(destination));
 
-   -- ง3.5.3.3 not formalized (Note)
+   -- ยง3.5.3.3 not formalized (Note)
+
+   -- ยง3.5.3.5
+   procedure Contact_RBC(RBC_identity : RBC_RIU_ID_t;
+                         RBC_number : Telephone_Number_t;
+                         Action : RBC_Contact_Action_t;
+                         Apply_To_Sleeping_Units : Boolean);
+
+   -- ยง3.5.3.5.1 to be formalized. The content of table ยง3.5.3.16 should be
+   -- incorporated as above operation post-condition (if possible)
+
+   -- ยง3.5.3.5.3 and ยง3.5.3.6 not formalized (FIXME). Should be similar to
+   -- ยง3.5.3.5
+
+   -- ยง3.5.3.7 see body of Initiate_Communication_Session
+
+   -- ยง3.5.3.8 to ยง3.5.3.16 not formalized (FIXME)
 end;

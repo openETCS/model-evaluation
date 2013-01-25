@@ -44,6 +44,7 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="evtm" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="incoming_communication">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="incoming_communication"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∈ ER_connections"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evtn" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_information_compatible">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_information_compatible"/>
@@ -89,9 +90,10 @@
 <org.eventb.core.action name=")" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act1"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="ER_connections ≔ ER_connections ∪ {l_partner}" org.eventb.core.label="act2"/>
 <org.eventb.core.parameter name="+" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="current_mode = SOM"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="var3" org.eventb.core.comment="perform EOM while establishing session" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_perform_end_of_mission">
-<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.guard name="'" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
 <org.eventb.core.parameter name="(" org.eventb.core.identifier="l_partner"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
 <org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_mode_change = TRUE ∧ current_mode = EOM"/>
@@ -103,6 +105,7 @@
 <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_level_change = TRUE ∧ current_level ∈ {L0, L1, NTC}"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_mode ≠ SOM"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="var5" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_pass_radio_hole">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="l_partner"/>
@@ -110,6 +113,7 @@
 <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_radio_hole = TRUE ∧ position_radio_hole = TRUE"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_mode ≠ SOM"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="var6" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_RIU_leave_L1">
 <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
@@ -117,6 +121,7 @@
 <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ RIU"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_level_change = TRUE ∧ current_level ≠ L1"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_mode ≠ SOM"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="var8" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_RBC_border">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="l_partner"/>
@@ -124,6 +129,7 @@
 <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ RBC"/>
 <org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_RBC_border = TRUE"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_mode ≠ SOM"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="var:" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="indicate_RBC_border">
 <org.eventb.core.parameter name="'" org.eventb.core.comment="" org.eventb.core.identifier="l_flag"/>
@@ -136,6 +142,7 @@
 <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ RBC"/>
 <org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="RBC ∩ accepting ∩ contacted_by ≠ ∅"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_mode ≠ SOM"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evu)" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="timeout_ER_connection">
 <org.eventb.core.guard name="'" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ ER_connections"/>

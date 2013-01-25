@@ -18,21 +18,25 @@
 --  See the Licence for the specific language governing permissions and
 --  limitations under the Licence.
 
-with Ada.Containers.Formal_Hashed_Maps;
+package body Safe_Radio is
 
-with Ada.Containers; use Ada.Containers;
+   ----------------------
+   -- Setup_Connection --
+   ----------------------
 
-with Data_Types; use Data_Types;
+   function Setup_Connection
+     (phone : Data_Types.Telephone_Number_t)
+      return Boolean
+   is
+   begin
+      --  Generated stub: replace with real body!
+      raise Program_Error with "Unimplemented function Setup_Connection";
+      return False;
+   end Setup_Connection;
 
-package Com_Map is
-   function RBC_RIU_ID_Hash(id : RBC_RIU_ID_t) return Hash_Type is
-     (Hash_Type(id));
-
-   package Com_To_RBC_Map is new Ada.Containers.Formal_Hashed_Maps
-     (Key_Type        => RBC_RIU_ID_t,
-      Element_Type    => Boolean, -- False: com being established
-                                  -- True : com established
-      Hash            => RBC_RIU_ID_Hash,
-      Equivalent_Keys => "=",
-      "="             => "=");
-end;
+   procedure Send_Message(message : Message_Type_t) is
+   begin
+      --  Generated stub: replace with real body!
+      raise Program_Error with "Unimplemented function Setup_Connection";
+   end Send_Message;
+end Safe_Radio;
