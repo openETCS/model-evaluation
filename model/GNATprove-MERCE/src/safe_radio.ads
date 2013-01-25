@@ -21,6 +21,11 @@
 with Data_Types;
 
 package Safe_Radio is
+   type Message_Type_t is (Initiation_Of_Communication);
+
    function Setup_Connection(phone : Data_Types.Telephone_Number_t)
-     return Boolean; -- return True if connection is setup, False otherwise
+                             return Boolean;
+   -- return True if connection is setup, False otherwise
+
+   procedure Send_Message(message : Message_Type_t);
 end;

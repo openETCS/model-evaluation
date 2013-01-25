@@ -28,9 +28,18 @@ with Data_Types; use Data_Types;
 with Com_Map; use Com_Map;
 
 Package Section_3_5_3 is
+   -- FIXME using SRS sections as package name is probably not the best approach
+
    -- §3.5.3.4
    Start_Of_Mission : Boolean;
+   End_of_Mission : Boolean;
    Track_Side_New_Communication_Order : Boolean;
+   Track_Side_Terminate_Communication_Order : Boolean;
+   Train_Passes_Level_Transition_Border : Boolean;
+   Train_Passes_RBC_RBC_Border : Boolean;
+   Train_Passes_Start_Of_Announced_Radio_Hole : Boolean;
+   Order_To_Contact_Different_RBC : Boolean;
+   Contact_Order_Not_For_Accepting_RBC : Boolean;
    Mode_Change_Report_To_RBC_Not_Considered_As_End_Of_Mission : Boolean; -- to be refined
    Manual_Level_Change : Boolean;
    Train_Front_Reaches_End_Of_Radio_Hole : Boolean;
@@ -56,7 +65,8 @@ Package Section_3_5_3 is
      );
 
    -- §3.5.3.1 and §3.5.3.2 implicitly fulfilled as we model on-board
-   procedure Initiate_Communication_Session(destination : RBC_RIU_ID_t)
+   procedure Initiate_Communication_Session(destination : RBC_RIU_ID_t;
+                                            phone : Telephone_Number_t)
    with
      Pre => ((Authorize_New_Communication_Session = True) -- §3.5.3.4
              and (not Connections.Contains(destination)) -- §3.5.3.4.1
@@ -77,4 +87,8 @@ Package Section_3_5_3 is
 
    -- §3.5.3.5.3 and §3.5.3.6 not formalized (FIXME). Should be similar to
    -- §3.5.3.5
+
+   -- §3.5.3.7 see body of Initiate_Communication_Session
+
+   -- §3.5.3.8 to §3.5.3.16 not formalized (FIXME)
 end;

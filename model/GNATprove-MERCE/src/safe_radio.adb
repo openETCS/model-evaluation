@@ -34,4 +34,9 @@ package body Safe_Radio is
       return False;
    end Setup_Connection;
 
+   procedure Send_Message(message : Message_Type_t) is
+   begin
+      --  Generated stub: replace with real body!
+      raise Program_Error with "Unimplemented function Setup_Connection";
+   end Send_Message;
 end Safe_Radio;
