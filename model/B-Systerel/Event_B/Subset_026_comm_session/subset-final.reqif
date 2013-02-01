@@ -6375,7 +6375,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-488c3b64-212f-4cdd-84b0-24b792abb5c0">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_after_timeout  where    @grd6 l_partner ∈ terminated_ER_connectionsend~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#evu*">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_after_timeout  where    @grd6 l_partner ∈ terminated_ER_connections  then    @act3 terminated_ER_connections ≔ terminated_ER_connections ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#evu*">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6387,7 +6387,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-8d90cd97-b0ad-4464-9b84-6f0deda2f44d">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_no_contact_leave_radio_hole  where    @grd6 position_radio_hole = FALSE    @grd7 signal_radio_hole = TRUEend~/Subset_026_comm_session/m4_level_changes.bum|org.eventb.core.machineFile#m4_level_changes|org.eventb.core.event#evtc">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_no_contact_leave_radio_hole  where    @grd6 position_radio_hole = FALSE    @grd7 signal_radio_hole = TRUE  then    @act3 signal_radio_hole ≔ FALSEend~/Subset_026_comm_session/m4_level_changes.bum|org.eventb.core.machineFile#m4_level_changes|org.eventb.core.event#evtc">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6399,7 +6399,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-b7c84a4c-753b-40b6-88e3-74d208fd6658">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_no_contact_manual_change  where    @grd6 current_level ∈ {L2, L3}    @grd7 signal_manual_change = TRUEend~/Subset_026_comm_session/m4_level_changes.bum|org.eventb.core.machineFile#m4_level_changes|org.eventb.core.event#evt\\">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_no_contact_manual_change  where    @grd6 current_level ∈ {L2, L3}    @grd7 signal_manual_level_change = TRUE  then    @act3 signal_manual_level_change ≔ FALSEend~/Subset_026_comm_session/m4_level_changes.bum|org.eventb.core.machineFile#m4_level_changes|org.eventb.core.event#evt\\">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6411,7 +6411,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-8ec62eba-b08a-4cec-af09-36f708a59ef0">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_no_contact_mode_change  where    @grd6 current_level ∈ {L2, L3}    @grd7 signal_mode_change = TRUE    @grd8 current_mode ≠ EOMend~/Subset_026_comm_session/m4_level_changes.bum|org.eventb.core.machineFile#m4_level_changes|org.eventb.core.event#evt[">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event initiate_session_no_contact_mode_change  where    @grd6 current_level ∈ {L2, L3}    @grd7 signal_mode_change = TRUE    @grd8 current_mode ≠ EOM  then    @act3 signal_mode_change ≔ FALSEend~/Subset_026_comm_session/m4_level_changes.bum|org.eventb.core.machineFile#m4_level_changes|org.eventb.core.event#evt[">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6459,7 +6459,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-bec5fa6a-aad5-4060-a260-624a4ab9e872">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="comm_sessions~/Subset_026_comm_session/m0_basic_comm.bum|org.eventb.core.machineFile#m0_basic_comm|org.eventb.core.variable#)">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="sessions~/Subset_026_comm_session/m0_basic_comm.bum|org.eventb.core.machineFile#m0_basic_comm|org.eventb.core.variable#)">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6471,7 +6471,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-8ab9e972-69d8-4d9c-86ac-10d4dae19e39">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event outgoing_communciation  where    @grd3 l_partner ∈ on_trackend~/Subset_026_comm_session/m2_limit_OBU.bum|org.eventb.core.machineFile#m2_limit_OBU|org.eventb.core.event#1">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event outgoing_communciation  any l_partner   where    @grd3 l_partner ∈ contacted  then    @act1 outgoing_sessions ≔ outgoing_sessions ∪ {l_partner}    @act2 contacted ≔ contacted ∖ {l_partner}end~/Subset_026_comm_session/m2_limit_OBU.bum|org.eventb.core.machineFile#m2_limit_OBU|org.eventb.core.event#1">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6483,7 +6483,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-f2152f2b-55fe-43ff-b4a9-3b21ebd7aff6">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event incoming_communication  where    @grd3 l_partner ∈ on_track ∖ RIUend~/Subset_026_comm_session/m2_limit_OBU.bum|org.eventb.core.machineFile#m2_limit_OBU|org.eventb.core.event#0">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event incoming_communication  any l_partner   where    @grd1 l_partner ∉ incoming_sessions ∪ outgoing_sessions    @grd3 l_partner ∈ on_track ∖ RIU    @grd4 l_partner ∉ contacted    @grd5 l_partner ∉ contacted_by  then    @act1 incoming_sessions ≔ incoming_sessions ∪ {l_partner}end~/Subset_026_comm_session/m2_limit_OBU.bum|org.eventb.core.machineFile#m2_limit_OBU|org.eventb.core.event#0">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6507,7 +6507,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-722e9887-73d4-4aa9-9d87-0b6f8ac6e13d">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event receive_contact_order_non_accept  where    @grd3 l_partner ∈ RIU ∪ (RBC ∖ (RBC ∩ accepting))  then    @act2 termination_sessions ≔ termination_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))end~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.event#evtB">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event receive_contact_order_non_accept  any l_partner   where    @grd1 l_partner ∉ contacted ∪ contacted_by ∪ incoming_sessions ∪ outgoing_sessions    @grd3 l_partner ∈ RIU ∪ (RBC ∖ accepting)  then    @act1 contacted_by ≔ contacted_by ∪ {l_partner}    @act2 terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))end~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.event#evtB">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -6591,7 +6591,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         </SPEC-OBJECT>
         <SPEC-OBJECT IDENTIFIER="rmf-4a2cb304-53bd-4d38-aa46-411611fb2c62">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event receive_information_incompatible  where    @grd4 l_partner ∉ system_version_compatible  then    @act2 termination_sessions ≔ termination_sessions ∪ {l_partner}end~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.event#evt=">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event receive_information_incompatible  where    @grd4 l_partner ∉ system_version_compatible  then    @act3 terminating_sessions ≔ terminating_sessions ∪ {l_partner}end~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.event#evt=">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>

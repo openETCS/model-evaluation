@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
-<org.eventb.core.extendsContext name="'" org.eventb.core.target="c2_system_version_mode"/>
 <org.eventb.core.carrierSet name="(" org.eventb.core.comment="" org.eventb.core.identifier="ERTMS_level"/>
-<org.eventb.core.constant name=")" org.eventb.core.identifier="NTC"/>
+<org.eventb.core.constant name=")" org.eventb.core.comment="" org.eventb.core.identifier="NTC"/>
 <org.eventb.core.constant name="*" org.eventb.core.identifier="L0"/>
 <org.eventb.core.constant name="+" org.eventb.core.identifier="L1"/>
 <org.eventb.core.constant name="," org.eventb.core.identifier="L2"/>
