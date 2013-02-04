@@ -180,5 +180,4 @@
 <org.eventb.core.invariant name="evu0" org.eventb.core.comment="" org.eventb.core.label="inv3" org.eventb.core.predicate="(incoming_sessions ∪ outgoing_sessions) ⊆ ER_connections"/>
 <org.eventb.core.variable name="var7" org.eventb.core.identifier="signal_RBC_border"/>
 <org.eventb.core.invariant name="var9" org.eventb.core.label="inv4" org.eventb.core.predicate="signal_RBC_border ∈ BOOL"/>
-<org.eventb.core.seesContext name="var=" org.eventb.core.target="c2_system_version_mode"/>
 </org.eventb.core.machineFile>
