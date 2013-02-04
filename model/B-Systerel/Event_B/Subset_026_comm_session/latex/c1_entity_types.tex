@@ -1,32 +1,18 @@
-\documentclass[10pt,a4paper]{report}
-\usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
-\usepackage {bsymb,b2latex}
-\usepackage[utf8]{inputenc}
-\usepackage{fancyhdr,lastpage,color}
-\lhead{\rm An Event-B Specification of c1\_entity\_types}
-\rhead {\rm Page \thepage~of \pageref{LastPage}}
-\lfoot{}\cfoot{}\rfoot{}
-\pagestyle{fancy}
-%---------------------------------------------------------
-\begin{document}
-\thispagestyle{empty}
 \begin{description}
-\BTitle{c1\_entity\_types}{22Jan2013}{01:58:17 PM}
 \CONTEXT{c1\_entity\_types}
 \EXTENDS{c0\_entities}
 \CONSTANTS
-	\begin{description}
-		\Item{ RBC }
-		\Item{ RIU }
-		\ItemY{ OBU }{}
-		\Item{ on\_track }
-		\ItemY{ on\_board }{}
-	\end{description}
+        \begin{description}
+                \Item{ RBC }
+                \Item{ RIU }
+                \ItemY{ OBU }{}
+                \Item{ on\_track }
+                \ItemY{ on\_board }{}
+        \end{description}
 \AXIOMS
-	\begin{description}
-		\nItem{ axm1 }{ partition(entities,RBC,RIU,OBU) }\cmt{ }
-		\nItem{ axm2 }{ on\_track = RIU \bunion  RBC }		\nItem{ axm3 }{ on\_board = OBU }\cmt{ }
-		\nItem{ axm4 }{ my\_entity \in  on\_board }	\end{description}
+        \begin{description}
+                \nItem{ axm1 }{ partition(entities,RBC,RIU,OBU) }\cmt{ }
+                \nItem{ axm2 }{ on\_track = RIU \bunion  RBC }		\nItem{ axm3 }{ on\_board = OBU }\cmt{ }
+                \nItem{ axm4 }{ my\_entity \in  on\_board }	\end{description}
 \END
 \end{description}
-\end{document}
