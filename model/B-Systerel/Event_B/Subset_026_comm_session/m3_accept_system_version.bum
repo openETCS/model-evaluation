@@ -66,4 +66,7 @@
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_session"/>
 </org.eventb.core.event>
 <org.eventb.core.invariant name="evtH" org.eventb.core.comment="" org.eventb.core.label="inv4" org.eventb.core.predicate="terminating_sessions ⊆ on_track"/>
+<org.eventb.core.event name="evtI" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_contact">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_contact"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

@@ -108,6 +108,12 @@
 <org.eventb.core.action name="+" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act1"/>
 <org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_status = EOM"/>
 </org.eventb.core.event>
+<org.eventb.core.event name="var@" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="est_terminate_order">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_contact"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="current_status ≠ SOM"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
 <org.eventb.core.event name="var4" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_pass_level_transition">
 <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
 <org.eventb.core.parameter name="(" org.eventb.core.identifier="l_partner"/>

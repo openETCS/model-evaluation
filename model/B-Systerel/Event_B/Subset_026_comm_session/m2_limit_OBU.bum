@@ -57,4 +57,9 @@
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_session"/>
 </org.eventb.core.event>
 <org.eventb.core.invariant name="evt:" org.eventb.core.label="inv7" org.eventb.core.predicate="contacted ∩ contacted_by = ∅"/>
+<org.eventb.core.event name="evt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="drop_contact">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="contacted ≔ contacted ∖ {l_partner}" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

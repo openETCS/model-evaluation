@@ -117,4 +117,7 @@
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_session"/>
 </org.eventb.core.event>
 <org.eventb.core.seesContext name="evti" org.eventb.core.target="c3_ERTMS_level"/>
+<org.eventb.core.event name="evtj" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_contact">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_contact"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

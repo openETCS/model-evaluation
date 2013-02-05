@@ -470,6 +470,7 @@ the intersection of the ``sessions'' and ``terminating\_sessions'' sets.
   \begin{itemize}
   \item if part of ongoing start of mission procedure (cf. §3.5.3.7.a)
   \item if safe radio connection is set up (cf. §3.5.3.7.i)
+  \item if order to terminate is received (cf. §3.5.3.7.ii)
   \item if end of mission is performed (cf. §3.5.3.7.iii)
   \item train passes level transition border (cf. §3.5.3.7.iv)
   \item order to establish connection with different non-accepting RBC
@@ -478,6 +479,9 @@ the intersection of the ``sessions'' and ``terminating\_sessions'' sets.
   \item train enters announced radio hole (cf. §3.5.3.7.vii)
   \item level 1 is left (RIU only) (cf. §3.5.3.7.viii)
   \end{itemize}
+\item When the RBC initiates the establishing of a communication session, the
+  OBU shall consider the session established after receiving the initiation
+  message (cf. §3.5.3.10.c)
 \end{itemize}
 
 \input{m5_safe_radio}
