@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+<org.eventb.core.prProof name="switch_SB_SH/isin_SB/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p0" org.eventb.core.prInfHyps="p1,p2"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p0"/>
+<org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p1,p2"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ERTMS_level,{NTC,L0,L1,L2,L3}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p4"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
+<org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p4"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p13"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p8" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p8"/>
+<org.eventb.core.prHypAction name="FORWARD_INF4" org.eventb.core.prHyps="p9" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p9"/>
+<org.eventb.core.prHypAction name="FORWARD_INF6" org.eventb.core.prHyps="p10" org.eventb.core.prInfHyps="p16"/>
+<org.eventb.core.prHypAction name="HIDE7" org.eventb.core.prHyps="p10"/>
+<org.eventb.core.prHypAction name="FORWARD_INF8" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="HIDE9" org.eventb.core.prHyps="p11"/>
+<org.eventb.core.prHypAction name="FORWARD_INF10" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p18"/>
+<org.eventb.core.prHypAction name="HIDE11" org.eventb.core.prHyps="p12"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p19"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p20"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p21"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p22"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p23"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p24"/>
+<org.eventb.core.prHypAction name="HIDE6" org.eventb.core.prHyps="p25"/>
+<org.eventb.core.prHypAction name="HIDE7" org.eventb.core.prHyps="p26"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="SH∈BOOL">
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="{SB}∩{TRUE}∩{SH}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬standstill=moving">
+<org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="({SB}∩{TRUE})∩({IS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="valid_train_data∈BOOL">
+<org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="({SB}∩{TRUE})∩({SH}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="current_level∈ERTMS_level">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL">
+<org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="({SH}∩{TRUE})∩({IS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="current_behavior∈train_behavior">
+<org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="{SH}∩{TRUE}∩{FS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="FS∈BOOL">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE})">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="{SH}∩{TRUE}∩{IS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="({FS}∩{TRUE})∩({IS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="({SB}∩{TRUE})∩({FS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="{TRUE}=({SB}∩{TRUE})∪({SH}∩{TRUE})∪({FS}∩{TRUE})∪({IS}∩{TRUE})">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="IS∈BOOL">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="{SB}∩{TRUE}∩{FS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="{FS}∩{TRUE}∩{IS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="ERTMS_level={NTC,L0,L1,L2,L3}">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="{SB}∩{TRUE}∩{IS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="SB∈BOOL">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
+<org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="train_behavior={standstill,moving}">
+<org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="({SH}∩{TRUE})∩({FS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="switch_SB_SH/enter_SH/SIM" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p0" org.eventb.core.prInfHyps="p1,p2"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p0"/>
+<org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p1,p2"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ERTMS_level,{NTC,L0,L1,L2,L3}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p4"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
+<org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p4"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p13"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p8" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p8"/>
+<org.eventb.core.prHypAction name="FORWARD_INF4" org.eventb.core.prHyps="p9" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p9"/>
+<org.eventb.core.prHypAction name="FORWARD_INF6" org.eventb.core.prHyps="p10" org.eventb.core.prInfHyps="p16"/>
+<org.eventb.core.prHypAction name="HIDE7" org.eventb.core.prHyps="p10"/>
+<org.eventb.core.prHypAction name="FORWARD_INF8" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="HIDE9" org.eventb.core.prHyps="p11"/>
+<org.eventb.core.prHypAction name="FORWARD_INF10" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p18"/>
+<org.eventb.core.prHypAction name="HIDE11" org.eventb.core.prHyps="p12"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p19"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p20"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p21"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p22"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p23"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p24"/>
+<org.eventb.core.prHypAction name="HIDE6" org.eventb.core.prHyps="p25"/>
+<org.eventb.core.prHypAction name="HIDE7" org.eventb.core.prHyps="p26"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="SH∈BOOL">
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="{SB}∩{TRUE}∩{SH}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬standstill=moving">
+<org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="({SB}∩{TRUE})∩({IS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="valid_train_data∈BOOL">
+<org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="({SB}∩{TRUE})∩({SH}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="current_level∈ERTMS_level">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL">
+<org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="({SH}∩{TRUE})∩({IS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="current_behavior∈train_behavior">
+<org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="{SH}∩{TRUE}∩{FS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="FS∈BOOL">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE})">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="{SH}∩{TRUE}∩{IS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="({FS}∩{TRUE})∩({IS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="({SB}∩{TRUE})∩({FS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="{TRUE}=({SB}∩{TRUE})∪({SH}∩{TRUE})∪({FS}∩{TRUE})∪({IS}∩{TRUE})">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="IS∈BOOL">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="{SB}∩{TRUE}∩{FS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="{FS}∩{TRUE}∩{IS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="ERTMS_level={NTC,L0,L1,L2,L3}">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="{SB}∩{TRUE}∩{IS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="SB∈BOOL">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
+<org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="train_behavior={standstill,moving}">
+<org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="({SH}∩{TRUE})∩({FS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="switch_SB_SH/leave_SB/SIM" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p0" org.eventb.core.prInfHyps="p1,p2"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p0"/>
+<org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p1,p2"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ERTMS_level,{NTC,L0,L1,L2,L3}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p4"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
+<org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p4"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p13"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p8" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p8"/>
+<org.eventb.core.prHypAction name="FORWARD_INF4" org.eventb.core.prHyps="p9" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p9"/>
+<org.eventb.core.prHypAction name="FORWARD_INF6" org.eventb.core.prHyps="p10" org.eventb.core.prInfHyps="p16"/>
+<org.eventb.core.prHypAction name="HIDE7" org.eventb.core.prHyps="p10"/>
+<org.eventb.core.prHypAction name="FORWARD_INF8" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="HIDE9" org.eventb.core.prHyps="p11"/>
+<org.eventb.core.prHypAction name="FORWARD_INF10" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p18"/>
+<org.eventb.core.prHypAction name="HIDE11" org.eventb.core.prHyps="p12"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p19"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p20"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p21"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p22"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p23"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p24"/>
+<org.eventb.core.prHypAction name="HIDE6" org.eventb.core.prHyps="p25"/>
+<org.eventb.core.prHypAction name="HIDE7" org.eventb.core.prHyps="p26"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="SH∈BOOL">
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="{SB}∩{TRUE}∩{SH}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬standstill=moving">
+<org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="({SB}∩{TRUE})∩({IS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="valid_train_data∈BOOL">
+<org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="({SB}∩{TRUE})∩({SH}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="current_level∈ERTMS_level">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL">
+<org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="({SH}∩{TRUE})∩({IS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="current_behavior∈train_behavior">
+<org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="{SH}∩{TRUE}∩{FS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="FS∈BOOL">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE})">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="{SH}∩{TRUE}∩{IS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="({FS}∩{TRUE})∩({IS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="({SB}∩{TRUE})∩({FS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="{TRUE}=({SB}∩{TRUE})∪({SH}∩{TRUE})∪({FS}∩{TRUE})∪({IS}∩{TRUE})">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="IS∈BOOL">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="{SB}∩{TRUE}∩{FS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="{FS}∩{TRUE}∩{IS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="ERTMS_level={NTC,L0,L1,L2,L3}">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="{SB}∩{TRUE}∩{IS}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="SB∈BOOL">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
+<org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="train_behavior={standstill,moving}">
+<org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="({SH}∩{TRUE})∩({FS}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+</org.eventb.core.prProof>
+</org.eventb.core.prFile>

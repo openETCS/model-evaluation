@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.carrierSet name="'" org.eventb.core.identifier="train_behavior"/>
+<org.eventb.core.carrierSet name="(" org.eventb.core.identifier="ERTMS_level"/>
+<org.eventb.core.constant name=")" org.eventb.core.identifier="L0"/>
+<org.eventb.core.constant name="*" org.eventb.core.identifier="L1"/>
+<org.eventb.core.constant name="+" org.eventb.core.identifier="L2"/>
+<org.eventb.core.constant name="," org.eventb.core.identifier="L3"/>
+<org.eventb.core.constant name="-" org.eventb.core.identifier="NTC"/>
+<org.eventb.core.constant name="." org.eventb.core.identifier="standstill"/>
+<org.eventb.core.constant name="/" org.eventb.core.identifier="moving"/>
+<org.eventb.core.axiom name="0" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})"/>
+<org.eventb.core.axiom name="1" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(ERTMS_level, {NTC, L0, L1, L2, L3})"/>
+</org.eventb.core.contextFile>
