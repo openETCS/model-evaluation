@@ -26,7 +26,7 @@
 
 \author{Matthias Güdemann\\Systerel, France}
 
-\title{Event-B model of Subset 026, Section 3.5.3}
+\title{Event-B Model of Subset 026, Section 3.5.3}
 
 \date{}
 
@@ -35,82 +35,104 @@
 \maketitle
 
 This document describes a formal model of the requirements of section~3.5.3 of
-the ETCS specification 3.3.0~\cite{ETCS}. This section describes the
-establishing of a communication connection between on-board and on-track
-equipment.
+the subset 026 of the ETCS specification 3.3.0~\cite{ETCS}. This section
+describes the establishing of a communication connection between on-board and
+on-track equipment.
 
 The model is expressed in the formal language Event-B~\cite{eventB} and
-developed in the RODIN tool~\cite{rodin}. In this documentation we present the
-Event-B machines and the contexts of the model. Each section introduces one
-refinement step, discusses the reasoning of that step and the newly introduced
-variables and invariants. Later sections refine the machine, introducing more
-detailed behavior.
+developed within the Rodin tool~\cite{rodin}. This formalism allows an iterative
+modeling approach. In general, one starts with a very abstract description of
+the basic functionality and step-wise adds additional details until the desired
+level of accuracy of the model is reached. Rodin provides the necessary proof
+support to ensure the correctness of the refined behavior.
 
-The machines are not presented in full, only the relevant parts that were
-changed or added will be shown to make it more readable. In particular the
-initialization is not shown for the refined machines. If not mentioned
-explicitly, sets are initialized empty, integers with value 0 and Booleans with
-false.
+In this document we present an Event-B model of the protocol to initiate a
+communication session in an ETCS implementation, as implemented from the
+on-board unit. At first, we describe shortly the background of Event-B, then the
+overall approach taken to model this section and finally present the model in
+detail. For each of the iterative modeling steps, we describe the details added
+by the refinement.
 
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}[ht]{|l|l|}
+    \hline
+    OBU & on board unit \\
+    \hline
+    RIU & radio in-fill unit \\
+    \hline
+    RBC & radio block centre \\
+    \hline
+    SRS & system requirements specification \\
+  \end{tabular}
+  \caption{Glossary}
+  \label{tab:glossary}
+\end{table}
 
 \section{Short Introduction to Event-B}
 \label{sec:short-intr-event}
 
 The formal language Event-B is based on a set-theoretic approach. It is a
 variant of the B language, with a focus on system level
-development~\cite{eventbbook}. An Event-B model describes abstract state
-machines, transitions describe changes to the state variables of the machine and
-pre-conditions of the events are expressed in first order logic with
-equality. The Event-B machines also contain invariant specifications in this
-logic. These represent requirements assuring the correctness of the model.
+modeling~\cite{eventbbook}. An Event-B model is separated into a static and a
+dynamic part.
 
-While Event-B machines describe the dynamic aspect of a model, contexts
-described the static part. In particular, they describe the type system of a
-model by means of carrier sets. Contexts also allow the definition of constants
-and axioms, in general these axioms define constraints on the types.
+The dynamic part of an Event-B model describes abstract state machines. The
+state is represented by a set of state variables. A transition from one state to
+another is represented by parametrized events which assign new values to the
+state variables. Event-B allows unbounded state spaces. They are constrained by
+invariants expressed in first order logic with equality which must be fulfilled
+in any case. The initial state is created by a special initialization event.
 
-Event-B is not only the description of an abstract state machine and its type
-properties, but is also comprised of a development approach. This approach
-consists of iterative refinement of the machines until the desired level of
-detail is reached. To ensure correct refinement, i.e., that the abstract model
-has a more general behavior, proof obligations are created. This can be
-automated by special tools like Rodin. For refinement of abstract data
-structures, the necessary proof obligations must be created manually.
+The static part of an Event-B model is represented by contexts. These consist of
+carrier sets, constants and axioms. The type system of a model is described by
+means of carrier sets and constraints expressed by axioms.
 
-Together with the machine invariants, the proof obligations for the code and
-data refinement, are formally proven, creating proof trees. To accomplish this,
-there are different options: many proof obligations can be discharged by various
-automated provers (e.g., AtelierB, NewPP, Rodin's SMT-plugin), but as the
-underlying logic is in general undecidable, interactive proving is sometimes
-necessary.
+Event-B is not only comprised of descriptions of abstract state machines and
+contexts, but also includes a development approach. This approach consists of
+iterative refinement of the machines until the desired level of detail is
+reached. In the Rodin tool, proof obligations are automatically created which
+ensure correct refinement.
+
+Together with the machine invariants, the proof obligations for the refinement
+are formally proven, creating proof trees. To accomplish this, there are
+different options: many proof obligations can be discharged by automated provers
+(e.g., AtelierB, NewPP, Rodin's SMT-plugin), but as the underlying logic is in
+general undecidable, it is sometimes necessary to use the interactive proof
+support of Rodin.
+
+Any external actions, e.g., mode changes by the driver or train level changes
+are modeled via parametrized events. Only events can modify the variables of a
+machine. An Event-B model is on the system level, events are assumed to be
+called from a software system into which the functional model is embedded. The
+guards of the events assure that any event can only be called when appropriate.
 
 \section{Modeling Strategy}
 \label{sec:modeling-strategy}
 
 The section~3.5.3 of the SRS describes how a communication session is
 established. In its context, the low level EURORADIO network connection
-(cf. §3.5.1.1) are considered basic functionality and are not part of the
+(cf. §3.5.1.1) is considered basic functionality and is not part of the
 modeling.
 
-The model is constructed from the local point of view of an OBU entity, it does
-not consider modeling any on-track unit. On track entities are only modeled as
+The basic modeling element are entities which represent one piece of equipment,
+either on-board, i.e., on the train, or on-track. The model is constructed from
+the local point of view of an OBU entity. On-track entities are only modeled as
 possible communication partners.
-
-Established communication sessions are modeled as sets of entities, the events
-that modify these sets have an event parameter that represents one entity
 
 \section{Model Overview}
 \label{sec:model-overview}
 
 Figure~\ref{fig:model-overview} shows the structure of the Event-B model. The
-blue boxes represent the abstract state machines, the magenta boxes the
+left column represents the abstract state machines, the right column the
 contexts. An arrow from one machine to another machine represents a refinement
 relation, an arrow from a machine to a context represents a sees relation and
 arrow from one context to another represents an extension relation.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=.5\textwidth]{Subset_026_comm_session}
+  \includegraphics[width=.65\textwidth]{Subset_026_comm_session}
   \caption{Overview on State Machine and Context Hierarchy}
   \label{fig:model-overview}
 \end{figure}
@@ -133,15 +155,7 @@ non-accepting RBCs to contact. $c3$ adds the different ERTMS levels and the
 relevant train modes to the model. This is used in $m4$ to model the different
 situations where a communication session must be established. $m5$ adds the
 notion of safe radio connection as low-level prerequisite for a communication
-session to the model.
-
-All external actions, e.g., mode changes by the driver or train level changes
-are modeled via events. Only events can modify the variables of a machine. An
-Event-B model is on the system level, events are assumed to be called from a
-software system into which the functional model is embedded. The guards of the
-events assure that any event can only be called when appropriate, e.g., a
-communication session will not be established before an EURORADIO connection
-exists.
+session.
 
 The representation of the state machines of the modeled protocols for
 establishing a communication session is modeled implicitly. The model allows
@@ -150,7 +164,7 @@ the specification like §3.5.3.5.2). The state of the protocol with different
 partners is tracked by adding / removing these partners from sets representing
 those different states of the protocol.
 
-\section{Model Highlights}
+\section{Model Benefits}
 \label{sec:model-highlights}
 
 The Event-B model in Rodin has some interesting properties which are highlighted
@@ -173,23 +187,31 @@ an extensive proof support for properties.
 \item {\bf Model Animation} The Event-B model can be animated via different
   plugins, e.g., ProB or AnimB. This allows the simulation of the model, by
   clicking on the activated events and tracking the resulting state of the
-  variables. This technique allows to apply the defined test cases to the model.
+  variables. This technique allows to examine the run-time behavior of the
+  model, e.g., for testing purposes. There is also ongoing development for a
+  model-based testing plugin in Rodin, which will allow storing and replaying of
+  event sequences.
 \item {\bf Non-Testable Requirements} The Event-B model supports the
-  specification of invariants which can be formally proven using the Rodin's
-  proof support. This includes for example some of the non-testable requirements
-  of Subset 076.
+  specification of invariants which can be formally proven using the proof
+  support of Rodin. This includes for example the non-testable requirement
+  specified in the subset 076 for §3.5.3.2 (see
+  Section~\ref{sec:machine-2-board}).
 \item {\bf Safety Properties} Using Rodin's proof support and the formalization
   as invariants, it is possible to formalize and prove the identified safety
-  properties for the case study.
+  property of the case study (see Section~\ref{sec:machine-3-accepting}).
 \end{itemize}
 
 \section{Detailed Model Description}
 \label{sec:deta-model-descr}
 
-This section describes in detail the formal model, beginning from the most
-abstract Event-B machine. In general only the important changes will be shown,
-as the complete model is available as a Rodin project. At each step the
-additional modeled functionality will be described.
+This section describes in more detail the formal model, beginning from the most
+abstract Event-B machine. For each refinement, in general only the important
+changes will be shown, the complete model is available as a Rodin project. At
+each step the additional modeled functionality and its representation will be
+described.  In particular the initialization event is not shown for the refined
+machines. If not mentioned explicitly, sets are initialized empty, integers with
+value 0 and Boolean variables with false.
+
 
 \subsection{Context 0 - Entities}
 \label{sec:context-0-entities}
@@ -203,10 +225,14 @@ modeled.
 \subsection{Machine 0 - Basic Communication}
 \label{sec:machine-0-basic}
 
-This abstract state machine represents the basic functionality. Its allows
-for the creation and the destruction of a communication session with another
-entity. The respective events are triggered with a parameter $l\_partner$ which
-represents the potential communication partner.
+This state machine represents the basic functionality. It allows for the
+creation and the termination of a communication session with another entity. The
+sessions are represented by the state variable ``session'' which can contain
+values of type ``entities''. The respective events are triggered with a
+parameter $l\_partner$ representing the communication partner.
+
+\paragraph{Implemented Requirements}
+\label{sec:impl-requ}
 
 \begin{itemize}
 \item each session allows for communication between two entities (cf. §3.5.2.1)
@@ -218,14 +244,13 @@ represents the potential communication partner.
 \label{sec:mach-1-direct}
 
 The first refinement of the machine refines the notion of communication session
-to incoming sessions, i.e., where another entity establishes a session with
-$my\_entity$ and outgoing sessions where $my\_entity$ establishes the session.
+to incoming sessions, i.e., where another entity initiates a session with
+$my\_entity$ and outgoing sessions where $my\_entity$ initiates the session.
 
-The data refinement is proven by the invariant which state that the union of
-outgoing and incoming sessions is equal to the communication sessions and that
-the intersection of the sets of incoming and outgoing session is empty. The
-abstract ``establish\_session'' event is refined to the two events
-``incoming\_session'' and ``outgoing\_session''.
+The data refinement is proven by the invariant which states that ``sessions'' is
+equal to the disjoint union of ``outgoing\_sessions'' and
+``incoming\_sessions''. The abstract ``establish\_session'' event is refined to
+the two events ``incoming\_session'' and ``outgoing\_session''.
 
 \input{m1_directional_communication}
 
@@ -233,9 +258,10 @@ abstract ``establish\_session'' event is refined to the two events
 \label{sec:context-1-entity}
 
 The first context extension introduces the different types of entities relevant
-for this requirement subset, i.e., OBU, RIU, RBC. It restricts the type of
-$my\_entity$ to OBU and adds the distinction between on-track and on-board
-entities.
+in this requirement subset, i.e., on-board unit (OBU), radio in-fill unit (RIU)
+or radio block centre (RBC). Every entity has a unique type. The goal is to
+model the communication protocol from the point of view of an OBU, therefore the
+type of $my\_entity$ is restricted to OBU.
 
 \input{c1_entity_types}
 
@@ -244,8 +270,11 @@ entities.
 
 The next machine refinement adds the notion of being contacted by an on-track
 entity to establish a communication session. It also adds the first state of the
-communication session establishing protocol, i.e., entities which are contacted
-with the ``Initiation of a communication session'' message.
+protocol, i.e., entities which are contacted with the ``Initiation of a
+communication session'' message. On-track entities which order ``my\_entity''
+to contact are stored in the ``contacted\_by'' set, entities to which the first
+message is sent by ``my\_entity'' are stored in the set ``contacted',
+representing those which are in the first stage of the protocol.
 
 The invariants prove that $my\_entity$ will only be in contact with on-track
 entities and that any entities which are considered for a communication session
@@ -253,12 +282,15 @@ are on-track entities. Any entity with whom there is already a communication
 session will not be considered for another session, and finally no radio in-fill
 unit can initiate a communication session with $my\_entity$.
 
+\paragraph{Implemented Requirements}
+\label{sec:impl-requ-1}
+
 \begin{itemize}
 \item It shall be possible for OBU and RBC to initiate communication session
   (cf. §3.5.3.1)
 \item RIU cannot initiate a communication session (cf. §3.5.3.2)
 
-This invariant is marked as ``non-testable'' in Subset-076.
+This invariant is marked as non-testable in Subset-076.
 \end{itemize}
 
 The other invariants ensure that a communication partner is not in different
@@ -271,8 +303,10 @@ started by the order to contact an RBC or directly by the OBU.
 \label{sec:context-2-system}
 
 The next context extension introduces the notion of compatible system
-versions. This is considered to be a static property of the on-track equipment,
-wrt. $my\_entity$, therefore this is modeled as a context axiom.
+versions. This is modeled as a static property of the on-track equipment
+wrt. $my\_entity$, i.e., the context axiom that ``system\_version\_compatible''
+is a subset of all on-track entities. On this level of abstraction, there is no
+need for a finer grained notion of compatibility.
 
 \input{c2_system_version_mode}
 
@@ -280,13 +314,23 @@ wrt. $my\_entity$, therefore this is modeled as a context axiom.
 \label{sec:machine-3-accepting}
 
 The next machine refines the contact order events by discerning between the
-orders to contact an accepting or non-accepting RBC. The notion of being an
-accepting RBC is considered to be a dynamic property and therefore modeling as a
-variable.
+orders to contact an accepting or a non-accepting RBC. The notion of being an
+accepting RBC is considered to be a dynamic property and therefore modeled as a
+variable, i.e., the set ``accepting''.
+
+The ``receive\_contact\_order'' event is refined by two separate events, one for
+orders for an accepting RBC and one for a non-accepting RBC. The
+``outgoing\_communication'' event is refined by two events, one for a compatible
+system version and the other for an incompatible one.
 
 Furthermore, a just established communication session with on-track equipment
 with an incompatible system version will be terminated immediately after
-receiving this information.
+receiving this information. This is modeled by the set ``terminating\_session''
+which holds values of type entities. Only those communication sessions in this
+set can be closed by the termination event.
+
+\paragraph{Implemented Requirements}
+\label{sec:impl-requ-2}
 
 \begin{itemize}
 \item In case of a non-accepting RBC, all existing communication sessions with
@@ -306,13 +350,14 @@ receiving this information.
 
 \input{m3_accept_system_version}
 
-\subsection{Context 3 - ERTMS Level}
+\subsection{Context 3 - ERTMS Levels}
 \label{sec:context-3-ertms}
 
-The third context introduces the notion of the different ERTMS level. It also
-introduces the notion of start of mission, end of mission and the rather
-abstract while mission, i.e., anything between start and end of the current
-train mission.
+The third context introduces the notion of the different ERTMS and the notion of
+the mission status of a train. The modeled statuses are start of mission (SOM),
+end of mission (EOM) and the abstract notion of within a mission (MIS), i.e.,
+anything between start and end of the current train mission. At this level of
+refinement, a more detailed modeling is not necessary.
 
 \input{c3_ERTMS_level}
 
@@ -320,14 +365,30 @@ train mission.
 \subsection{Machine 4 - ERTMS Level Changes}
 \label{sec:machine-4-ertms}
 
-The next refined machine implements mainly the different causes for establishing
-a communication session. For this the current ERTMS level of the train is
-tracked, as well as its current mission status. The indication of a level
-change, a mission status change, a manual level change and an announced radio
-hole is modeled by events which modify corresponding indicator variables to
-signal a change and the variables which represent the current state. E.g., there
-is a ``current\_mode'' variable a the corresponding ``signal\_level\_change''
-variable.
+The next refined machine implements the different causes which can trigger the
+establishing of a communication session. The corresponding events refine the
+abstract ``initiate\_session\_no\_contact'' event. For this, the current ERTMS
+level of the train is tracked, as well as its current mission status.
+
+The indication of a level change, a mission status change, a manual level change
+and an announced radio hole is modeled by events. These events modify the
+corresponding indicator variables to signal a change and they modify the
+corresponding state variables.
+
+This can be illustrated using the manual level change event as example: the
+Boolean variable ``signal\_manual\_level\_change'' indicates that the driver
+manually changed the ERTMS level. It is changed by the ``manual\_change\_level''
+event which is parametrized with the new level and which also modifies the
+``current\_level'' variable which models the current ERTMS level. If the new
+level is 2 or 3, then the train is required to establish a communication session
+with trackside. This is realized in the
+``initiate\_session\_no\_contact\_manual\_change'' event which reset the
+indication variable once the entity has been contacted.  Similar events model
+the initiation because of non-manual level change, mission status change and
+announced radio holes.
+
+\paragraph{Implemented Requirements}
+\label{sec:impl-requ-3}
 
 \begin{itemize}
 \item The on-board shall establish a communication session (cf. §3.5.3.4)
@@ -346,6 +407,37 @@ variable.
 
 \subsection{Machine 5 - Safe Radio Connection}
 \label{sec:machine-5-safe}
+
+The next machine refinement specifies handling of the safe radio connection
+which provides the necessary means to exchange protocol messages on a higher
+level. The existing established safe radio connections are represented by the
+set ``ER\_connections'' which holds values of type entities. Safe radio
+connections which must be established are modeled by the set
+``establish\_ER\_connections'' while ``terminated\_ER\_connections'' holds those
+connections which timed-out. The indication variable ``signal\_RBC\_border''
+signals the crossing of an RBC border which requires to establish a new safe
+radio connection with a new RBC.
+
+\paragraph{Implemented Requirements}
+\label{sec:impl-requ-4}
+
+\begin{itemize}
+\item Establish communication session after safe radio connection timeout
+  (cf. §3.5.3.4.f)
+\item If the communication session is established by an OBU, it shall be
+  preformed according to the following steps (cf. §3.5.3.7)
+  \begin{itemize}
+  \item if part of ongoing start of mission procedure (cf. §3.5.3.7.a)
+  \item if safe radio connection is set up (cf. §3.5.3.7.i)
+  \item if end of mission is performed (cf. §3.5.3.7.iii)
+  \item train passes level transition border (cf. §3.5.3.7.iv)
+  \item order to establish connection with different non-accepting RBC
+    (cf. §3.5.3.7.v)
+  \item train passes RBC / RBC border (cf. §3.5.3.7.vi)
+  \item train enters announced radio hole (cf. §3.5.3.7.vii)
+  \item level 1 is left (RIU only) (cf. §3.5.3.7.viii)
+  \end{itemize}
+\end{itemize}
 
 \input{m5_safe_radio}
 

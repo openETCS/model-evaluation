@@ -1,4 +1,6 @@
 \begin{description}
+\REFINES{m1\_directional\_communication}
+\SEES{c1\_entity\_types}
 \VARIABLES
         \begin{description}
                 \Item{ contacted }
@@ -6,31 +8,36 @@
         \end{description}
 \INVARIANTS
         \begin{description}
-                \nItemY{ inv1 }{ incoming\_sessions \bunion  outgoing\_sessions \subseteq  on\_track }{                 \\\hspace*{1,4 cm}  limit model to OBU -$>$  only on$\_$track communication partners }
+                \nItemY{ inv1 }{ incoming\_sessions \bunion  outgoing\_sessions \subseteq  on\_track }{  }
                 \nItemY{ inv2 }{ contacted \subseteq  on\_track }{  }
                 \nItemY{ inv3 }{ contacted\_by \subseteq  on\_track }{  }
                 \nItem{ inv4 }{ contacted\_by \binter  (incoming\_sessions \bunion  outgoing\_sessions) = \emptyset  }
                 \nItemY{ inv5 }{ contacted \binter  (incoming\_sessions \bunion  outgoing\_sessions) = \emptyset  }{  }
-                \nItem{ inv6 }{ incoming\_sessions \binter  RIU = \emptyset  }
+                \nItemY{ inv6 }{ incoming\_sessions \binter  RIU = \emptyset  }{  }
+                \nItem{ inv7 }{ contacted \binter  contacted\_by = \emptyset  }
         \end{description}
 \EVENTS
         \EVT {incoming\_communication}
-        \EXTD {incoming\_communication}
+        \REF {incoming\_communication}
                 \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_partner }{ }
+                        \end{description}
                 \WhereGrd
                         \begin{description}
-                        \nItem{ grd3 }{ l\_partner \in  on\_track \setminus  RIU }
+                        \nItem{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }
+                        \nItemY{ grd3 }{ l\_partner \in  on\_track \setminus  RIU }{ }
+                        \nItemY{ grd4 }{ l\_partner \notin  contacted }{ }
+                        \nItem{ grd5 }{ l\_partner \notin  contacted\_by }
                         \end{description}
-                \end{description}
-        \EVT {outgoing\_communciation}
-        \EXTD {outgoing\_communciation}
-                \begin{description}
-                \WhereGrd
+                \ThenAct
                         \begin{description}
-                        \nItem{ grd3 }{ l\_partner \in  on\_track }
+                        \nItemY{ act1 }{ incoming\_sessions :=  incoming\_sessions \bunion  \{ l\_partner\}  }{  }
                         \end{description}
+                \EndAct
                 \end{description}
-        \EVT {receive\_contact\_order}\cmt{		\\\hspace*{4,8 cm}  RBC can order contact (cf. 3.5.3.4.b) }
+        \EVT {receive\_contact\_order}\cmt{}
                 \begin{description}
                 \AnyPrm
                         \begin{description}
@@ -47,7 +54,7 @@
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {initiate\_session\_after\_contact}\cmt{		\\\hspace*{6,6 cm}  (cf. 3.5.3.4 b) / (cf. 3.5.3.5.2) }
+        \EVT {initiate\_session\_after\_contact}\cmt{}
                 \begin{description}
                 \AnyPrm
                         \begin{description}
@@ -55,7 +62,6 @@
                         \end{description}
                 \WhereGrd
                         \begin{description}
-                        \nItem{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted }
                         \nItemY{ grd2 }{ l\_partner \in  contacted\_by }{ }
                         \end{description}
                 \ThenAct
@@ -65,7 +71,7 @@
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {initiate\_session\_no\_contact}\cmt{		\\\hspace*{6 cm}  no contact order, i.e., one ofthe other cases of 3.5.3.4 }
+        \EVT {initiate\_session\_no\_contact}\cmt{ }
                 \begin{description}
                 \AnyPrm
                         \begin{description}

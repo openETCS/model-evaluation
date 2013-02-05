@@ -3,14 +3,14 @@
 \SEES{c2\_system\_version\_mode}
 \VARIABLES
         \begin{description}
-                \ItemY{ termination\_sessions }{}
+                \ItemY{ terminating\_sessions }{}
                 \Item{ accepting }
         \end{description}
 \INVARIANTS
         \begin{description}
-                \nItemY{ inv1 }{ termination\_sessions \subseteq  incoming\_sessions \bunion  outgoing\_sessions }{             \\\hspace*{1,4 cm}  only established sessions can be terminated }
-                \nItemY{ inv2 }{ RBC \binter  outgoing\_sessions \subseteq  system\_version\_compatible }{              \\\hspace*{1,4 cm}  Sylvain's safety property }
-                \nItemY{ inv3 }{ accepting \subseteq  RBC }{            \\\hspace*{1,4 cm}  typing invariant for elements of accepting }
+                \nItemY{ inv2 }{ RBC \binter  outgoing\_sessions \setminus  terminating\_sessions \subseteq  system\_version\_compatible }{           }
+                \nItemY{ inv3 }{ accepting \subseteq  RBC }{}
+                \nItemY{ inv4 }{ terminating\_sessions \subseteq  on\_track }{  }
         \end{description}
 \EVENTS
         \EVT {receive\_information\_compatible}
@@ -22,14 +22,13 @@
                         \end{description}
                 \WhereGrd
                         \begin{description}
-                        \nItemX{ grd2 }{ l\_partner \in  entities \setminus  \{ l\_partner\}  }
-                        \nItemXY{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }{ }
-                        \nItemX{ grd3 }{ l\_partner \in  on\_track }
+                        \nItemXY{ grd3 }{ l\_partner \in  contacted }{ }
                         \nItem{ grd4 }{ l\_partner \in  system\_version\_compatible }
                         \end{description}
                 \ThenAct
                         \begin{description}
                         \nItemX{ act1 }{ outgoing\_sessions :=  outgoing\_sessions \bunion  \{ l\_partner\}  }
+                        \nItemX{ act2 }{ contacted :=  contacted \setminus  \{ l\_partner\}  }
                         \end{description}
                 \EndAct
                 \end{description}
@@ -42,54 +41,51 @@
                         \end{description}
                 \WhereGrd
                         \begin{description}
-                        \nItemX{ grd2 }{ l\_partner \in  entities \setminus  \{ l\_partner\}  }
-                        \nItemXY{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }{ }
-                        \nItemX{ grd3 }{ l\_partner \in  on\_track }
+                        \nItemXY{ grd3 }{ l\_partner \in  contacted }{ }
                         \nItem{ grd4 }{ l\_partner \notin  system\_version\_compatible }
                         \end{description}
                 \ThenAct
                         \begin{description}
                         \nItemX{ act1 }{ outgoing\_sessions :=  outgoing\_sessions \bunion  \{ l\_partner\}  }
-                        \nItem{ act2 }{ termination\_sessions :=  termination\_sessions \bunion  \{ l\_partner\}  }
+                        \nItemX{ act2 }{ contacted :=  contacted \setminus  \{ l\_partner\}  }
+                        \nItem{ act3 }{ terminating\_sessions :=  terminating\_sessions \bunion  \{ l\_partner\}  }
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {receive\_contact\_order\_accept}\cmt{		\\\hspace*{6,2 cm}  order to contact a RIU or accepting RBC }
-        \EXTD {receive\_contact\_order}
+        \EVT {receive\_contact\_order\_accept}\cmt{}
+        \REF {receive\_contact\_order}
                 \begin{description}
                 \AnyPrm
                         \begin{description}
-                        \ItemX{l\_partner }
+                        \Item{l\_partner }
                         \end{description}
                 \WhereGrd
                         \begin{description}
-                        \nItemXY{ grd1 }{ l\_partner \notin  contacted \bunion  contacted\_by \bunion  incoming\_sessions \bunion  outgoing\_sessions }{ }
-                        \nItemX{ grd2 }{ l\_partner \in  on\_track }
-                        \nItemY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{		\\\hspace*{1,4 cm}  either RIU or accepting RBC }
+                        \nItemY{ grd1 }{ l\_partner \notin  contacted \bunion  contacted\_by \bunion  incoming\_sessions \bunion  outgoing\_sessions }{ }
+                        \nItemY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{ }
                         \end{description}
                 \ThenAct
                         \begin{description}
-                        \nItemX{ act1 }{ contacted\_by :=  contacted\_by \bunion  \{ l\_partner\}  }
+                        \nItem{ act1 }{ contacted\_by :=  contacted\_by \bunion  \{ l\_partner\}  }
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {receive\_contact\_order\_non\_accept}\cmt{		\\\hspace*{7 cm}  trackside can order contact (cf. 3.5.3.4.b) }
-        \EXTD {receive\_contact\_order}
+        \EVT {receive\_contact\_order\_non\_accept}\cmt{}
+        \REF {receive\_contact\_order}
                 \begin{description}
                 \AnyPrm
                         \begin{description}
-                        \ItemX{l\_partner }
+                        \Item{l\_partner }
                         \end{description}
                 \WhereGrd
                         \begin{description}
-                        \nItemXY{ grd1 }{ l\_partner \notin  contacted \bunion  contacted\_by \bunion  incoming\_sessions \bunion  outgoing\_sessions }{ }
-                        \nItemX{ grd2 }{ l\_partner \in  on\_track }
-                        \nItem{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  (RBC \binter  accepting)) }
+                        \nItemY{ grd1 }{ l\_partner \notin  contacted \bunion  contacted\_by \bunion  incoming\_sessions \bunion  outgoing\_sessions }{ }
+                        \nItem{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  accepting) }
                         \end{description}
                 \ThenAct
                         \begin{description}
-                        \nItemX{ act1 }{ contacted\_by :=  contacted\_by \bunion  \{ l\_partner\}  }
-                        \nItem{ act2 }{ termination\_sessions :=  termination\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
+                        \nItem{ act1 }{ contacted\_by :=  contacted\_by \bunion  \{ l\_partner\}  }
+                        \nItem{ act2 }{ terminating\_sessions :=  terminating\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
                         \end{description}
                 \EndAct
                 \end{description}
@@ -103,13 +99,13 @@
                 \WhereGrd
                         \begin{description}
                         \nItemX{ grd1 }{ l\_partner \in  incoming\_sessions \bunion  outgoing\_sessions }
-                        \nItem{ grd2 }{ l\_partner \in  termination\_sessions }
+                        \nItem{ grd2 }{ l\_partner \in  terminating\_sessions }
                         \end{description}
                 \ThenAct
                         \begin{description}
                         \nItemX{ act1 }{ incoming\_sessions :=  incoming\_sessions \setminus  \{ l\_partner\}  }
                         \nItemX{ act2 }{ outgoing\_sessions :=  outgoing\_sessions \setminus  \{ l\_partner\}  }
-                        \nItem{ act3 }{ termination\_sessions :=  termination\_sessions \setminus  \{ l\_partner\}  }
+                        \nItem{ act3 }{ terminating\_sessions :=  terminating\_sessions \setminus  \{ l\_partner\}  }
                         \end{description}
                 \EndAct
                 \end{description}

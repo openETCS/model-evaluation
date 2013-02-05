@@ -1,4 +1,7 @@
+\thispagestyle{empty}
 \begin{description}
+\REFINES{m0\_basic\_comm}
+\SEES{c0\_entities}
 \VARIABLES
         \begin{description}
                 \Item{ incoming\_sessions }
@@ -6,8 +9,7 @@
         \end{description}
 \INVARIANTS
         \begin{description}
-                \nItemY{ inv1 }{ comm\_sessions = incoming\_sessions \bunion  outgoing\_sessions }{  }
-                \nItem{ inv2 }{ incoming\_sessions \binter  outgoing\_sessions = \emptyset  }
+                \nItemY{ inv1 }{ partition (sessions, incoming\_sessions, outgoing\_sessions) }{  }
         \end{description}
 \EVENTS
         \EVT {incoming\_communication}
@@ -20,7 +22,7 @@
                 \WhereGrd
                         \begin{description}
                         \nItem{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }
-                        \nItemY{ grd2 }{ l\_partner \in  entities \setminus  \{ l\_partner\}  }{ }
+                        \nItemY{ grd2 }{ l\_partner \neq  my\_entity }{ }
                         \end{description}
                 \ThenAct
                         \begin{description}
@@ -37,7 +39,7 @@
                         \end{description}
                 \WhereGrd
                         \begin{description}
-                        \nItem{ grd2 }{ l\_partner \in  entities \setminus  \{ l\_partner\}  }
+                        \nItem{ grd2 }{ l\_partner \neq  my\_entity }
                         \nItemY{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }{ }
                         \end{description}
                 \ThenAct
@@ -46,4 +48,23 @@
                         \end{description}
                 \EndAct
                 \end{description}
+        \EVT {terminate\_communication}
+        \REF {terminate\_communication}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_partner \in  incoming\_sessions \bunion  outgoing\_sessions }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ incoming\_sessions :=  incoming\_sessions \setminus  \{ l\_partner\}  }
+                        \nItem{ act2 }{ outgoing\_sessions :=  outgoing\_sessions \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
 \end{description}
