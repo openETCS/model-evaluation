@@ -300,9 +300,9 @@ type of $my\_entity$ is restricted to OBU.
 
 The next machine refinement adds the notion of being contacted by an on-track
 entity to establish a communication session. It also adds the first state of the
-protocol, i.e., entities which are contacted with the ``Initiation of a
-communication session'' message. On-track entities which order ``my\_entity''
-to contact are stored in the ``contacted\_by'' set, entities to which the first
+protocol, i.e., entities which should be contacted with the ``Initiation of a
+communication session'' message. On-track entities which order ``my\_entity'' to
+contact are stored in the ``contacted\_by'' set, entities to which the first
 message is sent by ``my\_entity'' are stored in the set ``contacted',
 representing those which are in the first stage of the protocol.
 
@@ -447,6 +447,17 @@ connections which must be established are modeled by the set
 connections which timed-out. The indication variable ``signal\_RBC\_border''
 signals the crossing of an RBC border which requires to establish a new safe
 radio connection with a new RBC.
+
+Establishing a communication session then works as follows: if one of the
+conditions of §3.5.3.4 is fulfilled, the corresponding partner is added to the
+set ``contacted''. This is a pre-condition of the events which open a safe radio
+connection to a communication partner. The initiation message of the protocol is
+considered to be sent when a communication partner is both ``contacted'' and
+``ER\_connections'' set. The reception of the system version and the sending of
+the system established message is modeled via the
+``receive\_information\_compatible'' or ``receive\_information\_incompatible''
+events. Established sessions with incompatible system versions are therefore in
+the intersection of the ``sessions'' and ``terminating\_sessions'' sets.
 
 \paragraph{Implemented Requirements}
 \label{sec:impl-requ-4}
