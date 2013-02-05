@@ -1,16 +1,38 @@
-\documentclass[10pt,a4paper]{article}
+% \documentclass{template/openetcs_article}
 
-\usepackage{graphicx}
+% \usepackage{graphicx}
 
-\usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
-\usepackage {bsymb,b2latex}
-\usepackage[utf8]{inputenc}
-\usepackage{fancyhdr,lastpage,color}
-\lhead{\rm An Event-B Specification of c0\_uid}
-\rhead {\rm Page \thepage~of \pageref{LastPage}}
-\lfoot{}\cfoot{}\rfoot{}
-\pagestyle{fancy}
+% %\usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
+% \usepackage {bsymb,b2latex}
+% \usepackage{b2latex}
+% \usepackage{fancyhdr}
+% %\usepackge{lastpage}%
+% %\usepackge{color}
+% \graphicspath{{./template/}{.}{./images/}}
+% %\usepackage[utf8]{inputenc}
+
 %---------------------------------------------------------
+
+\documentclass{template/openetcs_article}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage {bsymb,b2latex}
+\usepackage{lipsum,url,color}
+\graphicspath{{./template/}{.}{./images/}}
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP2/D2.3.0}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Toolchain''}
+
 
 \newcommand{\true}{\ensuremath{true}}
 \newcommand{\btext}[1]{{\it #1}}
@@ -26,13 +48,21 @@
 
 \author{Matthias Güdemann\\Systerel, France}
 
+\affiliation{Systerel}
+
 \title{Event-B Model of Subset 026, Section 3.5.3}
 
-\date{}
+% define the coverart
+\coverart[width=350pt]{chart}
 
-\begin{document}
+\reporttype{Model Description}
+
+%\begin{document}
 
 \maketitle
+\tableofcontents
+\listoffiguresandtables
+\newpage
 
 This document describes a formal model of the requirements of section~3.5.3 of
 the subset 026 of the ETCS specification 3.3.0~\cite{ETCS}. This section
