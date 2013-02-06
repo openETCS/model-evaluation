@@ -1,2 +1,9 @@
 *~
 *.bak
+model/GNATprove-MERCE/obj/
+model/GNATprove-MERCE/gnatprove.out
+*.bps
+*.bpo
+*.bcm
+*.bcc
+*.aux

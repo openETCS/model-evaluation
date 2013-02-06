@@ -1,33 +1,19 @@
-% \documentclass[10pt,a4paper]{report}
-% \usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
-% \usepackage {bsymb,b2latex}
-% \usepackage[utf8]{inputenc}
-% \usepackage{fancyhdr,lastpage,color}
-% \lhead{\rm An Event-B Specification of m0\_basic\_comm}
-% \rhead {\rm Page \thepage~of \pageref{LastPage}}
-% \lfoot{}\cfoot{}\rfoot{}
-% \pagestyle{fancy}
-% %---------------------------------------------------------
-% \begin{document}
-% \thispagestyle{empty}
 \begin{description}
-% \BTitle{m0\_basic\_comm}{22Jan2013}{01:58:17 PM}
-\MACHINE{m0\_basic\_comm}
 \SEES{c0\_entities}
 \VARIABLES
         \begin{description}
-                \Item{ comm\_sessions }
+                \Item{ sessions }
         \end{description}
 \INVARIANTS
         \begin{description}
-                \nItem{ inv1 }{ comm\_sessions \subseteq  entities \setminus  \{ my\_entity\}  }
+                \nItem{ inv1 }{ sessions \subseteq  entities \setminus  \{ my\_entity\}  }
         \end{description}
 \EVENTS
         \INITIALISATION\cmt{ }
                 \begin{description}
                 \BeginAct
                         \begin{description}
-                        \nItem{ act1 }{ comm\_sessions :=  \emptyset  }
+                        \nItem{ act1 }{ sessions :=  \emptyset  }
                         \end{description}
                 \EndAct
                 \end{description}
@@ -39,12 +25,12 @@
                         \end{description}
                 \WhereGrd
                         \begin{description}
-                        \nItemY{ grd1 }{ l\_partner \notin  comm\_sessions }{ }
-                        \nItem{ grd2 }{ l\_partner \in  entities \setminus  \{ l\_partner\}  }
+                        \nItemY{ grd1 }{ l\_partner \notin  sessions }{ }
+                        \nItem{ grd2 }{ l\_partner \neq  my\_entity }
                         \end{description}
                 \ThenAct
                         \begin{description}
-                        \nItem{ act1 }{ comm\_sessions :=  comm\_sessions \bunion  \{ l\_partner\}  }
+                        \nItem{ act1 }{ sessions :=  sessions \bunion  \{ l\_partner\}  }
                         \end{description}
                 \EndAct
                 \end{description}
@@ -56,14 +42,13 @@
                         \end{description}
                 \WhereGrd
                         \begin{description}
-                        \nItem{ grd1 }{ l\_partner \in  comm\_sessions }
+                        \nItem{ grd1 }{ l\_partner \in  sessions }
                         \end{description}
                 \ThenAct
                         \begin{description}
-                        \nItem{ act1 }{ comm\_sessions :=  comm\_sessions \setminus  \{ l\_partner\}  }
+                        \nItem{ act1 }{ sessions :=  sessions \setminus  \{ l\_partner\}  }
                         \end{description}
                 \EndAct
                 \end{description}
 \END
 \end{description}
-% \end{document}

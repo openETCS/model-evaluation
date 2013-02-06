@@ -6,7 +6,7 @@
 <org.eventb.core.variable name="evt2" org.eventb.core.identifier="contacted"/>
 <org.eventb.core.variable name="evt3" org.eventb.core.comment="" org.eventb.core.identifier="contacted_by"/>
 <org.eventb.core.event name="evt4" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
-<org.eventb.core.action name="'" org.eventb.core.assignment="termination_sessions ≔ ∅" org.eventb.core.comment="" org.eventb.core.label="act6"/>
+<org.eventb.core.action name="'" org.eventb.core.assignment="terminating_sessions ≔ ∅" org.eventb.core.comment="" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="accepting ≔ ∅" org.eventb.core.label="act7"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evt5" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="incoming_communication">
@@ -19,16 +19,22 @@
 <org.eventb.core.event name="evt=" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_information_incompatible">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="outgoing_communciation"/>
 <org.eventb.core.guard name="+" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ system_version_compatible"/>
-<org.eventb.core.action name="," org.eventb.core.assignment="termination_sessions ≔ termination_sessions ∪ {l_partner}" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ {l_partner}" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="evt7" org.eventb.core.comment="order to contact a RIU or accepting RBC" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_contact_order_accept">
+<org.eventb.core.event name="evt7" org.eventb.core.comment="order to contact a RIU or accepting RBC" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="receive_contact_order_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_contact_order"/>
+<org.eventb.core.guard name="internal1" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∉ contacted ∪ contacted_by ∪ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="contacted_by ≔ contacted_by ∪ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.parameter name="," org.eventb.core.identifier="l_partner"/>
 <org.eventb.core.guard name="(" org.eventb.core.comment="either RIU or accepting RBC" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∩ accepting)"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="evtB" org.eventb.core.comment="trackside can order contact (cf. 3.5.3.4.b)" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_contact_order_non_accept">
+<org.eventb.core.event name="evtB" org.eventb.core.comment="trackside can order contact (cf. 3.5.3.4.b)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="receive_contact_order_non_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_contact_order"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∖ (RBC ∩ accepting))"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="termination_sessions ≔ termination_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act2"/>
+<org.eventb.core.guard name="internal1" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∉ contacted ∪ contacted_by ∪ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.action name="internal1" org.eventb.core.assignment="contacted_by ≔ contacted_by ∪ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.parameter name="," org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∖ accepting)"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act2"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evt8" org.eventb.core.comment="(cf. 3.5.3.4 b) / (cf. 3.5.3.5.2)" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_after_contact">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_after_contact"/>
@@ -38,12 +44,12 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="evt:" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="terminate_communication">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="terminate_communication"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ termination_sessions"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="termination_sessions ≔ termination_sessions ∖ {l_partner}" org.eventb.core.label="act3"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ terminating_sessions"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∖ {l_partner}" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
-<org.eventb.core.variable name="evt;" org.eventb.core.comment="" org.eventb.core.identifier="termination_sessions"/>
+<org.eventb.core.variable name="evt;" org.eventb.core.comment="" org.eventb.core.identifier="terminating_sessions"/>
 <org.eventb.core.seesContext name="evt?" org.eventb.core.target="c2_system_version_mode"/>
-<org.eventb.core.invariant name="evtA" org.eventb.core.comment="Sylvain's safety property" org.eventb.core.label="inv2" org.eventb.core.predicate="RBC ∩ outgoing_sessions ⊆ system_version_compatible"/>
+<org.eventb.core.invariant name="evtA" org.eventb.core.comment="safety property" org.eventb.core.label="inv2" org.eventb.core.predicate="RBC ∩ outgoing_sessions ∖ terminating_sessions ⊆ system_version_compatible"/>
 <org.eventb.core.variable name="evtC" org.eventb.core.identifier="accepting"/>
 <org.eventb.core.invariant name="evtD" org.eventb.core.comment="typing invariant for elements of accepting" org.eventb.core.label="inv3" org.eventb.core.predicate="accepting ⊆ RBC"/>
 <org.eventb.core.event name="evtE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="make_RBC_accepting">
@@ -59,5 +65,8 @@
 <org.eventb.core.event name="evtG" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_session">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_session"/>
 </org.eventb.core.event>
-<org.eventb.core.invariant name="evtH" org.eventb.core.label="inv4" org.eventb.core.predicate="termination_sessions ⊆ entities ∖ {my_entity}"/>
+<org.eventb.core.invariant name="evtH" org.eventb.core.comment="" org.eventb.core.label="inv4" org.eventb.core.predicate="terminating_sessions ⊆ on_track"/>
+<org.eventb.core.event name="evtI" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_contact">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_contact"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

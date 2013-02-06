@@ -8,13 +8,21 @@
 <org.eventb.core.action name="'" org.eventb.core.assignment="contacted ≔ ∅" org.eventb.core.label="act4"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="contacted_by ≔ ∅" org.eventb.core.label="act5"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="0" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="incoming_communication">
+<org.eventb.core.event name="0" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="incoming_communication">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="incoming_communication"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ on_track ∖ RIU"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="incoming_sessions ≔ incoming_sessions ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ on_track ∖ RIU"/>
+<org.eventb.core.guard name=")" org.eventb.core.comment="" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ contacted"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ contacted_by"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="outgoing_communciation">
+<org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="outgoing_communciation">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="outgoing_communciation"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ on_track"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.action name="internal1" org.eventb.core.assignment="outgoing_sessions ≔ outgoing_sessions ∪ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="contacted ≔ contacted ∖ {l_partner}" org.eventb.core.label="act2"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evt1" org.eventb.core.comment="RBC can order contact (cf. 3.5.3.4.b)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="receive_contact_order">
 <org.eventb.core.guard name="(" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∉ contacted ∪ contacted_by ∪ incoming_sessions ∪ outgoing_sessions"/>
@@ -24,12 +32,11 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="evt2" org.eventb.core.comment="(cf. 3.5.3.4 b) / (cf. 3.5.3.5.2)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_after_contact">
 <org.eventb.core.parameter name="(" org.eventb.core.identifier="l_partner"/>
-<org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions ∪ contacted"/>
 <org.eventb.core.action name="," org.eventb.core.assignment="contacted ≔ contacted ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act1"/>
 <org.eventb.core.guard name="-" org.eventb.core.comment="" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ contacted_by"/>
 <org.eventb.core.action name="/" org.eventb.core.assignment="contacted_by ≔ contacted_by ∖ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="evt3" org.eventb.core.comment="no contact order, i.e., one ofthe other cases of 3.5.3.4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_no_contact">
+<org.eventb.core.event name="evt3" org.eventb.core.comment="no contact order, i.e., one of the other cases of 3.5.3.4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_no_contact">
 <org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions ∪ contacted ∪ contacted_by"/>
 <org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ on_track"/>
 <org.eventb.core.action name="." org.eventb.core.assignment="contacted ≔ contacted ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
@@ -45,8 +52,14 @@
 <org.eventb.core.invariant name="evt5" org.eventb.core.comment="" org.eventb.core.label="inv3" org.eventb.core.predicate="contacted_by ⊆ on_track"/>
 <org.eventb.core.invariant name="evt6" org.eventb.core.label="inv4" org.eventb.core.predicate="contacted_by ∩ (incoming_sessions ∪ outgoing_sessions) = ∅"/>
 <org.eventb.core.invariant name="evt7" org.eventb.core.comment="" org.eventb.core.label="inv5" org.eventb.core.predicate="contacted ∩ (incoming_sessions ∪ outgoing_sessions) = ∅"/>
-<org.eventb.core.invariant name="evt8" org.eventb.core.label="inv6" org.eventb.core.predicate="incoming_sessions ∩ RIU = ∅"/>
+<org.eventb.core.invariant name="evt8" org.eventb.core.comment="" org.eventb.core.label="inv6" org.eventb.core.predicate="incoming_sessions ∩ RIU = ∅"/>
 <org.eventb.core.event name="evt9" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_session">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_session"/>
+</org.eventb.core.event>
+<org.eventb.core.invariant name="evt:" org.eventb.core.label="inv7" org.eventb.core.predicate="contacted ∩ contacted_by = ∅"/>
+<org.eventb.core.event name="evt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="drop_contact">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="contacted ≔ contacted ∖ {l_partner}" org.eventb.core.label="act1"/>
 </org.eventb.core.event>
 </org.eventb.core.machineFile>
