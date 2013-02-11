@@ -11,3 +11,4 @@ Available models:
 * model/EA-SysML model attempt made with Enterprise Architect
 * model/GNATprove-MERCE/ model attempt made with GNATprove tool (http://www.open-do.org/projects/hi-lite/gnatprove/)
 * model/CORE-All4tec model attempt made with CORE Workstation (http://www.vitechcorp.com/products/core.shtml)
+* ERTMSFormalSpec https://github.com/stanpinte/ERTMSFormalSpecs (TODO: add a README file in model/ERTMSFormalSpecs)
