@@ -28,7 +28,7 @@
 % The document metadata is defined below
 
 %assign a report number here
-\reportnum{OETCS/WP2/D2.3.0}
+\reportnum{OETCS}
 
 %define your workpackage here
 \wp{Work-Package 7: ``Toolchain''}
@@ -65,16 +65,16 @@
 \newpage
 
 This document describes a formal model of the requirements of section~3.5.3 of
-the subset 026 of the ETCS specification 3.3.0~\cite{ETCS}. This section
+the subset 026 of the ETCS specification 3.3.0~\cite{SRS-026-330}. This section
 describes the establishing of a communication connection between on-board and
 on-track equipment.
 
-The model is expressed in the formal language Event-B~\cite{eventB} and
-developed within the Rodin tool~\cite{rodin}. This formalism allows an iterative
-modeling approach. In general, one starts with a very abstract description of
-the basic functionality and step-wise adds additional details until the desired
-level of accuracy of the model is reached. Rodin provides the necessary proof
-support to ensure the correctness of the refined behavior.
+The model is expressed in the formal language Event-B~\cite{abrial-eventB-Book}
+and developed within the Rodin tool~\cite{rodin-handbook}. This formalism allows
+an iterative modeling approach. In general, one starts with a very abstract
+description of the basic functionality and step-wise adds additional details
+until the desired level of accuracy of the model is reached. Rodin provides the
+necessary proof support to ensure the correctness of the refined behavior.
 
 In this document we present an Event-B model of the protocol to initiate a
 communication session in an ETCS implementation, as implemented from the
@@ -95,6 +95,7 @@ by the refinement.
     RBC & radio block centre \\
     \hline
     SRS & system requirements specification \\
+    \hline
   \end{tabular}
   \caption{Glossary}
   \label{tab:glossary}
@@ -105,8 +106,8 @@ by the refinement.
 
 The formal language Event-B is based on a set-theoretic approach. It is a
 variant of the B language, with a focus on system level
-modeling~\cite{eventbbook}. An Event-B model is separated into a static and a
-dynamic part.
+modeling~\cite{abrial-eventB-Book}. An Event-B model is separated into a static
+and a dynamic part.
 
 The dynamic part of an Event-B model describes abstract state machines. The
 state is represented by a set of state variables. A transition from one state to
@@ -485,6 +486,9 @@ the intersection of the ``sessions'' and ``terminating\_sessions'' sets.
 \end{itemize}
 
 \input{m5_safe_radio}
+
+\bibliographystyle{alpha}
+\bibliography{openetcs}
 
 \end{document}
 
