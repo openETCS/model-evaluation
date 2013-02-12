@@ -1,0 +1,1520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/3" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/1">
+	<declarations>
+		<Type name="ETCS_Level_Type">
+			<definition>
+				<Enum>
+					<values>
+						<Value name="ETCS_Level_1">
+							<pragmas>
+								<ed:Value oid="!ed/1f70/2EA7/578/507bf11e6bf4" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+									<comment>Level 1</comment>
+								</ed:Value>
+							</pragmas>
+						</Value>
+						<Value name="ETCS_Level_2">
+							<pragmas>
+								<ed:Value oid="!ed/1f77/2EA7/578/507bf13c2855" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+									<comment>Level 2</comment>
+								</ed:Value>
+							</pragmas>
+						</Value>
+						<Value name="ETCS_Level_3">
+							<pragmas>
+								<ed:Value oid="!ed/1f7e/2EA7/578/507bf13d3b94" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+									<comment>Level 3</comment>
+								</ed:Value>
+							</pragmas>
+						</Value>
+					</values>
+				</Enum>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/1f6f/2EA7/578/507bf0d854f" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>The ETCS Level of Operation</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="ETCS_Mode_Type">
+			<definition>
+				<Enum>
+					<values>
+						<Value name="ETCS_Mode_x">
+							<pragmas>
+								<ed:Value oid="!ed/1fb5/4D58/10F8/508177fe6458" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+									<comment>Modes are not specified in Chapter 3.5</comment>
+								</ed:Value>
+							</pragmas>
+						</Value>
+						<Value name="ETCS_Mode_y">
+							<pragmas>
+								<ed:Value oid="!ed/1fb6/4D58/10F8/508178895998"/>
+							</pragmas>
+						</Value>
+						<Value name="ETCS_Mode_EndOfMission">
+							<pragmas>
+								<ed:Value oid="!ed/1fb7/4D58/10F8/50817895229e" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+									<comment>3.5.3.4 c)</comment>
+								</ed:Value>
+							</pragmas>
+						</Value>
+					</values>
+				</Enum>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/1fb4/4D58/10F8/508177df5cbe" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>ETCS Mode</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="orderToContactAnRBC_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/1fd7/3117/1884/5086627362dc"/>
+							</pragmas>
+						</Field>
+						<Field name="rbc_id">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="rbc_id_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/1ff9/5AFE/1FEC/50890d4a524b"/>
+							</pragmas>
+						</Field>
+						<Field name="telephoneNoOfTheRBC">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="rbc_phoneNo_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/1fd8/3117/1884/5086629d59c6"/>
+							</pragmas>
+						</Field>
+						<Field name="actionToBePerformed">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="morc_RBC_action_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/1fd9/3117/1884/5086629d1db"/>
+							</pragmas>
+						</Field>
+						<Field name="appliesAlsoToSleepingUnits">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/1fda/3117/1884/5086629d308f"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/1fd6/3117/1884/5086625a3258" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.3.5</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="morc_RBC_action_Type">
+			<definition>
+				<Enum>
+					<values>
+						<Value name="morc_rbca_noAction">
+							<pragmas>
+								<ed:Value oid="!ed/1ff0/3117/1884/508663462631"/>
+							</pragmas>
+						</Value>
+						<Value name="morc_rbca_establishSession">
+							<pragmas>
+								<ed:Value oid="!ed/1ff1/3117/1884/508663af4f77"/>
+							</pragmas>
+						</Value>
+						<Value name="morc_rbca_terminateSesssion">
+							<pragmas>
+								<ed:Value oid="!ed/1ff2/3117/1884/508663c6609f"/>
+							</pragmas>
+						</Value>
+					</values>
+				</Enum>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/1fef/3117/1884/5086631e2574" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.3.5 a)</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="rbc_id_Type">
+			<definition>
+				<NamedType>
+					<type>
+						<TypeRef name="int"/>
+					</type>
+				</NamedType>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/2004/3117/1884/508667d42cb1" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.3.16</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Constant name="cRBC_id_contactLastKnownRBC">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="rbc_id_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="-1"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/200d/3117/1884/5086681d128b" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.3.13: Order to contact the last known RBC</comment>
+					<comment>3.5.3.16, Option 1: Contact the last known RBC</comment>
+				</ed:Constant>
+			</pragmas>
+		</Constant>
+		<Type name="rbc_phoneNo_Type">
+			<definition>
+				<NamedType>
+					<type>
+						<TypeRef name="int"/>
+					</type>
+				</NamedType>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/201f/3117/1884/508668c867ce" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.3.16</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Constant name="cRBC_phoneNo_UseOnboardStoredShortNo">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="rbc_phoneNo_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="-1"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2028/3117/1884/508668f53119" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.3.16, Option 2: Use on-board stored short number</comment>
+				</ed:Constant>
+			</pragmas>
+		</Constant>
+		<Type name="orderToContactAnAcceptingRBC_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/207e/5AFE/1FEC/508916dc56b3"/>
+							</pragmas>
+						</Field>
+						<Field name="rbc_id">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="rbc_id_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/207f/5AFE/1FEC/508916dccfa"/>
+							</pragmas>
+						</Field>
+						<Field name="telephoneNoOfTheRBC">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="rbc_phoneNo_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/2080/5AFE/1FEC/508916dc48bc"/>
+							</pragmas>
+						</Field>
+						<Field name="appliesAlsoToSleepingUnits">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/2082/5AFE/1FEC/508916dc249f"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/207d/5AFE/1FEC/508916dc7908" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.3.5.3</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="rbc_TransitionOrder_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/2084/5AFE/1FEC/50891783449"/>
+							</pragmas>
+						</Field>
+						<Field name="orderToContactAnAcceptingRBC">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="orderToContactAnAcceptingRBC_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/2085/5AFE/1FEC/50891789463e" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+									<comment>3.5.3.5.3</comment>
+								</ed:Field>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/2083/5AFE/1FEC/5089176da8b"/>
+			</pragmas>
+		</Type>
+		<Type name="orderToContactARadioInfillUnit_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/20a5/5AFE/1FEC/508917f542be"/>
+							</pragmas>
+						</Field>
+						<Field name="radioInFillUnit_id">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="rbc_id_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/20a6/5AFE/1FEC/508917f538b6"/>
+							</pragmas>
+						</Field>
+						<Field name="telephoneNoOfTheRadioInfillUnit">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="rbc_phoneNo_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/20a7/5AFE/1FEC/508917f56604"/>
+							</pragmas>
+						</Field>
+						<Field name="actionToBePerformed">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="morc_RBC_action_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/20a8/5AFE/1FEC/508917f5aed"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/20a4/5AFE/1FEC/508917f5504a" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.3.6</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Constant name="cMaxNoOfConnectionRetries">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="int"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="3"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/21e4/5AFE/1FEC/5089310d1aa0" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.3.7 a)</comment>
+				</ed:Constant>
+			</pragmas>
+		</Constant>
+		<Type name="time_Type">
+			<definition>
+				<NamedType>
+					<type>
+						<TypeRef name="int"/>
+					</type>
+				</NamedType>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/2227/BD8/1838/5090fa943399" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>time in ms</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Constant name="cInvalidOrderToContactAnRBC">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="orderToContactAnRBC_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : false, rbc_id : 0, telephoneNoOfTheRBC : 0, actionToBePerformed : morc_r... -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="rbc_id">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="telephoneNoOfTheRBC">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="actionToBePerformed">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="morc_rbca_noAction"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="appliesAlsoToSleepingUnits">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2242/BD8/1838/5090ff2d12d6"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cRadioConnectionReestablishingTimeout">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="time_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="0"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/23fe/79C7/1248/50a205d1598f" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.4.1, 3.5.4.2.1</comment>
+				</ed:Constant>
+			</pragmas>
+		</Constant>
+		<Constant name="cPositionReportRepetitionInterval">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="time_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="10000"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2390/D7/14DC/50c0c2e76446" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.5.1e)</comment>
+				</ed:Constant>
+			</pragmas>
+		</Constant>
+		<Constant name="cPositionReoport_MaxNoOfRepetitions">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="int"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="5"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2426/7F83/10A4/50c58c0e28ff" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.5.1e)</comment>
+				</ed:Constant>
+			</pragmas>
+		</Constant>
+		<Constant name="cTerminationOfCommunicationSessionRepetitionInterval">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="time_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="1000"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2685/2AF/250/50c5c61276b1" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.5.3.1</comment>
+				</ed:Constant>
+			</pragmas>
+		</Constant>
+		<Constant name="cTerminationOfCommunicationSession_MaxNoOfRepetitions">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="int"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="5"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/268f/2AF/250/50c5c6b8231f" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.5.3.1</comment>
+				</ed:Constant>
+			</pragmas>
+		</Constant>
+		<Type name="radioNetworkID_Type">
+			<definition>
+				<NamedType>
+					<type>
+						<TypeRef name="int"/>
+					</type>
+				</NamedType>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/24b4/2326/DF0/50c76b9745f5" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.6.2</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="validRadioNetworkID_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/24be/2326/DF0/50c76c253d22"/>
+							</pragmas>
+						</Field>
+						<Field name="radioNetworkID">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="radioNetworkID_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/24c7/2326/DF0/50c76c377373"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/24bd/2326/DF0/50c76c006f1f" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.6.2</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Constant name="cInvalidRadioNetworkID">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="validRadioNetworkID_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : false, radioNetworkID : 0} -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="radioNetworkID">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2512/2326/DF0/50c76e693509"/>
+			</pragmas>
+		</Constant>
+		<Type name="RadioNetworkMobileHWStatusType">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/25eb/5D4E/11BC/50c84a9f4e2"/>
+							</pragmas>
+						</Field>
+						<Field name="connectionStatus">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="mobileHWConnectionStatus_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/25ec/5D4E/11BC/50c84aa358c2"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/25ea/5D4E/11BC/50c84a764b61" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.6</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="mobileHWConnectionStatus_Type">
+			<definition>
+				<Enum>
+					<values>
+						<Value name="mhwc_notRegistered">
+							<pragmas>
+								<ed:Value oid="!ed/2609/5D4E/11BC/50c84b622afd"/>
+							</pragmas>
+						</Value>
+						<Value name="mhwc_registered">
+							<pragmas>
+								<ed:Value oid="!ed/260a/5D4E/11BC/50c84b6749bd"/>
+							</pragmas>
+						</Value>
+						<Value name="mhwc_connectionSetupInProgress">
+							<pragmas>
+								<ed:Value oid="!ed/260b/5D4E/11BC/50c84b6877f0"/>
+							</pragmas>
+						</Value>
+						<Value name="mhwc_connected">
+							<pragmas>
+								<ed:Value oid="!ed/260c/5D4E/11BC/50c84b685f31"/>
+							</pragmas>
+						</Value>
+					</values>
+				</Enum>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/2600/5D4E/11BC/50c84afe49e4" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.6.5</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="mobileHWCmd_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/260f/5D4E/11BC/50c84e17937"/>
+							</pragmas>
+						</Field>
+						<Field name="action">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="mobileHWAction_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/2618/5D4E/11BC/50c84e23102f"/>
+							</pragmas>
+						</Field>
+						<Field name="radioNetworkID">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="radioNetworkID_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/25d0/7DD1/1D44/50d1bcf81590"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/260e/5D4E/11BC/50c84dfb52e3" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.6, 3.5.6.3.2, 3.5.6.5, 3.5.6.5:Commands to the mobile hardware</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="mobileHWAction_Type">
+			<definition>
+				<Enum>
+					<values>
+						<Value name="mhwa_nop">
+							<pragmas>
+								<ed:Value oid="!ed/2623/5D4E/11BC/50c84e715b68" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+									<comment>noAction</comment>
+								</ed:Value>
+							</pragmas>
+						</Value>
+						<Value name="mhwa_register">
+							<pragmas>
+								<ed:Value oid="!ed/2624/5D4E/11BC/50c84e9c4b9d"/>
+							</pragmas>
+						</Value>
+						<Value name="mhwa_connect">
+							<pragmas>
+								<ed:Value oid="!ed/2625/5D4E/11BC/50c84e9d6012"/>
+							</pragmas>
+						</Value>
+						<Value name="mhwa_disconnect">
+							<pragmas>
+								<ed:Value oid="!ed/2626/5D4E/11BC/50c84f6d6824"/>
+							</pragmas>
+						</Value>
+						<Value name="mhwa_unregister">
+							<pragmas>
+								<ed:Value oid="!ed/2627/5D4E/11BC/50c84f956190"/>
+							</pragmas>
+						</Value>
+					</values>
+				</Enum>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/2622/5D4E/11BC/50c84e54718c" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.6, 3.5.6.3.2, 3.5.6.5, 3.5.6.5:Commands to the mobile hardware</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="mobileSWCmd_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/2635/5D4E/11BC/50c8558545ba"/>
+							</pragmas>
+						</Field>
+						<Field name="action">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="mobileSWAction_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/263e/5D4E/11BC/50c8559152d5"/>
+							</pragmas>
+						</Field>
+						<Field name="radioNetworkID">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="radioNetworkID_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/25da/7DD1/1D44/50d1beb84326"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/2634/5D4E/11BC/50c85553efe"/>
+			</pragmas>
+		</Type>
+		<Type name="mobileSWAction_Type">
+			<definition>
+				<Enum>
+					<values>
+						<Value name="mswa_nop">
+							<pragmas>
+								<ed:Value oid="!ed/2649/5D4E/11BC/50c855b93e42"/>
+							</pragmas>
+						</Value>
+						<Value name="mswa_register">
+							<pragmas>
+								<ed:Value oid="!ed/264a/5D4E/11BC/50c855c95b98"/>
+							</pragmas>
+						</Value>
+						<Value name="mswa_connect">
+							<pragmas>
+								<ed:Value oid="!ed/264b/5D4E/11BC/50c855c94365"/>
+							</pragmas>
+						</Value>
+						<Value name="mswa_establishRadioConnection">
+							<pragmas>
+								<ed:Value oid="!ed/264c/5D4E/11BC/50c855c94dc1"/>
+							</pragmas>
+						</Value>
+						<Value name="mswa_terminateRadioConnection">
+							<pragmas>
+								<ed:Value oid="!ed/264d/5D4E/11BC/50c8565d25d1"/>
+							</pragmas>
+						</Value>
+						<Value name="mswa_disconnect">
+							<pragmas>
+								<ed:Value oid="!ed/264e/5D4E/11BC/50c8565d42e9"/>
+							</pragmas>
+						</Value>
+						<Value name="mswa_unregister">
+							<pragmas>
+								<ed:Value oid="!ed/264f/5D4E/11BC/50c8568c1bbc"/>
+							</pragmas>
+						</Value>
+					</values>
+				</Enum>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/2648/5D4E/11BC/50c855ae3e94"/>
+			</pragmas>
+		</Type>
+		<Type name="mobileHWStatus_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/25b4/7DD1/1D44/50d1bbb11c1b"/>
+							</pragmas>
+						</Field>
+						<Field name="connectionStatus">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="mobileHWConnectionStatus_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/25bd/7DD1/1D44/50d1bbc3426c"/>
+							</pragmas>
+						</Field>
+						<Field name="settingUpConnectionHasFailed">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/2ae4/4FF2/164C/50f9872b5b36"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/25b3/7DD1/1D44/50d1bb9d20c4" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.6.5</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="mobileSWConnectionStatus_Type">
+			<definition>
+				<Enum>
+					<values>
+						<Value name="mswc_unregistered">
+							<pragmas>
+								<ed:Value oid="!ed/25e6/7DD1/1D44/50d1c4ea64a7"/>
+							</pragmas>
+						</Value>
+						<Value name="mswc_registering">
+							<pragmas>
+								<ed:Value oid="!ed/2763/20F2/166C/50ec33f94f1"/>
+							</pragmas>
+						</Value>
+						<Value name="mswc_registered">
+							<pragmas>
+								<ed:Value oid="!ed/25e7/7DD1/1D44/50d1c50476f7"/>
+							</pragmas>
+						</Value>
+						<Value name="mswc_connecting">
+							<pragmas>
+								<ed:Value oid="!ed/2aa0/3011/1B64/50ec16f71557"/>
+							</pragmas>
+						</Value>
+						<Value name="mswc_connected">
+							<pragmas>
+								<ed:Value oid="!ed/25e8/7DD1/1D44/50d1c504495e"/>
+							</pragmas>
+						</Value>
+						<Value name="mswc_establishingSession">
+							<pragmas>
+								<ed:Value oid="!ed/25e9/7DD1/1D44/50d1c5042855"/>
+							</pragmas>
+						</Value>
+						<Value name="mswc_sessionEstablished">
+							<pragmas>
+								<ed:Value oid="!ed/25ea/7DD1/1D44/50d1c505725e"/>
+							</pragmas>
+						</Value>
+					</values>
+				</Enum>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/25e5/7DD1/1D44/50d1c4cf4c78"/>
+			</pragmas>
+		</Type>
+		<Type name="mobileSWStatus_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/25ee/7DD1/1D44/50d1c66ad91"/>
+							</pragmas>
+						</Field>
+						<Field name="mobileHW_available">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/25ef/7DD1/1D44/50d1c66d476e"/>
+							</pragmas>
+						</Field>
+						<Field name="connectionStatus">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="mobileSWConnectionStatus_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/25f0/7DD1/1D44/50d1c66d72da"/>
+							</pragmas>
+						</Field>
+						<Field name="registeredRadioNetworkID">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="radioNetworkID_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/27b1/20F2/166C/50ec39425483"/>
+							</pragmas>
+						</Field>
+						<Field name="settingUpConnectionHasFailed">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/2aee/4FF2/164C/50f9878935e6"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/25ed/7DD1/1D44/50d1c6554016"/>
+			</pragmas>
+		</Type>
+		<Constant name="cInvalidMobileHWStatus_Type">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileHWStatus_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : false, connectionStatus : mhwc_notRegistered, settingUpConnectionHasFail... -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="connectionStatus">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mhwc_notRegistered"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="settingUpConnectionHasFailed">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/263b/7DD1/1D44/50d1c9c3795b"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cInvalidMobileSWCmd">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileSWCmd_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : false, action : mswa_nop, radioNetworkID : 0} -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="action">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mswa_nop"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="radioNetworkID">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/26a8/7DD1/1D44/50d1ce6b5f70"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cInvalidmobileHWCmd">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileHWCmd_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : false, action : mhwa_nop, radioNetworkID : 0} -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="action">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mhwa_nop"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="radioNetworkID">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2733/7DD1/1D44/50d1d49f4988"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cMobileSWStatus_noHW">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileSWStatus_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : true, mobileHW_available : false, connectionStatus : mswc_unregistered, ... -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="true"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="mobileHW_available">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="connectionStatus">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mswc_unregistered"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="registeredRadioNetworkID">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="cInvalidRadioNetworkID_value"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="settingUpConnectionHasFailed">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2751/7DD1/1D44/50d1d5477df8"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cInvalidMobileSWStatus">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileSWStatus_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : false, mobileHW_available : false, connectionStatus : mswc_unregistered,... -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="mobileHW_available">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="connectionStatus">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mswc_unregistered"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="registeredRadioNetworkID">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="settingUpConnectionHasFailed">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/277f/7DD1/1D44/50d1d69a3527"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cMobileSWStatus_unregistered">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileSWStatus_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : true, mobileHW_available : true, connectionStatus : mswc_unregistered, r... -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="true"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="mobileHW_available">
+							<flow>
+								<ConstValue value="true"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="connectionStatus">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mswc_unregistered"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="registeredRadioNetworkID">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="settingUpConnectionHasFailed">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2726/20F2/166C/50ec2ae1284b"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cInvalidRadioNetworkID_value">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="radioNetworkID_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="-1"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/277e/20F2/166C/50ec35273ef7"/>
+			</pragmas>
+		</Constant>
+		<Type name="safeRadioConnectionStatus_Type">
+			<definition>
+				<Enum>
+					<values>
+						<Value name="srcs_NoConnection">
+							<pragmas>
+								<ed:Value oid="!ed/27f5/6FDE/1E54/50f3e81841df"/>
+							</pragmas>
+						</Value>
+						<Value name="srcs_ConnectionLost_SetupFailed">
+							<pragmas>
+								<ed:Value oid="!ed/27f6/6FDE/1E54/50f3e84e26fb"/>
+							</pragmas>
+						</Value>
+						<Value name="srcs_ConnectionUp">
+							<pragmas>
+								<ed:Value oid="!ed/27f7/6FDE/1E54/50f3e84e2c88"/>
+							</pragmas>
+						</Value>
+					</values>
+				</Enum>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/27f4/6FDE/1E54/50f3e7f91475" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>3.5.7.1</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Type name="safeRadioConnectionStatusValid_Type">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="valid">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/27f9/6FDE/1E54/50f3e93a5d80"/>
+							</pragmas>
+						</Field>
+						<Field name="status">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="safeRadioConnectionStatus_Type"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/27fa/6FDE/1E54/50f3e9407caf"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/27f8/6FDE/1E54/50f3e91e466f"/>
+			</pragmas>
+		</Type>
+		<Constant name="cTime_0">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="time_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="0"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2b1e/3E15/13D8/50f6b7bf7a03"/>
+			</pragmas>
+		</Constant>
+		<Type name="sessionStatus_Type">
+			<definition>
+				<Enum>
+					<values>
+						<Value name="morc_st_inactive">
+							<pragmas>
+								<ed:Value oid="!ed/2a06/6D2E/13B8/50f802512eb7"/>
+							</pragmas>
+						</Value>
+						<Value name="morc_st_establishing">
+							<pragmas>
+								<ed:Value oid="!ed/2a07/6D2E/13B8/50f8026a87a"/>
+							</pragmas>
+						</Value>
+						<Value name="morc_st_maintaining">
+							<pragmas>
+								<ed:Value oid="!ed/2a08/6D2E/13B8/50f8026a764c"/>
+							</pragmas>
+						</Value>
+						<Value name="morc_st_terminating">
+							<pragmas>
+								<ed:Value oid="!ed/2a09/6D2E/13B8/50f8026a2b75"/>
+							</pragmas>
+						</Value>
+					</values>
+				</Enum>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/2a05/6D2E/13B8/50f8022b1e76" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>Designates the MoRC session status</comment>
+				</ed:Type>
+			</pragmas>
+		</Type>
+		<Constant name="cEstablishSafeRadioConnectionCmd">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileSWCmd_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : true, action : mswa_establishRadioConnection, radioNetworkID : 0} -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="true"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="action">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mswa_establishRadioConnection"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="radioNetworkID">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2bcf/E58/1F70/511265897872"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cTerminateSafeRadioConnectionCmd">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileSWCmd_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : true, action : mswa_terminateRadioConnection, radioNetworkID : 0} -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="true"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="action">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mswa_terminateRadioConnection"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="radioNetworkID">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/2bf7/E58/1F70/5112665710ea"/>
+			</pragmas>
+		</Constant>
+	</declarations>
+</File>
