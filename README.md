@@ -13,4 +13,4 @@ Available models:
 * model/CORE-All4tec model attempt made with CORE Workstation (http://www.vitechcorp.com/products/core.shtml)
 * ERTMSFormalSpec https://github.com/stanpinte/ERTMSFormalSpecs (TODO: add a README file in model/ERTMSFormalSpecs)
 * model/SCADE_Siemens: SCADE model, generated C code and documentation made with SCADE Suite (http://www.esterel-technologies.com/)
-* 
+
