@@ -7,3 +7,7 @@ model/GNATprove-MERCE/gnatprove.out
 *.bcm
 *.bcc
 *.aux
+*.log
+*.lof
+*.lot
+*.toc

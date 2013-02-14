@@ -41,6 +41,11 @@
   This document explains how Rodin projects on github can be imported into the
   Rodin platform. This is illustrated using the \texttt{model-evaluation}
   sub-project of \texttt{openETCS}.
+
+  The document includes the documentation about how to install Rodin, lists the
+  necessary plugins and suggests useful, additional plugins. At the end of this
+  document, several frequently asked questions ({\bf FAQ}) and their respective
+  answers are collected.
 \end{abstract}
 
 \section{Prerequisites}
@@ -247,64 +252,91 @@ the local Rodin workspace.
 \section{Frequently Asked Questions - FAQ}
 \label{sec:faq}
 
-\begin{itemize}
-\item {\bf How are requirements traced?}
+\subsection{How are requirements traced?}
+\label{sec:how-are-requirements}
 
-  For requirements tracing we use the ProR
-  plugin~\footnote{http://wiki.event-b.org/index.php/ProR} from
-  formalmind~\footnote{http://www.formalmind.com}. It is based on the OMG
-  standardized ReqIf format. It allows for tracing of Event-B modeling artifacts
-  in ReqIf files. Changes in either the model or the ReqIf are marked
-  automatically, the ProR view of Rodin is shown in
-  Figure~\ref{fig:req-tracing}.
+For requirements tracing we use the ProR
+plugin~\footnote{http://wiki.event-b.org/index.php/ProR} from
+formalmind~\footnote{http://www.formalmind.com}. It is based on the OMG
+standardized ReqIf format. It allows for tracing of Event-B modeling artifacts
+in ReqIf files. Changes in either the model or the ReqIf are marked
+automatically, the ProR view of Rodin is shown in Figure~\ref{fig:req-tracing}.
 
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{ReqIfinRodin}
-    \caption{Requirements Tracing with ProR}
-    \label{fig:req-tracing}
-  \end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{ReqIfinRodin}
+  \caption{Requirements Tracing with ProR}
+  \label{fig:req-tracing}
+\end{figure}
 
-  To open a ReqIf file, the ``Resources'' view of Rodin must be selected which
-  will show all files in the project in the Project-Explorer.
+To open a ReqIf file, the ``Resources'' view of Rodin must be selected which
+will show all files in the project in the Project-Explorer.
 
-\item {\bf Proof obligations are not shown in the Event-b explorer. How to
-    create them?}
+\subsection{Proof obligations are not shown in the Event-b explorer. How to
+  create them?}
+\label{sec:proof-oblig-are}
 
-  This can have different causes. Trivial proof obligations are not shown, this
-  concerns in particular proofs for well-definedness~\footnote{see
-    \url{http://handbook.event-b.org/current/html/well_definedness_proof_obligations.html}}. It
-  is also possible to hide proven proof obligations by toggling the green button
-  on top of the Event-B Explorer shown in
-  Figure~\ref{fig:tree-proof-obligations} (button is inactive in this example).
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=.5\textwidth]{RodinEventBView}
-    \caption{Event-B Project Tree View with Proof Obligations}
-    \label{fig:tree-proof-obligations}
-  \end{figure}
+This can have different causes. Trivial proof obligations are not shown, this
+concerns in particular proofs for well-definedness~\footnote{see
+  \url{http://handbook.event-b.org/current/html/well_definedness_proof_obligations.html}}. It
+is also possible to hide proven proof obligations by toggling the green button
+on top of the Event-B Explorer shown in
+Figure~\ref{fig:tree-proof-obligations} (button is inactive in this example).
 
-  Another possibility is a problem with some installed plugins, in this case the
-  project can be cleaned by selecting ``Project->Clean'' from the main Rodin
-  menu. If  ``Project->Build Automatically'' is selected the project will be
-  automatically refreshed, this is also possible manually by selecting the
-  project, hitting F5 or selecting ``Refresh'' from the right-click menu.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.5\textwidth]{RodinEventBView}
+  \caption{Event-B Project Tree View with Proof Obligations}
+  \label{fig:tree-proof-obligations}
+\end{figure}
 
-\item {\bf If I try to open a ReqIf file, Rodin nothing happens and Rodin
-    freezes. What happened?}
+Another possibility is a problem with some installed plugins, in this case the
+project can be cleaned by selecting ``Project->Clean'' from the main Rodin
+menu. If  ``Project->Build Automatically'' is selected the project will be
+automatically refreshed, this is also possible manually by selecting the
+project, hitting F5 or selecting ``Refresh'' from the right-click menu.
 
-  There is a problem in the ProR plugin which can cause this behavior (e.g., see
-  here \url{https://bugs.eclipse.org/bugs/show_bug.cgi?id=397672}). Currently
-  the best solution is to install the most recent JDK
-  from~\url{http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html}.
+\subsection{If I try to open a ReqIf file, Rodin nothing happens and Rodin
+  freezes. What happened?}
+\label{sec:if-i-try}
 
-\end{itemize}
+There is a problem in the ProR plugin which can cause this behavior (e.g., see
+here \url{https://bugs.eclipse.org/bugs/show_bug.cgi?id=397672}). Currently
+the best solution is to install the most recent JDK
+from~\url{http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html}.
+
+\subsection{How can I see the definition of an Event-B model artifact which is
+  linked in a ReqIf file?}
+\label{sec:how-can-i}
+
+
+When opening a ReqIf file, the standard view only displays whether a
+requirement is linked or not. To see all linked model elements, the
+``SpecRelations (Links)'' button must be toggled (see
+Figure~\ref{fig:spec-relations-button}).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.35\textwidth]{ProR-Link-Toggle}
+  \caption{Active SpecRelations Button}
+  \label{fig:spec-relations-button}
+\end{figure}
+
+When active, each linked requirements shows a list of linked model
+elements. When selecting one of these elements, its textual Event-B definition
+is shown in the ``Properties'' window (see
+Figure~\ref{fig:properties-window-element}).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{ProR-Link-View}
+  \caption{Properties Window with Element Definition}
+  \label{fig:properties-window-element}
+\end{figure}
 
 \end{document}
-
-
 
 
 %%% Local Variables:
