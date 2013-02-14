@@ -88,7 +88,10 @@ repository is available under Rodin as ``Atelier B Provers''.
 
 The integration with ProR allows for the traceability of requirements in the
 provided ReqIf files. The repository is available under Rodin as ``ProR'', where
-the ``ProR Rodin integration feature'' must be installed.
+the ``ProR Rodin integration feature'' must be installed. {\bf NOTE: } For the
+current ProR version 0.6.0 there are known problems with Java version 6. It is
+suggested to use Java version 7, if possible the latest JVM from
+\url{http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html}.
 
 \paragraph{EGit}
 \label{sec:egit}
@@ -288,6 +291,14 @@ the local Rodin workspace.
   menu. If  ``Project->Build Automatically'' is selected the project will be
   automatically refreshed, this is also possible manually by selecting the
   project, hitting F5 or selecting ``Refresh'' from the right-click menu.
+
+\item {\bf If I try to open a ReqIf file, Rodin nothing happens and Rodin
+    freezes. What happened?}
+
+  There is a problem in the ProR plugin which can cause this behavior (e.g., see
+  here \url{https://bugs.eclipse.org/bugs/show_bug.cgi?id=397672}). Currently
+  the best solution is to install the most recent JDK
+  from~\url{http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html}.
 
 \end{itemize}
 
