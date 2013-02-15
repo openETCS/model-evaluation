@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="m3_driver"/>
+<org.eventb.core.seesContext name="_06y1EXRrEeKaL9D2G7EBFQ" org.eventb.core.target="c1_train"/>
+<org.eventb.core.variable name="_C6WScHRnEeKaL9D2G7EBFQ" org.eventb.core.generated="true" org.eventb.core.identifier="SB" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._NWOUQGrLEeKD764pGXeLfg"/>
+<org.eventb.core.variable name="_C6W5gHRnEeKaL9D2G7EBFQ" org.eventb.core.generated="true" org.eventb.core.identifier="SH" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._NWOUQGrLEeKD764pGXeLfg"/>
+<org.eventb.core.variable name="_C6W5gXRnEeKaL9D2G7EBFQ" org.eventb.core.generated="true" org.eventb.core.identifier="FS" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._NWOUQGrLEeKD764pGXeLfg"/>
+<org.eventb.core.variable name="_C6XgkHRnEeKaL9D2G7EBFQ" org.eventb.core.generated="true" org.eventb.core.identifier="IS" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._NWOUQGrLEeKD764pGXeLfg"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLfn" org.eventb.core.identifier="current_level"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLfp" org.eventb.core.comment="" org.eventb.core.identifier="current_behavior"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLfx" org.eventb.core.comment="" org.eventb.core.identifier="valid_train_data"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLfy" org.eventb.core.comment="" org.eventb.core.identifier="MA_SSP_gradient_data"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLg-" org.eventb.core.identifier="driver_select_shunting"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLg." org.eventb.core.comment="" org.eventb.core.identifier="driver_request_shunting"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLg/" org.eventb.core.comment="" org.eventb.core.identifier="driver_ack_shunting"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLg0" org.eventb.core.comment="" org.eventb.core.identifier="display_shunting_ack"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLg1" org.eventb.core.comment="" org.eventb.core.identifier="shunting_granted_RBC"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLg=" org.eventb.core.comment="" org.eventb.core.identifier="driver_isolates_ETCS"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLgC" org.eventb.core.identifier="specific_mode_profile"/>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgD" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION"/>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgE" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="change_specific_mode_profile">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="change_specific_mode_profile"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgF" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="driver_isolates_ETCS">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="driver_isolates_ETCS"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgG" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="driver_select_shunting">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="driver_select_shunting"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgH" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="driver_request_shunting">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="driver_request_shunting"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgI" org.eventb.core.comment="train acknowledges shunting -&gt; specific mode required?" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="display_shunting_ack">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="display_shunting_ack"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgJ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="driver_ack_shunting">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="driver_ack_shunting"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgK" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="store_valid_train_data">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="store_valid_train_data"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgL" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="remove_valid_train_data">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="remove_valid_train_data"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgM" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="store_MA_SSP_gradient_data">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="store_MA_SSP_gradient_data"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgN" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="remove_MA_SSP_gradient_data">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="remove_MA_SSP_gradient_data"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgO" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="change_level">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="change_level"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgP" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="change_behavior">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="change_behavior"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="switch_SB_SH_cond_5">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="switch_SB_SH_cond_5"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgR" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="switch_SB_SH_cond_6">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="switch_SB_SH_cond_6"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgS" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="switch_SB_SH_cond_50">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="switch_SB_SH_cond_50"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgT" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="switch_SB_FS">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="switch_SB_FS"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgU" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="switch_SB_IS">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="switch_SB_IS"/>
+</org.eventb.core.event>
+<ac.soton.eventb.emf.core.extension.persistence.serialisedExtension ac.soton.eventb.emf.core.extension.persistence.eClassifier="Statemachine" ac.soton.eventb.emf.core.extension.persistence.ePackageURI="http://soton.ac.uk/models/eventb/statemachines" ac.soton.eventb.emf.core.extension.persistence.extensionId="ac.soton.eventb.statemachines._NWOUQGrLEeKD764pGXeLfg" ac.soton.eventb.emf.core.extension.persistence.serialised="&lt;statemachines:Statemachine xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:statemachines=&quot;http://soton.ac.uk/models/eventb/statemachines&quot; reference=&quot;ac.soton.eventb.statemachines.Statemachine.mode_changes&quot; localGenerated=&quot;false&quot; extensionId=&quot;ac.soton.eventb.statemachines._NWOUQGrLEeKD764pGXeLfg&quot;&gt;&#10;  &lt;annotations source=&quot;http:///org/eventb/core/RodinInternalAnnotations&quot;&gt;&#10;    &lt;details key=&quot;name&quot; value=&quot;_NWc9wGrLEeKD764pGXeLfg&quot;/&gt;&#10;  &lt;/annotations&gt;&#10;  &lt;refines href=&quot;platform:/resource/Subset_026_Chap_4_6/m3_driver.bum#ac.soton.eventb.statemachines.Statemachine.mode_changes&quot;/&gt;&#10;  &lt;nodes xsi:type=&quot;statemachines:Initial&quot; reference=&quot;ac.soton.eventb.statemachines.Initial._1YcakGrMEeKD764pGXeLfg&quot;&gt;&#10;    &lt;outgoing href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.Transition._1YcakmrMEeKD764pGXeLfg&quot;/&gt;&#10;  &lt;/nodes&gt;&#10;  &lt;nodes xsi:type=&quot;statemachines:State&quot; reference=&quot;ac.soton.eventb.statemachines.State.SB&quot;&gt;&#10;    &lt;incoming href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.Transition._1YcakmrMEeKD764pGXeLfg&quot;/&gt;&#10;    &lt;outgoing href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.Transition._1YdBoGrMEeKD764pGXeLfg&quot;/&gt;&#10;    &lt;outgoing href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.Transition._1YdBoWrMEeKD764pGXeLfg&quot;/&gt;&#10;    &lt;outgoing href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.Transition._1YdBomrMEeKD764pGXeLfg&quot;/&gt;&#10;    &lt;refines href=&quot;platform:/resource/Subset_026_Chap_4_6/m3_driver.bum#ac.soton.eventb.statemachines.State.SB&quot;/&gt;&#10;  &lt;/nodes&gt;&#10;  &lt;nodes xsi:type=&quot;statemachines:State&quot; reference=&quot;ac.soton.eventb.statemachines.State.SH&quot;&gt;&#10;    &lt;incoming href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.Transition._1YdBoGrMEeKD764pGXeLfg&quot;/&gt;&#10;    &lt;refines href=&quot;platform:/resource/Subset_026_Chap_4_6/m3_driver.bum#ac.soton.eventb.statemachines.State.SH&quot;/&gt;&#10;  &lt;/nodes&gt;&#10;  &lt;nodes xsi:type=&quot;statemachines:State&quot; reference=&quot;ac.soton.eventb.statemachines.State.FS&quot;&gt;&#10;    &lt;incoming href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.Transition._1YdBoWrMEeKD764pGXeLfg&quot;/&gt;&#10;    &lt;refines href=&quot;platform:/resource/Subset_026_Chap_4_6/m3_driver.bum#ac.soton.eventb.statemachines.State.FS&quot;/&gt;&#10;  &lt;/nodes&gt;&#10;  &lt;nodes xsi:type=&quot;statemachines:State&quot; reference=&quot;ac.soton.eventb.statemachines.State.IS&quot;&gt;&#10;    &lt;incoming href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.Transition._1YdBomrMEeKD764pGXeLfg&quot;/&gt;&#10;    &lt;refines href=&quot;platform:/resource/Subset_026_Chap_4_6/m3_driver.bum#ac.soton.eventb.statemachines.State.IS&quot;/&gt;&#10;  &lt;/nodes&gt;&#10;  &lt;transitions reference=&quot;ac.soton.eventb.statemachines.Transition._1YcakmrMEeKD764pGXeLfg&quot;&gt;&#10;    &lt;target xsi:type=&quot;statemachines:State&quot; href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.State.SB&quot;/&gt;&#10;    &lt;source xsi:type=&quot;statemachines:Initial&quot; href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.Initial._1YcakGrMEeKD764pGXeLfg&quot;/&gt;&#10;    &lt;elaborates href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#org.eventb.emf.core.machine.Event.INITIALISATION&quot;/&gt;&#10;  &lt;/transitions&gt;&#10;  &lt;transitions reference=&quot;ac.soton.eventb.statemachines.Transition._1YdBoGrMEeKD764pGXeLfg&quot;&gt;&#10;    &lt;target xsi:type=&quot;statemachines:State&quot; href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.State.SH&quot;/&gt;&#10;    &lt;source xsi:type=&quot;statemachines:State&quot; href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.State.SB&quot;/&gt;&#10;    &lt;elaborates href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#org.eventb.emf.core.machine.Event.switch_SB_SH_cond_5&quot;/&gt;&#10;    &lt;elaborates href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#org.eventb.emf.core.machine.Event.switch_SB_SH_cond_6&quot;/&gt;&#10;    &lt;elaborates href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#org.eventb.emf.core.machine.Event.switch_SB_SH_cond_50&quot;/&gt;&#10;  &lt;/transitions&gt;&#10;  &lt;transitions reference=&quot;ac.soton.eventb.statemachines.Transition._1YdBoWrMEeKD764pGXeLfg&quot;&gt;&#10;    &lt;target xsi:type=&quot;statemachines:State&quot; href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.State.FS&quot;/&gt;&#10;    &lt;source xsi:type=&quot;statemachines:State&quot; href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.State.SB&quot;/&gt;&#10;    &lt;elaborates href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#org.eventb.emf.core.machine.Event.switch_SB_FS&quot;/&gt;&#10;  &lt;/transitions&gt;&#10;  &lt;transitions reference=&quot;ac.soton.eventb.statemachines.Transition._1YdBomrMEeKD764pGXeLfg&quot;&gt;&#10;    &lt;target xsi:type=&quot;statemachines:State&quot; href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.State.IS&quot;/&gt;&#10;    &lt;source xsi:type=&quot;statemachines:State&quot; href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#ac.soton.eventb.statemachines.State.SB&quot;/&gt;&#10;    &lt;elaborates href=&quot;platform:/resource/Subset_026_Chap_4_6/m4_hypothesis.bum#org.eventb.emf.core.machine.Event.switch_SB_IS&quot;/&gt;&#10;  &lt;/transitions&gt;&#10;&lt;/statemachines:Statemachine&gt;&#10;" name="_NWc9wGrLEeKD764pGXeLfg" org.eventb.core.generated="false"/>
+</org.eventb.core.machineFile>

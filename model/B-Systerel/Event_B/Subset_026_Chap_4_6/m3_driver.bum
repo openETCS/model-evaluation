@@ -17,30 +17,30 @@
 <org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLg0" org.eventb.core.comment="" org.eventb.core.identifier="display_shunting_ack"/>
 <org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLg1" org.eventb.core.comment="" org.eventb.core.identifier="shunting_granted_RBC"/>
 <org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLg=" org.eventb.core.comment="" org.eventb.core.identifier="driver_isolates_ETCS"/>
-<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLgC" org.eventb.core.identifier="no_specific_mode_profile"/>
+<org.eventb.core.variable name="_sT9WwWrWEeKD764pGXeLgC" org.eventb.core.identifier="specific_mode_profile"/>
 <org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLg3" org.eventb.core.comment="" org.eventb.core.label="inv1" org.eventb.core.predicate="driver_select_shunting ∈ BOOL"/>
 <org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLg4" org.eventb.core.comment="" org.eventb.core.label="inv2" org.eventb.core.predicate="driver_request_shunting ∈ BOOL"/>
 <org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLg5" org.eventb.core.comment="" org.eventb.core.label="inv3" org.eventb.core.predicate="driver_ack_shunting ∈ BOOL"/>
 <org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLg6" org.eventb.core.label="inv4" org.eventb.core.predicate="display_shunting_ack ∈ BOOL"/>
 <org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLg7" org.eventb.core.comment="" org.eventb.core.label="inv5" org.eventb.core.predicate="shunting_granted_RBC ∈ BOOL"/>
 <org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLg&gt;" org.eventb.core.comment="" org.eventb.core.label="inv6" org.eventb.core.predicate="driver_isolates_ETCS ∈ BOOL"/>
-<org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLg@" org.eventb.core.comment="not cond5 and cond10" org.eventb.core.label="inv7" org.eventb.core.predicate="SB = TRUE ⇒&#10;¬ ((current_level ∈ {NTC, L0, L1} ∧ current_behavior = standstill ∧ driver_select_shunting = TRUE)&#10; ∧ (MA_SSP_gradient_data = TRUE ∧ valid_train_data = TRUE ∧ no_specific_mode_profile = TRUE))"/>
-<org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLgA" org.eventb.core.comment="not cond6 and cond10" org.eventb.core.label="inv8" org.eventb.core.predicate="SB = TRUE ⇒&#10;¬ ((current_behavior = standstill ∧ current_level ∈ {L2, L3})&#10; ∧ (MA_SSP_gradient_data = TRUE ∧ valid_train_data = TRUE ∧ no_specific_mode_profile = TRUE)) "/>
-<org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLgB" org.eventb.core.comment="not cond50 and cond10" org.eventb.core.label="inv9" org.eventb.core.predicate="SB = TRUE ⇒&#10;¬ ((display_shunting_ack = TRUE ∧ driver_ack_shunting = TRUE)&#10; ∧ (MA_SSP_gradient_data = TRUE ∧ valid_train_data = TRUE ∧ no_specific_mode_profile = TRUE))"/>
-<org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLgD" org.eventb.core.label="inv10" org.eventb.core.predicate="no_specific_mode_profile ∈ BOOL"/>
+<org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLg@" org.eventb.core.comment="not cond5 and cond10" org.eventb.core.label="inv7" org.eventb.core.predicate="SB = TRUE ⇒&#10;¬ ((current_level ∈ {NTC, L0, L1} ∧ current_behavior = standstill ∧ driver_select_shunting = TRUE)&#10; ∧ (MA_SSP_gradient_data = TRUE ∧ valid_train_data = TRUE ∧ specific_mode_profile = TRUE))"/>
+<org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLgA" org.eventb.core.comment="not cond6 and cond10" org.eventb.core.label="inv8" org.eventb.core.predicate="SB = TRUE ⇒&#10;¬ ((current_behavior = standstill ∧ current_level ∈ {L2, L3})&#10; ∧ (MA_SSP_gradient_data = TRUE ∧ valid_train_data = TRUE ∧ specific_mode_profile = TRUE)) "/>
+<org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLgB" org.eventb.core.comment="not cond50 and cond10" org.eventb.core.label="inv9" org.eventb.core.predicate="SB = TRUE ⇒&#10;¬ ((display_shunting_ack = TRUE ∧ driver_ack_shunting = TRUE)&#10; ∧ (MA_SSP_gradient_data = TRUE ∧ valid_train_data = TRUE ∧ specific_mode_profile = TRUE))"/>
+<org.eventb.core.invariant name="_sT9WwWrWEeKD764pGXeLgD" org.eventb.core.label="inv10" org.eventb.core.predicate="specific_mode_profile ∈ BOOL"/>
 <org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLfz" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
 <org.eventb.core.action name=")" org.eventb.core.assignment="driver_ack_shunting ≔ FALSE" org.eventb.core.label="act7"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="shunting_granted_RBC ≔ FALSE" org.eventb.core.comment="" org.eventb.core.label="act9"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="driver_request_shunting ≔ FALSE" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="," org.eventb.core.assignment="driver_isolates_ETCS ≔ FALSE" org.eventb.core.label="act10"/>
 <org.eventb.core.action name="'" org.eventb.core.assignment="driver_select_shunting ≔ FALSE" org.eventb.core.label="act5"/>
-<org.eventb.core.action name="-" org.eventb.core.assignment="no_specific_mode_profile ≔ FALSE" org.eventb.core.label="act11"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="specific_mode_profile ≔ FALSE" org.eventb.core.label="act11"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="display_shunting_ack ≔ FALSE" org.eventb.core.label="act8"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLgE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="change_specific_mode_profile">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="l_flag"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_flag ∈ BOOL"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="no_specific_mode_profile ≔ l_flag" org.eventb.core.label="act1"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="specific_mode_profile ≔ l_flag" org.eventb.core.label="act1"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLg?" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="driver_isolates_ETCS">
 <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="driver_isolates_ETCS = FALSE"/>
@@ -105,7 +105,7 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLg+" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="switch_SB_FS">
 <org.eventb.core.refinesEvent name="_07rl4HRrEeKaL9D2G7EBFQ" org.eventb.core.target="switch_SB_FS"/>
-<org.eventb.core.guard name="_BRH8IGr2EeKD764pGXeLfi" org.eventb.core.label="grd4" org.eventb.core.predicate="no_specific_mode_profile = TRUE"/>
+<org.eventb.core.guard name="_BRH8IGr2EeKD764pGXeLfi" org.eventb.core.label="grd4" org.eventb.core.predicate="specific_mode_profile = FALSE"/>
 <org.eventb.core.guard name="_BRH8IGr2EeKD764pGXeLfh" org.eventb.core.label="grd3" org.eventb.core.predicate="driver_isolates_ETCS = FALSE"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_sT9WwWrWEeKD764pGXeLg," org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="switch_SB_IS">
