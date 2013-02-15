@@ -1,0 +1,79 @@
+\begin{description}
+\REFINES{m1\_ertms\_level}
+\SEES{c1\_train}
+\VARIABLES
+        \begin{description}
+                \Item{ valid\_train\_data }
+                \ItemY{ MA\_SSP\_gradient\_data }{}
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItem{ inv1 }{ valid\_train\_data \in  BOOL }
+                \nItemY{ inv2 }{ MA\_SSP\_gradient\_data \in  BOOL }{  }
+        \end{description}
+\EVENTS
+        \EVT {store\_valid\_train\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ valid\_train\_data = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ valid\_train\_data :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {remove\_valid\_train\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ valid\_train\_data = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ valid\_train\_data :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {store\_MA\_SSP\_gradient\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ MA\_SSP\_gradient\_data = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ MA\_SSP\_gradient\_data :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {remove\_MA\_SSP\_gradient\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ MA\_SSP\_gradient\_data = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ MA\_SSP\_gradient\_data :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EXTD {switch\_SB\_FS}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_SB }{ SB = TRUE }
+                        \nItemY{ grd1 }{ MA\_SSP\_gradient\_data = TRUE }{ }
+                        \nItem{ grd2 }{ valid\_train\_data = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_FS }{ FS :=  TRUE }
+                        \nItemX{ leave\_SB }{ SB :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

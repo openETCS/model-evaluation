@@ -1,0 +1,90 @@
+\begin{description}
+\REFINES{m0\_mode\_transitions}
+\SEES{c1\_train}
+\VARIABLES
+        \begin{description}
+                \Item{ current\_level }
+                \Item{ current\_behavior }
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItemY{ inv1 }{ current\_level \in  ERTMS\_level }{  }
+                \nItem{ inv2 }{ current\_behavior \in  train\_behavior }
+        \end{description}
+\EVENTS
+        \INITIALISATION
+                \\\textit{extended}
+                \begin{description}
+                \BeginAct
+                        \begin{description}
+                        \nItemY{ act1 }{ current\_level :=  NTC }{  }
+                        \nItem{ act2 }{ current\_behavior :=  standstill }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {change\_level}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_level }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_level \in  ERTMS\_level }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ current\_level :=  l\_level }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {change\_behavior}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_behavior }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_behavior \in  train\_behavior }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act1 }{ current\_behavior :=  l\_behavior }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_SH\_cond\_5}
+        \EXTD {switch\_SB\_SH}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_SB }{ SB = TRUE }
+                        \nItem{ grd2 }{ current\_level \in  \{ NTC, L0, L1\}  }
+                        \nItemY{ grd1 }{ current\_behavior = standstill }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_SH }{ SH :=  TRUE }
+                        \nItemX{ leave\_SB }{ SB :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_SH\_cond\_6}
+        \EXTD {switch\_SB\_SH}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_SB }{ SB = TRUE }
+                        \nItemY{ grd1 }{ current\_behavior = standstill }{ }
+                        \nItem{ grd2 }{ current\_level \in  \{ L2, L3\}  }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_SH }{ SH :=  TRUE }
+                        \nItemX{ leave\_SB }{ SB :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

@@ -1,0 +1,308 @@
+\begin{description}
+\REFINES{m2\_train\_data}
+\SEES{c1\_train}
+\VARIABLES
+        \begin{description}
+                \Item{ driver\_select\_shunting }
+                \ItemY{ driver\_request\_shunting }{}
+                \ItemY{ driver\_ack\_shunting }{}
+                \ItemY{ display\_shunting\_ack }{}
+                \ItemY{ shunting\_granted\_RBC }{}
+                \ItemY{ driver\_isolates\_ETCS }{}
+                \Item{ specific\_mode\_profile }
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItemY{ inv1 }{ driver\_select\_shunting \in  BOOL }{  }
+                \nItemY{ inv2 }{ driver\_request\_shunting \in  BOOL }{  }
+                \nItemY{ inv3 }{ driver\_ack\_shunting \in  BOOL }{  }
+                \nItem{ inv4 }{ display\_shunting\_ack \in  BOOL }
+                \nItemY{ inv5 }{ shunting\_granted\_RBC \in  BOOL }{  }
+                \nItemY{ inv6 }{ driver\_isolates\_ETCS \in  BOOL }{  }
+                \nItemY{ inv7 }{ SB = TRUE \limp                \\\hspace*{1,2 cm}  \lnot  ((current\_level \in  \{ NTC, L0, L1\}  \land  current\_behavior = standstill \land  driver\_select\_shunting = TRUE)		\\\hspace*{1,4 cm}  \land  (MA\_SSP\_gradient\_data = TRUE \land  valid\_train\_data = TRUE \land  specific\_mode\_profile = TRUE)) }{                  \\\hspace*{1,4 cm}  not cond5 and cond10 }
+                \nItemY{ inv8 }{ SB = TRUE \limp                \\\hspace*{1,2 cm}  \lnot  ((current\_behavior = standstill \land  current\_level \in  \{ L2, L3\} )		\\\hspace*{1,4 cm}  \land  (MA\_SSP\_gradient\_data = TRUE \land  valid\_train\_data = TRUE \land  specific\_mode\_profile = TRUE))  }{                 \\\hspace*{1,4 cm}  not cond6 and cond10 }
+                \nItemY{ inv9 }{ SB = TRUE \limp                \\\hspace*{1,2 cm}  \lnot  ((display\_shunting\_ack = TRUE \land  driver\_ack\_shunting = TRUE)		\\\hspace*{1,4 cm}  \land  (MA\_SSP\_gradient\_data = TRUE \land  valid\_train\_data = TRUE \land  specific\_mode\_profile = TRUE)) }{                  \\\hspace*{1,4 cm}  not cond50 and cond10 }
+                \nItem{ inv10 }{ specific\_mode\_profile \in  BOOL }
+        \end{description}
+\EVENTS
+        \INITIALISATION
+                \\\textit{extended}
+                \begin{description}
+                \BeginAct
+                        \begin{description}
+                        \nItemX{ init\_IS }{ IS :=  FALSE }
+                        \nItemX{ init\_SB }{ SB :=  TRUE }
+                        \nItemX{ init\_SH }{ SH :=  FALSE }
+                        \nItemX{ init\_FS }{ FS :=  FALSE }
+                        \nItemXY{ act1 }{ current\_level :=  NTC }{  }
+                        \nItemX{ act2 }{ current\_behavior :=  standstill }
+                        \nItemX{ act3 }{ valid\_train\_data :=  FALSE }
+                        \nItemXY{ act4 }{ MA\_SSP\_gradient\_data :=  FALSE }{  }
+                        \nItem{ act7 }{ driver\_ack\_shunting :=  FALSE }
+                        \nItemY{ act9 }{ shunting\_granted\_RBC :=  FALSE }{  }
+                        \nItem{ act6 }{ driver\_request\_shunting :=  FALSE }
+                        \nItem{ act10 }{ driver\_isolates\_ETCS :=  FALSE }
+                        \nItem{ act5 }{ driver\_select\_shunting :=  FALSE }
+                        \nItem{ act11 }{ specific\_mode\_profile :=  FALSE }
+                        \nItem{ act8 }{ display\_shunting\_ack :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {change\_specific\_mode\_profile}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_flag }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_flag \in  BOOL }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ specific\_mode\_profile :=  l\_flag }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {driver\_isolates\_ETCS}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ driver\_isolates\_ETCS = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ driver\_isolates\_ETCS :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {driver\_select\_shunting}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ current\_level \in  \{ NTC, L0, L1\}  }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ driver\_select\_shunting :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {driver\_request\_shunting}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ current\_level \in  \{ L2, L3\}  }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ driver\_request\_shunting :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {display\_shunting\_ack}\cmt{		\\\hspace*{4,6 cm}  train acknowledges shunting -$>$  specific mode required? }
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ driver\_request\_shunting = TRUE }{ }
+                        \nItem{ grd2 }{ display\_shunting\_ack = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act1 }{ display\_shunting\_ack :=  TRUE }{  }
+                        \nItemY{ act2 }{ driver\_request\_shunting :=  FALSE }{  }
+                        \nItemY{ act3 }{ shunting\_granted\_RBC :=  TRUE }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {driver\_ack\_shunting}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ display\_shunting\_ack = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act1 }{ driver\_ack\_shunting :=  TRUE }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {store\_valid\_train\_data}
+        \EXTD {store\_valid\_train\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ valid\_train\_data = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ valid\_train\_data :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {remove\_valid\_train\_data}
+        \EXTD {remove\_valid\_train\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ valid\_train\_data = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ valid\_train\_data :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {store\_MA\_SSP\_gradient\_data}
+        \EXTD {store\_MA\_SSP\_gradient\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ MA\_SSP\_gradient\_data = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ MA\_SSP\_gradient\_data :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {remove\_MA\_SSP\_gradient\_data}
+        \EXTD {remove\_MA\_SSP\_gradient\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ MA\_SSP\_gradient\_data = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ MA\_SSP\_gradient\_data :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {change\_level}
+        \EXTD {change\_level}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_level }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ l\_level \in  ERTMS\_level }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ current\_level :=  l\_level }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {change\_behavior}
+        \EXTD {change\_behavior}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_behavior }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ l\_behavior \in  train\_behavior }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act1 }{ current\_behavior :=  l\_behavior }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_SH\_cond\_5}
+        \EXTD {switch\_SB\_SH\_cond\_5}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_SB }{ SB = TRUE }
+                        \nItemX{ grd2 }{ current\_level \in  \{ NTC, L0, L1\}  }
+                        \nItemXY{ grd1 }{ current\_behavior = standstill }{ }
+                        \nItem{ grd4 }{ driver\_isolates\_ETCS = FALSE }
+                        \nItemY{ grd3 }{ driver\_select\_shunting = TRUE }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_SH }{ SH :=  TRUE }
+                        \nItemX{ leave\_SB }{ SB :=  FALSE }
+                        \nItem{ act1 }{ driver\_select\_shunting :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_SH\_cond\_6}
+        \EXTD {switch\_SB\_SH\_cond\_6}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_SB }{ SB = TRUE }
+                        \nItemXY{ grd1 }{ current\_behavior = standstill }{ }
+                        \nItemX{ grd2 }{ current\_level \in  \{ L2, L3\}  }
+                        \nItem{ grd3 }{ driver\_isolates\_ETCS = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_SH }{ SH :=  TRUE }
+                        \nItemX{ leave\_SB }{ SB :=  FALSE }
+                        \nItem{ act1 }{ shunting\_granted\_RBC :=  FALSE }
+                        \nItem{ act2 }{ display\_shunting\_ack :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_SH\_cond\_50}
+        \EXTD {switch\_SB\_SH}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_SB }{ SB = TRUE }
+                        \nItemY{ grd2 }{ driver\_ack\_shunting = TRUE }{ }
+                        \nItemY{ grd1 }{ display\_shunting\_ack = TRUE }{ }
+                        \nItem{ grd3 }{ driver\_isolates\_ETCS = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_SH }{ SH :=  TRUE }
+                        \nItemX{ leave\_SB }{ SB :=  FALSE }
+                        \nItem{ act2 }{ driver\_ack\_shunting :=  FALSE }
+                        \nItemY{ act1 }{ display\_shunting\_ack :=  FALSE }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_FS}
+        \EXTD {switch\_SB\_FS}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_SB }{ SB = TRUE }
+                        \nItemXY{ grd1 }{ MA\_SSP\_gradient\_data = TRUE }{ }
+                        \nItemX{ grd2 }{ valid\_train\_data = TRUE }
+                        \nItem{ grd4 }{ specific\_mode\_profile = FALSE }
+                        \nItem{ grd3 }{ driver\_isolates\_ETCS = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_FS }{ FS :=  TRUE }
+                        \nItemX{ leave\_SB }{ SB :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_IS}
+        \EXTD {switch\_SB\_IS}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_SB }{ SB = TRUE }
+                        \nItem{ grd1 }{ driver\_isolates\_ETCS = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_IS }{ IS :=  TRUE }
+                        \nItemX{ leave\_SB }{ SB :=  FALSE }
+                        \nItem{ act1 }{ driver\_isolates\_ETCS :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

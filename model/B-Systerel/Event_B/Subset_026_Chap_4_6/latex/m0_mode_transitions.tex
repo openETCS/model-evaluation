@@ -1,0 +1,69 @@
+\begin{description}
+\VARIABLES
+        \begin{description}
+                \Item{ SB }
+                \Item{ SH }
+                \Item{ FS }
+                \Item{ IS }
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItem{ typeof\_SB }{ SB \in  BOOL }
+                \nItem{ typeof\_SH }{ SH \in  BOOL }
+                \nItem{ typeof\_FS }{ FS \in  BOOL }
+                \nItem{ typeof\_IS }{ IS \in  BOOL }
+                \nItem{ distinct\_states\_in\_mode\_changes1 }{ partition(\{ TRUE\} , \{ SB\}  \binter  \{ TRUE\} , \{ SH\}  \binter  \{ TRUE\} , \{ FS\}  \binter  \{ TRUE\} , \{ IS\}  \binter  \{ TRUE\} ) }
+        \end{description}
+\EVENTS
+        \INITIALISATION
+                \begin{description}
+                \BeginAct
+                        \begin{description}
+                        \nItem{ init\_IS }{ IS :=  FALSE }
+                        \nItem{ init\_SB }{ SB :=  TRUE }
+                        \nItem{ init\_SH }{ SH :=  FALSE }
+                        \nItem{ init\_FS }{ FS :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_SH}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_SB }{ SB = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ enter\_SH }{ SH :=  TRUE }
+                        \nItem{ leave\_SB }{ SB :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_FS}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_SB }{ SB = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ enter\_FS }{ FS :=  TRUE }
+                        \nItem{ leave\_SB }{ SB :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_SB\_IS}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_SB }{ SB = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ enter\_IS }{ IS :=  TRUE }
+                        \nItem{ leave\_SB }{ SB :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}
