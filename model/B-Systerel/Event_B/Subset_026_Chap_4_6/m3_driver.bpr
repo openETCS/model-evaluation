@@ -18,14 +18,14 @@
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒¬((NTC∈{NTC,L0,L1}∧standstill=standstill∧FALSE=TRUE)∧(FALSE=TRUE∧FALSE=TRUE∧FALSE=TRUE))"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="INITIALISATION/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
@@ -41,18 +41,18 @@
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒¬((standstill=standstill∧NTC∈{L2,L3})∧(FALSE=TRUE∧FALSE=TRUE∧FALSE=TRUE))"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒¬((standstill=standstill∧NTC∈{L2,L3}∧FALSE=TRUE)∧(FALSE=TRUE∧FALSE=TRUE∧FALSE=TRUE))"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 <org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="driver_select_shunting/inv7/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
@@ -435,13 +435,13 @@
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p37" org.eventb.core.predicate="SB=TRUE⇒¬current_behavior=standstill∨MA_SSP_gradient_data=FALSE∨valid_train_data=FALSE∨specific_mode_profile=FALSE"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="store_valid_train_data/inv7/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
@@ -808,13 +808,13 @@
 <org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧TRUE=TRUE∧specific_mode_profile=TRUE))"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="store_valid_train_data/inv8/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
@@ -1193,13 +1193,13 @@
 <org.eventb.core.prPred name="p62" org.eventb.core.predicate="{TRUE}∩{FS}=(∅ ⦂ ℙ(BOOL))">
 <org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="remove_valid_train_data/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
@@ -1222,6 +1222,12 @@
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 </org.eventb.core.prPred>
@@ -1229,11 +1235,6 @@
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
@@ -1249,7 +1250,7 @@
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
@@ -1265,7 +1266,7 @@
 <org.eventb.core.prProof name="remove_valid_train_data/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -1278,10 +1279,11 @@
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧FALSE=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL"/>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧FALSE=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 </org.eventb.core.prPred>
@@ -1290,6 +1292,7 @@
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="shunting_granted_RBC∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
@@ -1298,18 +1301,18 @@
 <org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 <org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
@@ -1319,7 +1322,7 @@
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL">
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
@@ -1688,13 +1691,13 @@
 <org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p34" org.eventb.core.predicate="SB=TRUE⇒¬current_level∈{NTC,L0,L1}∨¬current_behavior=standstill∨driver_select_shunting=FALSE∨valid_train_data=FALSE∨specific_mode_profile=FALSE"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="store_MA_SSP_gradient_data/inv8/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
@@ -2073,13 +2076,13 @@
 <org.eventb.core.prPred name="p62" org.eventb.core.predicate="{TRUE}∩{FS}=(∅ ⦂ ℙ(BOOL))">
 <org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="remove_MA_SSP_gradient_data/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
@@ -2102,6 +2105,12 @@
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 </org.eventb.core.prPred>
@@ -2112,11 +2121,6 @@
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
@@ -2132,7 +2136,7 @@
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
@@ -2145,7 +2149,7 @@
 <org.eventb.core.prProof name="remove_MA_SSP_gradient_data/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -2157,6 +2161,7 @@
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
@@ -2171,27 +2176,28 @@
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="shunting_granted_RBC∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(FALSE=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE})">
 <org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 <org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(FALSE=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
@@ -2199,7 +2205,7 @@
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
@@ -2853,13 +2859,13 @@
 <org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p34" org.eventb.core.predicate="SB=TRUE⇒¬current_behavior=standstill∨¬l_level∈{L2,L3}∨MA_SSP_gradient_data=FALSE∨valid_train_data=FALSE∨specific_mode_profile=FALSE"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="change_behavior/inv7/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.psManual="true">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
@@ -3713,15 +3719,15 @@
 <org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
@@ -3730,6 +3736,12 @@
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧FALSE=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
@@ -3747,11 +3759,6 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_select_shunting∈BOOL">
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p13" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
@@ -4252,13 +4259,13 @@
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="store_valid_train_data/inv9/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.psManual="true">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
@@ -4690,15 +4697,16 @@
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="SB∈BOOL"/>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="display_shunting_ack∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧FALSE=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE})">
@@ -5133,13 +5141,13 @@
 <org.eventb.core.prPred name="p62" org.eventb.core.predicate="{TRUE}∩{FS}=(∅ ⦂ ℙ(BOOL))">
 <org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="remove_MA_SSP_gradient_data/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
@@ -5157,16 +5165,17 @@
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="SB∈BOOL"/>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL">
-<org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL">
+<org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="display_shunting_ack∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(FALSE=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
@@ -5194,7 +5203,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_6/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5205,18 +5214,18 @@
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
-<org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
@@ -5229,6 +5238,15 @@
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
@@ -5243,6 +5261,9 @@
 <org.eventb.core.prPred name="p10" org.eventb.core.predicate="display_shunting_ack∈BOOL">
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="shunting_granted_RBC∈BOOL">
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
@@ -5253,17 +5274,9 @@
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((FALSE=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_ack_shunting∈BOOL"/>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
@@ -5286,15 +5299,16 @@
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="display_shunting_ack∈BOOL">
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5326,7 +5340,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_5/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5338,18 +5352,25 @@
 <org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
@@ -5360,15 +5381,16 @@
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="shunting_granted_RBC∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
@@ -5381,13 +5403,7 @@
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_select_shunting∈BOOL">
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
@@ -5409,13 +5425,13 @@
 <org.eventb.core.prPred name="p12" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
-<org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p13" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
@@ -5431,6 +5447,15 @@
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
+<org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
@@ -5456,14 +5481,6 @@
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_select_shunting∈BOOL">
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_ack_shunting∈BOOL"/>
 <org.eventb.core.prPred name="p15" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
@@ -5472,7 +5489,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_6/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5489,23 +5506,29 @@
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
@@ -5514,6 +5537,9 @@
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="shunting_granted_RBC∈BOOL">
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
@@ -5525,19 +5551,14 @@
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_select_shunting∈BOOL"/>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="switch_SB_SH_cond_6/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5552,20 +5573,42 @@
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧FALSE=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="shunting_granted_RBC∈BOOL">
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
@@ -5576,26 +5619,7 @@
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
@@ -5622,20 +5646,26 @@
 <org.eventb.core.prPred name="p12" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p14" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
@@ -5658,11 +5688,6 @@
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_select_shunting∈BOOL"/>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_ack_shunting∈BOOL">
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5673,7 +5698,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_50/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5685,18 +5710,25 @@
 <org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
@@ -5707,11 +5739,11 @@
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
@@ -5719,6 +5751,7 @@
 <org.eventb.core.prPred name="p10" org.eventb.core.predicate="display_shunting_ack∈BOOL">
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="shunting_granted_RBC∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
@@ -5728,16 +5761,10 @@
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_ack_shunting∈BOOL">
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
@@ -5764,15 +5791,15 @@
 <org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
@@ -5781,6 +5808,12 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
@@ -5797,11 +5830,6 @@
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_select_shunting∈BOOL"/>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p13" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
@@ -5809,7 +5837,7 @@
 <org.eventb.core.prProof name="switch_SB_FS/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5821,24 +5849,45 @@
 <org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="shunting_granted_RBC∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
@@ -5848,26 +5897,7 @@
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
@@ -5892,15 +5922,16 @@
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="display_shunting_ack∈BOOL"/>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE})">
 <org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
@@ -5948,15 +5979,15 @@
 <org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
@@ -5965,6 +5996,12 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
@@ -5981,11 +6018,6 @@
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_select_shunting∈BOOL"/>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p13" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
@@ -5993,7 +6025,7 @@
 <org.eventb.core.prProof name="switch_SB_IS/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6005,24 +6037,45 @@
 <org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC},{L0},{L1},{L2},{L3})">
+<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="current_level∈ERTMS_level">
 <org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(train_behavior,{standstill},{moving})">
 <org.eventb.core.prIdent name="moving" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="shunting_granted_RBC∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_behavior∈train_behavior">
 <org.eventb.core.prIdent name="train_behavior" org.eventb.core.type="ℙ(train_behavior)"/>
 </org.eventb.core.prPred>
@@ -6032,26 +6085,7 @@
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SB=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="display_shunting_ack" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ERTMS_level,{NTC,L0,L1,L2,L3})">
-<org.eventb.core.prIdent name="ERTMS_level" org.eventb.core.type="ℙ(ERTMS_level)"/>
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SB=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
-<org.eventb.core.prIdent name="L0" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="L1" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="NTC" org.eventb.core.type="ERTMS_level"/>
-<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="specific_mode_profile∈BOOL"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
@@ -6076,15 +6110,16 @@
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3})∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SB=TRUE⇒¬((current_behavior=standstill∧current_level∈{L2,L3}∧shunting_granted_RBC=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))">
 <org.eventb.core.prIdent name="L2" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="current_behavior" org.eventb.core.type="train_behavior"/>
 <org.eventb.core.prIdent name="current_level" org.eventb.core.type="ERTMS_level"/>
+<org.eventb.core.prIdent name="shunting_granted_RBC" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="MA_SSP_gradient_data∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="display_shunting_ack∈BOOL"/>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE})">
 <org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
@@ -6650,13 +6685,13 @@
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p26" org.eventb.core.predicate="SB=TRUE⇒¬(current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE∧MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧l_flag=TRUE)"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="change_specific_mode_profile/inv8/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
@@ -7081,13 +7116,13 @@
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="change_specific_mode_profile/inv9/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
@@ -7556,12 +7591,12 @@
 <org.eventb.core.prPred name="p54" org.eventb.core.predicate="⊤⇒⊥∨⊥∨⊥∨⊥∨specific_mode_profile=FALSE">
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL3:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL1"/>
 </org.eventb.core.prProof>
 </org.eventb.core.prFile>
