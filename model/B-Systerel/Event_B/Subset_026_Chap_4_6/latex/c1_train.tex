@@ -1,0 +1,21 @@
+\begin{description}
+\SETS
+        \begin{description}
+                \Item{ train\_behavior }
+                \Item{ ERTMS\_level }
+        \end{description}
+\CONSTANTS
+        \begin{description}
+                \Item{ L0 }
+                \Item{ L1 }
+                \Item{ L2 }
+                \Item{ L3 }
+                \Item{ NTC }
+                \Item{ standstill }
+                \Item{ moving }
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ partition(train\_behavior,\{ standstill\} ,\{ moving\} ) }		\nItem{ axm2 }{ partition(ERTMS\_level, \{ NTC, L0, L1, L2, L3\} ) }	\end{description}
+\END
+\end{description}

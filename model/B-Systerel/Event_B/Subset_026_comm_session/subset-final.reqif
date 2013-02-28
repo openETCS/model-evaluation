@@ -6654,6 +6654,18 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-f900b8c5-fd45-42d9-b8db-615287608e2c">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event est_terminate_order  where    @grd2 l_partner ∈ establish_ER_connection    @grd3 current_status ≠ SOM  then    @act2 establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}end~/Subset_026_comm_session/m5_safe_radio.bum|org.eventb.core.machineFile#m5_safe_radio|org.eventb.core.event#var@">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
       </SPEC-OBJECTS>
       <SPEC-RELATIONS>
         <SPEC-RELATION IDENTIFIER="rmf-3953f9e7-21c3-4ffa-b057-9fedae0ea686">
@@ -7323,6 +7335,34 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
           </TARGET>
           <SOURCE>
             <SPEC-OBJECT-REF>fdce791f1cd437573acca3ae46f3d6ae</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-33271546-1558-4f97-a195-70df3f7d531f">
+          <VALUES>
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-BOOLEAN>
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-BOOLEAN>
+            <ATTRIBUTE-VALUE-STRING>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-2899908b-be2a-436a-b0de-decc961ba147</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-f900b8c5-fd45-42d9-b8db-615287608e2c</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_1fdd6ea906aac8d89d110a4552ea6c68</SPEC-OBJECT-REF>
           </SOURCE>
           <TYPE>
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
