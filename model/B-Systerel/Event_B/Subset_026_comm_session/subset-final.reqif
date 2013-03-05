@@ -1828,8 +1828,8 @@ a)The on-board shall request the set-up of a safe radio connection with the trac
               </DEFINITION>
               <THE-VALUE>
                 <xhtml:div>
-<xhtml:object data="SUBSET-026-3 v330_extract_chap_3_5_Partner1/117_Object_Text_0.ole" type="application/oleobject">
-<xhtml:object data="SUBSET-026-3 v330_extract_chap_3_5_Partner1/117_Object_Text_0.png" type="image/png">OLE Object</xhtml:object>
+<xhtml:object data="Subset_026_comm_session/117_Object_Text_0.ole" type="application/oleobject">
+<xhtml:object data="Subset_026_comm_session/117_Object_Text_0.png" type="image/png">OLE Object</xhtml:object>
 </xhtml:object>
 </xhtml:div>
               </THE-VALUE>
@@ -5436,8 +5436,8 @@ Note: for Radio Network identity data entry by driver during SoM, please refer t
               </DEFINITION>
               <THE-VALUE>
                 <xhtml:div>
-<xhtml:object data="SUBSET-026-3 v330_extract_chap_3_5_Partner1/60_Object_Text_0.ole" type="application/oleobject">
-<xhtml:object data="SUBSET-026-3 v330_extract_chap_3_5_Partner1/60_Object_Text_0.png" type="image/png">OLE Object</xhtml:object>
+<xhtml:object data="Subset_026_comm_session/60_Object_Text_0.ole" type="application/oleobject">
+<xhtml:object data="Subset_026_comm_session/60_Object_Text_0.png" type="image/png">OLE Object</xhtml:object>
 </xhtml:object>
 </xhtml:div>
               </THE-VALUE>
@@ -5596,8 +5596,8 @@ Note: If a short number is used (considering trackside call routing), that numbe
               </DEFINITION>
               <THE-VALUE>
                 <xhtml:div>
-<xhtml:object data="SUBSET-026-3 v330_extract_chap_3_5_Partner1/67_Object_Text_0.ole" type="application/oleobject">
-<xhtml:object data="SUBSET-026-3 v330_extract_chap_3_5_Partner1/67_Object_Text_0.png" type="image/png">OLE Object</xhtml:object>
+<xhtml:object data="Subset_026_comm_session/67_Object_Text_0.ole" type="application/oleobject">
+<xhtml:object data="Subset_026_comm_session/67_Object_Text_0.png" type="image/png">OLE Object</xhtml:object>
 </xhtml:object>
 </xhtml:div>
               </THE-VALUE>
@@ -8382,13 +8382,13 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration configuration:specification="f34aca591c730a01eec348f3579e127-5">
             <configuration:columns>
-              <configuration:Column configuration:label="Section" configuration:width="105"/>
-              <configuration:Column configuration:label="Description" configuration:width="549"/>
+              <configuration:Column configuration:label="Section" configuration:width="140"/>
+              <configuration:Column configuration:label="Description" configuration:width="800"/>
               <configuration:Column configuration:label="Source Changed" configuration:width="96"/>
               <configuration:Column configuration:label="Target Changed" configuration:width="104"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
-              <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
+              <configuration:Column configuration:label="Lead Header Column" configuration:width="40"/>
             </configuration:leftHeaderColumn>
           </configuration:ProrSpecViewConfiguration>
         </configuration:specViewConfigurations>
