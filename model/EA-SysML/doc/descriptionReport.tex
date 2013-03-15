@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{epstopdf}
+\usepackage{booktabs}     %fancy tables
 \usepackage[english]{babel}
 \usepackage{ae,aecompl}   % best than T1 fontenc
 \geometry{reset,
@@ -42,6 +43,30 @@ This document describes the model of the radio communication management The
 model has be made from the specification description of the ERTMS subset-026-3.5
 baseline 3.
 \end{abstract}
+The model is composed of two packages : the \emph{system} and the
+\emph{requirement}. The system package consists of the SUT model and the TE
+model and a set of constants and enumeration types. The
+requirement package contains all the requirement and a requirement diagram.
+package.
 
+% ----------------------------------------------------
+\section{Model description}
+\label{sec:modeldescription}
+The radio communication management module (MoRC) is the user application interacting
+with Euroradio protocol. In the following model only the general behaviour is
+presented, the actual details of how messages are transported are not relevant
+for this description.
 \input{modelDescription}
+% ----------------------------------------------------
+\section{Requirements Modelling}
+\label{sec:requirements}
+The model describes in section \ref{sec:modeldescription} is a direct
+translation of the SUBSET026-chap 3.5. This section describes how the model is
+related to the specification.
+\input{requirements}
+% ----------------------------------------------------
+%\section{Others Benchmark}
+%Further investigation have been made for modeling other part of the ETCS.
+%\include{other_bench}
+
 \end{document}  
