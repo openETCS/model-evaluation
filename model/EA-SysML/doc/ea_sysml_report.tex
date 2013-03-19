@@ -1,0 +1,193 @@
+\documentclass{template/openetcs_article}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{./template/}{.}{./images/}{schema/pdf/}}
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Toolchain''}
+
+
+\author{C\'ecile Braunstein}
+
+\affiliation{Bremen University}
+
+\title{Radio Communication Managment \\
+{\it SRS SUBSET-026-3.5} \\SysML Model}
+
+
+% define the coverart
+\coverart[width=350pt]{chart}
+
+\reporttype{Model Description}
+
+%\begin{document}
+\begin{abstract}
+%define an abstract here
+This document is a part of the model-evaluation project of WP7, it explores
+SysML capabilities to provide a (semi)formal model of the SRS SUBSET-026.
+\end{abstract}
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+\newpage
+% ----------------------------------------------------
+
+\section{Short Introduction to Formalism and Tool}
+\label{sec:short-intr-form}
+This document describes the modeling  of the radio communication management. The
+model has been made from the specification description of the SRS SUBSET-026-3.5
+ baseline 3 as recommended by D2.5 Methods and tools benchmarking methodology
+ \cite{D2-5}.
+
+
+The formalism used  is SysML \cite{SysML}. More particulary we had used
+block diagram, statecharts and requirements diagram. 
+SysML is a graphical language that extends UML for a custumized version suitable
+for system engieneering. It may help modeling system whithin a board range of
+system variety that may include hardware, software, data, personel and
+facilities. It supports the specification, analysis design, verification and
+validation of complex system. 
+
+Enterprise architect (EA) version 9.3 \cite{EA} has been used to implement the
+model. Note that this tool is not open source but others tools  such as Papyrus
+\cite{papyrus} provides SysML modeling capabilities and are evaluate by others
+parteners.
+EA is a visual platform for designing and constructing
+software systems, for business process modeling, and for more generalized
+modeling purposes. it covers all aspects of the devellopment cycle. The main
+advantages is the requirement managment and tracing, the team work and the
+include versionning. The main cons : it is not an open source tool.
+
+We had design a test model, this model aims at generate test cases and test
+data. The test generator used here is the tool-suite RT-Tester Model-Based generator
+(\textsc{Rtt-Mbt}) \cite{peleska2011,rttmbtreport2011}. It provides sequences of
+input data with timing constraints that are used for the stimulation of the
+sysem under test (SUT), concurently with generated test oracles. 
+% ----------------------------------------------------
+
+\section{Modeling Strategy}
+\label{sec:modeling-strategy}
+Starting from the specification SUBSET-026-chap3.5, we come up with the list of
+requirements. The requirements are exactly the text of the SRS. 
+This subpart of the specification define the management of the radio
+communication, e.g. the protocol to follow in order to initiate, 
+maintain  and terminate a radio communication. 
+From the requirements list, we modeled the set of behaviors defined by direct translation 
+into a statechart diagram. In parralel, we implemented  a requriement diagram that
+make the link between the requirement list and  the SRS to the model.
+
+The radio communication management task is part of the set of on-board functions
+(see SUBSET-026.4.5). The behavior of this function depends on the result of
+others functions such as the function that determine of the ETCS Mode or Level.
+This leads us to define an interface between this task
+and the other tasks of the on board unit (see section \ref{sec:deta-model-descr}).
+
+Moreover the model is designed for test generation purpose. The model of the
+system under test (SUT)  has been
+made together with the test execution environment (TE). Here the test
+environment is really trivial since it is empty, it allows any possible value
+for the inputs of the SUT. One may want to add some constrains on the input
+signals or want to sketch some behavior such as an event never happened before
+an other one. This may also be model as a state machine.
+% ----------------------------------------------------
+
+\section{Model Overview}
+\label{sec:model-overview}
+The model is composed of two packages : the \emph{system} and the
+\emph{requirement}. The system package consists of the SUT model and the TE
+model and a set of constants and enumeration types. The
+requirement package contains all the requirement and a requirement diagram.
+package.
+% ----------------------------------------------------
+
+  \subsection{Block and statechart view}
+  \input{interface}
+% ----------------------------------------------------
+
+  \subsection{Requirement view}
+  \input{requirements}
+% ----------------------------------------------------
+
+\section{Model Benefits}
+\label{sec:model-highlights}
+
+In the previous sections, we had describes the use of SysML for modeling
+SUBSET-026.3.5. Note that other aspect of the SRS as define in Deliverable D2.5
+may also easily represent with SysML. The study here shows the 
+modelisation of state charts and timeout. Moreover the arthmetic may be
+represented as parametric diagram with constraints block. It is also possible to
+use state charts to discretise the behavior of breaking curves.
+
+
+
+The benefits of SysML for a semi formal modeling of the SUBSET-026-3.5.
+\begin{itemize}
+\item Graphical modeling
+\item General-purpose  modeling languages
+\item Can model different domain (arithmetic, state charts ...)
+\item Easy export : As an OMG UML 2.0 profile, SysML models are designed to be
+exchanged using the XML Metadata Interchange (XMI) standard.
+\item Easy import, for requirement and model part
+\item Open source licence for SysML language
+\item Requirements diagram to capture functional, performance requirements.
+\item Requirements link the SRS to the model
+\item Table views
+\item Easy data structure definition
+\end{itemize}
+EA
+\begin{itemize}
+\item Different view of the system in one tool
+\item List view of all model elements
+\item Author, date and status associated to each model element
+\item Export/Import facilities
+\end{itemize}
+
+Some drawbacks
+\begin{itemize}
+\item Only semi-formal
+\item EA is not an  open-source software
+\item EA needs to work with different tools or plugin for animate and simulates
+the models that are not always using the same xmi definition
+\end{itemize}
+
+% ----------------------------------------------------
+
+\section{Detailed Model Description}
+\label{sec:deta-model-descr}
+% ----------------------------------------------------
+  \subsection{Abstraction}
+  \input{abstraction}
+
+% ----------------------------------------------------
+  \subsection{Inputs and outputs messages}
+  \input{inputoutput}
+
+% ----------------------------------------------------
+  \subsection{Behaviour}
+  \label{subsec:behavior}
+  \input{behavior}
+
+
+
+\bibliographystyle{plain}
+\bibliography{model}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
