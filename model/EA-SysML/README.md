@@ -1,4 +1,4 @@
-== SysML SRS SUBSET-026.3.5 : Radio communication management ==
+# SysML SRS SUBSET-026.3.5 : Radio communication management
 
 * Model language : SysML/UML 
 * Tool used : Enterprise Architect
