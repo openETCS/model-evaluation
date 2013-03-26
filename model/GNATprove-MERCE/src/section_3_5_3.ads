@@ -46,9 +46,11 @@ Package Section_3_5_3 is
    Previous_Communication_Loss : Boolean;
    Start_Of_Mission_Procedure_Completed_Without_Com : Boolean;
 
-   Connections : Com_To_RBC_Map.Map(Capacity => 10,
-                                    Modulus =>
-                                      Com_To_RBC_Map.Default_Modulus(10));
+--     Connections : Com_To_RBC_Map.Map(Capacity => 10,
+--                                      Modulus =>
+--                                        Com_To_RBC_Map.Default_Modulus(10));
+
+   Connections : Com_To_RBC_Map;
 
    function Authorize_New_Communication_Session return Boolean is
      ((Start_Of_Mission = True
@@ -69,10 +71,10 @@ Package Section_3_5_3 is
                                             phone : Telephone_Number_t)
    with
      Pre => ((Authorize_New_Communication_Session = True) -- §3.5.3.4
-             and (not Connections.Contains(destination)) -- §3.5.3.4.1
+             and (not Contains(Connections,destination)) -- §3.5.3.4.1
              -- FIXME: what should we do for cases f and g?
             ),
-     Post => (Connections.Contains(destination));
+     Post => (Contains(Connections, destination));
 
    -- §3.5.3.3 not formalized (Note)
 
