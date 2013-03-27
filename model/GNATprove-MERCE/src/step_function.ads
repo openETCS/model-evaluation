@@ -37,7 +37,7 @@ package Step_Function is
       Step : Delimiter_Values;
    end record;
 
-   function Is_Valid_Step_Function(SFun : Step_Function) return Boolean is
+   function Is_Valid(SFun : Step_Function) return Boolean is
      (for all i in 1..(SFun.Number_Of_Delimiters - 1) =>
         (SFun.Step(i+1).Delimiter > SFun.Step(i).Delimiter));
 
@@ -47,7 +47,7 @@ package Step_Function is
            SFun1.Step(i).Delimiter = SFun2.Step(i).Delimiter));
 
    function Get_Value(SFun : Step_Function; X: Function_Range) return Float
-   with Pre => Is_Valid_Step_Function(SFun),
+   with Pre => Is_Valid(SFun),
    Post => ((if SFun.Number_Of_Delimiters = 0 then
              Get_Value'Result = SFun.Default_Value)
             and

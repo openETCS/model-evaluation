@@ -15,7 +15,7 @@ procedure Step_Function_Test is
                (Delimiter => 5, Value => 3.0),
                others => (Delimiter => 0, Value => 0.0)));
 begin
-   Pragma Assert (Step_Function.Is_Valid_Step_Function(SFun1));
+   Pragma Assert (Step_Function.Is_Valid(SFun1));
 
    Pragma Assert (Step_Function.Get_Value(SFun1, 0) = 3.0);
    Pragma Assert (Step_Function.Get_Value(SFun1, 1) = 3.0);
