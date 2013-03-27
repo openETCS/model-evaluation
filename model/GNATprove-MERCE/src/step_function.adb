@@ -19,6 +19,11 @@
 --  limitations under the Licence.
 
 package body Step_Function is
+   function Min(X1, X2 : Float) return Float is
+   begin
+      if X1 <= X2 then return X1; else return X2; end if;
+   end;
+
    function Get_Value(SFun : Step_Function; X: Function_Range) return Float is
    begin
       if SFun.Number_Of_Delimiters = 0 then return SFun.Default_Value; end if;
@@ -35,5 +40,11 @@ package body Step_Function is
 
       return SFun.Step(SFun.Number_Of_Delimiters).Value;
    end Get_Value;
+
+   procedure Restrictive_Merge(SFun1, SFun2 : in Step_Function;
+                               Merge : out Step_Function) is
+   begin
+      null;
+   end;
 
 end Step_Function;

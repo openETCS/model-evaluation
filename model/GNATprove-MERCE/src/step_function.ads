@@ -37,6 +37,9 @@ package Step_Function is
       Step : Delimiter_Values;
    end record;
 
+   function Min(X1, X2 : Float) return Float
+   with Post => (if X1 <= X2 then Min'Result = X1 else Min'Result = X2);
+
    function Is_Valid(SFun : Step_Function) return Boolean is
      (for all i in 1..(SFun.Number_Of_Delimiters - 1) =>
         (SFun.Step(i+1).Delimiter > SFun.Step(i).Delimiter));
@@ -64,6 +67,33 @@ package Step_Function is
                      and Get_Value'Result
                      = SFun.Step(SFun.Number_Of_Delimiters).Value))));
 
+   -- Note: In the following Post condition, it would be better to tell that
+   -- Merge is the minimum of both SFun1 and SFun2 for all possible input
+   -- values, but I'm not sure that can be proved
+   procedure Restrictive_Merge(SFun1, SFun2 : in Step_Function;
+                               Merge : out Step_Function)
+   with Pre => Is_Valid(SFun1) and Is_Valid(SFun2)
+     and SFun1.Number_Of_Delimiters + SFun2.Number_Of_Delimiters <=
+       Num_Delimiters_Range'Last,
+   Post =>
+   -- Output is valid step function
+   Is_Valid(Merge)
+   -- Default value is the minimum one of both step functions
+     and Merge.Default_Value = Min(SFun1.Default_Value, SFun2.Default_Value)
+   -- all SFun1 delimiters are valid delimiters in Merge
+     and (for all i in 1..SFun1.Number_Of_Delimiters =>
+            (for some j in 1..Merge.Number_Of_Delimiters =>
+               (Merge.Step(i).Delimiter = SFun1.Step(j).Delimiter)))
+   -- all SFun2 delimiters are valid delimiters in Merge
+     and (for all i in 1..SFun2.Number_Of_Delimiters =>
+            (for some j in 1..Merge.Number_Of_Delimiters =>
+               (Merge.Step(i).Delimiter = SFun2.Step(j).Delimiter)))
+   -- for all delimiters of Merge, its value is the minimum of SFun1 and SFun2
+     and (for all i in 1..Merge.Number_Of_Delimiters =>
+            (Merge.Step(i).Value = Min(Get_Value(SFun1,
+                                                 Merge.Step(i).Delimiter),
+                                       Get_Value(SFun2,
+                                                 Merge.Step(i).Delimiter))));
 end Step_Function;
 
 
