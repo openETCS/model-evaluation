@@ -28,15 +28,13 @@ package body Step_Function is
       for i in 1..(SFun.Number_Of_Delimiters - 1) loop
          pragma Assert (for all j in 1..i-1 =>
                           SFun.Step(j+1).Delimiter > SFun.Step(j).Delimiter);
-         Pragma Assert (for all j in 1..i-1 =>
-                          X > SFun.Step(j).Delimiter);
+         Pragma Assert (for all j in 1..i =>
+                          X >= SFun.Step(j).Delimiter);
          if X >= SFun.Step(i).Delimiter and X < SFun.Step(i + 1).Delimiter then
             return SFun.Step(i).Value;
          end if;
       end loop;
 
-      Pragma Assert (for all i in 1..(SFun.Number_Of_Delimiters - 1) =>
-                       X > SFun.Step(i).Delimiter);
       return SFun.Step(SFun.Number_Of_Delimiters).Value;
    end Get_Value;
 
