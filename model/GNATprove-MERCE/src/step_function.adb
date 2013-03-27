@@ -26,8 +26,6 @@ package body Step_Function is
       if X < SFun.Step(1).Delimiter then return SFun.Default_Value; end if;
 
       for i in 1..(SFun.Number_Of_Delimiters - 1) loop
-         pragma Assert (for all j in 1..i-1 =>
-                          SFun.Step(j+1).Delimiter > SFun.Step(j).Delimiter);
          Pragma Assert (for all j in 1..i =>
                           X >= SFun.Step(j).Delimiter);
          if X >= SFun.Step(i).Delimiter and X < SFun.Step(i + 1).Delimiter then
