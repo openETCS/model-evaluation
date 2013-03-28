@@ -77,12 +77,12 @@ package Step_Function is
      and (for all i in Num_Delimiters_Range'First..SFun1.Number_Of_Delimiters =>
             (for some j in
                Num_Delimiters_Range'First..Merge.Number_Of_Delimiters =>
-                 (Merge.Step(i).Delimiter = SFun1.Step(j).Delimiter)))
+                 (Merge.Step(j).Delimiter = SFun1.Step(i).Delimiter)))
    -- all SFun2 delimiters are valid delimiters in Merge
      and (for all i in Num_Delimiters_Range'First..SFun2.Number_Of_Delimiters =>
             (for some j in
                Num_Delimiters_Range'First..Merge.Number_Of_Delimiters =>
-                 (Merge.Step(i).Delimiter = SFun2.Step(j).Delimiter)))
+                 (Merge.Step(j).Delimiter = SFun2.Step(i).Delimiter)))
    -- for all delimiters of Merge, its value is the minimum of SFun1 and SFun2
      and (for all i in Num_Delimiters_Range'First..Merge.Number_Of_Delimiters =>
             (Merge.Step(i).Value = Min(Get_Value(SFun1,
