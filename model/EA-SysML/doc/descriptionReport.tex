@@ -18,6 +18,7 @@
   voffset=0cm,
 }
 
+\newcommand{\FIXME}[1]{\marginpar{FIXME}\textsf{FIXME: #1}}
 
 \graphicspath{{schema/pdf/}}
 
@@ -48,7 +49,7 @@ The model is composed of two packages : the \emph{system} and the
 model and a set of constants and enumeration types. The
 requirement package contains all the requirement and a requirement diagram.
 package.
-
+\FIXME{cite SYSML}
 % ----------------------------------------------------
 \section{Model description}
 \label{sec:modeldescription}
@@ -65,8 +66,14 @@ translation of the SUBSET026-chap 3.5. This section describes how the model is
 related to the specification.
 \input{requirements}
 % ----------------------------------------------------
+\section{Test Generation}
+\label{sec:tests}
+\input{rttester}
+% ----------------------------------------------------
 %\section{Others Benchmark}
 %Further investigation have been made for modeling other part of the ETCS.
 %\include{other_bench}
+\bibliographystyle{plain}
+\bibliography{model}
 
 \end{document}  
