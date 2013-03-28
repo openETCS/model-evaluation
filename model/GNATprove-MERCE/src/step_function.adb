@@ -26,11 +26,7 @@ package body Step_Function is
 
    function Get_Value(SFun : Step_Function; X: Function_Range) return Float is
    begin
-      if SFun.Number_Of_Delimiters = 0 then return SFun.Default_Value; end if;
-
-      if X < SFun.Step(1).Delimiter then return SFun.Default_Value; end if;
-
-      for i in 1..(SFun.Number_Of_Delimiters - 1) loop
+      for i in Num_Delimiters_Range'First..(SFun.Number_Of_Delimiters - 1) loop
          Pragma Assert (for all j in 1..i =>
                           X >= SFun.Step(j).Delimiter);
          if X >= SFun.Step(i).Delimiter and X < SFun.Step(i + 1).Delimiter then

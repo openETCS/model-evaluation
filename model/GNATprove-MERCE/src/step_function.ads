@@ -28,11 +28,10 @@ package Step_Function is
       Value : Float;
    end record;
 
-   type Delimiter_Values is array (1..Num_Delimiters_Range'Last)
+   type Delimiter_Values is array (Num_Delimiters_Range)
      of Delimiter_Entry;
 
    type Step_Function is record
-      Default_Value : Float;
       Number_Of_Delimiters : Num_Delimiters_Range;
       Step : Delimiter_Values;
    end record;
@@ -41,8 +40,10 @@ package Step_Function is
    with Post => (if X1 <= X2 then Min'Result = X1 else Min'Result = X2);
 
    function Is_Valid(SFun : Step_Function) return Boolean is
-     (for all i in 1..(SFun.Number_Of_Delimiters - 1) =>
-        (SFun.Step(i+1).Delimiter > SFun.Step(i).Delimiter));
+     (SFun.Step(0).Delimiter = Function_Range'First
+      and
+        (for all i in 1..(SFun.Number_Of_Delimiters - 1) =>
+           (SFun.Step(i+1).Delimiter > SFun.Step(i).Delimiter)));
 
    function Has_Same_Delimiters(SFun1, SFun2 : Step_Function) return Boolean is
      (SFun1.Number_Of_Delimiters = SFun2.Number_Of_Delimiters
@@ -51,21 +52,15 @@ package Step_Function is
 
    function Get_Value(SFun : Step_Function; X: Function_Range) return Float
    with Pre => Is_Valid(SFun),
-   Post => ((if SFun.Number_Of_Delimiters = 0 then
-             Get_Value'Result = SFun.Default_Value)
-            and
-              (if SFun.Number_Of_Delimiters > 0 then
-                 ((X < SFun.Step(1).Delimiter
-                   and Get_Value'Result = SFun.Default_Value)
-                  or
-                    (for some i in 1..(SFun.Number_Of_Delimiters - 1) =>
-                       (SFun.Step(i).Delimiter <= X
-                        and X < SFun.Step(i+1).Delimiter
-                        and Get_Value'Result = SFun.Step(i).Value))
-                  or
-                    (X >= SFun.Step(SFun.Number_Of_Delimiters).Delimiter
-                     and Get_Value'Result
-                     = SFun.Step(SFun.Number_Of_Delimiters).Value))));
+   Post => ((for some i in
+               Num_Delimiters_Range'First..(SFun.Number_Of_Delimiters - 1) =>
+               (SFun.Step(i).Delimiter <= X
+                and X < SFun.Step(i+1).Delimiter
+                and Get_Value'Result = SFun.Step(i).Value))
+            or
+              (X >= SFun.Step(SFun.Number_Of_Delimiters).Delimiter
+               and Get_Value'Result
+               = SFun.Step(SFun.Number_Of_Delimiters).Value));
 
    -- Note: In the following Post condition, it would be better to tell that
    -- Merge is the minimum of both SFun1 and SFun2 for all possible input
@@ -78,18 +73,18 @@ package Step_Function is
    Post =>
    -- Output is valid step function
    Is_Valid(Merge)
-   -- Default value is the minimum one of both step functions
-     and Merge.Default_Value = Min(SFun1.Default_Value, SFun2.Default_Value)
    -- all SFun1 delimiters are valid delimiters in Merge
-     and (for all i in 1..SFun1.Number_Of_Delimiters =>
-            (for some j in 1..Merge.Number_Of_Delimiters =>
-               (Merge.Step(i).Delimiter = SFun1.Step(j).Delimiter)))
+     and (for all i in Num_Delimiters_Range'First..SFun1.Number_Of_Delimiters =>
+            (for some j in
+               Num_Delimiters_Range'First..Merge.Number_Of_Delimiters =>
+                 (Merge.Step(i).Delimiter = SFun1.Step(j).Delimiter)))
    -- all SFun2 delimiters are valid delimiters in Merge
-     and (for all i in 1..SFun2.Number_Of_Delimiters =>
-            (for some j in 1..Merge.Number_Of_Delimiters =>
-               (Merge.Step(i).Delimiter = SFun2.Step(j).Delimiter)))
+     and (for all i in Num_Delimiters_Range'First..SFun2.Number_Of_Delimiters =>
+            (for some j in
+               Num_Delimiters_Range'First..Merge.Number_Of_Delimiters =>
+                 (Merge.Step(i).Delimiter = SFun2.Step(j).Delimiter)))
    -- for all delimiters of Merge, its value is the minimum of SFun1 and SFun2
-     and (for all i in 1..Merge.Number_Of_Delimiters =>
+     and (for all i in Num_Delimiters_Range'First..Merge.Number_Of_Delimiters =>
             (Merge.Step(i).Value = Min(Get_Value(SFun1,
                                                  Merge.Step(i).Delimiter),
                                        Get_Value(SFun2,
