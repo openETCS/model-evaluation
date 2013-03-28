@@ -59,8 +59,8 @@ package body Step_Function is
       scan_sfun1 : Boolean := True;
       scan_sfun2 : Boolean := True;
    begin
-      while scan_sfun1 or scan_sfun2 loop
-
+      Pragma Assert (SFun1.Step(0).Delimiter = SFun2.Step(0).Delimiter);
+      loop
          -- im, i1 and i2 bounds
          Pragma Assert (i1 <= SFun1.Number_Of_Delimiters);
          Pragma Assert (i2 <= SFun2.Number_Of_Delimiters);
@@ -128,7 +128,12 @@ package body Step_Function is
             Index_Increment(SFun2, i2, scan_sfun2);
          end if;
 
-         if scan_sfun1 or scan_sfun2 then im := im + 1; end if;
+         Pragma Assert (if scan_sfun1 or scan_sfun2 then im < i1 + i2);
+         if scan_sfun1 or scan_sfun2 then
+            im := im + 1;
+         else
+            exit;
+         end if;
       end loop;
 
       Merge.Number_Of_Delimiters := im;
