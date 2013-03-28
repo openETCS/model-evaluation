@@ -1,4 +1,4 @@
-with Step_Function;
+with Step_Function; use Step_Function;
 
 procedure Step_Function_Test is
    SFun1 : Step_Function.Step_Function :=
@@ -16,16 +16,16 @@ procedure Step_Function_Test is
                others => (Delimiter => 0, Value => 0.0)));
 
 begin
-   Pragma Assert (Step_Function.Is_Valid(SFun1));
-   Pragma Assert (Step_Function.Is_Valid(SFun2));
+   Pragma Assert (Is_Valid(SFun1));
+   Pragma Assert (Is_Valid(SFun2));
 
-   Pragma Assert (Step_Function.Get_Value(SFun1, 0) = 3.0);
-   Pragma Assert (Step_Function.Get_Value(SFun1, 1) = 3.0);
-   Pragma Assert (Step_Function.Get_Value(SFun1, 3) = 2.0);
-   Pragma Assert (Step_Function.Get_Value(SFun1, 4) = 2.0);
-   Pragma Assert (Step_Function.Get_Value(SFun1, 5) = 5.0);
-   Pragma Assert (Step_Function.Get_Value(SFun1,
-     Step_Function.Function_Range'Last) = 5.0);
+   Pragma Assert (Get_Value(SFun1, 0) = 3.0);
+   Pragma Assert (Get_Value(SFun1, 1) = 3.0);
+   Pragma Assert (Get_Value(SFun1, 3) = 2.0);
+   Pragma Assert (Get_Value(SFun1, 4) = 2.0);
+   Pragma Assert (Get_Value(SFun1, 5) = 5.0);
+   Pragma Assert (Get_Value(SFun1,
+     Function_Range'Last) = 5.0);
 
-   Pragma Assert (Step_Function.Has_Same_Delimiters(SFun1, SFun2));
+   Pragma Assert (Has_Same_Delimiters(SFun1, SFun2));
 end;
