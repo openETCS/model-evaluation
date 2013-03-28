@@ -64,21 +64,21 @@ package body Step_Function is
          -- im, i1 and i2 bounds
          Pragma Assert (i1 <= SFun1.Number_Of_Delimiters);
          Pragma Assert (i2 <= SFun2.Number_Of_Delimiters);
-         Pragma Assert (im < Num_Delimiters_Range'Last);
+         Pragma Assert (im <= Num_Delimiters_Range'Last);
 
          -- Merge is a valid step function until im
-         Pragma Assert (for all i in 0..im-1 =>
-                          Merge.Step(i).Delimiter < Merge.Step(i+1).Delimiter);
+         Pragma Assert (for all i in 1..im-1 =>
+                          Merge.Step(i-1).Delimiter < Merge.Step(i).Delimiter);
 
          -- All merged delimiters are coming from valid delimiter in SFun1 or
          -- SFun2
          Pragma Assert
-           (for all i in 1..i1 =>
-              ((for some j in 1..im =>
+           (for all i in 0..i1-1 =>
+              ((for some j in 0..im-1 =>
                   SFun1.Step(i).Delimiter = Merge.Step(j).Delimiter)));
          Pragma Assert
-           (for all i in 1..i2 =>
-              ((for some j in 1..im =>
+           (for all i in 0..i2-1 =>
+              ((for some j in 0..im-1 =>
                   SFun2.Step(i).Delimiter = Merge.Step(j).Delimiter)));
 
          -- Merged value at a delimiter is the minimum of both step functions
