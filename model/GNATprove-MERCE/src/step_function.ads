@@ -62,6 +62,15 @@ package Step_Function is
                and Get_Value'Result
                = SFun.Step(SFun.Number_Of_Delimiters).Value));
 
+   procedure Index_Increment(SFun: Step_Function;
+                             i: in out Num_Delimiters_Range;
+                             scan: in out Boolean)
+   with Post =>
+     (if i'Old < SFun.Number_Of_Delimiters then
+        (i = i'Old + 1 and scan = scan'Old)
+      else
+        (i = i'Old and scan = False));
+
    -- Note: In the following Post condition, it would be better to tell that
    -- Merge is the minimum of both SFun1 and SFun2 for all possible input
    -- values, but I'm not sure that can be proved
