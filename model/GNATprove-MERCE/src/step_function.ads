@@ -42,7 +42,7 @@ package Step_Function is
    function Is_Valid(SFun : Step_Function) return Boolean is
      (SFun.Step(0).Delimiter = Function_Range'First
       and
-        (for all i in 1..(SFun.Number_Of_Delimiters - 1) =>
+        (for all i in 0..(SFun.Number_Of_Delimiters - 1) =>
            (SFun.Step(i+1).Delimiter > SFun.Step(i).Delimiter)));
 
    function Has_Same_Delimiters(SFun1, SFun2 : Step_Function) return Boolean is
