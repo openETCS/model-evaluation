@@ -5,6 +5,11 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \graphicspath{{./template/}{.}{./images/}}
+
+% listings package configuration
+\lstset{basicstyle={\footnotesize \sffamily},framesep=2pt,frame=single}
+\newcommand{\Ada}[1]{\lstinline[language=Ada,basicstyle={\sffamily},framesep=0pt]{#1}}
+
 \begin{document}
 \frontmatter
 \project{openETCS}
@@ -62,25 +67,89 @@ email: \url{d.mentre@fr.merce.mee.com}
 
 %Start here
 
-
-
-
-%Examples are below
+\mainmatter
 
 \chapter{Introduction}
-\chapter{Short introduction to GNATprove tool}
+
+This document presents the use of Ada 2012 language and GNATprove tool
+to model a subset of ETCS. This subset is included in the subset
+defined in openETCS D2.5 document\cite{openetcs:D2.5}.
+
+In this report, we firstly present the Ada 2012 language and GNATprove
+tool, then we give an overview of our model, its benefits and
+shortcoming to end with the detailed source code of the complete
+model.
+
+\chapter{Short introduction to Ada 2012 and GNATprove tool}
+
+This model is using Ada 2012 language\cite{arm2012}. The Ada language
+is a well known generic purpose language which first version was
+published in 1983 and which is normalized by ISO. After several
+revisions in 1995 and 2005, the latest 2012 revision offers
+interesting facilities for program verification. More specifically,
+function contracts can now be declared through pre and post-conditions
+using \Ada{Pre} and \Ada{Post} Ada annotations.
+
+Those contracts can be compiled in executable code and checked
+dynamically at execution, or statically verified using a dedicated
+tool. GNATprove is such a static verification tool. It
+\emph{automatically}\footnote{Automatic verification is made through
+  several calls to SMT (Satisfiability Modulo Theories) solver
+  \emph{Alt-Ergo}.} checks Ada 2012 contracts and absence of run-time
+exception (underflow, overflow, out of bound access, ...) for all
+possible executions. GNATprove is integrated into AdaCore's GNAT
+Programming Studio (GPS) environment.
+
+GNATprove and GPS programming environment are Open Source software,
+licensed under GNU GPL.
+
+\section{A short example}
+
+As example, here is the Ada 2012 specification of a
+\Ada{Saturated_Sum} function. The \Ada{Post}-condition states that if
+the sum of two integers \Ada{X1} and \Ada{X2} is below a given
+\Ada{Maximum}, then this sum is returned, otherwise the \Ada{Maximum}
+is returned.
+
+The \Ada{Pre}-condition states that both \Ada{X1} and \Ada{X2} should
+be below the biggest \Ada{Natural} divided by 2, such that computation
+of the sum does not raise an overflow error at execution.
+
+\lstinputlisting[language=Ada]{../src/example.ads}
+
+The implementation of this specification is rather obvious.
+
+\lstinputlisting[language=Ada]{../src/example.adb}
+
+Applying GNATprove on above two files generates 9 Verification
+Conditions (VC) that are all \emph{automatically} proved correct by
+the tool.
+
+After such verifications, we are sure that for all possible executions
+no run-time errors are going to be raised and that the
+\Ada{Saturated_Sum} function will fulfill its contract if called with
+pre-conditions satisfied.
+
 \chapter{Model overview}
+
 \chapter{Model benefits and shortcomings}
+
 \chapter{Detailed model description}
 
-\begin{figure}
-  \centering
-  \fbox{\includegraphics[width=2in]{itea}}
-  \caption{Yet Another Castle In Appendix}
-  \label{fig:castle2}
-\end{figure}
+%% \begin{figure}
+%%   \centering
+%%   \fbox{\includegraphics[width=2in]{itea}}
+%%   \caption{Yet Another Castle In Appendix}
+%%   \label{fig:castle2}
+%% \end{figure}
+
+\bibliographystyle{abbrv}
+\bibliography{GNATprove-model-report}
+
 
 %===================================================
 %Do NOT change anything below this line
 
 \end{document}
+
+% LocalWords:  GNATprove AdaCore's GPS VC pre adb GPL SMT Satisfiability
