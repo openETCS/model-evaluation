@@ -62,9 +62,12 @@ package body Step_Function is
       Pragma Assert (SFun1.Step(0).Delimiter = SFun2.Step(0).Delimiter);
       loop
          -- im, i1 and i2 bounds
+         Pragma Assert (i1 >= 0 and i2 >= 0 and im >= 0);
          Pragma Assert (i1 <= SFun1.Number_Of_Delimiters);
          Pragma Assert (i2 <= SFun2.Number_Of_Delimiters);
+         Pragma Assert (i1 + i2 <= Num_Delimiters_Range'Last);
          Pragma Assert (im <= Num_Delimiters_Range'Last);
+         Pragma Assert (im <= i1 + i2);
 
          -- Merge is a valid step function until im
          Pragma Assert (for all i in 1..im-1 =>
