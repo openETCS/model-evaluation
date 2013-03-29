@@ -174,6 +174,47 @@ a \Ada{Boolean} variable, e.g. \Ada{Start_Of_Mission}.
 
 \chapter{Detailed model description}
 
+\section{Generic parts of the model}
+
+\lstinputlisting[language=Ada]{../src/data_types.ads}
+\lstinputlisting[language=Ada]{../src/etcs_level.ads}
+\lstinputlisting[language=Ada]{../src/appendix_a_3_1.ads}
+
+
+\subsection{SUBSET-026-4.3.2 ETCS modes}
+
+\lstinputlisting[language=Ada]{../src/section_4_3_2.ads}
+
+\section{SUBSET-026-4.6 Transitions between modes}
+
+\lstinputlisting[language=Ada]{../src/section_4_6.ads}
+\lstinputlisting[language=Ada]{../src/section_4_6.adb}
+
+
+\section{SUBSET-026-3.5.3 Establishing a communication session}
+
+\subsection{Safe Radio package}
+
+\lstinputlisting[language=Ada]{../src/safe_radio.ads}
+\lstinputlisting[language=Ada]{../src/safe_radio.adb}
+
+\subsection{Com map utility package}
+
+\lstinputlisting[language=Ada]{../src/com_map.ads}
+
+\subsection{Section 3.5.3 modeling}
+
+\lstinputlisting[language=Ada]{../src/section_3_5_3.ads}
+\lstinputlisting[language=Ada]{../src/section_3_5_3.adb}
+
+\section{SUBSET-026-3.13 Speed and distance monitoring}
+
+\subsection{Modeling of step functions}
+
+\lstinputlisting[language=Ada]{../src/step_function.ads}
+\lstinputlisting[language=Ada]{../src/step_function.adb}
+\lstinputlisting[language=Ada]{../src/step_function_test.adb}
+
 %% \begin{figure}
 %%   \centering
 %%   \fbox{\includegraphics[width=2in]{itea}}
