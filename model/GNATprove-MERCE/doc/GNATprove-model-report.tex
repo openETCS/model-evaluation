@@ -70,7 +70,7 @@ email: \url{d.mentre@fr.merce.mee.com}
 \mainmatter
 
 \chapter{Introduction}
-
+ define
 This document presents the use of Ada 2012 language and GNATprove tool
 to model a subset of ETCS. This subset is included in the subset
 defined in openETCS D2.5 document\cite{openetcs:D2.5}.
@@ -132,6 +132,44 @@ pre-conditions satisfied.
 
 \chapter{Model overview}
 
+The model is organized along SUBSET 026: to each section or subsection
+corresponds an Ada \Ada{package} of the same name\footnote{We are not
+  sure this approach makes the model easily understandable, at least
+  without a good knowledge of SUBSET 026. Naming packages after
+  described entities (Communication, Balises, etc.) might be a better
+  approach for a full fledged model.}. Like Uwe Steinke for its SCADE
+model, we have tried to formalize each paragraph of SUBSET 026,
+associating to it some Ada 2012 code.
+
+For each part of the model, a comment gives the paragraph number it
+corresponds to, thus making a basic traceability.
+
+We have also created additional packages for generic parts of the
+model or to define data structure used by several parts.
+
+We have created Ada data types to describe specific objects of ETCS
+specification. Those data types are in turned used to define Ada
+entities that represent ETCS specification objects in our model.
+
+For example, the following \Ada{package ETCS_Level} defines the five
+ETCS levels 0 to 4 as \Ada{type ertms_etcs_level_t}. Within those
+levels, the NTC (aka STM) specific level is defined as number 4 with
+\Ada{ertms_etcs_level_ntc constant}. Then this data type is used for
+definition of \Ada{ertms_etcs_level} variable that describes current
+ETCS level in the model.
+
+\begin{lstlisting}[language=Ada]
+Package ETCS_Level is
+   type ertms_etcs_level_t is range 0..4; -- SUBSET-026-2.6.2.3
+   ertms_etcs_level_ntc : constant ertms_etcs_level_t := 4;
+
+   ertms_etcs_level : ertms_etcs_level_t;
+end;
+\end{lstlisting}
+
+For propositions in the text, e.g. ``Start of Mission'', we have used
+a \Ada{Boolean} variable, e.g. \Ada{Start_Of_Mission}.
+
 \chapter{Model benefits and shortcomings}
 
 \chapter{Detailed model description}
@@ -152,4 +190,4 @@ pre-conditions satisfied.
 
 \end{document}
 
-% LocalWords:  GNATprove AdaCore's GPS VC pre adb GPL SMT Satisfiability
+% LocalWords:  GNATprove AdaCore's GPS VC pre adb GPL SMT Satisfiability ETCS
