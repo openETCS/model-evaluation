@@ -61,14 +61,43 @@ email: \url{t.bardot@fr.merce.mee.com}
 %=============================
 
 %Start here
-
-
-
+\mainmatter
 
 %Examples are below
 
 \chapter{Introduction}
-\chapter{Short introduction to GNATprove tool}
+This document describes a SysML model of the [TODO : add ref]ETCS SRS SUBSET-026-3.5.3. An overview of the formalism and of the SysML model is given. Then, we discuss about the benefits and shortcomings of the formalism and the modeling strategy. In order to make the model easier to understand, a detail description of the model with explanations is given.
+
+\section{Formalism and tool description}
+\subsection{SysML}
+
+The System Modeling Language (SysML) is a graphical language based on an UML profile. It represents a subset of UML 2.0 with extensions needed to model complex systems with hardware, software, procedures and many other elements. 
+SysML uses nine kind of diagrams which allow to model requirements, parameters relationship, structure and behavior of a system. These diagrams are the following :
+
+\begin{itemize}
+	\item Activity diagram
+	\item Block definition diagram
+	\item Internal block diagram
+	\item Package diagram
+	\item Parametric diagram
+	\item Requirement diagram
+	\item Sequence diagram
+	\item State machine diagram
+	\item Use case diagram
+\end{itemize}
+
+Sysml diagrams are structured in the way represented by the [TODO].
+
+Insert Figure [TODO].
+
+\subsection{SysML tools}
+
+Actually, there are many tools supporting SysML, open source or not. Most common open source tools are Topcased and Papyrus, based on the Eclipse Platform. We tried Topcased, but we faced problems, like a corrupted project file. Thus, we choose to use a tool under a proprietary license. We choose to use Enterprise Architect which has the advantage to be one of the cheapest proprietary SysML tool, to offer a model simulator and a code generator and seems to have a good scalability.
+
+\section{Model purpose}
+
+Our work consisted in modeling the [TODO add ref] SRS SUBSET-026-3.5.3 : Establishing a communication session.
+
 \chapter{Model overview}
 \chapter{Model benefits and shortcomings}
 \chapter{Detailed model description}
