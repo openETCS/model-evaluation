@@ -23,6 +23,7 @@ with Units; use Units;
 package Deceleration_Curve is
    Maximum_Valid_Speed : constant Speed_t :=
      m_per_s_From_km_per_h(Maximum_Valid_Speed_km_per_h);
+   Minimum_Valid_Acceleration : constant Acceleration_t := -10.0; -- FIXME: realistic value?
 
    function Distance_To_Speed(Initial_Speed, Final_Speed: Speed_t;
                               Acceleration: Acceleration_t)
@@ -34,5 +35,7 @@ package Deceleration_Curve is
              and
                Initial_Speed > Final_Speed
              and
-               Acceleration < 0.0);
+               Acceleration < 0.0
+             and
+               Acceleration >= Minimum_Valid_Acceleration);
 end Deceleration_Curve;

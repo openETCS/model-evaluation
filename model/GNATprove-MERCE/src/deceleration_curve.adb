@@ -22,23 +22,40 @@ with Units; use Units;
 
 package body Deceleration_Curve is
    Distance_Resolution : constant Distance_t := 10; -- m
-   Maximim_Valid_Speed : constant Speed_t :=
-     m_per_s_From_km_per_h(Maximum_Valid_Speed_km_per_h);
+   Minimum_Valid_Speed : constant Speed_t := 0.1; -- m/s
 
    function Distance_To_Speed(Initial_Speed, Final_Speed: Speed_t;
                               Acceleration: Acceleration_t)
                               return Distance_t is
       speed : Speed_t := Initial_Speed;
+      delta_speed : Speed_t;
       distance : Distance_t := 0;
    begin
-      loop
-         Pragma Assert (speed > 0.0);
-         speed := speed + (Speed_t(Acceleration) / speed)
+      while speed > final_speed and speed > Minimum_Valid_Speed loop
+         Pragma Assert (Minimum_Valid_Acceleration <= Acceleration
+                        and Acceleration < 0.0);
+         Pragma Assert (Minimum_Valid_Speed < speed and speed <= Initial_Speed);
+         Pragma Assert (0.0 < 1.0/speed and 1.0/speed < 1.0 / Minimum_Valid_Speed);
+         Pragma assert
+           ((Speed_t(Minimum_Valid_Acceleration) / Minimum_Valid_Speed)
+            <= Speed_t(Acceleration) / speed);
+         Pragma assert
+           ((Speed_t(Minimum_Valid_Acceleration) / Minimum_Valid_Speed)
+              * Speed_t(Distance_Resolution)
+            <= (Speed_t(Acceleration) / speed) * Speed_t(Distance_Resolution));
+
+         delta_speed := (Speed_t(Acceleration) / speed)
            * Speed_t(Distance_Resolution);
 
-         distance := distance + Distance_Resolution;
+         Pragma Assert
+           ((Speed_t(Minimum_Valid_Acceleration) / Minimum_Valid_Speed)
+            * Speed_t(Distance_Resolution) <= delta_speed
+            and
+              delta_speed < 0.0);
 
-         exit when speed <= final_speed;
+         speed := speed + delta_speed;
+
+         distance := distance + Distance_Resolution;
       end loop;
 
       return distance;
