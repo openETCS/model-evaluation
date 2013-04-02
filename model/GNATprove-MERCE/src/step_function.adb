@@ -24,7 +24,7 @@ package body Step_Function is
       if X1 <= X2 then return X1; else return X2; end if;
    end;
 
-   function Get_Value(SFun : Step_Function; X: Function_Range) return Float is
+   function Get_Value(SFun : Step_Function_t; X: Function_Range) return Float is
    begin
       for i in Num_Delimiters_Range'First..(SFun.Number_Of_Delimiters - 1) loop
          Pragma Assert (for all j in 1..i =>
@@ -37,7 +37,7 @@ package body Step_Function is
       return SFun.Step(SFun.Number_Of_Delimiters).Value;
    end Get_Value;
 
-   procedure Index_Increment(SFun: Step_Function;
+   procedure Index_Increment(SFun: Step_Function_t;
                              i: in out Num_Delimiters_Range;
                              scan: in out Boolean) is
    begin
@@ -48,8 +48,8 @@ package body Step_Function is
       end if;
    end;
 
-   procedure Restrictive_Merge(SFun1, SFun2 : in Step_Function;
-                               Merge : out Step_Function) is
+   procedure Restrictive_Merge(SFun1, SFun2 : in Step_Function_t;
+                               Merge : out Step_Function_t) is
 --     begin
 --        null;
 --     end;

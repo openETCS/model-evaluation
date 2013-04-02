@@ -31,7 +31,7 @@ package Step_Function is
    type Delimiter_Values is array (Num_Delimiters_Range)
      of Delimiter_Entry;
 
-   type Step_Function is record
+   type Step_Function_t is record
       Number_Of_Delimiters : Num_Delimiters_Range;
       Step : Delimiter_Values;
    end record;
@@ -39,18 +39,19 @@ package Step_Function is
    function Min(X1, X2 : Float) return Float
    with Post => (if X1 <= X2 then Min'Result = X1 else Min'Result = X2);
 
-   function Is_Valid(SFun : Step_Function) return Boolean is
+   function Is_Valid(SFun : Step_Function_t) return Boolean is
      (SFun.Step(0).Delimiter = Function_Range'First
       and
         (for all i in 0..(SFun.Number_Of_Delimiters - 1) =>
            (SFun.Step(i+1).Delimiter > SFun.Step(i).Delimiter)));
 
-   function Has_Same_Delimiters(SFun1, SFun2 : Step_Function) return Boolean is
+   function Has_Same_Delimiters(SFun1, SFun2 : Step_Function_t) return Boolean
+   is
      (SFun1.Number_Of_Delimiters = SFun2.Number_Of_Delimiters
       and (for all i in 1.. SFun1.Number_Of_Delimiters =>
            SFun1.Step(i).Delimiter = SFun2.Step(i).Delimiter));
 
-   function Get_Value(SFun : Step_Function; X: Function_Range) return Float
+   function Get_Value(SFun : Step_Function_t; X: Function_Range) return Float
    with Pre => Is_Valid(SFun),
    Post => ((for some i in
                Num_Delimiters_Range'First..(SFun.Number_Of_Delimiters - 1) =>
@@ -62,7 +63,7 @@ package Step_Function is
                and Get_Value'Result
                = SFun.Step(SFun.Number_Of_Delimiters).Value));
 
-   procedure Index_Increment(SFun: Step_Function;
+   procedure Index_Increment(SFun: Step_Function_t;
                              i: in out Num_Delimiters_Range;
                              scan: in out Boolean)
    with Post =>
@@ -74,8 +75,8 @@ package Step_Function is
    -- Note: In the following Post condition, it would be better to tell that
    -- Merge is the minimum of both SFun1 and SFun2 for all possible input
    -- values, but I'm not sure that can be proved
-   procedure Restrictive_Merge(SFun1, SFun2 : in Step_Function;
-                               Merge : out Step_Function)
+   procedure Restrictive_Merge(SFun1, SFun2 : in Step_Function_t;
+                               Merge : out Step_Function_t)
    with Pre => Is_Valid(SFun1) and Is_Valid(SFun2)
      and SFun1.Number_Of_Delimiters + SFun2.Number_Of_Delimiters <=
        Num_Delimiters_Range'Last,

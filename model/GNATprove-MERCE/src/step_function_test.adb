@@ -2,21 +2,21 @@ with Step_Function; use Step_Function;
 with GNAT.IO; use GNAT.IO;
 
 procedure Step_Function_Test is
-   SFun1 : Step_Function.Step_Function :=
+   SFun1 : Step_Function_t :=
      (Number_Of_Delimiters => 2,
       Step => ((Delimiter => 0, Value => 3.0),
                (Delimiter => 3, Value => 2.0),
                (Delimiter => 5, Value => 5.0),
                others => (Delimiter => 0, Value => 0.0)));
 
-   SFun2 : Step_Function.Step_Function :=
+   SFun2 : Step_Function_t :=
      (Number_Of_Delimiters => 2,
       Step => ((Delimiter => 0, Value => 1.0),
                (Delimiter => 3, Value => 1.0),
                (Delimiter => 5, Value => 3.0),
                others => (Delimiter => 0, Value => 0.0)));
 
-   sfun3 : Step_Function.Step_Function :=
+   sfun3 : Step_Function_t :=
      (Number_Of_Delimiters => 5,
       Step => ((Delimiter => 0, Value => 1.0),
                (Delimiter => 1, Value => 1.0),
@@ -26,7 +26,7 @@ procedure Step_Function_Test is
                (Delimiter => 9, Value => 9.0),
                others => (Delimiter => 0, Value => 0.0)));
 
-   sfun4 : Step_Function.Step_Function :=
+   sfun4 : Step_Function_t :=
      (Number_Of_Delimiters => 5,
       Step => ((Delimiter => 0, Value => 10.0),
                (Delimiter => 2, Value => 8.0),
@@ -36,7 +36,7 @@ procedure Step_Function_Test is
                (Delimiter => 10, Value => 0.5),
                others => (Delimiter => 0, Value => 0.0)));
 
-   sfun_merge : Step_Function.Step_Function;
+   sfun_merge : Step_Function_t;
 begin
    Pragma Assert (Is_Valid(SFun1));
    Pragma Assert (Is_Valid(SFun2));

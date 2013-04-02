@@ -47,10 +47,11 @@ package sec_3_13_2_monitoring_inputs is
    -- ** section 3.13.2.2.3 Braking Models **
 
    -- SUBSET-026-3.13.2.2.3.1.1
-   A_brake : Step_Function.Step_Function;
+   A_brake : Step_Function_t;
 
    -- SUBSET-026-3.13.2.2.3.1.2
-   function Is_Valid_Deceleration_Model(S : Step_Function.Step_Function) return Boolean is
-      (S.Number_Of_Delimiters <= 6); -- 6 delimiters for 7 steps
+   function Is_Valid_Deceleration_Model(S : Step_Function_t) return Boolean is
+     (S.Number_Of_Delimiters <= 6); -- 6 delimiters for 7 steps
+
 end sec_3_13_2_monitoring_inputs;
 
