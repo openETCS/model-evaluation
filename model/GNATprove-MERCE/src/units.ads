@@ -31,4 +31,11 @@ package Units is
    with
      Pre => (Speed >= 0.0 and Speed <= Maximum_Valid_Speed_km_per_h);
 
+   -- Pure function that fails with GNAT GPL 2012
+--     function m_per_s_From_km_per_h_bis(Speed: Speed_km_per_h_t) return Speed_t
+--     is
+--        (Speed_t((Speed * 1000.0) / 3600.0))
+--     with
+--       Pre => (Speed >= 0.0 and Speed <= Maximum_Valid_Speed_km_per_h);
+
 end Units;
