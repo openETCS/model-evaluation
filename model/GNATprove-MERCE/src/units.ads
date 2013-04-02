@@ -19,6 +19,9 @@
 --  limitations under the Licence.
 
 package Units is
+   -- FIXME: With GPL 2013 edition, try Dimension_System aspect
+   --   http://www.adacore.com/adaanswers/gems/gem-136-how-tall-is-a-kilogram/
+
    -- For Breaking Curves computation
    type Speed_t is new Float; -- m/s unit
    type Speed_km_per_h_t is new Float; -- km/h unit
