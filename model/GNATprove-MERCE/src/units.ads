@@ -26,7 +26,8 @@ package Units is
    type Speed_t is new Float; -- m/s unit
    type Speed_km_per_h_t is new Float; -- km/h unit
    type Acceleration_t is new Float; -- m/s**2 unit
-   type Distance_t is new Natural; -- m
+   type Distance_t is new Natural; -- m unit
+   type Time_t is new Float; -- s unit
 
    Maximum_Valid_Speed_km_per_h : constant Speed_km_per_h_t := 500.0;-- 500 km/h
 
