@@ -24,6 +24,7 @@ with Units; use Units;
 with Step_Function; use Step_Function;
 
 package sec_3_13_2_monitoring_inputs is
+   -- *** section 3.13.2.2 Train related inputs ***
    -- ** section 3.13.2.2.1 Introduction **
 
    -- SUBSET-026-3.13.2.2.1.1 not formalized (description)
@@ -91,8 +92,8 @@ package sec_3_13_2_monitoring_inputs is
    -- SUBSET-026-3.13.2.2.3.2.2 not formalized (figure)
 
    -- SUBSET-026-3.13.2.2.3.2.3
-   T_brake_react : constant Time_t := 10.0; -- s -- Realistic value ?
-   T_brake_increase : constant Time_t := 20.0; -- s -- Realistic value ?
+   T_brake_react : constant Time_t := 1.0; -- s
+   T_brake_increase : constant Time_t := 2.0; -- s
 
    -- SUBSET-026-3.13.2.2.3.2.4
    T_brake_build_up : constant Time_t := T_brake_react + 0.5 * T_brake_increase;
@@ -210,8 +211,10 @@ package sec_3_13_2_monitoring_inputs is
    -- ** section 3.13.2.2.13 Maximum train speed **
 
    -- SUBSET-026-3.13.2.2.12.1
-   Maximum_Train_Speed : constant Speed_t := m_per_s_From_km_per_h(200.0);
+   Maximum_Train_Speed : constant Speed_t := m_per_s_From_km_per_h(250.0);
 
+   -- *** section 3.13.2.3 Trackside related inputs ***
+   -- all sections of 3.13.2.3 not formalized
    procedure dummy;
 end sec_3_13_2_monitoring_inputs;
 
