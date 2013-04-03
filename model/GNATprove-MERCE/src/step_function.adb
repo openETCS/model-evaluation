@@ -37,6 +37,39 @@ package body Step_Function is
       return SFun.Step(SFun.Number_Of_Delimiters).Value;
    end Get_Value;
 
+   function Minimum_Until_Point(SFun : Step_Function_t; X: Function_Range)
+                                return Float is
+      min : Float := SFun.Step(Num_Delimiters_Range'First).Value;
+   begin
+      for i in Num_Delimiters_Range'First .. SFun.Number_Of_Delimiters loop
+         Pragma Assert
+           (for all j in Num_Delimiters_Range'First..i-1 =>
+              (if X >= SFun.Step(j).Delimiter then
+               min <= SFun.Step(j).Value));
+         Pragma Assert
+           (for some j in Num_Delimiters_Range'First..i =>
+              (X >= SFun.Step(j).Delimiter
+               and
+                 min = SFun.Step(j).Value));
+
+         if X >= SFun.Step(i).Delimiter then
+            if SFun.Step(i).Value < min then min := SFun.Step(i).Value; end if;
+         else
+            Pragma Assert
+              (for all j in i+1..SFun.Number_Of_Delimiters =>
+                 SFun.Step(j-1).Delimiter < SFun.Step(j).Delimiter);
+            Pragma Assert (X < SFun.Step(i).Delimiter);
+            Pragma Assert
+              (for all j in i..SFun.Number_Of_Delimiters =>
+                 X < SFun.Step(j).Delimiter);
+
+            return min;
+         end if;
+      end loop;
+
+      return min;
+   end Minimum_Until_Point;
+
    procedure Index_Increment(SFun: Step_Function_t;
                              i: in out Num_Delimiters_Range;
                              scan: in out Boolean) is
@@ -141,5 +174,4 @@ package body Step_Function is
 
       Merge.Number_Of_Delimiters := im;
    end Restrictive_Merge;
-
 end Step_Function;

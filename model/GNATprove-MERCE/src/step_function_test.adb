@@ -61,4 +61,8 @@ begin
       Pragma Assert (Get_Value(sfun_merge, i)
                      = Min(Get_Value(sfun3, i), Get_Value(sfun4, i)));
    end loop;
+
+   Pragma Assert (Minimum_Until_Point(sfun4, 1) = 10.0);
+   Pragma Assert (Minimum_Until_Point(sfun4, 5) = 6.0);
+   Pragma Assert (Minimum_Until_Point(sfun_merge, 11) = 0.5);
 end;

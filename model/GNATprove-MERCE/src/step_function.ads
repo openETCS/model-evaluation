@@ -63,6 +63,22 @@ package Step_Function is
                and Get_Value'Result
                = SFun.Step(SFun.Number_Of_Delimiters).Value));
 
+   function Minimum_Until_Point(SFun : Step_Function_t; X: Function_Range)
+                                return Float
+   with
+     Pre => Is_Valid(SFun),
+   Post =>
+   -- returned value is the minimum until the point X
+     (for all i in Num_Delimiters_Range'First..SFun.Number_Of_Delimiters =>
+        (if X >= SFun.Step(i).Delimiter then
+         Minimum_Until_Point'Result <= SFun.Step(i).Value))
+     and
+   -- returned value is a value of the step function until point X
+     ((for some i in Num_Delimiters_Range'First..SFun.Number_Of_Delimiters =>
+         (X >= SFun.Step(i).Delimiter
+          and
+            (Minimum_Until_Point'Result = SFun.Step(i).Value))));
+
    procedure Index_Increment(SFun: Step_Function_t;
                              i: in out Num_Delimiters_Range;
                              scan: in out Boolean)
