@@ -30,6 +30,10 @@ package Deceleration_Curve is
 
    type Braking_Curve_Range is range 0..1_000;
 
+   Braking_Curve_Maximum_End_Point : constant Distance_t :=
+     Distance_t(Braking_Curve_Range'Last - Braking_Curve_Range'First)
+     * Distance_Resolution;
+
    type Braking_Curve_Entry is
       record
          location : Distance_t;
@@ -68,15 +72,14 @@ package Deceleration_Curve is
                Acceleration >= Minimum_Valid_Acceleration);
 
    function Curve_Index_From_Location(d : Distance_t)
-                                      return Braking_Curve_Range;
+                                      return Braking_Curve_Range
+   with
+   Pre => (d <= Braking_Curve_Maximum_End_Point);
 
    procedure Curve_From_Target(Target : Target_t;
                                Braking_Curve : out Braking_Curve_t)
    with
-     Pre => (Target.location
-             <= (Distance_t(Braking_Curve_Range'Last
-                           - Braking_Curve_Range'First)
-                 * Distance_Resolution));
+     Pre => (Target.location <= Braking_Curve_Maximum_End_Point);
 
    procedure Print_Curve(Braking_Curve : Braking_Curve_t);
 end Deceleration_Curve;
