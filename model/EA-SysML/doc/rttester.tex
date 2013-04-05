@@ -1,13 +1,13 @@
 \subsection{Tool overview}
-\begin{itemize}
-\item Purpose
-\item Features
-\item Certification
-\end{itemize}
-Paper Certification + bases
 
-The RT-Tester follows the model-based testing approach. 
-It provides the following features :
+The RT-Tester test automation tool, made by Verified
+\cite{verified_website}, performs automatic test generation, test
+execution and real-time test evaluation.  It supports different
+testing approach such as unit testing, software integration testing
+for component, hardware/software integration testing and system
+integration testing.  The RT-Tester version we had used, follows the
+model-based testing approach \cite{Peleska2011,rttmbtreport2011} and
+it provides the following features :
 \begin{itemize}
 \item Automated Test Case Generation 
 \item Automated Test Data Generation 
@@ -16,13 +16,38 @@ It provides the following features :
 \item Test Management system 
 \end{itemize}
 Starting from a test model design with UML/SYML, the RT-tester fully
-automatically generates test cases. They are then specified as test data
-(sequences of stimuli with timing constraints) and used to stimulate the SUT and
-run concurently with the generated test oracles. The test procedure is the
-combination of the test oracles and the SUT composed a test porcdure that can be
-compiled and executed.
+automatically generates test cases. They are then specified as test
+data (sequences of stimuli with timing constraints) and used to
+stimulate the SUT and run concurently with the generated test
+oracles. The test procedure is the combination of the test oracles and
+the SUT that can be compiled and executed.
 
-\FIXME{Basic schema}
+The tool supports test cases/data generation for structural
+testing. It automatically generates  reach statement coverage, branch coverage and
+modified condition/decision coverage (MC/DC) as far as this is possible.
+The test cases may all be linked to requirements ensuring a complete
+requirement traceability. 
+
+
+
+Finally the tool may produce the documentation of tests for
+certification purposes. For each test cases the following document are
+produced :
+\begin{itemize}
+\item {\em Test procedure}: that specifies  how one test case can be
+  executed, its associated test data produced and how the SUT
+  reactions are evaluated against the expected results.
+\item {\em Test report}: that summarizes all relevant information
+  about the test execution.
+\end{itemize}
+
+In \cite{brauer_efficient_2012}, a general approach  on how to qualify
+model-based testing tool according to the standard ISO 26262 ad RTCA
+DO178C has been proposed and applied with success to the RT-tester
+tool. Following the same  approach compatibility with the CENELEC EN50128
+may be easily done. 
+
+
 
 
 \subsection{Test generation}
@@ -31,3 +56,12 @@ compiled and executed.
 \item Requirement coverage
 \item LTL requirement
 \end{itemize}
+\FIXME{Table coverage summary}
+ 	
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "descriptionReport"
+%%% End: 
+
