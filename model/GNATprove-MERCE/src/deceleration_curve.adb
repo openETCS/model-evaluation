@@ -42,7 +42,7 @@ package body Deceleration_Curve is
             <= Speed_t(Acceleration) / speed);
          Pragma assert
            ((Speed_t(Minimum_Valid_Acceleration) / Minimum_Valid_Speed)
-              * Speed_t(Distance_Resolution)
+            * Speed_t(Distance_Resolution)
             <= (Speed_t(Acceleration) / speed) * Speed_t(Distance_Resolution));
 
          delta_speed := (Speed_t(Acceleration) / speed)
@@ -62,8 +62,14 @@ package body Deceleration_Curve is
       return distance;
    end;
 
+   function Curve_Index_From_Location(d : Distance_t)
+                                      return Braking_Curve_Range is
+   begin
+      return Braking_Curve_Range(d / Distance_Resolution);
+   end;
+
    procedure Curve_From_Target(Target : Target_t;
-                               Breaking_Curve : out Braking_Curve_t) is
+                               Braking_Curve : out Braking_Curve_t) is
       package Speed_Math is
         new Ada.Numerics.Generic_Elementary_Functions(Speed_t);
       use Speed_Math;
@@ -71,14 +77,14 @@ package body Deceleration_Curve is
       speed : Speed_t := Target.speed;
       location : Distance_t := Target.location;
       a : constant Deceleration_t := 1.0;
+      end_point : constant Braking_Curve_Range :=
+        Curve_Index_From_Location(Target.location);
    begin
-      Breaking_Curve(Braking_Curve_Range'First).location := location;
-      Breaking_Curve(Braking_Curve_Range'First).speed := speed;
+      Braking_Curve.end_point := Target.location;
+      Braking_Curve.curve(end_point).location := location;
+      Braking_Curve.curve(end_point).speed := speed;
 
-      for i in
-        Braking_Curve_Range'First + 1
-          .. Braking_Curve_Range(Target.location / Distance_Resolution) loop
-
+      for i in reverse Braking_Curve_Range'First .. end_point - 1 loop
          speed :=
            (speed + Sqrt(speed * speed
             + Speed_t(4.0) * Speed_t(a) * Speed_t(Distance_Resolution))) / 2.0;
@@ -86,23 +92,26 @@ package body Deceleration_Curve is
             speed := Maximum_Valid_Speed;
          end if;
 
-         location := Target.location - Distance_t(i) * Distance_Resolution;
+         location := Distance_t(i) * Distance_Resolution;
 
-         Breaking_Curve(i).location := location;
-         Breaking_Curve(i).speed := speed;
+         Braking_Curve.curve(i).location := location;
+         Braking_Curve.curve(i).speed := speed;
       end loop;
    end Curve_From_Target;
 
-   procedure Print_Curve(Breaking_Curve : Braking_Curve_t) is
+   procedure Print_Curve(Braking_Curve : Braking_Curve_t) is
    begin
-      for i in Braking_Curve_Range loop
-         Put(Distance_t'Image(Breaking_Curve(i).location));
+      for i in Braking_Curve_Range'First ..
+        Curve_Index_From_Location(Braking_Curve.end_point) loop
+         Put(Distance_t'Image(Braking_Curve.curve(i).location));
          Put(",   ");
          Put(Speed_km_per_h_t'Image(
-           km_per_h_From_m_per_s(Breaking_Curve(i).speed)));
+           km_per_h_From_m_per_s(Braking_Curve.curve(i).speed)));
          New_Line;
 
-         if Breaking_Curve(i).location = 0 then exit; end if;
-end loop;
+         if Braking_Curve.curve(i).location >= Braking_Curve.end_point then
+            exit;
+         end if;
+      end loop;
    end Print_Curve;
 end Deceleration_Curve;
