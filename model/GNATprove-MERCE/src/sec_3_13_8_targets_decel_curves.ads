@@ -20,17 +20,13 @@
 
 with Units; use Units;
 with sec_3_13_6_deceleration; use sec_3_13_6_deceleration;
+with Deceleration_Curve; use Deceleration_Curve;
 
 package sec_3_13_8_targets_decel_curves is
    -- ** 3.13.8.1 Introduction **
 
    -- SUBSET-026-3.13.8.1.1
-   type Target_t is
-      record
-         supervise : Boolean;
-         location : Distance_t;
-         speed : Speed_t;
-      end record;
+   -- Defined in Deceleration_Curve package
 
    -- SUBSET-026-3.13.8.1.2
    -- Use of package sec_3_13_6_deceleration

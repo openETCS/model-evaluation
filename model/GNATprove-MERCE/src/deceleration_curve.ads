@@ -21,9 +21,31 @@
 with Units; use Units;
 
 package Deceleration_Curve is
+   Distance_Resolution : constant Distance_t := 5; -- m
+
    Maximum_Valid_Speed : constant Speed_t :=
      m_per_s_From_km_per_h(Maximum_Valid_Speed_km_per_h);
+
    Minimum_Valid_Acceleration : constant Acceleration_t := -10.0; -- FIXME: realistic value?
+
+   type Braking_Curve_Range is range 1..1_000;
+
+   type Braking_Curve_Entry is
+      record
+         location : Distance_t;
+         speed : Speed_t;
+      end record;
+
+   type Braking_Curve_t is array (Braking_Curve_Range)
+     of Braking_Curve_Entry;
+
+   -- SUBSET-026-3.13.8.1.1
+   type Target_t is
+      record
+         supervise : Boolean;
+         location : Distance_t;
+         speed : Speed_t;
+      end record;
 
    function Distance_To_Speed(Initial_Speed, Final_Speed: Speed_t;
                               Acceleration: Acceleration_t)
@@ -38,4 +60,14 @@ package Deceleration_Curve is
                Acceleration < 0.0
              and
                Acceleration >= Minimum_Valid_Acceleration);
+
+   procedure Curve_From_Target(Target : Target_t;
+                               Breaking_Curve : out Braking_Curve_t)
+   with
+     Pre => (Target.location
+             <= (Distance_t(Braking_Curve_Range'Last
+                           - Braking_Curve_Range'First)
+                 * Distance_Resolution));
+
+   procedure Print_Curve(Breaking_Curve : Braking_Curve_t);
 end Deceleration_Curve;

@@ -19,9 +19,10 @@
 --  limitations under the Licence.
 
 with Units; use Units;
+with Ada.Numerics.Generic_Elementary_Functions;
+with GNAT.IO; use GNAT.IO;
 
 package body Deceleration_Curve is
-   Distance_Resolution : constant Distance_t := 10; -- m
    Minimum_Valid_Speed : constant Speed_t := 0.1; -- m/s
 
    function Distance_To_Speed(Initial_Speed, Final_Speed: Speed_t;
@@ -60,4 +61,48 @@ package body Deceleration_Curve is
 
       return distance;
    end;
+
+   procedure Curve_From_Target(Target : Target_t;
+                               Breaking_Curve : out Braking_Curve_t) is
+      package Speed_Math is
+        new Ada.Numerics.Generic_Elementary_Functions(Speed_t);
+      use Speed_Math;
+
+      speed : Speed_t := Target.speed;
+      location : Distance_t := Target.location;
+      a : constant Deceleration_t := 1.0;
+   begin
+      Breaking_Curve(Braking_Curve_Range'First).location := location;
+      Breaking_Curve(Braking_Curve_Range'First).speed := speed;
+
+      for i in
+        Braking_Curve_Range'First + 1
+          .. Braking_Curve_Range(Target.location / Distance_Resolution) loop
+
+         speed :=
+           (speed + Sqrt(speed * speed
+            + Speed_t(4.0) * Speed_t(a) * Speed_t(Distance_Resolution))) / 2.0;
+         if speed > Maximum_Valid_Speed then
+            speed := Maximum_Valid_Speed;
+         end if;
+
+         location := Target.location - Distance_t(i) * Distance_Resolution;
+
+         Breaking_Curve(i).location := location;
+         Breaking_Curve(i).speed := speed;
+      end loop;
+   end Curve_From_Target;
+
+   procedure Print_Curve(Breaking_Curve : Braking_Curve_t) is
+   begin
+      for i in Braking_Curve_Range loop
+         Put(Distance_t'Image(Breaking_Curve(i).location));
+         Put(",   ");
+         Put(Speed_km_per_h_t'Image(
+           km_per_h_From_m_per_s(Breaking_Curve(i).speed)));
+         New_Line;
+
+         if Breaking_Curve(i).location = 0 then exit; end if;
+end loop;
+   end Print_Curve;
 end Deceleration_Curve;

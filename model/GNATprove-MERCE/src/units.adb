@@ -23,4 +23,10 @@ package body Units is
    begin
       return Speed_t((Speed * 1000.0) / 3600.0);
    end;
+
+   function km_per_h_From_m_per_s(Speed: Speed_t) return Speed_km_per_h_t is
+   begin
+      return Speed_km_per_h_t((Speed * 3600.0) / 1000.0);
+   end;
+
 end Units;
