@@ -32,17 +32,26 @@ package Units is
 
    Maximum_Valid_Speed_km_per_h : constant Speed_km_per_h_t := 500.0;-- 500 km/h
 
+   function Is_Valid_Speed_km_per_h(Speed: Speed_km_per_h_t) return Boolean is
+     (Speed >= 0.0 and Speed <= Maximum_Valid_Speed_km_per_h);
+
    function m_per_s_From_km_per_h(Speed: Speed_km_per_h_t) return Speed_t
    with
-     Pre => (Speed >= 0.0 and Speed <= Maximum_Valid_Speed_km_per_h);
+     Pre => Is_Valid_Speed_km_per_h(Speed);
 
    -- Pure function that breaks GNAT GPL 2012
 --     function m_per_s_From_km_per_h_bis(Speed: Speed_km_per_h_t) return Speed_t
 --     is
 --        (Speed_t((Speed * 1000.0) / 3600.0))
 --     with
---       Pre => (Speed >= 0.0 and Speed <= Maximum_Valid_Speed_km_per_h);
+--       Pre => Is_Valid_Speed_km_per_h(Speed);
 
-   function km_per_h_From_m_per_s(Speed: Speed_t) return Speed_km_per_h_t;
+   function Is_Valid_Speed(Speed : Speed_t) return Boolean is
+     (Speed >= 0.0
+      and Speed <= m_per_s_From_km_per_h(Maximum_Valid_Speed_km_per_h));
+
+   function km_per_h_From_m_per_s(Speed: Speed_t) return Speed_km_per_h_t
+   with
+     Pre => Is_Valid_Speed(Speed);
 
 end Units;

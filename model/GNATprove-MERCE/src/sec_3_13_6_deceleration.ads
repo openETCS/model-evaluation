@@ -33,7 +33,8 @@ package sec_3_13_6_deceleration is
    -- never used
    function A_brake_emergency(V: Speed_t; d: Distance_t) return Deceleration_t
    with
-     Pre => Is_Valid_Deceleration_Model(A_brake_emergency_model),
+     Pre => (Is_Valid_Deceleration_Model(A_brake_emergency_model)
+             and Is_Valid_Speed(V)),
    Post =>
      (A_brake_emergency'Result
       = Deceleration_t(Step_Function.Get_Value(SFun => A_brake_emergency_model,
