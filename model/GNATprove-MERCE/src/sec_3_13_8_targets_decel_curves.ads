@@ -62,5 +62,17 @@ package sec_3_13_8_targets_decel_curves is
    -- SUBSET-026-3.13.8.2.3 not formalized (FIXME)
 
    -- ** 3.13.8.3 Emergency Brake Deceleration Curve **
+   -- FIXME how to merge EBDs if several targets are active at the same time?
+
+   -- SUBSET-026-3.13.8.3.1 not formalized (FIXME)
+
+   -- SUBSET-026-3.13.8.3.2
+   procedure Compute_SvL_Curve(Braking_Curve : out Braking_Curve_t)
+   with
+     Pre => (Is_Valid_Target and Target(Supervised_Location).speed = 0.0);
+--       Post => (Curve_From_Target(Target(Supervised_Location), Braking_Curve));
+--                True);
+
+   -- SUBSET-026-3.13.8.3.3 not formalized (FIXME)
 end sec_3_13_8_targets_decel_curves;
 
