@@ -21,6 +21,7 @@
 with Units; use Units;
 with Ada.Numerics.Generic_Elementary_Functions;
 with GNAT.IO; use GNAT.IO;
+with sec_3_13_6_deceleration; use sec_3_13_6_deceleration;
 
 package body Deceleration_Curve is
    Minimum_Valid_Speed : constant Speed_t := 0.1; -- m/s
@@ -76,7 +77,6 @@ package body Deceleration_Curve is
 
       speed : Speed_t := Target.speed;
       location : Distance_t := Target.location;
-      a : constant Deceleration_t := 1.0;
       end_point : constant Braking_Curve_Range :=
         Curve_Index_From_Location(Target.location);
    begin
@@ -87,7 +87,8 @@ package body Deceleration_Curve is
       for i in reverse Braking_Curve_Range'First .. end_point - 1 loop
          speed :=
            (speed + Sqrt(speed * speed
-            + Speed_t(4.0) * Speed_t(a) * Speed_t(Distance_Resolution))) / 2.0;
+            + (Speed_t(4.0) * Speed_t(A_safe(speed, location)))
+            * Speed_t(Distance_Resolution))) / 2.0;
          if speed > Maximum_Valid_Speed then
             speed := Maximum_Valid_Speed;
          end if;

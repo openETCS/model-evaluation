@@ -65,8 +65,13 @@ package sec_3_13_2_monitoring_inputs is
    -- SUBSET-026-3.13.2.2.3.1.5 not formalized (FIXME?)
 
    -- SUBSET-026-3.13.2.2.3.1.6
-   A_brake_emergency_model : Step_Function_t; -- FIXME give value, set constant
+   A_brake_emergency_model : constant Step_Function_t :=
+     (Number_Of_Delimiters => 0,
+      Step => ((0, 1.0), -- (from 0 m/s, 1 m/s**2)
+               others => (0, 0.0)));
+
    A_brake_service_model : Step_Function_t; -- FIXME give value, set constant
+
    A_brake_normal_service_model : Step_Function_t; -- FIXME give value, set constant
 
    -- SUBSET-026-3.13.2.2.3.1.7 not formalized (we do not consider regenerative
@@ -154,8 +159,15 @@ package sec_3_13_2_monitoring_inputs is
    -- SUBSET-026-3.13.2.2.9.1.1 not formalized (description)
 
    -- SUBSET-026-3.13.2.2.9.1.2
-   Kdry_rst_model : Step_Function_t; -- FIXME give value, set to constant
-   Kwet_rst_model : Step_Function_t; -- FIXME give value, set to constant
+   Kdry_rst_model : constant Step_Function_t :=
+     (Number_Of_Delimiters => 0,
+      Step => ((0, 1.0), -- (from 0 m/s, 1.0)
+               others => (0, 0.0)));
+
+   Kwet_rst_model : constant Step_Function_t :=
+     (Number_Of_Delimiters => 0,
+      Step => ((0, 1.0), -- (from 0 m/s, 1.0)
+               others => (0, 0.0)));
 
    -- SUBSET-026-3.13.2.2.9.1.3
    -- FIXME EBCL parameter not formalized
