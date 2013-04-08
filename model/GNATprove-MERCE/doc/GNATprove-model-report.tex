@@ -19,7 +19,7 @@
 % The document metadata is defined below
 
 %assign a report number here
-\reportnum{OETCS/WP7/D??}
+\reportnum{OETCS/WP7/O??}
 
 %define your workpackage or task here
 \wp{openETCS@ITEA Work Package 7: ``Toolchain''}
@@ -31,7 +31,7 @@
 \subtitle{Tool and model presentation}
 
 %set the date of the report here
-\date{March 2013}
+\date{8th of April 2013}
 
 %define a list of authors and their affiliation here
 \author{David Mentré}
@@ -48,12 +48,14 @@ email: \url{d.mentre@fr.merce.mee.com}
 \coverart[width=350pt]{openETCS_EUPL.png}
 
 %define the type of report
-\reporttype{Draft Report}
+\reporttype{Draft Report, version 1}
 
 
 \begin{abstract}
 %define an abstract here
-  FIXME
+This report outlines and then details the modeling of a subset of
+SRS SUBSET-026 using the GNATprove proving environment based on Ada
+2012 language.
 \end{abstract}
 
 %=============================
@@ -148,8 +150,10 @@ We have also created additional packages for generic parts of the
 model or to define data structure used by several parts.
 
 We have created Ada data types to describe specific objects of ETCS
-specification. Those data types are in turned used to define Ada
-entities that represent ETCS specification objects in our model.
+specification. We define new integer types, new structured types
+(arrays or records) and new enumerations. Those data types are in
+turned used to define Ada entities that represent ETCS specification
+objects in our model.
 
 For example, the following \Ada{package ETCS_Level} defines the five
 ETCS levels 0 to 4 as \Ada{type ertms_etcs_level_t}. Within those
@@ -299,17 +303,21 @@ those variables would probably be defined and handled in other
 packages.
 
 We then define a set of functions that correspond to each individual
-condition define in table §4.6.2 of the SRS.
+condition defined in table §4.6.2 of the SRS. See for example
+\Ada{condition_1}.
 
 Those conditions are then in turn combined into a set of functions
-defining the condition under which a mode transition can occur.
+defining the condition under which a mode transition can occur. See
+for example \Ada{condition_transition_SB_to_SH}.
 
 We end with a function \Ada{transition} of which post-conditions
 expresses that the different transition condition should be disjoint,
 in order to prove it. This cannot be proved using only the assumptions
 describe in §4.6 of the SRS. See
 \url{https://github.com/openETCS/model-evaluation/wiki/Open-Question-for-Modeling-Benchmark#section-46}
-for a detailed example.
+for a detailed example. In a more complex model, the function
+\Ada{disjoint_condition_transitions} would probably be automatically
+generated from §4.6 mode transition table.
 
 \lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.adb}
@@ -317,23 +325,57 @@ for a detailed example.
 
 \section{SUBSET-026-3.5.3 Establishing a communication session}
 
+In this section, we attempt to model SRS §3.5.3.
+
 \subsection{Safe Radio package}
+
+This package emulates an API to open a connection and send messages on
+it.
 
 \lstinputlisting[language=Ada,firstline=21]{../src/safe_radio.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/safe_radio.adb}
 
-\subsection{Com map utility package}
+\subsection{Com\_map utility package}
+
+This package defines an abstract table that can be used to search if a
+connection has already been established, is being established or is
+not opened.
+
+We have used an array for the definition of \Ada{Com_To_RBC_Map}. We
+would have preferred to use Ada formal containers, but those cannot be
+handled by GNATprove in its GPL 2012 edition.
 
 \lstinputlisting[language=Ada,firstline=21]{../src/com_map.ads}
 
 \subsection{Section 3.5.3 modeling}
 
+The core of the model. We use the body of procedure
+\Ada{Initiate_Communication_Session} to detail the algorithm specified
+in the SRS.
+
 \lstinputlisting[language=Ada,firstline=21]{../src/section_3_5_3.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/section_3_5_3.adb}
 
+
 \section{SUBSET-026-3.13 Speed and distance monitoring}
 
+In this section we try to model the complex speed and distance
+monitoring specified in SRS §3.13.
+
+Contrary to previous parts of the model, some functions or procedures
+have both a specification and a body thus they can be compiled and
+executed as well as proved. We have done this work for
+\Ada{Step_Function} and \Ada{Deceleration_Curve} packages.
+
 \subsection{Generic package}
+
+In this package we define some physic related data types (speed,
+distance, deceleration, ...) and some utility functions (e.g. to
+convert from m/s to km/h).
+
+One should notice that in next release of GNAT GPL, it will be
+possible to use a specific mechanism (\Ada{Dimension_System} aspect)
+to describe those units, thus enabling more checks by the compiler.
 
 \lstinputlisting[language=Ada,firstline=21]{../src/units.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/units.adb}
@@ -341,22 +383,68 @@ for a detailed example.
 \subsection{Modeling of step functions}
 \label{sec:step-function}
 
+In this package we model the step functions used throughout the
+SRS. They are defined as an array of delimiters, to each delimiter
+corresponding the value of the current step.
+
+We define following functions:
+\begin{itemize}
+\item \Ada{Is_Valid}: returns \Ada{True} if the delimiters are in
+  increasing order;
+\item \Ada{Has_Same_Delimiters}: returns \Ada{True} if two step
+  functions change their steps at the same positions;
+\item \Ada{Get_Value}: returns the value of a step function at
+  position \Ada{X};
+\item \Ada{Minimum_Until_Point}: returns the minimum of a step
+  function until a position \Ada{X};
+\item \Ada{Restrictive_Merge}: merges two step functions into a third
+  one, in such a way that the result is always the minimum of the two
+  step functions.
+\end{itemize}
+
+All those functions can be compiled and tested (see examples below).
+
+We have tried to prove them, but except for the simplest ones some
+unproved and sometimes complex VCs are remaining.
+
 \lstinputlisting[language=Ada,firstline=21]{../src/step_function.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/step_function.adb}
 \lstinputlisting[language=Ada]{../src/step_function_test.adb}
 
 \subsection{Modeling of deceleration curves}
 
+In this package, we have modeled deceleration curves and functions
+computing them.
+
+Function \Ada{Distance_To_Speed} is a simple function that returns the
+distance to reach a final speed, given an initial speed and a constant
+(and negative) acceleration. We have tried to prove this function.
+
+Procedure \Ada{Curve_From_Target} computes the braking curve given as
+input a target (speed and location). This computation is closer to SRS
+SUBSET-026 requirements but albeit is not proved.
+
+Procedure \Ada{Print_Curve} is a utility function to print the curve
+on the terminal, in order to plot it.
+
 \lstinputlisting[language=Ada,firstline=21]{../src/deceleration_curve.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/deceleration_curve.adb}
 \lstinputlisting[language=Ada]{../src/deceleration_curve_test.adb}
 
-\subsection{Section 3.13.2 Train and Trackside related inputs}
+\subsection{Section 3.13.2 Train and Track-side related inputs}
+
+This package is the model for all the input parameters used for
+distance and speed monitoring algorithms.
+
+Those functions can be compiled. No proof attempt has been made.
 
 \lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_2_monitoring_inputs.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_2_monitoring_inputs.adb}
 
 \subsection{Sections 3.13.4 to 3.13.8 Braking curves computation}
+
+The following packages contains the modeling of the braking curves
+computation, as close as possible to SRS §3.13.4 to §3.13.8.
 
 \lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_4_gradient_accel_decel.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_6_deceleration.ads}
@@ -381,4 +469,4 @@ for a detailed example.
 \end{document}
 
 % LocalWords:  GNATprove AdaCore's GPS VC pre adb GPL SMT Satisfiability ETCS
-% LocalWords:  FIXME SRS
+% LocalWords:  FIXME SRS VCs
