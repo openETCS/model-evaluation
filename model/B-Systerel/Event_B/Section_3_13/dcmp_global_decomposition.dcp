@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ch.ethz.eventb.decomposition.core.dcpFile org.eventb.core.configuration="ch.ethz.eventb.decomposition.core.dcmp">
+<ch.ethz.eventb.decomposition.core.configuration ch.ethz.eventb.decomposition.core.decomposeContext="NO_DECOMPOSITION" ch.ethz.eventb.decomposition.core.newProject="false" ch.ethz.eventb.decomposition.core.style="Shared variables (A-style)" name="internal_configuration1"/>
+<ch.ethz.eventb.decomposition.core.component ch.ethz.eventb.decomposition.core.target="m9_global_inputs" name="internal_component1"/>
+<ch.ethz.eventb.decomposition.core.subComponent name="internal_sub-component1" org.eventb.core.label="dcmp_braking_model_m0">
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_A_brake_emergency" name="internal_elements1"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_A_brake_service" name="internal_elements2"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_A_brake_normal_service" name="internal_elements3"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_T_brake_service" name="internal_elements4"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_T_brake_emergency" name="internal_elements5"/>
+</ch.ethz.eventb.decomposition.core.subComponent>
+<ch.ethz.eventb.decomposition.core.subComponent name="internal_sub-component2" org.eventb.core.label="dcmp_calc_deceleration_m0">
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_A_safe" name="internal_elements1"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_A_expected" name="internal_elements2"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_A_normal_service" name="internal_elements3"/>
+</ch.ethz.eventb.decomposition.core.subComponent>
+<ch.ethz.eventb.decomposition.core.subComponent name="internal_sub-component3" org.eventb.core.label="dcmp_brake_buildup_m0">
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_T_be" name="internal_elements1"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_T_bs" name="internal_elements2"/>
+</ch.ethz.eventb.decomposition.core.subComponent>
+<ch.ethz.eventb.decomposition.core.subComponent name="internal_sub-component4" org.eventb.core.label="dcmp_acceleration_gradient_m0">
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_A_gradient" name="internal_elements1"/>
+</ch.ethz.eventb.decomposition.core.subComponent>
+<ch.ethz.eventb.decomposition.core.subComponent name="internal_sub-component5" org.eventb.core.label="dcmp_mrsp_m0">
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_MRSP" name="internal_elements1"/>
+</ch.ethz.eventb.decomposition.core.subComponent>
+<ch.ethz.eventb.decomposition.core.subComponent name="internal_sub-component6" org.eventb.core.label="dcmp_supervised_targets_m0">
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_EOA" name="internal_elements1"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_LOA" name="internal_elements2"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_SvL" name="internal_elements3"/>
+</ch.ethz.eventb.decomposition.core.subComponent>
+<ch.ethz.eventb.decomposition.core.subComponent name="internal_sub-component7" org.eventb.core.label="dcmp_braking_curves_m0">
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_EBD" name="internal_elements1"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_SBD" name="internal_elements2"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_GUI" name="internal_elements3"/>
+</ch.ethz.eventb.decomposition.core.subComponent>
+<ch.ethz.eventb.decomposition.core.subComponent name="internal_sub-component8" org.eventb.core.label="dcmp_supervision_limits_m0">
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_EBI" name="internal_elements1"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_SBI" name="internal_elements2"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_W_limit" name="internal_elements3"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_I_limit" name="internal_elements4"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_P_limit" name="internal_elements5"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_PIl_limit" name="internal_elements6"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="set_RSM_start_limit" name="internal_elements7"/>
+</ch.ethz.eventb.decomposition.core.subComponent>
+<ch.ethz.eventb.decomposition.core.subComponent name="internal_sub-component9" org.eventb.core.label="dcmp_monitoring_commands">
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="update_train_state" name="internal_elements1"/>
+<ch.ethz.eventb.decomposition.core.subComponentElement ch.ethz.eventb.decomposition.core.subComponentElementName="new_outputs" name="internal_elements2"/>
+</ch.ethz.eventb.decomposition.core.subComponent>
+</ch.ethz.eventb.decomposition.core.dcpFile>
