@@ -1,0 +1,104 @@
+%%
+%% This is file `bsymb.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% bsymb.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2004 by Laurent Voisin <laurent.voisin at inf.ethz.ch>
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/06/01]
+\ProvidesPackage{bsymb}
+   [2009/09/16 v1.9 Symbols for the B language]
+\RequirePackageWithOptions{amssymb}
+\newcommand\bsymb@defop[2]{
+  \newcommand{#1}{\mathop{#2}\nolimits}
+}
+\newcommand\bsymb@deford[2]{
+  \newcommand{#1}{\mathord{#2}}
+}
+\bsymb@deford{\bfalse}{\bot}
+\bsymb@deford{\btrue}{\top}
+\newcommand{\limp}{\mathbin\Rightarrow}
+\newcommand{\leqv}{\mathbin\Leftrightarrow}
+\bsymb@deford{\qdot}{\mkern1mu\cdot\mkern1mu}
+\bsymb@defop{\partition}{\mathrm{partition}}
+\newcommand\defi{\mathrel{\widehat=}}
+
+\bsymb@defop{\pow}{\mathbb P\hbox{}}
+\bsymb@defop{\pown}{\mathbb P_1}
+\newcommand{\cprod}{\mathbin\times}
+\newcommand{\bunion}{\mathbin{\mkern1mu\cup\mkern1mu}}
+\newcommand{\binter}{\mathbin{\mkern1mu\cap\mkern1mu}}
+\bsymb@defop{\union}{\mathrm{union}}
+\bsymb@defop{\inter}{\mathrm{inter}}
+\newcommand{\Union}{\bigcup\nolimits}
+\newcommand{\Inter}{\bigcap\nolimits}
+\renewcommand{\emptyset}{\mathord\varnothing}
+\newcommand{\rel}{\mathbin\leftrightarrow}
+\newcommand{\trel}{\mathbin{\leftarrow\mkern-14mu\leftrightarrow}}
+\newcommand{\srel}{\mathbin{\leftrightarrow\mkern-14mu\rightarrow}}
+\newcommand{\strel}{\mathbin{\leftrightarrow\mkern-14mu\leftrightarrow}}
+\bsymb@defop{\dom}{\mathrm{dom}}
+\bsymb@defop{\ran}{\mathrm{ran}}
+\newcommand{\fcomp}{\mathbin;}
+\newcommand{\bcomp}{\circ}
+\bsymb@defop{\id}{\mathrm{id}}
+\newcommand{\domres}{\mathbin\lhd}
+\newcommand{\domsub}{\mathbin{\lhd\mkern-14mu-}}
+\newcommand{\ranres}{\mathbin\rhd}
+\newcommand{\ransub}{\mathbin{\rhd\mkern-14mu-}}
+\newcommand{\ovl}{\mathbin{\lhd\mkern-9mu-}}
+\newcommand{\dprod}{\mathbin\otimes}
+\bsymb@defop{\prjone}{\mathrm{prj}_1}
+\bsymb@defop{\prjtwo}{\mathrm{prj}_2}
+\newcommand{\pprod}{\mathbin\|}
+\newcommand{\bsymb@partial}[2]{
+  \mathbin{\mkern#2mu\mapstochar\mkern-#2mu#1}
+}
+\newcommand{\pfun}{\bsymb@partial\rightarrow6}
+\newcommand{\tfun}{\mathbin\rightarrow}
+\newcommand{\pinj}{\bsymb@partial\rightarrowtail9}
+\newcommand{\tinj}{\mathbin\rightarrowtail}
+\newcommand{\psur}{\bsymb@partial\twoheadrightarrow6}
+\newcommand{\tsur}{\mathbin\twoheadrightarrow}
+\newcommand{\tbij}{\mathbin{
+      \rightarrowtail
+      \mkern-18mu\twoheadrightarrow}
+}
+\bsymb@deford{\nat}{\mathbb N}
+\bsymb@deford{\natn}{\mathbb N_1}
+\bsymb@deford{\intg}{\mathbb Z}
+\newcommand{\upto}{\mathbin{.\mkern1mu.}}
+\bsymb@defop{\finite}{\mathrm{finite}}
+\bsymb@defop{\card}{\mathrm{card}}
+\bsymb@defop{\upred}{\mathrm{pred}}
+\bsymb@defop{\usucc}{\mathrm{succ}}
+\newcommand\expn{\mathbin{\widehat{\enskip}}}
+\bsymb@deford{\Bool}{\mathrm{BOOL}}
+\bsymb@deford{\True}{\mathrm{TRUE}}
+\bsymb@deford{\False}{\mathrm{FALSE}}
+\bsymb@defop{\bool}{\mathrm{bool}}
+\newcommand{\bcmeq}{\mathrel{:\mkern1mu=}}
+\newcommand{\bcmin}{\mathrel{:\mkern1mu\in}}
+\newcommand{\bcmsuch}{\mathrel{:\mkern1mu\mid}}
+\newcommand{\oftype}{\mathrel{%
+  \ooalign{$\scriptstyle^\circ$\cr%
+           $\scriptscriptstyle\circ$\cr}}}
+
+\endinput
+%%
+%% End of file `bsymb.sty'.

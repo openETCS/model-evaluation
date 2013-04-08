@@ -1,0 +1,23 @@
+\begin{description}
+\SETS
+	\begin{description}
+		\Item{ t\_train\_modes }
+	\end{description}
+\CONSTANTS
+	\begin{description}
+		\ItemY{ c\_FS }{full supervision}
+		\ItemY{ c\_LS }{limited supervision}
+		\ItemY{ c\_OS }{on sight}
+		\ItemY{ c\_SR }{staff responsible}
+		\ItemY{ c\_SB }{stand-by}
+		\ItemY{ c\_PT }{post-trip}
+		\ItemY{ c\_UN }{unfitted}
+		\ItemY{ c\_SN }{national system}
+		\Item{ c\_initial\_mode }
+		\Item{ c\_supervision\_mode }
+	\end{description}
+\AXIOMS
+	\begin{description}
+		\nItem{ axm1 }{ partition(t\_train\_modes,\{ c\_FS\} ,\{ c\_LS\} ,\{ c\_OS\} ,\{ c\_SR\} ,		\\\hspace*{6 cm}  \{ c\_SB\} ,\{ c\_PT\} ,\{ c\_UN\} ,\{ c\_SN\} ) }		\nItem{ axm2 }{ c\_initial\_mode \in  \{ c\_FS, c\_OS, c\_PT\}  }		\nItem{ axm3 }{ c\_supervision\_mode \in  \{ c\_LS, c\_FS\}  }	\end{description}
+\END
+\end{description}

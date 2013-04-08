@@ -1,0 +1,125 @@
+\begin{description}
+\VARIABLES
+        \begin{description}
+                \Item{ init\_OS\_procedure }
+                \Item{ further\_location }
+                \Item{ ack\_and\_transition }
+                \Item{ transition\_and\_ack }
+                \Item{ OS\_mode }
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItem{ typeof\_init\_OS\_procedure }{ init\_OS\_procedure \in  BOOL }
+                \nItem{ typeof\_further\_location }{ further\_location \in  BOOL }
+                \nItem{ typeof\_ack\_and\_transition }{ ack\_and\_transition \in  BOOL }
+                \nItem{ typeof\_transition\_and\_ack }{ transition\_and\_ack \in  BOOL }
+                \nItem{ typeof\_OS\_mode }{ OS\_mode \in  BOOL }
+                \nItem{ distinct\_states\_in\_on\_sight\_procedure1 }{ partition(\{ TRUE\} , \{ init\_OS\_procedure\}  \binter  \{ TRUE\} , \{ further\_location\}  \binter  \{ TRUE\} , \{ ack\_and\_transition\}  \binter  \{ TRUE\} , \{ transition\_and\_ack\}  \binter  \{ TRUE\} , \{ OS\_mode\}  \binter  \{ TRUE\} ) }
+        \end{description}
+\EVENTS
+        \INITIALISATION\cmt{ }
+                \begin{description}
+                \BeginAct
+                        \begin{description}
+                        \nItem{ init\_further\_location }{ further\_location :=  FALSE }
+                        \nItem{ init\_transition\_and\_ack }{ transition\_and\_ack :=  FALSE }
+                        \nItem{ init\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+                        \nItem{ init\_init\_OS\_procedure }{ init\_OS\_procedure :=  TRUE }
+                        \nItem{ init\_OS\_mode }{ OS\_mode :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {safe\_front\_passes\_OS\_area}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_ack\_and\_transition\_or\_isin\_further\_location }{ ack\_and\_transition = TRUE \lor  further\_location = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ enter\_transition\_and\_ack }{ transition\_and\_ack :=  TRUE }
+                        \nItem{ leave\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+                        \nItem{ leave\_further\_location }{ further\_location :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_to\_OS\_mode}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_ack\_and\_transition\_or\_isin\_transition\_and\_ack }{ ack\_and\_transition = TRUE \lor  transition\_and\_ack = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ leave\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+                        \nItem{ enter\_OS\_mode }{ OS\_mode :=  TRUE }
+                        \nItem{ leave\_transition\_and\_ack }{ transition\_and\_ack :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {front\_and\_speed\_in\_ack\_window}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_further\_location }{ further\_location = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ enter\_ack\_and\_transition }{ ack\_and\_transition :=  TRUE }
+                        \nItem{ leave\_further\_location }{ further\_location :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {use\_profile\_OS\_further\_location}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+                        \nItem{ enter\_further\_location }{ further\_location :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {use\_profile\_OS\_inside\_area\_mode\_OS}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ enter\_OS\_mode }{ OS\_mode :=  TRUE }
+                        \nItem{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {use\_profile\_OS\_inside\_area\_mode\_SB\_PT}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ enter\_ack\_and\_transition }{ ack\_and\_transition :=  TRUE }
+                        \nItem{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {use\_profile\_OS\_inside\_area\_mode\_FS\_LS\_SR\_UN\_SN}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+                        \nItem{ enter\_transition\_and\_ack }{ transition\_and\_ack :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
