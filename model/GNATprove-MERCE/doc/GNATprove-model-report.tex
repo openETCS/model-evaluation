@@ -172,7 +172,75 @@ a \Ada{Boolean} variable, e.g. \Ada{Start_Of_Mission}.
 
 \chapter{Model benefits and shortcomings}
 
-FIXME
+After modeling several chapters of the SRS, we see following
+advantages to using GNATprove:
+
+\begin{itemize}
+\item The model relies on the well known and well documented Ada
+  language. It is easy to find documentation and tutorials on the web;
+\item We were able to describe all the different kinds of entities
+  found in the SRS: transition tables, algorithms, data structures,
+  requirements on functional or data parts, etc. The description of
+  data types is very expressive and thus helps writing a readable
+  model;
+\item The description is rather concise, which we see as a very
+  positive point;
+\item By writing as comment the reference to the corresponding SRS
+  paragraph, we have a basic but affective traceability. This approach
+  could probably be automated, for example using tools to produce
+  traceability matrix for verification purpose;
+\item We were able to express formally most of requirements found in
+  the SRS and prove part of those;
+\item The model can be compiled and is executable. It can be
+  interfaced with external entities like Graphical User Interface.
+\end{itemize}
+
+However some shortcomings have been identified:
+\begin{itemize}
+\item One needs to learn the Ada language in order to understand the
+  model. The Ada language is big. The subset handled by GNATprove is
+  nonetheless smaller and the concepts are quite well known for
+  imperative languages;
+\item The model is not graphical. Especially for model overview, a
+  graphical understanding would be helpful. It might be possible to
+  provide such a graphical overview using Ada tools;
+\item One needs to build needed domain specific abstractions in order
+  to write the model, e.g. the step functions. But even if this effort
+  is not negligible, once it is done it can be capitalized over the
+  long term;
+\item The proofs are not complete and some parts cannot be done with
+  the provided automated provers.
+\end{itemize}
+
+\section{A note on proofs}
+
+One main goal of using GNATprove approach is to make proof on parts of
+the model. We have attempted to make such proof:
+\begin{itemize}
+\item On exclusion property that should be fulfilled by transition
+  table of SRS section 4.6. We can show that the exclusion cannot be
+  proved without using external assumptions;
+\item On the modeling of Step Functions. On them, we have proved most
+  properties but some Verification Condition (VC) are not proved or
+  cannot be proved.
+\end{itemize}
+
+Some formalization are generating a lot of VC, e.g. about 9,000 for
+\Ada{Step_Function.Restrictive_Merge} function. This is going to be
+fixed in the next release of GNATprove tool in
+2013\footnote{\label{fn:gnatprove-improvements}\url{http://lists.forge.open-do.org/pipermail/hi-lite-discuss/2013-April/001270.html}}.
+
+In case a VC is not proved, the GNATprove error message is sometimes
+difficult to understand or even missing. This point is going to be
+significantly improved in next release of GNATprove\footnote{Same
+  reference as footnote \ref{fn:gnatprove-improvements}}.
+
+GNATprove tool is handling quite well integer types. It is therefore
+relatively easy to prove absence of Run Time Errors like overflow,
+underflow or out-of-bound accesses. Regarding floating point numbers,
+the situation is much less rosy. Even if a basic mapping to
+Mathematical real numbers in the prover is provided, it is much more
+difficult to prove range checks.
 
 \chapter{Detailed model description}
 
@@ -180,44 +248,68 @@ FIXME
 
 \section{Generic parts of the model}
 
-\lstinputlisting[language=Ada]{../src/data_types.ads}
-\lstinputlisting[language=Ada]{../src/etcs_level.ads}
-\lstinputlisting[language=Ada]{../src/appendix_a_3_1.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/data_types.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/etcs_level.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/appendix_a_3_1.ads}
 
 
 \subsection{SUBSET-026-4.3.2 ETCS modes}
 
-\lstinputlisting[language=Ada]{../src/section_4_3_2.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/section_4_3_2.ads}
 
 \section{SUBSET-026-4.6 Transitions between modes}
 
-\lstinputlisting[language=Ada]{../src/section_4_6.ads}
-\lstinputlisting[language=Ada]{../src/section_4_6.adb}
+\lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.adb}
 
 
 \section{SUBSET-026-3.5.3 Establishing a communication session}
 
 \subsection{Safe Radio package}
 
-\lstinputlisting[language=Ada]{../src/safe_radio.ads}
-\lstinputlisting[language=Ada]{../src/safe_radio.adb}
+\lstinputlisting[language=Ada,firstline=21]{../src/safe_radio.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/safe_radio.adb}
 
 \subsection{Com map utility package}
 
-\lstinputlisting[language=Ada]{../src/com_map.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/com_map.ads}
 
 \subsection{Section 3.5.3 modeling}
 
-\lstinputlisting[language=Ada]{../src/section_3_5_3.ads}
-\lstinputlisting[language=Ada]{../src/section_3_5_3.adb}
+\lstinputlisting[language=Ada,firstline=21]{../src/section_3_5_3.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/section_3_5_3.adb}
 
 \section{SUBSET-026-3.13 Speed and distance monitoring}
 
+\subsection{Generic package}
+
+\lstinputlisting[language=Ada,firstline=21]{../src/units.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/units.adb}
+
 \subsection{Modeling of step functions}
 
-\lstinputlisting[language=Ada]{../src/step_function.ads}
-\lstinputlisting[language=Ada]{../src/step_function.adb}
-\lstinputlisting[language=Ada]{../src/step_function_test.adb}
+\lstinputlisting[language=Ada,firstline=21]{../src/step_function.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/step_function.adb}
+\lstinputlisting[language=Ada,firstline=21]{../src/step_function_test.adb}
+
+\subsection{Modeling of deceleration curves}
+
+\lstinputlisting[language=Ada,firstline=21]{../src/deceleration_curve.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/deceleration_curve.adb}
+\lstinputlisting[language=Ada,firstline=21]{../src/deceleration_curve_test.adb}
+
+\subsection{Section 3.13.2 Train and Trackside related inputs}
+
+\lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_2_monitoring_inputs.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_2_monitoring_inputs.adb}
+
+\subsection{Sections 3.13.4 to 3.13.8 Braking curves computation}
+
+\lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_4_gradient_accel_decel.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_6_deceleration.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_6_deceleration.adb}
+\lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_8_targets_decel_curves.ads}
+\lstinputlisting[language=Ada,firstline=21]{../src/sec_3_13_8_targets_decel_curves.adb}
 
 %% \begin{figure}
 %%   \centering
@@ -236,4 +328,4 @@ FIXME
 \end{document}
 
 % LocalWords:  GNATprove AdaCore's GPS VC pre adb GPL SMT Satisfiability ETCS
-% LocalWords:  FIXME
+% LocalWords:  FIXME SRS
