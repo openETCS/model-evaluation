@@ -65,9 +65,14 @@ package sec_3_13_2_monitoring_inputs is
    -- SUBSET-026-3.13.2.2.3.1.5 not formalized (FIXME?)
 
    -- SUBSET-026-3.13.2.2.3.1.6
-   A_brake_emergency_model : Step_Function_t;
-   A_brake_service_model : Step_Function_t;
-   A_brake_normal_service_model : Step_Function_t;
+   A_brake_emergency_model : constant Step_Function_t :=
+     (Number_Of_Delimiters => 0,
+      Step => ((0, 1.0), -- (from 0 m/s, 1 m/s**2)
+               others => (0, 0.0)));
+
+   A_brake_service_model : Step_Function_t; -- FIXME give value, set constant
+
+   A_brake_normal_service_model : Step_Function_t; -- FIXME give value, set constant
 
    -- SUBSET-026-3.13.2.2.3.1.7 not formalized (we do not consider regenerative
    -- brake, eddy current brake and magnetic shoe brake)
@@ -154,14 +159,30 @@ package sec_3_13_2_monitoring_inputs is
    -- SUBSET-026-3.13.2.2.9.1.1 not formalized (description)
 
    -- SUBSET-026-3.13.2.2.9.1.2
-   Kdry_rst_model : Step_Function_t;
-   Kwet_rst_model : Step_Function_t;
+   Kdry_rst_model : constant Step_Function_t :=
+     (Number_Of_Delimiters => 0,
+      Step => ((0, 1.0), -- (from 0 m/s, 1.0)
+               others => (0, 0.0)));
+
+   Kwet_rst_model : constant Step_Function_t :=
+     (Number_Of_Delimiters => 0,
+      Step => ((0, 1.0), -- (from 0 m/s, 1.0)
+               others => (0, 0.0)));
 
    -- SUBSET-026-3.13.2.2.9.1.3
+   -- FIXME EBCL parameter not formalized
    function Is_Valid_Kdry_rst return Boolean is
      (Step_Function.Is_Valid(Kdry_rst_model)
       and
         (Has_Same_Delimiters(Kdry_rst_model, A_brake_emergency_model)));
+
+   function Kdry_rst(V: Speed_t) return Float
+   with
+     Pre => Is_Valid_Kdry_rst,
+     Post =>
+       (Kdry_rst'Result
+        = Step_Function.Get_Value(SFun => Kdry_rst_model,
+                                  X    => Function_Range(V)));
 
    -- SUBSET-026-3.13.2.2.9.1.4 not formalized (FIXME)
 
@@ -170,6 +191,14 @@ package sec_3_13_2_monitoring_inputs is
      (Step_Function.Is_Valid(Kwet_rst_model)
       and
         (Has_Same_Delimiters(Kwet_rst_model, A_brake_emergency_model)));
+
+   function Kwet_rst(V: Speed_t) return Float
+   with
+     Pre => Is_Valid_Kwet_rst,
+     Post =>
+       (Kwet_rst'Result
+        = Step_Function.Get_Value(SFun => Kwet_rst_model,
+                                  X    => Function_Range(V)));
 
    -- SUBSET-026-3.13.2.2.9.2.1
    type Gradient_Range is new Float range 0.0 .. 10.0; -- m/s**2

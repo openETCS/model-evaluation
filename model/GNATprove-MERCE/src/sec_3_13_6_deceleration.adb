@@ -18,30 +18,12 @@
 --  See the Licence for the specific language governing permissions and
 --  limitations under the Licence.
 
--- Reference: UNISIG SUBSET-026-3 v3.3.0
-
-package body sec_3_13_2_monitoring_inputs is
---     function A_Brake_normal_service(V : Speed_t; position : Brake_Position_t)
---                                     return Deceleration_t is
---     begin
---        return 0.0;
---     end;
-   function Kdry_rst(V: Speed_t) return Float is
+package body sec_3_13_6_deceleration is
+   function A_brake_emergency(V: Speed_t; d: Distance_t) return Deceleration_t
+   is
    begin
-      return Step_Function.Get_Value(SFun => Kdry_rst_model,
-                                     X    => Function_Range(V));
+      return
+        Deceleration_t(Step_Function.Get_Value(SFun => A_brake_emergency_model,
+                                               X    => Function_Range(V)));
    end;
-
-   function Kwet_rst(V: Speed_t) return Float is
-   begin
-      return Step_Function.Get_Value(SFun => Kwet_rst_model,
-                                     X    => Function_Range(V));
-   end;
-
-   procedure dummy is
-   begin
-      null;
-   end;
-
-end sec_3_13_2_monitoring_inputs;
-
+end sec_3_13_6_deceleration;

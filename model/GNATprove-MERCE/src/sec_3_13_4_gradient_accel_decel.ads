@@ -18,30 +18,12 @@
 --  See the Licence for the specific language governing permissions and
 --  limitations under the Licence.
 
--- Reference: UNISIG SUBSET-026-3 v3.3.0
+with Units; use Units;
 
-package body sec_3_13_2_monitoring_inputs is
---     function A_Brake_normal_service(V : Speed_t; position : Brake_Position_t)
---                                     return Deceleration_t is
---     begin
---        return 0.0;
---     end;
-   function Kdry_rst(V: Speed_t) return Float is
-   begin
-      return Step_Function.Get_Value(SFun => Kdry_rst_model,
-                                     X    => Function_Range(V));
-   end;
+package sec_3_13_4_gradient_accel_decel is
+   -- FIXME 3.13.4 not formalized
 
-   function Kwet_rst(V: Speed_t) return Float is
-   begin
-      return Step_Function.Get_Value(SFun => Kwet_rst_model,
-                                     X    => Function_Range(V));
-   end;
+   function A_gradient(d: Distance_t) return Deceleration_t is
+     (0.0);
 
-   procedure dummy is
-   begin
-      null;
-   end;
-
-end sec_3_13_2_monitoring_inputs;
-
+end sec_3_13_4_gradient_accel_decel;
