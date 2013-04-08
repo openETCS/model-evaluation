@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+<org.eventb.core.prProof name="calc_T_bs_conversion_model/act1/SIM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="l_brake_combination" org.eventb.core.type="t_brake_combination"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination ⇸ t_time">
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_calc_A_brake_emergency_direct∈t_brake_combination → (t_speed → t_acceleration)">
+<org.eventb.core.prIdent name="f_calc_A_brake_emergency_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="t_acceleration" org.eventb.core.type="ℙ(t_acceleration)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="f_calc_A_brake_service_direct∈t_brake_combination → (t_speed → t_acceleration)">
+<org.eventb.core.prIdent name="f_calc_A_brake_service_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="t_acceleration" org.eventb.core.type="ℙ(t_acceleration)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="T_brake_service_via_train_data∈BOOL">
+<org.eventb.core.prIdent name="T_brake_service_via_train_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_service ↦ l_brake_combination∈dom(f_T_brake_emergency)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="f_T_brake_emergency(T_brake_service ↦ l_brake_combination)=f_T_brake_emergency(T_brake_service ↦ l_brake_combination)"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_correction_factor" org.eventb.core.type="ℙ(t_correction_factor)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="T_brake_service∈t_time">
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="calc_T_bs_conversion_model/l_t_bs/WWD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="t_acceleration,t_brake_combination,t_brake_position,t_correction_factor,t_length,t_speed,t_time">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p20,p19,p8,p5,p3,p6,p2,p17,p16,p13,p18,p7,p14,p11,p9,p10,p12"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p15,p4,p1,p20,p19,p8,p5,p3,p6,p2,p17,p16,p13,p18,p7,p14,p11,p9,p10,p12">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_be" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_via_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="T_bs" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="c_T_brake0" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_emergency_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_service_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_service" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="l_brake_combination" org.eventb.core.type="t_brake_combination"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_T_brake0∈t_time"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="T_brake_service ↦ l_brake_combination∈dom(f_T_brake_emergency)∧f_T_brake_emergency∈t_time × t_brake_combination ⇸ t_time"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="l_brake_combination∈t_brake_combination"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_calc_A_brake_emergency_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="T_bs∈t_time"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="f_calc_A_brake_service_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="T_brake_service_data∈t_time"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="T_brake_service_via_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_emergency∈t_time"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="T_brake_emergency_data∈t_time"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="T_brake_service∈t_time"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="T_brake_service_via_train_data=FALSE"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor → t_time"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="T_be∈t_time"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="f_conversion_model_T_brake_emergency∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="f_conversion_model_T_brake_service∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="calc_T_bs_conversion_model/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="t_acceleration,t_brake_combination,t_brake_position,t_correction_factor,t_length,t_speed,t_time">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p20,p19,p8,p5,p3,p6,p2,p17,p16,p13,p18,p7,p14,p11,p9,p10,p12"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p15,p4,p1,p20,p19,p8,p5,p3,p6,p2,p17,p16,p13,p18,p7,p14,p11,p9,p10,p12">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_be" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_via_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="T_bs" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="c_T_brake0" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_emergency_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_service_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_service" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="l_brake_combination" org.eventb.core.type="t_brake_combination"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_T_brake0∈t_time"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="T_brake_service ↦ l_brake_combination∈dom(f_T_brake_emergency)∧f_T_brake_emergency∈t_time × t_brake_combination ⇸ t_time"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="l_brake_combination∈t_brake_combination"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_calc_A_brake_emergency_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="T_bs∈t_time"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="f_calc_A_brake_service_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="T_brake_service_data∈t_time"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="T_brake_service_via_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_emergency∈t_time"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="T_brake_emergency_data∈t_time"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="T_brake_service∈t_time"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="T_brake_service_via_train_data=FALSE"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor → t_time"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="T_be∈t_time"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="f_conversion_model_T_brake_emergency∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="f_conversion_model_T_brake_service∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="set_T_bs/act1/SIM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_brake_service_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="l_brake_combination" org.eventb.core.type="t_brake_combination"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="T_brake_service_via_train_data∈BOOL">
+<org.eventb.core.prIdent name="T_brake_service_via_train_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="T_brake_service_data ↦ l_brake_combination∈dom(f_T_brake_service)"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_calc_A_brake_emergency_direct∈t_brake_combination → (t_speed → t_acceleration)">
+<org.eventb.core.prIdent name="f_calc_A_brake_emergency_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="t_acceleration" org.eventb.core.type="ℙ(t_acceleration)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="f_T_brake_service(T_brake_service_data ↦ l_brake_combination)=f_T_brake_service(T_brake_service_data ↦ l_brake_combination)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination ⇸ t_time">
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="f_calc_A_brake_service_direct∈t_brake_combination → (t_speed → t_acceleration)">
+<org.eventb.core.prIdent name="f_calc_A_brake_service_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="t_acceleration" org.eventb.core.type="ℙ(t_acceleration)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="T_brake_service_data∈t_time">
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="calc_T_be_conversion_model/act1/SIM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="c_Kt_int" org.eventb.core.type="t_correction_factor"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_time)"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_Kt_int∈t_correction_factor">
+<org.eventb.core.prIdent name="t_correction_factor" org.eventb.core.type="ℙ(t_correction_factor)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="T_brake_service ↦ c_Kt_int∈dom(f_T_brake_emergency_conversion)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="f_T_brake_emergency_conversion(T_brake_service ↦ c_Kt_int)=f_T_brake_emergency_conversion(T_brake_service ↦ c_Kt_int)"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="T_brake_service∈t_time">
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="T_brake_emergency_via_train_data∈BOOL">
+<org.eventb.core.prIdent name="T_brake_emergency_via_train_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor ⇸ t_time">
+<org.eventb.core.prIdent name="t_correction_factor" org.eventb.core.type="ℙ(t_correction_factor)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor → t_time">
+<org.eventb.core.prIdent name="t_correction_factor" org.eventb.core.type="ℙ(t_correction_factor)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="calc_T_be_conversion_model/l_T_brake/WWD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="t_brake_combination,t_brake_position,t_correction_factor,t_length,t_speed,t_time">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p20,p19,p3,p4,p12,p16,p10,p2,p15,p14,p9,p18,p5,p11,p7,p6,p8,p13"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p17,p1,p20,p19,p3,p4,p12,p16,p10,p2,p15,p14,p9,p18,p5,p11,p7,p6,p8,p13">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_be" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_via_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_bs" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="c_Kt_int" org.eventb.core.type="t_correction_factor"/>
+<org.eventb.core.prIdent name="c_T_brake0" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_Kr_int" org.eventb.core.type="ℙ(t_length×t_correction_factor)"/>
+<org.eventb.core.prIdent name="f_Kv_int" org.eventb.core.type="ℙ(t_speed×t_correction_factor)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_service" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_T_brake0∈t_time"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="T_brake_service ↦ c_Kt_int∈dom(f_T_brake_emergency_conversion)∧f_T_brake_emergency_conversion∈t_time × t_correction_factor ⇸ t_time"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="T_bs∈t_time"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="T_brake_service_data∈t_time"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="T_brake_emergency∈t_time"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="T_brake_emergency_data∈t_time"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="c_Kt_int∈t_correction_factor"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_service∈t_time"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="T_brake_emergency_via_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="f_Kv_int∈t_speed → t_correction_factor"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor → t_time"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="T_be∈t_time"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="T_brake_emergency_via_train_data=FALSE"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="f_Kr_int∈t_length → t_correction_factor"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="f_conversion_model_T_brake_emergency∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="f_conversion_model_T_brake_service∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="calc_T_be_conversion_model/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="t_brake_combination,t_brake_position,t_correction_factor,t_length,t_speed,t_time">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p20,p19,p3,p4,p12,p16,p10,p2,p15,p14,p9,p18,p5,p11,p7,p6,p8,p13"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p17,p1,p20,p19,p3,p4,p12,p16,p10,p2,p15,p14,p9,p18,p5,p11,p7,p6,p8,p13">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_be" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_via_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_bs" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="c_Kt_int" org.eventb.core.type="t_correction_factor"/>
+<org.eventb.core.prIdent name="c_T_brake0" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_Kr_int" org.eventb.core.type="ℙ(t_length×t_correction_factor)"/>
+<org.eventb.core.prIdent name="f_Kv_int" org.eventb.core.type="ℙ(t_speed×t_correction_factor)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_service" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_T_brake0∈t_time"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="T_brake_service ↦ c_Kt_int∈dom(f_T_brake_emergency_conversion)∧f_T_brake_emergency_conversion∈t_time × t_correction_factor ⇸ t_time"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="T_bs∈t_time"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="T_brake_service_data∈t_time"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="T_brake_emergency∈t_time"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="T_brake_emergency_data∈t_time"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="c_Kt_int∈t_correction_factor"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_service∈t_time"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="T_brake_emergency_via_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="f_Kv_int∈t_speed → t_correction_factor"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor → t_time"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="T_be∈t_time"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="T_brake_emergency_via_train_data=FALSE"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="f_Kr_int∈t_length → t_correction_factor"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="f_conversion_model_T_brake_emergency∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="f_conversion_model_T_brake_service∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="set_T_be/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="t_acceleration,t_brake_combination,t_brake_position,t_correction_factor,t_length,t_speed,t_time">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p20,p19,p9,p5,p3,p6,p2,p17,p16,p13,p18,p7,p14,p11,p10,p12,p15"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p8,p4,p1,p20,p19,p9,p5,p3,p6,p2,p17,p16,p13,p18,p7,p14,p11,p10,p12,p15">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_be" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_via_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_bs" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="c_T_brake0" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_emergency_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_service_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_service" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="l_brake_combination" org.eventb.core.type="t_brake_combination"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_T_brake0∈t_time"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="l_brake_combination∈t_brake_combination"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_calc_A_brake_emergency_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="T_bs∈t_time"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="T_brake_emergency_via_train_data=TRUE"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="f_calc_A_brake_service_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="T_brake_emergency ↦ l_brake_combination∈dom(f_T_brake_emergency)∧f_T_brake_emergency∈t_time × t_brake_combination ⇸ t_time"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="T_brake_service_data∈t_time"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_emergency∈t_time"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="T_brake_emergency_data∈t_time"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="T_brake_service∈t_time"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="T_brake_emergency_via_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor → t_time"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="T_be∈t_time"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="f_conversion_model_T_brake_emergency∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="f_conversion_model_T_brake_service∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="set_T_be/act1/SIM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_brake_emergency" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="l_brake_combination" org.eventb.core.type="t_brake_combination"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_emergency ↦ l_brake_combination∈dom(f_T_brake_emergency)"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination ⇸ t_time">
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_calc_A_brake_emergency_direct∈t_brake_combination → (t_speed → t_acceleration)">
+<org.eventb.core.prIdent name="f_calc_A_brake_emergency_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="t_acceleration" org.eventb.core.type="ℙ(t_acceleration)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="f_T_brake_emergency(T_brake_emergency ↦ l_brake_combination)=f_T_brake_emergency(T_brake_emergency ↦ l_brake_combination)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="f_calc_A_brake_service_direct∈t_brake_combination → (t_speed → t_acceleration)">
+<org.eventb.core.prIdent name="f_calc_A_brake_service_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="t_acceleration" org.eventb.core.type="ℙ(t_acceleration)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="T_brake_emergency∈t_time">
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_correction_factor" org.eventb.core.type="ℙ(t_correction_factor)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="T_brake_emergency_via_train_data∈BOOL">
+<org.eventb.core.prIdent name="T_brake_emergency_via_train_data" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time">
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="t_brake_combination" org.eventb.core.type="ℙ(t_brake_combination)"/>
+<org.eventb.core.prIdent name="t_time" org.eventb.core.type="ℙ(t_time)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="set_T_be/l_t_be/WWD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="t_acceleration,t_brake_combination,t_brake_position,t_correction_factor,t_length,t_speed,t_time">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p20,p19,p9,p5,p3,p6,p2,p17,p16,p13,p18,p7,p14,p11,p10,p12,p15"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p8,p4,p1,p20,p19,p9,p5,p3,p6,p2,p17,p16,p13,p18,p7,p14,p11,p10,p12,p15">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_be" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_via_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_bs" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="c_T_brake0" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_emergency_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_service_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_service" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="l_brake_combination" org.eventb.core.type="t_brake_combination"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_T_brake0∈t_time"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="l_brake_combination∈t_brake_combination"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_calc_A_brake_emergency_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="T_bs∈t_time"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="T_brake_emergency_via_train_data=TRUE"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="f_calc_A_brake_service_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="T_brake_emergency ↦ l_brake_combination∈dom(f_T_brake_emergency)∧f_T_brake_emergency∈t_time × t_brake_combination ⇸ t_time"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="T_brake_service_data∈t_time"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_emergency∈t_time"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="T_brake_emergency_data∈t_time"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="T_brake_service∈t_time"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="T_brake_emergency_via_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor → t_time"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="T_be∈t_time"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="f_conversion_model_T_brake_emergency∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="f_conversion_model_T_brake_service∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="set_T_bs/l_t_bs/WWD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="t_acceleration,t_brake_combination,t_brake_position,t_correction_factor,t_length,t_speed,t_time">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p20,p19,p9,p5,p3,p6,p2,p17,p16,p14,p18,p8,p15,p12,p10,p11,p13"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p7,p4,p1,p20,p19,p9,p5,p3,p6,p2,p17,p16,p14,p18,p8,p15,p12,p10,p11,p13">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_be" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_via_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="T_bs" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="c_T_brake0" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_emergency_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_service_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_service" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="l_brake_combination" org.eventb.core.type="t_brake_combination"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_T_brake0∈t_time"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="T_brake_service_data ↦ l_brake_combination∈dom(f_T_brake_service)∧f_T_brake_service∈t_time × t_brake_combination ⇸ t_time"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="l_brake_combination∈t_brake_combination"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_calc_A_brake_emergency_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="T_brake_service_via_train_data=TRUE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="T_bs∈t_time"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="f_calc_A_brake_service_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="T_brake_service_data∈t_time"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_service_via_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="T_brake_emergency∈t_time"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="T_brake_emergency_data∈t_time"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="T_brake_service∈t_time"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor → t_time"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="T_be∈t_time"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="f_conversion_model_T_brake_emergency∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="f_conversion_model_T_brake_service∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="set_T_bs/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="t_acceleration,t_brake_combination,t_brake_position,t_correction_factor,t_length,t_speed,t_time">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p20,p19,p9,p5,p3,p6,p2,p17,p16,p14,p18,p8,p15,p12,p10,p11,p13"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p7,p4,p1,p20,p19,p9,p5,p3,p6,p2,p17,p16,p14,p18,p8,p15,p12,p10,p11,p13">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="T_be" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_emergency_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_data" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="T_brake_service_via_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="T_bs" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="c_T_brake0" org.eventb.core.type="t_time"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_emergency_conversion" org.eventb.core.type="ℙ(t_time×t_correction_factor×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_T_brake_service_conversion" org.eventb.core.type="ℙ(t_time×t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_emergency_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_A_brake_service_direct" org.eventb.core.type="ℙ(t_brake_combination×ℙ(t_speed×t_acceleration))"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_calc_T_brake_service" org.eventb.core.type="ℙ(t_brake_combination×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_emergency" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="f_conversion_model_T_brake_service" org.eventb.core.type="ℙ(t_brake_position×t_length×t_speed×t_time)"/>
+<org.eventb.core.prIdent name="l_brake_combination" org.eventb.core.type="t_brake_combination"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_T_brake0∈t_time"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_T_brake_service_conversion∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="T_brake_service_data ↦ l_brake_combination∈dom(f_T_brake_service)∧f_T_brake_service∈t_time × t_brake_combination ⇸ t_time"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="f_calc_T_brake_service∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="l_brake_combination∈t_brake_combination"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_calc_A_brake_emergency_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_calc_T_brake_emergency∈t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="T_brake_service_via_train_data=TRUE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="T_bs∈t_time"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="f_calc_A_brake_service_direct∈t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="T_brake_service_data∈t_time"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="T_brake_service_via_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="T_brake_emergency∈t_time"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="T_brake_emergency_data∈t_time"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="f_T_brake_emergency∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="T_brake_service∈t_time"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="f_T_brake_emergency_conversion∈t_time × t_correction_factor → t_time"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="T_be∈t_time"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="f_T_brake_service∈t_time × t_brake_combination → t_time"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="f_conversion_model_T_brake_emergency∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="f_conversion_model_T_brake_service∈t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+</org.eventb.core.prFile>

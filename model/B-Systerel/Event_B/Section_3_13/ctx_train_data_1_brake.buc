@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="ctx_train_data"/>
+<org.eventb.core.constant name="(" org.eventb.core.identifier="t_brake_percentage"/>
+<org.eventb.core.axiom name=")" org.eventb.core.label="axm1" org.eventb.core.predicate="t_brake_percentage ⊆ t_percentage"/>
+<org.eventb.core.extendsContext name="*" org.eventb.core.target="ctx_type_percentage"/>
+<org.eventb.core.constant name="+" org.eventb.core.identifier="c_brake_percentage0"/>
+<org.eventb.core.axiom name="," org.eventb.core.label="axm2" org.eventb.core.predicate="c_brake_percentage0 ∈ t_brake_percentage"/>
+<org.eventb.core.constant name="0" org.eventb.core.identifier="f_conversion_model_applicable"/>
+<org.eventb.core.constant name="-" org.eventb.core.comment="" org.eventb.core.identifier="f_conversion_model_A_emergency"/>
+<org.eventb.core.axiom name="1" org.eventb.core.comment="cf. 3.13.3.2.1" org.eventb.core.label="axm3" org.eventb.core.predicate="f_conversion_model_applicable ∈ t_speed × t_brake_percentage × t_length × t_brake_position → BOOL"/>
+<org.eventb.core.axiom name="." org.eventb.core.comment="cf. 3.13.3.3" org.eventb.core.label="axm4" org.eventb.core.predicate="f_conversion_model_A_emergency ∈ t_brake_percentage → (t_speed → t_acceleration)"/>
+<org.eventb.core.carrierSet name="/" org.eventb.core.identifier="t_brake_position"/>
+<org.eventb.core.constant name="2" org.eventb.core.identifier="f_conversion_model_A_service"/>
+<org.eventb.core.axiom name="3" org.eventb.core.label="axm5" org.eventb.core.predicate="f_conversion_model_A_service ∈ t_brake_percentage → (t_speed → t_acceleration)"/>
+<org.eventb.core.constant name="4" org.eventb.core.identifier="f_conversion_model_T_brake_service"/>
+<org.eventb.core.axiom name="5" org.eventb.core.comment="cf. 3.13.3.4" org.eventb.core.label="axm6" org.eventb.core.predicate="f_conversion_model_T_brake_service ∈ t_brake_position × t_length × t_speed → t_time"/>
+<org.eventb.core.constant name="6" org.eventb.core.identifier="f_conversion_model_T_brake_emergency"/>
+<org.eventb.core.axiom name="7" org.eventb.core.label="axm7" org.eventb.core.predicate="f_conversion_model_T_brake_emergency ∈ t_brake_position × t_length × t_speed → t_time"/>
+</org.eventb.core.contextFile>

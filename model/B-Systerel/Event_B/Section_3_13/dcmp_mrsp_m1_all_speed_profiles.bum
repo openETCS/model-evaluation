@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="ch.ethz.eventb.decomposition.mchBase" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="dcmp_mrsp_m0"/>
+<org.eventb.core.seesContext name="2" org.eventb.core.target="c6_supervision_limits"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="'" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="MRSP"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="(" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="a_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name=")" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="v_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="loc_current"/>
+<org.eventb.core.event name="3" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="INITIALISATION"/>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="4" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="update_train_state">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="update_train_state"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="5" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="calculate_MRSP_from_all_speed_restrictions">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_MRSP"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="MRSP ≔ f_mrsp(l_SSP ↦ l_AxleLoadSP ↦ l_TSR ↦ l_SignalRelatedSP&#10;            ↦ l_modeRelatedSP ↦ l_LXSP ↦ l_OverrideFuncSP ↦ l_ensureBrakingDistanceSP&#10;            ↦ l_mode ↦ c_train_max_speed ↦ c_train_length)" org.eventb.core.label="act1"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_SSP"/>
+<org.eventb.core.parameter name=")" org.eventb.core.comment="" org.eventb.core.identifier="l_AxleLoadSP"/>
+<org.eventb.core.parameter name="*" org.eventb.core.identifier="l_TSR"/>
+<org.eventb.core.parameter name="+" org.eventb.core.identifier="l_SignalRelatedSP"/>
+<org.eventb.core.parameter name="," org.eventb.core.identifier="l_mode"/>
+<org.eventb.core.parameter name="-" org.eventb.core.identifier="l_modeRelatedSP"/>
+<org.eventb.core.parameter name="." org.eventb.core.comment="" org.eventb.core.identifier="l_LXSP"/>
+<org.eventb.core.parameter name="/" org.eventb.core.identifier="l_OverrideFuncSP"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="grd2" org.eventb.core.predicate="l_SSP ∈ t_speed_profiles"/>
+<org.eventb.core.witness name="1" org.eventb.core.label="l_sp" org.eventb.core.predicate="l_sp = f_mrsp(l_SSP ↦ l_AxleLoadSP ↦ l_TSR ↦ l_SignalRelatedSP&#10;            ↦ l_modeRelatedSP ↦ l_LXSP ↦ l_OverrideFuncSP ↦ l_ensureBrakingDistanceSP&#10;            ↦ l_mode ↦ c_train_max_speed ↦ c_train_length)"/>
+<org.eventb.core.guard name="2" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_AxleLoadSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="3" org.eventb.core.label="grd4" org.eventb.core.predicate="l_TSR ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="4" org.eventb.core.label="grd5" org.eventb.core.predicate="l_SignalRelatedSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="5" org.eventb.core.label="grd6" org.eventb.core.predicate="l_mode ∈ t_train_modes"/>
+<org.eventb.core.guard name="6" org.eventb.core.label="grd7" org.eventb.core.predicate="l_modeRelatedSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="7" org.eventb.core.label="grd8" org.eventb.core.predicate="l_LXSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="8" org.eventb.core.comment="" org.eventb.core.label="grd9" org.eventb.core.predicate="l_OverrideFuncSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="9" org.eventb.core.label="grd10" org.eventb.core.predicate="l_ensureBrakingDistanceSP ∈ t_speed_profiles"/>
+<org.eventb.core.parameter name=":" org.eventb.core.identifier="l_ensureBrakingDistanceSP"/>
+</org.eventb.core.event>
+<org.eventb.core.seesContext name="7" org.eventb.core.target="ctx_functions_0"/>
+</org.eventb.core.machineFile>

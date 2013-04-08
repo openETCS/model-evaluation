@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="ctx_train_data_1_brake"/>
+<org.eventb.core.constant name="(" org.eventb.core.comment="target speed zero" org.eventb.core.identifier="c_v_zero"/>
+<org.eventb.core.axiom name=")" org.eventb.core.label="axm1" org.eventb.core.predicate="c_v_zero ∈ t_speed"/>
+<org.eventb.core.carrierSet name="*" org.eventb.core.comment="cf. 3.13.2.2.3.1.7, i.e., combination of regenerative, eddy current and magnetic brake" org.eventb.core.identifier="t_brake_combination"/>
+<org.eventb.core.constant name="+" org.eventb.core.identifier="f_calc_A_brake_service_direct"/>
+<org.eventb.core.constant name="," org.eventb.core.identifier="f_calc_A_brake_emergency_direct"/>
+<org.eventb.core.axiom name="-" org.eventb.core.label="axm2" org.eventb.core.predicate="f_calc_A_brake_service_direct ∈ t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.axiom name="." org.eventb.core.label="axm3" org.eventb.core.predicate="f_calc_A_brake_emergency_direct ∈ t_brake_combination → (t_speed → t_acceleration)"/>
+<org.eventb.core.constant name="/" org.eventb.core.comment="cf. 3.13.2.2.3.1.9" org.eventb.core.identifier="f_calc_A_brake_normal_direct"/>
+<org.eventb.core.axiom name="0" org.eventb.core.comment="cf. 3.13.2.2.3.1.10&#10;the accelerations are the c_SB01 and c_SB02 constants" org.eventb.core.label="axm4" org.eventb.core.predicate="f_calc_A_brake_normal_direct ∈ t_brake_position × t_acceleration × t_acceleration&#10;                                → (t_speed → t_acceleration)"/>
+<org.eventb.core.constant name="1" org.eventb.core.identifier="c_SB01"/>
+<org.eventb.core.constant name="2" org.eventb.core.identifier="c_SB02"/>
+<org.eventb.core.axiom name="3" org.eventb.core.label="axm5" org.eventb.core.predicate="c_SB01 ∈ t_acceleration"/>
+<org.eventb.core.axiom name="4" org.eventb.core.label="axm6" org.eventb.core.predicate="c_SB02 ∈ t_acceleration"/>
+<org.eventb.core.constant name="5" org.eventb.core.identifier="f_calc_T_brake_service"/>
+<org.eventb.core.constant name="6" org.eventb.core.identifier="f_calc_T_brake_emergency"/>
+<org.eventb.core.axiom name="7" org.eventb.core.label="axm7" org.eventb.core.predicate="f_calc_T_brake_service ∈ t_brake_combination → t_time"/>
+<org.eventb.core.axiom name="8" org.eventb.core.label="axm8" org.eventb.core.predicate="f_calc_T_brake_emergency ∈ t_brake_combination → t_time"/>
+</org.eventb.core.contextFile>

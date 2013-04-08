@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="ch.ethz.eventb.decomposition.mchBase" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="dcmp_acceleration_gradient_m1"/>
+<org.eventb.core.seesContext name="3" org.eventb.core.target="c6_supervision_limits"/>
+<org.eventb.core.seesContext name="B" org.eventb.core.target="ctx_functions_0"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="'" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="a_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="(" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="v_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name=")" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="loc_current"/>
+<org.eventb.core.variable name="*" org.eventb.core.comment="Private variable" org.eventb.core.generated="true" org.eventb.core.identifier="A_gradient"/>
+<org.eventb.core.variable name=";" org.eventb.core.comment="" org.eventb.core.identifier="rotating_mass_specified"/>
+<org.eventb.core.variable name="&gt;" org.eventb.core.comment="" org.eventb.core.identifier="M_rotating_nom"/>
+<org.eventb.core.event name="C" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="INITIALISATION"/>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="D" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="update_train_state">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="update_train_state"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="E" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="calc_A_gradient_mass_known">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_gradient"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="A_gradient ≔ f_accel_due_gradient (loc_current ↦ l_SvL ↦ l_grad ↦ M_rotating_nom ↦ l_TSR)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="l_SvL ∈ t_locations"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd4" org.eventb.core.predicate="l_grad ∈ t_gradients"/>
+<org.eventb.core.parameter name="," org.eventb.core.identifier="l_SvL"/>
+<org.eventb.core.parameter name="-" org.eventb.core.comment="" org.eventb.core.identifier="l_grad"/>
+<org.eventb.core.parameter name="." org.eventb.core.identifier="l_TSR"/>
+<org.eventb.core.guard name="/" org.eventb.core.comment="" org.eventb.core.label="grd5" org.eventb.core.predicate="l_TSR ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="grd6" org.eventb.core.predicate="rotating_mass_specified = TRUE"/>
+<org.eventb.core.witness name="1" org.eventb.core.label="l_mass" org.eventb.core.predicate="l_mass = M_rotating_nom"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="H" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="calc_A_gradient_mass_unknown_uphill">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_gradient"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="A_gradient ≔ f_accel_due_gradient (loc_current ↦ l_SvL ↦ l_grad ↦ c_M_rotating_max ↦ l_TSR)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="l_SvL ∈ t_locations"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd4" org.eventb.core.predicate="l_grad ∈ t_gradients"/>
+<org.eventb.core.parameter name="," org.eventb.core.identifier="l_SvL"/>
+<org.eventb.core.parameter name="-" org.eventb.core.comment="" org.eventb.core.identifier="l_grad"/>
+<org.eventb.core.parameter name="." org.eventb.core.identifier="l_TSR"/>
+<org.eventb.core.guard name="/" org.eventb.core.comment="" org.eventb.core.label="grd5" org.eventb.core.predicate="l_TSR ∈ t_speed_profiles"/>
+<org.eventb.core.witness name="0" org.eventb.core.label="l_mass" org.eventb.core.predicate="l_mass = c_M_rotating_max"/>
+<org.eventb.core.guard name="1" org.eventb.core.comment="" org.eventb.core.label="grd6" org.eventb.core.predicate="f_grad_uphill(l_grad) = TRUE"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd7" org.eventb.core.predicate="rotating_mass_specified = FALSE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="calc_A_gradient_mass_unknown_downhill">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_gradient"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="A_gradient ≔ f_accel_due_gradient (loc_current ↦ l_SvL ↦ l_grad ↦ c_M_rotating_min ↦ l_TSR)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="l_SvL ∈ t_locations"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd4" org.eventb.core.predicate="l_grad ∈ t_gradients"/>
+<org.eventb.core.parameter name="," org.eventb.core.identifier="l_SvL"/>
+<org.eventb.core.parameter name="-" org.eventb.core.comment="" org.eventb.core.identifier="l_grad"/>
+<org.eventb.core.parameter name="." org.eventb.core.identifier="l_TSR"/>
+<org.eventb.core.guard name="/" org.eventb.core.comment="" org.eventb.core.label="grd5" org.eventb.core.predicate="l_TSR ∈ t_speed_profiles"/>
+<org.eventb.core.witness name="0" org.eventb.core.label="l_mass" org.eventb.core.predicate="l_mass = c_M_rotating_min"/>
+<org.eventb.core.guard name="1" org.eventb.core.comment="" org.eventb.core.label="grd6" org.eventb.core.predicate="f_grad_uphill(l_grad) = FALSE"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd7" org.eventb.core.predicate="rotating_mass_specified = FALSE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="F" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="specify_rotating_mass">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="specify_rotating_mass"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="G" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="delete_rotating_mass_data">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="delete_rotating_mass_data"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

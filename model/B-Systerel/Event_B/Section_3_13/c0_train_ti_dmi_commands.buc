@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.carrierSet name="'" org.eventb.core.comment="all possible locations on track" org.eventb.core.identifier="t_locations"/>
+<org.eventb.core.carrierSet name="(" org.eventb.core.comment="train speed measurement" org.eventb.core.identifier="t_speed"/>
+<org.eventb.core.carrierSet name=")" org.eventb.core.comment="train acceleration" org.eventb.core.identifier="t_acceleration"/>
+<org.eventb.core.carrierSet name="*" org.eventb.core.comment="track interface commands" org.eventb.core.identifier="t_TI_commands"/>
+<org.eventb.core.carrierSet name="+" org.eventb.core.comment="driver machine interface commands" org.eventb.core.identifier="t_DMI_commands"/>
+<org.eventb.core.axiom name="," org.eventb.core.comment="" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(t_TI_commands,{c_no_command},{c_emergency_brake},{c_service_brake},{c_TCO})"/>
+<org.eventb.core.constant name="-" org.eventb.core.identifier="c_emergency_brake"/>
+<org.eventb.core.constant name="." org.eventb.core.identifier="c_service_brake"/>
+<org.eventb.core.constant name="/" org.eventb.core.comment="traction cut off" org.eventb.core.identifier="c_TCO"/>
+<org.eventb.core.axiom name="0" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(t_DMI_commands,{c_normal},{c_indication},{c_overspeed},{c_warning},{c_intervention})"/>
+<org.eventb.core.constant name="6" org.eventb.core.comment="empty command" org.eventb.core.identifier="c_no_command"/>
+<org.eventb.core.constant name="1" org.eventb.core.identifier="c_normal"/>
+<org.eventb.core.constant name="2" org.eventb.core.identifier="c_indication"/>
+<org.eventb.core.constant name="3" org.eventb.core.comment="" org.eventb.core.identifier="c_overspeed"/>
+<org.eventb.core.constant name="4" org.eventb.core.comment="" org.eventb.core.identifier="c_warning"/>
+<org.eventb.core.constant name="5" org.eventb.core.comment="" org.eventb.core.identifier="c_intervention"/>
+<org.eventb.core.constant name="7" org.eventb.core.identifier="c_v0"/>
+<org.eventb.core.constant name="8" org.eventb.core.identifier="c_a0"/>
+<org.eventb.core.constant name="9" org.eventb.core.comment="" org.eventb.core.identifier="c_l0"/>
+<org.eventb.core.axiom name=":" org.eventb.core.label="axm3" org.eventb.core.predicate="c_v0 ∈ t_speed"/>
+<org.eventb.core.axiom name=";" org.eventb.core.comment="" org.eventb.core.label="axm4" org.eventb.core.predicate="c_a0 ∈ t_acceleration"/>
+<org.eventb.core.axiom name="=" org.eventb.core.label="axm5" org.eventb.core.predicate="c_l0 ∈ t_locations"/>
+<org.eventb.core.carrierSet name="&gt;" org.eventb.core.comment="" org.eventb.core.identifier="t_time"/>
+<org.eventb.core.constant name="?" org.eventb.core.identifier="c_a_brake0"/>
+<org.eventb.core.constant name="@" org.eventb.core.comment="" org.eventb.core.identifier="c_T_brake0"/>
+<org.eventb.core.axiom name="A" org.eventb.core.comment="default brake profile" org.eventb.core.label="axm6" org.eventb.core.predicate="c_a_brake0 ∈ t_speed → t_acceleration"/>
+<org.eventb.core.axiom name="B" org.eventb.core.comment="default brake buildup time" org.eventb.core.label="axm7" org.eventb.core.predicate="c_T_brake0 ∈ t_time"/>
+<org.eventb.core.carrierSet name="C" org.eventb.core.identifier="t_train_modes"/>
+</org.eventb.core.contextFile>

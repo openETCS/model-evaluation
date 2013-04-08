@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="m0_trainstatus_commands"/>
+<org.eventb.core.seesContext name="(" org.eventb.core.target="c0_train_ti_dmi_commands"/>
+<org.eventb.core.variable name=")" org.eventb.core.comment="current speed of train" org.eventb.core.identifier="v_current"/>
+<org.eventb.core.variable name="*" org.eventb.core.comment="current acceleration of train" org.eventb.core.identifier="a_current"/>
+<org.eventb.core.variable name="+" org.eventb.core.comment="current position of train as track location" org.eventb.core.identifier="loc_current"/>
+<org.eventb.core.variable name="/" org.eventb.core.comment="current TI command" org.eventb.core.identifier="cmd_current"/>
+<org.eventb.core.variable name="0" org.eventb.core.comment="current DMI status" org.eventb.core.identifier="status_current"/>
+<org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="," org.eventb.core.assignment="v_current ≔ c_v0" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="a_current ≔ c_a0" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="loc_current ≔ c_l0" org.eventb.core.label="act3"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="cmd_current ≔ c_no_command" org.eventb.core.label="act4"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="status_current ≔ c_normal" org.eventb.core.label="act5"/>
+<org.eventb.core.action name="'" org.eventb.core.assignment="A_brake_emergency ≔ c_a_brake0" org.eventb.core.label="act6"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="A_brake_service ≔ c_a_brake0" org.eventb.core.comment="" org.eventb.core.label="act7"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="A_brake_normal_service ≔ c_a_brake0" org.eventb.core.label="act8"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="T_brake_service ≔ c_T_brake0" org.eventb.core.label="act9"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="T_brake_emergency ≔ c_T_brake0" org.eventb.core.label="act10"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="update_train_state">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="update_train_state"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_speed"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="l_accel"/>
+<org.eventb.core.parameter name="*" org.eventb.core.identifier="l_loc"/>
+<org.eventb.core.guard name="+" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_speed ∈ t_speed"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd2" org.eventb.core.predicate="l_accel ∈ t_acceleration"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="l_loc ∈ t_locations"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="v_current ≔ l_speed" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="a_current ≔ l_accel" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="loc_current ≔ l_loc" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="new_outputs">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="new_outputs"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_ti_cmd"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="l_dmi_status"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="l_ti_cmd ∈ t_TI_commands"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="l_dmi_status ∈ t_DMI_commands"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="cmd_current ≔ l_ti_cmd" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="status_current ≔ l_dmi_status" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="4" org.eventb.core.comment="emergency brake acceleration" org.eventb.core.identifier="A_brake_emergency"/>
+<org.eventb.core.variable name="5" org.eventb.core.comment="service brake acceleration" org.eventb.core.identifier="A_brake_service"/>
+<org.eventb.core.variable name="6" org.eventb.core.identifier="A_brake_normal_service"/>
+<org.eventb.core.variable name="7" org.eventb.core.identifier="T_brake_service"/>
+<org.eventb.core.variable name="8" org.eventb.core.identifier="T_brake_emergency"/>
+<org.eventb.core.invariant name="9" org.eventb.core.label="inv1" org.eventb.core.predicate="A_brake_emergency ∈ t_speed → t_acceleration"/>
+<org.eventb.core.invariant name=":" org.eventb.core.label="inv2" org.eventb.core.predicate="A_brake_service ∈ t_speed → t_acceleration"/>
+<org.eventb.core.invariant name=";" org.eventb.core.label="inv3" org.eventb.core.predicate="A_brake_normal_service ∈ t_speed → t_acceleration"/>
+<org.eventb.core.invariant name="=" org.eventb.core.label="inv4" org.eventb.core.predicate="T_brake_service ∈ t_time"/>
+<org.eventb.core.invariant name="&gt;" org.eventb.core.label="inv5" org.eventb.core.predicate="T_brake_emergency ∈ t_time"/>
+<org.eventb.core.event name="?" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_brake_emergency">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_a_brake"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_brake ∈ t_speed → t_acceleration"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="A_brake_emergency ≔ l_a_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_brake_service">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_a_brake"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_brake ∈ t_speed → t_acceleration"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="A_brake_service ≔ l_a_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_brake_normal_service">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_a_brake"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_brake ∈ t_speed → t_acceleration"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="A_brake_normal_service ≔ l_a_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_T_brake_service">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_T_brake"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_T_brake ∈ t_time"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="T_brake_service ≔ l_T_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_T_brake_emergency">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_T_brake"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_T_brake ∈ t_time"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="T_brake_emergency ≔ l_T_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

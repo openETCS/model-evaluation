@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile ch.ethz.eventb.decomposition.decomposed="true" org.eventb.core.configuration="ch.ethz.eventb.decomposition.mchBase" org.eventb.core.generated="true" version="5">
+<org.eventb.core.variable name="'" org.eventb.core.comment="Private variable" org.eventb.core.identifier="status_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="(" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="SBI"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name=")" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="I_limit"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="PIl"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="+" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="W_limit"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="," org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="RSM_start"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="-" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="a_current"/>
+<org.eventb.core.variable name="." org.eventb.core.comment="Private variable" org.eventb.core.identifier="cmd_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="/" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="v_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="0" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="P_limit"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="1" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="loc_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="2" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="EBI"/>
+<org.eventb.core.invariant name="3" org.eventb.core.label="typing_status_current" org.eventb.core.predicate="status_current ∈ t_DMI_commands" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="4" org.eventb.core.label="typing_SBI" org.eventb.core.predicate="SBI ∈ t_supervision_limits" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="5" org.eventb.core.label="typing_I_limit" org.eventb.core.predicate="I_limit ∈ t_supervision_limits" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="6" org.eventb.core.label="typing_PIl" org.eventb.core.predicate="PIl ∈ t_supervision_limits" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="7" org.eventb.core.label="typing_W_limit" org.eventb.core.predicate="W_limit ∈ t_supervision_limits" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="8" org.eventb.core.label="typing_RSM_start" org.eventb.core.predicate="RSM_start ∈ t_supervision_limits" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="9" org.eventb.core.label="typing_a_current" org.eventb.core.predicate="a_current ∈ t_acceleration" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name=":" org.eventb.core.label="typing_cmd_current" org.eventb.core.predicate="cmd_current ∈ t_TI_commands" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name=";" org.eventb.core.label="typing_v_current" org.eventb.core.predicate="v_current ∈ t_speed" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="=" org.eventb.core.label="typing_P_limit" org.eventb.core.predicate="P_limit ∈ t_supervision_limits" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="&gt;" org.eventb.core.label="typing_loc_current" org.eventb.core.predicate="loc_current ∈ t_locations" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="?" org.eventb.core.label="typing_EBI" org.eventb.core.predicate="EBI ∈ t_supervision_limits" org.eventb.core.theorem="true"/>
+<org.eventb.core.event name="@" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="v_current ≔ c_v0" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="a_current ≔ c_a0" org.eventb.core.label="act2"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="loc_current ≔ c_l0" org.eventb.core.label="act3"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="cmd_current ≔ c_no_command" org.eventb.core.label="act4"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="status_current ≔ c_normal" org.eventb.core.label="act5"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="EBI ≔ c_slimit0" org.eventb.core.label="act24"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="SBI ≔ c_slimit0" org.eventb.core.label="act25"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="W_limit ≔ c_slimit0" org.eventb.core.label="act26"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="P_limit ≔ c_slimit0" org.eventb.core.label="act27"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="I_limit ≔ c_slimit0" org.eventb.core.label="act28"/>
+<org.eventb.core.action name="1" org.eventb.core.assignment="PIl ≔ c_slimit0" org.eventb.core.label="act29"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="RSM_start ≔ c_slimit0" org.eventb.core.label="act30"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="update_train_state">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_speed"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_accel"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="l_loc"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="l_speed ∈ t_speed"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="l_accel ∈ t_acceleration"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="l_loc ∈ t_locations"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="v_current ≔ l_speed" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="a_current ≔ l_accel" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="loc_current ≔ l_loc" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="B" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="new_outputs">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_ti_cmd"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_dmi_status"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="l_ti_cmd ∈ t_TI_commands"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="l_dmi_status ∈ t_DMI_commands"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="cmd_current ≔ l_ti_cmd" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="3" org.eventb.core.assignment="status_current ≔ l_dmi_status" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="C" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_EBI">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="EBI ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="D" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_SBI">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="SBI ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="E" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_W_limit">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="W_limit ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="F" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_I_limit">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="I_limit ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="G" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_P_limit">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="P_limit ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="H" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_PIl_limit">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="PIl ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="I" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_RSM_start_limit">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="RSM_start ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.seesContext name="J" org.eventb.core.target="c6_supervision_limits"/>
+</org.eventb.core.machineFile>

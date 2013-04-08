@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="ctx_train_data_2_dircect_calc"/>
+<org.eventb.core.carrierSet name="(" org.eventb.core.identifier="t_correction_factor"/>
+<org.eventb.core.constant name=")" org.eventb.core.identifier="f_Kv_int"/>
+<org.eventb.core.constant name="*" org.eventb.core.identifier="f_Kr_int"/>
+<org.eventb.core.constant name="+" org.eventb.core.identifier="c_Kt_int"/>
+<org.eventb.core.axiom name="," org.eventb.core.label="axm1" org.eventb.core.predicate="f_Kv_int ∈ t_speed → t_correction_factor"/>
+<org.eventb.core.axiom name="-" org.eventb.core.label="axm2" org.eventb.core.predicate="f_Kr_int ∈ t_length → t_correction_factor"/>
+<org.eventb.core.axiom name="." org.eventb.core.label="axm3" org.eventb.core.predicate="c_Kt_int ∈ t_correction_factor"/>
+</org.eventb.core.contextFile>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="" org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.carrierSet name="'" org.eventb.core.identifier="t_gradients"/>
+<org.eventb.core.constant name="(" org.eventb.core.identifier="t_gradient_profiles"/>
+<org.eventb.core.axiom name=")" org.eventb.core.comment="" org.eventb.core.label="axm1" org.eventb.core.predicate="t_gradient_profiles ⊆ t_locations → t_gradients"/>
+<org.eventb.core.extendsContext name="*" org.eventb.core.target="c0_train_ti_dmi_commands"/>
+</org.eventb.core.contextFile>

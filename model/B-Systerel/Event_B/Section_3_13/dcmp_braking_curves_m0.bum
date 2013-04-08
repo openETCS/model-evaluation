@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile ch.ethz.eventb.decomposition.decomposed="true" org.eventb.core.configuration="ch.ethz.eventb.decomposition.mchBase" org.eventb.core.generated="true" version="5">
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="'" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="A_normal_service"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="(" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="SBD"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name=")" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="A_expected"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="A_safe"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="+" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="GUI"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="," org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="LOA"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="-" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="EOA"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="." org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="SvL"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="/" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="EBD"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="0" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="a_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="1" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="v_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="2" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="loc_current"/>
+<org.eventb.core.invariant name="3" org.eventb.core.label="typing_A_normal_service" org.eventb.core.predicate="A_normal_service ∈ ℙ(t_speed × t_distance × t_acceleration)" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="4" org.eventb.core.label="typing_SBD" org.eventb.core.predicate="SBD ∈ t_braking_curves" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="5" org.eventb.core.label="typing_A_expected" org.eventb.core.predicate="A_expected ∈ ℙ(t_speed × t_distance × t_acceleration)" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="6" org.eventb.core.label="typing_A_safe" org.eventb.core.predicate="A_safe ∈ ℙ(t_speed × t_distance × t_acceleration)" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="7" org.eventb.core.label="typing_GUI" org.eventb.core.predicate="GUI ∈ t_braking_curves" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="8" org.eventb.core.label="typing_LOA" org.eventb.core.predicate="LOA ∈ t_locations × t_speed" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="9" org.eventb.core.label="typing_EOA" org.eventb.core.predicate="EOA ∈ t_locations × t_speed" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name=":" org.eventb.core.label="typing_SvL" org.eventb.core.predicate="SvL ∈ t_locations × t_speed" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name=";" org.eventb.core.label="typing_EBD" org.eventb.core.predicate="EBD ∈ t_braking_curves" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="=" org.eventb.core.label="typing_a_current" org.eventb.core.predicate="a_current ∈ t_acceleration" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="&gt;" org.eventb.core.label="typing_v_current" org.eventb.core.predicate="v_current ∈ t_speed" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="?" org.eventb.core.label="typing_loc_current" org.eventb.core.predicate="loc_current ∈ t_locations" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="@" org.eventb.core.label="m2_calculation_deceleration_inv1" org.eventb.core.predicate="A_safe ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.invariant name="A" org.eventb.core.label="m2_calculation_deceleration_inv2" org.eventb.core.predicate="A_expected ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.invariant name="B" org.eventb.core.label="m2_calculation_deceleration_inv3" org.eventb.core.predicate="A_normal_service ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.invariant name="C" org.eventb.core.label="m6_supervised_targets_inv1" org.eventb.core.predicate="LOA ∈ t_targets"/>
+<org.eventb.core.invariant name="D" org.eventb.core.label="m6_supervised_targets_inv2" org.eventb.core.predicate="EOA ∈ t_targets"/>
+<org.eventb.core.invariant name="E" org.eventb.core.label="m6_supervised_targets_inv3" org.eventb.core.predicate="SvL ∈ t_targets"/>
+<org.eventb.core.event name="F" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="v_current ≔ c_v0" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="a_current ≔ c_a0" org.eventb.core.label="act2"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="loc_current ≔ c_l0" org.eventb.core.label="act3"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="A_safe ≔ f_A_deceleration0" org.eventb.core.label="act11"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="A_expected ≔ f_A_deceleration0" org.eventb.core.label="act12"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="A_normal_service ≔ f_A_deceleration0" org.eventb.core.label="act13"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="EOA ≔ c_target0" org.eventb.core.label="act18"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="LOA ≔ c_target0" org.eventb.core.label="act19"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="SvL ≔ c_target0" org.eventb.core.label="act20"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="EBD ≔ c_curve0" org.eventb.core.label="act21"/>
+<org.eventb.core.action name="1" org.eventb.core.assignment="SBD ≔ c_curve0" org.eventb.core.label="act22"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="GUI ≔ c_curve0" org.eventb.core.label="act23"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="G" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="update_train_state">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_speed"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_accel"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="l_loc"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="l_speed ∈ t_speed"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="l_accel ∈ t_acceleration"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="l_loc ∈ t_locations"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="v_current ≔ l_speed" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="a_current ≔ l_accel" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="loc_current ≔ l_loc" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="H" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_safe">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_a_decel"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_decel ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="A_safe ≔ l_a_decel" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="I" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_expected">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_a_decel"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_decel ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="A_expected ≔ l_a_decel" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="J" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_normal_service">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_a_decel"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_decel ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="A_normal_service ≔ l_a_decel" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="K" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_EOA">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_target"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_target ∈ t_targets"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="EOA ≔ l_target" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="L" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_LOA">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_target"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_target ∈ t_targets"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="LOA ≔ l_target" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="M" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_SvL">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_target"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_target ∈ t_targets"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="SvL ≔ l_target" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="N" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_EBD">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_curve"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_curve ∈ t_braking_curves"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="EBD ≔ l_curve" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="O" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_SBD">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_curve"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_curve ∈ t_braking_curves"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="SBD ≔ l_curve" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="P" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_GUI">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_curve"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_curve ∈ t_braking_curves"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="GUI ≔ l_curve" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.seesContext name="Q" org.eventb.core.target="c6_supervision_limits"/>
+</org.eventb.core.machineFile>

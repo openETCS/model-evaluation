@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="ch.ethz.eventb.decomposition.mchBase" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="dcmp_brake_buildup_m0"/>
+<org.eventb.core.seesContext name=";" org.eventb.core.target="c6_supervision_limits"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="'" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="T_be"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="(" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="T_bs"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name=")" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="a_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="v_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="+" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="T_brake_service"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="," org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="loc_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="-" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="T_brake_emergency"/>
+<org.eventb.core.event name="=" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="T_brake_service_data ≔ c_T_brake0" org.eventb.core.label="act16"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="T_brake_service_via_train_data ≔ FALSE" org.eventb.core.label="act17"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="T_brake_emergency_data ≔ c_T_brake0" org.eventb.core.label="act18"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="T_brake_emergency_via_train_data ≔ FALSE" org.eventb.core.label="act19"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="&gt;" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="update_train_state">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="update_train_state"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="?" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="set_T_brake_service">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_brake_service"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="@" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="set_T_brake_emergency">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_brake_emergency"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="set_T_be">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_be"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="T_be ≔ f_T_brake_emergency(T_brake_emergency ↦ l_brake_combination)" org.eventb.core.comment="" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="T_brake_emergency_via_train_data = TRUE"/>
+<org.eventb.core.parameter name="." org.eventb.core.identifier="l_brake_combination"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="grd2" org.eventb.core.predicate="l_brake_combination ∈ t_brake_combination"/>
+<org.eventb.core.witness name="0" org.eventb.core.label="l_t_be" org.eventb.core.predicate="l_t_be = f_T_brake_emergency(T_brake_emergency ↦ l_brake_combination)"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt6" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="calc_T_be_conversion_model">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_brake_emergency"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="T_brake_emergency ≔ f_T_brake_emergency_conversion(T_brake_service ↦ c_Kt_int)" org.eventb.core.label="act1"/>
+<org.eventb.core.witness name="/" org.eventb.core.comment="" org.eventb.core.label="l_T_brake" org.eventb.core.predicate="l_T_brake = f_T_brake_emergency_conversion(T_brake_service ↦ c_Kt_int)"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd1" org.eventb.core.predicate="T_brake_emergency_via_train_data = FALSE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="B" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="set_T_bs">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_bs"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="T_bs ≔ f_T_brake_service(T_brake_service_data ↦ l_brake_combination)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="T_brake_service_via_train_data = TRUE"/>
+<org.eventb.core.witness name="." org.eventb.core.label="l_t_bs" org.eventb.core.predicate="l_t_bs = f_T_brake_service(T_brake_service_data ↦ l_brake_combination)"/>
+<org.eventb.core.parameter name="/" org.eventb.core.identifier="l_brake_combination"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="grd2" org.eventb.core.predicate="l_brake_combination ∈ t_brake_combination"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="C" org.eventb.core.identifier="T_brake_service_data"/>
+<org.eventb.core.variable name="D" org.eventb.core.comment="" org.eventb.core.identifier="T_brake_service_via_train_data"/>
+<org.eventb.core.invariant name="E" org.eventb.core.label="inv1" org.eventb.core.predicate="T_brake_service_data ∈ t_time"/>
+<org.eventb.core.invariant name="F" org.eventb.core.label="inv2" org.eventb.core.predicate="T_brake_service_via_train_data ∈ BOOL"/>
+<org.eventb.core.variable name="G" org.eventb.core.identifier="T_brake_emergency_data"/>
+<org.eventb.core.variable name="H" org.eventb.core.identifier="T_brake_emergency_via_train_data"/>
+<org.eventb.core.invariant name="I" org.eventb.core.label="inv3" org.eventb.core.predicate="T_brake_emergency_data ∈ t_time"/>
+<org.eventb.core.invariant name="J" org.eventb.core.label="inv4" org.eventb.core.predicate="T_brake_emergency_via_train_data ∈ BOOL"/>
+<org.eventb.core.event name="evt4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="calc_T_bs_conversion_model">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_bs"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="T_bs ≔ f_T_brake_emergency(T_brake_service ↦ l_brake_combination)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="." org.eventb.core.label="grd1" org.eventb.core.predicate="T_brake_service_via_train_data = FALSE"/>
+<org.eventb.core.witness name="/" org.eventb.core.label="l_t_bs" org.eventb.core.predicate="l_t_bs = f_T_brake_emergency(T_brake_service ↦ l_brake_combination)"/>
+<org.eventb.core.parameter name="0" org.eventb.core.identifier="l_brake_combination"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd2" org.eventb.core.predicate="l_brake_combination ∈ t_brake_combination"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="K" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="specify_T_brake_service_train_data">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_T_brake"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_T_brake ∈ t_time"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="T_brake_service_data ≔ l_T_brake" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd2" org.eventb.core.predicate="T_brake_service_via_train_data = FALSE"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="T_brake_service_via_train_data ≔ TRUE" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="remove_T_brake_service_data">
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="T_brake_service_via_train_data = TRUE"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="T_brake_service_via_train_data ≔ FALSE" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="specify_T_brake_emergency_train_data">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_T_brake"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_T_brake ∈ t_time"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="T_brake_emergency_data ≔ l_T_brake" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="T_brake_emergency_via_train_data = FALSE"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="T_brake_emergency_via_train_data ≔ TRUE" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="remove_T_brake_emergency_data">
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="T_brake_emergency_via_train_data = TRUE"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="T_brake_emergency_via_train_data ≔ FALSE" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.seesContext name="evt5" org.eventb.core.target="ctx_functions_1_calc_T_brake"/>
+</org.eventb.core.machineFile>

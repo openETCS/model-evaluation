@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="m8_supervision_limits"/>
+<org.eventb.core.seesContext name="(" org.eventb.core.target="c6_supervision_limits"/>
+<org.eventb.core.variable name=")" org.eventb.core.comment="current speed of train" org.eventb.core.identifier="v_current"/>
+<org.eventb.core.variable name="*" org.eventb.core.comment="current acceleration of train" org.eventb.core.identifier="a_current"/>
+<org.eventb.core.variable name="+" org.eventb.core.comment="current position of train as track location" org.eventb.core.identifier="loc_current"/>
+<org.eventb.core.variable name="/" org.eventb.core.comment="current TI command" org.eventb.core.identifier="cmd_current"/>
+<org.eventb.core.variable name="0" org.eventb.core.comment="current DMI status" org.eventb.core.identifier="status_current"/>
+<org.eventb.core.variable name="4" org.eventb.core.comment="emergency brake acceleration" org.eventb.core.identifier="A_brake_emergency"/>
+<org.eventb.core.variable name="5" org.eventb.core.comment="service brake acceleration" org.eventb.core.identifier="A_brake_service"/>
+<org.eventb.core.variable name="6" org.eventb.core.comment="normal srvice brake acceleration" org.eventb.core.identifier="A_brake_normal_service"/>
+<org.eventb.core.variable name="7" org.eventb.core.comment="service brake buildup time" org.eventb.core.identifier="T_brake_service"/>
+<org.eventb.core.variable name="8" org.eventb.core.comment="emergency brake buildup time" org.eventb.core.identifier="T_brake_emergency"/>
+<org.eventb.core.variable name="B" org.eventb.core.comment="safe deceleration (safety relevant)" org.eventb.core.identifier="A_safe"/>
+<org.eventb.core.variable name="C" org.eventb.core.comment="expected deceleration" org.eventb.core.identifier="A_expected"/>
+<org.eventb.core.variable name="D" org.eventb.core.comment="normal service deceleration" org.eventb.core.identifier="A_normal_service"/>
+<org.eventb.core.variable name="evt2" org.eventb.core.comment="emergency brake buildup time for EBI" org.eventb.core.identifier="T_be"/>
+<org.eventb.core.variable name="evt3" org.eventb.core.comment="service brake buildup time for SBI" org.eventb.core.identifier="T_bs"/>
+<org.eventb.core.variable name="evtC" org.eventb.core.comment="acceleration / deceleration due to gradient" org.eventb.core.identifier="A_gradient"/>
+<org.eventb.core.variable name="evtR" org.eventb.core.comment="most restrictive speed profile" org.eventb.core.identifier="MRSP"/>
+<org.eventb.core.variable name="evtb" org.eventb.core.comment="limit of authority" org.eventb.core.identifier="LOA"/>
+<org.eventb.core.variable name="evtc" org.eventb.core.comment="end of authority" org.eventb.core.identifier="EOA"/>
+<org.eventb.core.variable name="evtd" org.eventb.core.comment="supervision location" org.eventb.core.identifier="SvL"/>
+<org.eventb.core.variable name="evtw" org.eventb.core.comment="emergency braking curve" org.eventb.core.identifier="EBD"/>
+<org.eventb.core.variable name="evtx" org.eventb.core.comment="service braking curve" org.eventb.core.identifier="SBD"/>
+<org.eventb.core.variable name="evty" org.eventb.core.comment="guidance curve" org.eventb.core.identifier="GUI"/>
+<org.eventb.core.variable name="evu7" org.eventb.core.comment="emergency brake intervention" org.eventb.core.identifier="EBI"/>
+<org.eventb.core.variable name="evu8" org.eventb.core.comment="service brake intervention" org.eventb.core.identifier="SBI"/>
+<org.eventb.core.variable name="evu:" org.eventb.core.comment="warning limit" org.eventb.core.identifier="W_limit"/>
+<org.eventb.core.variable name="evu;" org.eventb.core.comment="permitted speed" org.eventb.core.identifier="P_limit"/>
+<org.eventb.core.variable name="evu=" org.eventb.core.comment="inication limit" org.eventb.core.identifier="I_limit"/>
+<org.eventb.core.variable name="evu&gt;" org.eventb.core.comment="pre-indication_location" org.eventb.core.identifier="PIl"/>
+<org.eventb.core.variable name="evu?" org.eventb.core.comment="release speed monitoring start location" org.eventb.core.identifier="RSM_start"/>
+<org.eventb.core.event name="evu@" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION"/>
+<org.eventb.core.event name="evuA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="update_train_state">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="update_train_state"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_speed"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="l_accel"/>
+<org.eventb.core.parameter name="*" org.eventb.core.identifier="l_loc"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="l_speed ∈ t_speed"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="l_accel ∈ t_acceleration"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="l_loc ∈ t_locations"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="v_current ≔ l_speed" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="a_current ≔ l_accel" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="loc_current ≔ l_loc" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuB" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="new_outputs">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="new_outputs"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_ti_cmd"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="l_dmi_status"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="l_ti_cmd ∈ t_TI_commands"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="l_dmi_status ∈ t_DMI_commands"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="EBI ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd4" org.eventb.core.predicate="SBI ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="." org.eventb.core.label="grd5" org.eventb.core.predicate="W_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="grd6" org.eventb.core.predicate="P_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="grd7" org.eventb.core.predicate="I_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd8" org.eventb.core.predicate="PIl ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd9" org.eventb.core.predicate="RSM_start ∈ t_supervision_limits"/>
+<org.eventb.core.action name="3" org.eventb.core.assignment="cmd_current ≔ l_ti_cmd" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="4" org.eventb.core.assignment="status_current ≔ l_dmi_status" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuC" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_brake_emergency">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_brake_emergency"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_brake ∈ t_speed → t_acceleration"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="+" org.eventb.core.identifier="l_a_brake"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="A_brake_emergency ≔ l_a_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuD" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_brake_service">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_brake_service"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_brake ∈ t_speed → t_acceleration"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_a_brake"/>
+<org.eventb.core.action name="grd6" org.eventb.core.assignment="A_brake_service ≔ l_a_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_brake_normal_service">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_brake_normal_service"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_brake ∈ t_speed → t_acceleration"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_a_brake"/>
+<org.eventb.core.action name="grd6" org.eventb.core.assignment="A_brake_normal_service ≔ l_a_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuF" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_T_brake_service">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_brake_service"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_T_brake ∈ t_time"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_T_brake"/>
+<org.eventb.core.action name="grd6" org.eventb.core.assignment="T_brake_service ≔ l_T_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuG" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_T_brake_emergency">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_brake_emergency"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_T_brake ∈ t_time"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_T_brake"/>
+<org.eventb.core.action name="grd6" org.eventb.core.assignment="T_brake_emergency ≔ l_T_brake" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuH" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_safe">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_safe"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_decel ∈ t_speed × t_distance →t_acceleration"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_a_decel"/>
+<org.eventb.core.action name="grd6" org.eventb.core.assignment="A_safe ≔ l_a_decel" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuI" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_expected">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_expected"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_decel ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_a_decel"/>
+<org.eventb.core.action name="grd6" org.eventb.core.assignment="A_expected ≔ l_a_decel" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuJ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_normal_service">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_normal_service"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_decel ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_a_decel"/>
+<org.eventb.core.action name="grd6" org.eventb.core.assignment="A_normal_service ≔ l_a_decel" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuK" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_T_be">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_be"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_t_be ∈ t_time"/>
+<org.eventb.core.guard name="grd6" org.eventb.core.label="grd2" org.eventb.core.predicate="T_brake_emergency ∈ t_time"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd5" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_t_be"/>
+<org.eventb.core.action name="grd7" org.eventb.core.assignment="T_be ≔ l_t_be" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuL" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_T_bs">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_bs"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_t_bs ∈ t_time"/>
+<org.eventb.core.guard name="grd6" org.eventb.core.label="grd2" org.eventb.core.predicate="T_brake_service ∈ t_time"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd5" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_t_bs"/>
+<org.eventb.core.action name="grd7" org.eventb.core.assignment="T_bs ≔ l_t_bs" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuM" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_A_gradient">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_gradient"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_a_gradient ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_a_gradient"/>
+<org.eventb.core.action name="grd6" org.eventb.core.assignment="A_gradient ≔ l_a_gradient" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuN" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_MRSP">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_MRSP"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_sp ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd2" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_sp"/>
+<org.eventb.core.action name="grd6" org.eventb.core.assignment="MRSP ≔ l_sp" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuO" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_EOA">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_EOA"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_target ∈ t_targets"/>
+<org.eventb.core.guard name="grd6" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd5" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_target"/>
+<org.eventb.core.action name="grd7" org.eventb.core.assignment="EOA ≔ l_target" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuP" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_LOA">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_LOA"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_target ∈ t_targets"/>
+<org.eventb.core.guard name="grd6" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd5" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_target"/>
+<org.eventb.core.action name="grd7" org.eventb.core.assignment="LOA ≔ l_target" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_SvL">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_SvL"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_target ∈ t_targets"/>
+<org.eventb.core.guard name="grd6" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd5" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd3" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd4" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_target"/>
+<org.eventb.core.action name="grd7" org.eventb.core.assignment="SvL ≔ l_target" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuR" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_EBD">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_EBD"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_curve ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd6" org.eventb.core.label="grd2" org.eventb.core.predicate="A_safe ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd3" org.eventb.core.predicate="A_expected ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd4" org.eventb.core.predicate="A_normal_service ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd5" org.eventb.core.predicate="LOA ∈ t_targets"/>
+<org.eventb.core.guard name="grd:" org.eventb.core.label="grd6" org.eventb.core.predicate="EOA ∈ t_targets"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd7" org.eventb.core.predicate="SvL ∈ t_targets"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_curve"/>
+<org.eventb.core.action name="grd=" org.eventb.core.assignment="EBD ≔ l_curve" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuS" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_SBD">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_SBD"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_curve ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd6" org.eventb.core.label="grd2" org.eventb.core.predicate="A_safe ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd3" org.eventb.core.predicate="A_expected ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd4" org.eventb.core.predicate="A_normal_service ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd5" org.eventb.core.predicate="LOA ∈ t_targets"/>
+<org.eventb.core.guard name="grd:" org.eventb.core.label="grd6" org.eventb.core.predicate="EOA ∈ t_targets"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd7" org.eventb.core.predicate="SvL ∈ t_targets"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_curve"/>
+<org.eventb.core.action name="grd=" org.eventb.core.assignment="SBD ≔ l_curve" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuT" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_GUI">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_GUI"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_curve ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd6" org.eventb.core.label="grd2" org.eventb.core.predicate="A_safe ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd3" org.eventb.core.predicate="A_expected ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd4" org.eventb.core.predicate="A_normal_service ∈ t_speed × t_distance → t_acceleration"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd5" org.eventb.core.predicate="LOA ∈ t_targets"/>
+<org.eventb.core.guard name="grd:" org.eventb.core.label="grd6" org.eventb.core.predicate="EOA ∈ t_targets"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd7" org.eventb.core.predicate="SvL ∈ t_targets"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_curve"/>
+<org.eventb.core.action name="grd=" org.eventb.core.assignment="GUI ≔ l_curve" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuU" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_EBI">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_EBI"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="grd6" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd3" org.eventb.core.predicate="EBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd4" org.eventb.core.predicate="SBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd5" org.eventb.core.predicate="GUI ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd:" org.eventb.core.label="grd6" org.eventb.core.predicate="T_bs ∈ t_time"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd7" org.eventb.core.predicate="T_be ∈ t_time"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd4" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.action name="grd=" org.eventb.core.assignment="EBI ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuV" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_SBI">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_SBI"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="grd=" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd&gt;" org.eventb.core.label="grd3" org.eventb.core.predicate="EBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd?" org.eventb.core.label="grd4" org.eventb.core.predicate="SBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd@" org.eventb.core.label="grd5" org.eventb.core.predicate="GUI ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grdA" org.eventb.core.label="grd6" org.eventb.core.predicate="T_bs ∈ t_time"/>
+<org.eventb.core.guard name="grdB" org.eventb.core.label="grd7" org.eventb.core.predicate="T_be ∈ t_time"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd:" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.action name="grdC" org.eventb.core.assignment="SBI ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuW" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_W_limit">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_W_limit"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="grd=" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd&gt;" org.eventb.core.label="grd3" org.eventb.core.predicate="EBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd?" org.eventb.core.label="grd4" org.eventb.core.predicate="SBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd@" org.eventb.core.label="grd5" org.eventb.core.predicate="GUI ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grdA" org.eventb.core.label="grd6" org.eventb.core.predicate="T_bs ∈ t_time"/>
+<org.eventb.core.guard name="grdB" org.eventb.core.label="grd7" org.eventb.core.predicate="T_be ∈ t_time"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd:" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.action name="grdC" org.eventb.core.assignment="W_limit ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuX" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_I_limit">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_I_limit"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="grd=" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd&gt;" org.eventb.core.label="grd3" org.eventb.core.predicate="EBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd?" org.eventb.core.label="grd4" org.eventb.core.predicate="SBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd@" org.eventb.core.label="grd5" org.eventb.core.predicate="GUI ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grdA" org.eventb.core.label="grd6" org.eventb.core.predicate="T_bs ∈ t_time"/>
+<org.eventb.core.guard name="grdB" org.eventb.core.label="grd7" org.eventb.core.predicate="T_be ∈ t_time"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd:" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.action name="grdC" org.eventb.core.assignment="I_limit ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuY" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_P_limit">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_P_limit"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="grd=" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd&gt;" org.eventb.core.label="grd3" org.eventb.core.predicate="EBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd?" org.eventb.core.label="grd4" org.eventb.core.predicate="SBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd@" org.eventb.core.label="grd5" org.eventb.core.predicate="GUI ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grdA" org.eventb.core.label="grd6" org.eventb.core.predicate="T_bs ∈ t_time"/>
+<org.eventb.core.guard name="grdB" org.eventb.core.label="grd7" org.eventb.core.predicate="T_be ∈ t_time"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd:" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.action name="grdC" org.eventb.core.assignment="P_limit ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evuZ" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_PIl_limit">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_PIl_limit"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="grd=" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd&gt;" org.eventb.core.label="grd3" org.eventb.core.predicate="EBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd?" org.eventb.core.label="grd4" org.eventb.core.predicate="SBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd@" org.eventb.core.label="grd5" org.eventb.core.predicate="GUI ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grdA" org.eventb.core.label="grd6" org.eventb.core.predicate="T_bs ∈ t_time"/>
+<org.eventb.core.guard name="grdB" org.eventb.core.label="grd7" org.eventb.core.predicate="T_be ∈ t_time"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd:" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.action name="grdC" org.eventb.core.assignment="PIl ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evu[" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_RSM_start_limit">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_RSM_start_limit"/>
+<org.eventb.core.guard name="grd;" org.eventb.core.label="grd1" org.eventb.core.predicate="l_limit ∈ t_supervision_limits"/>
+<org.eventb.core.guard name="grd=" org.eventb.core.label="grd2" org.eventb.core.predicate="MRSP ∈ t_speed_profiles"/>
+<org.eventb.core.guard name="grd&gt;" org.eventb.core.label="grd3" org.eventb.core.predicate="EBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd?" org.eventb.core.label="grd4" org.eventb.core.predicate="SBD ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grd@" org.eventb.core.label="grd5" org.eventb.core.predicate="GUI ∈ t_braking_curves"/>
+<org.eventb.core.guard name="grdA" org.eventb.core.label="grd6" org.eventb.core.predicate="T_bs ∈ t_time"/>
+<org.eventb.core.guard name="grdB" org.eventb.core.label="grd7" org.eventb.core.predicate="T_be ∈ t_time"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.label="grd8" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="grd9" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.guard name="grd9" org.eventb.core.label="grd10" org.eventb.core.predicate="loc_current ∈ t_locations"/>
+<org.eventb.core.parameter name="grd:" org.eventb.core.identifier="l_limit"/>
+<org.eventb.core.action name="grdC" org.eventb.core.assignment="RSM_start ≔ l_limit" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

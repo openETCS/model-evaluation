@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="ch.ethz.eventb.decomposition.mchBase" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="dcmp_braking_model_m0"/>
+<org.eventb.core.seesContext name="B" org.eventb.core.target="c6_supervision_limits"/>
+<org.eventb.core.variable name="'" org.eventb.core.comment="Private variable" org.eventb.core.generated="true" org.eventb.core.identifier="A_brake_normal_service"/>
+<org.eventb.core.variable name="(" org.eventb.core.comment="Private variable" org.eventb.core.generated="true" org.eventb.core.identifier="A_brake_service"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name=")" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="a_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="v_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="+" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="T_brake_service"/>
+<org.eventb.core.variable name="," org.eventb.core.comment="Private variable" org.eventb.core.generated="true" org.eventb.core.identifier="A_brake_emergency"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="-" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="loc_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="." org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.generated="true" org.eventb.core.identifier="T_brake_emergency"/>
+<org.eventb.core.event name="C" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="brake_percentage ≔ c_brake_percentage0" org.eventb.core.label="act11"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="brake_percentage_via_train_data ≔ FALSE" org.eventb.core.label="act12"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="D" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="update_train_state">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="update_train_state"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="E" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="set_A_brake_emergency">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_brake_emergency"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="Q" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="calc_A_brake_emergency_conversion_model">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_brake_emergency"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="A_brake_emergency ≔ f_conversion_model_A_emergency(brake_percentage)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="brake_percentage_via_train_data = TRUE"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="f_conversion_model_applicable (c_train_max_speed ↦ brake_percentage ↦ c_train_length ↦ l_brake_position) = TRUE"/>
+<org.eventb.core.parameter name="*" org.eventb.core.identifier="l_brake_position"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd4" org.eventb.core.predicate="l_brake_position ∈ t_brake_position"/>
+<org.eventb.core.witness name="-" org.eventb.core.label="l_a_brake" org.eventb.core.predicate="l_a_brake = f_conversion_model_A_emergency(brake_percentage)"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="F" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="set_A_brake_service">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_brake_service"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="R" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="calc_A_brake_service_conversion_model">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_brake_service"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="A_brake_service ≔ f_conversion_model_A_service(brake_percentage)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="" org.eventb.core.label="grd2" org.eventb.core.predicate="brake_percentage_via_train_data = TRUE"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="f_conversion_model_applicable (c_train_max_speed ↦ brake_percentage ↦ c_train_length ↦ l_brake_position) = TRUE"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd4" org.eventb.core.predicate="l_brake_position ∈ t_brake_position"/>
+<org.eventb.core.parameter name="+" org.eventb.core.identifier="l_brake_position"/>
+<org.eventb.core.witness name="internal2" org.eventb.core.label="l_a_brake" org.eventb.core.predicate="l_a_brake = f_conversion_model_A_service(brake_percentage)"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="G" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="set_A_brake_normal_service">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_A_brake_normal_service"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="H" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="set_T_brake_service">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_brake_service"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="S" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="calc_T_brake_service_conversion_model">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_brake_service"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="T_brake_service ≔ f_conversion_model_T_brake_service(l_brake_position ↦ c_train_length ↦ l_target_speed)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd2" org.eventb.core.predicate="brake_percentage_via_train_data = TRUE"/>
+<org.eventb.core.guard name="." org.eventb.core.label="grd3" org.eventb.core.predicate="f_conversion_model_applicable (c_train_max_speed ↦ brake_percentage ↦ c_train_length ↦ l_brake_position) = TRUE"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="grd4" org.eventb.core.predicate="l_brake_position ∈ t_brake_position"/>
+<org.eventb.core.parameter name="0" org.eventb.core.comment="" org.eventb.core.identifier="l_brake_position"/>
+<org.eventb.core.parameter name="1" org.eventb.core.identifier="l_target_speed"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd5" org.eventb.core.predicate="l_target_speed ∈ t_speed"/>
+<org.eventb.core.witness name="3" org.eventb.core.label="l_T_brake" org.eventb.core.predicate="l_T_brake = f_conversion_model_T_brake_service(l_brake_position ↦ c_train_length ↦ l_target_speed)"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="I" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="set_T_brake_emergency">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_brake_emergency"/>
+</org.eventb.core.event>
+<org.eventb.core.seesContext name="J" org.eventb.core.target="ctx_train_data_1_brake"/>
+<org.eventb.core.variable name="K" org.eventb.core.comment="" org.eventb.core.identifier="brake_percentage"/>
+<org.eventb.core.invariant name="L" org.eventb.core.label="inv1" org.eventb.core.predicate="brake_percentage ∈ t_brake_percentage"/>
+<org.eventb.core.variable name="M" org.eventb.core.identifier="brake_percentage_via_train_data"/>
+<org.eventb.core.event name="T" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="calc_T_brake_emergency_conversion_model">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="set_T_brake_emergency"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="T_brake_emergency ≔ f_conversion_model_T_brake_emergency(l_brake_position ↦ c_train_length ↦ l_target_speed)" org.eventb.core.label="act1"/>
+<org.eventb.core.witness name="-" org.eventb.core.label="l_T_brake" org.eventb.core.predicate="l_T_brake = f_conversion_model_T_brake_emergency(l_brake_position ↦ c_train_length ↦ l_target_speed)"/>
+<org.eventb.core.guard name="." org.eventb.core.label="grd1" org.eventb.core.predicate="brake_percentage_via_train_data = TRUE"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="grd2" org.eventb.core.predicate="f_conversion_model_applicable (c_train_max_speed ↦ brake_percentage ↦ c_train_length ↦ l_brake_position) = TRUE"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="grd3" org.eventb.core.predicate="l_brake_position ∈ t_brake_position"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd4" org.eventb.core.predicate="l_target_speed ∈ t_speed"/>
+<org.eventb.core.parameter name="2" org.eventb.core.identifier="l_brake_position"/>
+<org.eventb.core.parameter name="3" org.eventb.core.identifier="l_target_speed"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="N" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="specifiy_brake_percentage">
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_brake ∈ t_brake_percentage"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="brake_percentage ≔ l_brake" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="brake_percentage_via_train_data = FALSE"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="brake_percentage_via_train_data ≔ TRUE" org.eventb.core.label="act2"/>
+<org.eventb.core.parameter name="+" org.eventb.core.comment="" org.eventb.core.identifier="l_brake"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="O" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="remove_brake_percentage_data">
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="brake_percentage_via_train_data = TRUE"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="brake_percentage ≔ c_brake_percentage0" org.eventb.core.label="act1"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="brake_percentage_via_train_data ≔ FALSE" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.invariant name="P" org.eventb.core.label="inv2" org.eventb.core.predicate="brake_percentage_via_train_data ∈ BOOL"/>
+</org.eventb.core.machineFile>

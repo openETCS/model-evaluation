@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="+" org.eventb.core.target="ctx_type_gradients"/>
+<org.eventb.core.constant name="," org.eventb.core.identifier="f_accel_due_gradient"/>
+<org.eventb.core.axiom name="-" org.eventb.core.comment="(loc, SvL, compensated_grad, mass, speed_profile)&#10;calculates acceleration due to gradient according to 3.13.4" org.eventb.core.label="axm1" org.eventb.core.predicate="f_accel_due_gradient ∈&#10;t_locations × t_locations × t_gradients × t_mass_percentage × t_speed_profiles → t_acceleration"/>
+<org.eventb.core.extendsContext name="." org.eventb.core.target="ctx_train_rotating_mass"/>
+<org.eventb.core.axiom name="/" org.eventb.core.comment="indicates whether gradient is uphil or downhill" org.eventb.core.label="axm2" org.eventb.core.predicate="f_grad_uphill ∈ t_gradients → BOOL"/>
+<org.eventb.core.constant name="0" org.eventb.core.identifier="f_grad_uphill"/>
+<org.eventb.core.extendsContext name="1" org.eventb.core.target="c3_speed_profiles"/>
+<org.eventb.core.constant name="2" org.eventb.core.identifier="f_compensate_gradient_profile"/>
+<org.eventb.core.axiom name="3" org.eventb.core.comment="(loc, SvL, profile) compensates for gradient profile (cf. 3.13.4.2.1)" org.eventb.core.label="axm3" org.eventb.core.predicate="f_compensate_gradient_profile ∈ t_locations × t_locations × t_gradient_profiles → t_gradients"/>
+<org.eventb.core.constant name="4" org.eventb.core.identifier="f_mrsp"/>
+<org.eventb.core.axiom name="5" org.eventb.core.comment="function which calculates the most restrictive speed profile&#10;(MRSP) from the following inputs:&#10;SSP, Axle Load SP, TSR, signalling related, mode related, LX speed,&#10;override function related, SR to ensure permitted brake distance,&#10;train mode, max train speed, train length" org.eventb.core.label="axm4" org.eventb.core.predicate="f_mrsp ∈ t_speed_profiles × t_speed_profiles × t_speed_profiles × t_speed_profiles&#10;       × t_speed_profiles × t_speed_profiles × t_speed_profiles × t_speed_profiles&#10;       × t_train_modes × t_speed × t_length → t_speed_profiles"/>
+<org.eventb.core.extendsContext name="6" org.eventb.core.target="ctx_train_data"/>
+</org.eventb.core.contextFile>

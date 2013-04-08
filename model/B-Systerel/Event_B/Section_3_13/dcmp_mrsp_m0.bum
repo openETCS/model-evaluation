@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile ch.ethz.eventb.decomposition.decomposed="true" org.eventb.core.configuration="ch.ethz.eventb.decomposition.mchBase" org.eventb.core.generated="true" version="5">
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="'" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="MRSP"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="(" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="a_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name=")" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="v_current"/>
+<org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="loc_current"/>
+<org.eventb.core.invariant name="+" org.eventb.core.label="typing_MRSP" org.eventb.core.predicate="MRSP ∈ t_speed_profiles" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="," org.eventb.core.label="typing_a_current" org.eventb.core.predicate="a_current ∈ t_acceleration" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="-" org.eventb.core.label="typing_v_current" org.eventb.core.predicate="v_current ∈ t_speed" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="." org.eventb.core.label="typing_loc_current" org.eventb.core.predicate="loc_current ∈ t_locations" org.eventb.core.theorem="true"/>
+<org.eventb.core.event name="/" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="v_current ≔ c_v0" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="a_current ≔ c_a0" org.eventb.core.label="act2"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="loc_current ≔ c_l0" org.eventb.core.label="act3"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="MRSP ≔ c_speed_profile0" org.eventb.core.label="act17"/>
+</org.eventb.core.event>
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="0" org.eventb.core.comment="External event, DO NOT REFINE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="update_train_state">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_speed"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_accel"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="l_loc"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="l_speed ∈ t_speed"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="l_accel ∈ t_acceleration"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="l_loc ∈ t_locations"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="v_current ≔ l_speed" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="a_current ≔ l_accel" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="loc_current ≔ l_loc" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="set_MRSP">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_sp"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_sp ∈ t_speed_profiles"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="MRSP ≔ l_sp" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.seesContext name="2" org.eventb.core.target="c6_supervision_limits"/>
+</org.eventb.core.machineFile>
