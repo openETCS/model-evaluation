@@ -1,0 +1,521 @@
+\begin{description}
+\REFINES{m4\_level\_changes}
+\SEES{c3\_ERTMS\_level}
+\VARIABLES
+        \begin{description}
+                \ItemY{ ER\_connections }{}
+                \ItemY{ terminated\_ER\_connections }{}
+                \ItemY{ establish\_ER\_connection }{}
+                \Item{ signal\_RBC\_border }{}
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItemY{ inv1 }{ terminated\_ER\_connections \subseteq  on\_track }{  }
+                \nItemY{ inv2 }{ establish\_ER\_connection \subseteq  on\_track }{  }
+                \nItemY{ inv3 }{ (incoming\_sessions \bunion  outgoing\_sessions) \subseteq  ER\_connections }{  }
+                \nItem{ inv4 }{ signal\_RBC\_border \in  BOOL }
+        \end{description}
+\EVENTS
+        \EVT {incoming\_communication}
+        \EXTD {incoming\_communication}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions }
+                        \nItemXY{ grd3 }{ l\_partner \in  on\_track \setminus  RIU }{ }
+                        \nItemXY{ grd4 }{ l\_partner \notin  contacted }{ }
+                        \nItemX{ grd5 }{ l\_partner \notin  contacted\_by }
+                        \nItem{ grd6 }{ l\_partner \in  ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act1 }{ incoming\_sessions :=  incoming\_sessions \bunion  \{ l\_partner\}  }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {receive\_information\_compatible}
+        \EXTD {receive\_information\_compatible}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemXY{ grd3 }{ l\_partner \in  contacted }{ }
+                        \nItemX{ grd4 }{ l\_partner \in  system\_version\_compatible }
+                        \nItem{ grd5 }{ l\_partner \in  ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ outgoing\_sessions :=  outgoing\_sessions \bunion  \{ l\_partner\}  }
+                        \nItemX{ act2 }{ contacted :=  contacted \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {receive\_information\_incompatible}
+        \EXTD {receive\_information\_incompatible}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemXY{ grd3 }{ l\_partner \in  contacted }{ }
+                        \nItemX{ grd4 }{ l\_partner \notin  system\_version\_compatible }
+                        \nItem{ grd5 }{ l\_partner \in  ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ outgoing\_sessions :=  outgoing\_sessions \bunion  \{ l\_partner\}  }
+                        \nItemX{ act2 }{ contacted :=  contacted \setminus  \{ l\_partner\}  }
+                        \nItemX{ act3 }{ terminating\_sessions :=  terminating\_sessions \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {receive\_contact\_order\_accept}\cmt{		\\\hspace*{6,2 cm}  order to contact a RIU or accepting RBC }
+        \EXTD {receive\_contact\_order\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemXY{ grd1 }{ l\_partner \notin  contacted \bunion  contacted\_by \bunion  incoming\_sessions \bunion  outgoing\_sessions }{ }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{}
+                        \nItem{ grd4 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ contacted\_by :=  contacted\_by \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {receive\_contact\_order\_non\_accept}\cmt{}
+        \EXTD {receive\_contact\_order\_non\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemXY{ grd1 }{ l\_partner \notin  contacted \bunion  contacted\_by \bunion  incoming\_sessions \bunion  outgoing\_sessions }{ }
+                        \nItemX{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  accepting) }
+                        \nItem{ grd4 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ contacted\_by :=  contacted\_by \bunion  \{ l\_partner\}  }
+                        \nItemX{ act2 }{ terminating\_sessions :=  terminating\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_after\_contact}\cmt{}
+        \EXTD {initiate\_session\_after\_contact}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemXY{ grd2 }{ l\_partner \in  contacted\_by }{ }
+                        \nItemY{ grd3 }{ l\_partner \notin  terminated\_ER\_connections }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act1 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemXY{ act2 }{ contacted\_by :=  contacted\_by \setminus  \{ l\_partner\}  }{  }
+                        \nItem{ act3 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_SOM}\cmt{}
+        \EXTD {initiate\_session\_no\_contact\_SOM}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItemXY{ grd6 }{ current\_status = SOM }{ }
+                        \nItemX{ grd7 }{ current\_level \in  \{ L2, L3\}  }
+                        \nItem{ grd8 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItem{ act3 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_status\_change}
+        \EXTD {initiate\_session\_no\_contact\_status\_change}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItemX{ grd6 }{ current\_level \in  \{ L2, L3\}  }
+                        \nItemXY{ grd7 }{ signal\_status\_change = TRUE }{ }
+                        \nItemX{ grd8 }{ current\_status \neq  EOM }
+                        \nItem{ grd9 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemX{ act3 }{ signal\_status\_change :=  FALSE }
+                        \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_manual\_change}
+        \EXTD {initiate\_session\_no\_contact\_manual\_change}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItemX{ grd6 }{ current\_level \in  \{ L2, L3\}  }
+                        \nItemX{ grd7 }{ signal\_manual\_level\_change = TRUE }
+                        \nItem{ grd8 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemX{ act3 }{ signal\_manual\_level\_change :=  FALSE }
+                        \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_leave\_radio\_hole}
+        \EXTD {initiate\_session\_no\_contact\_leave\_radio\_hole}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItemX{ grd6 }{ position\_radio\_hole = FALSE }
+                        \nItemX{ grd7 }{ signal\_radio\_hole = TRUE }
+                        \nItem{ grd8 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemX{ act3 }{ signal\_radio\_hole :=  FALSE }
+                        \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_after\_timeout}
+        \EXTD {initiate\_session\_no\_contact}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItem{ grd6 }{ l\_partner \in  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItem{ act3 }{ terminated\_ER\_connections :=  terminated\_ER\_connections \setminus  \{ l\_partner\}  }
+                        \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {establish\_ER\_connection\_SOM}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_partner \in  contacted }
+                        \nItemY{ grd2 }{ l\_partner \in  establish\_ER\_connection }{ }
+                        \nItem{ grd3 }{ current\_status = SOM }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ establish\_ER\_connection :=  establish\_ER\_connection \setminus  \{ l\_partner\}  }
+                        \nItem{ act2 }{ ER\_connections :=  ER\_connections \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {establish\_ER\_connection}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_partner \in  contacted }
+                        \nItem{ grd2 }{ l\_partner \in  establish\_ER\_connection }
+                        \nItemY{ grd3 }{ current\_status \neq  SOM }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ establish\_ER\_connection :=  establish\_ER\_connection \setminus  \{ l\_partner\}  }
+                        \nItem{ act2 }{ ER\_connections :=  ER\_connections \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {est\_perform\_end\_of\_mission}\cmt{}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_partner \in  contacted }{ }
+                        \nItem{ grd2 }{ l\_partner \in  establish\_ER\_connection }
+                        \nItemY{ grd3 }{ signal\_status\_change = TRUE }{ }
+                        \nItem{ grd4 }{ current\_status = EOM }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ establish\_ER\_connection :=  establish\_ER\_connection \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {est\_terminate\_order}
+        \EXTD {drop\_contact}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ l\_partner \in  contacted }
+                        \nItemY{ grd2 }{ l\_partner \in  establish\_ER\_connection }{ }
+                        \nItem{ grd3 }{ current\_status \neq  SOM }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ contacted :=  contacted \setminus  \{ l\_partner\}  }
+                        \nItem{ act2 }{ establish\_ER\_connection :=  establish\_ER\_connection \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {est\_pass\_level\_transition}\cmt{ }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_partner \in  contacted }
+                        \nItem{ grd2 }{ l\_partner \in  establish\_ER\_connection }
+                        \nItem{ grd3 }{ signal\_level\_change = TRUE }
+                        \nItem{ grd4 }{ current\_status \neq  SOM }
+                        \nItem{ grd5 }{ current\_level \in  \{ L0, L1, NTC\}  }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ establish\_ER\_connection :=  establish\_ER\_connection \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {est\_pass\_radio\_hole}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_partner \in  contacted }
+                        \nItem{ grd2 }{ l\_partner \in  establish\_ER\_connection }
+                        \nItem{ grd3 }{ signal\_radio\_hole = TRUE \land  position\_radio\_hole = TRUE }
+                        \nItem{ grd4 }{ current\_status \neq  SOM }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ establish\_ER\_connection :=  establish\_ER\_connection \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {est\_RIU\_leave\_L1}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_partner \in  contacted }
+                        \nItem{ grd2 }{ l\_partner \in  RIU }
+                        \nItem{ grd3 }{ signal\_level\_change = TRUE }
+                        \nItem{ grd5 }{ current\_level \neq  L1 }
+                        \nItem{ grd4 }{ current\_status \neq  SOM }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ establish\_ER\_connection :=  establish\_ER\_connection \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {est\_RBC\_border}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_partner \in  contacted }
+                        \nItem{ grd2 }{ l\_partner \in  RBC }
+                        \nItemY{ grd3 }{ signal\_RBC\_border = TRUE }{ }
+                        \nItem{ grd4 }{ current\_status \neq  SOM }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ establish\_ER\_connection :=  establish\_ER\_connection \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {indicate\_RBC\_border}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_flag }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_flag \in  BOOL }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act1 }{ signal\_RBC\_border :=  l\_flag }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {est\_other\_RBC\_non\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_partner \in  contacted }
+                        \nItem{ grd2 }{ l\_partner \in  RBC }
+                        \nItem{ grd3 }{ RBC \binter  accepting \binter  contacted\_by \neq  \emptyset  }
+                        \nItem{ grd4 }{ current\_status \neq  SOM }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ establish\_ER\_connection :=  establish\_ER\_connection \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {timeout\_ER\_connection}
+        \EXTD {drop\_session}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ l\_partner \in  incoming\_sessions \bunion  outgoing\_sessions }
+                        \nItem{ grd3 }{ l\_partner \in  ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act1 }{ incoming\_sessions :=  incoming\_sessions \setminus  \{ l\_partner\}  }{  }
+                        \nItemX{ act2 }{ outgoing\_sessions :=  outgoing\_sessions \setminus  \{ l\_partner\}  }
+                        \nItem{ act3 }{ ER\_connections :=  ER\_connections \setminus  \{ l\_partner\}  }
+                        \nItem{ act4 }{ terminated\_ER\_connections :=  terminated\_ER\_connections \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {terminate\_communication}
+        \EXTD {terminate\_communication}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ l\_partner \in  incoming\_sessions \bunion  outgoing\_sessions }
+                        \nItemX{ grd2 }{ l\_partner \in  terminating\_sessions }
+                        \nItem{ grd3 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ incoming\_sessions :=  incoming\_sessions \setminus  \{ l\_partner\}  }
+                        \nItemX{ act2 }{ outgoing\_sessions :=  outgoing\_sessions \setminus  \{ l\_partner\}  }
+                        \nItemX{ act3 }{ terminating\_sessions :=  terminating\_sessions \setminus  \{ l\_partner\}  }
+                        \nItem{ act4 }{ ER\_connections :=  ER\_connections \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {make\_RBC\_accepting}
+        \EXTD {make\_RBC\_accepting}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ l\_partner \in  RBC }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ accepting :=  accepting \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {make\_RBC\_non\_accepting}
+        \EXTD {make\_RBC\_non\_accepting}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_partner }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ l\_partner \in  accepting }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ accepting :=  accepting \setminus  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}
