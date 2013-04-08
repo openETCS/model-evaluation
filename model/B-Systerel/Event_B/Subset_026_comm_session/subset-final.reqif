@@ -5765,7 +5765,7 @@ Note: If a short number is used (considering trackside call routing), that numbe
                 <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_181d25a3ed4a7835b6bceb449f994b88</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-ENUMERATION>
-            <ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-6733907f-04c6-4336-922c-6d4a6640b255</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -7294,7 +7294,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -8435,12 +8435,12 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration configuration:specification="f34aca591c730a01eec348f3579e127-5">
             <configuration:columns>
-              <configuration:Column configuration:label="Section" configuration:width="95"/>
-              <configuration:Column configuration:label="Description" configuration:width="755"/>
-              <configuration:Column configuration:label="Type" configuration:width="138"/>
+              <configuration:Column configuration:label="Section" configuration:width="91"/>
+              <configuration:Column configuration:label="Description" configuration:width="394"/>
+              <configuration:Column configuration:label="Type" configuration:width="35"/>
               <configuration:Column configuration:label="WRSPM" configuration:width="57"/>
               <configuration:Column configuration:label="Source Changed" configuration:width="50"/>
-              <configuration:Column configuration:label="Target Changed" configuration:width="45"/>
+              <configuration:Column configuration:label="Target Changed" configuration:width="43"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column configuration:label="Lead Header Column" configuration:width="40"/>

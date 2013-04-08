@@ -55,12 +55,16 @@
 <org.eventb.core.event name="evtE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="make_RBC_accepting">
 <org.eventb.core.parameter name="'" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="accepting ≔ accepting ∪ {l_partner}" org.eventb.core.label="act1"/>
-<org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ RBC"/>
+<org.eventb.core.guard name=")" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ RBC"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∉ contacted_by ∪ contacted"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evtF" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="make_RBC_non_accepting">
-<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ accepting"/>
+<org.eventb.core.guard name="'" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ accepting"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="accepting ≔ accepting ∖ {l_partner}" org.eventb.core.label="act1"/>
 <org.eventb.core.parameter name=")" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∉ contacted_by ∪ contacted"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evtG" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_session">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_session"/>
@@ -69,4 +73,5 @@
 <org.eventb.core.event name="evtI" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_contact">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_contact"/>
 </org.eventb.core.event>
+<org.eventb.core.invariant name="evtJ" org.eventb.core.label="inv5" org.eventb.core.predicate="(incoming_sessions ∪ outgoing_sessions) ∖ accepting = ∅ ∨&#10;(∃ entity·entity ∈ (incoming_sessions ∪ outgoing_sessions) ∖ accepting&#10;  ⇒ (∀entity2·entity2 ∈ outgoing_sessions ∪ incoming_sessions ∧ entity2 ≠ entity ⇒ entity2 ∈ accepting)&#10;)"/>
 </org.eventb.core.machineFile>
