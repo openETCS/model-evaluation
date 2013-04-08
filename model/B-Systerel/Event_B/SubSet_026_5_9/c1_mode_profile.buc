@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="_k18OgJejEeKKEqs7RUQ3oQ" org.eventb.core.target="c0_train_mode"/>
+<org.eventb.core.carrierSet name="(" org.eventb.core.identifier="t_mode_profile"/>
+<org.eventb.core.carrierSet name="," org.eventb.core.identifier="t_train_fronts"/>
+<org.eventb.core.carrierSet name="." org.eventb.core.identifier="t_speed"/>
+<org.eventb.core.carrierSet name="5" org.eventb.core.identifier="t_locations"/>
+<org.eventb.core.constant name=")" org.eventb.core.comment="indicates whether mode profile demands OS mode" org.eventb.core.identifier="f_mode_profile_OS_mode"/>
+<org.eventb.core.constant name="/" org.eventb.core.identifier="f_safe_train_front_overpasses"/>
+<org.eventb.core.constant name="0" org.eventb.core.identifier="f_estimated_train_front_speed_in_window"/>
+<org.eventb.core.constant name="1" org.eventb.core.identifier="c_profile0"/>
+<org.eventb.core.constant name="4" org.eventb.core.identifier="f_safe_front_in_OS_area"/>
+<org.eventb.core.constant name="6" org.eventb.core.identifier="f_EoA_from_profile"/>
+<org.eventb.core.constant name="8" org.eventb.core.comment="" org.eventb.core.identifier="c_loc0"/>
+<org.eventb.core.constant name="_pui7EJbFEeK-ndZYA_Kfim" org.eventb.core.comment="" org.eventb.core.identifier="c_front0"/>
+<org.eventb.core.axiom name="*" org.eventb.core.label="axm1" org.eventb.core.predicate="f_mode_profile_OS_mode ∈ t_mode_profile → BOOL"/>
+<org.eventb.core.axiom name="+" org.eventb.core.comment="train front overpasses begin OS area" org.eventb.core.label="axm2" org.eventb.core.predicate="f_safe_train_front_overpasses ∈ t_train_fronts × t_mode_profile → BOOL"/>
+<org.eventb.core.axiom name="-" org.eventb.core.comment="est. train front and speed in ack window" org.eventb.core.label="axm3" org.eventb.core.predicate="f_estimated_train_front_speed_in_window ∈ t_train_fronts × t_mode_profile × t_speed → BOOL"/>
+<org.eventb.core.axiom name="2" org.eventb.core.label="axm4" org.eventb.core.predicate="c_profile0 ∈ t_mode_profile"/>
+<org.eventb.core.axiom name="3" org.eventb.core.label="axm5" org.eventb.core.predicate="f_safe_front_in_OS_area ∈ t_train_fronts × t_mode_profile → BOOL"/>
+<org.eventb.core.axiom name="7" org.eventb.core.comment="" org.eventb.core.label="axm6" org.eventb.core.predicate="f_EoA_from_profile ∈ t_mode_profile → t_locations"/>
+<org.eventb.core.axiom name="9" org.eventb.core.label="axm7" org.eventb.core.predicate="c_loc0 ∈ t_locations"/>
+<org.eventb.core.axiom name="_pui7EJbFEeK-ndZYA_Kfij" org.eventb.core.label="axm10" org.eventb.core.predicate="c_front0 ∈ t_train_fronts"/>
+<org.eventb.core.axiom name="_pui7EJbFEeK-ndZYA_Kfin" org.eventb.core.label="axm13" org.eventb.core.predicate="∀front, profile·front ∈ t_train_fronts ∧ profile ∈ t_mode_profile ⇒&#10;  (f_safe_train_front_overpasses(front ↦ profile) = TRUE ⇒&#10;    (∀speed·speed ∈ t_speed ⇒ f_estimated_train_front_speed_in_window(front ↦ profile ↦ speed) = FALSE))"/>
+<org.eventb.core.axiom name="_pui7EJbFEeK-ndZYA_Kfio" org.eventb.core.comment="" org.eventb.core.label="axm14" org.eventb.core.predicate="∀front, profile·front ∈ t_train_fronts ∧ profile ∈ t_mode_profile ⇒&#10;  (f_safe_train_front_overpasses(front ↦ profile) = FALSE ⇒&#10;    (∃speed·speed ∈ t_speed ⇒ f_estimated_train_front_speed_in_window(front ↦ profile ↦ speed) = TRUE))"/>
+<org.eventb.core.axiom name="_pui7EJbFEeK-ndZYA_Kfip" org.eventb.core.comment="for each profile there are fronts before and inside the OS area" org.eventb.core.label="axm15" org.eventb.core.predicate="∀profile·profile ∈ t_mode_profile ⇒ (∃front1, front2·front1 ∈ t_train_fronts ∧ front2 ∈ t_train_fronts ⇒&#10;    (f_safe_front_in_OS_area(front1 ↦ profile) ≠ f_safe_front_in_OS_area(front2 ↦ profile)))"/>
+</org.eventb.core.contextFile>

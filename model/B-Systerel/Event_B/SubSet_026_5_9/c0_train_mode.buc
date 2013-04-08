@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.carrierSet name="1" org.eventb.core.identifier="t_train_modes"/>
+<org.eventb.core.constant name="(" org.eventb.core.comment="full supervision" org.eventb.core.identifier="c_FS"/>
+<org.eventb.core.constant name=")" org.eventb.core.comment="limited supervision" org.eventb.core.identifier="c_LS"/>
+<org.eventb.core.constant name="*" org.eventb.core.comment="on sight" org.eventb.core.identifier="c_OS"/>
+<org.eventb.core.constant name="+" org.eventb.core.comment="staff responsible" org.eventb.core.identifier="c_SR"/>
+<org.eventb.core.constant name="," org.eventb.core.comment="stand-by" org.eventb.core.identifier="c_SB"/>
+<org.eventb.core.constant name="-" org.eventb.core.comment="post-trip" org.eventb.core.identifier="c_PT"/>
+<org.eventb.core.constant name="." org.eventb.core.comment="unfitted" org.eventb.core.identifier="c_UN"/>
+<org.eventb.core.constant name="/" org.eventb.core.comment="national system" org.eventb.core.identifier="c_SN"/>
+<org.eventb.core.constant name="2" org.eventb.core.identifier="c_initial_mode"/>
+<org.eventb.core.constant name="4" org.eventb.core.identifier="c_supervision_mode"/>
+<org.eventb.core.axiom name="0" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(t_train_modes,{c_FS},{c_LS},{c_OS},{c_SR},&#10;                        {c_SB},{c_PT},{c_UN},{c_SN})"/>
+<org.eventb.core.axiom name="3" org.eventb.core.label="axm2" org.eventb.core.predicate="c_initial_mode ∈ {c_FS, c_OS, c_PT}"/>
+<org.eventb.core.axiom name="5" org.eventb.core.label="axm3" org.eventb.core.predicate="c_supervision_mode ∈ {c_LS, c_FS}"/>
+</org.eventb.core.contextFile>

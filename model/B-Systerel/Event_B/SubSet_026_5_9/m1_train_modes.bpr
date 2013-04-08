@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+<org.eventb.core.prProof name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="c_OS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_initial_mode" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="c_initial_mode∈t_train_modes">
+<org.eventb.core.prIdent name="t_train_modes" org.eventb.core.type="ℙ(t_train_modes)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(t_train_modes,{c_FS},{c_LS},{c_OS},{c_SR},{c_SB},{c_PT},{c_UN},{c_SN})">
+<org.eventb.core.prIdent name="c_FS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_LS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_PT" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SB" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SN" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SR" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_UN" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="t_train_modes" org.eventb.core.type="ℙ(t_train_modes)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒c_initial_mode=c_OS"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="switch_to_OS_mode/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="c_OS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="OS_mode∈BOOL">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="transition_and_ack∈BOOL">
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="ack_and_transition∈BOOL">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_mode∈t_train_modes">
+<org.eventb.core.prIdent name="current_mode" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="t_train_modes" org.eventb.core.type="ℙ(t_train_modes)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(t_train_modes,{c_FS},{c_LS},{c_OS},{c_SR},{c_SB},{c_PT},{c_UN},{c_SN})">
+<org.eventb.core.prIdent name="c_FS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_LS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_PT" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SB" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SN" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SR" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_UN" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="t_train_modes" org.eventb.core.type="ℙ(t_train_modes)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒c_OS=c_OS"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="use_profile_OS_inside_area_mode_OS/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="c_OS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="current_mode" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="OS_mode∈BOOL">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="init_OS_procedure∈BOOL">
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒current_mode=c_OS"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="current_mode=c_OS"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="current_mode∈t_train_modes">
+<org.eventb.core.prIdent name="t_train_modes" org.eventb.core.type="ℙ(t_train_modes)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(t_train_modes,{c_FS},{c_LS},{c_OS},{c_SR},{c_SB},{c_PT},{c_UN},{c_SN})">
+<org.eventb.core.prIdent name="c_FS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_LS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_PT" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SB" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SN" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SR" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_UN" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="t_train_modes" org.eventb.core.type="ℙ(t_train_modes)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="transition_supervision_mode/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p2,p7,p8,p3,p9"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="c_OS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_supervision_mode" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="received_OS_profile=TRUE"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="OS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="OS_mode=TRUE⇒c_supervision_mode=c_OS"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="received_OS_profile∈BOOL"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="c_supervision_mode∈{c_LS,c_FS}">
+<org.eventb.core.prIdent name="c_FS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_LS" org.eventb.core.type="t_train_modes"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="current_mode∈t_train_modes">
+<org.eventb.core.prIdent name="current_mode" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="t_train_modes" org.eventb.core.type="ℙ(t_train_modes)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(t_train_modes,{c_FS},{c_LS},{c_OS},{c_SR},{c_SB},{c_PT},{c_UN},{c_SN})">
+<org.eventb.core.prIdent name="c_FS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_LS" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_PT" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SB" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SN" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_SR" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="c_UN" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="t_train_modes" org.eventb.core.type="ℙ(t_train_modes)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/distinct_states_in_on_sight_procedure1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒partition({TRUE},{FALSE}∩{TRUE},{FALSE}∩{TRUE},{FALSE}∩{TRUE})"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/received_OS_profile_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒FALSE=TRUE"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/FS_LS_mode_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒FALSE=TRUE"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/start_OS_profile_wait_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒FALSE=TRUE"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="safe_front_passes_OS_area/distinct_states_in_on_sight_procedure1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="start_OS_profile_wait∈BOOL">
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="further_location∈BOOL">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="FS_LS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="received_OS_profile∈BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="ack_and_transition∈BOOL">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="safe_front_passes_OS_area/received_OS_profile_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p3,p9,p2"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="start_OS_profile_wait∈BOOL"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="start_OS_profile_wait=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="received_OS_profile∈BOOL"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="ack_and_transition∈BOOL">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="received_OS_profile=TRUE⇒FALSE=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="safe_front_passes_OS_area/FS_LS_mode_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p3,p9,p2"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="start_OS_profile_wait∈BOOL"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="FS_LS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="start_OS_profile_wait=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="ack_and_transition∈BOOL">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FS_LS_mode=TRUE⇒FALSE=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="safe_front_passes_OS_area/start_OS_profile_wait_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="start_OS_profile_wait∈BOOL">
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="further_location∈BOOL">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒FALSE=TRUE"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="ack_and_transition∈BOOL">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="front_and_speed_in_ack_window/distinct_states_in_on_sight_procedure1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="start_OS_profile_wait∈BOOL">
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="further_location∈BOOL">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="FS_LS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="received_OS_profile∈BOOL"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="front_and_speed_in_ack_window/received_OS_profile_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p3,p8,p9"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="start_OS_profile_wait∈BOOL"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="start_OS_profile_wait=TRUE"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="received_OS_profile∈BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="further_location=TRUE"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="received_OS_profile=TRUE⇒FALSE=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="front_and_speed_in_ack_window/FS_LS_mode_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p3,p8,p9"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="start_OS_profile_wait∈BOOL"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="FS_LS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="start_OS_profile_wait=TRUE"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="further_location=TRUE"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FS_LS_mode=TRUE⇒FALSE=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="front_and_speed_in_ack_window/start_OS_profile_wait_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="start_OS_profile_wait∈BOOL">
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="further_location∈BOOL">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒FALSE=TRUE"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="use_profile_OS_further_location/distinct_states_in_on_sight_procedure1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p5,p6,p2,p7,p8,p9,p10,p1,p4"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="start_OS_profile_wait∈BOOL"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒partition({TRUE},{TRUE}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="init_OS_procedure∈BOOL"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="FS_LS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="init_OS_procedure=TRUE"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="received_OS_profile∈BOOL">
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="use_profile_OS_further_location/received_OS_profile_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="further_location∈BOOL">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="init_OS_procedure∈BOOL">
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="received_OS_profile∈BOOL">
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒TRUE=TRUE"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="use_profile_OS_further_location/FS_LS_mode_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="further_location∈BOOL">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="init_OS_procedure∈BOOL">
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="FS_LS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FS_LS_mode=TRUE⇒TRUE=TRUE"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="use_profile_OS_further_location/start_OS_profile_wait_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="start_OS_profile_wait∈BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="further_location∈BOOL">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒TRUE=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="init_OS_procedure∈BOOL">
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="transition_supervision_mode/distinct_states_in_on_sight_procedure1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p2,p9,p10"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="start_OS_profile_wait∈BOOL"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="received_OS_profile=TRUE"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{FALSE}∩{TRUE},{TRUE}∩{TRUE},{start_OS_profile_wait}∩{TRUE})"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="FS_LS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="received_OS_profile∈BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="transition_supervision_mode/received_OS_profile_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="received_OS_profile∈BOOL">
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="transition_supervision_mode/FS_LS_mode_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p3,p4,p5,p6,p7,p2,p8"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="received_OS_profile=TRUE"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="FS_LS_mode∈BOOL">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="received_OS_profile∈BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="supervise_EoA/distinct_states_in_on_sight_procedure1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p9,p1,p10"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="start_OS_profile_wait∈BOOL"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="FS_LS_mode=TRUE"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="FS_LS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FALSE}∩{TRUE},{TRUE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="received_OS_profile∈BOOL"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="supervise_EoA/FS_LS_mode_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="FS_LS_mode∈BOOL">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="start_OS_profile_wait=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="supervise_EoA/start_OS_profile_wait_substateof_further_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p3,p4,p5,p6,p7,p8,p1"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="FS_LS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="start_OS_profile_wait∈BOOL">
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="further_location∈BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="FS_LS_mode=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="FS_LS_mode=TRUE"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="FS_LS_mode∈BOOL"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒further_location=TRUE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="received_OS_profile=TRUE⇒further_location=TRUE">
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="further_location=TRUE⇒partition({TRUE},{received_OS_profile}∩{TRUE},{FS_LS_mode}∩{TRUE},{start_OS_profile_wait}∩{TRUE})">
+<org.eventb.core.prIdent name="received_OS_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="start_OS_profile_wait" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="transition_to_OS_mode/inv2/INV"/>
+</org.eventb.core.prFile>
