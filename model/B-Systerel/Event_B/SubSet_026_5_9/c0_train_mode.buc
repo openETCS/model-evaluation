@@ -12,6 +12,6 @@
 <org.eventb.core.constant name="2" org.eventb.core.identifier="c_initial_mode"/>
 <org.eventb.core.constant name="4" org.eventb.core.identifier="c_supervision_mode"/>
 <org.eventb.core.axiom name="0" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(t_train_modes,{c_FS},{c_LS},{c_OS},{c_SR},&#10;                        {c_SB},{c_PT},{c_UN},{c_SN})"/>
-<org.eventb.core.axiom name="3" org.eventb.core.label="axm2" org.eventb.core.predicate="c_initial_mode ∈ {c_FS, c_OS, c_PT}"/>
+<org.eventb.core.axiom name="3" org.eventb.core.label="axm2" org.eventb.core.predicate="c_initial_mode ∈ t_train_modes"/>
 <org.eventb.core.axiom name="5" org.eventb.core.label="axm3" org.eventb.core.predicate="c_supervision_mode ∈ {c_LS, c_FS}"/>
 </org.eventb.core.contextFile>
