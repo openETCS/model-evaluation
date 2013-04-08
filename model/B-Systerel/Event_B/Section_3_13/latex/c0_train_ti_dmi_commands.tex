@@ -1,0 +1,40 @@
+\begin{description}
+\CONTEXT{c0\_train\_ti\_dmi\_commands}
+\SETS
+        \begin{description}
+                \ItemY{ t\_locations }{all possible locations on track }
+                \ItemY{ t\_speed }{train speed measurement }
+                \ItemY{ t\_acceleration }{train acceleration }
+                \ItemY{ t\_TI\_commands }{track interface commands }
+                \ItemY{ t\_DMI\_commands }{driver machine interface commands }
+                \ItemY{ t\_time }{ }
+                \Item{ t\_train\_modes }
+        \end{description}
+\CONSTANTS
+        \begin{description}
+                \Item{ c\_emergency\_brake }
+                \Item{ c\_service\_brake }
+                \ItemY{ c\_TCO }{traction cut off}
+                \ItemY{ c\_no\_command }{empty command}
+                \Item{ c\_normal }
+                \Item{ c\_indication }
+                \ItemY{ c\_overspeed }{}
+                \ItemY{ c\_warning }{}
+                \ItemY{ c\_intervention }{}
+                \Item{ c\_v0 }
+                \Item{ c\_a0 }
+                \ItemY{ c\_l0 }{}
+                \Item{ c\_a\_brake0 }
+                \ItemY{ c\_T\_brake0 }{}
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ partition(t\_TI\_commands,\{ c\_no\_command\}
+                  ,\{ c\_emergency\_brake\} ,\\ \hspace*{1.2cm} \{ c\_service\_brake\} ,\{ c\_TCO\} ) }\cmt{ }
+                \nItem{ axm2 }{ partition(t\_DMI\_commands,\{ c\_normal\} ,\{
+                  c\_indication\},\\ \hspace*{1.2cm}\{ c\_overspeed\} ,\{ c\_warning\} ,\{ c\_intervention\} ) }		\nItem{ axm3 }{ c\_v0 \in  t\_speed }		\nItem{ axm4 }{ c\_a0 \in  t\_acceleration }\cmt{ }
+                \nItem{ axm5 }{ c\_l0 \in  t\_locations }		\nItem{ axm6 }{ c\_a\_brake0 \in  t\_speed \tfun  t\_acceleration }\cmt{		\\\hspace*{1,4 cm}  default brake profile }
+                \nItem{ axm7 }{ c\_T\_brake0 \in  t\_time }\cmt{		\\\hspace*{1,4 cm}  default brake buildup time }
+        \end{description}
+\END
+\end{description}
