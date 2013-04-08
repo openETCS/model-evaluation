@@ -63,32 +63,76 @@
 <org.eventb.core.event name="evtJ" org.eventb.core.comment="(cf. 3.5.3.4 b) / (cf. 3.5.3.5.2)" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_after_contact">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_after_contact"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="evtK" org.eventb.core.comment="no contact order, i.e., one ofthe other cases of 3.5.3.4" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_SOM">
-<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact"/>
+<org.eventb.core.event name="evtK" org.eventb.core.comment="no contact order, i.e., one ofthe other cases of 3.5.3.4" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_SOM_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_accept"/>
 <org.eventb.core.guard name="(" org.eventb.core.comment="" org.eventb.core.label="grd6" org.eventb.core.predicate="current_status = SOM"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd7" org.eventb.core.predicate="current_level ∈ {L2, L3}"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="evt[" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_mode_change">
-<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact"/>
+<org.eventb.core.event name="evtk" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_no_contact_SOM_non_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_non_accept"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions ∪ contacted ∪ contacted_by"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∖ accepting)"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="contacted ≔ contacted ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
+<org.eventb.core.parameter name="/" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act3"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd6" org.eventb.core.predicate="current_status = SOM"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd7" org.eventb.core.predicate="current_level ∈ {L2, L3}"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt[" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_mode_change_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_accept"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd6" org.eventb.core.predicate="current_level ∈ {L2, L3}"/>
 <org.eventb.core.guard name=")" org.eventb.core.comment="" org.eventb.core.label="grd7" org.eventb.core.predicate="signal_mode_change = TRUE"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd8" org.eventb.core.predicate="current_status ≠ EOM"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="signal_mode_change ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="evt\" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_manual_change">
-<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact"/>
+<org.eventb.core.event name="evtl" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_no_contact_mode_change_non_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_non_accept"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions ∪ contacted ∪ contacted_by"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∖ accepting)"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="contacted ≔ contacted ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
+<org.eventb.core.parameter name="/" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act3"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd6" org.eventb.core.predicate="current_level ∈ {L2, L3}"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd7" org.eventb.core.predicate="signal_mode_change = TRUE"/>
+<org.eventb.core.guard name="3" org.eventb.core.label="grd8" org.eventb.core.predicate="current_status ≠ EOM"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt\" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_manual_change_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_accept"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd6" org.eventb.core.predicate="current_level ∈ {L2, L3}"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd7" org.eventb.core.predicate="signal_manual_level_change = TRUE"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="signal_manual_level_change ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="evtc" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_leave_radio_hole">
-<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact"/>
+<org.eventb.core.event name="evtm" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_no_contact_manual_change_non_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_non_accept"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions ∪ contacted ∪ contacted_by"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∖ accepting)"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="contacted ≔ contacted ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
+<org.eventb.core.parameter name="/" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act3"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd6" org.eventb.core.predicate="current_level ∈ {L2, L3}"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd7" org.eventb.core.predicate="signal_manual_level_change = TRUE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evtc" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_leave_radio_hole_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_accept"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd6" org.eventb.core.predicate="position_radio_hole = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd7" org.eventb.core.predicate="signal_radio_hole = TRUE"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="signal_radio_hole ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="evtg" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact">
-<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact"/>
+<org.eventb.core.event name="evtn" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_no_contact_leave_radio_hole_non_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_non_accept"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions ∪ contacted ∪ contacted_by"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∖ accepting)"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="contacted ≔ contacted ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
+<org.eventb.core.parameter name="/" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act3"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd6" org.eventb.core.predicate="position_radio_hole = FALSE"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd7" org.eventb.core.predicate="signal_radio_hole = TRUE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evtg" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_accept"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evto" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_non_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_non_accept"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evtL" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="terminate_communication">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="terminate_communication"/>
