@@ -172,6 +172,14 @@ a \Ada{Boolean} variable, e.g. \Ada{Start_Of_Mission}.
 
 \chapter{Model benefits and shortcomings}
 
+\begin{figure}[htbp]
+  \centering
+  \fbox{\includegraphics[width=\textwidth]{braking-curve}}
+  \caption{Basic braking curve for EBD, target is at 2,500 m at speed
+    0 km/h, deceleration is constant $-1 m/s^2$}
+  \label{fig:braking-curve}
+\end{figure}
+
 After modeling several chapters of the SRS, we see following
 advantages to using GNATprove:
 
@@ -182,7 +190,9 @@ advantages to using GNATprove:
   found in the SRS: transition tables, algorithms, data structures,
   requirements on functional or data parts, etc. The description of
   data types is very expressive and thus helps writing a readable
-  model;
+  model. We are able to compute a basic braking curve (see figure
+  \ref{fig:braking-curve}), which we consider a rather complex
+  computation;
 \item The description is rather concise, which we see as a very
   positive point;
 \item By writing as comment the reference to the corresponding SRS
@@ -200,14 +210,16 @@ However some shortcomings have been identified:
 \item One needs to learn the Ada language in order to understand the
   model. The Ada language is big. The subset handled by GNATprove is
   nonetheless smaller and the concepts are quite well known for
-  imperative languages;
+  imperative languages (functions or procedures, variables, loops,
+  records and arrays, ...);
 \item The model is not graphical. Especially for model overview, a
   graphical understanding would be helpful. It might be possible to
   provide such a graphical overview using Ada tools;
 \item One needs to build needed domain specific abstractions in order
-  to write the model, e.g. the step functions. But even if this effort
-  is not negligible, once it is done it can be capitalized over the
-  long term;
+  to write the model, e.g. the step functions defined in section
+  \ref{sec:step-function}. But even if this effort is not negligible,
+  once this is done it can be capitalized over several models or model
+  parts;
 \item The proofs are not complete and some parts cannot be done with
   the provided automated provers.
 \end{itemize}
@@ -244,9 +256,29 @@ difficult to prove range checks.
 
 \chapter{Detailed model description}
 
-FIXME
+The model is organized into a set of ADS (Ada Package Specification)
+or ADB (Ada Package Body or program) files. The ADS file declare each
+function and procedure and optionally the contract it should fulfill
+using \Ada{Pre =>} and \Ada{Post =>} notation. In those parts,
+``\Ada{for all}'' stands for mathematical ``$\forall$'' and ``\Ada{for
+  some}'' stands for ``$\exists$''. The ADB file contains code
+corresponding to the function or procedure declaration. As we are
+building a \emph{description} of the SRS without making it executable,
+the ADB file is often empty or missing.
+
+Each Ada package, an Ada ADS and an Ada ADB files, corresponds to a
+section of the SUBSET-026 SRS. Each paragraph of the SRS is modeled by
+one or more Ada data type definition or function definition. We have
+extensively used user defined data type definition to strongly type
+the different kinds of identifiers in the model. For example, an
+\Ada{ertms_etcs_level_t} is a different integer that
+\Ada{RBC_RIU_ID_t}.
+
 
 \section{Generic parts of the model}
+
+In this part, we define relatively simple data types or model
+variables reused in other parts of the model.
 
 \lstinputlisting[language=Ada,firstline=21]{../src/data_types.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/etcs_level.ads}
@@ -257,7 +289,27 @@ FIXME
 
 \lstinputlisting[language=Ada,firstline=21]{../src/section_4_3_2.ads}
 
+
 \section{SUBSET-026-4.6 Transitions between modes}
+
+Here we define as Boolean variables each condition that should be
+fulfilled or not to make a transition from one mode to another,
+e.g. \Ada{driver_selects_shunting_mode}. In a more complete model,
+those variables would probably be defined and handled in other
+packages.
+
+We then define a set of functions that correspond to each individual
+condition define in table §4.6.2 of the SRS.
+
+Those conditions are then in turn combined into a set of functions
+defining the condition under which a mode transition can occur.
+
+We end with a function \Ada{transition} of which post-conditions
+expresses that the different transition condition should be disjoint,
+in order to prove it. This cannot be proved using only the assumptions
+describe in §4.6 of the SRS. See
+\url{https://github.com/openETCS/model-evaluation/wiki/Open-Question-for-Modeling-Benchmark#section-46}
+for a detailed example.
 
 \lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.adb}
@@ -287,16 +339,17 @@ FIXME
 \lstinputlisting[language=Ada,firstline=21]{../src/units.adb}
 
 \subsection{Modeling of step functions}
+\label{sec:step-function}
 
 \lstinputlisting[language=Ada,firstline=21]{../src/step_function.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/step_function.adb}
-\lstinputlisting[language=Ada,firstline=21]{../src/step_function_test.adb}
+\lstinputlisting[language=Ada]{../src/step_function_test.adb}
 
 \subsection{Modeling of deceleration curves}
 
 \lstinputlisting[language=Ada,firstline=21]{../src/deceleration_curve.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/deceleration_curve.adb}
-\lstinputlisting[language=Ada,firstline=21]{../src/deceleration_curve_test.adb}
+\lstinputlisting[language=Ada]{../src/deceleration_curve_test.adb}
 
 \subsection{Section 3.13.2 Train and Trackside related inputs}
 
