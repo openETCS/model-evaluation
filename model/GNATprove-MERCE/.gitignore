@@ -1,0 +1,3 @@
+doc/*.bbl
+doc/*.blg
+doc/*.out

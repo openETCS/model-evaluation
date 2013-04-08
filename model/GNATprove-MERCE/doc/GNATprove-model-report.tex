@@ -1,0 +1,239 @@
+\documentclass{template/openetcs_report}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_report}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{listings}
+\graphicspath{{./template/}{.}{./images/}}
+
+% listings package configuration
+\lstset{basicstyle={\footnotesize \sffamily},framesep=2pt,frame=single}
+\newcommand{\Ada}[1]{\lstinline[language=Ada,basicstyle={\sffamily},framesep=0pt]{#1}}
+
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/D??}
+
+%define your workpackage or task here
+\wp{openETCS@ITEA Work Package 7: ``Toolchain''}
+
+%set a title here
+\title{Evaluation model of ETCS using GNATprove}
+
+%set a subtitle here
+\subtitle{Tool and model presentation}
+
+%set the date of the report here
+\date{March 2013}
+
+%define a list of authors and their affiliation here
+\author{David Mentré}
+
+\affiliation{Mitsubishi Electric R\&D Centre Europe\\
+1 allée de Beaulieu\\
+CS 10806\\
+35708 RENNES cedex 7\\
+\\
+email: \url{d.mentre@fr.merce.mee.com}
+}
+
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL.png}
+
+%define the type of report
+\reporttype{Draft Report}
+
+
+\begin{abstract}
+%define an abstract here
+  FIXME
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+%=============================
+% The actual document starts below this line
+%=============================
+
+%Start here
+
+\mainmatter
+
+\chapter{Introduction}
+
+This document presents the use of Ada 2012 language and GNATprove tool
+to model a subset of ETCS. This subset is included in the subset
+defined in openETCS D2.5 document\cite{openetcs:D2.5}.
+
+In this report, we firstly present the Ada 2012 language and GNATprove
+tool, then we give an overview of our model, its benefits and
+shortcoming to end with the detailed source code of the complete
+model.
+
+\chapter{Short introduction to Ada 2012 and GNATprove tool}
+
+This model is using Ada 2012 language\cite{arm2012}. The Ada language
+is a well known generic purpose language which first version was
+published in 1983 and which is normalized by ISO. After several
+revisions in 1995 and 2005, the latest 2012 revision offers
+interesting facilities for program verification. More specifically,
+function contracts can now be declared through pre and post-conditions
+using \Ada{Pre} and \Ada{Post} Ada annotations.
+
+Those contracts can be compiled in executable code and checked
+dynamically at execution, or statically verified using a dedicated
+tool. GNATprove is such a static verification tool. It
+\emph{automatically}\footnote{Automatic verification is made through
+  several calls to SMT (Satisfiability Modulo Theories) solver
+  \emph{Alt-Ergo}.} checks Ada 2012 contracts and absence of run-time
+exception (underflow, overflow, out of bound access, ...) for all
+possible executions. GNATprove is integrated into AdaCore's GNAT
+Programming Studio (GPS) environment.
+
+GNATprove and GPS programming environment are Open Source software,
+licensed under GNU GPL.
+
+\section{A short example}
+
+As example, here is the Ada 2012 specification of a
+\Ada{Saturated_Sum} function. The \Ada{Post}-condition states that if
+the sum of two integers \Ada{X1} and \Ada{X2} is below a given
+\Ada{Maximum}, then this sum is returned, otherwise the \Ada{Maximum}
+is returned.
+
+The \Ada{Pre}-condition states that both \Ada{X1} and \Ada{X2} should
+be below the biggest \Ada{Natural} divided by 2, such that computation
+of the sum does not raise an overflow error at execution.
+
+\lstinputlisting[language=Ada]{../src/example.ads}
+
+The implementation of this specification is rather obvious.
+
+\lstinputlisting[language=Ada]{../src/example.adb}
+
+Applying GNATprove on above two files generates 9 Verification
+Conditions (VC) that are all \emph{automatically} proved correct by
+the tool.
+
+After such verifications, we are sure that for all possible executions
+no run-time errors are going to be raised and that the
+\Ada{Saturated_Sum} function will fulfill its contract if called with
+pre-conditions satisfied.
+
+\chapter{Model overview}
+
+The model is organized along SUBSET 026: to each section or subsection
+corresponds an Ada \Ada{package} of the same name\footnote{We are not
+  sure this approach makes the model easily understandable, at least
+  without a good knowledge of SUBSET 026. Naming packages after
+  described entities (Communication, Balises, etc.) might be a better
+  approach for a full fledged model.}. Like Uwe Steinke for its SCADE
+model, we have tried to formalize each paragraph of SUBSET 026,
+associating to it some Ada 2012 code.
+
+For each part of the model, a comment gives the paragraph number it
+corresponds to, thus making a basic traceability.
+
+We have also created additional packages for generic parts of the
+model or to define data structure used by several parts.
+
+We have created Ada data types to describe specific objects of ETCS
+specification. Those data types are in turned used to define Ada
+entities that represent ETCS specification objects in our model.
+
+For example, the following \Ada{package ETCS_Level} defines the five
+ETCS levels 0 to 4 as \Ada{type ertms_etcs_level_t}. Within those
+levels, the NTC (aka STM) specific level is defined as number 4 with
+\Ada{ertms_etcs_level_ntc constant}. Then this data type is used for
+definition of \Ada{ertms_etcs_level} variable that describes current
+ETCS level in the model.
+
+\begin{lstlisting}[language=Ada]
+Package ETCS_Level is
+   type ertms_etcs_level_t is range 0..4; -- SUBSET-026-2.6.2.3
+   ertms_etcs_level_ntc : constant ertms_etcs_level_t := 4;
+
+   ertms_etcs_level : ertms_etcs_level_t;
+end;
+\end{lstlisting}
+
+For propositions in the text, e.g. ``Start of Mission'', we have used
+a \Ada{Boolean} variable, e.g. \Ada{Start_Of_Mission}.
+
+\chapter{Model benefits and shortcomings}
+
+FIXME
+
+\chapter{Detailed model description}
+
+FIXME
+
+\section{Generic parts of the model}
+
+\lstinputlisting[language=Ada]{../src/data_types.ads}
+\lstinputlisting[language=Ada]{../src/etcs_level.ads}
+\lstinputlisting[language=Ada]{../src/appendix_a_3_1.ads}
+
+
+\subsection{SUBSET-026-4.3.2 ETCS modes}
+
+\lstinputlisting[language=Ada]{../src/section_4_3_2.ads}
+
+\section{SUBSET-026-4.6 Transitions between modes}
+
+\lstinputlisting[language=Ada]{../src/section_4_6.ads}
+\lstinputlisting[language=Ada]{../src/section_4_6.adb}
+
+
+\section{SUBSET-026-3.5.3 Establishing a communication session}
+
+\subsection{Safe Radio package}
+
+\lstinputlisting[language=Ada]{../src/safe_radio.ads}
+\lstinputlisting[language=Ada]{../src/safe_radio.adb}
+
+\subsection{Com map utility package}
+
+\lstinputlisting[language=Ada]{../src/com_map.ads}
+
+\subsection{Section 3.5.3 modeling}
+
+\lstinputlisting[language=Ada]{../src/section_3_5_3.ads}
+\lstinputlisting[language=Ada]{../src/section_3_5_3.adb}
+
+\section{SUBSET-026-3.13 Speed and distance monitoring}
+
+\subsection{Modeling of step functions}
+
+\lstinputlisting[language=Ada]{../src/step_function.ads}
+\lstinputlisting[language=Ada]{../src/step_function.adb}
+\lstinputlisting[language=Ada]{../src/step_function_test.adb}
+
+%% \begin{figure}
+%%   \centering
+%%   \fbox{\includegraphics[width=2in]{itea}}
+%%   \caption{Yet Another Castle In Appendix}
+%%   \label{fig:castle2}
+%% \end{figure}
+
+\bibliographystyle{abbrv}
+\bibliography{GNATprove-model-report}
+
+
+%===================================================
+%Do NOT change anything below this line
+
+\end{document}
+
+% LocalWords:  GNATprove AdaCore's GPS VC pre adb GPL SMT Satisfiability ETCS
+% LocalWords:  FIXME
