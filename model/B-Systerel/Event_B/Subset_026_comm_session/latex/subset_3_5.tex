@@ -239,7 +239,7 @@ an extensive proof support for properties.
   Section~\ref{sec:machine-2-board}).
 \item {\bf Safety Properties} Using Rodin's proof support and the formalization
   as invariants, it is possible to formalize and prove the identified safety
-  property of the case study (see Section~\ref{sec:machine-3-accepting}).
+  properties of the case study (see Section~\ref{sec:machine-3-accepting}).
 \end{itemize}
 
 \section{Detailed Model Description}
@@ -365,7 +365,9 @@ variable, i.e., the set \bvar{accepting}.
 The \bvar{receive\_contact\_order} event is refined by two separate events, one
 for orders for an accepting RBC and one for a non-accepting RBC. The
 \bvar{outgoing\_communication} event is refined by two events, one for a
-compatible system version and the other for an incompatible one.
+compatible system version and the other for an incompatible one. The events for
+\bevent{initiate\_session\_contact} and \bevent{initiate\_session\_no\_contact}
+are analogously refined to two version for accepting and non-accepting RBCs.
 
 Furthermore, a just established communication session with on-track equipment
 with an incompatible system version will be terminated immediately after
@@ -411,7 +413,7 @@ refinement, a more detailed modeling is not necessary.
 
 The next refined machine implements the different causes which can trigger the
 establishing of a communication session. The corresponding events refine the
-abstract \bvar{initiate\_session\_no\_contact} event. For this, the current
+abstract \bvar{initiate\_session\_no\_contact} events. For this, the current
 ERTMS level of the train is tracked, as well as its current mission status.
 
 The indication of a level change, a mission status change, a manual level change
@@ -426,10 +428,10 @@ manually changed the ERTMS level. It is changed by the
 which also modifies the \bvar{current\_level} variable which models the current
 ERTMS level. If the new level is 2 or 3, then the train is required to establish
 a communication session with trackside. This is realized in the
-\bvar{initiate\_session\_no\_contact\_manual\_change} event which reset the
+\bvar{initiate\_session\_no\_contact\_manual\_change} events which reset the
 indication variable once the entity has been contacted.  Similar events model
 the initiation because of non-manual level change, mission status change and
-announced radio holes.
+announced radio holes, each in a version for accepting and non-accepting RBCs.
 
 \paragraph{Implemented Requirements}
 \label{sec:impl-requ-3}

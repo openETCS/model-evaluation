@@ -61,7 +61,7 @@
 </org.eventb.core.event>
 <org.eventb.core.variable name="evt;" org.eventb.core.comment="" org.eventb.core.identifier="terminating_sessions"/>
 <org.eventb.core.seesContext name="evt?" org.eventb.core.target="c2_system_version_mode"/>
-<org.eventb.core.invariant name="evtA" org.eventb.core.comment="safety property" org.eventb.core.label="inv2" org.eventb.core.predicate="RBC ∩ outgoing_sessions ∖ terminating_sessions ⊆ system_version_compatible"/>
+<org.eventb.core.invariant name="evtA" org.eventb.core.comment="safety property from preliminary doc" org.eventb.core.label="inv2" org.eventb.core.predicate="RBC ∩ outgoing_sessions ∖ terminating_sessions ⊆ system_version_compatible"/>
 <org.eventb.core.variable name="evtC" org.eventb.core.identifier="accepting"/>
 <org.eventb.core.invariant name="evtD" org.eventb.core.comment="typing invariant for elements of accepting" org.eventb.core.label="inv3" org.eventb.core.predicate="accepting ⊆ RBC"/>
 <org.eventb.core.event name="evtE" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="make_RBC_accepting">
@@ -85,5 +85,5 @@
 <org.eventb.core.event name="evtI" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_contact">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_contact"/>
 </org.eventb.core.event>
-<org.eventb.core.invariant name="evtJ" org.eventb.core.comment="" org.eventb.core.label="inv5" org.eventb.core.predicate="((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC = ∅ ∨&#10;(∃ entity·entity ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC&#10;  ⇒ (∀entity2·entity2 ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ terminating_sessions) ∩ RBC ∧ entity2 ≠ entity ⇒ entity2 ∈ accepting)&#10;)"/>
+<org.eventb.core.invariant name="evtJ" org.eventb.core.comment="safety property from D2.5" org.eventb.core.label="inv5" org.eventb.core.predicate="((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC = ∅ ∨&#10;(∃ entity·entity ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC&#10;  ⇒ (∀entity2·entity2 ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ terminating_sessions) ∩ RBC ∧ entity2 ≠ entity ⇒ entity2 ∈ accepting)&#10;)"/>
 </org.eventb.core.machineFile>

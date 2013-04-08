@@ -117,7 +117,7 @@
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {initiate\_session\_after\_contact}\cmt{}
+        \EVT {initiate\_session\_after\_contact\_accept}\cmt{		\\\hspace*{8 cm}  (cf. 3.5.3.4 b) / (cf. 3.5.3.5.2) }
         \EXTD {initiate\_session\_after\_contact}
                 \begin{description}
                 \AnyPrm
@@ -137,8 +137,8 @@
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {initiate\_session\_no\_contact\_SOM}\cmt{}
-        \EXTD {initiate\_session\_no\_contact\_SOM}
+        \EVT {initiate\_session\_no\_contact\_SOM\_accept}\cmt{		\\\hspace*{8,2 cm}  no contact order, i.e., one ofthe other cases of 3.5.3.4 }
+        \EXTD {initiate\_session\_no\_contact\_SOM\_accept}
                 \begin{description}
                 \AnyPrm
                         \begin{description}
@@ -147,7 +147,7 @@
                 \WhereGrd
                         \begin{description}
                         \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
-                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{ }
                         \nItemXY{ grd6 }{ current\_status = SOM }{ }
                         \nItemX{ grd7 }{ current\_level \in  \{ L2, L3\}  }
                         \nItem{ grd8 }{ l\_partner \notin  terminated\_ER\_connections }
@@ -159,8 +159,8 @@
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {initiate\_session\_no\_contact\_status\_change}
-        \EXTD {initiate\_session\_no\_contact\_status\_change}
+        \EVT {initiate\_session\_no\_contact\_SOM\_non\_accept}
+        \EXTD {initiate\_session\_no\_contact\_SOM\_non\_accept}
                 \begin{description}
                 \AnyPrm
                         \begin{description}
@@ -169,22 +169,45 @@
                 \WhereGrd
                         \begin{description}
                         \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
-                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  accepting) }{ }
+                        \nItemX{ grd6 }{ current\_status = SOM }
+                        \nItemX{ grd7 }{ current\_level \in  \{ L2, L3\}  }
+                        \nItem{ grd8 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemX{ act3 }{ terminating\_sessions :=  terminating\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
+                        \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_mode\_change\_accept}
+        \EXTD {initiate\_session\_no\_contact\_mode\_change\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{ }
                         \nItemX{ grd6 }{ current\_level \in  \{ L2, L3\}  }
-                        \nItemXY{ grd7 }{ signal\_status\_change = TRUE }{ }
+                        \nItemXY{ grd7 }{ signal\_mode\_change = TRUE }{ }
                         \nItemX{ grd8 }{ current\_status \neq  EOM }
                         \nItem{ grd9 }{ l\_partner \notin  terminated\_ER\_connections }
                         \end{description}
                 \ThenAct
                         \begin{description}
                         \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
-                        \nItemX{ act3 }{ signal\_status\_change :=  FALSE }
+                        \nItemX{ act3 }{ signal\_mode\_change :=  FALSE }
                         \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {initiate\_session\_no\_contact\_manual\_change}
-        \EXTD {initiate\_session\_no\_contact\_manual\_change}
+        \EVT {initiate\_session\_no\_contact\_mode\_change\_non\_accept}
+        \EXTD {initiate\_session\_no\_contact\_mode\_change\_non\_accept}
                 \begin{description}
                 \AnyPrm
                         \begin{description}
@@ -193,7 +216,31 @@
                 \WhereGrd
                         \begin{description}
                         \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
-                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  accepting) }{ }
+                        \nItemX{ grd6 }{ current\_level \in  \{ L2, L3\}  }
+                        \nItemX{ grd7 }{ signal\_mode\_change = TRUE }
+                        \nItemX{ grd8 }{ current\_status \neq  EOM }
+                        \nItem{ grd9 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemX{ act3 }{ terminating\_sessions :=  terminating\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
+                        \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_manual\_change\_accept}
+        \EXTD {initiate\_session\_no\_contact\_manual\_change\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{ }
                         \nItemX{ grd6 }{ current\_level \in  \{ L2, L3\}  }
                         \nItemX{ grd7 }{ signal\_manual\_level\_change = TRUE }
                         \nItem{ grd8 }{ l\_partner \notin  terminated\_ER\_connections }
@@ -206,8 +253,8 @@
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {initiate\_session\_no\_contact\_leave\_radio\_hole}
-        \EXTD {initiate\_session\_no\_contact\_leave\_radio\_hole}
+        \EVT {initiate\_session\_no\_contact\_manual\_change\_non\_accept}
+        \EXTD {initiate\_session\_no\_contact\_manual\_change\_non\_accept}
                 \begin{description}
                 \AnyPrm
                         \begin{description}
@@ -216,7 +263,30 @@
                 \WhereGrd
                         \begin{description}
                         \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
-                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  accepting) }{ }
+                        \nItemX{ grd6 }{ current\_level \in  \{ L2, L3\}  }
+                        \nItemX{ grd7 }{ signal\_manual\_level\_change = TRUE }
+                        \nItem{ grd8 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemX{ act3 }{ terminating\_sessions :=  terminating\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
+                        \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_leave\_radio\_hole\_accept}
+        \EXTD {initiate\_session\_no\_contact\_leave\_radio\_hole\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{ }
                         \nItemX{ grd6 }{ position\_radio\_hole = FALSE }
                         \nItemX{ grd7 }{ signal\_radio\_hole = TRUE }
                         \nItem{ grd8 }{ l\_partner \notin  terminated\_ER\_connections }
@@ -229,8 +299,8 @@
                         \end{description}
                 \EndAct
                 \end{description}
-        \EVT {initiate\_session\_after\_timeout}
-        \EXTD {initiate\_session\_no\_contact}
+        \EVT {initiate\_session\_no\_contact\_leave\_radio\_hole\_non\_accept}
+        \EXTD {initiate\_session\_no\_contact\_leave\_radio\_hole\_non\_accept}
                 \begin{description}
                 \AnyPrm
                         \begin{description}
@@ -239,7 +309,30 @@
                 \WhereGrd
                         \begin{description}
                         \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
-                        \nItemXY{ grd3 }{ l\_partner \in  on\_track }{ }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  accepting) }{ }
+                        \nItemX{ grd6 }{ position\_radio\_hole = FALSE }
+                        \nItemX{ grd7 }{ signal\_radio\_hole = TRUE }
+                        \nItem{ grd8 }{ l\_partner \notin  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemX{ act3 }{ terminating\_sessions :=  terminating\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
+                        \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_after\_timeout\_accept}
+        \EXTD {initiate\_session\_no\_contact\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{ }
                         \nItem{ grd6 }{ l\_partner \in  terminated\_ER\_connections }
                         \end{description}
                 \ThenAct
@@ -247,6 +340,28 @@
                         \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
                         \nItem{ act3 }{ terminated\_ER\_connections :=  terminated\_ER\_connections \setminus  \{ l\_partner\}  }
                         \nItem{ act4 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_after\_timeout\_non\_accept}
+        \EXTD {initiate\_session\_no\_contact\_non\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  accepting) }{ }
+                        \nItem{ grd6 }{ l\_partner \in  terminated\_ER\_connections }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemX{ act3 }{ terminating\_sessions :=  terminating\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
+                        \nItem{ act4 }{ terminated\_ER\_connections :=  terminated\_ER\_connections \setminus  \{ l\_partner\}  }
+                        \nItem{ act5 }{ establish\_ER\_connection :=  establish\_ER\_connection \bunion  \{ l\_partner\}  }
                         \end{description}
                 \EndAct
                 \end{description}

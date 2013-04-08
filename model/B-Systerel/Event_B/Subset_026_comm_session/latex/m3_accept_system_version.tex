@@ -11,6 +11,7 @@
                 \nItemY{ inv2 }{ RBC \binter  outgoing\_sessions \setminus  terminating\_sessions \subseteq  system\_version\_compatible }{           }
                 \nItemY{ inv3 }{ accepting \subseteq  RBC }{}
                 \nItemY{ inv4 }{ terminating\_sessions \subseteq  on\_track }{  }
+                \nItemY{ inv5 }{ ((outgoing\_sessions \bunion  contacted \bunion  contacted\_by) \setminus  (accepting \bunion  terminating\_sessions)) \binter  RBC = \emptyset  \lor                  \\\hspace*{1,2 cm}  (\exists  entity\qdot entity \in  ((outgoing\_sessions \bunion  contacted \bunion  contacted\_by) \setminus  (accepting \bunion  terminating\_sessions)) \binter  RBC		\\\hspace*{1,6 cm}  \limp  (\forall entity2\qdot entity2 \in  ((outgoing\_sessions \bunion  contacted \bunion  contacted\_by) \setminus  terminating\_sessions) \binter  RBC \land  entity2 \neq  entity \limp  entity2 \in  accepting)		\\\hspace*{1,2 cm}  ) }{  }
         \end{description}
 \EVENTS
         \EVT {receive\_information\_compatible}
