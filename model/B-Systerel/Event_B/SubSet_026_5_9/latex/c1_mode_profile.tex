@@ -2,29 +2,30 @@
 \CONTEXT{c1\_mode\_profile}
 \EXTENDS{c0\_train\_mode}
 \SETS
-	\begin{description}
-		\Item{ t\_mode\_profile }
-		\Item{ t\_train\_fronts }
-		\Item{ t\_speed }
-		\Item{ t\_locations }
-	\end{description}
+        \begin{description}
+                \Item{ t\_mode\_profile }
+                \Item{ t\_train\_fronts }
+                \Item{ t\_speed }
+                \Item{ t\_locations }
+        \end{description}
 \CONSTANTS
-	\begin{description}
-		\ItemY{ f\_mode\_profile\_OS\_mode }{indicates whether mode profile demands OS mode}
-		\Item{ f\_safe\_train\_front\_overpasses }
-		\Item{ f\_estimated\_train\_front\_speed\_in\_window }
-		\Item{ c\_profile0 }
-		\Item{ f\_safe\_front\_in\_OS\_area }
-		\Item{ f\_EoA\_from\_profile }
-		\ItemY{ c\_loc0 }{}
-		\ItemY{ c\_front0 }{}
-	\end{description}
+        \begin{description}
+                \ItemY{ f\_mode\_profile\_OS\_mode }{indicates whether mode profile demands OS mode}
+                \Item{ f\_safe\_train\_front\_overpasses }
+                \Item{ f\_estimated\_train\_front\_speed\_in\_window }
+                \Item{ c\_profile0 }
+                \Item{ f\_safe\_front\_in\_OS\_area }
+                \Item{ f\_EoA\_from\_profile }
+                \ItemY{ c\_loc0 }{}
+                \ItemY{ c\_front0 }{}
+        \end{description}
 \AXIOMS
-	\begin{description}
-		\nItem{ axm1 }{ f\_mode\_profile\_OS\_mode \in  t\_mode\_profile \tfun  BOOL }		\nItem{ axm2 }{ f\_safe\_train\_front\_overpasses \in  t\_train\_fronts \cprod  t\_mode\_profile \tfun  BOOL }\cmt{		\\\hspace*{1,4 cm}  train front overpasses begin OS area }
-		\nItem{ axm3 }{ f\_estimated\_train\_front\_speed\_in\_window \in  t\_train\_fronts \cprod  t\_mode\_profile \cprod  t\_speed \tfun  BOOL }\cmt{		\\\hspace*{1,4 cm}  est. train front and speed in ack window }
-		\nItem{ axm4 }{ c\_profile0 \in  t\_mode\_profile }		\nItem{ axm5 }{ f\_safe\_front\_in\_OS\_area \in  t\_train\_fronts \cprod  t\_mode\_profile \tfun  BOOL }		\nItem{ axm6 }{ f\_EoA\_from\_profile \in  t\_mode\_profile \tfun  t\_locations }\cmt{ }
-		\nItem{ axm7 }{ c\_loc0 \in  t\_locations }		\nItem{ axm10 }{ c\_front0 \in  t\_train\_fronts }		\nItem{ axm13 }{ \forall front, profile\qdot front \in  t\_train\_fronts \land  profile \in  t\_mode\_profile \limp 		\\\hspace*{1,8 cm}  (f\_safe\_train\_front\_overpasses(front \mapsto  profile) = TRUE \limp 		\\\hspace*{2,2 cm}  (\forall speed\qdot speed \in  t\_speed \limp  f\_estimated\_train\_front\_speed\_in\_window(front \mapsto  profile \mapsto  speed) = FALSE)) }		\nItem{ axm14 }{ \forall front, profile\qdot front \in  t\_train\_fronts \land  profile \in  t\_mode\_profile \limp 		\\\hspace*{1,8 cm}  (f\_safe\_train\_front\_overpasses(front \mapsto  profile) = FALSE \limp 		\\\hspace*{2,2 cm}  (\exists speed\qdot speed \in  t\_speed \limp  f\_estimated\_train\_front\_speed\_in\_window(front \mapsto  profile \mapsto  speed) = TRUE)) }\cmt{ }
-		\nItem{ axm15 }{ \forall profile\qdot profile \in  t\_mode\_profile \limp  (\exists front1, front2\qdot front1 \in  t\_train\_fronts \land  front2 \in  t\_train\_fronts \limp 		\\\hspace*{2,2 cm}  (f\_safe\_front\_in\_OS\_area(front1 \mapsto  profile) \neq  f\_safe\_front\_in\_OS\_area(front2 \mapsto  profile))) }\cmt{		\\\hspace*{1,6 cm}  for each profile there are fronts before and inside the OS area }
-	\end{description}
+        \begin{description}
+                \nItem{ axm1 }{ f\_mode\_profile\_OS\_mode \in  t\_mode\_profile \tfun  BOOL }		\nItem{ axm2 }{ f\_safe\_train\_front\_overpasses \in  t\_train\_fronts \cprod  t\_mode\_profile \tfun  BOOL }\cmt{		\\\hspace*{1,4 cm}  train front overpasses begin OS area }
+                \nItem{ axm3 }{ f\_estimated\_train\_front\_speed\_in\_window \in  t\_train\_fronts \cprod  t\_mode\_profile \cprod  t\_speed \tfun  BOOL }\cmt{		\\\hspace*{1,4 cm}  est. train front and speed in ack window }
+                \nItem{ axm4 }{ c\_profile0 \in  t\_mode\_profile }		\nItem{ axm5 }{ f\_safe\_front\_in\_OS\_area \in  t\_train\_fronts \cprod  t\_mode\_profile \tfun  BOOL }		\nItem{ axm6 }{ f\_EoA\_from\_profile \in  t\_mode\_profile \tfun  t\_locations }\cmt{ }
+                \nItem{ axm7 }{ c\_loc0 \in  t\_locations }		\nItem{
+                  axm10 }{ c\_front0 \in  t\_train\_fronts }
+        \end{description}
 \END
+\end{description}

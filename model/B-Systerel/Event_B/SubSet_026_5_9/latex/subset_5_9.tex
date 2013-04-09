@@ -222,7 +222,7 @@ Fig.~\ref{fig:flowchart-OS-mode}).
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=.85\textwidth]{m0_basic_flowchart_on_sight_procedure}
+  \includegraphics[width=.95\textwidth]{m0_basic_flowchart_on_sight_procedure}
   \caption{Basic Flowchart Representation}
   \label{fig:basic-flowchart}
 \end{figure}
@@ -244,6 +244,9 @@ complete model is automatically generated from this state machine. Note
 however, that in this abstraction level, there is no concrete notion of train
 modes, these appear in the first refinement.
 
+The transitions \bvar{switch\_to\_OS\_mode} signal the completion of the
+on-sight procedure, the internal switch to OS mode in the train happens
+elsewhere. The state \bvar{OS\_mode} signals the final state.
 
 \subsection{Context 0 - Train Modes}
 \label{sec:context-0-entities}
@@ -254,9 +257,159 @@ mode. The constant \bconst{c\_initial\_mode} represents the initial mode of the
 train when the procedure on-sight is started. The constant
 \bconst{c\_supervision\_mode} is one mode from the supervision modes.
 
+{\footnotesize
 \input{c0_train_mode}
+}
+
+\subsection{Machine 1 - Train Modes}
+\label{sec:machine-1-train}
+
+The first machine refinement adds the variable \bvar{current\_mode} which tracks
+the current mode of the train. This variable is initialized with the value of
+\bconst{c\_initial\_mode}.
+
+The state of this variable is used to constrain the guards of the events that
+depend on the train modes, i.e., corresponding to those that lead from the
+``Mode'' diamond in the flowchart (see Fig.~\ref{fig:flowchart-OS-mode}).
+Its state is changed in the \bevent{transition\_to\_supervision\_mode} event
+which assigns the value of \bconst{c\_supervision\_mode} or in the
+\bevent{transition\_to\_OS\_mode} event which assigns the on-sight mode.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.95\textwidth]{m1_train_modes_on_sight_procedure}
+  \caption{First Refinement with Train Modes}
+  \label{fig:first-refinement}
+\end{figure}
+
+The refined state chart is shown in Fig.~\ref{fig:first-refinement}. The state
+\bvar{further\_location} is refined to contain three sub-states and two
+events. This switches the train to supervision mode, and starts EoA
+supervision. The train stays in this state until either the maximal safe front
+passes the OS area or the estimated front and speed leave the acknowledge
+window. The exiting transitions are changed to originate from the
+\bvar{start\_OS\_profile\_wait} state instead of its super-state. This is
+possible as the sub-states correctly refine the super-state.
+
+{\footnotesize
+\input{m1_train_modes}
+}
+
+\subsection{Context 1 - Mode Profiles}
+\label{sec:context-1-mode}
+
+This context extension introduces the type \btype{t\_mode\_profile} for mode
+profiles, \btype{t\_train\_fronts} for train fronts (e.g., max safe front,
+estimated front), \btype{t\_speed} for train speed and \btype{t\_locations} for
+on track locations.
+
+The context also defines several functions, notably one which signals whether a
+mode profile specifies an OS area, one which signals whether a given train front
+overpasses the OS area for a specific mode profile, one that signals whether a
+train front and train speed are in the acknowledge window for a specific mode
+profile, one that signals whether a given train front is in the OS area of a
+given mode profile and finally a function that returns the EoA from a given
+profile.
+
+{\footnotesize
+\input{c1_mode_profile}
+}
+
+\subsection{Machine 2 - Mode Profiles}
+\label{sec:machine-2-mode}
+
+The second refinement of the machine introduces the notion of mode profiles,
+train fronts (max safe and estimated) and the end of authority (EoA) location
+into the model. These are represented by the variables \bvar{EoA\_loc},
+\bvar{mode\_profile\_OS}, \bvar{safe\_train\_front} and
+\bvar{estimated\_train\_front}.
+
+The train fronts can be changed by the events \bevent{update\_estimated\_front}
+and \bevent{update\_safe\_front}. The current values of the fronts, the current
+mode profile and its corresponding EoA are used as parameters for the Boolean
+functions that guard the events, e.g., for the event
+\bevent{safe\_front\_passes\_OS\_area} or for the event
+\bevent{front\_and\_speed\_in\_ack\_window}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.95\textwidth]{m2_mode_profile_on_sight_procedure}
+  \caption{Second Refinement}
+  \label{fig:second-refinement}
+\end{figure}
+
+The second refinement of the state machine is shown in
+Fig.~\ref{fig:second-refinement}. Here the state \bvar{transition\_and\_ack} is
+refined with two sub-states. The transition between the two new sub-states
+is \bevent{transition\_to\_OS\_mode} which sets the current train mode to
+on-sight.
+
+{\footnotesize
+\input{m2_mode_profile}
+}
+
+\subsection{Machine 3 - Driver Acknowledge}
+\label{sec:machine-3-driver}
+
+The third machine refinement introduces the driver acknowledgment. In two cases,
+the driver is asked to acknowledge. This is modeled by additional Boolean
+variables, two for acknowledging OS mode and two for acknowledging the service
+brake. Each time, one variable signals that the driver has been informed that he
+has to acknowledge, e.g., for the service brake this is the
+\bvar{currently\_asking\_driver\_brake\_ack} variable, and to signal the
+completed acknowledge there is the \bconst{driver\_responded\_brake\_ack}
+variable. There is also the Boolean variable \bvar{service\_brake} which signals
+the active service brake of the train.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.95\textwidth]{m3_driver_ack_on_sight_procedure}
+  \caption{Third Refinement with Driver Acknowledge}
+  \label{fig:third-refinement-driver-ack}
+\end{figure}
+
+The third refinement of the state machine is shown in
+Fig.~\ref{fig:third-refinement-driver-ack}. Here the two states
+\bvar{ack\_and\_transition} and \bvar{OS\_mode\_trans} are refined. 
+
+For \bvar{ack\_and\_transition} there are four new sub-states defined. There is
+first an event to ask the driver to acknowledge the switch to on-sight mode,
+then the OBU waits for the driver acknowledgment. If the max safe train front
+passes the OS area without driver acknowledge, then the
+\bvar{transition\_and\_ack} state is entered, else the train mode is switched to
+on-sight and the final state is entered. Here the outgoing transitions from the
+abstract \bvar{ack\_and\_transition} state are change to originate from
+\bvar{wait\_for\_ack} or \bvar{change\_current\_mode} respectively. Again this
+is possible as the sub-states correctly refine the abstract behavior of the
+super state.
+
+The abstract \bvar{OS\_mode\_trans} state is refined by five sub-states. First
+the driver is asked to acknowledge the imminent service brake. If he does so in
+time, then the procedure finishes and the final state is entered, else the
+service brake is activated and stays activated until the driver acknowledges and
+the final state is entered.
+
+At this refinement stage, it is possible to prove that whenever the final state
+is reached, the mode of the train is on-sight (\binv{inv6}).
+
+{\footnotesize
+\input{m3_driver_ack}
+}
+
+\subsection{Machine 4 - Timeout}
+\label{sec:machine-4-timeout}
 
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.95\textwidth]{m4_timeout_on_sight_procedure}
+  \caption{Fourth Refinement State Machine}
+  \label{fig:fourth-refinement-state-machine}
+\end{figure}
+
+{\footnotesize
+\input{m4_timeout}
+}
 
 \bibliographystyle{alpha}
 \bibliography{openetcs}

@@ -99,9 +99,10 @@
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="deactivate_service_brake"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="_xJTP0ZeeEeKKEqs7RUQ3oi" org.eventb.core.identifier="timer_expired"/>
-<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3oj" org.eventb.core.label="inv1" org.eventb.core.predicate="timer_expired ∈ BOOL"/>
+<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3oj" org.eventb.core.comment="" org.eventb.core.label="inv1" org.eventb.core.predicate="timer_expired ∈ BOOL"/>
 <org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="expire_timer">
 <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="timer_expired = FALSE"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="timer_expired ≔ TRUE" org.eventb.core.label="act1"/>
 </org.eventb.core.event>
+<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3ok" org.eventb.core.comment="PROPERTY_5.9_02, timer expired and in OS_mode_trans state disables&#10;other transition than service brake" org.eventb.core.label="inv2" org.eventb.core.predicate="timer_expired = TRUE ∧ OS_mode_trans = TRUE ⇒&#10;¬ ((ack_and_transition = TRUE ∨ transition_and_ack = TRUE) ∧&#10;   brake_until_ack = TRUE ∧&#10;   currently_asking_driver_brake_ack = TRUE ∧&#10;   timer_expired = FALSE)"/>
 </org.eventb.core.machineFile>
