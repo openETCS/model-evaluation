@@ -1,0 +1,145 @@
+\begin{description}
+\MACHINE{m1\_train\_modes}
+\REFINES{m0\_basic\_flowchart}
+\SEES{c0\_train\_mode}
+\VARIABLES
+        \begin{description}
+                \Item{ current\_mode }
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItemY{ inv1 }{ current\_mode \in  t\_train\_modes }{  }
+        \end{description}
+\EVENTS
+        \EVT {safe\_front\_passes\_OS\_area}
+        \EXTD {safe\_front\_passes\_OS\_area}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_ack\_and\_transition\_or\_isin\_further\_location }{ ack\_and\_transition = TRUE \lor  further\_location = TRUE }
+                        \nItem{ isin\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_transition\_and\_ack }{ transition\_and\_ack :=  TRUE }
+                        \nItemX{ leave\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+                        \nItemX{ leave\_further\_location }{ further\_location :=  FALSE }
+                        \nItem{ leave\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {switch\_to\_OS\_mode}
+        \EXTD {switch\_to\_OS\_mode}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_ack\_and\_transition\_or\_isin\_transition\_and\_ack }{ ack\_and\_transition = TRUE \lor  transition\_and\_ack = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ leave\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+                        \nItemX{ enter\_OS\_mode }{ OS\_mode :=  TRUE }
+                        \nItemX{ leave\_transition\_and\_ack }{ transition\_and\_ack :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {front\_and\_speed\_in\_ack\_window}
+        \EXTD {front\_and\_speed\_in\_ack\_window}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_further\_location }{ further\_location = TRUE }
+                        \nItem{ isin\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_ack\_and\_transition }{ ack\_and\_transition :=  TRUE }
+                        \nItemX{ leave\_further\_location }{ further\_location :=  FALSE }
+                        \nItem{ leave\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {use\_profile\_OS\_further\_location}
+        \EXTD {use\_profile\_OS\_further\_location}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+                        \nItemX{ enter\_further\_location }{ further\_location :=  TRUE }
+                        \nItem{ enter\_received\_OS\_profile }{ received\_OS\_profile :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {use\_profile\_OS\_inside\_area\_mode\_OS}
+        \EXTD {use\_profile\_OS\_inside\_area\_mode\_OS}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+                        \nItem{ grd1 }{ current\_mode = c\_OS }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_OS\_mode }{ OS\_mode :=  TRUE }
+                        \nItemX{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {use\_profile\_OS\_inside\_area\_mode\_SB\_PT}
+        \EXTD {use\_profile\_OS\_inside\_area\_mode\_SB\_PT}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+                        \nItem{ grd1 }{ current\_mode \in  \{ c\_SB, c\_PT\}  }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_ack\_and\_transition }{ ack\_and\_transition :=  TRUE }
+                        \nItemX{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {use\_profile\_OS\_inside\_area\_mode\_FS\_LS\_SR\_UN\_SN}
+        \EXTD {use\_profile\_OS\_inside\_area\_mode\_FS\_LS\_SR\_UN\_SN}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItemX{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+                        \nItem{ grd1 }{ current\_mode \in  \{ c\_FS, c\_LS, c\_SR, c\_UN, c\_SN\}  }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+                        \nItemX{ enter\_transition\_and\_ack }{ transition\_and\_ack :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {transition\_supervision\_mode}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ isin\_received\_OS\_profile }{ received\_OS\_profile = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ leave\_received\_OS\_profile }{ received\_OS\_profile :=  FALSE }
+                        \nItem{ act1 }{ current\_mode :=  c\_supervision\_mode }
+                        \nItem{ enter\_FS\_LS\_mode }{ FS\_LS\_mode :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {transition\_to\_OS\_mode}
+                \begin{description}
+                \BeginAct
+                        \begin{description}
+                        \nItem{ act1 }{ current\_mode :=  c\_OS }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="http://emf.eventb.org/models/core" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_85F3cKBUEeKjFZTaufpbRQ" type="Eventbcore" name="SubSet_026_5_9.prj_diag" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_85GegKBUEeKjFZTaufpbRQ"/>
+  <element xmi:type="core:Project" href="SubSet_026_5_9.prj#org.eventb.emf.core.Project.SubSet_026_5_9"/>
+</notation:Diagram>

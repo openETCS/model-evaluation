@@ -1,0 +1,464 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
+\usepackage {bsymb,b2latex}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr,lastpage,color}
+\lhead{\rm An Event-B Specification of m4\_timeout}
+\rhead {\rm Page \thepage~of \pageref{LastPage}}
+\lfoot{}\cfoot{}\rfoot{}
+\pagestyle{fancy}
+%---------------------------------------------------------
+\begin{document}
+\thispagestyle{empty}
+\begin{description}
+\BTitle{m4\_timeout}{8Apr2013}{02:46:18 PM}
+\MACHINE{m4\_timeout}
+\REFINES{m3\_driver\_ack}
+\SEES{c1\_mode\_profile}
+\VARIABLES
+	\begin{description}
+		\Item{ init\_OS\_procedure }
+		\Item{ further\_location }
+		\Item{ received\_OS\_profile }
+		\Item{ FS\_LS\_mode }
+		\Item{ start\_OS\_profile\_wait }
+		\Item{ ack\_and\_transition }
+		\Item{ supervise\_ack }
+		\Item{ wait\_for\_ack }
+		\Item{ driver\_acknowledge\_trans }
+		\Item{ change\_current\_mode }
+		\Item{ transition\_and\_ack }
+		\Item{ OS\_area\_profile }
+		\Item{ OS\_mode\_trans }
+		\Item{ init\_timer }
+		\Item{ wait\_brake\_ack }
+		\Item{ brake\_until\_ack }
+		\Item{ driver\_acknowledge\_brake }
+		\Item{ deactivated\_brake }
+		\Item{ OS\_mode }
+		\ItemY{ current\_mode }{}
+		\ItemY{ EoA\_loc }{}
+		\ItemY{ mode\_profile\_OS }{}
+		\Item{ safe\_train\_front }
+		\ItemY{ estimated\_train\_front }{}
+		\Item{ currently\_asking\_driver\_OS\_ack }
+		\ItemY{ driver\_responded\_OS\_ack }{}
+		\ItemY{ service\_brake\_active }{}
+		\ItemY{ currently\_asking\_driver\_brake\_ack }{}
+		\Item{ driver\_responded\_brake\_ack }
+		\Item{ timer\_expired }
+	\end{description}
+\INVARIANTS
+	\begin{description}
+		\nItemY{ inv1 }{ timer\_expired \in  BOOL }{  }
+		\nItem{ inv2 }{  }
+	\end{description}
+\EVENTS
+	\INITIALISATION
+		\\\textit{extended}\cmt{ }
+		\begin{description}
+		\BeginAct
+			\begin{description}
+			\nItemX{ init\_further\_location }{ further\_location :=  FALSE }
+			\nItemX{ init\_transition\_and\_ack }{ transition\_and\_ack :=  FALSE }
+			\nItemX{ init\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+			\nItemX{ init\_init\_OS\_procedure }{ init\_OS\_procedure :=  TRUE }
+			\nItemX{ init\_OS\_mode }{ OS\_mode :=  FALSE }
+			\nItemX{ init\_FS\_LS\_mode }{ FS\_LS\_mode :=  FALSE }
+			\nItemX{ init\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait :=  FALSE }
+			\nItemX{ act1 }{ current\_mode :=  c\_initial\_mode }
+			\nItemX{ init\_received\_OS\_profile }{ received\_OS\_profile :=  FALSE }
+			\nItemX{ act2 }{ EoA\_loc :=  c\_loc0 }
+			\nItemX{ init\_OS\_area\_profile }{ OS\_area\_profile :=  FALSE }
+			\nItemXY{ act3 }{ mode\_profile\_OS :=  c\_profile0 }{  }
+			\nItemXY{ init\_OS\_mode\_trans }{ OS\_mode\_trans :=  FALSE }{  }
+			\nItemX{ act4 }{ safe\_train\_front :=  c\_front0 }
+			\nItemX{ act5 }{ estimated\_train\_front :=  c\_front0 }
+			\nItemX{ init\_deactivated\_brake }{ deactivated\_brake :=  FALSE }
+			\nItemXY{ act7 }{ driver\_responded\_OS\_ack :=  FALSE }{  }
+			\nItemX{ act6 }{ currently\_asking\_driver\_OS\_ack :=  FALSE }
+			\nItemX{ act8 }{ service\_brake\_active :=  FALSE }
+			\nItemX{ init\_wait\_brake\_ack }{ wait\_brake\_ack :=  FALSE }
+			\nItemX{ act9 }{ currently\_asking\_driver\_brake\_ack :=  FALSE }
+			\nItemX{ init\_wait\_for\_ack }{ wait\_for\_ack :=  FALSE }
+			\nItemX{ init\_supervise\_ack }{ supervise\_ack :=  FALSE }
+			\nItemX{ init\_driver\_acknowledge\_trans }{ driver\_acknowledge\_trans :=  FALSE }
+			\nItemX{ init\_init\_timer }{ init\_timer :=  FALSE }
+			\nItemX{ init\_change\_current\_mode }{ change\_current\_mode :=  FALSE }
+			\nItemX{ act10 }{ driver\_responded\_brake\_ack :=  FALSE }
+			\nItemX{ init\_driver\_acknowledge\_brake }{ driver\_acknowledge\_brake :=  FALSE }
+			\nItemX{ init\_brake\_until\_ack }{ brake\_until\_ack :=  FALSE }
+			\nItem{ act11 }{ timer\_expired :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {safe\_front\_passes\_OS\_area}
+	\EXTD {safe\_front\_passes\_OS\_area}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_ack\_and\_transition\_or\_isin\_further\_location }{ ack\_and\_transition = TRUE \lor  further\_location = TRUE }
+			\nItemX{ isin\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait = TRUE }
+			\nItemX{ grd1 }{ f\_safe\_train\_front\_overpasses(safe\_train\_front \mapsto  mode\_profile\_OS) = TRUE }
+			\nItemX{ isin\_wait\_for\_ack }{ wait\_for\_ack = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ enter\_transition\_and\_ack }{ transition\_and\_ack :=  TRUE }
+			\nItemX{ leave\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+			\nItemX{ leave\_further\_location }{ further\_location :=  FALSE }
+			\nItemX{ leave\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait :=  FALSE }
+			\nItemX{ enter\_OS\_area\_profile }{ OS\_area\_profile :=  TRUE }
+			\nItemX{ leave\_wait\_for\_ack }{ wait\_for\_ack :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {switch\_to\_OS\_mode\_from\_brake}
+	\EXTD {switch\_to\_OS\_mode\_from\_brake}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_ack\_and\_transition\_or\_isin\_transition\_and\_ack }{ ack\_and\_transition = TRUE \lor  transition\_and\_ack = TRUE }
+			\nItemX{ isin\_deactivated\_brake }{ deactivated\_brake = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ leave\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+			\nItemX{ enter\_OS\_mode }{ OS\_mode :=  TRUE }
+			\nItemX{ leave\_transition\_and\_ack }{ transition\_and\_ack :=  FALSE }
+			\nItemX{ leave\_OS\_mode\_trans }{ OS\_mode\_trans :=  FALSE }
+			\nItemX{ leave\_OS\_area\_profile }{ OS\_area\_profile :=  FALSE }
+			\nItemX{ leave\_deactivated\_brake }{ deactivated\_brake :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {switch\_to\_OS\_mode\_from\_transition}
+	\EXTD {switch\_to\_OS\_mode\_from\_transition}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_ack\_and\_transition\_or\_isin\_transition\_and\_ack }{ ack\_and\_transition = TRUE \lor  transition\_and\_ack = TRUE }
+			\nItemX{ isin\_change\_current\_mode }{ change\_current\_mode = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ leave\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+			\nItemX{ enter\_OS\_mode }{ OS\_mode :=  TRUE }
+			\nItemX{ leave\_transition\_and\_ack }{ transition\_and\_ack :=  FALSE }
+			\nItemX{ leave\_OS\_mode\_trans }{ OS\_mode\_trans :=  FALSE }
+			\nItemX{ leave\_OS\_area\_profile }{ OS\_area\_profile :=  FALSE }
+			\nItemX{ leave\_change\_current\_mode }{ change\_current\_mode :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {front\_and\_speed\_in\_ack\_window}
+	\EXTD {front\_and\_speed\_in\_ack\_window}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\ItemX{l\_train\_speed }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItemX{ isin\_further\_location }{ further\_location = TRUE }
+			\nItemX{ isin\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait = TRUE }
+			\nItemX{ grd3 }{ l\_train\_speed \in  t\_speed }
+			\nItemX{ grd1 }{ f\_estimated\_train\_front\_speed\_in\_window(estimated\_train\_front \mapsto  mode\_profile\_OS \mapsto  l\_train\_speed) = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ enter\_ack\_and\_transition }{ ack\_and\_transition :=  TRUE }
+			\nItemX{ leave\_further\_location }{ further\_location :=  FALSE }
+			\nItemX{ leave\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait :=  FALSE }
+			\nItemX{ enter\_supervise\_ack }{ supervise\_ack :=  TRUE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {use\_profile\_OS\_further\_location}
+	\EXTD {use\_profile\_OS\_further\_location}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+			\nItemXY{ grd1 }{ f\_safe\_front\_in\_OS\_area(safe\_train\_front \mapsto  mode\_profile\_OS) = FALSE }{ } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+			\nItemX{ enter\_further\_location }{ further\_location :=  TRUE }
+			\nItemX{ enter\_received\_OS\_profile }{ received\_OS\_profile :=  TRUE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {use\_profile\_OS\_inside\_area\_mode\_OS}
+	\EXTD {use\_profile\_OS\_inside\_area\_mode\_OS}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+			\nItemX{ grd1 }{ current\_mode = c\_OS }
+			\nItemXY{ grd2 }{ f\_safe\_front\_in\_OS\_area(safe\_train\_front \mapsto  mode\_profile\_OS) = TRUE }{ } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ enter\_OS\_mode }{ OS\_mode :=  TRUE }
+			\nItemX{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {use\_profile\_OS\_inside\_area\_mode\_SB\_PT}
+	\EXTD {use\_profile\_OS\_inside\_area\_mode\_SB\_PT}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+			\nItemX{ grd1 }{ current\_mode \in  \{ c\_SB, c\_PT\}  }
+			\nItemX{ grd2 }{ f\_safe\_front\_in\_OS\_area(safe\_train\_front \mapsto  mode\_profile\_OS) = FALSE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ enter\_ack\_and\_transition }{ ack\_and\_transition :=  TRUE }
+			\nItemX{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+			\nItemX{ enter\_supervise\_ack }{ supervise\_ack :=  TRUE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {use\_profile\_OS\_inside\_area\_mode\_FS\_LS\_SR\_UN\_SN}
+	\EXTD {use\_profile\_OS\_inside\_area\_mode\_FS\_LS\_SR\_UN\_SN}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_init\_OS\_procedure }{ init\_OS\_procedure = TRUE }
+			\nItemX{ grd1 }{ current\_mode \in  \{ c\_FS, c\_LS, c\_SR, c\_UN, c\_SN\}  }
+			\nItemXY{ grd2 }{ f\_safe\_front\_in\_OS\_area(safe\_train\_front \mapsto  mode\_profile\_OS) = TRUE }{ } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ leave\_init\_OS\_procedure }{ init\_OS\_procedure :=  FALSE }
+			\nItemX{ enter\_transition\_and\_ack }{ transition\_and\_ack :=  TRUE }
+			\nItemX{ enter\_OS\_area\_profile }{ OS\_area\_profile :=  TRUE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {transition\_supervision\_mode}
+	\EXTD {transition\_supervision\_mode}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_received\_OS\_profile }{ received\_OS\_profile = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ leave\_received\_OS\_profile }{ received\_OS\_profile :=  FALSE }
+			\nItemX{ act1 }{ current\_mode :=  c\_supervision\_mode }
+			\nItemX{ enter\_FS\_LS\_mode }{ FS\_LS\_mode :=  TRUE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {supervise\_EoA}
+	\EXTD {supervise\_EoA}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemXY{ isin\_FS\_LS\_mode }{ FS\_LS\_mode = TRUE }{ } 
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ leave\_FS\_LS\_mode }{ FS\_LS\_mode :=  FALSE }
+			\nItemX{ enter\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait :=  TRUE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {transition\_to\_OS\_mode}
+	\EXTD {transition\_to\_OS\_mode}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_OS\_area\_profile }{ OS\_area\_profile = TRUE }
+			\nItemX{ isin\_driver\_acknowledge\_trans }{ driver\_acknowledge\_trans = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act1 }{ current\_mode :=  c\_OS }
+			\nItemX{ leave\_OS\_area\_profile }{ OS\_area\_profile :=  FALSE }
+			\nItemX{ enter\_OS\_mode\_trans }{ OS\_mode\_trans :=  TRUE }
+			\nItemX{ enter\_change\_current\_mode }{ change\_current\_mode :=  TRUE }
+			\nItemX{ enter\_init\_timer }{ init\_timer :=  TRUE }
+			\nItemX{ leave\_driver\_acknowledge\_trans }{ driver\_acknowledge\_trans :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {update\_estimated\_front}
+	\EXTD {update\_estimated\_front}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\ItemX{l\_front }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItemX{ grd1 }{ l\_front \in  t\_train\_fronts }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act1 }{ estimated\_train\_front :=  l\_front }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {update\_safe\_front}
+	\EXTD {update\_safe\_front}
+		\begin{description}
+		\AnyPrm
+			\begin{description}
+			\ItemXY{l\_front }{ }
+			\end{description}
+		\WhereGrd
+			\begin{description}
+			\nItemX{ grd1 }{ l\_front \in  t\_train\_fronts }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act1 }{ safe\_train\_front :=  l\_front }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {ask\_driver\_ack\_brake}
+	\EXTD {ask\_driver\_ack\_brake}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_init\_timer }{ init\_timer = TRUE }
+			\nItemX{ grd1 }{ currently\_asking\_driver\_brake\_ack = FALSE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act1 }{ currently\_asking\_driver\_brake\_ack :=  TRUE }
+			\nItemX{ enter\_brake\_until\_ack }{ brake\_until\_ack :=  TRUE }
+			\nItemX{ act2 }{ driver\_responded\_brake\_ack :=  FALSE }
+			\nItemX{ leave\_init\_timer }{ init\_timer :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {ask\_driver\_ack\_transition}
+	\EXTD {ask\_driver\_ack\_transition}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_supervise\_ack }{ supervise\_ack = TRUE }
+			\nItemX{ grd1 }{ currently\_asking\_driver\_OS\_ack = FALSE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act1 }{ currently\_asking\_driver\_OS\_ack :=  TRUE }
+			\nItemX{ leave\_supervise\_ack }{ supervise\_ack :=  FALSE }
+			\nItemX{ enter\_wait\_for\_ack }{ wait\_for\_ack :=  TRUE }
+			\nItemX{ act2 }{ driver\_responded\_OS\_ack :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {driver\_ack\_brake\_in\_time}
+	\EXTD {driver\_ack\_brake\_in\_time}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ isin\_ack\_and\_transition\_or\_isin\_transition\_and\_ack }{ ack\_and\_transition = TRUE \lor  transition\_and\_ack = TRUE }
+			\nItemX{ isin\_brake\_until\_ack }{ brake\_until\_ack = TRUE }
+			\nItemXY{ grd1 }{ currently\_asking\_driver\_brake\_ack = TRUE }{ } 
+			\nItem{ grd2 }{ timer\_expired = FALSE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ leave\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+			\nItemX{ enter\_OS\_mode }{ OS\_mode :=  TRUE }
+			\nItemX{ leave\_transition\_and\_ack }{ transition\_and\_ack :=  FALSE }
+			\nItemX{ leave\_OS\_mode\_trans }{ OS\_mode\_trans :=  FALSE }
+			\nItemX{ leave\_OS\_area\_profile }{ OS\_area\_profile :=  FALSE }
+			\nItemX{ act2 }{ driver\_responded\_brake\_ack :=  TRUE }
+			\nItemX{ leave\_brake\_until\_ack }{ brake\_until\_ack :=  FALSE }
+			\nItemX{ act1 }{ currently\_asking\_driver\_brake\_ack :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {driver\_ack\_brake\_late}
+	\EXTD {driver\_ack\_brake\_late}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ grd1 }{ currently\_asking\_driver\_brake\_ack = TRUE }
+			\nItemX{ isin\_wait\_brake\_ack }{ wait\_brake\_ack = TRUE }
+			\nItem{ grd2 }{ timer\_expired = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act1 }{ currently\_asking\_driver\_brake\_ack :=  FALSE }
+			\nItemX{ enter\_driver\_acknowledge\_brake }{ driver\_acknowledge\_brake :=  TRUE }
+			\nItemX{ act2 }{ driver\_responded\_brake\_ack :=  TRUE }
+			\nItemX{ leave\_wait\_brake\_ack }{ wait\_brake\_ack :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {driver\_ack\_transition}
+	\EXTD {driver\_ack\_transition}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ grd1 }{ currently\_asking\_driver\_OS\_ack = TRUE }
+			\nItemX{ isin\_wait\_for\_ack }{ wait\_for\_ack = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act2 }{ driver\_responded\_OS\_ack :=  TRUE }
+			\nItemX{ enter\_driver\_acknowledge\_trans }{ driver\_acknowledge\_trans :=  TRUE }
+			\nItemX{ leave\_wait\_for\_ack }{ wait\_for\_ack :=  FALSE }
+			\nItemX{ act1 }{ currently\_asking\_driver\_OS\_ack :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {activate\_service\_brake}
+	\EXTD {activate\_service\_brake}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ grd1 }{ service\_brake\_active = FALSE }
+			\nItemX{ isin\_brake\_until\_ack }{ brake\_until\_ack = TRUE }
+			\nItem{ grd2 }{ timer\_expired = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ act1 }{ service\_brake\_active :=  TRUE }
+			\nItemX{ leave\_brake\_until\_ack }{ brake\_until\_ack :=  FALSE }
+			\nItemX{ enter\_wait\_brake\_ack }{ wait\_brake\_ack :=  TRUE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {deactivate\_service\_brake}
+	\EXTD {deactivate\_service\_brake}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItemX{ grd1 }{ service\_brake\_active = TRUE }
+			\nItemX{ isin\_driver\_acknowledge\_brake }{ driver\_acknowledge\_brake = TRUE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItemX{ enter\_deactivated\_brake }{ deactivated\_brake :=  TRUE }
+			\nItemX{ act2 }{ service\_brake\_active :=  FALSE }
+			\nItemX{ leave\_driver\_acknowledge\_brake }{ driver\_acknowledge\_brake :=  FALSE }
+			\end{description}
+		\EndAct
+		\end{description}
+	\EVT {expire\_timer}
+		\begin{description}
+		\WhenGrd
+			\begin{description}
+			\nItem{ grd1 }{ timer\_expired = FALSE }
+			\end{description}
+		\ThenAct
+			\begin{description}
+			\nItem{ act1 }{ timer\_expired :=  TRUE }
+			\end{description}
+		\EndAct
+		\end{description}
+\END
+\end{description}
+\end{document}

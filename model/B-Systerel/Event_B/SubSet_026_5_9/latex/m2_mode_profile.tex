@@ -1,0 +1,95 @@
+\begin{description}
+\MACHINE{m2\_mode\_profile}
+\REFINES{m1\_train\_modes}
+\SEES{c1\_mode\_profile}
+\VARIABLES
+        \begin{description}
+                \ItemY{ EoA\_loc }{}
+                \ItemY{ mode\_profile\_OS }{}
+                \Item{ safe\_train\_front }
+                \Item{ estimated\_train\_front }
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItem{ inv1 }{ EoA\_loc \in  t\_locations }
+                \nItem{ inv2 }{ mode\_profile\_OS \in  t\_mode\_profile }
+                \nItem{ inv3 }{ safe\_train\_front \in  t\_train\_fronts }
+                \nItem{ inv4 }{ estimated\_train\_front \in  t\_train\_fronts }
+        \end{description}
+\EVENTS
+        \EVT {safe\_front\_passes\_OS\_area}
+        \EXTD {safe\_front\_passes\_OS\_area}
+                \begin{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ isin\_ack\_and\_transition\_or\_isin\_further\_location }{ ack\_and\_transition = TRUE \lor  further\_location = TRUE }
+                        \nItemX{ isin\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait = TRUE }
+                        \nItem{ grd1 }{ f\_safe\_train\_front\_overpasses(safe\_train\_front \mapsto  mode\_profile\_OS) = TRUE }
+                        \nItemY{ grd2 }{ l\_safe\_train\_front \in  t\_train\_fronts }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_transition\_and\_ack }{ transition\_and\_ack :=  TRUE }
+                        \nItemX{ leave\_ack\_and\_transition }{ ack\_and\_transition :=  FALSE }
+                        \nItemX{ leave\_further\_location }{ further\_location :=  FALSE }
+                        \nItemX{ leave\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait :=  FALSE }
+                        \nItem{ enter\_OS\_area\_profile }{ OS\_area\_profile :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {front\_and\_speed\_in\_ack\_window}
+        \EXTD {front\_and\_speed\_in\_ack\_window}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_train\_speed }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ isin\_further\_location }{ further\_location = TRUE }
+                        \nItemX{ isin\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait = TRUE }
+                        \nItem{ grd3 }{ l\_train\_speed \in  t\_speed }
+                        \nItem{ grd1 }{ f\_estimated\_train\_front\_speed\_in\_window(estimated\_train\_front \mapsto  mode\_profile\_OS \mapsto  l\_train\_speed) = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ enter\_ack\_and\_transition }{ ack\_and\_transition :=  TRUE }
+                        \nItemX{ leave\_further\_location }{ further\_location :=  FALSE }
+                        \nItemX{ leave\_start\_OS\_profile\_wait }{ start\_OS\_profile\_wait :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {update\_estimated\_front}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_front }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_front \in  t\_train\_fronts }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ estimated\_train\_front :=  l\_front }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {update\_safe\_front}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_front }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_front \in  t\_train\_fronts }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ safe\_train\_front :=  l\_front }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}
