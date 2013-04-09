@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:statemachines="http://soton.ac.uk/models/eventb/statemachines" xmi:id="_3DzxoJY5EeK-ndZYA_Kfig" type="Statemachines" measurementUnit="Pixel">
-  <styles xmi:type="notation:DiagramStyle" xmi:id="_3DzxoZY5EeK-ndZYA_Kfig"/>
-  <element xmi:type="statemachines:Statemachine" href="m2_mode_profiles.bum#ac.soton.eventb.statemachines.Statemachine.OS_mode"/>
-</notation:Diagram>
