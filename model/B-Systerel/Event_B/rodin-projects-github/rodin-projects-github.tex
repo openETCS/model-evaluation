@@ -81,12 +81,17 @@ for each plugin, in case these are not yet installed.
   \label{fig:plugin-install}
 \end{figure}
 
-\paragraph{Atelier-B Provers}
+\paragraph{Provers}
 \label{sec:atelier-b-provers}
 
 The Atelier-B provers facilitate the construction of the proof trees for Rodin
 proof obligations, by automatically discharging may proof obligations. Their
 repository is available under Rodin as ``Atelier B Provers''.
+
+Note, that these provers are not open source~\footnote{\url{
+    http://www.atelierb.eu}}. Fully free provers are available, i.e., NewPP
+which is installed by default and the SMT plugin prover
+(see~\ref{sec:smt-solver-plugin}).
 
 \paragraph{ProR Integration}
 \label{sec:pror-integration}
@@ -94,9 +99,11 @@ repository is available under Rodin as ``Atelier B Provers''.
 The integration with ProR allows for the traceability of requirements in the
 provided ReqIf files. The repository is available under Rodin as ``ProR'', where
 the ``ProR Rodin integration feature'' must be installed. {\bf NOTE: } For the
-current ProR version 0.6.0 there are known problems with Java version 6. It is
+current ProR version 0.6.1 there are known problems with Java version 6. It is
 suggested to use Java version 7, if possible the latest JVM from
 \url{http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html}.
+
+ProR is available under the EPL license.
 
 \paragraph{EGit}
 \label{sec:egit}
@@ -106,31 +113,18 @@ collaborate on Rodin models and to push/pull changes to github. The repository
 is available under the official Eclipse repositories as ``Indigo Update Site''
 where the ``Eclipse EGit'' must be installed.
 
-\subsection{Additional Plugins}
-\label{sec:additional-plugins}
+EGit is available under the EPL license.
 
-The additional plugins are not strictly necessary to analyze and inspect the
-model. Nevertheless, it is suggested to install them if an extension of the
-model is intended.
+\paragraph{Model Decomposition}
+\label{sec:model-decomposition}
 
-\paragraph{ProB}
-\label{sec:prob}
+The model decomposition plugin allows for structurization of Event-B
+models. Larger models can be decomposed into smaller models with shared
+variables or shared events. The decomposition keeps the correct proven
+refinement relations and allows for independent refinement of the decomposed
+machines. 
 
-The ProB plugin provides means for model-checking and animation of Event-B
-models. This requires finite instantiation of carrier sets and selection of an
-initial state. In this situation, the plugin can verify deadlock freeness and
-LTL formulas or can animate a system run. It is available from the ProB
-repository under ``ProB for Rodin 2''.
-
-\paragraph{SMT Solver Plugin}
-\label{sec:smt-solver-plugin}
-
-The SMT solver plugin will in general lead to a higher degree of automation for
-the formal proofs. Experiments with industrial cases studies reduced the number
-of non-automatically discharged proof obligations to one fourth. The plugin
-comes bundled with two different solvers (CVC3 and veriT) and it can be extended
-with various other, e.g., z3 from Microsoft or MathSAT5 from FBK. It is
-available from the Rodin repository under ``SMT Solvers Integration''.
+The model decomposition plugin is available under the EPL license.
 
 \paragraph{iUML-B State Machines}
 \label{sec:iuml-b-state}
@@ -139,6 +133,43 @@ The ``iUML-B State-Machines'' plugin allows for graphical modeling of
 state-machines in an Event-B model. The state machines can be transformed into
 Event-B code. It has a good integration with the ProB plugin which allows for
 graphical animation of the machines.
+
+The iUML plugin is available under the EPL license.
+
+\subsection{Additional Plugins}
+\label{sec:additional-plugins}
+
+The additional plugins are not strictly necessary to analyze and inspect the
+model. Nevertheless, it is suggested to install them if an extension of the
+model is intended.
+
+\paragraph{ProB / AnimB}
+\label{sec:prob}
+
+The ProB plugin provides means for model-checking and animation of Event-B
+models. This requires finite instantiation of carrier sets and selection of an
+initial state. In this situation, the plugin can verify deadlock freeness and
+LTL formulas or can animate a system run. It is available from the ProB
+repository under ``ProB for Rodin 2''.
+
+AnimB also provides animation capabilities for Event-B machines. It is available
+from the AnimB repository under ``AnimB''
+
+ProB and AnimB are available under the EPL license.
+
+\paragraph{SMT Solver Plugin}
+\label{sec:smt-solver-plugin}
+
+The SMT solver plugin will in general lead to a higher degree of automation for
+the formal proofs. Experiments with industrial cases studies reduced the number
+of non-automatically discharged proof obligations to one fourth. The plugin
+comes bundled with two different solvers
+(CVC3\footnote{\url{http://www.cs.nyu.edu/acsys/cvc3/}} and
+veriT\footnote{\url{http://www.verit-solver.org/}}) and it can be extended with
+various others, e.g., z3 from Microsoft or MathSAT5 from FBK. It is available
+from the Rodin repository under ``SMT Solvers Integration''.
+
+The SMT plugin is available under the EPL license.
 
 \paragraph{Project Diagram}
 \label{sec:project-diagram}
@@ -156,9 +187,9 @@ After the installation of Rodin and the necessary plugins, projects can be
 imported from github into the local Rodin workspace. In the following, this is
 explained using the Eclipse project creation wizard.
 
-The first step is to select ``File $\rightarrow$ New $\rightarrow$ Event-B
-Project'' from the Eclipse menu and then to select ``Git $\rightarrow$ Projects
-from Git'' as import source (see Figure~\ref{fig:create-new-project}).
+The first step is to select ``File $\rightarrow$ Import'' from the Eclipse menu
+and then to select ``Git $\rightarrow$ Projects from Git'' as import source (see
+Figure~\ref{fig:create-new-project}).
 
 \begin{figure}[H]
   \centering
@@ -249,6 +280,11 @@ the local Rodin workspace.
   \label{fig:import-project-workspace}
 \end{figure}
 
+Once the project is imported into the workspace, it will appear in the Event-B
+project explorer. There it can be updated to the current revision on the git
+repository be right-clicking on the project and selecting ``Team $\rightarrow$
+Pull''. 
+
 \section{Frequently Asked Questions - FAQ}
 \label{sec:faq}
 
@@ -334,6 +370,34 @@ Figure~\ref{fig:properties-window-element}).
   \includegraphics[width=\textwidth]{ProR-Link-View}
   \caption{Properties Window with Element Definition}
   \label{fig:properties-window-element}
+\end{figure}
+
+
+\subsection{How can I animate iUML state machines?}
+\label{sec:how-can-i-1}
+
+When a state machine is opened and selected, the buttons to control the
+animation and generation of the state machine are activated as shown in
+Fig.~\ref{fig:statemachine-anim}. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.95\textwidth]{StateMachine1}
+  \caption{Opening State Machine for Animation}
+  \label{fig:statemachine-anim}
+\end{figure}
+
+After selecting the ``Animate With ProB'' button, the state machine is opened in
+the animation view as shown in Fig.~\ref{fig:animation-machine}. The active
+transitions are highlighted (middle), the activated events are listed and can be executed
+by clicking on them (upper left) and the current state of the variables of the
+Event-B machines is shown (bottom).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.95\textwidth]{StateMachine2}
+  \caption{Animation of State Machine}
+  \label{fig:animation-machine}
 \end{figure}
 
 \end{document}
