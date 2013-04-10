@@ -32,7 +32,7 @@
 <org.eventb.core.variable name="_uofuwZbUEeK_PfExX1SjD7" org.eventb.core.comment="" org.eventb.core.identifier="service_brake_active"/>
 <org.eventb.core.variable name="_xJTP0ZeeEeKKEqs7RUQ3oR" org.eventb.core.comment="" org.eventb.core.identifier="currently_asking_driver_brake_ack"/>
 <org.eventb.core.variable name="_xJTP0ZeeEeKKEqs7RUQ3oS" org.eventb.core.identifier="driver_responded_brake_ack"/>
-<org.eventb.core.event name="_xJTP0ZeeEeKKEqs7RUQ3oT" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="_xJTP0ZeeEeKKEqs7RUQ3oT" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
 <org.eventb.core.action name="'" org.eventb.core.assignment="timer_expired ≔ FALSE" org.eventb.core.label="act11"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_xJTP0ZeeEeKKEqs7RUQ3oU" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="safe_front_passes_OS_area">
@@ -104,5 +104,10 @@
 <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="timer_expired = FALSE"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="timer_expired ≔ TRUE" org.eventb.core.label="act1"/>
 </org.eventb.core.event>
-<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3ok" org.eventb.core.comment="PROPERTY_5.9_02, timer expired and in OS_mode_trans state disables&#10;other transition than service brake" org.eventb.core.label="inv2" org.eventb.core.predicate="timer_expired = TRUE ∧ OS_mode_trans = TRUE ⇒&#10;¬ ((ack_and_transition = TRUE ∨ transition_and_ack = TRUE) ∧&#10;   brake_until_ack = TRUE ∧&#10;   currently_asking_driver_brake_ack = TRUE ∧&#10;   timer_expired = FALSE)"/>
+<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3ok" org.eventb.core.comment="PROPERTY_5.9_02_01, timer expired and in OS_mode_trans state disables other transitions" org.eventb.core.label="inv2" org.eventb.core.predicate="timer_expired = TRUE ∧ OS_mode_trans = TRUE ⇒&#10;¬ ((ack_and_transition = TRUE ∨ transition_and_ack = TRUE) ∧&#10;   brake_until_ack = TRUE ∧&#10;   currently_asking_driver_brake_ack = TRUE ∧&#10;   timer_expired = FALSE)&#10; "/>
+<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3ol" org.eventb.core.label="inv3" org.eventb.core.predicate="brake_until_ack = TRUE ⇒ service_brake_active = FALSE"/>
+<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3on" org.eventb.core.label="inv5" org.eventb.core.predicate="OS_area_profile = TRUE ⇒ service_brake_active = FALSE"/>
+<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3oo" org.eventb.core.label="inv6" org.eventb.core.predicate="init_timer = TRUE ⇒ service_brake_active = FALSE"/>
+<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3op" org.eventb.core.label="inv7" org.eventb.core.predicate="init_OS_procedure = TRUE ⇒ service_brake_active = FALSE"/>
+<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3om" org.eventb.core.comment="PROPERTY_5.9_02_02, transition to activate brake is enabled" org.eventb.core.label="inv4" org.eventb.core.predicate="timer_expired = TRUE ∧ brake_until_ack = TRUE⇒&#10;(service_brake_active = FALSE ∧&#10; brake_until_ack = TRUE ∧&#10; timer_expired = TRUE)"/>
 </org.eventb.core.machineFile>
