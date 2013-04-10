@@ -52,8 +52,9 @@
 %%   Right bracket \]     Circumflex    \^     Underscore    \_
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
+
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{openetcs}
+\ProvidesClass{template/openetcs_report}
 [2012/08/03 v0.1 Typesetting Technical Information Reports of
 openETCS project based on ERDC class v1.1]
 % \long\def\erdc@size@warning#1{%
@@ -64,6 +65,11 @@ openETCS project based on ERDC class v1.1]
 % \DeclareOption{10pt}{\erdc@size@warning{\CurrentOption}}%
 % \DeclareOption{11pt}{\erdc@size@warning{\CurrentOption}}%
 % \DeclareOption{12pt}{\erdc@size@warning{\CurrentOption}}%
+
+%% David Mentres FIXME macro
+\newcommand{\FIXME}[1]{\marginpar{FIXME}\textsf{FIXME: #1}}
+\newcommand{\IsLicensedUnderCC}[1]{#1}
+\DeclareOption{nocc}{\renewcommand{\IsLicensedUnderCC}[1]{ }}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 \LoadClass[11pt,twoside]{report}
@@ -78,37 +84,16 @@ openETCS project based on ERDC class v1.1]
 %\setlength\RaggedRightParindent{\parindent}
 %\RaggedRight
 \RequirePackage{microtype}
-%\renewcommand\normalsize{%
-%   \@setfontsize\normalsize\@xiipt{16}%
-%   \abovedisplayskip 16\p@ \@plus3\p@ \@minus7\p@
-%   \abovedisplayshortskip \z@ \@plus3\p@
-%   \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@
-%   \belowdisplayskip \abovedisplayskip
-%   \let\@listi\@listI}
+\RequirePackage[utf8x]{inputenc}
 \normalsize
-
-% Original fonts (à tester sur miktex)
-%\usepackage{mathgifg}
-%\usepackage{courier}
 
 % PdfLaTeX Choix 1 "times Helvet et math" http://www.cuk.ch/articles/4237
 \usepackage[T1]{fontenc}
 \usepackage{txfonts}
 
-% PdfLaTeX Choix 2 http://www.cuk.ch/articles/4237
-% \usepackage{fourier}
-% \usepackage[scaled=0.875]{helvet}
-% \usepackage{courier}
 
-% XeLaTeX
-%\usepackage{fontspec}
-%\usepackage{xltxtra}
-%\defaultfontfeatures{Mapping=tex-text}
-%\setmainfont{Georgia}
-%\setmathrm{Georgia}
-%\setsansfont{Verdana}
-%\setmathsf{Verdana}
-%\setmonofont{Courier New}
+%% \setlength{\textheight}{15cm}%%unsere Ã¤nderung
+
 
 \def\@projectfont{%
   \sffamily\itshape\bfseries\fontsize{22pt}{25pt}\selectfont}
@@ -121,7 +106,7 @@ openETCS project based on ERDC class v1.1]
 \def\@distributionfont{%
   \sffamily\fontseries{k}\fontsize{9pt}{11pt}\selectfont}
 \def\@eqtagfont{\sffamily\bfseries\footnotesize}
-\RequirePackage[a4paper, top=1in, bottom=0.7in,
+\RequirePackage[a4paper, top=1in, bottom=1.0in,
   left=1.25in, right=1.25in]{geometry}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
@@ -152,14 +137,17 @@ openETCS project based on ERDC class v1.1]
 \raggedbottom
 \RequirePackage{fancyhdr}
 \renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.5pt}
 \fancyhfoffset{35pt}
 \pagestyle{fancy}
 \lhead{\textsf{\textbf{\footnotesize\@reportnum}}}
 \rhead{\textsf{\textbf{\footnotesize\thepage}}}
 \chead{}
 \lfoot{}
-\cfoot{\color{blue}\textsf{\textbf{\textit{openETCS}}}\color{black} - \includegraphics[width=3em]{ccbysa.png}}
+%% \cfoot{\color{blue}\textsf{\textbf{\textit{openETCS}}}\color{black}
+%% \IsLicensedUnderCC{ - \includegraphics[width=3em]{oOLT.png}}}
+\cfoot{\scriptsize\textit{This work is licensed under the "openETCS Open License Terms" (oOLT).}} 
+%% \includegraphics[width=30pt]{oOLT.png}}
 \rfoot{}
 \newif\if@frontmatter
 \@frontmatterfalse
@@ -252,10 +240,9 @@ openETCS project based on ERDC class v1.1]
 \def\reporttype#1{\gdef\@reporttype{#1}}
 \reporttype{}
 \def\distribution#1{\gdef\@distribution{#1}}
-\distribution{This work is licensed under a Creative Commons
-  Attribution-ShareAlike 3.0 Unported License.\\ \includegraphics[width=40pt]{ccbysabig.png}}
+\distribution{This work is licensed under the "openETCS Open License Terms" (oOLT) dual Licensing:  \includegraphics[width=30pt]{oOLT.png}}
 \def\preparedfor#1{\gdef\@preparedfor{#1}}
-\preparedfor{ITEA2 openETCS consortium\\ Europa}
+\preparedfor{openETCS@ITEA2 Project}
 \def\contractnum#1{\gdef\@contractnum{#1}}
 \contractnum{}
 \def\monitoredby#1{\gdef\@monitoredby{#1}}
@@ -277,13 +264,16 @@ openETCS project based on ERDC class v1.1]
  \endlist\egroup}
       \long\def\disclaimer#1{\long\gdef\@disclaimer{#1}}
       \disclaimer{
-\textbf{This work is licensed under a Creative Commons
+\textbf{This work is licensed under the "openETCS Open License Terms" (oOLT) dual Licensing: European Union Public Licence (EUPL v.1.1+) AND Creative Commons
   Attribution-ShareAlike 3.0 -- (cc by-sa 3.0)}
 
-THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE COMMONS PUBLIC
-LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY COPYRIGHT
-AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS
-AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
+THE WORK IS PROVIDED UNDER openETCS OPEN LICENSE TERMS (oOLT) WHICH IS A DUAL 
+LICENSE AGREEMENT INCLUDING THE TERMS OF THE EUROPEAN UNION
+PUBLIC LICENSE (VERSION 1.1 OR ANY LATER VERSION) AND THE TERMS OF
+THE CREATIVE COMMONS PUBLIC LICENSE ("CCPL"). THE WORK 
+IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF
+THE WORK OTHER THAN AS AUTHORIZED UNDER THIS OLT LICENSE OR COPYRIGHT
+LAW IS PROHIBITED.
 
 BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND
 AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE. TO THE EXTENT THIS
@@ -291,7 +281,8 @@ LICENSE MAY BE CONSIDERED TO BE A CONTRACT, THE LICENSOR GRANTS YOU
 THE RIGHTS CONTAINED HERE IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH
 TERMS AND CONDITIONS.
 
-\url{http://creativecommons.org/licenses/by-sa/3.0/}
+\url{http://creativecommons.org/licenses/by-sa/3.0/}\\
+\url{http://joinup.ec.europa.eu/software/page/eupl/licence-eupl}
 }
 \newenvironment{@coverlist}{\begin{list}{}{%
       \leftmargin40\p@\rightmargin-85\p@%
@@ -328,7 +319,7 @@ TERMS AND CONDITIONS.
      \hfill\parbox{145\p@}{\centering
        \includegraphics[width=145\p@]{itea}\\
        {\bfseries
-         ITEA2 Project\\2012 -- 2015}}\\
+         ITEA2 Project\\Call 6 11025\\2012 -- 2015}}\\
        \par
      \vspace{0.5cm}%
      {\@wpfont\@wp\par}%
@@ -346,12 +337,13 @@ TERMS AND CONDITIONS.
    \end{@coverlist}%
    \vfill
    \begin{@coverlist}%
-     \@distributionfont\@distribution
+     \IsLicensedUnderCC{\@distributionfont\@distribution}
    \end{@coverlist}%
-   \newpage\thispagestyle{empty}\hbox{}\newpage
-  \thispagestyle{empty}%
+   \newpage
+   This page is intentionally left blank
+   \thispagestyle{empty}\hbox{}\newpage
   \setcounter{page}{1}%
-  \vspace*{-1.5in}%
+  \vspace*{-0.5in}%
   \vspace*{-\topmargin}%
   \begin{@titlelist}%
     \sffamily\fontseries{k}\selectfont
@@ -376,7 +368,7 @@ TERMS AND CONDITIONS.
    \end{minipage}\rule[-2.7in]{\z@}{3.7in}\par
    \begin{minipage}{\textwidth}
      \@reporttype\par\vspace*{3\p@}%
-     {\@distributionfont\@distribution\par}%
+     %{\IsLicensedUnderCC{\@distributionfont\@distribution\par}}%
    \end{minipage}
  \end{@titlelist}%
   \vfill
@@ -407,6 +399,7 @@ TERMS AND CONDITIONS.
     \box\abstractbox
     \prevdepth\z@
   \fi
+  \IsLicensedUnderCC{
   \vfill
   \bgroup
   \setlength{\fboxsep}{5\p@}%
@@ -415,6 +408,7 @@ TERMS AND CONDITIONS.
         \parskip\baselineskip
         \textbf{Disclaimer:} \@disclaimer}}}%
   \egroup
+  }
   \clearpage}
 \def\cl@chapter{}
 \@addtoreset{section}{chapter}%
@@ -658,4 +652,4 @@ labelsep=period,aboveskip=3pt}
 \def\tagform@@#1{\maketag@@@@{(\ignorespaces#1\unskip\@@italiccorr)}}
 \endinput
 %%
-%% End of file `openetcs_report.cls'.
+%% End of file `openetcs_repport.cls'.

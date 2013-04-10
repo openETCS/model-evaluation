@@ -125,7 +125,8 @@
                 \ThenAct
                         \begin{description}
                         \nItem{ enter\_deactivated\_brake }{ deactivated\_brake :=  TRUE }
-                        \nItem{ act2 }{ service\_brake\_active :=  FALSE }
+                        \nItemY{ act2 }{ service\_brake\_active :=  FALSE }{  }
+                        \nItem{ act3 }{ driver\_responded\_brake\_ack :=  FALSE }
                         \nItem{ leave\_driver\_acknowledge\_brake }{ driver\_acknowledge\_brake :=  FALSE }
                         \end{description}
                 \EndAct
