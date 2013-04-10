@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="c1_mode_profile"/>
+<org.eventb.core.constant name="(" org.eventb.core.identifier="c_OS_speed_limit"/>
+<org.eventb.core.axiom name=")" org.eventb.core.comment="constant OS speed limit" org.eventb.core.label="axm1" org.eventb.core.predicate="c_OS_speed_limit ∈ t_speed"/>
+<org.eventb.core.constant name="*" org.eventb.core.identifier="f_speed_exceeds"/>
+<org.eventb.core.axiom name="+" org.eventb.core.comment="f_speed_exceeds (x, y) is TRUE if speed x exceeds speed y, else FALSE" org.eventb.core.label="axm2" org.eventb.core.predicate="f_speed_exceeds ∈ t_speed × t_speed → BOOL"/>
+</org.eventb.core.contextFile>

@@ -176,7 +176,8 @@
 <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="service_brake_active = TRUE"/>
 <org.eventb.core.guard name="_IbHvIKEkEeKjFZTaufpbRQ" org.eventb.core.generated="true" org.eventb.core.label="isin_driver_acknowledge_brake" org.eventb.core.predicate="driver_acknowledge_brake = TRUE" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._AT6IQJVvEeK-ndZYA_Kfig"/>
 <org.eventb.core.action name="_IbHvIaEkEeKjFZTaufpbRQ" org.eventb.core.assignment="deactivated_brake ≔ TRUE" org.eventb.core.generated="true" org.eventb.core.label="enter_deactivated_brake" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._AT6IQJVvEeK-ndZYA_Kfig"/>
-<org.eventb.core.action name="(" org.eventb.core.assignment="service_brake_active ≔ FALSE" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="service_brake_active ≔ FALSE" org.eventb.core.comment="" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="_IbIWMKEkEeKjFZTaufpbRR" org.eventb.core.assignment="driver_responded_brake_ack ≔ FALSE" org.eventb.core.label="act3"/>
 <org.eventb.core.action name="_IbIWMKEkEeKjFZTaufpbRQ" org.eventb.core.assignment="driver_acknowledge_brake ≔ FALSE" org.eventb.core.generated="true" org.eventb.core.label="leave_driver_acknowledge_brake" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._AT6IQJVvEeK-ndZYA_Kfig"/>
 </org.eventb.core.event>
 <org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3oW" org.eventb.core.comment="" org.eventb.core.label="inv7" org.eventb.core.predicate="OS_mode_trans = TRUE ⇒ current_mode = c_OS"/>
