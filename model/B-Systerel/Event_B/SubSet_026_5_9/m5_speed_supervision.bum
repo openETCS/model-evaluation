@@ -83,7 +83,7 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="_xJTP0ZeeEeKKEqs7RUQ3oz" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="driver_ack_brake_in_time">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="driver_ack_brake_in_time"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd3" org.eventb.core.predicate="f_speed_exceeds (current_speed ↦ c_OS_speed_limit) = FALSE"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd3" org.eventb.core.predicate="TRUE = TRUE"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_xJTP0ZeeEeKKEqs7RUQ3o{" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="driver_ack_brake_late">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="driver_ack_brake_late"/>
@@ -122,9 +122,4 @@
 </org.eventb.core.event>
 <org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3p-" org.eventb.core.comment="" org.eventb.core.label="inv3" org.eventb.core.predicate="wait_brake_ack = TRUE ⇒ service_brake_active = TRUE"/>
 <org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3p4" org.eventb.core.comment="PROPERTY_5.9_01, brake is activated if mode is OS and current speed exceeds limit" org.eventb.core.label="inv10" org.eventb.core.predicate="transition_and_ack = TRUE ⇒&#10;((f_speed_exceeds (current_speed ↦ c_OS_speed_limit) = TRUE ∧&#10;  current_mode = c_OS) ⇒&#10;  service_brake_active = TRUE)"/>
-<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3p/" org.eventb.core.label="inv5" org.eventb.core.predicate="wait_brake_ack = TRUE ⇒ service_brake_active = TRUE"/>
-<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3p0" org.eventb.core.label="inv6" org.eventb.core.predicate="brake_until_ack = TRUE ⇒ service_brake_active = FALSE"/>
-<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3p1" org.eventb.core.comment="" org.eventb.core.label="inv7" org.eventb.core.predicate="init_timer = TRUE ⇒ service_brake_active = FALSE"/>
-<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3p2" org.eventb.core.comment="" org.eventb.core.label="inv8" org.eventb.core.predicate="driver_acknowledge_brake = TRUE ⇒ service_brake_active = TRUE"/>
-<org.eventb.core.invariant name="_xJTP0ZeeEeKKEqs7RUQ3p3" org.eventb.core.label="inv9" org.eventb.core.predicate="⊤"/>
 </org.eventb.core.machineFile>

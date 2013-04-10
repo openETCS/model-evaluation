@@ -3,7 +3,7 @@
 <org.eventb.core.prProof name="deactivate_service_brake/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4" org.eventb.core.prSets="t_speed">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p5,p6,p7,p8,p9,p3,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p2,p21,p22,p23,p24"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p5,p6,p7,p8,p9,p3,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p2,p21,p22,p23"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -38,7 +38,6 @@
 <org.eventb.core.prIdent name="current_mode" org.eventb.core.type="t_train_modes"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p24" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE"/>
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="driver_acknowledge_brake=TRUE"/>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="f_estimated_train_front_speed_in_window∈t_train_fronts × t_mode_profile × t_speed → BOOL">
 <org.eventb.core.prIdent name="f_estimated_train_front_speed_in_window" org.eventb.core.type="ℙ(t_train_fronts×t_mode_profile×t_speed×BOOL)"/>
@@ -171,7 +170,7 @@
 <org.eventb.core.prProof name="ask_driver_ack_brake/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -208,7 +207,6 @@
 <org.eventb.core.prIdent name="current_mode" org.eventb.core.type="t_train_modes"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_OS_speed_limit∈t_speed">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
@@ -264,120 +262,117 @@
 <org.eventb.core.prProof name="driver_ack_brake_in_time/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p1,p28,p29,p30,p31,p32,p33,p34,p35,p36,p4,p37,p38"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p4,p16,p17,p18,p19,p1,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
-<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="brake_until_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="c_OS_speed_limit" org.eventb.core.type="t_speed"/>
 <org.eventb.core.prIdent name="current_speed" org.eventb.core.type="t_speed"/>
+<org.eventb.core.prIdent name="deactivated_brake" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_responded_brake_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="f_speed_exceeds" org.eventb.core.type="ℙ(t_speed×t_speed×BOOL)"/>
+<org.eventb.core.prIdent name="init_timer" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prPred name="p36" org.eventb.core.predicate="transition_and_ack=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="transition_and_ack=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="driver_acknowledge_trans=TRUE⇒ack_and_transition=TRUE">
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="driver_acknowledge_trans=TRUE⇒ack_and_transition=TRUE">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_acknowledge_trans" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p14" org.eventb.core.predicate="driver_acknowledge_brake∈BOOL"/>
 <org.eventb.core.prPred name="p12" org.eventb.core.predicate="OS_mode_trans=TRUE⇒transition_and_ack=TRUE">
-<org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p23" org.eventb.core.predicate="service_brake_active∈BOOL"/>
-<org.eventb.core.prPred name="p34" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE"/>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="wait_for_ack=TRUE⇒ack_and_transition=TRUE">
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="service_brake_active∈BOOL"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="wait_for_ack=TRUE⇒ack_and_transition=TRUE">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="wait_for_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="c_OS_speed_limit∈t_speed">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p24" org.eventb.core.predicate="currently_asking_driver_brake_ack∈BOOL">
-<org.eventb.core.prIdent name="currently_asking_driver_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="brake_until_ack=TRUE⇒service_brake_active=FALSE"/>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="change_current_mode=TRUE⇒ack_and_transition=TRUE">
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="brake_until_ack=TRUE⇒service_brake_active=FALSE"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="change_current_mode=TRUE⇒ack_and_transition=TRUE">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="change_current_mode" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="driver_acknowledge_brake=TRUE∧f_speed_exceeds(current_speed ↦ c_OS_speed_limit)=TRUE∧TRUE=TRUE⇒service_brake_active=TRUE"/>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="brake_until_ack=TRUE⇒OS_mode_trans=TRUE">
-<org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="currently_asking_driver_brake_ack∈BOOL">
+<org.eventb.core.prIdent name="currently_asking_driver_brake_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p27" org.eventb.core.predicate="timer_expired=TRUE∧OS_mode_trans=TRUE⇒¬((ack_and_transition=TRUE∨transition_and_ack=TRUE)∧brake_until_ack=TRUE∧currently_asking_driver_brake_ack=TRUE∧timer_expired=FALSE)">
-<org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="brake_until_ack=TRUE⇒OS_mode_trans=TRUE"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="driver_acknowledge_brake=TRUE∧f_speed_exceeds(current_speed ↦ c_OS_speed_limit)=TRUE∧TRUE=TRUE⇒service_brake_active=TRUE"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="timer_expired=TRUE∧OS_mode_trans=TRUE⇒¬((ack_and_transition=TRUE∨transition_and_ack=TRUE)∧brake_until_ack=TRUE∧currently_asking_driver_brake_ack=TRUE∧timer_expired=FALSE)">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="currently_asking_driver_brake_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="timer_expired" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒OS_mode_trans=TRUE">
-<org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="driver_acknowledge_brake=TRUE∧f_speed_exceeds(current_speed ↦ c_OS_speed_limit)=TRUE∧driver_responded_brake_ack=TRUE⇒service_brake_active=TRUE"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒OS_mode_trans=TRUE"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed → BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p26" org.eventb.core.predicate="timer_expired∈BOOL">
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="timer_expired∈BOOL">
 <org.eventb.core.prIdent name="timer_expired" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p32" org.eventb.core.predicate="current_speed∈t_speed">
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="current_speed∈t_speed">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p10" org.eventb.core.predicate="transition_and_ack=TRUE⇒partition({TRUE},{OS_area_profile}∩{TRUE},{OS_mode_trans}∩{TRUE})">
 <org.eventb.core.prIdent name="OS_area_profile" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="OS_mode_trans=TRUE⇒partition({TRUE},{init_timer}∩{TRUE},{wait_brake_ack}∩{TRUE},{brake_until_ack}∩{TRUE},{driver_acknowledge_brake}∩{TRUE},{deactivated_brake}∩{TRUE})">
-<org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="deactivated_brake" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="init_timer" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p17" org.eventb.core.predicate="supervise_ack=TRUE⇒ack_and_transition=TRUE">
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="OS_mode_trans=TRUE⇒partition({TRUE},{init_timer}∩{TRUE},{wait_brake_ack}∩{TRUE},{brake_until_ack}∩{TRUE},{driver_acknowledge_brake}∩{TRUE},{deactivated_brake}∩{TRUE})"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="supervise_ack=TRUE⇒ack_and_transition=TRUE">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="supervise_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p35" org.eventb.core.predicate="transition_and_ack=TRUE⇒(f_speed_exceeds(current_speed ↦ c_OS_speed_limit)=TRUE∧current_mode=c_OS⇒service_brake_active=TRUE)">
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="transition_and_ack=TRUE⇒(f_speed_exceeds(current_speed ↦ c_OS_speed_limit)=TRUE∧current_mode=c_OS⇒service_brake_active=TRUE)">
 <org.eventb.core.prIdent name="c_OS" org.eventb.core.type="t_train_modes"/>
 <org.eventb.core.prIdent name="current_mode" org.eventb.core.type="t_train_modes"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p38" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
-<org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p28" org.eventb.core.predicate="OS_area_profile=TRUE⇒service_brake_active=FALSE">
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="OS_area_profile=TRUE⇒service_brake_active=FALSE">
 <org.eventb.core.prIdent name="OS_area_profile" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="partition({TRUE},{init_OS_procedure}∩{TRUE},{further_location}∩{TRUE},{ack_and_transition}∩{TRUE},{transition_and_ack}∩{TRUE},{OS_mode}∩{TRUE})">
 <org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="further_location" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p33" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_until_ack∈BOOL"/>
-<org.eventb.core.prPred name="p29" org.eventb.core.predicate="init_timer=TRUE⇒service_brake_active=FALSE">
-<org.eventb.core.prIdent name="init_timer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="init_timer=TRUE⇒service_brake_active=FALSE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="transition_and_ack∈BOOL">
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p37" org.eventb.core.predicate="current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)"/>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="transition_and_ack∈BOOL"/>
-<org.eventb.core.prPred name="p3" org.eventb.core.predicate="ack_and_transition=TRUE∨transition_and_ack=TRUE"/>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="brake_until_ack=TRUE"/>
-<org.eventb.core.prPred name="p31" org.eventb.core.predicate="timer_expired=TRUE∧brake_until_ack=TRUE⇒service_brake_active=FALSE∧brake_until_ack=TRUE∧timer_expired=TRUE">
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="timer_expired=TRUE∧brake_until_ack=TRUE⇒service_brake_active=FALSE∧brake_until_ack=TRUE∧timer_expired=TRUE">
 <org.eventb.core.prIdent name="timer_expired" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p30" org.eventb.core.predicate="init_OS_procedure=TRUE⇒service_brake_active=FALSE">
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="init_OS_procedure=TRUE⇒service_brake_active=FALSE">
 <org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p25" org.eventb.core.predicate="driver_responded_brake_ack∈BOOL">
-<org.eventb.core.prIdent name="driver_responded_brake_ack" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="ack_and_transition∈BOOL">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="ack_and_transition∈BOOL"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="driver_responded_brake_ack∈BOOL"/>
 <org.eventb.core.prPred name="p15" org.eventb.core.predicate="ack_and_transition=TRUE⇒partition({TRUE},{supervise_ack}∩{TRUE},{wait_for_ack}∩{TRUE},{driver_acknowledge_trans}∩{TRUE},{change_current_mode}∩{TRUE})">
+<org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="change_current_mode" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="driver_acknowledge_trans" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="supervise_ack" org.eventb.core.type="BOOL"/>
@@ -385,6 +380,7 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p11" org.eventb.core.predicate="OS_area_profile=TRUE⇒transition_and_ack=TRUE">
 <org.eventb.core.prIdent name="OS_area_profile" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
@@ -392,7 +388,7 @@
 <org.eventb.core.prProof name="driver_ack_brake_late/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p3,p23,p24,p25,p26"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p3,p23,p24,p25"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -413,7 +409,6 @@
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="driver_acknowledge_brake∈BOOL"/>
 <org.eventb.core.prPred name="p11" org.eventb.core.predicate="service_brake_active∈BOOL"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE"/>
-<org.eventb.core.prPred name="p25" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="wait_brake_ack∈BOOL"/>
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="c_OS_speed_limit∈t_speed">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
@@ -442,7 +437,7 @@
 <org.eventb.core.prPred name="p14" org.eventb.core.predicate="timer_expired∈BOOL">
 <org.eventb.core.prIdent name="timer_expired" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p26" org.eventb.core.predicate="TRUE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="TRUE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p21" org.eventb.core.predicate="current_speed∈t_speed">
@@ -487,7 +482,7 @@
 <org.eventb.core.prProof name="activate_service_brake/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -526,9 +521,6 @@
 <org.eventb.core.prIdent name="current_mode" org.eventb.core.type="t_train_modes"/>
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_OS_speed_limit∈t_speed">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
@@ -589,7 +581,7 @@
 <org.eventb.core.prProof name="deactivate_service_brake/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -630,11 +622,7 @@
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="c_OS_speed_limit∈t_speed">
@@ -648,7 +636,7 @@
 <org.eventb.core.prIdent name="OS_area_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="FALSE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="FALSE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p14" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
@@ -660,7 +648,7 @@
 <org.eventb.core.prIdent name="init_timer" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)"/>
 <org.eventb.core.prPred name="p12" org.eventb.core.predicate="timer_expired=TRUE∧brake_until_ack=TRUE⇒service_brake_active=FALSE∧brake_until_ack=TRUE∧timer_expired=TRUE">
 <org.eventb.core.prIdent name="brake_until_ack" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
@@ -845,7 +833,7 @@
 <org.eventb.core.prProof name="update_train_speed_brake/grd3/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="t_speed">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -873,10 +861,6 @@
 <org.eventb.core.prIdent name="current_mode" org.eventb.core.type="t_train_modes"/>
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="f_estimated_train_front_speed_in_window∈t_train_fronts × t_mode_profile × t_speed → BOOL">
 <org.eventb.core.prIdent name="f_estimated_train_front_speed_in_window" org.eventb.core.type="ℙ(t_train_fronts×t_mode_profile×t_speed×BOOL)"/>
@@ -940,7 +924,7 @@
 <org.eventb.core.prProof name="update_train_speed_brake/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -967,7 +951,6 @@
 <org.eventb.core.prPred name="p24" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p27" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="c_OS_speed_limit∈t_speed">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
@@ -982,7 +965,7 @@
 <org.eventb.core.prPred name="p13" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒OS_mode_trans=TRUE">
 <org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p30" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒l_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒l_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed → BOOL">
@@ -993,7 +976,7 @@
 <org.eventb.core.prIdent name="c_OS" org.eventb.core.type="t_train_modes"/>
 <org.eventb.core.prIdent name="current_mode" org.eventb.core.type="t_train_modes"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p28" org.eventb.core.predicate="l_speed ↦ current_speed∈dom(f_speed_exceeds)">
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="l_speed ↦ current_speed∈dom(f_speed_exceeds)">
 <org.eventb.core.prIdent name="current_speed" org.eventb.core.type="t_speed"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="OS_mode∈BOOL">
@@ -1016,7 +999,7 @@
 <org.eventb.core.prIdent name="current_speed" org.eventb.core.type="t_speed"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p29" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀front⦂t_train_fronts,profile⦂t_mode_profile·front∈t_train_fronts∧profile∈t_mode_profile⇒(f_safe_train_front_overpasses(front ↦ profile)=FALSE⇒(∃speed⦂t_speed·speed∈t_speed⇒f_estimated_train_front_speed_in_window(front ↦ profile ↦ speed)=TRUE))">
@@ -1070,7 +1053,7 @@
 <org.eventb.core.prProof name="update_train_speed_no_brake/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -1096,7 +1079,6 @@
 <org.eventb.core.prPred name="p24" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p27" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="c_OS_speed_limit∈t_speed">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
@@ -1111,7 +1093,7 @@
 <org.eventb.core.prPred name="p13" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒OS_mode_trans=TRUE">
 <org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p28" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒l_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒l_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed → BOOL">
@@ -1202,7 +1184,7 @@
 <org.eventb.core.prProof name="driver_ack_brake_late/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -1227,9 +1209,6 @@
 <org.eventb.core.prIdent name="current_speed" org.eventb.core.type="t_speed"/>
 <org.eventb.core.prIdent name="f_speed_exceeds" org.eventb.core.type="ℙ(t_speed×t_speed×BOOL)"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p15" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="wait_brake_ack∈BOOL">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
@@ -1281,7 +1260,7 @@
 <org.eventb.core.prProof name="activate_service_brake/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -1307,10 +1286,6 @@
 <org.eventb.core.prIdent name="f_speed_exceeds" org.eventb.core.type="ℙ(t_speed×t_speed×BOOL)"/>
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="wait_brake_ack∈BOOL">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
@@ -1373,7 +1348,7 @@
 <org.eventb.core.prProof name="deactivate_service_brake/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p2,p8,p1,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p2,p8,p1,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -1411,10 +1386,7 @@
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="f_speed_exceeds" org.eventb.core.type="ℙ(t_speed×t_speed×BOOL)"/>
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
@@ -1441,7 +1413,7 @@
 <org.eventb.core.prPred name="p12" org.eventb.core.predicate="init_timer=TRUE⇒service_brake_active=FALSE">
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)">
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)">
 <org.eventb.core.prIdent name="c_OS_speed_limit" org.eventb.core.type="t_speed"/>
 <org.eventb.core.prIdent name="current_speed" org.eventb.core.type="t_speed"/>
 <org.eventb.core.prIdent name="f_speed_exceeds" org.eventb.core.type="ℙ(t_speed×t_speed×BOOL)"/>
@@ -6029,7 +6001,7 @@
 <org.eventb.core.prProof name="safe_front_passes_OS_area/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prHyps="p0,p1,p2,p3,p4,p5,p6">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p7,p8,p9,p10,p11,p12,p13,p14,p15,p1,p16,p17,p18,p19,p4,p20,p21,p22,p23,p24,p25,p26,p27,p28,p6,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p7,p8,p9,p10,p11,p12,p13,p14,p15,p1,p16,p17,p18,p19,p4,p20,p21,p22,p23,p24,p25,p26,p27,p28,p6,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prHyps="p0,p1,p2,p3,p4,p5,p6">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -6066,7 +6038,7 @@
 <org.eventb.core.prIdent name="change_current_mode" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p13" org.eventb.core.predicate="further_location∈BOOL"/>
-<org.eventb.core.prPred name="p48" org.eventb.core.predicate="f_safe_train_front_overpasses∈t_train_fronts × t_mode_profile ⇸ BOOL">
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="f_safe_train_front_overpasses∈t_train_fronts × t_mode_profile ⇸ BOOL">
 <org.eventb.core.prIdent name="f_safe_train_front_overpasses" org.eventb.core.type="ℙ(t_train_fronts×t_mode_profile×BOOL)"/>
 <org.eventb.core.prIdent name="t_mode_profile" org.eventb.core.type="ℙ(t_mode_profile)"/>
 <org.eventb.core.prIdent name="t_train_fronts" org.eventb.core.type="ℙ(t_train_fronts)"/>
@@ -6080,7 +6052,7 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p26" org.eventb.core.predicate="wait_for_ack∈BOOL"/>
 <org.eventb.core.prPred name="p32" org.eventb.core.predicate="OS_mode=TRUE⇒current_mode=c_OS"/>
-<org.eventb.core.prPred name="p49" org.eventb.core.predicate="TRUE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="TRUE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="wait_for_ack=TRUE"/>
@@ -6121,7 +6093,7 @@
 <org.eventb.core.prIdent name="c_UN" org.eventb.core.type="t_train_modes"/>
 <org.eventb.core.prIdent name="t_train_modes" org.eventb.core.type="ℙ(t_train_modes)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p47" org.eventb.core.predicate="safe_train_front ↦ mode_profile_OS∈dom(f_safe_train_front_overpasses)">
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="safe_train_front ↦ mode_profile_OS∈dom(f_safe_train_front_overpasses)">
 <org.eventb.core.prIdent name="f_safe_train_front_overpasses" org.eventb.core.type="ℙ(t_train_fronts×t_mode_profile×BOOL)"/>
 <org.eventb.core.prIdent name="mode_profile_OS" org.eventb.core.type="t_mode_profile"/>
 <org.eventb.core.prIdent name="safe_train_front" org.eventb.core.type="t_train_fronts"/>
@@ -6132,9 +6104,6 @@
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="ack_and_transition=TRUE∨further_location=TRUE"/>
 <org.eventb.core.prPred name="p44" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p46" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="wait_for_ack=TRUE⇒ack_and_transition=TRUE"/>
 <org.eventb.core.prPred name="p11" org.eventb.core.predicate="c_OS_speed_limit∈t_speed">
@@ -6208,7 +6177,7 @@
 <org.eventb.core.prProof name="switch_to_OS_mode_from_brake/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6236,9 +6205,6 @@
 <org.eventb.core.prPred name="p19" org.eventb.core.predicate="service_brake_active∈BOOL"/>
 <org.eventb.core.prPred name="p32" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p34" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒(f_speed_exceeds(current_speed ↦ c_OS_speed_limit)=TRUE∧current_mode=c_OS⇒service_brake_active=TRUE)"/>
 <org.eventb.core.prPred name="p15" org.eventb.core.predicate="wait_for_ack=TRUE⇒ack_and_transition=TRUE">
@@ -6306,7 +6272,7 @@
 <org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p35" org.eventb.core.predicate="FALSE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="FALSE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p31" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
@@ -6369,7 +6335,7 @@
 <org.eventb.core.prProof name="switch_to_OS_mode_from_transition/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6400,9 +6366,6 @@
 <org.eventb.core.prPred name="p17" org.eventb.core.predicate="service_brake_active∈BOOL"/>
 <org.eventb.core.prPred name="p30" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p32" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒(f_speed_exceeds(current_speed ↦ c_OS_speed_limit)=TRUE∧current_mode=c_OS⇒service_brake_active=TRUE)"/>
 <org.eventb.core.prPred name="p14" org.eventb.core.predicate="wait_for_ack=TRUE⇒ack_and_transition=TRUE">
@@ -6462,7 +6425,7 @@
 <org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p33" org.eventb.core.predicate="FALSE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="FALSE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p29" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
@@ -6518,7 +6481,7 @@
 <org.eventb.core.prProof name="use_profile_OS_inside_area_mode_FS_LS_SR_UN_SN/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="t_train_modes">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -6554,7 +6517,7 @@
 <org.eventb.core.prIdent name="t_mode_profile" org.eventb.core.type="ℙ(t_mode_profile)"/>
 <org.eventb.core.prIdent name="t_train_fronts" org.eventb.core.type="ℙ(t_train_fronts)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p33" org.eventb.core.predicate="safe_train_front ↦ mode_profile_OS∈dom(f_safe_front_in_OS_area)">
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="safe_train_front ↦ mode_profile_OS∈dom(f_safe_front_in_OS_area)">
 <org.eventb.core.prIdent name="f_safe_front_in_OS_area" org.eventb.core.type="ℙ(t_train_fronts×t_mode_profile×BOOL)"/>
 <org.eventb.core.prIdent name="mode_profile_OS" org.eventb.core.type="t_mode_profile"/>
 <org.eventb.core.prIdent name="safe_train_front" org.eventb.core.type="t_train_fronts"/>
@@ -6565,9 +6528,6 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="c_supervision_mode∈{c_LS,c_FS}">
 <org.eventb.core.prIdent name="c_supervision_mode" org.eventb.core.type="t_train_modes"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p32" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p20" org.eventb.core.predicate="change_current_mode=TRUE⇒current_mode=c_OS">
 <org.eventb.core.prIdent name="change_current_mode" org.eventb.core.type="BOOL"/>
@@ -6598,7 +6558,7 @@
 <org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="current_mode∈{c_FS,c_LS,c_SR,c_UN,c_SN}"/>
-<org.eventb.core.prPred name="p35" org.eventb.core.predicate="TRUE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="TRUE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p27" org.eventb.core.predicate="current_speed∈t_speed">
@@ -6609,7 +6569,7 @@
 <org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p34" org.eventb.core.predicate="f_safe_front_in_OS_area∈t_train_fronts × t_mode_profile ⇸ BOOL">
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="f_safe_front_in_OS_area∈t_train_fronts × t_mode_profile ⇸ BOOL">
 <org.eventb.core.prIdent name="f_safe_front_in_OS_area" org.eventb.core.type="ℙ(t_train_fronts×t_mode_profile×BOOL)"/>
 <org.eventb.core.prIdent name="t_mode_profile" org.eventb.core.type="ℙ(t_mode_profile)"/>
 <org.eventb.core.prIdent name="t_train_fronts" org.eventb.core.type="ℙ(t_train_fronts)"/>
@@ -6669,7 +6629,7 @@
 <org.eventb.core.prProof name="transition_supervision_mode/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p2,p9,p10,p3,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p2,p9,p10,p3,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -6702,9 +6662,6 @@
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="c_supervision_mode∈{c_LS,c_FS}">
 <org.eventb.core.prIdent name="c_FS" org.eventb.core.type="t_train_modes"/>
 <org.eventb.core.prIdent name="c_LS" org.eventb.core.type="t_train_modes"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p30" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p18" org.eventb.core.predicate="change_current_mode=TRUE⇒current_mode=c_OS">
 <org.eventb.core.prIdent name="change_current_mode" org.eventb.core.type="BOOL"/>
@@ -6790,7 +6747,7 @@
 <org.eventb.core.prProof name="transition_to_OS_mode/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prHyps="p0,p1,p2,p3,p4,p5">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p6,p7,p8,p9,p0,p10,p11,p12,p5,p13,p14,p15,p1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p6,p7,p8,p9,p0,p10,p11,p12,p5,p13,p14,p15,p1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prHyps="p0,p1,p2,p3,p4,p5">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -6820,9 +6777,6 @@
 <org.eventb.core.prPred name="p16" org.eventb.core.predicate="service_brake_active∈BOOL"/>
 <org.eventb.core.prPred name="p29" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p31" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p19" org.eventb.core.predicate="change_current_mode=TRUE⇒current_mode=c_OS">
 <org.eventb.core.prIdent name="change_current_mode" org.eventb.core.type="BOOL"/>
@@ -6901,7 +6855,7 @@
 <org.eventb.core.prProof name="driver_ack_brake_in_time/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6929,9 +6883,6 @@
 <org.eventb.core.prPred name="p19" org.eventb.core.predicate="service_brake_active∈BOOL"/>
 <org.eventb.core.prPred name="p34" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p36" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒(f_speed_exceeds(current_speed ↦ c_OS_speed_limit)=TRUE∧current_mode=c_OS⇒service_brake_active=TRUE)"/>
 <org.eventb.core.prPred name="p15" org.eventb.core.predicate="wait_for_ack=TRUE⇒ack_and_transition=TRUE">
@@ -6999,9 +6950,6 @@
 <org.eventb.core.prIdent name="ack_and_transition" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="supervise_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p38" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
-<org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p27" org.eventb.core.predicate="OS_area_profile=TRUE⇒service_brake_active=FALSE">
 <org.eventb.core.prIdent name="OS_area_profile" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -7012,7 +6960,7 @@
 <org.eventb.core.prIdent name="init_OS_procedure" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p39" org.eventb.core.predicate="FALSE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="FALSE=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p33" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
@@ -7025,7 +6973,6 @@
 <org.eventb.core.prPred name="p28" org.eventb.core.predicate="init_timer=TRUE⇒service_brake_active=FALSE">
 <org.eventb.core.prIdent name="init_timer" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p37" org.eventb.core.predicate="current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)"/>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="transition_and_ack∈BOOL">
 <org.eventb.core.prIdent name="transition_and_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -7072,7 +7019,7 @@
 <org.eventb.core.prProof name="activate_service_brake/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -7097,10 +7044,6 @@
 <org.eventb.core.prPred name="p27" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p29" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p16" org.eventb.core.predicate="change_current_mode=TRUE⇒current_mode=c_OS">
 <org.eventb.core.prIdent name="change_current_mode" org.eventb.core.type="BOOL"/>
@@ -7209,7 +7152,7 @@
 <org.eventb.core.prProof name="deactivate_service_brake/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -7238,10 +7181,6 @@
 <org.eventb.core.prPred name="p27" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p29" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="f_speed_exceeds(current_speed ↦ c_OS_speed_limit)=FALSE"/>
 <org.eventb.core.prPred name="p17" org.eventb.core.predicate="change_current_mode=TRUE⇒current_mode=c_OS">
@@ -7291,7 +7230,7 @@
 <org.eventb.core.prIdent name="init_timer" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p31" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p20" org.eventb.core.predicate="OS_area_profile=TRUE⇒service_brake_active=FALSE">
@@ -7312,7 +7251,7 @@
 <org.eventb.core.prIdent name="init_timer" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="service_brake_active" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p30" org.eventb.core.predicate="current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="current_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)"/>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="transition_and_ack∈BOOL"/>
 <org.eventb.core.prPred name="p23" org.eventb.core.predicate="timer_expired=TRUE∧brake_until_ack=TRUE⇒service_brake_active=FALSE∧brake_until_ack=TRUE∧timer_expired=TRUE">
 <org.eventb.core.prIdent name="brake_until_ack" org.eventb.core.type="BOOL"/>
@@ -7455,7 +7394,7 @@
 <org.eventb.core.prProof name="update_train_speed_brake/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -7485,9 +7424,6 @@
 <org.eventb.core.prPred name="p30" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p32" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p20" org.eventb.core.predicate="change_current_mode=TRUE⇒current_mode=c_OS">
 <org.eventb.core.prIdent name="change_current_mode" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -7497,7 +7433,7 @@
 <org.eventb.core.prPred name="p22" org.eventb.core.predicate="brake_until_ack=TRUE⇒service_brake_active=FALSE">
 <org.eventb.core.prIdent name="brake_until_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p35" org.eventb.core.predicate="transition_and_ack=TRUE⇒l_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="transition_and_ack=TRUE⇒l_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p21" org.eventb.core.predicate="timer_expired=TRUE∧OS_mode_trans=TRUE⇒¬((ack_and_transition=TRUE∨transition_and_ack=TRUE)∧brake_until_ack=TRUE∧currently_asking_driver_brake_ack=TRUE∧timer_expired=FALSE)">
@@ -7522,7 +7458,7 @@
 <org.eventb.core.prPred name="p18" org.eventb.core.predicate="OS_mode=TRUE⇒current_mode=c_OS">
 <org.eventb.core.prIdent name="OS_mode" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p33" org.eventb.core.predicate="l_speed ↦ current_speed∈dom(f_speed_exceeds)">
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="l_speed ↦ current_speed∈dom(f_speed_exceeds)">
 <org.eventb.core.prIdent name="current_speed" org.eventb.core.type="t_speed"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p11" org.eventb.core.predicate="OS_mode∈BOOL">
@@ -7536,7 +7472,7 @@
 <org.eventb.core.prIdent name="OS_area_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="OS_mode_trans" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p34" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀front⦂t_train_fronts,profile⦂t_mode_profile·front∈t_train_fronts∧profile∈t_mode_profile⇒(f_safe_train_front_overpasses(front ↦ profile)=FALSE⇒(∃speed⦂t_speed·speed∈t_speed⇒f_estimated_train_front_speed_in_window(front ↦ profile ↦ speed)=TRUE))">
@@ -7609,7 +7545,7 @@
 <org.eventb.core.prProof name="update_train_speed_no_brake/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="veriT SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.verit.verit_pp_smt2"/>
@@ -7643,9 +7579,6 @@
 <org.eventb.core.prPred name="p34" org.eventb.core.predicate="wait_brake_ack=TRUE⇒service_brake_active=TRUE">
 <org.eventb.core.prIdent name="wait_brake_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p36" org.eventb.core.predicate="driver_acknowledge_brake=TRUE⇒service_brake_active=TRUE">
-<org.eventb.core.prIdent name="driver_acknowledge_brake" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p24" org.eventb.core.predicate="change_current_mode=TRUE⇒current_mode=c_OS">
 <org.eventb.core.prIdent name="change_current_mode" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -7655,7 +7588,7 @@
 <org.eventb.core.prPred name="p26" org.eventb.core.predicate="brake_until_ack=TRUE⇒service_brake_active=FALSE">
 <org.eventb.core.prIdent name="brake_until_ack" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p37" org.eventb.core.predicate="transition_and_ack=TRUE⇒l_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="transition_and_ack=TRUE⇒l_speed ↦ c_OS_speed_limit∈dom(f_speed_exceeds)∧f_speed_exceeds∈t_speed × t_speed ⇸ BOOL">
 <org.eventb.core.prIdent name="t_speed" org.eventb.core.type="ℙ(t_speed)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="init_OS_procedure=TRUE∨OS_mode=TRUE"/>
