@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 #ifndef _MoRC_safeRadioConnectionIndication_H_
 #define _MoRC_safeRadioConnectionIndication_H_
@@ -50,6 +50,6 @@ extern void MoRC_safeRadioConnectionIndication_reset(
 #endif /* _MoRC_safeRadioConnectionIndication_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_safeRadioConnectionIndication.h
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 

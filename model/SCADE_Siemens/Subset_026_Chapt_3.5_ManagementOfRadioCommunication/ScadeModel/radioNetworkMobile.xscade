@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<File xmlns="http://www.esterel-technologies.com/ns/scade/3" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/1">
+<File xmlns="http://www.esterel-technologies.com/ns/scade/4" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/2">
 	<declarations>
 		<Operator kind="node" visibility="private" name="radioNetworkMobile">
 			<inputs>
@@ -528,7 +528,7 @@
 						<ed:Equation oid="!ed/2619/7DD1/1D44/50d1c91223fc"/>
 					</pragmas>
 				</Equation>
-				<!-- _L4 = cInvalidMobileHWStatus_Type; -->
+				<!-- _L4 = cInvalidMobileHWStatus; -->
 				<Equation>
 					<lefts>
 						<VariableRef name="_L4"/>
@@ -536,7 +536,7 @@
 					<right>
 						<IdExpression>
 							<path>
-								<ConstVarRef name="cInvalidMobileHWStatus_Type"/>
+								<ConstVarRef name="cInvalidMobileHWStatus"/>
 							</path>
 						</IdExpression>
 					</right>

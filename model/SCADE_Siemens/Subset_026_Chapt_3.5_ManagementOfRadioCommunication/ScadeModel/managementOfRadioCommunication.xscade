@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<File xmlns="http://www.esterel-technologies.com/ns/scade/3" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/1">
+<File xmlns="http://www.esterel-technologies.com/ns/scade/4" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/2">
 	<declarations>
 		<Operator kind="node" name="managementOfRadioCommunication">
 			<inputs>
@@ -183,17 +183,18 @@
 						</ed:Variable>
 					</pragmas>
 				</Variable>
-				<Variable name="etcs_level">
+				<Variable name="M_LEVEL">
 					<type>
 						<NamedType>
 							<type>
-								<TypeRef name="ETCS_Level_Type"/>
+								<TypeRef name="M_LEVEL_Type"/>
 							</type>
 						</NamedType>
 					</type>
 					<pragmas>
 						<ed:Variable oid="!ed/2bca/7CA2/310/50f940ee7498" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
 							<comment>3.5.6.1b)</comment>
+							<comment>7.5.1.65 M_LEVEL</comment>
 						</ed:Variable>
 					</pragmas>
 				</Variable>
@@ -382,16 +383,18 @@
 						</ed:Variable>
 					</pragmas>
 				</Variable>
-				<Variable name="etcs_mode">
+				<Variable name="M_MODE">
 					<type>
 						<NamedType>
 							<type>
-								<TypeRef name="ETCS_Mode_Type"/>
+								<TypeRef name="M_MODE_Type"/>
 							</type>
 						</NamedType>
 					</type>
 					<pragmas>
-						<ed:Variable oid="!ed/2c2c/4FF2/164C/50f9a213e43"/>
+						<ed:Variable oid="!ed/2c2c/4FF2/164C/50f9a213e43" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+							<comment>7.5.1.72 M_MODE: Onboard operating mode</comment>
+						</ed:Variable>
 					</pragmas>
 				</Variable>
 				<Variable name="atStartOfMission">
@@ -722,7 +725,7 @@
 						</ed:Variable>
 					</pragmas>
 				</Variable>
-				<Variable name="safeRadionConnectionStatus_toDriver">
+				<Variable name="safeRadioConnectionStatus_toDriver">
 					<type>
 						<NamedType>
 							<type>
@@ -734,6 +737,21 @@
 						<ed:Variable oid="!ed/2ce7/4014/F30/5113d1485254" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
 							<comment>3.5.7.1</comment>
 						</ed:Variable>
+					</pragmas>
+				</Variable>
+				<Variable name="sessionSuccessfullyEstablished">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<last>
+						<ConstValue value="false"/>
+					</last>
+					<pragmas>
+						<ed:Variable oid="!ed/30d8/7BA7/1910/515d2dda510"/>
 					</pragmas>
 				</Variable>
 			</outputs>
@@ -1241,7 +1259,7 @@
 					<type>
 						<NamedType>
 							<type>
-								<TypeRef name="ETCS_Level_Type"/>
+								<TypeRef name="M_LEVEL_Type"/>
 							</type>
 						</NamedType>
 					</type>
@@ -1361,7 +1379,7 @@
 					<type>
 						<NamedType>
 							<type>
-								<TypeRef name="ETCS_Level_Type"/>
+								<TypeRef name="M_LEVEL_Type"/>
 							</type>
 						</NamedType>
 					</type>
@@ -1373,7 +1391,7 @@
 					<type>
 						<NamedType>
 							<type>
-								<TypeRef name="ETCS_Level_Type"/>
+								<TypeRef name="M_LEVEL_Type"/>
 							</type>
 						</NamedType>
 					</type>
@@ -1835,7 +1853,7 @@
 									<type>
 										<NamedType>
 											<type>
-												<TypeRef name="ETCS_Level_Type"/>
+												<TypeRef name="M_LEVEL_Type"/>
 											</type>
 										</NamedType>
 									</type>
@@ -1847,7 +1865,7 @@
 									<type>
 										<NamedType>
 											<type>
-												<TypeRef name="ETCS_Mode_Type"/>
+												<TypeRef name="M_MODE_Type"/>
 											</type>
 										</NamedType>
 									</type>
@@ -2293,7 +2311,7 @@
 										<ed:Equation oid="!ed/2a1f/6D2E/13B8/50f803e440b1"/>
 									</pragmas>
 								</Equation>
-								<!-- _L12 = etcs_level; -->
+								<!-- _L12 = M_LEVEL; -->
 								<Equation>
 									<lefts>
 										<VariableRef name="_L12"/>
@@ -2301,7 +2319,7 @@
 									<right>
 										<IdExpression>
 											<path>
-												<ConstVarRef name="etcs_level"/>
+												<ConstVarRef name="M_LEVEL"/>
 											</path>
 										</IdExpression>
 									</right>
@@ -2309,7 +2327,7 @@
 										<ed:Equation oid="!ed/2c20/4FF2/164C/50f9a17b2e0f"/>
 									</pragmas>
 								</Equation>
-								<!-- _L13 = etcs_mode; -->
+								<!-- _L13 = M_MODE; -->
 								<Equation>
 									<lefts>
 										<VariableRef name="_L13"/>
@@ -2317,7 +2335,7 @@
 									<right>
 										<IdExpression>
 											<path>
-												<ConstVarRef name="etcs_mode"/>
+												<ConstVarRef name="M_MODE"/>
 											</path>
 										</IdExpression>
 									</right>
@@ -4259,6 +4277,22 @@
 										<ed:Equation oid="!ed/2ded/289E/1A64/5113950242d4"/>
 									</pragmas>
 								</Equation>
+								<!-- sessionSuccessfullyEstablished = _L31; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="sessionSuccessfullyEstablished"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L31"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/30de/7BA7/1910/515d2e8dc5f"/>
+									</pragmas>
+								</Equation>
 							</data>
 							<until>
 								<Transition kind="restart">
@@ -4390,7 +4424,7 @@
 														<Point x="35957" y="18045"/>
 														<Point x="40693" y="18045"/>
 														<Point x="40693" y="18045"/>
-														<Point x="45429" y="18045"/>
+														<Point x="45376" y="18045"/>
 													</positions>
 												</Edge>
 												<Edge leftVarIndex="7" rightExprIndex="1" srcEquation="!ed/2cbc/3E15/13D8/50f6d03632bc" dstEquation="!ed/2ded/289E/1A64/5113950242d4">
@@ -4398,7 +4432,7 @@
 														<Point x="35957" y="30321"/>
 														<Point x="40693" y="30321"/>
 														<Point x="40693" y="30321"/>
-														<Point x="45455" y="30321"/>
+														<Point x="45376" y="30321"/>
 													</positions>
 												</Edge>
 												<Edge leftVarIndex="8" rightExprIndex="1" srcEquation="!ed/2cbc/3E15/13D8/50f6d03632bc" dstEquation="!ed/2d09/3791/750/510a95127a77">
@@ -4502,12 +4536,12 @@
 														<Point x="35957" y="37677"/>
 														<Point x="40693" y="37677"/>
 														<Point x="40693" y="37677"/>
-														<Point x="45429" y="37677"/>
+														<Point x="45376" y="37677"/>
 													</positions>
 												</Edge>
 												<EquationGE presentable="!ed/2a62/38C7/FCC/50f7f4c8655e">
 													<position>
-														<Point x="45429" y="37412"/>
+														<Point x="45376" y="37412"/>
 													</position>
 													<size>
 														<Size width="344" height="503"/>
@@ -4515,7 +4549,7 @@
 												</EquationGE>
 												<EquationGE presentable="!ed/2a8a/38C7/FCC/50f7f6593742">
 													<position>
-														<Point x="45429" y="25135"/>
+														<Point x="45376" y="25135"/>
 													</position>
 													<size>
 														<Size width="344" height="502"/>
@@ -4526,7 +4560,7 @@
 														<Point x="35957" y="25400"/>
 														<Point x="40693" y="25400"/>
 														<Point x="40693" y="25400"/>
-														<Point x="45429" y="25400"/>
+														<Point x="45376" y="25400"/>
 													</positions>
 												</Edge>
 												<EquationGE presentable="!ed/2ac4/38C7/FCC/50f7f8ff15ce">
@@ -4571,7 +4605,7 @@
 												</Edge>
 												<EquationGE presentable="!ed/2af0/7CA2/310/50f925aa6e66">
 													<position>
-														<Point x="45429" y="39873"/>
+														<Point x="45376" y="39873"/>
 													</position>
 													<size>
 														<Size width="344" height="503"/>
@@ -4582,12 +4616,12 @@
 														<Point x="35957" y="40137"/>
 														<Point x="40693" y="40137"/>
 														<Point x="40693" y="40137"/>
-														<Point x="45429" y="40137"/>
+														<Point x="45376" y="40137"/>
 													</positions>
 												</Edge>
 												<EquationGE presentable="!ed/2c5a/7CA2/310/50f94d4f2665">
 													<position>
-														<Point x="45429" y="17780"/>
+														<Point x="45376" y="17780"/>
 													</position>
 													<size>
 														<Size width="344" height="503"/>
@@ -4595,7 +4629,7 @@
 												</EquationGE>
 												<EquationGE presentable="!ed/2c60/7CA2/310/50f94dd83bb2">
 													<position>
-														<Point x="45429" y="34978"/>
+														<Point x="45376" y="34978"/>
 													</position>
 													<size>
 														<Size width="344" height="503"/>
@@ -4606,7 +4640,7 @@
 														<Point x="35957" y="35243"/>
 														<Point x="40693" y="35243"/>
 														<Point x="40693" y="35243"/>
-														<Point x="45429" y="35243"/>
+														<Point x="45376" y="35243"/>
 													</positions>
 												</Edge>
 												<EquationGE presentable="!ed/2a86/4FF2/164C/50f97f35507f">
@@ -4835,7 +4869,7 @@
 												</Edge>
 												<EquationGE presentable="!ed/2b9d/4FF2/164C/50f9937f7e37">
 													<position>
-														<Point x="45429" y="15319"/>
+														<Point x="45376" y="15319"/>
 													</position>
 													<size>
 														<Size width="318" height="503"/>
@@ -4846,12 +4880,12 @@
 														<Point x="35957" y="15584"/>
 														<Point x="40719" y="15584"/>
 														<Point x="40719" y="15584"/>
-														<Point x="45482" y="15584"/>
+														<Point x="45429" y="15584"/>
 													</positions>
 												</Edge>
 												<EquationGE presentable="!ed/2bb0/4FF2/164C/50f9945261d3">
 													<position>
-														<Point x="45429" y="20241"/>
+														<Point x="45376" y="20241"/>
 													</position>
 													<size>
 														<Size width="317" height="502"/>
@@ -4862,12 +4896,12 @@
 														<Point x="35957" y="20505"/>
 														<Point x="40719" y="20505"/>
 														<Point x="40719" y="20505"/>
-														<Point x="45482" y="20505"/>
+														<Point x="45429" y="20505"/>
 													</positions>
 												</Edge>
 												<EquationGE presentable="!ed/2bda/4FF2/164C/50f99952596d">
 													<position>
-														<Point x="45429" y="22675"/>
+														<Point x="45376" y="22675"/>
 													</position>
 													<size>
 														<Size width="317" height="503"/>
@@ -4878,12 +4912,12 @@
 														<Point x="35957" y="22939"/>
 														<Point x="40719" y="22939"/>
 														<Point x="40719" y="22939"/>
-														<Point x="45482" y="22939"/>
+														<Point x="45429" y="22939"/>
 													</positions>
 												</Edge>
 												<EquationGE presentable="!ed/2bee/4FF2/164C/50f99c8b64d9">
 													<position>
-														<Point x="45429" y="27596"/>
+														<Point x="45376" y="27596"/>
 													</position>
 													<size>
 														<Size width="317" height="503"/>
@@ -4894,7 +4928,7 @@
 														<Point x="35957" y="27861"/>
 														<Point x="40719" y="27861"/>
 														<Point x="40719" y="27861"/>
-														<Point x="45482" y="27861"/>
+														<Point x="45429" y="27861"/>
 													</positions>
 												</Edge>
 												<EquationGE presentable="!ed/2d09/3791/750/510a95127a77">
@@ -4915,12 +4949,28 @@
 												</EquationGE>
 												<EquationGE presentable="!ed/2ded/289E/1A64/5113950242d4">
 													<position>
-														<Point x="45455" y="30057"/>
+														<Point x="45376" y="30057"/>
 													</position>
 													<size>
 														<Size width="344" height="502"/>
 													</size>
 												</EquationGE>
+												<EquationGE presentable="!ed/30de/7BA7/1910/515d2e8dc5f">
+													<position>
+														<Point x="45376" y="38550"/>
+													</position>
+													<size>
+														<Size width="318" height="503"/>
+													</size>
+												</EquationGE>
+												<Edge leftVarIndex="10" rightExprIndex="1" srcEquation="!ed/2cbc/3E15/13D8/50f6d03632bc" dstEquation="!ed/30de/7BA7/1910/515d2e8dc5f">
+													<positions>
+														<Point x="35957" y="37677"/>
+														<Point x="40693" y="37677"/>
+														<Point x="40693" y="38814"/>
+														<Point x="45429" y="38814"/>
+													</positions>
+												</Edge>
 											</presentationElements>
 										</NetDiagram>
 									</diagrams>
@@ -7597,7 +7647,7 @@
 						<ed:Equation oid="!ed/2bcd/7CA2/310/50f94120716e"/>
 					</pragmas>
 				</Equation>
-				<!-- _L31 = etcs_level; -->
+				<!-- _L31 = M_LEVEL; -->
 				<Equation>
 					<lefts>
 						<VariableRef name="_L31"/>
@@ -7605,7 +7655,7 @@
 					<right>
 						<IdExpression>
 							<path>
-								<ConstVarRef name="etcs_level"/>
+								<ConstVarRef name="M_LEVEL"/>
 							</path>
 						</IdExpression>
 					</right>
@@ -7853,7 +7903,7 @@
 						<ed:Equation oid="!ed/2cba/7CA2/310/50f959ef7e82"/>
 					</pragmas>
 				</Equation>
-				<!-- _L53 = etcs_level; -->
+				<!-- _L53 = M_LEVEL; -->
 				<Equation>
 					<lefts>
 						<VariableRef name="_L53"/>
@@ -7861,7 +7911,7 @@
 					<right>
 						<IdExpression>
 							<path>
-								<ConstVarRef name="etcs_level"/>
+								<ConstVarRef name="M_LEVEL"/>
 							</path>
 						</IdExpression>
 					</right>
@@ -8539,10 +8589,10 @@
 						<ed:Equation oid="!ed/2cdb/4014/F30/5113c7732814"/>
 					</pragmas>
 				</Equation>
-				<!-- safeRadionConnectionStatus_toDriver = _L7; -->
+				<!-- safeRadioConnectionStatus_toDriver = _L7; -->
 				<Equation>
 					<lefts>
-						<VariableRef name="safeRadionConnectionStatus_toDriver"/>
+						<VariableRef name="safeRadioConnectionStatus_toDriver"/>
 					</lefts>
 					<right>
 						<IdExpression>

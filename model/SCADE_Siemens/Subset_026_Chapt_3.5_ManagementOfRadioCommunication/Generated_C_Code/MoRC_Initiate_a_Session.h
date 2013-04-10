@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 #ifndef _MoRC_Initiate_a_Session_H_
 #define _MoRC_Initiate_a_Session_H_
@@ -19,7 +19,7 @@ typedef struct {
   /* -------------------- initialization variables  ------------------ */
   kcg_bool init;
   /* ----------------------- local memories  ------------------------- */
-  MoRC_ETCS_Mode_Type /* Initiate_a_Session::etcs_mode */ rem_etcs_mode;
+  MoRC_M_MODE_Type /* Initiate_a_Session::etcs_mode */ rem_etcs_mode;
   /* -------------------- no sub nodes' contexts  -------------------- */
   /* ----------------- no clocks of observable data ------------------ */
 } MoRC_outC_Initiate_a_Session;
@@ -33,10 +33,10 @@ extern void MoRC_Initiate_a_Session(
   /* Initiate_a_Session::initiateRequest_fromOnboardEquipment */kcg_bool initiateRequest_fromOnboardEquipment,
   /* Initiate_a_Session::initiateRequest_fromRBC */kcg_bool initiateRequest_fromRBC,
   /* Initiate_a_Session::initiateRequest_fromRadio_InfillUnit */kcg_bool initiateRequest_fromRadio_InfillUnit,
-  /* Initiate_a_Session::etcs_level */MoRC_ETCS_Level_Type etcs_level,
+  /* Initiate_a_Session::etcs_level */MoRC_M_LEVEL_Type etcs_level,
   /* Initiate_a_Session::atStartOfMission */kcg_bool atStartOfMission,
   /* Initiate_a_Session::establishSessionOrderedFromTrackside */kcg_bool establishSessionOrderedFromTrackside,
-  /* Initiate_a_Session::etcs_mode */MoRC_ETCS_Mode_Type etcs_mode,
+  /* Initiate_a_Session::etcs_mode */MoRC_M_MODE_Type etcs_mode,
   /* Initiate_a_Session::modeChangeHasToBeReportedToRBC */kcg_bool modeChangeHasToBeReportedToRBC,
   /* Initiate_a_Session::driverHasManuallyChangedLevel */kcg_bool driverHasManuallyChangedLevel,
   /* Initiate_a_Session::trainFrontReachesEndOfAnnouncedRadioHole */kcg_bool trainFrontReachesEndOfAnnouncedRadioHole,
@@ -51,6 +51,6 @@ extern void MoRC_Initiate_a_Session_reset(MoRC_outC_Initiate_a_Session *outC);
 #endif /* _MoRC_Initiate_a_Session_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_Initiate_a_Session.h
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 

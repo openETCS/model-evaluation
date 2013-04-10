@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 #ifndef _MoRC_registeringToTheRadioNetwork_H_
 #define _MoRC_registeringToTheRadioNetwork_H_
@@ -42,7 +42,7 @@ typedef struct {
 extern void MoRC_registeringToTheRadioNetwork(
   /* registeringToTheRadioNetwork::atPowerUp */kcg_bool atPowerUp,
   /* registeringToTheRadioNetwork::afterDriverEntryOfANewRadioNetworkID */kcg_bool afterDriverEntryOfANewRadioNetworkID,
-  /* registeringToTheRadioNetwork::etcs_level */MoRC_ETCS_Level_Type etcs_level,
+  /* registeringToTheRadioNetwork::etcs_level */MoRC_M_LEVEL_Type etcs_level,
   /* registeringToTheRadioNetwork::registrationOrderedFromTrackside */kcg_bool registrationOrderedFromTrackside,
   /* registeringToTheRadioNetwork::registrationOrderFromTracksideCancelled */kcg_bool registrationOrderFromTracksideCancelled,
   /* registeringToTheRadioNetwork::atPowerOff */kcg_bool atPowerOff,
@@ -61,6 +61,6 @@ extern void MoRC_registeringToTheRadioNetwork_reset(
 #endif /* _MoRC_registeringToTheRadioNetwork_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_registeringToTheRadioNetwork.h
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 

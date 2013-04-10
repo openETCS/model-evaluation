@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -54,7 +54,7 @@ void MoRC_radioNetworkMobile(
   else if (outC->init) {
     MoRC_kcg_copy_mobileHWStatus_Type(
       &outC->_L2,
-      (MoRC_mobileHWStatus_Type *) &MoRC_cInvalidMobileHWStatus_Type);
+      (MoRC_mobileHWStatus_Type *) &MoRC_cInvalidMobileHWStatus);
   }
   switch (MobileHW_available_SM_state_sel) {
     case MoRC_SSM_st_MobileHWNotAvailable_MobileHW_available_SM :
@@ -433,6 +433,6 @@ void MoRC_radioNetworkMobile(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_radioNetworkMobile.c
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 
