@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 #ifndef _MoRC_managementOfRadioCommunication_H_
 #define _MoRC_managementOfRadioCommunication_H_
@@ -18,47 +18,7 @@
 #include "MoRC_FallingEdge_digital.h"
 #include "MoRC_RisingEdge_digital.h"
 
-/* ========================  input structure  ====================== */
-typedef struct {
-  MoRC_time_Type /* managementOfRadioCommunication::actualTime */ actualTime;
-  kcg_bool /* managementOfRadioCommunication::acknowledgementOfTerminationOfCommunicationSessionReceived */ acknowledgementOfTerminationOfCommunicationSessionReceived;
-  MoRC_orderToContactAnRBC_Type /* managementOfRadioCommunication::orderReceivedFromTrackside */ orderReceivedFromTrackside;
-  MoRC_orderToContactAnRBC_Type /* managementOfRadioCommunication::orderReceivedFromRBC */ orderReceivedFromRBC;
-  MoRC_orderToContactAnRBC_Type /* managementOfRadioCommunication::orderReceivedFromRadio_InfillUnit */ orderReceivedFromRadio_InfillUnit;
-  kcg_bool /* managementOfRadioCommunication::errorConditionRequiringTerminationDetected */ errorConditionRequiringTerminationDetected;
-  kcg_bool /* managementOfRadioCommunication::trainIsRejectedByRBC_duringStartOfMission */ trainIsRejectedByRBC_duringStartOfMission;
-  kcg_bool /* managementOfRadioCommunication::driverClosesTheDeskduringStartOfMission */ driverClosesTheDeskduringStartOfMission;
-  kcg_bool /* managementOfRadioCommunication::trainExitedFromAnRBCArea */ trainExitedFromAnRBCArea;
-  kcg_bool /* managementOfRadioCommunication::endOfMissionIsExecuted */ endOfMissionIsExecuted;
-  kcg_bool /* managementOfRadioCommunication::isInCommunicationSessionWithAnRIU */ isInCommunicationSessionWithAnRIU;
-  kcg_bool /* managementOfRadioCommunication::atPowerUp */ atPowerUp;
-  kcg_bool /* managementOfRadioCommunication::atPowerOff */ atPowerOff;
-  MoRC_ETCS_Level_Type /* managementOfRadioCommunication::etcs_level */ etcs_level;
-  MoRC_validRadioNetworkID_Type /* managementOfRadioCommunication::RadioNetworkID_memorized */ RadioNetworkID_memorized;
-  MoRC_validRadioNetworkID_Type /* managementOfRadioCommunication::RadioNetworkID_fromDriver */ RadioNetworkID_fromDriver;
-  MoRC_validRadioNetworkID_Type /* managementOfRadioCommunication::RadioNetworkID_fromTrackside */ RadioNetworkID_fromTrackside;
-  kcg_bool /* managementOfRadioCommunication::afterDriverEntryOfANewRadioNetworkID */ afterDriverEntryOfANewRadioNetworkID;
-  kcg_bool /* managementOfRadioCommunication::triggerDecisionThatNoRadioNetworkIDAvailable */ triggerDecisionThatNoRadioNetworkIDAvailable;
-  MoRC_mobileHWStatus_Type /* managementOfRadioCommunication::mobileHWStatus */ mobileHWStatus;
-  kcg_bool /* managementOfRadioCommunication::isPartOfAnOngoingStartOfMissionProcedure */ isPartOfAnOngoingStartOfMissionProcedure;
-  kcg_bool /* managementOfRadioCommunication::trainPassesALevelTransitionBorder */ trainPassesALevelTransitionBorder;
-  MoRC_orderToContactAnRBC_Type /* managementOfRadioCommunication::orderToEstablishACommunicationSession_fromOBU */ orderToEstablishACommunicationSession_fromOBU;
-  kcg_bool /* managementOfRadioCommunication::orderDoesNotRequestToContactAnAcceptingRBC */ orderDoesNotRequestToContactAnAcceptingRBC;
-  kcg_bool /* managementOfRadioCommunication::trainPassesA_RBC_RBC_border_WithItsFrontEnd */ trainPassesA_RBC_RBC_border_WithItsFrontEnd;
-  kcg_bool /* managementOfRadioCommunication::systemVersionFromTracksideSupported */ systemVersionFromTracksideSupported;
-  kcg_bool /* managementOfRadioCommunication::systemVersionReceived */ systemVersionReceived;
-  MoRC_ETCS_Mode_Type /* managementOfRadioCommunication::etcs_mode */ etcs_mode;
-  kcg_bool /* managementOfRadioCommunication::atStartOfMission */ atStartOfMission;
-  kcg_bool /* managementOfRadioCommunication::modeChangeHasToBeReportedToRBC */ modeChangeHasToBeReportedToRBC;
-  kcg_bool /* managementOfRadioCommunication::driverHasManuallyChangedLevel */ driverHasManuallyChangedLevel;
-  kcg_bool /* managementOfRadioCommunication::trainFrontReachesEndOfAnnouncedRadioHole */ trainFrontReachesEndOfAnnouncedRadioHole;
-  kcg_bool /* managementOfRadioCommunication::startOfMissionProcedureCompleted */ startOfMissionProcedureCompleted;
-  kcg_bool /* managementOfRadioCommunication::trainFrontInsideInAnAnnouncedRadioHole */ trainFrontInsideInAnAnnouncedRadioHole;
-  kcg_bool /* managementOfRadioCommunication::OBU_hasToEstablishANewSession */ OBU_hasToEstablishANewSession;
-  kcg_bool /* managementOfRadioCommunication::startOfMissionProcedureIsGoingOn */ startOfMissionProcedureIsGoingOn;
-  MoRC_validRadioNetworkID_Type /* managementOfRadioCommunication::RadioNetworkID_Default */ RadioNetworkID_Default;
-  MoRC_time_Type /* managementOfRadioCommunication::connectionStatusTimerInterval */ connectionStatusTimerInterval;
-} MoRC_inC_managementOfRadioCommunication;
+/* =====================  no input structure  ====================== */
 
 /* ========================  context type  ========================= */
 typedef struct {
@@ -75,7 +35,8 @@ typedef struct {
   kcg_bool /* managementOfRadioCommunication::sendASessionEstablishedReportToTrackside */ sendASessionEstablishedReportToTrackside;
   kcg_bool /* managementOfRadioCommunication::sendATerminationOfCommunicationMessage */ sendATerminationOfCommunicationMessage;
   kcg_bool /* managementOfRadioCommunication::ignoreMessagesFromRBC_exceptAckOfTerminationOfCommunicationSession */ ignoreMessagesFromRBC_exceptAckOfTerminationOfCommunicationSession;
-  MoRC_safeRadioConnectionStatusValid_Type /* managementOfRadioCommunication::safeRadionConnectionStatus_toDriver */ safeRadionConnectionStatus_toDriver;
+  MoRC_safeRadioConnectionStatusValid_Type /* managementOfRadioCommunication::safeRadioConnectionStatus_toDriver */ safeRadioConnectionStatus_toDriver;
+  kcg_bool /* managementOfRadioCommunication::sessionSuccessfullyEstablished */ sessionSuccessfullyEstablished;
   /* -----------------------  no local probes  ----------------------- */
   /* -------------------- initialization variables  ------------------ */
   kcg_bool init;
@@ -112,7 +73,44 @@ typedef struct {
 /** "Remark_1" {Description = "- Name: managementOfRadioCommunication - Description: This is the top level node of the "Management of Radio Communication" function - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE."} */
 /* managementOfRadioCommunication */
 extern void MoRC_managementOfRadioCommunication(
-  MoRC_inC_managementOfRadioCommunication *inC,
+  /* managementOfRadioCommunication::actualTime */MoRC_time_Type actualTime,
+  /* managementOfRadioCommunication::acknowledgementOfTerminationOfCommunicationSessionReceived */kcg_bool acknowledgementOfTerminationOfCommunicationSessionReceived,
+  /* managementOfRadioCommunication::orderReceivedFromTrackside */MoRC_orderToContactAnRBC_Type *orderReceivedFromTrackside,
+  /* managementOfRadioCommunication::orderReceivedFromRBC */MoRC_orderToContactAnRBC_Type *orderReceivedFromRBC,
+  /* managementOfRadioCommunication::orderReceivedFromRadio_InfillUnit */MoRC_orderToContactAnRBC_Type *orderReceivedFromRadio_InfillUnit,
+  /* managementOfRadioCommunication::errorConditionRequiringTerminationDetected */kcg_bool errorConditionRequiringTerminationDetected,
+  /* managementOfRadioCommunication::trainIsRejectedByRBC_duringStartOfMission */kcg_bool trainIsRejectedByRBC_duringStartOfMission,
+  /* managementOfRadioCommunication::driverClosesTheDeskduringStartOfMission */kcg_bool driverClosesTheDeskduringStartOfMission,
+  /* managementOfRadioCommunication::trainExitedFromAnRBCArea */kcg_bool trainExitedFromAnRBCArea,
+  /* managementOfRadioCommunication::endOfMissionIsExecuted */kcg_bool endOfMissionIsExecuted,
+  /* managementOfRadioCommunication::isInCommunicationSessionWithAnRIU */kcg_bool isInCommunicationSessionWithAnRIU,
+  /* managementOfRadioCommunication::atPowerUp */kcg_bool atPowerUp,
+  /* managementOfRadioCommunication::atPowerOff */kcg_bool atPowerOff,
+  /* managementOfRadioCommunication::M_LEVEL */MoRC_M_LEVEL_Type M_LEVEL,
+  /* managementOfRadioCommunication::RadioNetworkID_memorized */MoRC_validRadioNetworkID_Type *RadioNetworkID_memorized,
+  /* managementOfRadioCommunication::RadioNetworkID_fromDriver */MoRC_validRadioNetworkID_Type *RadioNetworkID_fromDriver,
+  /* managementOfRadioCommunication::RadioNetworkID_fromTrackside */MoRC_validRadioNetworkID_Type *RadioNetworkID_fromTrackside,
+  /* managementOfRadioCommunication::afterDriverEntryOfANewRadioNetworkID */kcg_bool afterDriverEntryOfANewRadioNetworkID,
+  /* managementOfRadioCommunication::triggerDecisionThatNoRadioNetworkIDAvailable */kcg_bool triggerDecisionThatNoRadioNetworkIDAvailable,
+  /* managementOfRadioCommunication::mobileHWStatus */MoRC_mobileHWStatus_Type *mobileHWStatus,
+  /* managementOfRadioCommunication::isPartOfAnOngoingStartOfMissionProcedure */kcg_bool isPartOfAnOngoingStartOfMissionProcedure,
+  /* managementOfRadioCommunication::trainPassesALevelTransitionBorder */kcg_bool trainPassesALevelTransitionBorder,
+  /* managementOfRadioCommunication::orderToEstablishACommunicationSession_fromOBU */MoRC_orderToContactAnRBC_Type *orderToEstablishACommunicationSession_fromOBU,
+  /* managementOfRadioCommunication::orderDoesNotRequestToContactAnAcceptingRBC */kcg_bool orderDoesNotRequestToContactAnAcceptingRBC,
+  /* managementOfRadioCommunication::trainPassesA_RBC_RBC_border_WithItsFrontEnd */kcg_bool trainPassesA_RBC_RBC_border_WithItsFrontEnd,
+  /* managementOfRadioCommunication::systemVersionFromTracksideSupported */kcg_bool systemVersionFromTracksideSupported,
+  /* managementOfRadioCommunication::systemVersionReceived */kcg_bool systemVersionReceived,
+  /* managementOfRadioCommunication::M_MODE */MoRC_M_MODE_Type M_MODE,
+  /* managementOfRadioCommunication::atStartOfMission */kcg_bool atStartOfMission,
+  /* managementOfRadioCommunication::modeChangeHasToBeReportedToRBC */kcg_bool modeChangeHasToBeReportedToRBC,
+  /* managementOfRadioCommunication::driverHasManuallyChangedLevel */kcg_bool driverHasManuallyChangedLevel,
+  /* managementOfRadioCommunication::trainFrontReachesEndOfAnnouncedRadioHole */kcg_bool trainFrontReachesEndOfAnnouncedRadioHole,
+  /* managementOfRadioCommunication::startOfMissionProcedureCompleted */kcg_bool startOfMissionProcedureCompleted,
+  /* managementOfRadioCommunication::trainFrontInsideInAnAnnouncedRadioHole */kcg_bool trainFrontInsideInAnAnnouncedRadioHole,
+  /* managementOfRadioCommunication::OBU_hasToEstablishANewSession */kcg_bool OBU_hasToEstablishANewSession,
+  /* managementOfRadioCommunication::startOfMissionProcedureIsGoingOn */kcg_bool startOfMissionProcedureIsGoingOn,
+  /* managementOfRadioCommunication::RadioNetworkID_Default */MoRC_validRadioNetworkID_Type *RadioNetworkID_Default,
+  /* managementOfRadioCommunication::connectionStatusTimerInterval */MoRC_time_Type connectionStatusTimerInterval,
   MoRC_outC_managementOfRadioCommunication *outC);
 
 extern void MoRC_managementOfRadioCommunication_reset(
@@ -121,6 +119,6 @@ extern void MoRC_managementOfRadioCommunication_reset(
 #endif /* _MoRC_managementOfRadioCommunication_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_managementOfRadioCommunication.h
-** Generation date: 2013-02-12T12:42:24
+** Generation date: 2013-04-10T10:44:31
 *************************************************************$ */
 
