@@ -1,15 +1,29 @@
-\documentclass[10pt,a4paper]{article}
-
+\documentclass{template/openetcs_article}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage {bsymb,b2latex}
+\usepackage{lipsum,url,color}
 \usepackage{float}
 
 \usepackage{hyperref}
 
 \usepackage{graphicx}
 
-\usepackage {bsymb,b2latex}
-\usepackage[utf8]{inputenc}
-\usepackage{fancyhdr,lastpage,color}
-\pagestyle{plain}
+
+\graphicspath{{./template/}{.}{./images/}}
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS}
+
+
+
 %---------------------------------------------------------
 
 \newcommand{\true}{\ensuremath{true}}
@@ -24,29 +38,81 @@
 \newcommand{\btype}[1]{\btext{#1}}
 \newcommand{\bguard}[1]{\btext{#1}}
 
+
 % scaling for project creation wizard screenshots
 \newcommand{\skalierung}{.6}
 
 \title{Using Rodin with Projects on github}
 
-\author{Systerel, France}
+\author{Matthias Güdemann\\Systerel, France}
 
-\date{}
+% \date{}
 
-\begin{document}
+% \begin{document}
+
+% \maketitle
+
+% define the coverart
+\coverart[width=350pt]{chart}
+
+\reporttype{Model Description}
+
+%\begin{document}
 
 \maketitle
+\tableofcontents
+\listoffiguresandtables
+\newpage
 
 \begin{abstract}
-  This document explains how Rodin projects on github can be imported into the
-  Rodin platform. This is illustrated using the \texttt{model-evaluation}
-  sub-project of \texttt{openETCS}.
+  This document gives a short introduction to Event-B modeling and the tool
+  Rodin. It explains how Rodin projects on github can be imported into the Rodin
+  platform. This is illustrated using the \texttt{model-evaluation} sub-project
+  of \texttt{openETCS}.
 
   The document includes the documentation about how to install Rodin, lists the
   necessary plugins and suggests useful, additional plugins. At the end of this
   document, several frequently asked questions ({\bf FAQ}) and their respective
   answers are collected.
 \end{abstract}
+
+\section{Short Introduction to Event-B}
+\label{sec:short-intr-event}
+
+The formal language Event-B is based on a set-theoretic approach. It is a
+variant of the B language, with a focus on system level
+modeling~\cite{abrial-eventB-Book}. An Event-B model is separated into a static
+and a dynamic part.
+
+The dynamic part of an Event-B model describes abstract state machines. The
+state is represented by a set of state variables. A transition from one state to
+another is represented by parametrized events which assign new values to the
+state variables. Event-B allows unbounded state spaces. They are constrained by
+invariants expressed in first order logic with equality which must be fulfilled
+in any case. The initial state is created by a special initialization event.
+
+The static part of an Event-B model is represented by contexts. These consist of
+carrier sets, constants and axioms. The type system of a model is described by
+means of carrier sets and constraints expressed by axioms.
+
+Event-B is not only comprised of descriptions of abstract state machines and
+contexts, but also includes a modeling approach. This approach consists of
+iterative refinement of the machines until the desired level of detail is
+reached. In the Rodin tool, proof obligations are automatically created which
+ensure correct refinement.
+
+Together with the machine invariants, the proof obligations for the refinement
+are formally proven, creating proof trees. To accomplish this, there are
+different options: many proof obligations can be discharged by automated provers
+(e.g., AtelierB, NewPP, Rodin's SMT-plugin), but as the underlying logic is in
+general undecidable, it is sometimes necessary to use the interactive proof
+support of Rodin.
+
+Any external actions, e.g., mode changes by the driver or train level changes
+are modeled via parametrized events. Only events can modify the variables of a
+machine. An Event-B model is on the system level, events are assumed to be
+called from a software system into which the functional model is embedded. The
+guards of the events assure that any event can only be called when appropriate.
 
 \section{Prerequisites}
 \label{sec:prerequisites}

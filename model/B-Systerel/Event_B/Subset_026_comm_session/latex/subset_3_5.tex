@@ -85,6 +85,8 @@ overall approach taken to model this section and finally present the model in
 detail. For each of the iterative modeling steps, we describe the details added
 by the refinement.
 
+For a short introduction on Event-B and the usage of Rodin with models on github
+see~\url{https://github.com/openETCS/model-evaluation/blob/master/model/B-Systerel/Event_B/rodin-projects-github.pdf?raw=true}
 
 \begin{table}[ht]
   \centering
@@ -102,44 +104,6 @@ by the refinement.
   \caption{Glossary}
   \label{tab:glossary}
 \end{table}
-
-\section{Short Introduction to Event-B}
-\label{sec:short-intr-event}
-
-The formal language Event-B is based on a set-theoretic approach. It is a
-variant of the B language, with a focus on system level
-modeling~\cite{abrial-eventB-Book}. An Event-B model is separated into a static
-and a dynamic part.
-
-The dynamic part of an Event-B model describes abstract state machines. The
-state is represented by a set of state variables. A transition from one state to
-another is represented by parametrized events which assign new values to the
-state variables. Event-B allows unbounded state spaces. They are constrained by
-invariants expressed in first order logic with equality which must be fulfilled
-in any case. The initial state is created by a special initialization event.
-
-The static part of an Event-B model is represented by contexts. These consist of
-carrier sets, constants and axioms. The type system of a model is described by
-means of carrier sets and constraints expressed by axioms.
-
-Event-B is not only comprised of descriptions of abstract state machines and
-contexts, but also includes a development approach. This approach consists of
-iterative refinement of the machines until the desired level of detail is
-reached. In the Rodin tool, proof obligations are automatically created which
-ensure correct refinement.
-
-Together with the machine invariants, the proof obligations for the refinement
-are formally proven, creating proof trees. To accomplish this, there are
-different options: many proof obligations can be discharged by automated provers
-(e.g., AtelierB, NewPP, Rodin's SMT-plugin), but as the underlying logic is in
-general undecidable, it is sometimes necessary to use the interactive proof
-support of Rodin.
-
-Any external actions, e.g., mode changes by the driver or train level changes
-are modeled via parametrized events. Only events can modify the variables of a
-machine. An Event-B model is on the system level, events are assumed to be
-called from a software system into which the functional model is embedded. The
-guards of the events assure that any event can only be called when appropriate.
 
 \section{Modeling Strategy}
 \label{sec:modeling-strategy}
