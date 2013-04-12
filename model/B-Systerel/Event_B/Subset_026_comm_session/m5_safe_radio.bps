@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+<org.eventb.core.psStatus name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="incoming_communication/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="receive_information_compatible/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="receive_information_incompatible/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_after_contact_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_no_contact_SOM_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_no_contact_SOM_non_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_no_contact_mode_change_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_no_contact_mode_change_non_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_no_contact_manual_change_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_no_contact_manual_change_non_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_no_contact_leave_radio_hole_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_no_contact_leave_radio_hole_non_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_after_timeout_accept/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_after_timeout_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_after_timeout_non_accept/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="initiate_session_after_timeout_non_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="establish_ER_connection_SOM/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="establish_ER_connection_SOM/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="establish_ER_connection/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="establish_ER_connection/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="est_perform_end_of_mission/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="est_terminate_order/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="est_pass_level_transition/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="est_pass_radio_hole/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="est_RIU_leave_L1/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="est_RBC_border/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="est_other_RBC_non_accept/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="timeout_ER_connection/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="timeout_ER_connection/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="terminate_communication/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="31" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>
