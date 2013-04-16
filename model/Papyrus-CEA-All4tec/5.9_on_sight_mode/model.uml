@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/0.7.0/SysML/Blocks" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/0.7.0/SysML/Blocks http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks">
+  <uml:Model xmi:id="_g5W1gJIDEeKeNu01Ba96ig" name="SysMLmodel">
+    <packagedElement xmi:type="uml:Package" xmi:id="_vTvbcJIDEeKeNu01Ba96ig" name="01_SystemRequirements"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_yVSg4JIDEeKeNu01Ba96ig" name="02_UseCases"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zPm0EJIDEeKeNu01Ba96ig" name="03_SystemModel">
+      <packagedElement xmi:type="uml:Package" xmi:id="_FPQHUJJCEeKUMsViGIwaAw" name="Signals">
+        <packagedElement xmi:type="uml:Signal" xmi:id="_-bLRoJIkEeKeNu01Ba96ig" name="DisplayOSackRequest"/>
+        <packagedElement xmi:type="uml:SignalEvent" xmi:id="_MV2EoJJEEeKUMsViGIwaAw" name="SignalReceiveEventOSrequest" signal="_DOOY0JJEEeKUMsViGIwaAw"/>
+        <packagedElement xmi:type="uml:Signal" xmi:id="_DOOY0JJEEeKUMsViGIwaAw" name="OSrequest"/>
+        <packagedElement xmi:type="uml:Signal" xmi:id="_eK8WIJejEeKV9cIPc5VdjA" name="TrackAheadIsFree"/>
+        <packagedElement xmi:type="uml:Signal" xmi:id="_AW6G0Je9EeKV9cIPc5VdjA" name="test"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_NfCzQJJCEeKUMsViGIwaAw" name="SystemArchitecture">
+        <packagedElement xmi:type="uml:Class" xmi:id="_Ixj5oJIEEeKeNu01Ba96ig" name="SystemContext">
+          <ownedComment xmi:id="_zqnUcKNvEeKDSZt1_pk-0w">
+            <body>Nommer les connecteurs et supprimer ceux qui disparaissent après la simplification du modèle</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_RoawIpIFEeKeNu01Ba96ig" name="driver" type="_c9dyQJIEEeKeNu01Ba96ig" aggregation="composite" association="_RoQ_IJIFEeKeNu01Ba96ig"/>
+          <ownedAttribute xmi:id="_WB4qw5IFEeKeNu01Ba96ig" name="track" type="_JVj-kJIEEeKeNu01Ba96ig" aggregation="composite" association="_WB4qwJIFEeKeNu01Ba96ig"/>
+          <ownedAttribute xmi:id="_ZqUKA5IFEeKeNu01Ba96ig" name="rbc" type="_Jrub0JIEEeKeNu01Ba96ig" aggregation="composite" association="_ZqUKAJIFEeKeNu01Ba96ig"/>
+          <ownedAttribute xmi:id="_amkW45IFEeKeNu01Ba96ig" name="comm" type="_VkFJ4JIEEeKeNu01Ba96ig" aggregation="composite" association="_amkW4JIFEeKeNu01Ba96ig"/>
+          <ownedAttribute xmi:id="_XsXaI5IGEeKeNu01Ba96ig" name="onboardetcs" type="_J9ux0JIEEeKeNu01Ba96ig" aggregation="composite" association="_XsXaIJIGEeKeNu01Ba96ig"/>
+          <ownedConnector xmi:id="_xV3ucJIHEeKeNu01Ba96ig" name="connector1">
+            <end xmi:id="_xWA4YJIHEeKeNu01Ba96ig" role="_XsXaI5IGEeKeNu01Ba96ig"/>
+            <end xmi:id="_xWA4YZIHEeKeNu01Ba96ig" role="_RoawIpIFEeKeNu01Ba96ig"/>
+          </ownedConnector>
+          <ownedConnector xmi:id="_yNNmIJIHEeKeNu01Ba96ig" name="connector2">
+            <end xmi:id="_yNNmIZIHEeKeNu01Ba96ig" role="_XsXaI5IGEeKeNu01Ba96ig"/>
+            <end xmi:id="_yNNmIpIHEeKeNu01Ba96ig" role="_RoawIpIFEeKeNu01Ba96ig"/>
+          </ownedConnector>
+          <ownedConnector xmi:id="_y6SukJIHEeKeNu01Ba96ig" name="connector3">
+            <end xmi:id="_y6SukZIHEeKeNu01Ba96ig" role="_XsXaI5IGEeKeNu01Ba96ig"/>
+            <end xmi:id="_y6SukpIHEeKeNu01Ba96ig" role="_RoawIpIFEeKeNu01Ba96ig"/>
+          </ownedConnector>
+          <ownedConnector xmi:id="_0kp-oJIHEeKeNu01Ba96ig" name="connector4">
+            <end xmi:id="_0kp-oZIHEeKeNu01Ba96ig" role="_XsXaI5IGEeKeNu01Ba96ig"/>
+            <end xmi:id="_0kp-opIHEeKeNu01Ba96ig" role="_WB4qw5IFEeKeNu01Ba96ig"/>
+          </ownedConnector>
+          <ownedConnector xmi:id="_1pPoIJIHEeKeNu01Ba96ig" name="connector5">
+            <end xmi:id="_1pPoIZIHEeKeNu01Ba96ig" role="_XsXaI5IGEeKeNu01Ba96ig"/>
+            <end xmi:id="_1pPoIpIHEeKeNu01Ba96ig" role="_WB4qw5IFEeKeNu01Ba96ig"/>
+          </ownedConnector>
+          <ownedConnector xmi:id="_EEQgMJIIEeKeNu01Ba96ig" name="connector6">
+            <end xmi:id="_EEQgMZIIEeKeNu01Ba96ig" role="_XsXaI5IGEeKeNu01Ba96ig"/>
+            <end xmi:id="_EEQgMpIIEeKeNu01Ba96ig" role="_amkW45IFEeKeNu01Ba96ig"/>
+          </ownedConnector>
+          <ownedConnector xmi:id="_FFIHUJIIEeKeNu01Ba96ig" name="connector7">
+            <end xmi:id="_FFIHUZIIEeKeNu01Ba96ig" role="_amkW45IFEeKeNu01Ba96ig"/>
+            <end xmi:id="_FFRRQJIIEeKeNu01Ba96ig" role="_XsXaI5IGEeKeNu01Ba96ig"/>
+          </ownedConnector>
+          <ownedConnector xmi:id="_HVb9EJIIEeKeNu01Ba96ig" name="connector8">
+            <end xmi:id="_HVb9EZIIEeKeNu01Ba96ig" role="_amkW45IFEeKeNu01Ba96ig"/>
+            <end xmi:id="_HVb9EpIIEeKeNu01Ba96ig" role="_ZqUKA5IFEeKeNu01Ba96ig"/>
+          </ownedConnector>
+          <ownedConnector xmi:id="_IWACMJIIEeKeNu01Ba96ig" name="connector9">
+            <end xmi:id="_IWACMZIIEeKeNu01Ba96ig" role="_amkW45IFEeKeNu01Ba96ig"/>
+            <end xmi:id="_IWACMpIIEeKeNu01Ba96ig" role="_ZqUKA5IFEeKeNu01Ba96ig"/>
+          </ownedConnector>
+          <ownedBehavior xmi:type="uml:Interaction" xmi:id="_sd0k8JIIEeKeNu01Ba96ig" name="GlobalInteraction">
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_-mi9gJbtEeKV9cIPc5VdjA" name="BehaviorExecSpec1Start" covered="_yHBCEJIIEeKeNu01Ba96ig" execution="_-mi9gZbtEeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_-mi9gZbtEeKV9cIPc5VdjA" name="BehaviorExecSpec1" covered="_yHBCEJIIEeKeNu01Ba96ig" finish="_-mi9gpbtEeKV9cIPc5VdjA" start="_-mi9gJbtEeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_b3fl4ZJKEeKUMsViGIwaAw" name="OSrequest_MessageSend" covered="_yHBCEJIIEeKeNu01Ba96ig" message="_b3fl4JJKEeKUMsViGIwaAw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_4Mm_8JbtEeKV9cIPc5VdjA" name="ActionExecSpec0Start" covered="_yHBCEJIIEeKeNu01Ba96ig" execution="_4Mm_8ZbtEeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_4Mm_8ZbtEeKV9cIPc5VdjA" name="ActionExecSpec0" covered="_yHBCEJIIEeKeNu01Ba96ig" finish="_4Mm_8pbtEeKV9cIPc5VdjA" start="_4Mm_8JbtEeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_4Mm_8pbtEeKV9cIPc5VdjA" name="ActionExecSpec0Finish" covered="_yHBCEJIIEeKeNu01Ba96ig" execution="_4Mm_8ZbtEeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_AXq70Je9EeKV9cIPc5VdjA" name="test_MessageSend" covered="_yHBCEJIIEeKeNu01Ba96ig" message="_AXYn8Je9EeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_-mi9gpbtEeKV9cIPc5VdjA" name="BehaviorExecSpec1Finish" covered="_yHBCEJIIEeKeNu01Ba96ig" execution="_-mi9gZbtEeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_AXq70Ze9EeKV9cIPc5VdjA" name="test_MessageRecv" covered="_wTkugJIIEeKeNu01Ba96ig" message="_AXYn8Je9EeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_3g1fEJbtEeKV9cIPc5VdjA" name="BehaviorExecSpec0Start" covered="_wTkugJIIEeKeNu01Ba96ig" execution="_3hBsUJbtEeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_3hBsUJbtEeKV9cIPc5VdjA" name="BehaviorExecSpec0" covered="_wTkugJIIEeKeNu01Ba96ig" finish="_3hBsUZbtEeKV9cIPc5VdjA" start="_3g1fEJbtEeKV9cIPc5VdjA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_b3fl4pJKEeKUMsViGIwaAw" name="OSrequest_MessageRecv" covered="_wTkugJIIEeKeNu01Ba96ig" message="_b3fl4JJKEeKUMsViGIwaAw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_TbwvsJJKEeKUMsViGIwaAw" name="ActionExecSpecStart" covered="_wTkugJIIEeKeNu01Ba96ig" execution="_TbwvsZJKEeKUMsViGIwaAw"/>
+            <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_TbwvsZJKEeKUMsViGIwaAw" name="ActionExecSpec" covered="_wTkugJIIEeKeNu01Ba96ig" finish="_TbwvspJKEeKUMsViGIwaAw" start="_TbwvsJJKEeKUMsViGIwaAw" action="_RmV4QJIgEeKeNu01Ba96ig"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_TbwvspJKEeKUMsViGIwaAw" name="ActionExecSpecFinish" covered="_wTkugJIIEeKeNu01Ba96ig" execution="_TbwvsZJKEeKUMsViGIwaAw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_V7xq0JJJEeKUMsViGIwaAw" name="BehaviorExecSpecStart" covered="_wTkugJIIEeKeNu01Ba96ig" execution="_V7xq0ZJJEeKUMsViGIwaAw"/>
+            <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_V7xq0ZJJEeKUMsViGIwaAw" name="BehaviorExecSpec" covered="_wTkugJIIEeKeNu01Ba96ig" finish="_V7xq0pJJEeKUMsViGIwaAw" start="_V7xq0JJJEeKUMsViGIwaAw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_V7xq0pJJEeKUMsViGIwaAw" name="BehaviorExecSpecFinish" covered="_wTkugJIIEeKeNu01Ba96ig" execution="_V7xq0ZJJEeKUMsViGIwaAw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_3hBsUZbtEeKV9cIPc5VdjA" name="BehaviorExecSpec0Finish" covered="_wTkugJIIEeKeNu01Ba96ig" execution="_3hBsUJbtEeKV9cIPc5VdjA"/>
+            <lifeline xmi:id="_wTkugJIIEeKeNu01Ba96ig" name="Lifeline" represents="_XsXaI5IGEeKeNu01Ba96ig" coveredBy="_V7xq0JJJEeKUMsViGIwaAw _V7xq0pJJEeKUMsViGIwaAw _V7xq0ZJJEeKUMsViGIwaAw _TbwvsJJKEeKUMsViGIwaAw _TbwvspJKEeKUMsViGIwaAw _TbwvsZJKEeKUMsViGIwaAw _b3fl4pJKEeKUMsViGIwaAw _3g1fEJbtEeKV9cIPc5VdjA _3hBsUZbtEeKV9cIPc5VdjA _3hBsUJbtEeKV9cIPc5VdjA _AXq70Ze9EeKV9cIPc5VdjA"/>
+            <lifeline xmi:id="_xJlJcJIIEeKeNu01Ba96ig" name="Lifeline0" represents="_RoawIpIFEeKeNu01Ba96ig"/>
+            <lifeline xmi:id="_yHBCEJIIEeKeNu01Ba96ig" name="Lifeline1" represents="_WB4qw5IFEeKeNu01Ba96ig" coveredBy="_b3fl4ZJKEeKUMsViGIwaAw _4Mm_8JbtEeKV9cIPc5VdjA _4Mm_8pbtEeKV9cIPc5VdjA _4Mm_8ZbtEeKV9cIPc5VdjA _-mi9gJbtEeKV9cIPc5VdjA _-mi9gpbtEeKV9cIPc5VdjA _-mi9gZbtEeKV9cIPc5VdjA _AXq70Je9EeKV9cIPc5VdjA"/>
+            <message xmi:id="_b3fl4JJKEeKUMsViGIwaAw" name="1:OSrequest_Message" messageSort="asynchSignal" receiveEvent="_b3fl4pJKEeKUMsViGIwaAw" sendEvent="_b3fl4ZJKEeKUMsViGIwaAw" signature="_DOOY0JJEEeKUMsViGIwaAw"/>
+            <message xmi:id="_AXYn8Je9EeKV9cIPc5VdjA" name="2:test_Message" messageSort="asynchSignal" receiveEvent="_AXq70Ze9EeKV9cIPc5VdjA" sendEvent="_AXq70Je9EeKV9cIPc5VdjA" signature="_AW6G0Je9EeKV9cIPc5VdjA"/>
+          </ownedBehavior>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_JVj-kJIEEeKeNu01Ba96ig" name="TrackSideETCS">
+          <ownedAttribute xmi:id="_WB4qxJIFEeKeNu01Ba96ig" name="systemcontext" type="_Ixj5oJIEEeKeNu01Ba96ig" association="_WB4qwJIFEeKeNu01Ba96ig"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Jrub0JIEEeKeNu01Ba96ig" name="RBC">
+          <ownedAttribute xmi:id="_ZqUKBJIFEeKeNu01Ba96ig" name="systemcontext" type="_Ixj5oJIEEeKeNu01Ba96ig" association="_ZqUKAJIFEeKeNu01Ba96ig"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_J9ux0JIEEeKeNu01Ba96ig" name="OnBoardETCS" classifierBehavior="_QLLYQJIUEeKeNu01Ba96ig">
+          <ownedAttribute xmi:id="_XsXaJJIGEeKeNu01Ba96ig" name="systemcontext" type="_Ixj5oJIEEeKeNu01Ba96ig" association="_XsXaIJIGEeKeNu01Ba96ig"/>
+          <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_OtkAMJITEeKeNu01Ba96ig" name="OnBoardETCSStateMachine1">
+            <region xmi:id="_PJ-PYJITEeKeNu01Ba96ig" name="Region1">
+              <transition xmi:id="_yUiAMJI1EeKeNu01Ba96ig" name="[AcknowledgeBeforeSwitching==True]" source="_mP5yAqHeEeKJYeoGxpmglw" target="_d86KoKHqEeKJYeoGxpmglw">
+                <ownedRule xmi:id="_3AP74JJKEeKUMsViGIwaAw" name="TransitionCondition" constrainedElement="_J9ux0JIEEeKeNu01Ba96ig">
+                  <specification xmi:type="uml:LiteralString" xmi:id="_EG2lwJJLEeKUMsViGIwaAw" name="DistanceConditionForOS" value="speed&lt;max &amp;  min&lt;distance&lt;max"/>
+                </ownedRule>
+              </transition>
+              <transition xmi:id="_P-vZwJJLEeKUMsViGIwaAw" name="Transition1" source="_RDq78JITEeKeNu01Ba96ig" target="_FxIUMKHLEeKJYeoGxpmglw"/>
+              <transition xmi:id="_UbXFsJx1EeKPSu1AFJzN6A" name="[SwitchOStoFS==True]" source="_SmZI4KHrEeKJYeoGxpmglw" target="_T7BjkJITEeKeNu01Ba96ig"/>
+              <transition xmi:id="_FumeQKHDEeKJYeoGxpmglw" name="Transition2" source="_zjk4QKHCEeKJYeoGxpmglw" target="_uZfJsJx3EeKPSu1AFJzN6A"/>
+              <transition xmi:id="_VW8kwKHGEeKJYeoGxpmglw" name="Transition3" source="_1PWdkKHCEeKJYeoGxpmglw" target="_3uVogKHCEeKJYeoGxpmglw"/>
+              <transition xmi:id="_p27voKHJEeKJYeoGxpmglw" name="[AcknowledgeBeforeSwitching==False]" source="_rdhtcKHeEeKJYeoGxpmglw" target="_WKKADaHqEeKJYeoGxpmglw"/>
+              <transition xmi:id="_IElkkKHLEeKJYeoGxpmglw" name="Transition0" source="_FxIUMKHLEeKJYeoGxpmglw" target="_T7BjkJITEeKeNu01Ba96ig"/>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_RDq78JITEeKeNu01Ba96ig" name="Initial0"/>
+              <subvertex xmi:type="uml:State" xmi:id="_T7BjkJITEeKeNu01Ba96ig" name="FS">
+                <connectionPoint xmi:id="_mP5yAqHeEeKJYeoGxpmglw" name="AcknowledgeBeforeSwitching" kind="exitPoint"/>
+                <connectionPoint xmi:id="_rdhtcKHeEeKJYeoGxpmglw" name="AcknowledgeAfterSwitching" kind="exitPoint"/>
+                <doActivity xmi:type="uml:StateMachine" xmi:id="_hA44UKCSEeK6OvILhkSpwQ" name="FSmode">
+                  <connectionPoint xmi:id="_uVZbUKCSEeK6OvILhkSpwQ" name="AcknowledgeBeforeSwitching" kind="exitPoint"/>
+                  <connectionPoint xmi:id="_9HMbsKCSEeK6OvILhkSpwQ" name="AcknowledgeAfterSwitching" kind="exitPoint"/>
+                  <region xmi:id="_h4-W4KCSEeK6OvILhkSpwQ" name="Region1">
+                    <transition xmi:id="_rW1YcKCSEeK6OvILhkSpwQ" name="Transition0" source="_kHYIIKCSEeK6OvILhkSpwQ" target="_kepYoKCSEeK6OvILhkSpwQ"/>
+                    <transition xmi:id="_soemgKCSEeK6OvILhkSpwQ" name="Transition1" source="_kepYoKCSEeK6OvILhkSpwQ" target="_n-N20KCSEeK6OvILhkSpwQ"/>
+                    <transition xmi:id="_Kz74gKCTEeK6OvILhkSpwQ" name="[AcknowledgeBeforeSwitching==True]" source="_U4dlGqHeEeKJYeoGxpmglw" target="_uVZbUKCSEeK6OvILhkSpwQ"/>
+                    <transition xmi:id="_LwBtUKCTEeK6OvILhkSpwQ" name="[AcknowledgeBeforeSwitching==False]" source="_hEdn4KHeEeKJYeoGxpmglw" target="_9HMbsKCSEeK6OvILhkSpwQ"/>
+                    <transition xmi:id="_NTaLoKCTEeK6OvILhkSpwQ" name="ReceiveOSrequestFromFS" source="_n-N20KCSEeK6OvILhkSpwQ" target="_E_ra4KCTEeK6OvILhkSpwQ">
+                      <trigger xmi:id="_ZXsc4KCTEeK6OvILhkSpwQ" name="ReceiveOSRequest" event="_MV2EoJJEEeKUMsViGIwaAw"/>
+                    </transition>
+                    <subvertex xmi:type="uml:Pseudostate" xmi:id="_kHYIIKCSEeK6OvILhkSpwQ" name="Initial0"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_kepYoKCSEeK6OvILhkSpwQ" name="RunningInFSMode"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_n-N20KCSEeK6OvILhkSpwQ" name="ExitingFSMode"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_E_ra4KCTEeK6OvILhkSpwQ" name="PrepareFStoOS">
+                      <connectionPoint xmi:id="_U4dlGqHeEeKJYeoGxpmglw" name="AcknowledgeBeforeSwitching" kind="exitPoint"/>
+                      <connectionPoint xmi:id="_hEdn4KHeEeKJYeoGxpmglw" name="AcknowledgeAfterSwitching" kind="exitPoint"/>
+                      <doActivity xmi:type="uml:StateMachine" xmi:id="_AuWiYKHBEeKJYeoGxpmglw" name="PrepareFStoOS">
+                        <connectionPoint xmi:id="_Cc5SYKHCEeKJYeoGxpmglw" name="AcknowledgeAfterSwitching" kind="exitPoint"/>
+                        <connectionPoint xmi:id="_C-XnwKHCEeKJYeoGxpmglw" name="AcknowledgeBeforeSwitching" kind="exitPoint"/>
+                        <region xmi:id="_CE3CUKHBEeKJYeoGxpmglw" name="Region1">
+                          <transition xmi:id="_GXcR0KHBEeKJYeoGxpmglw" name="Transition0" source="_F00F4KHBEeKJYeoGxpmglw" target="_FSATwKHBEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_l0NasKHBEeKJYeoGxpmglw" name="[DistanceBetweenMaxFrontEndAndOSarea>OSareaThreshold &amp;&amp; Speed &amp;&amp; TrainwithinDist]" source="_FSATwKHBEeKJYeoGxpmglw" target="_OTzrcKHBEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_mmGKoKHBEeKJYeoGxpmglw" name="TrigReceiveAckDriver [t&lt;TimerMaxValue]" source="_OTzrcKHBEeKJYeoGxpmglw" target="_gs4UgKHBEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_8hAiwKHBEeKJYeoGxpmglw" name="[t>=TimerMaxValue]" source="_OTzrcKHBEeKJYeoGxpmglw" target="_5mWvgKHBEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_Dfpv4KHCEeKJYeoGxpmglw" name="[AcknowledgeBeforeSwitching==False]" source="_5mWvgKHBEeKJYeoGxpmglw" target="_Cc5SYKHCEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_EFzw8KHCEeKJYeoGxpmglw" name="[AcknowledgeBeforeSwitching==True]" source="_gs4UgKHBEeKJYeoGxpmglw" target="_C-XnwKHCEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_odTHYKHCEeKJYeoGxpmglw" name="[DistanceBetweenMaxFrontEndAndOSarea&lt;=OSareaThreshold]" source="_FSATwKHBEeKJYeoGxpmglw" target="_5mWvgKHBEeKJYeoGxpmglw"/>
+                          <subvertex xmi:type="uml:State" xmi:id="_FSATwKHBEeKJYeoGxpmglw" name="CheckDistances">
+                            <doActivity xmi:type="uml:Activity" xmi:id="_t4GiMKHNEeKJYeoGxpmglw" name="CheckRectangleOfConditions" node="_-imJkKHNEeKJYeoGxpmglw _Do8_YKHOEeKJYeoGxpmglw _HZQy0KHPEeKJYeoGxpmglw _KFnEUKHPEeKJYeoGxpmglw _UpkLQKHPEeKJYeoGxpmglw _kauW4KHPEeKJYeoGxpmglw _4EYeEKHPEeKJYeoGxpmglw _5NWRQKHPEeKJYeoGxpmglw">
+                              <edge xmi:type="uml:ControlFlow" xmi:id="_MLt1MKHPEeKJYeoGxpmglw" name="ControlFlow2" source="_KFnEUKHPEeKJYeoGxpmglw" target="_Do8_YKHOEeKJYeoGxpmglw"/>
+                              <edge xmi:type="uml:ControlFlow" xmi:id="_M9yyYKHPEeKJYeoGxpmglw" name="ControlFlow3" source="_KFnEUKHPEeKJYeoGxpmglw" target="_HZQy0KHPEeKJYeoGxpmglw">
+                                <weight xmi:type="uml:LiteralInteger" xmi:id="_M945AKHPEeKJYeoGxpmglw"/>
+                              </edge>
+                              <edge xmi:type="uml:ControlFlow" xmi:id="_zYU-oKHPEeKJYeoGxpmglw" name="ControlFlow4" source="_-imJkKHNEeKJYeoGxpmglw" target="_KFnEUKHPEeKJYeoGxpmglw">
+                                <weight xmi:type="uml:LiteralInteger" xmi:id="_zYU-oqHPEeKJYeoGxpmglw"/>
+                              </edge>
+                              <edge xmi:type="uml:ControlFlow" xmi:id="_7L0JEKHPEeKJYeoGxpmglw" name="ControlFlow5" source="_Do8_YKHOEeKJYeoGxpmglw" target="_5NWRQKHPEeKJYeoGxpmglw">
+                                <weight xmi:type="uml:LiteralInteger" xmi:id="_7L0JEqHPEeKJYeoGxpmglw"/>
+                              </edge>
+                              <edge xmi:type="uml:ControlFlow" xmi:id="_7peVcKHPEeKJYeoGxpmglw" name="ControlFlow6" source="_HZQy0KHPEeKJYeoGxpmglw" target="_5NWRQKHPEeKJYeoGxpmglw">
+                                <weight xmi:type="uml:LiteralInteger" xmi:id="_7peVcqHPEeKJYeoGxpmglw"/>
+                              </edge>
+                              <edge xmi:type="uml:ControlFlow" xmi:id="_8MwosKHPEeKJYeoGxpmglw" name="ControlFlow7" source="_5NWRQKHPEeKJYeoGxpmglw" target="_4EYeEKHPEeKJYeoGxpmglw">
+                                <weight xmi:type="uml:LiteralInteger" xmi:id="_8M2vUKHPEeKJYeoGxpmglw"/>
+                              </edge>
+                              <node xmi:type="uml:InitialNode" xmi:id="_-imJkKHNEeKJYeoGxpmglw" name="InitialNode1" outgoing="_zYU-oKHPEeKJYeoGxpmglw"/>
+                              <node xmi:type="uml:OpaqueAction" xmi:id="_Do8_YKHOEeKJYeoGxpmglw" name="CheckDistanceBetweenTrainAndOSarea" outgoing="_7L0JEKHPEeKJYeoGxpmglw" incoming="_MLt1MKHPEeKJYeoGxpmglw"/>
+                              <node xmi:type="uml:OpaqueAction" xmi:id="_HZQy0KHPEeKJYeoGxpmglw" name="CheckTrainSpeed" outgoing="_7peVcKHPEeKJYeoGxpmglw" incoming="_M9yyYKHPEeKJYeoGxpmglw"/>
+                              <node xmi:type="uml:ForkNode" xmi:id="_KFnEUKHPEeKJYeoGxpmglw" name="ForkNode1" outgoing="_MLt1MKHPEeKJYeoGxpmglw _M9yyYKHPEeKJYeoGxpmglw" incoming="_zYU-oKHPEeKJYeoGxpmglw"/>
+                              <node xmi:type="uml:ForkNode" xmi:id="_UpkLQKHPEeKJYeoGxpmglw" name="ForkNode2"/>
+                              <node xmi:type="uml:OpaqueAction" xmi:id="_kauW4KHPEeKJYeoGxpmglw" name="OpaqueAction1"/>
+                              <node xmi:type="uml:ActivityFinalNode" xmi:id="_4EYeEKHPEeKJYeoGxpmglw" name="ActivityFinalNode1" incoming="_8MwosKHPEeKJYeoGxpmglw"/>
+                              <node xmi:type="uml:JoinNode" xmi:id="_5NWRQKHPEeKJYeoGxpmglw" name="JoinNode1" outgoing="_8MwosKHPEeKJYeoGxpmglw" incoming="_7L0JEKHPEeKJYeoGxpmglw _7peVcKHPEeKJYeoGxpmglw"/>
+                            </doActivity>
+                          </subvertex>
+                          <subvertex xmi:type="uml:Pseudostate" xmi:id="_F00F4KHBEeKJYeoGxpmglw" name="Initial0"/>
+                          <subvertex xmi:type="uml:State" xmi:id="_OTzrcKHBEeKJYeoGxpmglw" name="DisplayAcknowledgementRequest">
+                            <doActivity xmi:type="uml:Activity" xmi:id="_RWh3wKHQEeKJYeoGxpmglw" name="DisplayOSAcknowledgementRequest" node="_dhR9YKHQEeKJYeoGxpmglw _jV6OcKHQEeKJYeoGxpmglw _qBTIYKHQEeKJYeoGxpmglw _4Z2iUKHQEeKJYeoGxpmglw">
+                              <edge xmi:type="uml:ControlFlow" xmi:id="_lQ24MKHQEeKJYeoGxpmglw" name="ControlFlow1" source="_dhR9YKHQEeKJYeoGxpmglw" target="_jV6OcKHQEeKJYeoGxpmglw">
+                                <weight xmi:type="uml:LiteralInteger" xmi:id="_lQ24MqHQEeKJYeoGxpmglw"/>
+                              </edge>
+                              <edge xmi:type="uml:ControlFlow" xmi:id="_xVnqkKHQEeKJYeoGxpmglw" name="ControlFlow2" source="_jV6OcKHQEeKJYeoGxpmglw" target="_qBTIYKHQEeKJYeoGxpmglw">
+                                <weight xmi:type="uml:LiteralInteger" xmi:id="_xVtxMaHQEeKJYeoGxpmglw"/>
+                              </edge>
+                              <edge xmi:type="uml:ControlFlow" xmi:id="_5tZN0KHQEeKJYeoGxpmglw" name="ControlFlow3" source="_qBTIYKHQEeKJYeoGxpmglw" target="_4Z2iUKHQEeKJYeoGxpmglw">
+                                <weight xmi:type="uml:LiteralInteger" xmi:id="_5tZN0qHQEeKJYeoGxpmglw"/>
+                              </edge>
+                              <node xmi:type="uml:InitialNode" xmi:id="_dhR9YKHQEeKJYeoGxpmglw" name="InitialNode1" outgoing="_lQ24MKHQEeKJYeoGxpmglw"/>
+                              <node xmi:type="uml:SendSignalAction" xmi:id="_jV6OcKHQEeKJYeoGxpmglw" name="SendDisplayOSackRequest" outgoing="_xVnqkKHQEeKJYeoGxpmglw" incoming="_lQ24MKHQEeKJYeoGxpmglw" signal="_-bLRoJIkEeKeNu01Ba96ig">
+                                <target xmi:id="_jV6OcaHQEeKJYeoGxpmglw" name="target">
+                                  <upperBound xmi:type="uml:LiteralInteger" xmi:id="_jV6OcqHQEeKJYeoGxpmglw" value="1"/>
+                                </target>
+                              </node>
+                              <node xmi:type="uml:AcceptEventAction" xmi:id="_qBTIYKHQEeKJYeoGxpmglw" name="ReceiveAcknowledgementRequest" outgoing="_5tZN0KHQEeKJYeoGxpmglw" incoming="_xVnqkKHQEeKJYeoGxpmglw"/>
+                              <node xmi:type="uml:ActivityFinalNode" xmi:id="_4Z2iUKHQEeKJYeoGxpmglw" name="ActivityFinalNode1" incoming="_5tZN0KHQEeKJYeoGxpmglw"/>
+                            </doActivity>
+                            <entry xmi:type="uml:FunctionBehavior" xmi:id="_aSj8cKHBEeKJYeoGxpmglw" name="StartTimer">
+                              <language>Natural language</language>
+                              <body>StartTimer();</body>
+                            </entry>
+                          </subvertex>
+                          <subvertex xmi:type="uml:State" xmi:id="_gs4UgKHBEeKJYeoGxpmglw" name="ReceiveAckWithinTime">
+                            <entry xmi:type="uml:FunctionBehavior" xmi:id="_VOUQQKXDEeK3cLaFGt6m0Q" name="SetAcknowledgeBeforeSwitchingTrue">
+                              <language>Natural language</language>
+                              <body>SetAcknowledgeBeforeSwitching(True);</body>
+                            </entry>
+                          </subvertex>
+                          <subvertex xmi:type="uml:State" xmi:id="_5mWvgKHBEeKJYeoGxpmglw" name="NoAckWithinTime">
+                            <entry xmi:type="uml:FunctionBehavior" xmi:id="_BT-BsKXDEeK3cLaFGt6m0Q" name="SetAcknowledgeBeforeSwitchingFalse">
+                              <language>Natural language</language>
+                              <body>SetAcknowledgeBeforeSwitching(False);</body>
+                            </entry>
+                          </subvertex>
+                        </region>
+                      </doActivity>
+                      <region xmi:id="_U4XecKHeEeKJYeoGxpmglw" name="Region0"/>
+                    </subvertex>
+                  </region>
+                </doActivity>
+                <entry xmi:type="uml:Activity" xmi:id="_CtgyMKHLEeKJYeoGxpmglw" name="SwitchToFSmode"/>
+                <region xmi:id="_mPzrYKHeEeKJYeoGxpmglw" name="Region0"/>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_Uc8k4JITEeKeNu01Ba96ig" name="OS">
+                <connectionPoint xmi:id="_WKKADaHqEeKJYeoGxpmglw" name="AcknowledgeAfterSwitching" kind="entryPoint"/>
+                <connectionPoint xmi:id="_d86KoKHqEeKJYeoGxpmglw" name="AcknowledgeBeforeSwitching" kind="entryPoint"/>
+                <connectionPoint xmi:id="_SmZI4KHrEeKJYeoGxpmglw" name="SwitchOStoFS" kind="exitPoint"/>
+                <doActivity xmi:type="uml:StateMachine" xmi:id="_s1fboJxcEeKPSu1AFJzN6A" name="OSmode">
+                  <connectionPoint xmi:id="_zjk4QKHCEeKJYeoGxpmglw" name="AcknowledgeBeforeSwitching" kind="entryPoint"/>
+                  <connectionPoint xmi:id="_1PWdkKHCEeKJYeoGxpmglw" name="AcknowledgeAfterSwitching" kind="entryPoint"/>
+                  <connectionPoint xmi:id="_5MG_UKHIEeKJYeoGxpmglw" name="SwitchOStoFS" kind="exitPoint"/>
+                  <region xmi:id="_t8YyQJxcEeKPSu1AFJzN6A" name="OSdiagram">
+                    <transition xmi:id="_ysFnUJx3EeKPSu1AFJzN6A" name="Transition0" source="_vpyIMJxcEeKPSu1AFJzN6A" target="_E51coKHHEeKJYeoGxpmglw"/>
+                    <transition xmi:id="_mBhIAJ0NEeKPSu1AFJzN6A" name="Transition1" source="_uZfJsJx3EeKPSu1AFJzN6A" target="_jbW-EJ0NEeKPSu1AFJzN6A"/>
+                    <transition xmi:id="_dcTXwKHFEeKJYeoGxpmglw" name="[TrainSpeed>OSmaxspeed]" source="_3uVogKHCEeKJYeoGxpmglw" target="_CzQckKHFEeKJYeoGxpmglw"/>
+                    <transition xmi:id="_eCo_AKHFEeKJYeoGxpmglw" name="[TrainSpeed&lt;=OSmaxspeed]" source="_3uVogKHCEeKJYeoGxpmglw" target="_ICs88KHFEeKJYeoGxpmglw"/>
+                    <transition xmi:id="_erpfwKHFEeKJYeoGxpmglw" name="[TrainSpeed&lt;=OSmaxspeed &amp;&amp; EmergencyStop==False]" source="_CzQckKHFEeKJYeoGxpmglw" target="_ICs88KHFEeKJYeoGxpmglw"/>
+                    <transition xmi:id="_3VY1oKHFEeKJYeoGxpmglw" name="[t>TimerMaxValue] / TriggerEmergencyBrake()" source="_ICs88KHFEeKJYeoGxpmglw" target="_CzQckKHFEeKJYeoGxpmglw"/>
+                    <transition xmi:id="_1QRt0KHGEeKJYeoGxpmglw" name="[TrainSpeed==0 &amp;&amp; EmergencyStop==True]" source="_CzQckKHFEeKJYeoGxpmglw" target="_u865YKHGEeKJYeoGxpmglw"/>
+                    <transition xmi:id="_K4lTAKHHEeKJYeoGxpmglw" name="Transition2" source="_E51coKHHEeKJYeoGxpmglw" target="_uZfJsJx3EeKPSu1AFJzN6A"/>
+                    <transition xmi:id="_ORqHoKHHEeKJYeoGxpmglw" name="TrigReceiveAckDriver [t&lt;=TimerMaxValue]" source="_ICs88KHFEeKJYeoGxpmglw" target="_uZfJsJx3EeKPSu1AFJzN6A"/>
+                    <transition xmi:id="_m4nPQKHHEeKJYeoGxpmglw" name="Termination" source="_u865YKHGEeKJYeoGxpmglw" target="_mVnP4KHHEeKJYeoGxpmglw"/>
+                    <transition xmi:id="_2XZRcKHHEeKJYeoGxpmglw" name="FSrequest" source="_jbW-EJ0NEeKPSu1AFJzN6A" target="_yGnYwKHHEeKJYeoGxpmglw"/>
+                    <transition xmi:id="_6ea7wKHIEeKJYeoGxpmglw" name="[SwitchOStoFS==True]" source="_yGnYwKHHEeKJYeoGxpmglw" target="_5MG_UKHIEeKJYeoGxpmglw"/>
+                    <subvertex xmi:type="uml:Pseudostate" xmi:id="_vpyIMJxcEeKPSu1AFJzN6A" name="Initial0"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_uZfJsJx3EeKPSu1AFJzN6A" name="RunningInOSMode"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_jbW-EJ0NEeKPSu1AFJzN6A" name="ExitingOSMode"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_3uVogKHCEeKJYeoGxpmglw" name="CheckTrainSpeed"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_CzQckKHFEeKJYeoGxpmglw" name="Brake"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_ICs88KHFEeKJYeoGxpmglw" name="DisplayAcknowledgeRequest">
+                      <entry xmi:type="uml:FunctionBehavior" xmi:id="_NvVvoKHFEeKJYeoGxpmglw" name="StartTimer">
+                        <language>Natural language</language>
+                        <body>StartTimer();</body>
+                      </entry>
+                    </subvertex>
+                    <subvertex xmi:type="uml:State" xmi:id="_u865YKHGEeKJYeoGxpmglw" name="EmergencyStop"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_E51coKHHEeKJYeoGxpmglw" name="TBD"/>
+                    <subvertex xmi:type="uml:Pseudostate" xmi:id="_mVnP4KHHEeKJYeoGxpmglw" name="Terminate0" kind="terminate"/>
+                    <subvertex xmi:type="uml:State" xmi:id="_yGnYwKHHEeKJYeoGxpmglw" name="PrepareOStoFS">
+                      <doActivity xmi:type="uml:StateMachine" xmi:id="_7fxggKHHEeKJYeoGxpmglw" name="PrepareOStoFS">
+                        <connectionPoint xmi:id="_mVGdEKHIEeKJYeoGxpmglw" name="ExitPoint0" kind="exitPoint"/>
+                        <connectionPoint xmi:id="_ywK2oKHIEeKJYeoGxpmglw" name="SwitchOStoFS" kind="exitPoint"/>
+                        <region xmi:id="_8QzU0KHHEeKJYeoGxpmglw" name="Region1">
+                          <transition xmi:id="_P5AqgKHIEeKJYeoGxpmglw" name="Transition0" source="_-CBa0KHHEeKJYeoGxpmglw" target="__qplgKHHEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_QytSoKHIEeKJYeoGxpmglw" name="[ERTMSlevel==2 || ERTMSlevel==3]" source="__qplgKHHEeKJYeoGxpmglw" target="_M-7fAKHIEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_Wt768KHIEeKJYeoGxpmglw" name="[ERTMSlevel==1]" source="__qplgKHHEeKJYeoGxpmglw" target="_KhdXAKHIEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_bxvzEKHIEeKJYeoGxpmglw" name="TrigDriverTrackAheadFreeInformationSentToRBC" source="_M-7fAKHIEeKJYeoGxpmglw" target="_KhdXAKHIEeKJYeoGxpmglw"/>
+                          <transition xmi:id="_sE-J8KHIEeKJYeoGxpmglw" name="TrigReceiveMAinFS / SwitchOStoFSok()" source="_KhdXAKHIEeKJYeoGxpmglw" target="_ywK2oKHIEeKJYeoGxpmglw"/>
+                          <subvertex xmi:type="uml:Pseudostate" xmi:id="_-CBa0KHHEeKJYeoGxpmglw" name="Initial0"/>
+                          <subvertex xmi:type="uml:State" xmi:id="__qplgKHHEeKJYeoGxpmglw" name="Idle"/>
+                          <subvertex xmi:type="uml:State" xmi:id="_KhdXAKHIEeKJYeoGxpmglw" name="ReceiveMA"/>
+                          <subvertex xmi:type="uml:State" xmi:id="_M-7fAKHIEeKJYeoGxpmglw" name="DisplayTrackAheadFreeRequest"/>
+                        </region>
+                      </doActivity>
+                    </subvertex>
+                  </region>
+                </doActivity>
+                <entry xmi:type="uml:Activity" xmi:id="_A5gIQJx4EeKPSu1AFJzN6A" name="SwitchToOSMode" node="_oUmZoJx4EeKPSu1AFJzN6A _V2ZY8Jx4EeKPSu1AFJzN6A _O-5VoJx4EeKPSu1AFJzN6A _OEh_IJx4EeKPSu1AFJzN6A">
+                  <edge xmi:type="uml:ControlFlow" xmi:id="_p81iwJx4EeKPSu1AFJzN6A" name="ControlFlow1" source="_OEh_IJx4EeKPSu1AFJzN6A" target="_O-5VoJx4EeKPSu1AFJzN6A">
+                    <weight xmi:type="uml:LiteralInteger" xmi:id="_p81iwpx4EeKPSu1AFJzN6A"/>
+                  </edge>
+                  <edge xmi:type="uml:ControlFlow" xmi:id="_qaUI8Jx4EeKPSu1AFJzN6A" name="ControlFlow2" source="_O-5VoJx4EeKPSu1AFJzN6A" target="_oUmZoJx4EeKPSu1AFJzN6A">
+                    <weight xmi:type="uml:LiteralInteger" xmi:id="_qaUI8px4EeKPSu1AFJzN6A"/>
+                  </edge>
+                  <node xmi:type="uml:InitialNode" xmi:id="_OEh_IJx4EeKPSu1AFJzN6A" name="InitialNode1" outgoing="_p81iwJx4EeKPSu1AFJzN6A"/>
+                  <node xmi:type="uml:OpaqueAction" xmi:id="_O-5VoJx4EeKPSu1AFJzN6A" name="SwitchToOSMode" outgoing="_qaUI8Jx4EeKPSu1AFJzN6A" incoming="_p81iwJx4EeKPSu1AFJzN6A"/>
+                  <node xmi:type="uml:CreateObjectAction" xmi:id="_V2ZY8Jx4EeKPSu1AFJzN6A" name="CreateObjectAction1">
+                    <result xmi:id="_V2ffkJx4EeKPSu1AFJzN6A" name="result">
+                      <upperBound xmi:type="uml:LiteralInteger" xmi:id="_V2ffkZx4EeKPSu1AFJzN6A" value="1"/>
+                    </result>
+                  </node>
+                  <node xmi:type="uml:ActivityFinalNode" xmi:id="_oUmZoJx4EeKPSu1AFJzN6A" name="ActivityFinalNode1" incoming="_qaUI8Jx4EeKPSu1AFJzN6A"/>
+                </entry>
+                <region xmi:id="_WKKAAKHqEeKJYeoGxpmglw" name="Region0"/>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_FxIUMKHLEeKJYeoGxpmglw" name="SB"/>
+            </region>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:Activity" xmi:id="_QLLYQJIUEeKeNu01Ba96ig" name="Procedure 5.9 OnSight" node="_QDtA0JIgEeKeNu01Ba96ig _RmV4QJIgEeKeNu01Ba96ig _n0lcEJIgEeKeNu01Ba96ig _-bnWgJIkEeKeNu01Ba96ig _IiCWcJIxEeKeNu01Ba96ig _9g2QMJJMEeKUMsViGIwaAw _LLUcIJJNEeKUMsViGIwaAw _a8RzcJJNEeKUMsViGIwaAw _HfsV8JeSEeKV9cIPc5VdjA _erPPgJeSEeKV9cIPc5VdjA _ku6MsJeTEeKV9cIPc5VdjA _Rj0oIJekEeKV9cIPc5VdjA">
+            <ownedBehavior xmi:type="uml:Activity" xmi:id="_IhlqgJIxEeKeNu01Ba96ig" name="Activity1" node="__B8nMJeJEeKV9cIPc5VdjA _TLFqQJeLEeKV9cIPc5VdjA _XzjDIJeLEeKV9cIPc5VdjA _fI4R8JeLEeKV9cIPc5VdjA _jE5bkJeLEeKV9cIPc5VdjA _mHd0sJeLEeKV9cIPc5VdjA _okpBwJeLEeKV9cIPc5VdjA _s7wc4JeUEeKV9cIPc5VdjA _yx3UoJeUEeKV9cIPc5VdjA _45A5EJeUEeKV9cIPc5VdjA _KpScwJeVEeKV9cIPc5VdjA _bEwJoJeVEeKV9cIPc5VdjA">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_U_j4kJeLEeKV9cIPc5VdjA" name="ControlFlow1" source="__B8nMJeJEeKV9cIPc5VdjA" target="_TLFqQJeLEeKV9cIPc5VdjA">
+                <guard xmi:type="uml:LiteralBoolean" xmi:id="_U_j4kZeLEeKV9cIPc5VdjA" value="true"/>
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_U_j4kpeLEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_hmC38JeLEeKV9cIPc5VdjA" name="ControlFlow2" source="__B8nMJeJEeKV9cIPc5VdjA" target="_fI4R8JeLEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_hmC38peLEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_q1VSAJeLEeKV9cIPc5VdjA" name="ControlFlow3" source="_jE5bkJeLEeKV9cIPc5VdjA" target="_s7wc4JeUEeKV9cIPc5VdjA">
+                <guard xmi:type="uml:LiteralString" xmi:id="_ED0BwJeOEeKV9cIPc5VdjA" name="DriverAcknowledgeWithinTime" value="True"/>
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_q1bYoZeLEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_raVcgJeLEeKV9cIPc5VdjA" name="ControlFlow4" source="_jE5bkJeLEeKV9cIPc5VdjA" target="_okpBwJeLEeKV9cIPc5VdjA">
+                <guard xmi:type="uml:LiteralString" xmi:id="_HS83QJeOEeKV9cIPc5VdjA" name="DriverAcknowledgeWithinTime" value="False"/>
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_raVcgpeLEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_r4k3sJeLEeKV9cIPc5VdjA" name="ControlFlow5" source="_mHd0sJeLEeKV9cIPc5VdjA" target="_bEwJoJeVEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_r4k3speLEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_s0WjcJeLEeKV9cIPc5VdjA" name="ControlFlow6" source="_fI4R8JeLEeKV9cIPc5VdjA" target="_jE5bkJeLEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_s0XKgZeLEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_2ZKLcJeUEeKV9cIPc5VdjA" name="ControlFlow7" source="_s7wc4JeUEeKV9cIPc5VdjA" target="_yx3UoJeUEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_2ZKLcpeUEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_AHJTsJeVEeKV9cIPc5VdjA" name="ControlFlow8" source="_yx3UoJeUEeKV9cIPc5VdjA" target="_45A5EJeUEeKV9cIPc5VdjA">
+                <guard xmi:type="uml:LiteralString" xmi:id="_VNVDQJeVEeKV9cIPc5VdjA" name="TrainSpeedValueIsInferiorToOSMaxSpeedValue" value="False"/>
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_AHJTspeVEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_Gc_bcJeVEeKV9cIPc5VdjA" name="ControlFlow9" source="_s7wc4JeUEeKV9cIPc5VdjA" target="_mHd0sJeLEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_Gc_bcpeVEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_OubtMJeVEeKV9cIPc5VdjA" name="ControlFlow10" source="_yx3UoJeUEeKV9cIPc5VdjA" target="_KpScwJeVEeKV9cIPc5VdjA">
+                <guard xmi:type="uml:LiteralString" xmi:id="_Tw0B8JeVEeKV9cIPc5VdjA" name="TrainSpeedValueIsInferiorToOSMaxSpeedValue" value="True"/>
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_OubtMpeVEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_YrwR8JeVEeKV9cIPc5VdjA" name="ControlFlow11" source="_45A5EJeUEeKV9cIPc5VdjA" target="_KpScwJeVEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_YrwR8peVEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_gAXvEJeVEeKV9cIPc5VdjA" name="ControlFlow12" source="_KpScwJeVEeKV9cIPc5VdjA" target="_bEwJoJeVEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_gAXvEpeVEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_iE2IQJeVEeKV9cIPc5VdjA" name="ControlFlow13" source="_bEwJoJeVEeKV9cIPc5VdjA" target="_okpBwJeLEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_iE2IQpeVEeKV9cIPc5VdjA"/>
+              </edge>
+              <node xmi:type="uml:InitialNode" xmi:id="__B8nMJeJEeKV9cIPc5VdjA" name="InitialNode1" outgoing="_U_j4kJeLEeKV9cIPc5VdjA _hmC38JeLEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:ForkNode" xmi:id="_TLFqQJeLEeKV9cIPc5VdjA" name="ForkNode1" incoming="_U_j4kJeLEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:AcceptEventAction" xmi:id="_XzjDIJeLEeKV9cIPc5VdjA" name="AcceptEventAction1"/>
+              <node xmi:type="uml:AcceptEventAction" xmi:id="_fI4R8JeLEeKV9cIPc5VdjA" name="ReceiveDriverAckForOS" outgoing="_s0WjcJeLEeKV9cIPc5VdjA" incoming="_hmC38JeLEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:DecisionNode" xmi:id="_jE5bkJeLEeKV9cIPc5VdjA" name="DecisionNode1" outgoing="_q1VSAJeLEeKV9cIPc5VdjA _raVcgJeLEeKV9cIPc5VdjA" incoming="_s0WjcJeLEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:OpaqueAction" xmi:id="_mHd0sJeLEeKV9cIPc5VdjA" name="SwitchToOSmode" outgoing="_r4k3sJeLEeKV9cIPc5VdjA" incoming="_Gc_bcJeVEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_okpBwJeLEeKV9cIPc5VdjA" name="ActivityFinalNode1" incoming="_raVcgJeLEeKV9cIPc5VdjA _iE2IQJeVEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:ForkNode" xmi:id="_s7wc4JeUEeKV9cIPc5VdjA" name="ForkNode2" outgoing="_2ZKLcJeUEeKV9cIPc5VdjA _Gc_bcJeVEeKV9cIPc5VdjA" incoming="_q1VSAJeLEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:DecisionNode" xmi:id="_yx3UoJeUEeKV9cIPc5VdjA" name="DecisionNode2" outgoing="_AHJTsJeVEeKV9cIPc5VdjA _OubtMJeVEeKV9cIPc5VdjA" incoming="_2ZKLcJeUEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:OpaqueAction" xmi:id="_45A5EJeUEeKV9cIPc5VdjA" name="TriggerServiceEmergencyBrake" outgoing="_YrwR8JeVEeKV9cIPc5VdjA" incoming="_AHJTsJeVEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:MergeNode" xmi:id="_KpScwJeVEeKV9cIPc5VdjA" name="MergeNode1" outgoing="_gAXvEJeVEeKV9cIPc5VdjA" incoming="_OubtMJeVEeKV9cIPc5VdjA _YrwR8JeVEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:JoinNode" xmi:id="_bEwJoJeVEeKV9cIPc5VdjA" name="JoinNode1" outgoing="_iE2IQJeVEeKV9cIPc5VdjA" incoming="_r4k3sJeLEeKV9cIPc5VdjA _gAXvEJeVEeKV9cIPc5VdjA"/>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:Activity" xmi:id="_LK3wMJJNEeKUMsViGIwaAw" name="Activity3" node="_4TDaYJeWEeKV9cIPc5VdjA __OqrMJeiEeKV9cIPc5VdjA _Jnlm0JejEeKV9cIPc5VdjA _Z1cVgJejEeKV9cIPc5VdjA _eLa3QJejEeKV9cIPc5VdjA _uHeEQJejEeKV9cIPc5VdjA _xyPF0JejEeKV9cIPc5VdjA">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_KuEtwJejEeKV9cIPc5VdjA" name="ControlFlow1" source="_4TDaYJeWEeKV9cIPc5VdjA" target="__OqrMJeiEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_KuK0YZejEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_LXeQEJejEeKV9cIPc5VdjA" name="ControlFlow2" source="__OqrMJeiEeKV9cIPc5VdjA" target="_Jnlm0JejEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_LXeQEpejEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_fYxbMJejEeKV9cIPc5VdjA" name="ControlFlow3" source="_Jnlm0JejEeKV9cIPc5VdjA" target="_Z1cVgJejEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_fYxbMpejEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_f3xEUJejEeKV9cIPc5VdjA" name="ControlFlow4" source="_Z1cVgJejEeKV9cIPc5VdjA" target="_eLa3QJejEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_f33K8ZejEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_wBSFkJejEeKV9cIPc5VdjA" name="ControlFlow5" source="_eLa3QJejEeKV9cIPc5VdjA" target="_uHeEQJejEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_wBSFkpejEeKV9cIPc5VdjA"/>
+              </edge>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_ykx9EJejEeKV9cIPc5VdjA" name="ControlFlow6" source="_uHeEQJejEeKV9cIPc5VdjA" target="_xyPF0JejEeKV9cIPc5VdjA">
+                <weight xmi:type="uml:LiteralInteger" xmi:id="_ykx9EpejEeKV9cIPc5VdjA"/>
+              </edge>
+              <node xmi:type="uml:InitialNode" xmi:id="_4TDaYJeWEeKV9cIPc5VdjA" name="InitialNode1" outgoing="_KuEtwJejEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:AcceptEventAction" xmi:id="__OqrMJeiEeKV9cIPc5VdjA" name="ReceiveTrackAheadFreeInformationRequest" outgoing="_LXeQEJejEeKV9cIPc5VdjA" incoming="_KuEtwJejEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:SendSignalAction" xmi:id="_Jnlm0JejEeKV9cIPc5VdjA" name="SendDisplayTrackAheadFreeRequest" outgoing="_fYxbMJejEeKV9cIPc5VdjA" incoming="_LXeQEJejEeKV9cIPc5VdjA">
+                <target xmi:id="_JoQVMJejEeKV9cIPc5VdjA" name="target">
+                  <upperBound xmi:type="uml:LiteralInteger" xmi:id="_JoQVMZejEeKV9cIPc5VdjA" value="1"/>
+                </target>
+              </node>
+              <node xmi:type="uml:AcceptEventAction" xmi:id="_Z1cVgJejEeKV9cIPc5VdjA" name="ReceiveTrackAheadFreeInformation" outgoing="_f3xEUJejEeKV9cIPc5VdjA" incoming="_fYxbMJejEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:SendSignalAction" xmi:id="_eLa3QJejEeKV9cIPc5VdjA" name="SendTrackAheadIsFree" outgoing="_wBSFkJejEeKV9cIPc5VdjA" incoming="_f3xEUJejEeKV9cIPc5VdjA" signal="_eK8WIJejEeKV9cIPc5VdjA">
+                <target xmi:id="_eLa3QZejEeKV9cIPc5VdjA" name="target">
+                  <upperBound xmi:type="uml:LiteralInteger" xmi:id="_eLa3QpejEeKV9cIPc5VdjA" value="1"/>
+                </target>
+              </node>
+              <node xmi:type="uml:AcceptEventAction" xmi:id="_uHeEQJejEeKV9cIPc5VdjA" name="ReceiveUpdatedMA" outgoing="_ykx9EJejEeKV9cIPc5VdjA" incoming="_wBSFkJejEeKV9cIPc5VdjA"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_xyPF0JejEeKV9cIPc5VdjA" name="ActivityFinalNode1" incoming="_ykx9EJejEeKV9cIPc5VdjA"/>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:Activity" xmi:id="_kuJXsJeTEeKV9cIPc5VdjA" name="Activity4"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_BGHN4JIlEeKeNu01Ba96ig" name="YesBranchControlFlow1" source="_n0lcEJIgEeKeNu01Ba96ig" target="_ku6MsJeTEeKV9cIPc5VdjA">
+              <guard xmi:type="uml:LiteralString" xmi:id="_hJiawJeOEeKV9cIPc5VdjA" name="DistanceBetweenTrainAndOSarea" value="IsLongerThanThreshold"/>
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_BGQX0ZIlEeKeNu01Ba96ig"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_LJtZwJIlEeKeNu01Ba96ig" name="ControlFlow1" source="_QDtA0JIgEeKeNu01Ba96ig" target="_RmV4QJIgEeKeNu01Ba96ig">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_LJtZwpIlEeKeNu01Ba96ig"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_LwGEUJIlEeKeNu01Ba96ig" name="ControlFlow2" source="_RmV4QJIgEeKeNu01Ba96ig" target="_n0lcEJIgEeKeNu01Ba96ig">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_LwGEUpIlEeKeNu01Ba96ig"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_aceZMJIlEeKeNu01Ba96ig" name="ControlFlow3" source="_-bnWgJIkEeKeNu01Ba96ig" target="_IiCWcJIxEeKeNu01Ba96ig">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_aceZMpIlEeKeNu01Ba96ig"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_D8WUAJJNEeKUMsViGIwaAw" name="ControlFlow4" source="_n0lcEJIgEeKeNu01Ba96ig" target="_HfsV8JeSEeKV9cIPc5VdjA">
+              <guard xmi:type="uml:LiteralString" xmi:id="_cgGxgJeOEeKV9cIPc5VdjA" name="DistanceBetweenTrainAndOSarea" value="IsShorterThanThreshold"/>
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_D8WUApJNEeKUMsViGIwaAw"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_MUg40JJNEeKUMsViGIwaAw" name="ControlFlow5" source="_9g2QMJJMEeKUMsViGIwaAw" target="_a8RzcJJNEeKUMsViGIwaAw">
+              <guard xmi:type="uml:LiteralBoolean" xmi:id="_MUg40ZJNEeKUMsViGIwaAw" value="true"/>
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_MUg40pJNEeKUMsViGIwaAw"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_dXvwUJJNEeKUMsViGIwaAw" name="ControlFlow6" source="_IiCWcJIxEeKeNu01Ba96ig" target="_erPPgJeSEeKV9cIPc5VdjA">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_dXvwUpJNEeKUMsViGIwaAw"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_eGwLYJJNEeKUMsViGIwaAw" name="ControlFlow7" source="_a8RzcJJNEeKUMsViGIwaAw" target="_LLUcIJJNEeKUMsViGIwaAw">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_eGwLYpJNEeKUMsViGIwaAw"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_QWnTUJeSEeKV9cIPc5VdjA" name="ControlFlow8" source="_HfsV8JeSEeKV9cIPc5VdjA" target="_-bnWgJIkEeKeNu01Ba96ig">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_QWtZ8ZeSEeKV9cIPc5VdjA"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_Q4AJIJeSEeKV9cIPc5VdjA" name="ControlFlow9" source="_-bnWgJIkEeKeNu01Ba96ig" target="_IiCWcJIxEeKeNu01Ba96ig">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_Q4AJIpeSEeKV9cIPc5VdjA"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_S8rWoJeSEeKV9cIPc5VdjA" name="ControlFlow10" source="_IiCWcJIxEeKeNu01Ba96ig" target="_a8RzcJJNEeKUMsViGIwaAw">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_S8rWopeSEeKV9cIPc5VdjA"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_iaERsJeSEeKV9cIPc5VdjA" name="ControlFlow11" source="_erPPgJeSEeKV9cIPc5VdjA" target="_HfsV8JeSEeKV9cIPc5VdjA">
+              <guard xmi:type="uml:LiteralString" xmi:id="_x9dHEJeSEeKV9cIPc5VdjA" name="DriverAcknowledgeWithinTimeAndDistance" value="False"/>
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_iaERspeSEeKV9cIPc5VdjA"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_lxb2IJeSEeKV9cIPc5VdjA" name="ControlFlow12" source="_erPPgJeSEeKV9cIPc5VdjA" target="_a8RzcJJNEeKUMsViGIwaAw">
+              <guard xmi:type="uml:LiteralString" xmi:id="_3weOkJeSEeKV9cIPc5VdjA" name="DriverAcknowledgeWithinTimeAndDistance" value="True"/>
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_lxb2IpeSEeKV9cIPc5VdjA"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_sxXnQJeTEeKV9cIPc5VdjA" name="ControlFlow13" source="_ku6MsJeTEeKV9cIPc5VdjA" target="_-bnWgJIkEeKeNu01Ba96ig">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_sxXnQpeTEeKV9cIPc5VdjA"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_Syy8sJekEeKV9cIPc5VdjA" name="ControlFlow14" source="_LLUcIJJNEeKUMsViGIwaAw" target="_Rj0oIJekEeKV9cIPc5VdjA">
+              <weight xmi:type="uml:LiteralInteger" xmi:id="_Syy8spekEeKV9cIPc5VdjA"/>
+            </edge>
+            <node xmi:type="uml:InitialNode" xmi:id="_QDtA0JIgEeKeNu01Ba96ig" name="InitialNode1" outgoing="_LJtZwJIlEeKeNu01Ba96ig"/>
+            <node xmi:type="uml:AcceptEventAction" xmi:id="_RmV4QJIgEeKeNu01Ba96ig" name="WaitForOSrequest" outgoing="_LwGEUJIlEeKeNu01Ba96ig" incoming="_LJtZwJIlEeKeNu01Ba96ig">
+              <trigger xmi:id="_jUbgQJJEEeKUMsViGIwaAw" name="TriggerOnOSrequest" event="_MV2EoJJEEeKUMsViGIwaAw"/>
+            </node>
+            <node xmi:type="uml:DecisionNode" xmi:id="_n0lcEJIgEeKeNu01Ba96ig" name="TestDistanceCondition" outgoing="_BGHN4JIlEeKeNu01Ba96ig _D8WUAJJNEeKUMsViGIwaAw" incoming="_LwGEUJIlEeKeNu01Ba96ig"/>
+            <node xmi:type="uml:SendSignalAction" xmi:id="_-bnWgJIkEeKeNu01Ba96ig" name="SendDisplayOSackRequest" outgoing="_aceZMJIlEeKeNu01Ba96ig _Q4AJIJeSEeKV9cIPc5VdjA" incoming="_QWnTUJeSEeKV9cIPc5VdjA _sxXnQJeTEeKV9cIPc5VdjA" signal="_-bLRoJIkEeKeNu01Ba96ig">
+              <target xmi:id="_-bnWgZIkEeKeNu01Ba96ig" name="targetDriver">
+                <upperBound xmi:type="uml:LiteralInteger" xmi:id="_-bnWgpIkEeKeNu01Ba96ig" value="1"/>
+              </target>
+            </node>
+            <node xmi:type="uml:CallBehaviorAction" xmi:id="_IiCWcJIxEeKeNu01Ba96ig" name="WaitingForDriverAcknowledgement" outgoing="_dXvwUJJNEeKUMsViGIwaAw _S8rWoJeSEeKV9cIPc5VdjA" incoming="_aceZMJIlEeKeNu01Ba96ig _Q4AJIJeSEeKV9cIPc5VdjA" behavior="_IhlqgJIxEeKeNu01Ba96ig"/>
+            <node xmi:type="uml:CallBehaviorAction" xmi:id="_9g2QMJJMEeKUMsViGIwaAw" name="CallBehaviorAction2" outgoing="_MUg40JJNEeKUMsViGIwaAw"/>
+            <node xmi:type="uml:CallBehaviorAction" xmi:id="_LLUcIJJNEeKUMsViGIwaAw" name="LeavingOSModeToFS" outgoing="_Syy8sJekEeKV9cIPc5VdjA" incoming="_eGwLYJJNEeKUMsViGIwaAw" behavior="_LK3wMJJNEeKUMsViGIwaAw"/>
+            <node xmi:type="uml:MergeNode" xmi:id="_a8RzcJJNEeKUMsViGIwaAw" name="MergeNode1" outgoing="_eGwLYJJNEeKUMsViGIwaAw" incoming="_MUg40JJNEeKUMsViGIwaAw _S8rWoJeSEeKV9cIPc5VdjA _lxb2IJeSEeKV9cIPc5VdjA"/>
+            <node xmi:type="uml:OpaqueAction" xmi:id="_HfsV8JeSEeKV9cIPc5VdjA" name="SwitchToOSmode" outgoing="_QWnTUJeSEeKV9cIPc5VdjA" incoming="_D8WUAJJNEeKUMsViGIwaAw _iaERsJeSEeKV9cIPc5VdjA"/>
+            <node xmi:type="uml:DecisionNode" xmi:id="_erPPgJeSEeKV9cIPc5VdjA" name="DecisionNode1" outgoing="_iaERsJeSEeKV9cIPc5VdjA _lxb2IJeSEeKV9cIPc5VdjA" incoming="_dXvwUJJNEeKUMsViGIwaAw"/>
+            <node xmi:type="uml:CallBehaviorAction" xmi:id="_ku6MsJeTEeKV9cIPc5VdjA" name="EnsureConditionsAreOK" outgoing="_sxXnQJeTEeKV9cIPc5VdjA" incoming="_BGHN4JIlEeKeNu01Ba96ig" behavior="_kuJXsJeTEeKV9cIPc5VdjA"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_Rj0oIJekEeKV9cIPc5VdjA" name="ActivityFinalNode1" incoming="_Syy8sJekEeKV9cIPc5VdjA"/>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_cQbckJJFEeKUMsViGIwaAw" name="operation1"/>
+          <ownedReception xmi:id="_c1n0UJJFEeKUMsViGIwaAw" name="reception1"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_VkFJ4JIEEeKeNu01Ba96ig" name="Comm">
+          <ownedAttribute xmi:id="_amkW5JIFEeKeNu01Ba96ig" name="systemcontext" type="_Ixj5oJIEEeKeNu01Ba96ig" association="_amkW4JIFEeKeNu01Ba96ig"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_c9dyQJIEEeKeNu01Ba96ig" name="Driver">
+          <ownedAttribute xmi:id="_RoawI5IFEeKeNu01Ba96ig" name="systemcontext" type="_Ixj5oJIEEeKeNu01Ba96ig" association="_RoQ_IJIFEeKeNu01Ba96ig"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_RoQ_IJIFEeKeNu01Ba96ig" name="Assoc_Composite_Context_Driver_02" memberEnd="_RoawIpIFEeKeNu01Ba96ig _RoawI5IFEeKeNu01Ba96ig">
+          <eAnnotations xmi:id="_RoawIJIFEeKeNu01Ba96ig" source="org.eclipse.papyrus">
+            <details xmi:id="_RoawIZIFEeKeNu01Ba96ig" key="nature" value="SysML_Nature"/>
+          </eAnnotations>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_WB4qwJIFEeKeNu01Ba96ig" name="Assoc_Composite_Context_TrackSideETCS_03" memberEnd="_WB4qw5IFEeKeNu01Ba96ig _WB4qxJIFEeKeNu01Ba96ig">
+          <eAnnotations xmi:id="_WB4qwZIFEeKeNu01Ba96ig" source="org.eclipse.papyrus">
+            <details xmi:id="_WB4qwpIFEeKeNu01Ba96ig" key="nature" value="SysML_Nature"/>
+          </eAnnotations>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_ZqUKAJIFEeKeNu01Ba96ig" name="Assoc_Composite_Context_RBC_04" memberEnd="_ZqUKA5IFEeKeNu01Ba96ig _ZqUKBJIFEeKeNu01Ba96ig">
+          <eAnnotations xmi:id="_ZqUKAZIFEeKeNu01Ba96ig" source="org.eclipse.papyrus">
+            <details xmi:id="_ZqUKApIFEeKeNu01Ba96ig" key="nature" value="SysML_Nature"/>
+          </eAnnotations>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_amkW4JIFEeKeNu01Ba96ig" name="Assoc_Composite_Context_Comm_05" memberEnd="_amkW45IFEeKeNu01Ba96ig _amkW5JIFEeKeNu01Ba96ig">
+          <eAnnotations xmi:id="_amkW4ZIFEeKeNu01Ba96ig" source="org.eclipse.papyrus">
+            <details xmi:id="_amkW4pIFEeKeNu01Ba96ig" key="nature" value="SysML_Nature"/>
+          </eAnnotations>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_XsXaIJIGEeKeNu01Ba96ig" name="Assoc_Composite_Context_OnboardETCS_01" memberEnd="_XsXaI5IGEeKeNu01Ba96ig _XsXaJJIGEeKeNu01Ba96ig">
+          <eAnnotations xmi:id="_XsXaIZIGEeKeNu01Ba96ig" source="org.eclipse.papyrus">
+            <details xmi:id="_XsXaIpIGEeKeNu01Ba96ig" key="nature" value="SysML_Nature"/>
+          </eAnnotations>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_1MILIJIDEeKeNu01Ba96ig" name="04_SystemAnalysis"/>
+    <packagedElement xmi:type="uml:Collaboration" xmi:id="_OBmvwJIsEeKeNu01Ba96ig" name="Collaboration1" classifierBehavior="_m9atEJIsEeKeNu01Ba96ig">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_OBmvwZIsEeKeNu01Ba96ig" name="Activity1"/>
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_m9atEJIsEeKeNu01Ba96ig" name="Activity2"/>
+    </packagedElement>
+    <profileApplication xmi:id="_g5qYm5IDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g6QNYJIDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_TZ_nULU5EduiKqCzJMWbGw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g9rU0JIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g9rU0ZIDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_Gx8MgLX7EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g9rU0pIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g9rU05IDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_fSw28LX7EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g9rU1JIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g9rU1ZIDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_rpx28LX7EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g9rU1pIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g9rU15IDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//constraints"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_5WYJ0LX7EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g9rU2JIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g9rU2ZIDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_C2zXMLX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g9rU2pIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g9rU25IDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_NxdG4LX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g9rU3JIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g9rU3ZIDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_OOJC4LX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g9rU3pIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g9rU35IDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//interactions"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_meOioLX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g9rU4JIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g9rU4ZIDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//statemachines"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_nAF5kLX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_g90ewJIDEeKeNu01Ba96ig">
+      <eAnnotations xmi:id="_g90ewZIDEeKeNu01Ba96ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//usecases"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://SysML_PROFILES/SysML.profile.uml#_neZmMLX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+  </uml:Model>
+  <Blocks:Block xmi:id="_IxtqoJIEEeKeNu01Ba96ig" base_Class="_Ixj5oJIEEeKeNu01Ba96ig"/>
+  <Blocks:Block xmi:id="_JVj-kZIEEeKeNu01Ba96ig" base_Class="_JVj-kJIEEeKeNu01Ba96ig"/>
+  <Blocks:Block xmi:id="_Jrub0ZIEEeKeNu01Ba96ig" base_Class="_Jrub0JIEEeKeNu01Ba96ig"/>
+  <Blocks:Block xmi:id="_J9ux0ZIEEeKeNu01Ba96ig" base_Class="_J9ux0JIEEeKeNu01Ba96ig"/>
+  <Blocks:Block xmi:id="_VkFJ4ZIEEeKeNu01Ba96ig" base_Class="_VkFJ4JIEEeKeNu01Ba96ig"/>
+  <Blocks:Block xmi:id="_c9dyQZIEEeKeNu01Ba96ig" base_Class="_c9dyQJIEEeKeNu01Ba96ig"/>
+</xmi:XMI>
