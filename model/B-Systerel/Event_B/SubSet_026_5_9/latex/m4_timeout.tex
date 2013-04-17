@@ -8,7 +8,8 @@
         \end{description}
 \INVARIANTS
         \begin{description}
-                \nItemY{ inv2 }{ timer\_expired = TRUE \land  OS\_mode\_trans = TRUE \limp              \\\hspace*{1,2 cm}  \lnot  ((ack\_and\_transition = TRUE \lor  transition\_and\_ack = TRUE) \land               \\\hspace*{1,8 cm}  brake\_until\_ack = TRUE \land              \\\hspace*{1,8 cm}  currently\_asking\_driver\_brake\_ack = TRUE \land                  \\\hspace*{1,8 cm}  timer\_expired = FALSE) }{                  \\\hspace*{1,4 cm}  PROPERTY$\_$5.9$\_$02, timer expired and in OS$\_$mode$\_$trans state disables		\\\hspace*{1,2 cm}  other transition than service brake }
+                \nItemY{ inv2 }{ timer\_expired = TRUE \land  OS\_mode\_trans = TRUE \limp              \\\hspace*{1,2 cm}  \lnot  ((ack\_and\_transition = TRUE \lor  transition\_and\_ack = TRUE) \land               \\\hspace*{1,8 cm}  brake\_until\_ack = TRUE \land              \\\hspace*{1,8 cm}  currently\_asking\_driver\_brake\_ack = TRUE \land                  \\\hspace*{1,8 cm}  timer\_expired = FALSE) }{                  \\\hspace*{1,4 cm}  PROPERTY$\_$5.9$\_$02$\_$01, timer expired and in OS$\_$mode$\_$trans state disables other transitions }
+                \nItemY{ inv4 }{ timer\_expired = TRUE \land  brake\_until\_ack = TRUE\limp             \\\hspace*{1,2 cm}  (service\_brake\_active = FALSE \land               \\\hspace*{1,4 cm}  brake\_until\_ack = TRUE \land              \\\hspace*{1,4 cm}  timer\_expired = TRUE) }{           \\\hspace*{1,4 cm}  PROPERTY$\_$5.9$\_$02$\_$02, transition to activate brake is enabled }
         \end{description}
 \EVENTS
         \EVT {driver\_ack\_brake\_in\_time}

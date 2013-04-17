@@ -8,7 +8,6 @@
         \end{description}
 \INVARIANTS
         \begin{description}
-                \nItemY{ inv1 }{ current\_speed \in  t\_speed }{  }
                 \nItemY{ inv2 }{ (driver\_acknowledge\_brake = TRUE \land               \\\hspace*{1,4 cm}  f\_speed\_exceeds (current\_speed \mapsto  c\_OS\_speed\_limit) = TRUE \land                \\\hspace*{1,4 cm}  driver\_responded\_brake\_ack = TRUE) \limp                 \\\hspace*{2 cm}  service\_brake\_active = TRUE }{              \\\hspace*{1,4 cm}  PROPERTY$\_$5.9$\_$03 driver acknowledge does not deactivate		\\\hspace*{1,2 cm}  service brake if train speed exceeds OS speed limit }
                 \nItemY{ inv10 }{ transition\_and\_ack = TRUE \limp             \\\hspace*{1,4 cm}  ((f\_speed\_exceeds (current\_speed \mapsto  c\_OS\_speed\_limit) = TRUE \land              \\\hspace*{1,8 cm}  current\_mode = c\_OS) \limp                \\\hspace*{1,8 cm}  service\_brake\_active = TRUE) }{           \\\hspace*{1,6 cm}  PROPERTY$\_$5.9$\_$01, brake is activated if mode is OS and current speed exceeds limit }
         \end{description}

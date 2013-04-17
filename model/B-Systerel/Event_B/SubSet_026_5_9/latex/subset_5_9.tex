@@ -353,6 +353,11 @@ is reached, the mode of the train is on-sight (\binv{inv6}).
 \subsection{Machine 4 - Timeout}
 \label{sec:machine-4-timeout}
 
+The fourth machine refinement introduces the timer and the timeout event for the
+acknowledge window for the driver. This refinement is done completely in the
+textual model, therefore the state machine as shown in
+Fig.~\ref{fig:fourth-refinement-state-machine} is left unchanged and there is no
+colored highlighting.
 
 \begin{figure}[ht]
   \centering
@@ -361,16 +366,58 @@ is reached, the mode of the train is on-sight (\binv{inv6}).
   \label{fig:fourth-refinement-state-machine}
 \end{figure}
 
+The timeout is represented by the Boolean variable \bvar{timer\_expired} which
+is modified by the \bevent{expire\_timer} event. The variable is used in the
+guards of \bevent{driver\_ack\_brake\_in\_time},
+\bevent{driver\_ack\_brake\_late} and \bevent{activate\_service\_brake}.
+
+At this refinement stage, it is possible to prove that when the timer has
+expired and the train has transitioned to OS mode then the transition
+\bevent{driver\_ack\_brake\_in\_time} cannot be enabled (\binv{inv2}), and in
+the state \bvar{brake\_until\_ack} the transition
+\bevent{activate\_service\_brake} is enabled (\binv{inv4}).
+
 {\footnotesize
 \input{m4_timeout}
+}
+
+\subsection{Context 2 - Speed Limits}
+\label{sec:context-2-speed}
+
+The third context extension adds the notion of the on-sight speed limit which is
+represented as the constant \bconst{c\_OS\_speed\_limit} of type
+\btype{t\_speed}. The context also adds the function \bfunc{f\_speed\_exceeds}
+which compares two speed values and returns \bconst{TRUE} if the first argument
+exceeds the second.
+
+{\footnotesize
+\input{c2_speed_limit}
 }
 
 \subsection{Machine 5 - Speed Supervision}
 \label{sec:machine-5-speed}
 
+The fifth refinement of the machine adds the notion of the current speed of the
+train to the model. This variable can be updated by two events
+\bevent{update\_train\_speed\_brake} which can only be executed when the brake
+is active and only accepts speed as argument which does not exceed the current
+speed and \bevent{update\_train\_speed\_no\_brake} which requires that the brake
+is not active and accepts any speed as new value.
+
+Once active, the service brake can now only be activated if the current speed of
+the train does not exceed the OS speed limit.
+
 {\footnotesize
 \input{m5_supervise_speed}
 }
+
+At this refinement stage, it is possible to prove the two remaining safety
+properties from the D2.5 document: If the train is in the
+\bvar{driver\_responded\_brake\_ack} state, then even if the driver has
+acknowledged the service brake activation, the service brake will not be
+deactivated if the \bvar{current\_speed} exceeds the OS speed limit. And, if the
+train is in OS mode and the \bvar{current\_speed} exceeds the speed limit, then
+the service brake is active.
 
 \bibliographystyle{alpha}
 \bibliography{openetcs}
