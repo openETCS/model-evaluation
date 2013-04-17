@@ -1,0 +1,23 @@
+% \documentclass[10pt,a4paper]{report}
+% \usepackage[top=3cm, bottom=2.5cm, left=3cm, right=2.5cm] {geometry}
+% \usepackage {bsymb,b2latex}
+% \usepackage[utf8]{inputenc}
+% \usepackage{fancyhdr,lastpage,color}
+% \lhead{\rm An Event-B Specification of c2\_system\_version\_mode}
+% \rhead {\rm Page \thepage~of \pageref{LastPage}}
+% \lfoot{}\cfoot{}\rfoot{}
+% \pagestyle{fancy}
+% %---------------------------------------------------------
+% \begin{document}
+% \thispagestyle{empty}
+\begin{description}
+\EXTENDS{c1\_entity\_types}
+\CONSTANTS
+        \begin{description}
+                \Item{ system\_version\_compatible }
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ system\_version\_compatible \subseteq  on\_track }	\end{description}
+\END
+\end{description}
