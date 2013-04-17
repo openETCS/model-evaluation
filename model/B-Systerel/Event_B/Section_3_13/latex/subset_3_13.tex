@@ -1,4 +1,6 @@
 \documentclass{template/openetcs_article}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
 \usepackage {bsymb,b2latex}
 \usepackage{lipsum,url,color}
 \graphicspath{{./template/}{.}{./images/}}
@@ -31,14 +33,18 @@
 \newcommand{\bmachine}[1]{\btext{#1}}
 \newcommand{\bctx}[1]{\btext{#1}}
 
-\author{Matthias Güdemann\\Systerel, France}
+\author{Matthias Güdemann}
 
-\affiliation{Systerel}
+\affiliation{Systerel\\
+  Les Portes de l’Arbois, Bâtiment A \\
+  1090 rue René Descartes \\
+  13857 Aix-en-Provence Cedex 3, France
+}
 
 \title{Event-B Model of Subset 026, Section 3.13}
 
 % define the coverart
-\coverart[width=350pt]{chart}
+\coverart[width=350pt]{openETCS_EUPL}
 
 \reporttype{Model Description}
 
