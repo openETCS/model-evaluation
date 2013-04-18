@@ -82,16 +82,16 @@ different functional parts.
 For a short introduction on Event-B and the usage of Rodin with models on github
 see~\url{https://github.com/openETCS/model-evaluation/blob/master/model/B-Systerel/Event_B/rodin-projects-github.pdf?raw=true}
 
-\begin{table}[ht]
-  \centering
-  \begin{tabular}[ht]{|l|l|}
-    \hline
-     &  \\
-    \hline
-  \end{tabular}
-  \caption{Glossary}
-  \label{tab:glossary}
-\end{table}
+% \begin{table}[ht]
+%   \centering
+%   \begin{tabular}[ht]{|l|l|}
+%     \hline
+%      &  \\
+%     \hline
+%   \end{tabular}
+%   \caption{Glossary}
+%   \label{tab:glossary}
+% \end{table}
 
 \section{Modeling Strategy}
 \label{sec:modeling-strategy}
@@ -166,10 +166,30 @@ shown in Fig.~\ref{fig:machine-decompositon-overview}.
 
 \begin{figure}[ht]
   \centering
-  \vspace{5cm}
+  \includegraphics[width=\textwidth]{Section_3_13-layout}
   \caption{Machine Decomposition Overview}
   \label{fig:machine-decompositon-overview}
 \end{figure}
+
+This refinement and context overview is very different from the others, as first
+an abstract global model was developed and then this model was decomposed into
+sub-models which are further refined. The contexts are shared between the
+decomposed models as far as possible. In this case, all resulting contexts and
+machines are kept in the same Rodin project. It is also possible to create
+a new project for each sub-machine which will reduce the complexity of each
+single project.
+
+The global model is shown in the lower right. The first machine describes the
+global input and output variables of the system. The further refinements
+represent the iterative addition of more functions as shown in
+Fig.~\ref{fig:system-decomposition}. For example the machine 1 adds the brake
+model with its inputs and outputs and the machine 2 adds the calculation of
+deceleration which uses the outputs of the braking model.
+
+The last machine is then decomposed into the nine machines representing each a
+single functional block. This structure is shown in the upper part of
+Fig.~\ref{fig:machine-decompositon-overview}, this also illustrates the further
+independent refinement of the decomposed sub-machine.
 
 The context hierarchy also reflects this structuring. The contexts define the
 data types for the intermediate values, as well as the functions that calculate
@@ -182,8 +202,8 @@ model, as this is not part of the system modeling.
 The modeled section of the SRS provides many details for calculation of various
 values. The main content from a system modeling point of view is the model. So
 while in this case the same benefits from using Rodin as
-for~\cite{Section-3-5-Rodin,Section-4-6-Rodin} are present, the main advantage
-here is the model structuring facility.
+for~\cite{Section-3-5-Rodin,Section-4-6-Rodin,Section-5-9-Rodin} are present,
+the main advantage here is the model structuring facility.
 
 \begin{itemize}
 \item {\bf Model Decomposition} The shared variable model
@@ -199,21 +219,186 @@ here is the model structuring facility.
 \subsection{Context 0 - Train Inputs, TI and DMI command}
 \label{sec:context-0-entities}
 
+The first context introduces many basic type for the model,
+\btype{t\_locations}, \btype{t\_speed}, \btype{t\_acceleration},
+\btype{t\_TI\_commands}, \btype{t\_DMI\_commands}, \btype{t\_time} and
+\btype{t\_train\_modes}.
+
+The commands for the train interface (TI) are represented by the constants
+\bconst{c\_emergency\_brake}, \bconst{c\_service\_brake}, \bconst{c\_TCO},
+\bconst{c\_no\_command}. For the driver machine interface (DMI) the commands are
+represented by the constants \bconst{c\_normal}, \bconst{c\_indication},
+\bconst{c\_overspeed}, \bconst{c\_warning} and \bconst{c\_intervention}.
+
+The other constants provide default values for the initialization of variables
+of that type.
+
+{\footnotesize
 \input{c0_train_ti_dmi_commands}
+}
 
-\subsection{Machine 0 - Basic Communication}
-\label{sec:machine-0-basic}
+\subsection{Machine 0 - Train Status and Commands}
+\label{sec:machine-0-train}
 
-\paragraph{Implemented Requirements}
-\label{sec:impl-requ}
+This first machine introduces the external input variables, i.e., the position,
+speed and acceleration of the train as well as the output variables, i.e., the
+TI commands and the DMI commands. The input variables are read by the event
+\bevent{update\_train\_style} and the output variables by the event
+\bevent{new\_outputs}.
 
-\begin{itemize}
-\item each session allows for communication between two entities (cf.~§3.5.2.1)
-\end{itemize}
+{\footnotesize
+\input{m0_trainstatus_commands}
+}
 
-%\input{m0_basic_comm}
+\subsection{Machine 1 - Brake Model}
+\label{sec:machine-1-brake}
 
+The first refinement adds the notion of the brake model. This is represented by
+the variables describing the speed dependent acceleration functions for
+emergency, service and normal service braking. The variables
+\bvar{T\_brake\_service} and \bvar{T\_brake\_emergency} describe the brake
+build-up times for the brakes.
 
+{\footnotesize
+\input{m1_brake_model}
+}
+
+\subsection{Context 1 - Decelerations}
+\label{sec:cont-1-decel}
+
+This context extension adds a distance type and a function that maps the speed
+and distance to an acceleration.
+
+{\footnotesize
+\input{c1_decelerations}
+}
+
+\subsection{Machine 2 - Calculate Decelerations}
+\label{sec:machine-2-calculate}
+
+This refinement adds the calculation of deceleration to the model. This is
+represented by three variables which are functions that map speed and distance
+to an acceleration. There is one function for each on of EBD, SBD and GUI.
+
+{\footnotesize
+\input{m2_calculation_deceleration}
+}
+
+\subsection{Machine 3 - Calculation of Brake Buildup Time}
+\label{sec:mach-3-calc}
+
+The next machine refinement adds the brake buildup calculation to the
+model. This is represented by two variables, \bvar{T\_be} for the emergency
+brake and \bvar{T\_se} for the service brake.
+
+{\footnotesize
+\input{m3_safe_brake_buildup}
+}
+
+\subsection{Machine 4 - Acceleration due to Gradient}
+\label{sec:mach-4-accel}
+
+The refinement adds the notion of the acceleration due to gradient. This is
+represented by the variable \bvar{A\_gradient} which is a function that maps
+speed to acceleration.
+
+{\footnotesize
+\input{m4_accel_decel_gradient}
+}
+
+\subsection{Context 3 - Speed Profiles}
+\label{sec:context-3-speed}
+
+This context extension introduces the type \btype{speed\_profiles} which maps
+locations to speeds. It also defines one constant value of that type which is
+used as default value for variables of that type.
+
+{\footnotesize
+\input{c3_speed_profiles}
+}
+
+\subsection{Machine 5 - Most Restrictive Speed Profile}
+\label{sec:machine-5-most}
+
+This machine refinement introduces the most restrictive speed profile to the
+model. This is represented by the variable \bvar{MRSP} of the type
+\btype{speed\_profile}.
+
+{\footnotesize
+\input{m5_MRSP}
+}
+
+\subsection{Context 4 - Targets}
+\label{sec:context-4-targets}
+
+This context extension introduces the type \btype{t\_targets} which represents a
+target, i.e., a pair of location and speed.
+
+{\footnotesize
+\input{c4_targets}
+}
+
+\subsection{Machine 6 - Supervised Targets}
+\label{sec:machine-6-supervised}
+
+This refinement adds limit of authority, end of authority and supervision limit
+to the model. For each there exists one variable of type \btype{t\_targets}.
+
+{\footnotesize
+\input{m6_supervised_targets}
+}
+
+\subsection{Context 5 - Braking Curves}
+\label{sec:context-5-braking}
+
+This context extension introduces the type \btype{t\_braking\_curves} and a
+constant of that type.
+
+{\footnotesize
+\input{c5_braking_curves}
+
+\subsection{Machine 7 - Braking Curves}
+\label{sec:machine-7-braking}
+
+This machine refinement adds the braking curves to the model, these are
+represented by the three variables \bvar{EBD}, \bvar{SBD} and \bvar{GUI} of the
+appropriate type.
+
+{\footnotesize
+\input{m7_braking_curves}
+}
+
+\subsection{Context 6 - Supervision Limits}
+\label{sec:cont-6-superv}
+
+This context adds the type \btype{t\_supervision\_limits} to the model, as well
+as a constant value of that type.
+
+{\footnotesize
+\input{c6_supervision_limits}
+}
+
+\subsection{Machine 8 - Supervision Limit}
+\label{sec:mach-8-superv}
+
+This machine refinement adds the supervision limits to the model, emergency
+brake intervention (\bvar{EBI}), service brake intervention (\bvar{SBI}),
+warning limit (\bvar{warning\_limit}), permitted speed (\bvar{P\_limit}),
+indication limit (\bvar{I\_limit}), pre-indication location (\bvar{PI\_limit})
+and the release start speed monitoring location (\bvar{RSM\_start}).
+
+{\footnotesize
+\input{m8_supervision_limits}
+}
+
+\section{Model Decomposition}
+\label{sec:model-decomposition}
+
+The machine m9 does not really add detail to the refined machine m8. The only
+changes are that the variables which are read by an event are explicitly added
+to the conditions by specifying a typing condition for them. This assures that
+the model decomposition preserves these necessary variables in the sub-machines
+and only removes the unneeded ones.
 
 \bibliographystyle{alpha}
 \bibliography{openetcs}

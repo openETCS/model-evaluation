@@ -1,0 +1,64 @@
+\begin{description}
+\MACHINE{m6\_supervised\_targets}
+\REFINES{m5\_MRSP}
+\SEES{c4\_targets}
+\VARIABLES
+        \begin{description}
+                \Item{ LOA }
+                \Item{ EOA }
+                \Item{ SvL }
+        \end{description}
+\EVENTS
+        \EVT {set\_EOA}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_target }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_target \in  t\_targets }{ }
+                        \nItem{ grd2 }{ MRSP \in  t\_speed\_profiles }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ EOA :=  l\_target }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_LOA}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_target }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_target \in  t\_targets }
+                        \nItem{ grd2 }{ MRSP \in  t\_speed\_profiles }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ LOA :=  l\_target }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_SvL}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_target }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_target \in  t\_targets }{ }
+                        \nItem{ grd2 }{ MRSP \in  t\_speed\_profiles }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ SvL :=  l\_target }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

@@ -1,0 +1,64 @@
+\begin{description}
+\MACHINE{m2\_calculation\_deceleration}
+\REFINES{m1\_brake\_model}
+\SEES{c1\_decelerations}
+\VARIABLES
+        \begin{description}
+                \Item{ A\_safe }
+                \Item{ A\_expected }
+                \ItemY{ A\_normal\_service }{}
+        \end{description}
+\EVENTS
+        \EVT {set\_A\_safe}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_a\_decel }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_a\_decel \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }{ }
+                        \nItem{ grd2 }{ A\_brake\_emergency \in  t\_speed \tfun  t\_acceleration }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_safe :=  l\_a\_decel }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_A\_expected}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_a\_decel }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_a\_decel \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }{ }
+                        \nItem{ grd2 }{ A\_brake\_service \in  t\_speed \tfun  t\_acceleration }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_expected :=  l\_a\_decel }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_A\_normal\_service}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_a\_decel }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_a\_decel \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }{ }
+                        \nItem{ grd2 }{ A\_brake\_normal\_service \in  t\_speed \tfun  t\_acceleration }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_normal\_service :=  l\_a\_decel }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

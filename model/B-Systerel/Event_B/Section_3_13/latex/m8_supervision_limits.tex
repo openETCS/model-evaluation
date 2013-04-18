@@ -1,0 +1,171 @@
+\begin{description}
+\MACHINE{m8\_supervision\_limits}
+\REFINES{m7\_braking\_curves}
+\SEES{c6\_supervision\_limits}
+\VARIABLES
+        \begin{description}
+                \ItemY{ EBI }{emergency brake intervention}
+                \ItemY{ SBI }{service brake intervention}
+                \ItemY{ W\_limit }{warning limit}
+                \ItemY{ P\_limit }{permitted speed}
+                \ItemY{ I\_limit }{indication limit}
+                \ItemY{ PIl }{pre-indication$\_$location}
+                \ItemY{ RSM\_start }{release speed monitoring start location}
+        \end{description}
+\EVENTS
+        \EVT {set\_EBI}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_limit }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_limit \in  t\_supervision\_limits }{ }
+                        \nItemY{ grd2 }{ MRSP \in  t\_speed\_profiles }{ }
+                        \nItem{ grd3 }{ EBD \in  t\_braking\_curves }
+                        \nItem{ grd4 }{ SBD \in  t\_braking\_curves }
+                        \nItem{ grd5 }{ GUI \in  t\_braking\_curves }
+                        \nItem{ grd6 }{ T\_bs \in  t\_time }
+                        \nItem{ grd7 }{ T\_be \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ EBI :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_SBI}\cmt{ }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_limit }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_limit \in  t\_supervision\_limits }{ }
+                        \nItemY{ grd2 }{ MRSP \in  t\_speed\_profiles }{ }
+                        \nItem{ grd3 }{ EBD \in  t\_braking\_curves }
+                        \nItem{ grd4 }{ SBD \in  t\_braking\_curves }
+                        \nItem{ grd5 }{ GUI \in  t\_braking\_curves }
+                        \nItem{ grd6 }{ T\_bs \in  t\_time }
+                        \nItem{ grd7 }{ T\_be \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ SBI :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_W\_limit}\cmt{ }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_limit }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \nItemY{ grd2 }{ MRSP \in  t\_speed\_profiles }{ }
+                        \nItem{ grd3 }{ EBD \in  t\_braking\_curves }
+                        \nItem{ grd4 }{ SBD \in  t\_braking\_curves }
+                        \nItem{ grd5 }{ GUI \in  t\_braking\_curves }
+                        \nItem{ grd6 }{ T\_bs \in  t\_time }
+                        \nItem{ grd7 }{ T\_be \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ W\_limit :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_I\_limit}\cmt{ }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_limit }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \nItemY{ grd2 }{ MRSP \in  t\_speed\_profiles }{ }
+                        \nItem{ grd3 }{ EBD \in  t\_braking\_curves }
+                        \nItem{ grd4 }{ SBD \in  t\_braking\_curves }
+                        \nItem{ grd5 }{ GUI \in  t\_braking\_curves }
+                        \nItem{ grd6 }{ T\_bs \in  t\_time }
+                        \nItem{ grd7 }{ T\_be \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ I\_limit :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_P\_limit}\cmt{ }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_limit }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \nItemY{ grd2 }{ MRSP \in  t\_speed\_profiles }{ }
+                        \nItem{ grd3 }{ EBD \in  t\_braking\_curves }
+                        \nItem{ grd4 }{ SBD \in  t\_braking\_curves }
+                        \nItem{ grd5 }{ GUI \in  t\_braking\_curves }
+                        \nItem{ grd6 }{ T\_bs \in  t\_time }
+                        \nItem{ grd7 }{ T\_be \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ P\_limit :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_PIl\_limit}\cmt{ }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_limit }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \nItemY{ grd2 }{ MRSP \in  t\_speed\_profiles }{ }
+                        \nItem{ grd3 }{ EBD \in  t\_braking\_curves }
+                        \nItem{ grd4 }{ SBD \in  t\_braking\_curves }
+                        \nItem{ grd5 }{ GUI \in  t\_braking\_curves }
+                        \nItem{ grd6 }{ T\_bs \in  t\_time }
+                        \nItem{ grd7 }{ T\_be \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ PIl :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_RSM\_start\_limit}\cmt{ }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_limit }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \nItemY{ grd2 }{ MRSP \in  t\_speed\_profiles }{ }
+                        \nItem{ grd3 }{ EBD \in  t\_braking\_curves }
+                        \nItem{ grd4 }{ SBD \in  t\_braking\_curves }
+                        \nItem{ grd5 }{ GUI \in  t\_braking\_curves }
+                        \nItem{ grd6 }{ T\_bs \in  t\_time }
+                        \nItem{ grd7 }{ T\_be \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ RSM\_start :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

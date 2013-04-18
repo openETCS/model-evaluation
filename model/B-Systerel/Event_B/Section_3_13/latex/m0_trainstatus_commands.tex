@@ -1,0 +1,75 @@
+\begin{description}
+\MACHINE{m0\_trainstatus\_commands}
+\SEES{c0\_train\_ti\_dmi\_commands}
+\VARIABLES
+        \begin{description}
+                \ItemY{ v\_current }{current speed of train}
+                \ItemY{ a\_current }{current acceleration of train}
+                \ItemY{ loc\_current }{current position of train as track location}
+                \ItemY{ cmd\_current }{current TI command}
+                \ItemY{ status\_current }{current DMI status}
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItem{ inv1 }{ v\_current \in  t\_speed }
+                \nItem{ inv2 }{ a\_current \in  t\_acceleration }
+                \nItemY{ inv3 }{ loc\_current \in  t\_locations }{  }
+                \nItem{ inv4 }{ cmd\_current \in  t\_TI\_commands }
+                \nItemY{ inv5 }{ status\_current \in  t\_DMI\_commands }{  }
+        \end{description}
+\EVENTS
+        \INITIALISATION
+                \begin{description}
+                \BeginAct
+                        \begin{description}
+                        \nItem{ act1 }{ v\_current :=  c\_v0 }
+                        \nItem{ act2 }{ a\_current :=  c\_a0 }
+                        \nItemY{ act3 }{ loc\_current :=  c\_l0 }{  }
+                        \nItemY{ act4 }{ cmd\_current :=  c\_no\_command }{  }
+                        \nItemY{ act5 }{ status\_current :=  c\_normal }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {update\_train\_state}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_speed }
+                        \Item{l\_accel }
+                        \Item{l\_loc }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_speed \in  t\_speed }
+                        \nItem{ grd2 }{ l\_accel \in  t\_acceleration }
+                        \nItemY{ grd3 }{ l\_loc \in  t\_locations }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ v\_current :=  l\_speed }
+                        \nItem{ act2 }{ a\_current :=  l\_accel }
+                        \nItem{ act3 }{ loc\_current :=  l\_loc }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {new\_outputs}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_ti\_cmd }
+                        \Item{l\_dmi\_status }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_ti\_cmd \in  t\_TI\_commands }{ }
+                        \nItemY{ grd2 }{ l\_dmi\_status \in  t\_DMI\_commands }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act1 }{ cmd\_current :=  l\_ti\_cmd }{  }
+                        \nItem{ act2 }{ status\_current :=  l\_dmi\_status }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

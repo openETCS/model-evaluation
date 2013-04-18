@@ -1,0 +1,27 @@
+\begin{description}
+\MACHINE{m5\_MRSP}
+\REFINES{m4\_accel\_decel\_gradient}
+\SEES{c3\_speed\_profiles}
+\VARIABLES
+        \begin{description}
+                \Item{ MRSP }
+        \end{description}
+\EVENTS
+        \EVT {set\_MRSP}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_sp }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_sp \in  t\_speed\_profiles }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ MRSP :=  l\_sp }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

@@ -1,0 +1,28 @@
+\begin{description}
+\MACHINE{m4\_accel\_decel\_gradient}
+\REFINES{m3\_safe\_brake\_buildup}
+\SEES{c2\_gradients}
+\VARIABLES
+        \begin{description}
+                \Item{ A\_gradient }
+        \end{description}
+
+\EVENTS
+        \EVT {set\_A\_gradient}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_a\_gradient }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_a\_gradient \in  t\_acceleration }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_gradient :=  l\_a\_gradient }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

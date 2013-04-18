@@ -1,0 +1,79 @@
+\begin{description}
+\MACHINE{m7\_braking\_curves}
+\REFINES{m6\_supervised\_targets}
+\SEES{c5\_braking\_curves}
+\VARIABLES
+        \begin{description}
+                \Item{ EBD }
+                \Item{ SBD }
+                \Item{ GUI }
+        \end{description}
+\EVENTS
+        \EVT {set\_EBD}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_curve }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_curve \in  t\_braking\_curves }{ }
+                        \nItemY{ grd2 }{ A\_safe \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }{ }
+                        \nItem{ grd3 }{ A\_expected \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }
+                        \nItemY{ grd4 }{ A\_normal\_service \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }{ }
+                        \nItem{ grd5 }{ LOA \in  t\_targets }
+                        \nItem{ grd6 }{ EOA \in  t\_targets }
+                        \nItem{ grd7 }{ SvL \in  t\_targets }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ EBD :=  l\_curve }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_SBD}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_curve }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_curve \in  t\_braking\_curves }{ }
+                        \nItemY{ grd2 }{ A\_safe \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }{ }
+                        \nItemY{ grd3 }{ A\_expected \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }{ }
+                        \nItemY{ grd4 }{ A\_normal\_service \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }{ }
+                        \nItem{ grd5 }{ LOA \in  t\_targets }
+                        \nItem{ grd6 }{ EOA \in  t\_targets }
+                        \nItem{ grd7 }{ SvL \in  t\_targets }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ SBD :=  l\_curve }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_GUI}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_curve }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_curve \in  t\_braking\_curves }
+                        \nItem{ grd2 }{ A\_safe \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }
+                        \nItem{ grd3 }{ A\_expected \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }
+                        \nItemY{ grd4 }{ A\_normal\_service \in  t\_speed \cprod  t\_distance \tfun  t\_acceleration }{ }
+                        \nItem{ grd5 }{ LOA \in  t\_targets }
+                        \nItem{ grd6 }{ EOA \in  t\_targets }
+                        \nItem{ grd7 }{ SvL \in  t\_targets }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ GUI :=  l\_curve }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

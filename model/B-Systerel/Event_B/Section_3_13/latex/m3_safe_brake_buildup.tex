@@ -1,0 +1,46 @@
+\begin{description}
+\MACHINE{m3\_safe\_brake\_buildup}
+\REFINES{m2\_calculation\_deceleration}
+\SEES{c1\_decelerations}
+\VARIABLES
+        \begin{description}
+                \ItemY{ T\_be }{}
+                \Item{ T\_bs }
+        \end{description}
+\EVENTS
+        \EVT {set\_T\_be}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_t\_be }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_t\_be \in  t\_time }{ }
+                        \nItem{ grd2 }{ T\_brake\_emergency \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ T\_be :=  l\_t\_be }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_T\_bs}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_t\_bs }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_t\_bs \in  t\_time }{ }
+                        \nItem{ grd2 }{ T\_brake\_service \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ T\_bs :=  l\_t\_bs }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

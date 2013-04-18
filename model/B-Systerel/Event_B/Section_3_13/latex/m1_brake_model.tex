@@ -1,0 +1,95 @@
+\begin{description}
+\MACHINE{m1\_brake\_model}
+\REFINES{m0\_trainstatus\_commands}
+\SEES{c0\_train\_ti\_dmi\_commands}
+\VARIABLES
+        \begin{description}
+                \ItemY{ A\_brake\_emergency }{emergency brake acceleration}
+                \ItemY{ A\_brake\_service }{service brake acceleration}
+                \Item{ A\_brake\_normal\_service }
+                \Item{ T\_brake\_service }
+                \Item{ T\_brake\_emergency }
+        \end{description}
+\EVENTS
+        \EVT {set\_A\_brake\_emergency}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_a\_brake }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_a\_brake \in  t\_speed \tfun  t\_acceleration }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_brake\_emergency :=  l\_a\_brake }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_A\_brake\_service}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_a\_brake }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_a\_brake \in  t\_speed \tfun  t\_acceleration }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_brake\_service :=  l\_a\_brake }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_A\_brake\_normal\_service}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_a\_brake }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_a\_brake \in  t\_speed \tfun  t\_acceleration }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_brake\_normal\_service :=  l\_a\_brake }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_T\_brake\_service}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_T\_brake }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_T\_brake \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ T\_brake\_service :=  l\_T\_brake }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_T\_brake\_emergency}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_T\_brake }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_T\_brake \in  t\_time }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ T\_brake\_emergency :=  l\_T\_brake }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}
