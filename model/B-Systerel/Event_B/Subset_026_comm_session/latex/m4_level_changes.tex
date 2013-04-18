@@ -1,0 +1,143 @@
+\begin{description}
+\REFINES{m3\_accept\_system\_version}
+\SEES{c3\_ERTMS\_level}
+\VARIABLES
+        \begin{description}
+                \ItemY{ current\_level }{}
+                \ItemY{ signal\_level\_change }{}
+                \ItemY{ current\_status }{}
+                \ItemY{ signal\_status\_change }{}
+                \ItemY{ signal\_manual\_level\_change }{}
+                \ItemY{ position\_radio\_hole }{}
+                \Item{ signal\_radio\_hole }
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItemY{ inv1 }{ current\_level \in  ERTMS\_level }{  }
+                \nItemY{ inv2 }{ signal\_level\_change \in  BOOL }{  }
+                \nItem{ inv3 }{ current\_status \in  train\_status }
+                \nItemY{ inv4 }{ signal\_status\_change \in  BOOL }{  }
+                \nItemY{ inv5 }{ signal\_manual\_level\_change \in  BOOL }{  }
+                \nItemY{ inv6 }{ position\_radio\_hole \in  BOOL }{  }
+                \nItem{ inv7 }{ signal\_radio\_hole \in  BOOL }
+        \end{description}
+\EVENTS
+        \EVT {manual\_change\_level}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_level }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_level \in  ERTMS\_level }{ }
+                        \nItem{ grd2 }{ signal\_manual\_level\_change = FALSE }
+                        \nItem{ grd3 }{ signal\_level\_change = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act1 }{ signal\_manual\_level\_change :=  TRUE }{  }
+                        \nItem{ act2 }{ current\_level :=  l\_level }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {change\_level}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_level }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd1 }{ l\_level \in  ERTMS\_level }{ }
+                        \nItemY{ grd2 }{ signal\_manual\_level\_change = FALSE }{ }
+                        \nItem{ grd3 }{ signal\_level\_change = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act1 }{ current\_level :=  l\_level }{  }
+                        \nItem{ act2 }{ signal\_level\_change :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_accept}
+        \EXTD {initiate\_session\_no\_contact\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_non\_accept}
+        \EXTD {initiate\_session\_no\_contact\_non\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  accepting) }{ }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItemX{ act3 }{ terminating\_sessions :=  terminating\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_manual\_change\_accept}
+        \EXTD {initiate\_session\_no\_contact\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemXY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemXY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \binter  accepting) }{ }
+                        \nItem{ grd6 }{ current\_level \in  \{ L2, L3\}  }
+                        \nItem{ grd7 }{ signal\_manual\_level\_change = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemXY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItem{ act3 }{ signal\_manual\_level\_change :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {initiate\_session\_no\_contact\_manual\_change\_non\_accept}
+        \REF {initiate\_session\_no\_contact\_non\_accept}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_partner }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd5 }{ l\_partner \notin  incoming\_sessions \bunion  outgoing\_sessions \bunion  contacted \bunion  contacted\_by }
+                        \nItemY{ grd3 }{ l\_partner \in  RIU \bunion  (RBC \setminus  accepting) }{ }
+                        \nItem{ grd6 }{ current\_level \in  \{ L2, L3\}  }
+                        \nItem{ grd7 }{ signal\_manual\_level\_change = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act2 }{ contacted :=  contacted \bunion  \{ l\_partner\}  }{  }
+                        \nItem{ act3 }{ terminating\_sessions :=  terminating\_sessions \bunion  (RBC \binter  (incoming\_sessions \bunion  outgoing\_sessions)) }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

@@ -1,0 +1,23 @@
+\begin{description}
+\CONTEXT{c3\_ERTMS\_level}
+\SETS
+        \begin{description}
+                \ItemY{ ERTMS\_level }{ }
+                \Item{ train\_status }
+        \end{description}
+\CONSTANTS
+        \begin{description}
+                \ItemY{ NTC }{}
+                \Item{ L0 }
+                \Item{ L1 }
+                \Item{ L2 }
+                \ItemY{ L3 }{}
+                \ItemY{ SOM }{start of mission}
+                \ItemY{ EOM }{end of mission}
+                \ItemY{ MIS }{while mission}
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ partition(ERTMS\_level, \{ NTC, L0, L1, L2, L3\} ) }		\nItem{ axm2 }{ partition(train\_status, \{ SOM, EOM, MIS\} ) }	\end{description}
+\END
+\end{description}
