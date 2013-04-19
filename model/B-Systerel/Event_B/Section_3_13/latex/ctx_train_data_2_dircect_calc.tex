@@ -1,0 +1,24 @@
+\begin{description}
+\CONTEXT{ctx\_train\_data\_2\_dircect\_calc}
+\EXTENDS{ctx\_train\_data\_1\_brake}
+\SETS
+        \begin{description}
+                \ItemY{ t\_brake\_combination }{cf. 3.13.2.2.3.1.7, i.e., combination of regenerative, eddy current and magnetic brake }
+        \end{description}
+\CONSTANTS
+        \begin{description}
+                \ItemY{ c\_v\_zero }{target speed zero}
+                \Item{ f\_calc\_A\_brake\_service\_direct }
+                \Item{ f\_calc\_A\_brake\_emergency\_direct }
+                \ItemY{ f\_calc\_A\_brake\_normal\_direct }{cf. 3.13.2.2.3.1.9}
+                \Item{ c\_SB01 }
+                \Item{ c\_SB02 }
+                \Item{ f\_calc\_T\_brake\_service }
+                \Item{ f\_calc\_T\_brake\_emergency }
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ c\_v\_zero \in  t\_speed }		\nItem{ axm2 }{ f\_calc\_A\_brake\_service\_direct \in  t\_brake\_combination \tfun  (t\_speed \tfun  t\_acceleration) }		\nItem{ axm3 }{ f\_calc\_A\_brake\_emergency\_direct \in  t\_brake\_combination \tfun  (t\_speed \tfun  t\_acceleration) }		\nItem{ axm4 }{ f\_calc\_A\_brake\_normal\_direct \in  t\_brake\_position \cprod  t\_acceleration \cprod  t\_acceleration		\\\hspace*{7,6 cm}  \tfun  (t\_speed \tfun  t\_acceleration) }\cmt{		\\\hspace*{1,4 cm}  cf. 3.13.2.2.3.1.10		\\\hspace*{1,2 cm}  the accelerations are the c$\_$SB01 and c$\_$SB02 constants }
+                \nItem{ axm5 }{ c\_SB01 \in  t\_acceleration }		\nItem{ axm6 }{ c\_SB02 \in  t\_acceleration }		\nItem{ axm7 }{ f\_calc\_T\_brake\_service \in  t\_brake\_combination \tfun  t\_time }		\nItem{ axm8 }{ f\_calc\_T\_brake\_emergency \in  t\_brake\_combination \tfun  t\_time }	\end{description}
+\END
+\end{description}

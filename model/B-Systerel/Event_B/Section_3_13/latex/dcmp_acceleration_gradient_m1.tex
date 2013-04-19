@@ -1,0 +1,116 @@
+\begin{description}
+\MACHINE{dcmp\_acceleration\_gradient\_m1}
+\REFINES{dcmp\_acceleration\_gradient\_m0}
+\SEES{c6\_supervision\_limits, ctx\_functions\_0}
+\VARIABLES
+        \begin{description}
+                \ItemY{ a\_current }{Shared variable, DO NOT REFINE}
+                \ItemY{ v\_current }{Shared variable, DO NOT REFINE}
+                \ItemY{ loc\_current }{Shared variable, DO NOT REFINE}
+                \ItemY{ A\_gradient }{Private variable}
+                \ItemY{ rotating\_mass\_specified }{}
+                \ItemY{ M\_rotating\_nom }{}
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItem{ inv1 }{ rotating\_mass\_specified \in  BOOL }
+                \nItem{ inv2 }{ M\_rotating\_nom \in  t\_mass\_percentage }
+        \end{description}
+\EVENTS
+        \INITIALISATION
+                \\\textit{extended}
+                \begin{description}
+                \BeginAct
+                        \begin{description}
+                        \nItemX{ act1 }{ v\_current :=  c\_v0 }
+                        \nItemX{ act2 }{ a\_current :=  c\_a0 }
+                        \nItemX{ act3 }{ loc\_current :=  c\_l0 }
+                        \nItemX{ act16 }{ A\_gradient :=  c\_a0 }
+                        \nItemY{ act17 }{ rotating\_mass\_specified :=  FALSE }{  }
+                        \nItem{ act18 }{ M\_rotating\_nom :=  c\_mass\_percentage0 }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {update\_train\_state}\cmt{		\\\hspace*{4,2 cm}  External event, DO NOT REFINE }
+        \EXTD {update\_train\_state}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemX{l\_speed }
+                        \ItemX{l\_accel }
+                        \ItemX{l\_loc }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemX{ grd1 }{ l\_speed \in  t\_speed }
+                        \nItemX{ grd2 }{ l\_accel \in  t\_acceleration }
+                        \nItemX{ grd3 }{ l\_loc \in  t\_locations }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemX{ act1 }{ v\_current :=  l\_speed }
+                        \nItemX{ act2 }{ a\_current :=  l\_accel }
+                        \nItemX{ act3 }{ loc\_current :=  l\_loc }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_A\_gradient}
+        \REF {set\_A\_gradient}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_mass }
+                        \Item{l\_SvL }
+                        \ItemY{l\_grad }{ }
+                        \Item{l\_TSR }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd2 }{ l\_mass \in  t\_mass\_percentage }
+                        \nItem{ grd3 }{ l\_SvL \in  t\_locations }
+                        \nItemY{ grd4 }{ l\_grad \in  t\_gradients }{ }
+                        \nItemY{ grd5 }{ l\_TSR \in  t\_speed\_profiles }{ }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_a\_gradient }{ l\_a\_gradient = f\_accel\_due\_gradient (loc\_current \mapsto  l\_SvL \mapsto  l\_grad \mapsto  l\_mass \mapsto  l\_TSR) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_gradient :=  f\_accel\_due\_gradient (loc\_current \mapsto  l\_SvL \mapsto  l\_grad \mapsto  l\_mass \mapsto  l\_TSR) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {specify\_rotating\_mass}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_mass }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ rotating\_mass\_specified = FALSE }
+                        \nItem{ grd2 }{ l\_mass \in  t\_mass\_percentage }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act1 }{ M\_rotating\_nom :=  l\_mass }{  }
+                        \nItem{ act2 }{ rotating\_mass\_specified :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {delete\_rotating\_mass\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ rotating\_mass\_specified = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ rotating\_mass\_specified :=  FALSE }
+                        \nItem{ act2 }{ M\_rotating\_nom :=  c\_mass\_percentage0 }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

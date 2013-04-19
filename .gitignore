@@ -11,3 +11,7 @@ model/GNATprove-MERCE/gnatprove.out
 *.lof
 *.lot
 *.toc
+*.bbl
+*.blg
+*.el
+*.rel

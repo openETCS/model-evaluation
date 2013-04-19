@@ -394,11 +394,204 @@ and the release start speed monitoring location (\bvar{RSM\_start}).
 \section{Model Decomposition}
 \label{sec:model-decomposition}
 
+The decomposition strategy chosen for this model is ``A-style'' (for Abrial)
+which means shared variable decomposition~\cite{silva2011decomposition}. In this
+case the events of an Event-B machine are separated into $n$ disjoint sets. Each
+of these sets represents one decomposed sub-machine. Variables can be shared
+between machines, if they are read / written by them. In this case-study, all
+events that write a single variable are in one machine, events that read this
+variable are in another machine. Only the sub-machine in which a variable is
+written can do data-refinement on these variables, in the other machines, these
+variables are marked as shared and cannot be refined.
+
+For the model decomposition, an additional refinement of the model is necessary.
 The machine m9 does not really add detail to the refined machine m8. The only
 changes are that the variables which are read by an event are explicitly added
 to the conditions by specifying a typing condition for them. This assures that
 the model decomposition preserves these necessary variables in the sub-machines
 and only removes the unneeded ones.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.75\textwidth]{Decomp-Overview}
+  \caption{Decomposition Configuration}
+  \label{fig:decomp-overview}
+\end{figure}
+
+The overview of the decomposition in the Rodin tool using the decomposition
+plug-in is shown in Fig.~\ref{fig:decomp-overview}. It lists the decomposed
+machine, the decomposition style, the sub-components and the events in each
+sub-machine (only shown for a single one).
+
+In the following sections, the sub-components, their respective refinement and
+the required context definitions will be explained.
+
+\subsection{dcmp - Braking Model}
+\label{sec:dcmp-braking-model}
+
+The braking model has the following input variables: \bvar{a\_current},
+\bvar{v\_current} and \bvar{loc\_current}. These variables are written by the
+event \bevent{update\_train\_state}. The variables and this event are marked as
+``DO NOT REFINE'', i.e., they are shared variables and an external event.
+
+The output variables are \bvar{T\_brake\_service}, \bvar{T\_brake\_emergency},
+\bvar{A\_brake\_normal\_service}, \bvar{A\_brake\_service} and
+\bvar{A\_brake\_emergency}.
+
+{\footnotesize
+\input{dcmp_braking_model_m0}
+}
+
+\subsubsection{Context - Train Data 1 Brake}
+\label{sec:context-train-data}
+
+This context introduces the type \btype{t\_brake\_percentage} and a function
+that takes the train speed, the brake percentage, the train length and the brake
+position as arguments and returns a Boolean value indicating whether the
+conversion model is applicable. It also introduces functions that calculate the
+conversion model for the emergency and for the service brake, as well as the
+conversion model for the brake buildup time of the service and emergency brake.
+
+On the system level description of this Event-B model, these functions are not
+implemented in more detail. Their specification and implementation details can
+be found in §3.13.3 of the SRS.
+
+
+{\footnotesize
+\input{ctx_train_data_1_brake}
+}
+
+\subsubsection{dcmp - Braking Model Conversion Model}
+\label{sec:dcmp-braking-model-1}
+
+In the first refinement of the sub-machine adds the variables
+\bvar{brake\_percentage} of type brake percentage and
+\bvar{brake\_percentage\_via\_train\_data} of Boolean type. These variables are
+modified by the event \bevent{specify\_brake\_percentage} and
+\bevent{remove\_brake\_percentage\_data}. The Boolean variable signals the
+specification of the brake percentage via train data.
+
+The value of the brake percentage is used in some events to compute concrete
+values for the conversion model instead of using an event parameter. For example
+in the event \bevent{calc\_A\_brake\_emergency\_conversion\_model}, the function
+\bfunc{f\_conversion\_model\_A\_emergency} is used with the value
+of\bvar{brake\_percentage} to compute the conversion model. This replaces the
+event parameter \bparam{l\_a\_brake} by defining a \emph{witness} for it.
+
+{\footnotesize
+\input{dcmp_braking_model_m1_conversion_model}
+}
+
+\subsubsection{Context - Train Data 2 Direct Calculation}
+\label{sec:context-train-data-1}
+
+The next context introduces the type representing the combination of the
+different brake types of the train. It also defines functions that calculate the
+braking models for different brake combinations for the service brake and the
+emergency brake, as well as functions to calculate the brake buildup time for
+the service and emergency brake with the brake combination as argument. It also
+defines a function that calculates the normal brake function dependent on the
+brake position and the acceleration constants \bconst{c\_SB01} and
+\bconst{c\_SB02} (cf.~§3.13.2.2.3.1.10).
+
+{\footnotesize
+\input{ctx_train_data_2_dircect_calc}
+}
+
+\subsubsection{dcmp - Braking Model Direct Calculation}
+\label{sec:dcmp-braking-model-2}
+
+This machine refinement uses the brake combinations and the corresponding
+functions from the context to produce more concrete events. For events that
+compute a function mapping speed to acceleration, the functions of the context
+and the constants for SB01 and SB02 are used to eliminate the event parameters
+by providing witnesses for them.
+
+{\footnotesize
+\input{dcmp_braking_model_m2_direct_calc}
+}
+
+\subsection{dcmp - Calc Deceleration}
+\label{sec:dcmp-calc-decel}
+
+The deceleration calculation model has the following input variables:
+\bvar{a\_current}, \bvar{v\_current} and \bvar{loc\_current}. The output
+variables it calculates are \bvar{A\_normal\_service}, \bvar{A\_expected} and
+\bvar{A\_safe} which each map train speed and distance to an acceleration.
+
+{\footnotesize
+\input{dcmp_calc_deceleration_m0}
+}
+
+\subsection{dcmp - Brake Buildup}
+\label{sec:dcmp-brake-buildup}
+
+The brake buildup time calculation has the following input variables:
+\bvar{a\_current}, \bvar{v\_current} and \bvar{loc\_current}. The output
+variables are \bvar{T\_be}, \bvar{T\_se}, \bvar{T\_brake\_service} and
+\bvar{T\_brake\_emergency}.
+
+{\footnotesize
+\input{dcmp_brake_buildup_m0}
+}
+
+{\footnotesize
+\input{dcmp_brake_buildup_m2_calculation}
+}
+
+\subsection{dcmp - Acceleration Gradient}
+\label{sec:dcmp-accel-grad}
+
+{\footnotesize
+\input{dcmp_acceleration_gradient_m0}
+}
+
+{\footnotesize
+\input{dcmp_acceleration_gradient_m1}
+}
+
+{\footnotesize
+\input{dcmp_acceleration_gradient_m2_grad_accel}
+}
+
+\subsection{dcmp - MRSP}
+\label{sec:dcmp-mrsp}
+
+{\footnotesize
+\input{dcmp_mrsp_m0}
+}
+
+{\footnotesize
+\input{dcmp_mrsp_m1_all_speed_profiles}
+}
+
+\subsection{dcmp - Supervised Targets}
+\label{sec:dcmp-superv-targ}
+
+{\footnotesize
+\input{dcmp_supervised_targets_m0}
+}
+
+\subsection{dcmp - Braking Curves}
+\label{sec:dcmp-braking-curves}
+
+{\footnotesize
+\input{dcmp_braking_curves_m0}
+}
+
+\subsection{dcmp - Supervision Limits}
+\label{sec:dcmp-superv-limits}
+
+{\footnotesize
+\input{dcmp_supervision_limits_m0}
+}
+
+\subsection{dcmp - Monitoring Commands}
+\label{sec:dcmp-monit-comm}
+
+{\footnotesize
+\input{dcmp_monitoring_commands}
+}
 
 \bibliographystyle{alpha}
 \bibliography{openetcs}

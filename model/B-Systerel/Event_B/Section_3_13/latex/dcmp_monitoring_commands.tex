@@ -1,0 +1,209 @@
+\begin{description}
+\MACHINE{dcmp\_monitoring\_commands}
+\SEES{c6\_supervision\_limits}
+\VARIABLES
+        \begin{description}
+                \ItemY{ status\_current }{Private variable}
+                \ItemY{ SBI }{Shared variable, DO NOT REFINE}
+                \ItemY{ I\_limit }{Shared variable, DO NOT REFINE}
+                \ItemY{ PIl }{Shared variable, DO NOT REFINE}
+                \ItemY{ W\_limit }{Shared variable, DO NOT REFINE}
+                \ItemY{ RSM\_start }{Shared variable, DO NOT REFINE}
+                \ItemY{ a\_current }{Shared variable, DO NOT REFINE}
+                \ItemY{ cmd\_current }{Private variable}
+                \ItemY{ v\_current }{Shared variable, DO NOT REFINE}
+                \ItemY{ P\_limit }{Shared variable, DO NOT REFINE}
+                \ItemY{ loc\_current }{Shared variable, DO NOT REFINE}
+                \ItemY{ EBI }{Shared variable, DO NOT REFINE}
+        \end{description}
+\INVARIANTS
+        \begin{description}
+                \nItem{ typing\_status\_current }{ status\_current \in  t\_DMI\_commands }
+                \nItem{ typing\_SBI }{ SBI \in  t\_supervision\_limits }
+                \nItem{ typing\_I\_limit }{ I\_limit \in  t\_supervision\_limits }
+                \nItem{ typing\_PIl }{ PIl \in  t\_supervision\_limits }
+                \nItem{ typing\_W\_limit }{ W\_limit \in  t\_supervision\_limits }
+                \nItem{ typing\_RSM\_start }{ RSM\_start \in  t\_supervision\_limits }
+                \nItem{ typing\_a\_current }{ a\_current \in  t\_acceleration }
+                \nItem{ typing\_cmd\_current }{ cmd\_current \in  t\_TI\_commands }
+                \nItem{ typing\_v\_current }{ v\_current \in  t\_speed }
+                \nItem{ typing\_P\_limit }{ P\_limit \in  t\_supervision\_limits }
+                \nItem{ typing\_loc\_current }{ loc\_current \in  t\_locations }
+                \nItem{ typing\_EBI }{ EBI \in  t\_supervision\_limits }
+        \end{description}
+\EVENTS
+        \INITIALISATION
+                \begin{description}
+                \BeginAct
+                        \begin{description}
+                        \nItem{ act1 }{ v\_current :=  c\_v0 }
+                        \nItem{ act2 }{ a\_current :=  c\_a0 }
+                        \nItem{ act3 }{ loc\_current :=  c\_l0 }
+                        \nItem{ act4 }{ cmd\_current :=  c\_no\_command }
+                        \nItem{ act5 }{ status\_current :=  c\_normal }
+                        \nItem{ act24 }{ EBI :=  c\_slimit0 }
+                        \nItem{ act25 }{ SBI :=  c\_slimit0 }
+                        \nItem{ act26 }{ W\_limit :=  c\_slimit0 }
+                        \nItem{ act27 }{ P\_limit :=  c\_slimit0 }
+                        \nItem{ act28 }{ I\_limit :=  c\_slimit0 }
+                        \nItem{ act29 }{ PIl :=  c\_slimit0 }
+                        \nItem{ act30 }{ RSM\_start :=  c\_slimit0 }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {update\_train\_state}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_speed }
+                        \Item{l\_accel }
+                        \Item{l\_loc }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_speed \in  t\_speed }
+                        \nItem{ grd2 }{ l\_accel \in  t\_acceleration }
+                        \nItem{ grd3 }{ l\_loc \in  t\_locations }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ v\_current :=  l\_speed }
+                        \nItem{ act2 }{ a\_current :=  l\_accel }
+                        \nItem{ act3 }{ loc\_current :=  l\_loc }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {new\_outputs}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_ti\_cmd }
+                        \Item{l\_dmi\_status }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_ti\_cmd \in  t\_TI\_commands }
+                        \nItem{ grd2 }{ l\_dmi\_status \in  t\_DMI\_commands }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ cmd\_current :=  l\_ti\_cmd }
+                        \nItem{ act2 }{ status\_current :=  l\_dmi\_status }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_EBI}\cmt{		\\\hspace*{2 cm}  External event, DO NOT REFINE }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_limit }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ EBI :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_SBI}\cmt{		\\\hspace*{2 cm}  External event, DO NOT REFINE }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_limit }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ SBI :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_W\_limit}\cmt{		\\\hspace*{2,8 cm}  External event, DO NOT REFINE }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_limit }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ W\_limit :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_I\_limit}\cmt{		\\\hspace*{2,8 cm}  External event, DO NOT REFINE }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_limit }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ I\_limit :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_P\_limit}\cmt{		\\\hspace*{2,8 cm}  External event, DO NOT REFINE }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_limit }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ P\_limit :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_PIl\_limit}\cmt{		\\\hspace*{3,2 cm}  External event, DO NOT REFINE }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_limit }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ PIl :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_RSM\_start\_limit}\cmt{		\\\hspace*{4,4 cm}  External event, DO NOT REFINE }
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_limit }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_limit \in  t\_supervision\_limits }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ RSM\_start :=  l\_limit }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}
+

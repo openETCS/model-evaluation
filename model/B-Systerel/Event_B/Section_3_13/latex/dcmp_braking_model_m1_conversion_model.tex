@@ -1,0 +1,138 @@
+\begin{description}
+\MACHINE{dcmp\_braking\_model\_m1\_conversion\_model}
+\REFINES{dcmp\_braking\_model\_m0}
+\SEES{c6\_supervision\_limits, ctx\_train\_data\_1\_brake}
+\VARIABLES
+        \begin{description}
+                \ItemY{ brake\_percentage }{}
+                \Item{ brake\_percentage\_via\_train\_data }
+        \end{description}
+\EVENTS
+        \EVT {calc\_A\_brake\_emergency\_conversion\_model}
+        \REF {set\_A\_brake\_emergency}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_brake\_position }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd2 }{ brake\_percentage\_via\_train\_data = TRUE }
+                        \nItem{ grd3 }{ f\_conversion\_model\_applicable (c\_train\_max\_speed \mapsto  brake\_percentage \mapsto  c\_train\_length \mapsto  l\_brake\_position) = TRUE }
+                        \nItem{ grd4 }{ l\_brake\_position \in  t\_brake\_position }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_a\_brake }{ l\_a\_brake = f\_conversion\_model\_A\_emergency(brake\_percentage) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_brake\_emergency :=  f\_conversion\_model\_A\_emergency(brake\_percentage) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {calc\_A\_brake\_service\_conversion\_model}
+        \REF {set\_A\_brake\_service}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_brake\_position }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd2 }{ brake\_percentage\_via\_train\_data = TRUE }{ }
+                        \nItem{ grd3 }{ f\_conversion\_model\_applicable (c\_train\_max\_speed \mapsto  brake\_percentage \mapsto  c\_train\_length \mapsto  l\_brake\_position) = TRUE }
+                        \nItem{ grd4 }{ l\_brake\_position \in  t\_brake\_position }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_a\_brake }{ l\_a\_brake = f\_conversion\_model\_A\_service(brake\_percentage) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_brake\_service :=  f\_conversion\_model\_A\_service(brake\_percentage) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {calc\_T\_brake\_service\_conversion\_model}
+        \REF {set\_T\_brake\_service}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_brake\_position }{ }
+                        \Item{l\_target\_speed }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd2 }{ brake\_percentage\_via\_train\_data = TRUE }
+                        \nItem{ grd3 }{ f\_conversion\_model\_applicable (c\_train\_max\_speed \mapsto  brake\_percentage \mapsto  c\_train\_length \mapsto  l\_brake\_position) = TRUE }
+                        \nItem{ grd4 }{ l\_brake\_position \in  t\_brake\_position }
+                        \nItem{ grd5 }{ l\_target\_speed \in  t\_speed }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_T\_brake }{ l\_T\_brake = f\_conversion\_model\_T\_brake\_service(l\_brake\_position \mapsto  c\_train\_length \mapsto  l\_target\_speed) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ T\_brake\_service :=  f\_conversion\_model\_T\_brake\_service(l\_brake\_position \mapsto  c\_train\_length \mapsto  l\_target\_speed) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \REF {set\_T\_brake\_emergency}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_brake\_position }
+                        \Item{l\_target\_speed }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ brake\_percentage\_via\_train\_data = TRUE }
+                        \nItem{ grd2 }{ f\_conversion\_model\_applicable (c\_train\_max\_speed \mapsto  brake\_percentage \mapsto  c\_train\_length \mapsto  l\_brake\_position) = TRUE }
+                        \nItem{ grd3 }{ l\_brake\_position \in  t\_brake\_position }
+                        \nItem{ grd4 }{ l\_target\_speed \in  t\_speed }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_T\_brake }{ l\_T\_brake = f\_conversion\_model\_T\_brake\_emergency(l\_brake\_position \mapsto  c\_train\_length \mapsto  l\_target\_speed) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ T\_brake\_emergency :=  f\_conversion\_model\_T\_brake\_emergency(l\_brake\_position \mapsto  c\_train\_length \mapsto  l\_target\_speed) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {specifiy\_brake\_percentage}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \ItemY{l\_brake }{ }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_brake \in  t\_brake\_percentage }
+                        \nItem{ grd2 }{ brake\_percentage\_via\_train\_data = FALSE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ brake\_percentage :=  l\_brake }
+                        \nItem{ act2 }{ brake\_percentage\_via\_train\_data :=  TRUE }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {remove\_brake\_percentage\_data}
+                \begin{description}
+                \WhenGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ brake\_percentage\_via\_train\_data = TRUE }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ brake\_percentage :=  c\_brake\_percentage0 }
+                        \nItem{ act2 }{ brake\_percentage\_via\_train\_data :=  FALSE }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

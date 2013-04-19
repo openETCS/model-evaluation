@@ -1,0 +1,112 @@
+\begin{description}
+\MACHINE{dcmp\_braking\_model\_m2\_direct\_calc}
+\REFINES{dcmp\_braking\_model\_m1\_conversion\_model}
+\SEES{c6\_supervision\_limits, ctx\_train\_data\_2\_dircect\_calc}
+\EVENTS
+        \EVT {calc\_A\_brake\_emergency\_direct}
+        \REF {set\_A\_brake\_emergency}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_brake\_combination }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_brake\_combination \in  t\_brake\_combination }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_a\_brake }{ l\_a\_brake = f\_calc\_A\_brake\_emergency\_direct(l\_brake\_combination) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_brake\_emergency :=  f\_calc\_A\_brake\_emergency\_direct(l\_brake\_combination) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {calc\_A\_brake\_service\_direct}
+        \REF {set\_A\_brake\_service}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_brake\_combination }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItemY{ grd2 }{ l\_brake\_combination \in  t\_brake\_combination }{ }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_a\_brake }{ l\_a\_brake = f\_calc\_A\_brake\_service\_direct(l\_brake\_combination) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_brake\_service :=  f\_calc\_A\_brake\_service\_direct(l\_brake\_combination) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_A\_brake\_normal\_service}
+        \REF {set\_A\_brake\_normal\_service}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_brake\_position }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_brake\_position \in  t\_brake\_position }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_a\_brake }{ l\_a\_brake = f\_calc\_A\_brake\_normal\_direct(l\_brake\_position \mapsto  c\_SB01 \mapsto  c\_SB02) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ A\_brake\_normal\_service :=  f\_calc\_A\_brake\_normal\_direct(l\_brake\_position \mapsto  c\_SB01 \mapsto  c\_SB02) }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_T\_brake\_service}\cmt{ }
+        \REF {set\_T\_brake\_service}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_brake\_combination }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_brake\_combination \in  t\_brake\_combination }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_T\_brake }{ l\_T\_brake = f\_calc\_T\_brake\_service(l\_brake\_combination) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItemY{ act1 }{ T\_brake\_service :=  f\_calc\_T\_brake\_service(l\_brake\_combination) }{  }
+                        \end{description}
+                \EndAct
+                \end{description}
+        \EVT {set\_T\_brake\_emergency}
+        \REF {set\_T\_brake\_emergency}
+                \begin{description}
+                \AnyPrm
+                        \begin{description}
+                        \Item{l\_brake\_combination }
+                        \end{description}
+                \WhereGrd
+                        \begin{description}
+                        \nItem{ grd1 }{ l\_brake\_combination \in  t\_brake\_combination }
+                        \end{description}
+                \Witnesses
+                        \begin{description}
+                        \nItemX{ l\_T\_brake }{ l\_T\_brake = f\_calc\_T\_brake\_emergency(l\_brake\_combination) }
+                        \end{description}
+                \ThenAct
+                        \begin{description}
+                        \nItem{ act1 }{ T\_brake\_emergency :=  f\_calc\_T\_brake\_emergency(l\_brake\_combination) }
+                        \end{description}
+                \EndAct
+                \end{description}
+\END
+\end{description}

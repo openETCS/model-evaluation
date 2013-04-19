@@ -1,0 +1,25 @@
+\begin{description}
+\CONTEXT{ctx\_train\_data\_1\_brake}
+\EXTENDS{ctx\_train\_data}
+\SETS
+        \begin{description}
+                \Item{ t\_brake\_position }
+        \end{description}
+\CONSTANTS
+        \begin{description}
+                \Item{ t\_brake\_percentage }
+                \Item{ c\_brake\_percentage0 }
+                \Item{ f\_conversion\_model\_applicable }
+                \ItemY{ f\_conversion\_model\_A\_emergency }{}
+                \Item{ f\_conversion\_model\_A\_service }
+                \Item{ f\_conversion\_model\_T\_brake\_service }
+                \Item{ f\_conversion\_model\_T\_brake\_emergency }
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ t\_brake\_percentage \subseteq  t\_percentage }		\nItem{ axm2 }{ c\_brake\_percentage0 \in  t\_brake\_percentage }		\nItem{ axm3 }{ f\_conversion\_model\_applicable \in  t\_speed \cprod  t\_brake\_percentage \cprod  t\_length \cprod  t\_brake\_position \tfun  BOOL }\cmt{		\\\hspace*{1,4 cm}  cf. 3.13.3.2.1 }
+                \nItem{ axm4 }{ f\_conversion\_model\_A\_emergency \in  t\_brake\_percentage \tfun  (t\_speed \tfun  t\_acceleration) }\cmt{		\\\hspace*{1,4 cm}  cf. 3.13.3.3 }
+                \nItem{ axm5 }{ f\_conversion\_model\_A\_service \in  t\_brake\_percentage \tfun  (t\_speed \tfun  t\_acceleration) }		\nItem{ axm6 }{ f\_conversion\_model\_T\_brake\_service \in  t\_brake\_position \cprod  t\_length \cprod  t\_speed \tfun  t\_time }\cmt{		\\\hspace*{1,4 cm}  cf. 3.13.3.4 }
+                \nItem{ axm7 }{ f\_conversion\_model\_T\_brake\_emergency \in  t\_brake\_position \cprod  t\_length \cprod  t\_speed \tfun  t\_time }	\end{description}
+\END
+\end{description}
