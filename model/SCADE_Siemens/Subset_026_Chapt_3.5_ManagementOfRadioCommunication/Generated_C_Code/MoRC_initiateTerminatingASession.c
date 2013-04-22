@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -147,6 +147,6 @@ void MoRC_initiateTerminatingASession(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_initiateTerminatingASession.c
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 

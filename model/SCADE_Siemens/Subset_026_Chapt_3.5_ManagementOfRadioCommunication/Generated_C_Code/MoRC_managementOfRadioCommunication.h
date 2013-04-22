@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 #ifndef _MoRC_managementOfRadioCommunication_H_
 #define _MoRC_managementOfRadioCommunication_H_
@@ -51,8 +51,7 @@ typedef struct {
   MoRC_mobileSWStatus_Type /* managementOfRadioCommunication::mobileSWStatus */ mobileSWStatus;
   kcg_bool /* managementOfRadioCommunication::prevSessionTerminatedDueToLossOfSafeRadioConnection */ prevSessionTerminatedDueToLossOfSafeRadioConnection;
   /* ---------------------  sub nodes' contexts  --------------------- */
-  MoRC_outC_terminateAndEstablishSession /* 1 */ _10_Context_1;
-  MoRC_outC_RisingEdge_digital /* 1 */ _9_Context_1;
+  MoRC_outC_terminateAndEstablishSession /* 1 */ _9_Context_1;
   MoRC_outC_establish_a_CommunicationSession /* 2 */ _8_Context_2;
   MoRC_outC_terminating_a_CommunicationSession /* 1 */ _7_Context_1;
   MoRC_outC_maintaining_a_CommunicationSession /* 1 */ _6_Context_1;
@@ -119,6 +118,6 @@ extern void MoRC_managementOfRadioCommunication_reset(
 #endif /* _MoRC_managementOfRadioCommunication_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_managementOfRadioCommunication.h
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 

@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -22,8 +22,7 @@ void MoRC_managementOfRadioCommunication_reset(
   /* 1 */ MoRC_maintaining_a_CommunicationSession_reset(&outC->_6_Context_1);
   /* 1 */ MoRC_terminating_a_CommunicationSession_reset(&outC->_7_Context_1);
   /* 2 */ MoRC_establish_a_CommunicationSession_reset(&outC->_8_Context_2);
-  /* 1 */ MoRC_RisingEdge_reset_digital(&outC->_9_Context_1);
-  /* 1 */ MoRC_terminateAndEstablishSession_reset(&outC->_10_Context_1);
+  /* 1 */ MoRC_terminateAndEstablishSession_reset(&outC->_9_Context_1);
 }
 
 /** Subset 096, REQ 3.5 */
@@ -99,8 +98,6 @@ void MoRC_managementOfRadioCommunication(
   /* managementOfRadioCommunication::initiateTermination */ kcg_bool initiateTermination;
   
   if (outC->init) {
-    outC->init = kcg_false;
-    CommunicationSession_SM_reset_sel = kcg_false;
     last_sessionSuccessfullyEstablished = kcg_false;
     last_sessionEstablished = kcg_false;
     last_communicationSessionInitiatedByOBU = kcg_false;
@@ -113,6 +110,8 @@ void MoRC_managementOfRadioCommunication(
     last_sessionStatus = MoRC_morc_st_inactive;
     CommunicationSession_SM_state_act =
       MoRC_SSM_st_NoSession_CommunicationSession_SM;
+    outC->init = kcg_false;
+    CommunicationSession_SM_reset_sel = kcg_false;
   }
   else {
     br_1_guard_CommunicationSession_SM_Maintaining =
@@ -152,7 +151,7 @@ void MoRC_managementOfRadioCommunication(
     orderReceivedFromTrackside,
     outC->sessionStatus,
     OBU_hasToEstablishANewSession,
-    &outC->_10_Context_1);
+    &outC->_9_Context_1);
   switch (CommunicationSession_SM_state_act) {
     case MoRC_SSM_st_Terminating_CommunicationSession_SM :
       initiateTermination = kcg_false;
@@ -236,24 +235,19 @@ void MoRC_managementOfRadioCommunication(
       break;
     case MoRC_SSM_st_Establishing_CommunicationSession_SM :
       if (CommunicationSession_SM_reset_sel) {
-        /* 1 */ MoRC_RisingEdge_reset_digital(&outC->_9_Context_1);
         /* 2 */
         MoRC_establish_a_CommunicationSession_reset(&outC->_8_Context_2);
       }
-      /* 1 */
-      MoRC_RisingEdge_digital(
-        (kcg_bool)
-          (last_mobileSWStatus.valid && last_mobileSWStatus.connectionStatus ==
-            MoRC_mswc_connected),
-        &outC->_9_Context_1);
       /* 2 */
       MoRC_establish_a_CommunicationSession(
         isPartOfAnOngoingStartOfMissionProcedure,
-        outC->_9_Context_1.RE_Output,
+        (kcg_bool)
+          (last_mobileSWStatus.valid && last_mobileSWStatus.connectionStatus ==
+            MoRC_mswc_registered),
         last_mobileSWStatus.settingUpConnectionHasFailed,
         endOfMissionIsExecuted,
         trainPassesALevelTransitionBorder,
-        &outC->_10_Context_1.newOrderToEstablishASession_out,
+        &outC->_9_Context_1.newOrderToEstablishASession_out,
         orderToEstablishACommunicationSession_fromOBU,
         orderDoesNotRequestToContactAnAcceptingRBC,
         trainPassesA_RBC_RBC_border_WithItsFrontEnd,
@@ -353,7 +347,7 @@ void MoRC_managementOfRadioCommunication(
     &outC->_3_Context_2);
   outC->sendAPositionReport = outC->_3_Context_2.sendAPositionReport;
   initiateTermination = outC->_3_Context_2.initiateTermination ||
-    outC->_10_Context_1.initiateTermination;
+    outC->_9_Context_1.initiateTermination;
   /* 2 */
   MoRC_RisingEdge_digital(
     br_1_guard_CommunicationSession_SM_Establishing,
@@ -421,7 +415,7 @@ void MoRC_managementOfRadioCommunication(
         outC->prevSessionTerminatedDueToLossOfSafeRadioConnection,
         startOfMissionProcedureCompleted,
         kcg_true,
-        outC->_10_Context_1.initiateEstablishingNewSession,
+        outC->_9_Context_1.initiateEstablishingNewSession,
         &outC->Context_1);
       outC->CommunicationSession_SM_reset_nxt =
         outC->Context_1.initiate_a_communicationSession_Request;
@@ -552,6 +546,6 @@ void MoRC_managementOfRadioCommunication(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_managementOfRadioCommunication.c
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 

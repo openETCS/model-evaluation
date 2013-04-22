@@ -10,11 +10,11 @@ MoRC_initiateTerminatingASession.c
 MoRC_safeRadioConnectionIndication.c
 MoRC_registeringToTheRadioNetwork.c
 MoRC_radioNetworkMobile.c
+MoRC_RisingEdge_digital.c
 MoRC_terminating_a_CommunicationSession.c
 MoRC_waitAndRepeatTimer.c
 MoRC_maintaining_a_CommunicationSession.c
 MoRC_countDownTimer.c
-MoRC_RisingEdge_digital.c
 MoRC_establish_a_CommunicationSession.c
 MoRC_isOrderToEstablishConnection.c
 MoRC_Initiate_a_Session.c
@@ -27,11 +27,11 @@ MoRC_initiateTerminatingASession.h
 MoRC_safeRadioConnectionIndication.h
 MoRC_registeringToTheRadioNetwork.h
 MoRC_radioNetworkMobile.h
+MoRC_RisingEdge_digital.h
 MoRC_terminating_a_CommunicationSession.h
 MoRC_waitAndRepeatTimer.h
 MoRC_maintaining_a_CommunicationSession.h
 MoRC_countDownTimer.h
-MoRC_RisingEdge_digital.h
 MoRC_establish_a_CommunicationSession.h
 MoRC_isOrderToEstablishConnection.h
 MoRC_Initiate_a_Session.h
