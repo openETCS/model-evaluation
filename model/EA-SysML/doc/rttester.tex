@@ -1,4 +1,4 @@
-\subsection{Tool overview}
+\subsubsection{Tool overview}
 
 The RT-Tester test automation tool, made by Verified
 \cite{verified_website}, performs automatic test generation, test
@@ -27,7 +27,8 @@ testing. It automatically generates  reach statement coverage, branch coverage a
 modified condition/decision coverage (MC/DC) as far as this is possible.
 The test cases may all be linked to requirements ensuring a complete
 requirement traceability. 
-
+Additionally RT-tester may produce test cases/data from a LTL
+formula, since a LTL formula describes a possible run of the model.
 
 
 Finally the tool may produce the documentation of tests for
@@ -50,15 +51,96 @@ may be easily done.
 
 
 
-\subsection{Test generation}
-\begin{itemize}
-\item Test coverage
-\item Requirement coverage
-\item LTL requirement
-\end{itemize}
-\FIXME{Table coverage summary}
- 	
+\subsubsection{Test generation}
+RT-Tester is able to automatically generate test cases from the test
+model.
+The first step may be to generate the test cases that cover all the
+model artifacts : a test to reach all transitions, control state and
+perform MC/DC coverage of the model. The test cases are
+related to their attached requirement. This is automatically derived
+from the requirement diagram. 
 
+The test campaign may then be guided by requirement coverage, one
+can select the test cases associated to a requirement, or
+by test cases coverage, one select the tests to be covered.
+
+Finally, it is possible to add user define test cases. This has been
+done to import test cases part from the SUBSET-076. his has been made
+manually by translating the test cases description from the word
+document as an LTL formula. 
+For example the test case 1 of feature  177, tests the requirement :
+"Establishing a radio communication initiated by RBC''.  It checks
+that after receiving a connection indication of the safe radio
+from the RTM, the OBU  shall confirm the establishment and shall
+consider the session established following the process describes in
+the requirements 3.5.3. This has been translated into the following
+formula:
+\begin{multicols}{2}
+\begin{verbatim}
+// Initial state NO_COM
+[
+setUp == 0 &&
+radioComSesssionEstablished == 0 && 
+M_Level >= 3 && 
+M_Mode != 3 &&
+M_Mode != 4 &&
+M_Mode != 5 &&
+M_Mode != 9 &&
+M_Mode != 10 &&
+radioHole == NONE &&
+orderOnBoard == NONE  &&
+messageIn == NO_MESSAGE
+] && 
+[
+setUp == 0 &&
+radioComSesssionEstablished == 0 && 
+M_Level >= 3 && 
+M_Mode != 3 &&
+M_Mode != 4 &&
+M_Mode != 5 &&
+M_Mode != 9 &&
+M_Mode != 10 &&
+radioHole == NONE &&
+orderOnBoard == NONE  &&
+messageIn == NO_MESSAGE 
+]  
+Until
+(// Safe radio set up
+[
+  setUp == 1 &&
+  IMR.messageFromRBC == 38 
+] &&
+Finally 
+// Message session established send 
+// session considered as established
+[
+  IMR.messageFromRBC == 38 &&
+  IMR.messageToRBC == 159 &&
+  IMR.radioComSesssionEstablished == 1
+])
+\end{verbatim}
+\end{multicols}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lr}\toprule
+  Test cases covered & \# tests generated  \\\midrule
+  Basic state & 11 \\
+  Transition & 28 \\
+  MC/DC & 63 \\
+  LTL & 4 \\
+  Test 177 & 2 \\ \midrule
+  Total Tests& 108\\\bottomrule
+\end{tabular}
+
+\raggedleft Total Requirement cover 36
+\caption{\label{tbl:test_summary} Test cases generation summary}
+\end{table}
+
+Table \ref{tbl:test_summary} summarizes the set of test cases
+generated and the related requirements. The line LTL represents the
+requirement that has been rewrite with a LTL formula. The test 177
+represents the translation as LTL formula of the two test cases described
+in SUBSET 076. This set of test cases covers 36 requirements from SUBSET-026-chap 3.5.
 
 %%% Local Variables: 
 %%% mode: latex

@@ -4,6 +4,7 @@
 \usepackage{url}
 \usepackage{booktabs}
 \usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
 \graphicspath{{./template/}{.}{./images/}{schema/pdf/}}
 \begin{document}
 \frontmatter
@@ -73,7 +74,7 @@ include versionning. The main cons : it is not an open source tool.
 
 We had design a test model, this model aims at generate test cases and test
 data. The test generator used here is the tool-suite RT-Tester Model-Based generator
-(\textsc{Rtt-Mbt}) \cite{peleska2011,rttmbtreport2011}. It provides sequences of
+(\textsc{Rtt-Mbt}) \cite{Peleska2011,rttmbtreport2011}. It provides sequences of
 input data with timing constraints that are used for the stimulation of the
 system under test (SUT), concurrently with generated test oracles. 
 % ----------------------------------------------------
@@ -202,6 +203,10 @@ the models that are not always using the same XMI definition.
   \label{subsec:behavior}
   \input{behavior}
 
+% ----------------------------------------------------
+  \subsection{Test cases generation}
+  \label{subsec:test_generation}
+  \input{rttester}
 
 
 \bibliographystyle{plain}
