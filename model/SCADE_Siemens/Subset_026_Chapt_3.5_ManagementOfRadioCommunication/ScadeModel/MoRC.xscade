@@ -3465,5 +3465,81 @@
 				</ed:Constant>
 			</pragmas>
 		</Constant>
+		<Constant name="cMobileHWStatus_Registered">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileHWStatus_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : true, connectionStatus : mhwc_registered, settingUpConnectionHasFailed :... -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="true"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="connectionStatus">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mhwc_registered"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="settingUpConnectionHasFailed">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/3207/6C1B/32C/516fc39b55cb"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cMobileHWStatus_notRegistered">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileHWStatus_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : true, connectionStatus : mhwc_notRegistered, settingUpConnectionHasFaile... -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="true"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="connectionStatus">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mhwc_notRegistered"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="settingUpConnectionHasFailed">
+							<flow>
+								<ConstValue value="false"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/3294/6C1B/32C/516fcc005066"/>
+			</pragmas>
+		</Constant>
 	</declarations>
 </File>

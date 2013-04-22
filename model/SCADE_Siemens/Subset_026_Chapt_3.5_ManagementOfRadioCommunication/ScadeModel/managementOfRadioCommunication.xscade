@@ -3363,18 +3363,6 @@
 										<ed:Variable oid="!ed/2ac5/4FF2/164C/50f9809c5b90"/>
 									</pragmas>
 								</Variable>
-								<Variable name="_L43">
-									<type>
-										<NamedType>
-											<type>
-												<TypeRef name="bool"/>
-											</type>
-										</NamedType>
-									</type>
-									<pragmas>
-										<ed:Variable oid="!ed/2acb/4FF2/164C/50f980da4ccd"/>
-									</pragmas>
-								</Variable>
 								<Variable name="_L44">
 									<type>
 										<NamedType>
@@ -3606,7 +3594,7 @@
 										<VariableRef name="_L35"/>
 									</lefts>
 									<right>
-										<!-- establish_a_CommunicationSession(_L37, _L43, _L45, _L46, _L47, _L55, _L49, _L50, ... -->
+										<!-- establish_a_CommunicationSession(_L37, _L42, _L45, _L46, _L47, _L55, _L49, _L50, ... -->
 										<CallExpression>
 											<operator>
 												<OpCall name="2">
@@ -3623,7 +3611,7 @@
 												</IdExpression>
 												<IdExpression>
 													<path>
-														<ConstVarRef name="_L43"/>
+														<ConstVarRef name="_L42"/>
 													</path>
 												</IdExpression>
 												<IdExpression>
@@ -3927,7 +3915,7 @@
 										<ed:Equation oid="!ed/2ab6/4FF2/164C/50f9802b5c14"/>
 									</pragmas>
 								</Equation>
-								<!-- _L41 = mswc_connected; -->
+								<!-- _L41 = mswc_registered; -->
 								<Equation>
 									<lefts>
 										<VariableRef name="_L41"/>
@@ -3935,7 +3923,7 @@
 									<right>
 										<IdExpression>
 											<path>
-												<ConstVarRef name="mswc_connected"/>
+												<ConstVarRef name="mswc_registered"/>
 											</path>
 										</IdExpression>
 									</right>
@@ -3967,34 +3955,6 @@
 									</right>
 									<pragmas>
 										<ed:Equation oid="!ed/2ac4/4FF2/164C/50f9809c6e18"/>
-									</pragmas>
-								</Equation>
-								<!-- _L43 = digital::RisingEdge(_L42); -->
-								<Equation>
-									<lefts>
-										<VariableRef name="_L43"/>
-									</lefts>
-									<right>
-										<!-- digital::RisingEdge(_L42) -->
-										<CallExpression>
-											<operator>
-												<OpCall name="1">
-													<operator>
-														<OperatorRef name="digital::RisingEdge"/>
-													</operator>
-												</OpCall>
-											</operator>
-											<callParameters>
-												<IdExpression>
-													<path>
-														<ConstVarRef name="_L42"/>
-													</path>
-												</IdExpression>
-											</callParameters>
-										</CallExpression>
-									</right>
-									<pragmas>
-										<ed:Equation oid="!ed/2aca/4FF2/164C/50f980da113d"/>
 									</pragmas>
 								</Equation>
 								<!-- _L44 =  last 'mobileSWStatus; -->
@@ -4747,30 +4707,6 @@
 														<Point x="14843" y="16589"/>
 													</positions>
 												</Edge>
-												<EquationGE presentable="!ed/2aca/4FF2/164C/50f980da113d">
-													<position>
-														<Point x="16616" y="15796"/>
-													</position>
-													<size>
-														<Size width="1773" height="1402"/>
-													</size>
-												</EquationGE>
-												<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/2ac4/4FF2/164C/50f9809c6e18" dstEquation="!ed/2aca/4FF2/164C/50f980da113d">
-													<positions>
-														<Point x="15849" y="16484"/>
-														<Point x="16219" y="16484"/>
-														<Point x="16219" y="16484"/>
-														<Point x="16616" y="16484"/>
-													</positions>
-												</Edge>
-												<Edge leftVarIndex="1" rightExprIndex="2" srcEquation="!ed/2aca/4FF2/164C/50f980da113d" dstEquation="!ed/2cbc/3E15/13D8/50f6d03632bc">
-													<positions>
-														<Point x="18389" y="16484"/>
-														<Point x="23151" y="16484"/>
-														<Point x="23151" y="17066"/>
-														<Point x="26538" y="17066"/>
-													</positions>
-												</Edge>
 												<EquationGE presentable="!ed/2ad4/4FF2/164C/50f9852d6df6">
 													<position>
 														<Point x="6562" y="19341"/>
@@ -4969,6 +4905,14 @@
 														<Point x="40693" y="37677"/>
 														<Point x="40693" y="38814"/>
 														<Point x="45429" y="38814"/>
+													</positions>
+												</Edge>
+												<Edge leftVarIndex="1" rightExprIndex="2" srcEquation="!ed/2ac4/4FF2/164C/50f9809c6e18" dstEquation="!ed/2cbc/3E15/13D8/50f6d03632bc">
+													<positions>
+														<Point x="15849" y="16484"/>
+														<Point x="21193" y="16484"/>
+														<Point x="21193" y="17066"/>
+														<Point x="26538" y="17066"/>
 													</positions>
 												</Edge>
 											</presentationElements>
