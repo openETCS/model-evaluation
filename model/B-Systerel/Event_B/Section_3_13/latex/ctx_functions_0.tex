@@ -1,0 +1,19 @@
+\begin{description}
+\CONTEXT{ctx\_functions\_0}
+\EXTENDS{ctx\_type\_gradients}
+\CONSTANTS
+        \begin{description}
+                \Item{ f\_accel\_due\_gradient }
+                \Item{ f\_grad\_uphill }
+                \Item{ f\_compensate\_gradient\_profile }
+                \Item{ f\_mrsp }
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ f\_accel\_due\_gradient \in             \\\hspace*{1,2 cm}  t\_locations \cprod  t\_locations \cprod  t\_gradients \cprod  t\_mass\_percentage \cprod  t\_speed\_profiles \tfun  t\_acceleration }\cmt{		\\\hspace*{1,4 cm}  (loc, SvL, compensated$\_$grad, mass, speed$\_$profile)		\\\hspace*{1,2 cm}  calculates acceleration due to gradient according to 3.13.4 }
+                \nItem{ axm2 }{ f\_grad\_uphill \in  t\_gradients \tfun  BOOL }\cmt{		\\\hspace*{1,4 cm}  indicates whether gradient is uphil or downhill }
+                \nItem{ axm3 }{ f\_compensate\_gradient\_profile \in  t\_locations \cprod  t\_locations \cprod  t\_gradient\_profiles \tfun  t\_gradients }\cmt{		\\\hspace*{1,4 cm}  (loc, SvL, profile) compensates for gradient profile (cf. 3.13.4.2.1) }
+                \nItem{ axm4 }{ f\_mrsp \in  t\_speed\_profiles \cprod  t\_speed\_profiles \cprod  t\_speed\_profiles \cprod  t\_speed\_profiles		\\\hspace*{2,6 cm}  \cprod  t\_speed\_profiles \cprod  t\_speed\_profiles \cprod  t\_speed\_profiles \cprod  t\_speed\_profiles		\\\hspace*{2,6 cm}  \cprod  t\_train\_modes \cprod  t\_speed \cprod  t\_length \tfun  t\_speed\_profiles }\cmt{		\\\hspace*{1,4 cm}  function which calculates the most restrictive speed profile		\\\hspace*{1,2 cm}  (MRSP) from the following inputs:		\\\hspace*{1,2 cm}  SSP, Axle Load SP, TSR, signalling related, mode related, LX speed,		\\\hspace*{1,2 cm}  override function related, SR to ensure permitted brake distance,		\\\hspace*{1,2 cm}  train mode, max train speed, train length }
+        \end{description}
+\END
+\end{description}

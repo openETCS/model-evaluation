@@ -535,6 +535,28 @@ variables are \bvar{T\_be}, \bvar{T\_se}, \bvar{T\_brake\_service} and
 \input{dcmp_brake_buildup_m0}
 }
 
+\subsubsection{Context - Brake Buildup Functions}
+\label{sec:cont-brake-build}
+
+This context defines 4 functions that calculate the brake buildup time for the
+service and emergency brake. For each there are two functions, one for the
+conversion model and one without conversion model. The service break is not
+safety-critical, therefore it does not take a correction factor into account
+(cf.~§3.13.6.3.1.1).
+
+\input{ctx_functions_1_calc_T_brake}
+
+
+\subsubsection{dcmp - Brake Buildup Calculation}
+\label{sec:dcmp-brake-buildup-1}
+
+This refinement applies the calculation functions defined in the context to the
+calculation events. It adds the notions of train data to the machine which
+controls whether the conversion model is used for the brake buildup time
+calculation. This is represented by two variables each, a Boolean variable that
+signals whether a concrete train data has been supplied and a variable of type
+\btype{t\_time} representing the supplied value.
+
 {\footnotesize
 \input{dcmp_brake_buildup_m2_calculation}
 }
@@ -542,13 +564,51 @@ variables are \bvar{T\_be}, \bvar{T\_se}, \bvar{T\_brake\_service} and
 \subsection{dcmp - Acceleration Gradient}
 \label{sec:dcmp-accel-grad}
 
+The calculation of the acceleration gradient has the current train state as
+input values (i.e., speed, location and acceleration). Its output value is the
+acceleration due to gradient, represented by the variable \bvar{A\_gradient}.
+
 {\footnotesize
 \input{dcmp_acceleration_gradient_m0}
 }
 
-{\footnotesize
-\input{dcmp_acceleration_gradient_m1}
-}
+
+\subsubsection{Context - MRSP and Gradients}
+\label{sec:cont-mrsp-grad}
+
+This context introduces functions to calculate an acceleration due to gradient
+(cf.~3.13.4) and to calculate the current most restrictive speed profile from
+the set of applicable speed profiles for a location.
+
+\input{ctx_functions_0}
+
+
+\subsubsection{dcmp - Rotating Mass}
+\label{sec:dcmp-rotating-mass}
+
+This machine introduces the notion of rotating mass into the model. the rotating
+mass is represented by two variables, the Boolean one
+\bvar{rotating\_mass\_specified} which signals whether an explicit value for the
+mass has been specified and \bvar{M\_rotating\_mass} which represents a concrete
+value, given as percentage of the train mass.
+
+Here the event \bevent{set\_A\_gradient} the event parameter
+\bvar{l\_a\_gradient} is replaced by a witness which is the application of the
+function to calculate the gradient to the train location and the event
+parameters.
+
+{\footnotesize \input{dcmp_acceleration_gradient_m1} }
+
+\subsubsection{dcmp - Acceleration due to Gradient Calculation}
+\label{sec:dcmp-accel-due}
+
+This machine refines the calculation of the acceleration due to gradient by
+splitting the calculation event into three refined ones. One to calculate the
+acceleration if a concrete rotating mass has been specified and two for an
+unknown rotating mass. In this case, there is one event for an uphill gradient
+which uses the maximal rotating mass value (constant
+\bconst{c\_M\_rotating\_max} and for a downhill gradient which uses the minimal
+rotating mass (c\_M\_rotating\_min) for the calculation (cf.~3.13.4.3.2).
 
 {\footnotesize
 \input{dcmp_acceleration_gradient_m2_grad_accel}
@@ -557,9 +617,21 @@ variables are \bvar{T\_be}, \bvar{T\_se}, \bvar{T\_brake\_service} and
 \subsection{dcmp - MRSP}
 \label{sec:dcmp-mrsp}
 
+This machine introduces the notion of the most restrictive speed profile (MRPS)
+into the system. The input for this machine is the current train state, the
+variable \bvar{MRSP} of type \btype{speed\_profile} is its output value.
+
 {\footnotesize
 \input{dcmp_mrsp_m0}
 }
+
+\subsubsection{dcmp - All Speed Profiles}
+\label{sec:dcmp-all-speed}
+
+This machine refines the calculation of the MRSP by refining the event
+\bevent{set\_MRSP} to an event that takes all possible speed restrictions as
+event parameters and uses the function of the context of
+Section~\ref{sec:cont-mrsp-grad} to calculate the MRSP (cf.~3.11).
 
 {\footnotesize
 \input{dcmp_mrsp_m1_all_speed_profiles}
@@ -568,12 +640,22 @@ variables are \bvar{T\_be}, \bvar{T\_se}, \bvar{T\_brake\_service} and
 \subsection{dcmp - Supervised Targets}
 \label{sec:dcmp-superv-targ}
 
+This machine introduces has the current train state as inputs and produces as
+outputs the supervised locations: end of authority, limit of authority and
+supervised location, represented by \bvar{EOA}, \bvar{LOA} and \bvar{SvL}, each
+of type \btype{t\_targets}.
+
 {\footnotesize
 \input{dcmp_supervised_targets_m0}
 }
 
 \subsection{dcmp - Braking Curves}
 \label{sec:dcmp-braking-curves}
+
+This machine takes as input the current train state, the computed accelerations
+and the supervised targets. Its outputs are the braking curves for the mergency
+brake (\bvar{EBD}), the service brake (\bvar{SBD}) and the graphical
+representation for the driver (\bvar{GUI}).
 
 {\footnotesize
 \input{dcmp_braking_curves_m0}
@@ -582,12 +664,28 @@ variables are \bvar{T\_be}, \bvar{T\_se}, \bvar{T\_brake\_service} and
 \subsection{dcmp - Supervision Limits}
 \label{sec:dcmp-superv-limits}
 
+This machine takes as inputs the current train state, the braking curves, the
+MRSP and the brake buildup times. It produces as outputs the following
+supervision limits: emergency brake intervention (\bvar{EBI}), service brake
+intervention (\bvar{SBI}), warning limit (\bvar{W\_limit}), permitted
+(\bvar{P\_limit}), indication limit (\bvar{I\_limit}), pre-indication location
+(\bvar{PIl}) and the release speed monitoring start location
+(\bvar{RSM\_start}). Each of these variables is of type
+\btype{t\_supervision\_limits}.
+
+
 {\footnotesize
 \input{dcmp_supervision_limits_m0}
 }
 
 \subsection{dcmp - Monitoring Commands}
 \label{sec:dcmp-monit-comm}
+
+This machine takes as inputs the SBI, indication limit, pre-indication limit,
+warning limit, release speed monitoring start limit, permitted speed limit and
+the EBI. Its outputs are the DMI and the TI commands, i.e., the variables
+\bvar{status\_current} of type \btype{t\_DMI\_commands} and \bvar{cmd\_current}
+of type \btype{t\_TI\_commands}.
 
 {\footnotesize
 \input{dcmp_monitoring_commands}

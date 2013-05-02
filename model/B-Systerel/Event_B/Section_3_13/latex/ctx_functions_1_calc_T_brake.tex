@@ -1,0 +1,16 @@
+\begin{description}
+\CONTEXT{ctx\_functions\_1\_calc\_T\_brake}
+\EXTENDS{ctx\_functions\_0}
+\CONSTANTS
+        \begin{description}
+                \Item{ f\_T\_brake\_service\_conversion }
+                \Item{ f\_T\_brake\_service }
+                \ItemY{ f\_T\_brake\_emergency\_conversion }{}
+                \Item{ f\_T\_brake\_emergency }
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ f\_T\_brake\_service\_conversion \in  t\_time \cprod  t\_brake\_combination \tfun  t\_time }\cmt{ }
+                \nItem{ axm2 }{ f\_T\_brake\_service \in  t\_time \cprod  t\_brake\_combination \tfun  t\_time }		\nItem{ axm3 }{ f\_T\_brake\_emergency\_conversion \in  t\_time \cprod  t\_correction\_factor \tfun  t\_time }		\nItem{ axm4 }{ f\_T\_brake\_emergency \in  t\_time \cprod  t\_brake\_combination \tfun  t\_time }	\end{description}
+\END
+\end{description}
