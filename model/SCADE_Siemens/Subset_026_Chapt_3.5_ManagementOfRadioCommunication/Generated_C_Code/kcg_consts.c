@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -8,6 +8,14 @@
 /* cMobileSWStatus_unregistered */
 const MoRC_mobileSWStatus_Type MoRC_cMobileSWStatus_unregistered = { kcg_true,
   kcg_true, MoRC_mswc_unregistered, 0, kcg_false };
+
+/* cMobileHWStatus_Disconnected */
+const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Disconnected = { kcg_true,
+  MoRC_mhwc_notRegistered, kcg_false };
+
+/* cMobileHWStatus_Connected */
+const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Connected = { kcg_true,
+  MoRC_mhwc_connected, kcg_false };
 
 /* cEstablishOrderFromTrackside */
 const MoRC_orderToContactAnRBC_Type MoRC_cEstablishOrderFromTrackside = {
@@ -21,13 +29,13 @@ const MoRC_orderToContactAnRBC_Type MoRC_cTerminateOrderFromTrackside = {
 const MoRC_validRadioNetworkID_Type MoRC_cSampleRadioNetworkID = { kcg_true,
   12345 };
 
-/* cMobileHWStatus_Disconnected */
-const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Disconnected = { kcg_true,
-  MoRC_mhwc_notRegistered, kcg_false };
+/* cMobileHWStatus_Registered */
+const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Registered = { kcg_true,
+  MoRC_mhwc_registered, kcg_false };
 
-/* cMobileHWStatus_Connected */
-const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Connected = { kcg_true,
-  MoRC_mhwc_connected, kcg_false };
+/* cMobileHWStatus_notRegistered */
+const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_notRegistered = { kcg_true,
+  MoRC_mhwc_notRegistered, kcg_false };
 
 /* cEstablishSafeRadioConnectionCmd */
 const MoRC_mobileSWCmd_Type MoRC_cEstablishSafeRadioConnectionCmd = { kcg_true,
@@ -68,6 +76,6 @@ const MoRC_orderToContactAnRBC_Type MoRC_cInvalidOrderToContactAnRBC = {
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** kcg_consts.c
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 

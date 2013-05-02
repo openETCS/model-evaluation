@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 #ifndef _MoRC_KCG_CONSTS_H_
 #define _MoRC_KCG_CONSTS_H_
@@ -24,6 +24,12 @@ extern const MoRC_mobileSWStatus_Type MoRC_cMobileSWStatus_unregistered;
 
 /* cNID_LRBG_Unknown */
 #define MoRC_cNID_LRBG_Unknown 16777215
+
+/* cMobileHWStatus_Disconnected */
+extern const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Disconnected;
+
+/* cMobileHWStatus_Connected */
+extern const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Connected;
 
 /* cNID_MESSAGE_GeneralMessage */
 #define MoRC_cNID_MESSAGE_GeneralMessage 24
@@ -67,14 +73,14 @@ extern const MoRC_orderToContactAnRBC_Type MoRC_cTerminateOrderFromTrackside;
 /* cSampleRadioNetworkID */
 extern const MoRC_validRadioNetworkID_Type MoRC_cSampleRadioNetworkID;
 
-/* cMobileHWStatus_Disconnected */
-extern const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Disconnected;
-
-/* cMobileHWStatus_Connected */
-extern const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Connected;
-
 /* cConnectionStatusTimerInterval */
 #define MoRC_cConnectionStatusTimerInterval 15000
+
+/* cMobileHWStatus_Registered */
+extern const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Registered;
+
+/* cMobileHWStatus_notRegistered */
+extern const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_notRegistered;
 
 /* cEstablishSafeRadioConnectionCmd */
 extern const MoRC_mobileSWCmd_Type MoRC_cEstablishSafeRadioConnectionCmd;
@@ -133,6 +139,6 @@ extern const MoRC_orderToContactAnRBC_Type MoRC_cInvalidOrderToContactAnRBC;
 #endif /* _MoRC_KCG_CONSTS_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** kcg_consts.h
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 

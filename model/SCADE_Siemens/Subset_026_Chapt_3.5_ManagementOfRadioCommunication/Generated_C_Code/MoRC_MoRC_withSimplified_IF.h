@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 #ifndef _MoRC_MoRC_withSimplified_IF_H_
 #define _MoRC_MoRC_withSimplified_IF_H_
@@ -31,7 +31,8 @@ typedef struct {
   /* -----------------------  no local probes  ----------------------- */
   /* -------------------- initialization variables  ------------------ */
   kcg_bool init;
-  /* -----------------------  no local memory  ----------------------- */
+  /* ----------------------- local memories  ------------------------- */
+  MoRC_SSM_ST_PowerUpSequencer /* MoRC_withSimplified_IF::PowerUpSequencer */ PowerUpSequencer_state_nxt;
   /* ---------------------  sub nodes' contexts  --------------------- */
   MoRC_outC_managementOfRadioCommunication /* 1 */ Context_1;
   /* ----------------- no clocks of observable data ------------------ */
@@ -50,6 +51,6 @@ extern void MoRC_MoRC_withSimplified_IF_reset(
 #endif /* _MoRC_MoRC_withSimplified_IF_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_MoRC_withSimplified_IF.h
-** Generation date: 2013-04-10T10:44:31
+** Generation date: 2013-04-22T16:56:47
 *************************************************************$ */
 
