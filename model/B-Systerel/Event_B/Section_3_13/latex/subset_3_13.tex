@@ -212,6 +212,15 @@ the main advantage here is the model structuring facility.
   sub-models while retaining correctness of the refinement proofs.
 \end{itemize}
 
+It should be noted that this section contains mainly very specific
+implementation details and no general requirements. Currently, the proof support
+for non-linear arithmetic (in particular for floating point numbers) is limited
+in Rodin, so the modeling contains mainly the system level. It describes in
+particular the decomposition of the model, the various inputs and outputs of the
+different model components and the refinement stops when the functional level is
+reached. This means that for calculations, the last refinement level in general
+describes a function with the required input and output value and correct types.
+
 \section{Detailed Model Description}
 \label{sec:deta-model-descr}
 
