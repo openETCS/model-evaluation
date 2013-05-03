@@ -11,43 +11,7 @@
                 \ItemY{ driver\_isolates\_ETCS }{}
                 \Item{ specific\_mode\_profile }
         \end{description}
-\INVARIANTS
-        \begin{description}
-                \nItemY{ inv1 }{ driver\_select\_shunting \in  BOOL }{  }
-                \nItemY{ inv2 }{ driver\_request\_shunting \in  BOOL }{  }
-                \nItemY{ inv3 }{ driver\_ack\_shunting \in  BOOL }{  }
-                \nItem{ inv4 }{ display\_shunting\_ack \in  BOOL }
-                \nItemY{ inv5 }{ shunting\_granted\_RBC \in  BOOL }{  }
-                \nItemY{ inv6 }{ driver\_isolates\_ETCS \in  BOOL }{  }
-                \nItemY{ inv7 }{ SB = TRUE \limp                \\\hspace*{1,2 cm}  \lnot  ((current\_level \in  \{ NTC, L0, L1\}  \land  current\_behavior = standstill \land  driver\_select\_shunting = TRUE)		\\\hspace*{1,4 cm}  \land  (MA\_SSP\_gradient\_data = TRUE \land  valid\_train\_data = TRUE \land  specific\_mode\_profile = TRUE)) }{                  \\\hspace*{1,4 cm}  not cond5 and cond10 }
-                \nItemY{ inv8 }{ SB = TRUE \limp                \\\hspace*{1,2 cm}  \lnot  ((current\_behavior = standstill \land  current\_level \in  \{ L2, L3\} )		\\\hspace*{1,4 cm}  \land  (MA\_SSP\_gradient\_data = TRUE \land  valid\_train\_data = TRUE \land  specific\_mode\_profile = TRUE))  }{                 \\\hspace*{1,4 cm}  not cond6 and cond10 }
-                \nItemY{ inv9 }{ SB = TRUE \limp                \\\hspace*{1,2 cm}  \lnot  ((display\_shunting\_ack = TRUE \land  driver\_ack\_shunting = TRUE)		\\\hspace*{1,4 cm}  \land  (MA\_SSP\_gradient\_data = TRUE \land  valid\_train\_data = TRUE \land  specific\_mode\_profile = TRUE)) }{                  \\\hspace*{1,4 cm}  not cond50 and cond10 }
-                \nItem{ inv10 }{ specific\_mode\_profile \in  BOOL }
-        \end{description}
 \EVENTS
-        \INITIALISATION
-                \\\textit{extended}
-                \begin{description}
-                \BeginAct
-                        \begin{description}
-                        \nItemX{ init\_IS }{ IS :=  FALSE }
-                        \nItemX{ init\_SB }{ SB :=  TRUE }
-                        \nItemX{ init\_SH }{ SH :=  FALSE }
-                        \nItemX{ init\_FS }{ FS :=  FALSE }
-                        \nItemXY{ act1 }{ current\_level :=  NTC }{  }
-                        \nItemX{ act2 }{ current\_behavior :=  standstill }
-                        \nItemX{ act3 }{ valid\_train\_data :=  FALSE }
-                        \nItemXY{ act4 }{ MA\_SSP\_gradient\_data :=  FALSE }{  }
-                        \nItem{ act7 }{ driver\_ack\_shunting :=  FALSE }
-                        \nItemY{ act9 }{ shunting\_granted\_RBC :=  FALSE }{  }
-                        \nItem{ act6 }{ driver\_request\_shunting :=  FALSE }
-                        \nItem{ act10 }{ driver\_isolates\_ETCS :=  FALSE }
-                        \nItem{ act5 }{ driver\_select\_shunting :=  FALSE }
-                        \nItem{ act11 }{ specific\_mode\_profile :=  FALSE }
-                        \nItem{ act8 }{ display\_shunting\_ack :=  FALSE }
-                        \end{description}
-                \EndAct
-                \end{description}
         \EVT {change\_specific\_mode\_profile}
                 \begin{description}
                 \AnyPrm
@@ -124,92 +88,6 @@
                 \ThenAct
                         \begin{description}
                         \nItemY{ act1 }{ driver\_ack\_shunting :=  TRUE }{  }
-                        \end{description}
-                \EndAct
-                \end{description}
-        \EVT {store\_valid\_train\_data}
-        \EXTD {store\_valid\_train\_data}
-                \begin{description}
-                \WhenGrd
-                        \begin{description}
-                        \nItemX{ grd1 }{ valid\_train\_data = FALSE }
-                        \end{description}
-                \ThenAct
-                        \begin{description}
-                        \nItemX{ act1 }{ valid\_train\_data :=  TRUE }
-                        \end{description}
-                \EndAct
-                \end{description}
-        \EVT {remove\_valid\_train\_data}
-        \EXTD {remove\_valid\_train\_data}
-                \begin{description}
-                \WhenGrd
-                        \begin{description}
-                        \nItemX{ grd1 }{ valid\_train\_data = TRUE }
-                        \end{description}
-                \ThenAct
-                        \begin{description}
-                        \nItemX{ act1 }{ valid\_train\_data :=  FALSE }
-                        \end{description}
-                \EndAct
-                \end{description}
-        \EVT {store\_MA\_SSP\_gradient\_data}
-        \EXTD {store\_MA\_SSP\_gradient\_data}
-                \begin{description}
-                \WhenGrd
-                        \begin{description}
-                        \nItemX{ grd1 }{ MA\_SSP\_gradient\_data = FALSE }
-                        \end{description}
-                \ThenAct
-                        \begin{description}
-                        \nItemX{ act1 }{ MA\_SSP\_gradient\_data :=  TRUE }
-                        \end{description}
-                \EndAct
-                \end{description}
-        \EVT {remove\_MA\_SSP\_gradient\_data}
-        \EXTD {remove\_MA\_SSP\_gradient\_data}
-                \begin{description}
-                \WhenGrd
-                        \begin{description}
-                        \nItemX{ grd1 }{ MA\_SSP\_gradient\_data = TRUE }
-                        \end{description}
-                \ThenAct
-                        \begin{description}
-                        \nItemX{ act1 }{ MA\_SSP\_gradient\_data :=  FALSE }
-                        \end{description}
-                \EndAct
-                \end{description}
-        \EVT {change\_level}
-        \EXTD {change\_level}
-                \begin{description}
-                \AnyPrm
-                        \begin{description}
-                        \ItemX{l\_level }
-                        \end{description}
-                \WhereGrd
-                        \begin{description}
-                        \nItemX{ grd1 }{ l\_level \in  ERTMS\_level }
-                        \end{description}
-                \ThenAct
-                        \begin{description}
-                        \nItemX{ act1 }{ current\_level :=  l\_level }
-                        \end{description}
-                \EndAct
-                \end{description}
-        \EVT {change\_behavior}
-        \EXTD {change\_behavior}
-                \begin{description}
-                \AnyPrm
-                        \begin{description}
-                        \ItemX{l\_behavior }
-                        \end{description}
-                \WhereGrd
-                        \begin{description}
-                        \nItemX{ grd1 }{ l\_behavior \in  train\_behavior }
-                        \end{description}
-                \ThenAct
-                        \begin{description}
-                        \nItemXY{ act1 }{ current\_behavior :=  l\_behavior }{  }
                         \end{description}
                 \EndAct
                 \end{description}

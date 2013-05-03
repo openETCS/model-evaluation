@@ -3,6 +3,7 @@
 %\documentclass[nocc]{template/openetcs_article}
 \usepackage {bsymb,b2latex}
 \usepackage{lipsum,url,color}
+\usepackage{hyperref}
 \graphicspath{{./template/}{.}{./images/}}
 \begin{document}
 \frontmatter
@@ -316,6 +317,7 @@ by the Boolean state variables \bvar{driver\_select\_shunting},
 \bvar{driver\_request\_shunting}, \bvar{driver\_ack\_shunting} and
 \bvar{driver\_isolates\_ETCS}.
 
+
 These variables are set as active by events representing the respective actions
 by the RBC or the driver. Events which have one of these actions as precondition
 will reset the events, e.g., displaying the shunting acknowledge
@@ -336,11 +338,41 @@ will reset the variable \bvar{driver\_request\_shunting} when it is executed.
 
 {\bf NOTE:} The invariant, that the preconditions of the transitions with the
 same priorities are mutually exclusive, does not hold, i.e., ($[5] \vee [6] \vee
-[50]) \wedge [10] \neq FALSE$. Either this is an error in the specification or
-there is an underlying functional dependency which is not captured if these 3
-transitions are modeled in isolation.
+[50]) \wedge [10] \neq FALSE$. There is an underlying functional dependency
+which is not captured if these 3 transitions are modeled in isolation.
 
 \input{m3_driver}
+
+\subsection{Machine 4 - Hypothesis}
+\label{sec:machine-4-hypothesis}
+
+This machine refinement adds some functional details which are not present in
+the information about the 3 modeled transitions and which prevent the proof of
+mutual exclusion of the transitions (see previous note). There was a
+\href{https://github.com/openETCS/model-evaluation/wiki/Open-Question-for-Modeling-Benchmark}{discussion}
+about topic on the wiki on github for the model-evaluation project within
+openETCS.
+
+This refinement does not change the state machine of course, it only changes the
+guards of the transitions. For this, there are three new Boolean variables:
+\bvar{SSP\_data}, \bvar{MA\_data} and \bvar{gradient\_data}.
+
+The change specific mode profile event is split into two, to prevent the
+non-deterministic removal of a specific mode profile in SB mode. The
+\bevent{driver\_selects\_shunting} event can only be executed if there is no
+\bvar{MA\_data} available, the same holds for
+\bevent{driver\_requests\_shunting}. The events \bevent{display\_shunting\_ack}
+and \bevent{driver\_ack\_shunting} both now require the absence of
+\bvar{MA\_data} and the presence of \bvar{specific\_mode\_profile}. New valid
+train data can only be stored if there is no shunting selected, to acknowledge
+or granted by the RBC. ERTMS level changes or train behavior changes are only
+possible if there is no \bvar{MA\_data} available. The general variable
+\bvar{MA\_SSP\_gradient\_data} is refined by the three new variables.
+
+Together this allows to proof the mutual exclusion of the transitions, as
+captured in the invariants \binv{inv3}, \binv{inv4} and \binv{inv5}.
+
+\input{m4_hypothesis}
 
 \end{document}
 
