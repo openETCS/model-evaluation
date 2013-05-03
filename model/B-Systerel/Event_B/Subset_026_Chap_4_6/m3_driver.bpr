@@ -3881,7 +3881,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_5/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -3911,6 +3911,10 @@
 <org.eventb.core.prIdent name="L3" org.eventb.core.type="ERTMS_level"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5475,7 +5479,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_6/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5508,6 +5512,10 @@
 <org.eventb.core.prIdent name="standstill" org.eventb.core.type="train_behavior"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5555,7 +5563,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_50/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5565,6 +5573,10 @@
 <org.eventb.core.prIdent name="MA_SSP_gradient_data" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5612,7 +5624,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_5/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5650,6 +5662,10 @@
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5682,7 +5698,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_5/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5717,6 +5733,10 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((display_shunting_ack=TRUE∧driver_ack_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5761,7 +5781,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_6/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5793,6 +5813,10 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5830,7 +5854,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_6/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5868,6 +5892,10 @@
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5898,7 +5926,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_50/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -5930,6 +5958,10 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -5970,7 +6002,7 @@
 <org.eventb.core.prProof name="switch_SB_SH_cond_50/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6008,6 +6040,10 @@
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -6043,7 +6079,7 @@
 <org.eventb.core.prProof name="switch_SB_FS/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6075,6 +6111,10 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -6109,7 +6149,7 @@
 <org.eventb.core.prProof name="switch_SB_FS/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6147,6 +6187,10 @@
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -6176,7 +6220,7 @@
 <org.eventb.core.prProof name="switch_SB_FS/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6188,6 +6232,10 @@
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -6231,7 +6279,7 @@
 <org.eventb.core.prProof name="switch_SB_IS/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6263,6 +6311,10 @@
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒¬((current_level∈{NTC,L0,L1}∧current_behavior=standstill∧driver_select_shunting=TRUE)∧(MA_SSP_gradient_data=TRUE∧valid_train_data=TRUE∧specific_mode_profile=TRUE))"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -6297,7 +6349,7 @@
 <org.eventb.core.prProof name="switch_SB_IS/inv8/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6335,6 +6387,10 @@
 <org.eventb.core.prIdent name="driver_select_shunting" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="valid_train_data∈BOOL"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SB∈BOOL">
 <org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -6364,7 +6420,7 @@
 <org.eventb.core.prProof name="switch_SB_IS/inv9/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
@@ -6376,6 +6432,10 @@
 <org.eventb.core.prIdent name="driver_ack_shunting" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="specific_mode_profile" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="valid_train_data" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="driver_isolates_ETCS=FALSE⇒IS=FALSE">
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
 <org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
@@ -7980,8 +8040,38 @@
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
 </org.eventb.core.prProof>
-<org.eventb.core.prProof name="INITIALISATION/inv11/INV"/>
-<org.eventb.core.prProof name="driver_isolates_ETCS/inv11/INV"/>
+<org.eventb.core.prProof name="INITIALISATION/inv11/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=FALSE⇒FALSE=FALSE"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="driver_isolates_ETCS/inv11/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="IS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="driver_isolates_ETCS∈BOOL">
+<org.eventb.core.prIdent name="driver_isolates_ETCS" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=FALSE⇒IS=FALSE"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="IS∈BOOL"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition({TRUE},{SB}∩{TRUE},{SH}∩{TRUE},{FS}∩{TRUE},{IS}∩{TRUE})">
+<org.eventb.core.prIdent name="FS" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SB" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SH" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
 <org.eventb.core.prProof name="switch_SB_IS/inv11/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.psManual="true">
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(train_behavior,{standstill},{moving}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">

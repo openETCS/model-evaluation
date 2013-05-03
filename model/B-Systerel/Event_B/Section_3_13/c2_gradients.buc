@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;org.animb.valuation.valBase" version="3">
 <org.eventb.core.extendsContext name="'" org.eventb.core.target="c1_decelerations"/>
 <org.eventb.core.constant name=")" org.eventb.core.identifier="A_gradient0"/>
 <org.eventb.core.axiom name="*" org.eventb.core.label="axm1" org.eventb.core.predicate="A_gradient0 ∈ t_locations → t_acceleration"/>

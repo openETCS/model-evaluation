@@ -7,11 +7,11 @@
 <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="+" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="T_brake_service"/>
 <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="," org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="loc_current"/>
 <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="-" org.eventb.core.comment="Shared variable, DO NOT REFINE" org.eventb.core.identifier="T_brake_emergency"/>
-<org.eventb.core.invariant name="." org.eventb.core.label="typing_T_be" org.eventb.core.predicate="T_be ∈ t_time" org.eventb.core.theorem="true"/>
-<org.eventb.core.invariant name="/" org.eventb.core.label="typing_T_bs" org.eventb.core.predicate="T_bs ∈ t_time" org.eventb.core.theorem="true"/>
-<org.eventb.core.invariant name="0" org.eventb.core.label="typing_a_current" org.eventb.core.predicate="a_current ∈ t_acceleration" org.eventb.core.theorem="true"/>
-<org.eventb.core.invariant name="1" org.eventb.core.label="typing_v_current" org.eventb.core.predicate="v_current ∈ t_speed" org.eventb.core.theorem="true"/>
-<org.eventb.core.invariant name="2" org.eventb.core.label="typing_T_brake_service" org.eventb.core.predicate="T_brake_service ∈ t_time" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="." org.eventb.core.label="typing_T_be" org.eventb.core.predicate="T_be ∈ t_time"/>
+<org.eventb.core.invariant name="/" org.eventb.core.label="typing_T_bs" org.eventb.core.predicate="T_bs ∈ t_time"/>
+<org.eventb.core.invariant name="0" org.eventb.core.label="typing_a_current" org.eventb.core.predicate="a_current ∈ t_acceleration"/>
+<org.eventb.core.invariant name="1" org.eventb.core.label="typing_v_current" org.eventb.core.predicate="v_current ∈ t_speed"/>
+<org.eventb.core.invariant name="2" org.eventb.core.label="typing_T_brake_service" org.eventb.core.predicate="T_brake_service ∈ t_time"/>
 <org.eventb.core.invariant name="3" org.eventb.core.label="typing_loc_current" org.eventb.core.predicate="loc_current ∈ t_locations" org.eventb.core.theorem="true"/>
 <org.eventb.core.invariant name="4" org.eventb.core.label="typing_T_brake_emergency" org.eventb.core.predicate="T_brake_emergency ∈ t_time" org.eventb.core.theorem="true"/>
 <org.eventb.core.event name="5" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">

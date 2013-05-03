@@ -85,5 +85,5 @@
 <org.eventb.core.event name="evtI" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_contact">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_contact"/>
 </org.eventb.core.event>
-<org.eventb.core.invariant name="evtJ" org.eventb.core.comment="safety property from D2.5" org.eventb.core.label="inv5" org.eventb.core.predicate="((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC = ∅ ∨&#10;(∃ entity·entity ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC&#10;  ⇒ (∀entity2·entity2 ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ terminating_sessions) ∩ RBC ∧ entity2 ≠ entity ⇒ entity2 ∈ accepting)&#10;)"/>
+<org.eventb.core.invariant name="evtJ" org.eventb.core.comment="safety property from D2.5" org.eventb.core.label="inv5" org.eventb.core.predicate="((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC = ∅ ∨&#10;(∃ entity·entity ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC&#10;⇒ (∀entity2·entity2 ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ terminating_sessions) ∩ RBC ∧ entity2 ≠ entity ⇒ entity2 ∈ accepting)&#10;)"/>
 </org.eventb.core.machineFile>
