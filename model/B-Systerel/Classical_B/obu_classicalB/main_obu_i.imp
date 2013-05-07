@@ -1,0 +1,58 @@
+/* main_obu_i
+ * Author: Marielle Petit-Doche <marielle.doche@systerel.fr> --Systerel
+ * Creation date: 07/05/2013
+
+ * Licensed under the EUPL V.1.1 or - as soon they will be approved by
+ * the European Commission - subsequent versions of the EUPL (the
+ * "Licence");
+ * You may not use this work except in compliance with the Licence.
+
+ * You may obtain a copy of the Licence at:
+ *   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the Licence is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied.
+
+ * See the Licence for the specific language governing permissions and
+ * limitations under the Licence.
+ */
+ 
+IMPLEMENTATION
+   main_obu_i
+REFINES
+    main_obu
+    
+IMPORTS
+    obu_inputs,
+    obu_modes_procedures,
+    obu_principles,
+    obu_outputs
+
+OPERATIONS
+   power_up =
+   BEGIN
+       initial_read_inputs ;
+       
+       initialize_data ; // Subset 026 Chapter 3
+       
+       intialize_mode ; // Subset 026 Chapter 4 and 5
+       
+       initial_send_outputs
+   END
+   ;
+
+   cycle =
+   BEGIN
+       read_inputs ;
+       
+       principles_management ; // Subset 026 Chapter 3
+       
+       modes_procedures_management ; // Subset 026 Chapter 4 and 5
+            
+       send_outputs
+   END
+
+
+END

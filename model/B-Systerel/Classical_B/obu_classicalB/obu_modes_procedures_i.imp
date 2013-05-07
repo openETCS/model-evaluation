@@ -1,0 +1,79 @@
+/* obu_modes_procedures_i
+ * Author: Marielle Petit-Doche <marielle.doche@systerel.fr> --Systerel
+ * Creation date: 07/05/13
+ 
+  * Licensed under the EUPL V.1.1 or - as soon they will be approved by
+ * the European Commission - subsequent versions of the EUPL (the
+ * "Licence");
+ * You may not use this work except in compliance with the Licence.
+
+ * You may obtain a copy of the Licence at:
+ *   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the Licence is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied.
+
+ * See the Licence for the specific language governing permissions and
+ * limitations under the Licence.
+ */
+IMPLEMENTATION
+   obu_modes_procedures_i
+REFINES
+   obu_modes_procedures
+
+SEES
+   obu_types
+
+CONCRETE_VARIABLES
+   M_mode, M_level
+
+INITIALISATION
+    M_mode := NP ;
+    M_level := level_0
+
+OPERATIONS
+   intialize_mode =
+   BEGIN
+       M_mode := SB ;
+       M_level := level_0
+       // start_of_mission § 5.4
+   END
+   ;
+
+   modes_procedures_management =
+   BEGIN
+       skip
+       // M_mode, M_level  <-- manage_mode §4
+       // start_of_mission § 5.4
+       // end_of_mission § 5.5
+       // shunting_driver § 5.6
+       // shunting_trackside § 5.7
+       // override § 5.8
+       // on_sight § 5.9
+       // level_transition § 5.10
+       // train_trip § 5.11
+       // change_train_orientation § 5.12
+       // train_reversing § 5.13
+       // joining § 5.14
+       // splitting § 5.14
+       // rbc_handover § 5.15
+       // passing_non_protected_level_crossing § 5.16
+       // changing_train_data § 5.17
+       // indication_track_conditions § 5.18
+       // limited_supervision § 5.19
+   END
+   ; 
+   
+    mm <--   lire_mode = 
+    BEGIN
+        mm := M_mode
+    END
+   ; 
+   
+    ll <--   lire_level = 
+    BEGIN
+        ll := M_level
+    END
+END
