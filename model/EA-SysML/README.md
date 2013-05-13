@@ -12,5 +12,5 @@
 * doc : The associated document and the experiments report
 
 ## More info
-* [EA description] (/wiki/EA-Enterprise-Architect-description)
-* [RT-tester] (/wiki/RT-Tester-description)
+* [EA description] (https://github.com/openETCS/model-evaluation/wiki/EA-Enterprise-Architect-description)
+* [RT-tester] (https://github.com/openETCS/model-evaluation/wiki/RT-Tester-description)
