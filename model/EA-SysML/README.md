@@ -12,5 +12,5 @@
 * doc : The associated document and the experiments report
 
 ## More info
-* [EA description] (wiki/EA-Enterprise-Architect-description)
-* [RT-tester] (wiki/RT-Tester-description)
+* [EA description] (/wiki/EA-Enterprise-Architect-description)
+* [RT-tester] (/wiki/RT-Tester-description)
