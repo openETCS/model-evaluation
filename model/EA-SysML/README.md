@@ -11,3 +11,6 @@
   * chap3-5_4-6.xml : xmi serialisation generated from EA
 * doc : The associated document and the experiments report
 
+## More info
+* [EA description] (wiki/EA-Enterprise-Architect-description)
+* [RT-tester] (wiki/RT-Tester-description)
