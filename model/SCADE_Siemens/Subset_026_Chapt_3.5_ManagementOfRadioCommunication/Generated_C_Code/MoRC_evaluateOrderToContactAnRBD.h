@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 #ifndef _MoRC_evaluateOrderToContactAnRBD_H_
 #define _MoRC_evaluateOrderToContactAnRBD_H_
@@ -41,6 +41,6 @@ extern void MoRC_evaluateOrderToContactAnRBD_reset(
 #endif /* _MoRC_evaluateOrderToContactAnRBD_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_evaluateOrderToContactAnRBD.h
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 

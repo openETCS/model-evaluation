@@ -421,7 +421,7 @@
 				<StateMachine name="TerminateTheCommunicationSession_SM">
 					<states>
 						<State initial="true" name="Idle">
-							<until>
+							<unless>
 								<Transition kind="restart">
 									<target>
 										<StateRef name="WaitForAcknowledgementMessage"/>
@@ -435,17 +435,6 @@
 									</condition>
 									<effect>
 										<Action>
-											<data>
-												<!--  emit 'sSendATerminationOfCommunicationMessage; -->
-												<Emission>
-													<signals>
-														<SignalRef name="sSendATerminationOfCommunicationMessage"/>
-													</signals>
-													<pragmas>
-														<ed:Emission oid="!ed/26e7/2AF/250/50c5c901f48"/>
-													</pragmas>
-												</Emission>
-											</data>
 											<pragmas>
 												<ed:Action oid="!ed/2604/2AF/250/50c5c256773"/>
 											</pragmas>
@@ -477,7 +466,7 @@
 														<SignalRef name="sAbortEstablishingACommunicationSession"/>
 													</signals>
 													<pragmas>
-														<ed:Emission oid="!ed/24a1/2336/DF8/50c75a3b71e7"/>
+														<ed:Emission oid="!ed/3257/354E/1C40/519215e0790b"/>
 													</pragmas>
 												</Emission>
 											</data>
@@ -492,7 +481,7 @@
 										</ed:Transition>
 									</pragmas>
 								</Transition>
-							</until>
+							</unless>
 							<pragmas>
 								<ed:State oid="!ed/25e5/2AF/250/50c5c1e52da5"/>
 							</pragmas>

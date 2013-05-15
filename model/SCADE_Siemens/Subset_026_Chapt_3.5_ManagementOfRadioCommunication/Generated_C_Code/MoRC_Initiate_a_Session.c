@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -75,7 +75,7 @@ void MoRC_Initiate_a_Session(
     tmp = outC->rem_etcs_mode;
   }
   outC->initiate_a_communicationSession_Request =
-    (initiateRequest_fromOnboardEquipment || initiateRequest_fromRBC) &&
+    initiateRequest_fromOnboardEquipment || initiateRequest_fromRBC ||
     ((atStartOfMission && _L11) || establishSessionOrderedFromTrackside ||
       (_L11 && tmp1 && etcs_mode != tmp && modeChangeHasToBeReportedToRBC) ||
       (_L11 && driverHasManuallyChangedLevel) ||
@@ -96,6 +96,6 @@ void MoRC_Initiate_a_Session(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_Initiate_a_Session.c
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 

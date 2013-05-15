@@ -50,5 +50,5 @@ kcg_consts.c
 *****************************
 .
 $(SCADE)
-D:\programme\Esterel Technologies\Esterel SCADE 6.4\SCADE\libraries\libmathext
+D:\programme\Esterel Technologies\Esterel SCADE 6.4.1\SCADE\libraries\libmathext
 

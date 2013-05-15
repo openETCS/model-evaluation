@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -20,9 +20,9 @@ void MoRC_MoRC_withSimplified_IF(
   MoRC_outC_MoRC_withSimplified_IF *outC)
 {
   kcg_bool tmp5;
-  MoRC_orderToContactAnRBC_Type tmp4;
-  kcg_bool tmp3;
-  MoRC_mobileHWStatus_Type tmp2;
+  kcg_bool tmp4;
+  MoRC_mobileHWStatus_Type tmp3;
+  MoRC_orderToContactAnRBC_Type tmp2;
   kcg_bool tmp1;
   kcg_bool tmp;
   /* MoRC_withSimplified_IF::MessageFromTrackDec::else */ kcg_bool _9_else_clock_MessageFromTrackDec;
@@ -33,43 +33,23 @@ void MoRC_MoRC_withSimplified_IF(
   /* MoRC_withSimplified_IF::MessageFromTrackDec */ kcg_bool MessageFromTrackDec_clock;
   /* MoRC_withSimplified_IF::PowerUpSequencer */ MoRC_SSM_ST_PowerUpSequencer PowerUpSequencer_state_act;
   /* MoRC_withSimplified_IF::initiateCmd_fromOBU */ kcg_bool initiateCmd_fromOBU;
+  /* MoRC_withSimplified_IF::orderReceivedFromRBC */ MoRC_orderToContactAnRBC_Type orderReceivedFromRBC;
   /* MoRC_withSimplified_IF::establishOrderFromRBC */ MoRC_orderToContactAnRBC_Type establishOrderFromRBC;
   /* MoRC_withSimplified_IF::terminateOrderFromRBC */ MoRC_orderToContactAnRBC_Type terminateOrderFromRBC;
-  /* MoRC_withSimplified_IF::orderReceivedFromTrackside */ MoRC_orderToContactAnRBC_Type orderReceivedFromTrackside;
   /* MoRC_withSimplified_IF::_L47 */ kcg_bool _L47;
   
-  else_clock_MessageFromTrackDec = inC->orderFromOnBoard ==
-    MoRC_obo_initiateCommunication;
+  tmp1 = inC->orderFromOnBoard == MoRC_obo_initiateCommunication;
   _L47 = inC->orderFromOnBoard == MoRC_obo_terminateCommunication;
-  MoRC_kcg_copy_orderToContactAnRBC_Type(
-    &terminateOrderFromRBC,
-    (MoRC_orderToContactAnRBC_Type *) &MoRC_cTerminateOrderFromTrackside);
-  terminateOrderFromRBC.rbc_id = inC->NID_RBC_ID;
+  MessageFromTrackDec_clock = inC->messageFromRBC ==
+    MoRC_cNID_MESSAGE_GeneralMessage;
   MoRC_kcg_copy_orderToContactAnRBC_Type(
     &establishOrderFromRBC,
     (MoRC_orderToContactAnRBC_Type *) &MoRC_cEstablishOrderFromTrackside);
   establishOrderFromRBC.rbc_id = inC->NID_RBC_ID;
-  if (else_clock_MessageFromTrackDec) {
-    initiateCmd_fromOBU = kcg_true;
-    MoRC_kcg_copy_orderToContactAnRBC_Type(
-      &orderReceivedFromTrackside,
-      &establishOrderFromRBC);
-  }
-  else {
-    initiateCmd_fromOBU = kcg_false;
-    if (_L47) {
-      MoRC_kcg_copy_orderToContactAnRBC_Type(
-        &orderReceivedFromTrackside,
-        &terminateOrderFromRBC);
-    }
-    else {
-      MoRC_kcg_copy_orderToContactAnRBC_Type(
-        &orderReceivedFromTrackside,
-        (MoRC_orderToContactAnRBC_Type *) &MoRC_cInvalidOrderToContactAnRBC);
-    }
-  }
-  MessageFromTrackDec_clock = inC->messageFromRBC ==
-    MoRC_cNID_MESSAGE_GeneralMessage;
+  MoRC_kcg_copy_orderToContactAnRBC_Type(
+    &terminateOrderFromRBC,
+    (MoRC_orderToContactAnRBC_Type *) &MoRC_cTerminateOrderFromTrackside);
+  terminateOrderFromRBC.rbc_id = inC->NID_RBC_ID;
   if (outC->init) {
     outC->init = kcg_false;
     PowerUpSequencer_state_act = MoRC_SSM_st_TheVeryFirstCycle_PowerUpSequencer;
@@ -79,35 +59,52 @@ void MoRC_MoRC_withSimplified_IF(
   }
   switch (PowerUpSequencer_state_act) {
     case MoRC_SSM_st_TheVeryFirstCycle_PowerUpSequencer :
-      tmp3 = kcg_false;
+      tmp4 = kcg_false;
       MoRC_kcg_copy_mobileHWStatus_Type(
-        &tmp2,
+        &tmp3,
         (MoRC_mobileHWStatus_Type *) &MoRC_cMobileHWStatus_notRegistered);
       break;
     case MoRC_SSM_st_AtPowerUpState_PowerUpSequencer :
-      tmp3 = kcg_true;
+      tmp4 = kcg_true;
       MoRC_kcg_copy_mobileHWStatus_Type(
-        &tmp2,
+        &tmp3,
         (MoRC_mobileHWStatus_Type *) &MoRC_cMobileHWStatus_notRegistered);
       break;
     case MoRC_SSM_st_AfterPowerUp_PowerUpSequencer :
-      tmp3 = kcg_false;
+      tmp4 = kcg_false;
       if (inC->safeRadioCommunication_setUpEstablished) {
         MoRC_kcg_copy_mobileHWStatus_Type(
-          &tmp2,
+          &tmp3,
           (MoRC_mobileHWStatus_Type *) &MoRC_cMobileHWStatus_Registered);
       }
       else {
         MoRC_kcg_copy_mobileHWStatus_Type(
-          &tmp2,
+          &tmp3,
           (MoRC_mobileHWStatus_Type *) &MoRC_cMobileHWStatus_notRegistered);
       }
       break;
     
   }
+  if (tmp1) {
+    initiateCmd_fromOBU = kcg_true;
+    MoRC_kcg_copy_orderToContactAnRBC_Type(&tmp2, &establishOrderFromRBC);
+  }
+  else {
+    initiateCmd_fromOBU = kcg_false;
+    if (_L47) {
+      MoRC_kcg_copy_orderToContactAnRBC_Type(&tmp2, &terminateOrderFromRBC);
+    }
+    else {
+      MoRC_kcg_copy_orderToContactAnRBC_Type(
+        &tmp2,
+        (MoRC_orderToContactAnRBC_Type *) &MoRC_cInvalidOrderToContactAnRBC);
+    }
+  }
   if (MessageFromTrackDec_clock) {
+    MoRC_kcg_copy_orderToContactAnRBC_Type(
+      &orderReceivedFromRBC,
+      &terminateOrderFromRBC);
     tmp5 = kcg_false;
-    MoRC_kcg_copy_orderToContactAnRBC_Type(&tmp4, &terminateOrderFromRBC);
     tmp = kcg_false;
     tmp1 = kcg_false;
   }
@@ -115,8 +112,10 @@ void MoRC_MoRC_withSimplified_IF(
     _9_else_clock_MessageFromTrackDec = inC->messageFromRBC ==
       MoRC_cNID_MESSAGE_GeneralMessage_init;
     if (_9_else_clock_MessageFromTrackDec) {
+      MoRC_kcg_copy_orderToContactAnRBC_Type(
+        &orderReceivedFromRBC,
+        &establishOrderFromRBC);
       tmp5 = kcg_false;
-      MoRC_kcg_copy_orderToContactAnRBC_Type(&tmp4, &establishOrderFromRBC);
       tmp = kcg_false;
       tmp1 = kcg_false;
     }
@@ -124,10 +123,10 @@ void MoRC_MoRC_withSimplified_IF(
       _8_else_clock_MessageFromTrackDec = inC->messageFromRBC ==
         MoRC_cNID_MESSAGE_RBC_RIU_SystemVersion;
       if (_8_else_clock_MessageFromTrackDec) {
-        tmp5 = kcg_false;
         MoRC_kcg_copy_orderToContactAnRBC_Type(
-          &tmp4,
+          &orderReceivedFromRBC,
           (MoRC_orderToContactAnRBC_Type *) &MoRC_cInvalidOrderToContactAnRBC);
+        tmp5 = kcg_false;
         tmp = kcg_true;
         tmp1 = kcg_false;
       }
@@ -136,17 +135,19 @@ void MoRC_MoRC_withSimplified_IF(
           MoRC_cNID_MESSAGE_InitiationOfACommunicationSession_track;
         tmp = kcg_false;
         if (_7_else_clock_MessageFromTrackDec) {
+          MoRC_kcg_copy_orderToContactAnRBC_Type(
+            &orderReceivedFromRBC,
+            &establishOrderFromRBC);
           tmp5 = kcg_false;
-          MoRC_kcg_copy_orderToContactAnRBC_Type(&tmp4, &establishOrderFromRBC);
           tmp1 = kcg_false;
         }
         else {
-          _6_else_clock_MessageFromTrackDec = inC->messageFromRBC ==
-            MoRC_cNID_MESSAGE_AckOfTerminationOfACommunicationSession;
           MoRC_kcg_copy_orderToContactAnRBC_Type(
-            &tmp4,
+            &orderReceivedFromRBC,
             (MoRC_orderToContactAnRBC_Type *)
               &MoRC_cInvalidOrderToContactAnRBC);
+          _6_else_clock_MessageFromTrackDec = inC->messageFromRBC ==
+            MoRC_cNID_MESSAGE_AckOfTerminationOfACommunicationSession;
           if (_6_else_clock_MessageFromTrackDec) {
             tmp5 = kcg_true;
             tmp1 = kcg_false;
@@ -170,16 +171,16 @@ void MoRC_MoRC_withSimplified_IF(
   MoRC_managementOfRadioCommunication(
     inC->actualTime,
     tmp5,
-    &orderReceivedFromTrackside,
-    &tmp4,
-    &orderReceivedFromTrackside,
+    &orderReceivedFromRBC,
+    &orderReceivedFromRBC,
+    &orderReceivedFromRBC,
     _L47,
     _L47,
     _L47,
     _L47,
     _L47,
     kcg_false,
-    tmp3,
+    tmp4,
     kcg_false,
     inC->M_Level,
     (MoRC_validRadioNetworkID_Type *) &MoRC_cSampleRadioNetworkID,
@@ -187,10 +188,10 @@ void MoRC_MoRC_withSimplified_IF(
     (MoRC_validRadioNetworkID_Type *) &MoRC_cSampleRadioNetworkID,
     kcg_false,
     kcg_false,
+    &tmp3,
+    kcg_false,
+    kcg_false,
     &tmp2,
-    kcg_false,
-    kcg_false,
-    &orderReceivedFromTrackside,
     kcg_false,
     tmp1,
     inC->systemVersionIsCompatible,
@@ -201,8 +202,10 @@ void MoRC_MoRC_withSimplified_IF(
     initiateCmd_fromOBU,
     (kcg_bool) (MoRC_rhs_end == inC->radioHole_status),
     kcg_true,
-    (kcg_bool) (inC->radioHole_status == MoRC_rhs_inside),
-    initiateCmd_fromOBU,
+    (kcg_bool)
+      (MoRC_rhs_begin == inC->radioHole_status || inC->radioHole_status ==
+        MoRC_rhs_inside),
+    kcg_false,
     initiateCmd_fromOBU,
     (MoRC_validRadioNetworkID_Type *) &MoRC_cSampleRadioNetworkID,
     MoRC_cConnectionStatusTimerInterval,
@@ -255,6 +258,6 @@ void MoRC_MoRC_withSimplified_IF(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_MoRC_withSimplified_IF.c
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 

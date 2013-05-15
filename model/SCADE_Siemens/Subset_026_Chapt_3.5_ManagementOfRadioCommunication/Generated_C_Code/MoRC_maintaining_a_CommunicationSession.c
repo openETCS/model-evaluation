@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -101,8 +101,14 @@ void MoRC_maintaining_a_CommunicationSession(
       switch (RadioConnection_SM_state_sel_Maintaining_SM_CommunicationSessionEstablished) {
         case MoRC_SSM_st_SafeRadio_connected_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM :
           br_1_guard_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM_SafeRadio_connected =
+            trainFrontInsideInAnAnnouncedRadioHole &&
+            lossOfTheSafeRadioConnection;
+          br_2_guard_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM_SafeRadio_connected =
             lossOfTheSafeRadioConnection && disconnectionHasNotBeenOrdered;
           if (br_1_guard_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM_SafeRadio_connected) {
+            outC->firstRequestToSetupASafeRadioConnection = kcg_false;
+          }
+          else if (br_2_guard_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM_SafeRadio_connected) {
             outC->firstRequestToSetupASafeRadioConnection = kcg_true;
           }
           else {
@@ -167,22 +173,20 @@ void MoRC_maintaining_a_CommunicationSession(
           tmp = kcg_false;
           break;
         case MoRC_SSM_st_SafeRadio_connected_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM :
-          br_2_guard_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM_SafeRadio_connected =
-            trainFrontInsideInAnAnnouncedRadioHole &&
-            lossOfTheSafeRadioConnection;
           if (br_1_guard_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM_SafeRadio_connected) {
-            RadioConnection_SM_state_act_Maintaining_SM_CommunicationSessionEstablished =
-              MoRC_SSM_st_ConnectionLost_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM;
-            tmp = kcg_false;
-          }
-          else if (br_2_guard_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM_SafeRadio_connected) {
             RadioConnection_SM_state_act_Maintaining_SM_CommunicationSessionEstablished =
               MoRC_SSM_st_ConnecctionLostInAnnouncedRadioHole_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM;
             tmp = kcg_true;
           }
           else {
-            RadioConnection_SM_state_act_Maintaining_SM_CommunicationSessionEstablished =
-              MoRC_SSM_st_SafeRadio_connected_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM;
+            if (br_2_guard_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM_SafeRadio_connected) {
+              RadioConnection_SM_state_act_Maintaining_SM_CommunicationSessionEstablished =
+                MoRC_SSM_st_ConnectionLost_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM;
+            }
+            else {
+              RadioConnection_SM_state_act_Maintaining_SM_CommunicationSessionEstablished =
+                MoRC_SSM_st_SafeRadio_connected_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM;
+            }
             tmp = kcg_false;
           }
           break;
@@ -251,6 +255,6 @@ void MoRC_maintaining_a_CommunicationSession(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_maintaining_a_CommunicationSession.c
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 

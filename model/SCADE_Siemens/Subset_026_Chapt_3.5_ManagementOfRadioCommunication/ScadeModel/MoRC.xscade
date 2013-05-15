@@ -592,7 +592,7 @@
 				</NamedType>
 			</type>
 			<value>
-				<ConstValue value="0"/>
+				<ConstValue value="10000"/>
 			</value>
 			<pragmas>
 				<ed:Constant oid="!ed/23fe/79C7/1248/50a205d1598f" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
@@ -3539,6 +3539,44 @@
 			</value>
 			<pragmas>
 				<ed:Constant oid="!ed/3294/6C1B/32C/516fcc005066"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cRegisterSafeRadioConnectionCmd">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="mobileSWCmd_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<!-- {valid : true, action : mswa_register, radioNetworkID : 0} -->
+				<DataStructOp>
+					<data>
+						<LabelledExpression label="valid">
+							<flow>
+								<ConstValue value="true"/>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="action">
+							<flow>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="mswa_register"/>
+									</path>
+								</IdExpression>
+							</flow>
+						</LabelledExpression>
+						<LabelledExpression label="radioNetworkID">
+							<flow>
+								<ConstValue value="0"/>
+							</flow>
+						</LabelledExpression>
+					</data>
+				</DataStructOp>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/3261/2800/1178/519357e425b3"/>
 			</pragmas>
 		</Constant>
 	</declarations>

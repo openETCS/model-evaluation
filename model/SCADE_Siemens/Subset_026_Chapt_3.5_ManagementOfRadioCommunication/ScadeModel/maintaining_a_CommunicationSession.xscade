@@ -371,6 +371,49 @@
 											<unless>
 												<Transition kind="restart">
 													<target>
+														<StateRef name="ConnecctionLostInAnnouncedRadioHole"/>
+													</target>
+													<condition>
+														<!-- trainFrontInsideInAnAnnouncedRadioHole and lossOfTheSafeRadioConnection -->
+														<NAryOp name="2" operator="and">
+															<operands>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="trainFrontInsideInAnAnnouncedRadioHole"/>
+																	</path>
+																</IdExpression>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="lossOfTheSafeRadioConnection"/>
+																	</path>
+																</IdExpression>
+															</operands>
+														</NAryOp>
+													</condition>
+													<effect>
+														<Action>
+															<data>
+																<!--  emit 'sConnecctionLostInAnnouncedRadioHole; -->
+																<Emission>
+																	<signals>
+																		<SignalRef name="sConnecctionLostInAnnouncedRadioHole"/>
+																	</signals>
+																	<pragmas>
+																		<ed:Emission oid="!ed/2a13/628D/11FC/50f523cd1dcc"/>
+																	</pragmas>
+																</Emission>
+															</data>
+															<pragmas>
+																<ed:Action oid="!ed/2a09/628D/11FC/50f523cd659b"/>
+															</pragmas>
+														</Action>
+													</effect>
+													<pragmas>
+														<ed:Transition oid="!ed/2309/4931/1928/50a0f9e23d2b"/>
+													</pragmas>
+												</Transition>
+												<Transition kind="restart">
+													<target>
 														<StateRef name="ConnectionLost"/>
 													</target>
 													<condition>
@@ -421,49 +464,6 @@
 														<ed:Transition oid="!ed/862a/7691/2620/50928f74381d" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
 															<comment>3.5.4.1</comment>
 														</ed:Transition>
-													</pragmas>
-												</Transition>
-												<Transition kind="restart">
-													<target>
-														<StateRef name="ConnecctionLostInAnnouncedRadioHole"/>
-													</target>
-													<condition>
-														<!-- trainFrontInsideInAnAnnouncedRadioHole and lossOfTheSafeRadioConnection -->
-														<NAryOp name="2" operator="and">
-															<operands>
-																<IdExpression>
-																	<path>
-																		<ConstVarRef name="trainFrontInsideInAnAnnouncedRadioHole"/>
-																	</path>
-																</IdExpression>
-																<IdExpression>
-																	<path>
-																		<ConstVarRef name="lossOfTheSafeRadioConnection"/>
-																	</path>
-																</IdExpression>
-															</operands>
-														</NAryOp>
-													</condition>
-													<effect>
-														<Action>
-															<data>
-																<!--  emit 'sConnecctionLostInAnnouncedRadioHole; -->
-																<Emission>
-																	<signals>
-																		<SignalRef name="sConnecctionLostInAnnouncedRadioHole"/>
-																	</signals>
-																	<pragmas>
-																		<ed:Emission oid="!ed/2a13/628D/11FC/50f523cd1dcc"/>
-																	</pragmas>
-																</Emission>
-															</data>
-															<pragmas>
-																<ed:Action oid="!ed/2a09/628D/11FC/50f523cd659b"/>
-															</pragmas>
-														</Action>
-													</effect>
-													<pragmas>
-														<ed:Transition oid="!ed/2309/4931/1928/50a0f9e23d2b"/>
 													</pragmas>
 												</Transition>
 											</unless>

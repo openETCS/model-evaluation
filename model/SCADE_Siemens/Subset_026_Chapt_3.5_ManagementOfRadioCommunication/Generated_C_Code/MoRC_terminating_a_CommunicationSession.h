@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 #ifndef _MoRC_terminating_a_CommunicationSession_H_
 #define _MoRC_terminating_a_CommunicationSession_H_
@@ -23,7 +23,6 @@ typedef struct {
   kcg_bool init;
   /* ----------------------- local memories  ------------------------- */
   MoRC_SSM_ST_TerminateTheCommunicationSession_SM /* terminating_a_CommunicationSession::TerminateTheCommunicationSession_SM */ TerminateTheCommunicationSession_SM_state_nxt;
-  kcg_bool /* terminating_a_CommunicationSession::TerminateTheCommunicationSession_SM */ TerminateTheCommunicationSession_SM_reset_nxt;
   /* ---------------------  sub nodes' contexts  --------------------- */
   MoRC_outC_waitAndRepeatTimer /* 1 */ Context_1;
   /* ----------------- no clocks of observable data ------------------ */
@@ -49,6 +48,6 @@ extern void MoRC_terminating_a_CommunicationSession_reset(
 #endif /* _MoRC_terminating_a_CommunicationSession_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_terminating_a_CommunicationSession.h
-** Generation date: 2013-04-22T16:56:47
+** Generation date: 2013-05-15T14:10:00
 *************************************************************$ */
 
