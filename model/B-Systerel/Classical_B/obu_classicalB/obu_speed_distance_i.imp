@@ -1,0 +1,71 @@
+/* obu_speed_distance_i
+ * Author: Marielle Petit-Doche <marielle.doche@systerel.fr> --Systerel
+ * Creation date: 13/05/13
+ 
+  * Licensed under the EUPL V.1.1 or - as soon they will be approved by
+ * the European Commission - subsequent versions of the EUPL (the
+ * "Licence");
+ * You may not use this work except in compliance with the Licence.
+
+ * You may obtain a copy of the Licence at:
+ *   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the Licence is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied.
+
+ * See the Licence for the specific language governing permissions and
+ * limitations under the Licence.
+ */
+IMPLEMENTATION
+   obu_speed_distance_i
+REFINES
+   obu_speed_distance
+
+SEES
+   obu_types ,
+   obu_modes_procedures
+
+OPERATIONS
+   manage_speed_distance =
+   VAR
+       l_mode IN
+       l_mode <-- lire_mode ;
+       CASE l_mode OF
+           EITHER FS, LS, OS THEN
+               // §4.5.2 : These functions shall be active :
+               // Speed and Distance Monitoring based on MRSP, MA, release
+			   // speed, gradient, mode profile, non protected LX start location, and
+			   // route unsuitability location
+
+               skip
+           OR SR THEN
+               // §4.5.2 : This function shall be active :
+               // Speed and Distance Monitoring based on MRSP
+               skip
+           OR UN THEN
+               // §4.5.2 : This function shall be active :
+               // Speed and Distance Monitoring based on MRSP, allowed distance
+			   // to run in Staff Resp. mode
+
+               skip
+           OR SH, SN, RV THEN
+               // §4.5.2 : This function shall be active
+               // Ceiling Speed Monitoring only (no braking curve) based on MRSP 
+
+               skip
+           OR NP, SB, PS, SL, NL, TR, PT, SF, ISo THEN
+               // §4.5.2 : This function shall be inactive in NP, SB, PS, SL, NL, TR, PT, SF, ISo modes
+ 	          skip
+ 	       ELSE 
+ 	          // For defensive programming purpose a fault can be detect :
+ 	          // If any of the other branch condition is true there is a trouble in the mode value.
+ 	          // This branch shall be dead code.
+ 	          skip
+ 	      END
+ 	  END
+   END
+
+
+END

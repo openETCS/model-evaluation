@@ -21,17 +21,91 @@
 MACHINE
     obu_inputs
     
+SEES
+    obu_types
+    
+ABSTRACT_VARIABLES
+    Valid_Train_Data,
+    Valid_MA, Valid_SSP, Valid_Grad,
+    M_MAMODE,
+    driver_isolate, driver_ask_SH, driver_ack,
+    SH_request_accepted
+    
+INVARIANT
+    Valid_Train_Data :  BOOL &
+    // MA received in Packet 12 or Packet 15 is valid and stored
+    Valid_MA : BOOL &
+    // SSP received in Packet 27 is valid and stored
+    Valid_SSP : BOOL &
+    // Gradient received in Packet 21 or Packet 141 is valid and stored
+    Valid_Grad :  BOOL &
+    // Mode Profile requested in Packet 80
+    M_MAMODE : t_mamode &
+    // Driver commands
+    driver_isolate : BOOL &
+    driver_ask_SH : BOOL &
+    driver_ack : BOOL &
+    // SH_request is accepted according message 27 or message 28
+    SH_request_accepted : BOOL
+    
+INITIALISATION
+    Valid_Train_Data :=  FALSE ||
+    Valid_MA := FALSE ||
+    Valid_SSP := FALSE ||
+    Valid_Grad :=  FALSE ||
+    M_MAMODE :=  ma_unknown ||
+    driver_isolate := FALSE ||
+    driver_ask_SH := FALSE ||
+    driver_ack := FALSE ||
+    SH_request_accepted :=  FALSE
+    
 OPERATIONS
     
     initial_read_inputs =
     BEGIN
-        skip
+        Valid_Train_Data,
+        Valid_MA,
+        Valid_SSP,
+        Valid_Grad,
+        M_MAMODE,
+        driver_isolate,
+        driver_ask_SH,
+        driver_ack,
+        SH_request_accepted :(
+            Valid_Train_Data :  BOOL &
+        	Valid_MA : BOOL &
+    		Valid_SSP : BOOL &
+    		Valid_Grad :  BOOL &
+    		M_MAMODE :  t_mamode &
+    		driver_isolate : BOOL &
+    		driver_ask_SH : BOOL &
+    		driver_ack : BOOL &
+    		SH_request_accepted : BOOL
+        )
     END
     ; 
     
     read_inputs =
     BEGIN
-        skip
+        Valid_Train_Data,
+        Valid_MA,
+        Valid_SSP,
+        Valid_Grad,
+        M_MAMODE,
+        driver_isolate,
+        driver_ask_SH,
+        driver_ack,
+        SH_request_accepted :(
+            Valid_Train_Data :  BOOL &
+        	Valid_MA : BOOL &
+    		Valid_SSP : BOOL &
+    		Valid_Grad :  BOOL &
+    		M_MAMODE :  t_mamode &
+    		driver_isolate : BOOL &
+    		driver_ask_SH : BOOL &
+    		driver_ack : BOOL &
+    		SH_request_accepted : BOOL
+        )
     END
     
 

@@ -1,0 +1,81 @@
+/* obu_principles_i
+ * Author: Marielle Petit-Doche <marielle.doche@systerel.fr> --Systerel
+ * Creation date: 13/05/13
+ 
+  * Licensed under the EUPL V.1.1 or - as soon they will be approved by
+ * the European Commission - subsequent versions of the EUPL (the
+ * "Licence");
+ * You may not use this work except in compliance with the Licence.
+
+ * You may obtain a copy of the Licence at:
+ *   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the Licence is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied.
+
+ * See the Licence for the specific language governing permissions and
+ * limitations under the Licence.
+ */
+IMPLEMENTATION
+    obu_principles_i
+    
+REFINES
+    obu_principles
+    
+SEES
+    obu_types,
+    obu_modes_procedures
+    
+IMPORTS
+    obu_radio_comm,
+    obu_speed_distance
+    
+CONCRETE_VARIABLES
+    V_TRAIN
+    
+INVARIANT
+    V_TRAIN :  VITESSE
+    
+INITIALISATION
+    
+    V_TRAIN := 0
+       
+OPERATIONS
+   initialize_data =
+   BEGIN
+       skip
+   END
+   ;
+
+   principles_management =
+   BEGIN
+       // balise §3.3 (Trackside)
+       // radio_communication §3.5 (OBU and Trackside)
+       manage_radio_communication 
+       ;
+       // location §3.6 (OBU and Trackside)
+       // completness  §3.7(Trackside)
+       // movement_authority §3.8 (OBU and Trackside)
+       // Infill §3.9 (OBU and Trackside)
+       // Emergency Messages §3.10 (OBU and Trackside)
+       // Static speed restrictions and gradients §3.11 (OBU and Trackside)
+       // Other profiles §3.12 (OBU and Trackside)
+       // Speed and distance Monitoring §3.13 (OBU)
+       manage_speed_distance
+       // Brake command §3.14 (OBU)
+       // Special functions §3.15 (OBU and Trackside)
+       // Data consistency  §3.16 (OBU and Trackside) -> to  be treated with I/O
+       // System version §3.17 (OBU and Trackside)
+       // system Data §3.18 (OBU and Trackside)
+       // Juridical Data §3.20 (OBU and Trackside)
+   END
+
+    ; 
+    vv <--   lire_V_train = 
+    BEGIN
+        vv := V_TRAIN
+    END
+        
+END

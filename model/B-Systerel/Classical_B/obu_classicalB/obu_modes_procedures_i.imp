@@ -25,13 +25,24 @@ REFINES
 
 SEES
    obu_types
-
+   
+IMPORTS
+    Mode_management,
+    OS_procedure
+    
 CONCRETE_VARIABLES
-   M_mode, M_level
+   M_mode, previous_mode
+    ,
+    M_level, previous_level
+    ,
+    procedure
 
 INITIALISATION
     M_mode := NP ;
-    M_level := level_0
+    previous_mode := NP;
+    M_level := level_0;
+    previous_level := level_0;
+    procedure := NoProcedure  
 
 OPERATIONS
    intialize_mode =
@@ -42,16 +53,23 @@ OPERATIONS
    END
    ;
 
-   modes_procedures_management =
+   modes_procedures_management(vv) =
    BEGIN
-       skip
-       // M_mode, M_level  <-- manage_mode §4
+       // register of previous mode and level
+       previous_mode := M_mode ;
+       previous_level := M_level ;
+       // Management of the mode §4
+       
+       M_mode, M_level, procedure  <-- manage_mode(previous_mode, previous_level,vv) ;
+       
        // start_of_mission § 5.4
        // end_of_mission § 5.5
        // shunting_driver § 5.6
        // shunting_trackside § 5.7
        // override § 5.8
        // on_sight § 5.9
+       M_mode <-- procedure_on_sight(M_mode, previous_mode, previous_level) 
+       
        // level_transition § 5.10
        // train_trip § 5.11
        // change_train_orientation § 5.12

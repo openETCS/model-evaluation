@@ -1,6 +1,6 @@
-/* obu_principles
+/* OS_procedure
  * Author: Marielle Petit-Doche <marielle.doche@systerel.fr> --Systerel
- * Creation date: 07/05/13
+ * Creation date: 14/05/13
  
   * Licensed under the EUPL V.1.1 or - as soon they will be approved by
  * the European Commission - subsequent versions of the EUPL (the
@@ -19,43 +19,22 @@
  * limitations under the Licence.
  */
 MACHINE
-    obu_principles
+    OS_procedure
     
-SEES
+    SEES
     obu_types
     
-ABSTRACT_VARIABLES
-    V_TRAIN
-    
-INVARIANT
-    V_TRAIN :  VITESSE
-    
-INITIALISATION
-    
-    V_TRAIN := 0
-       
 OPERATIONS
-    
-    initialize_data =
-    BEGIN
-        V_TRAIN :(
-            V_TRAIN : VITESSE
-            )
-    END
-    ; 
-    
-    principles_management =
-    BEGIN
-        V_TRAIN :(
-            V_TRAIN : VITESSE
-            )
-    END
         
-    ; 
-    vv <--   lire_V_train = 
-    BEGIN
-        vv :(
-            vv = V_TRAIN
+    mm <-- procedure_on_sight(cm, pm, pl) =
+    PRE
+        cm :  t_mode &
+        pm :  t_mode &
+        pl :  t_level &
+        mm :  t_mode
+    THEN
+        mm :(
+            mm : t_mode 
             )
     END
         

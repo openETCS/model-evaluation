@@ -43,9 +43,19 @@ SETS
 	National System (SN)
 	Reversing (RV)
 */
-t_modes = {FS, LS, OS, SR, SH, UN, PS, SL, SB, TR, PT, SF, ISo, NP, NL, SN, RV}
+t_mode = {FS, LS, OS, SR, SH, UN, PS, SL, SB, TR, PT, SF, ISo, NP, NL, SN, RV}
+;
+t_mamode = {ma_OS, ma_SH, ma_LS, ma_unknown}
 ;
 t_level = {level_0, level_1, level_2, level_3, level_NTC}
+;
+t_procedure = {NoProcedure, StartOfMission, EndOfMission, SHInitiatedByDriver, SHOrderFromTrackside, Override, OnSight, LevelTransitions, TrainTrip, ChangeTrainOrientation, TrainReversing, Joining, Splitting, RBCHandover, LevelCrossing, ChangingTrainData, TrackConditions, LimitedSupervision}
+
+CONSTANTS
+    VITESSE
     
+PROPERTIES
+    VITESSE <: NAT &
+    VITESSE = 0..600
 
 END

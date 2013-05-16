@@ -1,6 +1,6 @@
-/* obu_principles
+/* obu_speed_distance
  * Author: Marielle Petit-Doche <marielle.doche@systerel.fr> --Systerel
- * Creation date: 07/05/13
+ * Creation date: 13/05/13
  
   * Licensed under the EUPL V.1.1 or - as soon they will be approved by
  * the European Commission - subsequent versions of the EUPL (the
@@ -19,44 +19,16 @@
  * limitations under the Licence.
  */
 MACHINE
-    obu_principles
+    obu_speed_distance
     
 SEES
-    obu_types
-    
-ABSTRACT_VARIABLES
-    V_TRAIN
-    
-INVARIANT
-    V_TRAIN :  VITESSE
-    
-INITIALISATION
-    
-    V_TRAIN := 0
-       
+    obu_types,
+    obu_modes_procedures
+
+
 OPERATIONS
-    
-    initialize_data =
+    manage_speed_distance =
     BEGIN
-        V_TRAIN :(
-            V_TRAIN : VITESSE
-            )
+        skip
     END
-    ; 
-    
-    principles_management =
-    BEGIN
-        V_TRAIN :(
-            V_TRAIN : VITESSE
-            )
-    END
-        
-    ; 
-    vv <--   lire_V_train = 
-    BEGIN
-        vv :(
-            vv = V_TRAIN
-            )
-    END
-        
 END

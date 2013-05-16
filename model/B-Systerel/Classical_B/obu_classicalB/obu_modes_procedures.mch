@@ -26,21 +26,41 @@ SEES
     
 VARIABLES
     
-    M_mode
+    M_mode, previous_mode
     ,
-    M_level
+    M_level, previous_level
+    ,
+    procedure
     
 INVARIANT
     
-    M_mode : t_modes
+    M_mode : t_mode
+    &
+    previous_mode : t_mode
     &
     M_level : t_level
+    &
+    previous_level : t_level
+    &
+    procedure : t_procedure
+    
+    //&
+    // PROPERTY_4.6.2_02 :
+    // OBU shall never leave Isolated mode (no transition from Isolation is specified)
+	// previous_mode = ISo => M_mode = ISo
+    
     
 INITIALISATION
     
     M_mode := NP
     ||
+    previous_mode := NP
+    ||
     M_level := level_0
+    ||
+    previous_level := level_0
+    ||
+    procedure := NoProcedure
     
 OPERATIONS
     
@@ -48,18 +68,31 @@ OPERATIONS
     BEGIN
         M_mode,
         M_level :(
-            M_mode : t_modes &
+            M_mode : t_mode &
           	M_level : t_level
             )
     END
     ; 
     
-    modes_procedures_management =
-    BEGIN
+    modes_procedures_management(vv) =
+    PRE
+        vv : VITESSE &
+        M_mode : t_mode &
+    	previous_mode : t_mode &
+    	M_level : t_level &
+    	previous_level : t_level &
+    	procedure : t_procedure
+    THEN
         M_mode,
-        M_level :(
-            M_mode : t_modes &
-          	M_level : t_level
+        previous_mode,
+        M_level,
+        previous_level,
+        procedure :(
+        	M_mode : t_mode &
+    		previous_mode : t_mode &
+    		M_level : t_level &
+    		previous_level : t_level &
+    		procedure : t_procedure
             )
         END
         

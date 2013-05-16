@@ -1,0 +1,63 @@
+/* obu_radio_comm_i
+ * Author: Marielle Petit-Doche <marielle.doche@systerel.fr> --Systerel
+ * Creation date: 13/05/13
+ 
+  * Licensed under the EUPL V.1.1 or - as soon they will be approved by
+ * the European Commission - subsequent versions of the EUPL (the
+ * "Licence");
+ * You may not use this work except in compliance with the Licence.
+
+ * You may obtain a copy of the Licence at:
+ *   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the Licence is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied.
+
+ * See the Licence for the specific language governing permissions and
+ * limitations under the Licence.
+ */
+IMPLEMENTATION
+   obu_radio_comm_i
+REFINES
+   obu_radio_comm
+
+SEES
+   obu_types ,
+   obu_modes_procedures
+   
+IMPORTS
+    RCM_types,
+    RCM_communication
+
+OPERATIONS
+   manage_radio_communication =
+   VAR
+       l_mode IN 
+       l_mode <-- lire_mode ;
+        CASE l_mode OF
+           EITHER SB, PS, SH, FS, LS, SR, OS, SL, NL, UN, TR, PT, SN, RV THEN
+               // §4.5.2 : This functionshall be active in SB, PS, SH, FS, LS, SR, OS, SL, NL, UN, TR, PT, SN and RV modes
+                       
+        	manage_communication  // § 3.5.3, 3.5.4, 3.5.5
+        	;
+        	register_to_radio_network // §3.5.6
+        	;
+        	manage_safe_indication // §3.5.7
+                   		
+       		OR SF, ISo, NP  THEN
+               // §4.5.2 : This functionshall be inactive in SF, ISo and NP modes
+ 	          skip
+ 	   		ELSE 
+ 	          // For defensive programming purpose a fault can be detect :
+ 	          // If any of the other branch condition is true there is a trouble in the mode value.
+ 	          // This branch shall be dead code.
+ 	          skip
+ 	      END
+ 	  END
+   
+   END
+
+
+END

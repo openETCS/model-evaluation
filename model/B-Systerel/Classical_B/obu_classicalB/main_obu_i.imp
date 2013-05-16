@@ -28,7 +28,8 @@ IMPORTS
     obu_inputs,
     obu_modes_procedures,
     obu_principles,
-    obu_outputs
+    obu_outputs, 
+    obu_types
 
 OPERATIONS
    power_up =
@@ -44,13 +45,15 @@ OPERATIONS
    ;
 
    cycle =
-   BEGIN
+   VAR vv IN
        read_inputs ;
        
-       principles_management ; // Subset 026 Chapter 3
+       vv <-- lire_V_train ;
        
-       modes_procedures_management ; // Subset 026 Chapter 4 and 5
-            
+       modes_procedures_management(vv) ; // Subset 026 Chapter 4 and 5
+               
+       principles_management ; // Subset 026 Chapter 3
+    
        send_outputs
    END
 
