@@ -36,9 +36,9 @@ OPERATIONS
    BEGIN
        initial_read_inputs ;
        
-       initialize_data ; // Subset 026 Chapter 3
-       
        intialize_mode ; // Subset 026 Chapter 4 and 5
+       
+       initialize_data ; // Subset 026 Chapter 3 
        
        initial_send_outputs
    END
@@ -48,7 +48,7 @@ OPERATIONS
    VAR vv IN
        read_inputs ;
        
-       vv <-- lire_V_train ;
+       vv <-- get_V_train ;
        
        modes_procedures_management(vv) ; // Subset 026 Chapter 4 and 5
                

@@ -23,8 +23,8 @@ MACHINE
     
     /*  This Machine specifies the main sequencer of the on-board unit software.
     Two operations are defined : 
-    - power_up launched when the system is powered on
-    - cycle the main operation called by the hardware at each applicative cycle.
+    - power_up is launched by the hardware when the system is powered on
+    - cycle is the main operation called by the hardware at each applicative cycle
     */
     
     OPERATIONS

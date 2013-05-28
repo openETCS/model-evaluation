@@ -22,7 +22,8 @@ MACHINE
     obu_modes_procedures
     
 SEES
-    obu_types
+    obu_types,
+    obu_inputs
     
 VARIABLES
     
@@ -43,11 +44,12 @@ INVARIANT
     previous_level : t_level
     &
     procedure : t_procedure
-    
-    //&
+    &
     // PROPERTY_4.6.2_02 :
     // OBU shall never leave Isolated mode (no transition from Isolation is specified)
-	// previous_mode = ISo => M_mode = ISo
+    // ie. if system  was previously  isolate, it stay isolate
+    ( previous_mode = ISo => M_mode = ISo )
+
     
     
 INITIALISATION
@@ -67,9 +69,19 @@ OPERATIONS
     intialize_mode =
     BEGIN
         M_mode,
-        M_level :(
-            M_mode : t_mode &
-          	M_level : t_level
+        previous_mode,
+        M_level, 
+        previous_level,
+        procedure :(
+        	M_mode : t_mode &
+    		previous_mode : t_mode &
+    		M_level : t_level &
+    		previous_level : t_level &
+    		procedure : t_procedure &
+            ( previous_mode = ISo => M_mode = ISo )   &
+		    // PROPERTY_4.6.2_01 : 
+		    // OBU shall never enter in isolated mode if not requested by the driver
+		    ( (driver_isolate = FALSE & previous_mode /= ISo) =>  M_mode /= ISo )
             )
     END
     ; 
@@ -81,7 +93,7 @@ OPERATIONS
     	previous_mode : t_mode &
     	M_level : t_level &
     	previous_level : t_level &
-    	procedure : t_procedure
+    	procedure : t_procedure    	
     THEN
         M_mode,
         previous_mode,
@@ -92,12 +104,17 @@ OPERATIONS
     		previous_mode : t_mode &
     		M_level : t_level &
     		previous_level : t_level &
-    		procedure : t_procedure
+    		procedure : t_procedure &
+    		( previous_mode = ISo => M_mode = ISo )     &
+		    // PROPERTY_4.6.2_01 : 
+		    // OBU shall never enter in isolated mode if not requested by the driver
+		    ( (driver_isolate = FALSE & previous_mode /= ISo) =>  M_mode /= ISo )
+   	
             )
         END
         
     ; 
-    mm <--   lire_mode = 
+    mm <--   get_mode = 
     BEGIN
         mm :(
             mm = M_mode
@@ -105,7 +122,7 @@ OPERATIONS
     END
     
     ; 
-    ll <--   lire_level = 
+    ll <--   get_level = 
     BEGIN
         ll :(
             ll = M_level

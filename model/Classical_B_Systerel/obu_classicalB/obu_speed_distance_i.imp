@@ -31,7 +31,7 @@ OPERATIONS
    manage_speed_distance =
    VAR
        l_mode IN
-       l_mode <-- lire_mode ;
+       l_mode <-- get_mode ;
        CASE l_mode OF
            EITHER FS, LS, OS THEN
                // §4.5.2 : These functions shall be active :

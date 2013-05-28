@@ -43,7 +43,7 @@ INVARIANT
     //3.5.3.3 Note: Only communication sessions between an ERTMS/ETCS on-board equipment and a trackside equipment (RBC or Radio Infill Unit) are considered here.
     connected_equipment <: dom(equipment_class |>{RBC, RIU }) &
     
-    connection_state : t_equipment --> t_communication_state &
+    connection_state : t_equipment +-> t_communication_state &
     connection_state(c_equipment_undef) = no_connection &
     connection_state[dom(equipment_class |>{OBU}) ] <:  {no_connection} &
 
@@ -77,7 +77,8 @@ OPERATIONS
             connected_equipment <: dom(equipment_class |>{RBC, RIU }) &
             connection_state : t_equipment --> t_communication_state &
     		connection_state(c_equipment_undef) = no_connection &
-   			connection_state[dom(equipment_class |>{OBU}) ] <:  {no_connection} 
+    		connection_state[dom(equipment_class |>{OBU}) ] <:  {no_connection} &
+    		communication_session_requested :  BOOL
 
         )    
      END

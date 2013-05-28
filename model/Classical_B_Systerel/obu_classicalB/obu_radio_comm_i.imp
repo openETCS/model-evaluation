@@ -35,7 +35,7 @@ OPERATIONS
    manage_radio_communication =
    VAR
        l_mode IN 
-       l_mode <-- lire_mode ;
+       l_mode <-- get_mode ;
         CASE l_mode OF
            EITHER SB, PS, SH, FS, LS, SR, OS, SL, NL, UN, TR, PT, SN, RV THEN
                // §4.5.2 : This functionshall be active in SB, PS, SH, FS, LS, SR, OS, SL, NL, UN, TR, PT, SN and RV modes

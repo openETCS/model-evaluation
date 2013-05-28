@@ -21,8 +21,9 @@
 MACHINE
     OS_procedure
     
-    SEES
-    obu_types
+SEES
+    obu_types,
+    obu_inputs
     
 OPERATIONS
         
@@ -34,7 +35,11 @@ OPERATIONS
         mm :  t_mode
     THEN
         mm :(
-            mm : t_mode 
+            mm : t_mode &
+        	( pm = ISo => mm = ISo )  &
+		    // PROPERTY_4.6.2_01 : 
+		    // OBU shall never enter in isolated mode if not requested by the driver
+		    ( (driver_isolate = FALSE & pm /= ISo) =>  mm /= ISo )  
             )
     END
         

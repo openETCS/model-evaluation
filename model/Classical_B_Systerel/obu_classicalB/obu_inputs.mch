@@ -48,6 +48,8 @@ INVARIANT
     // SH_request is accepted according message 27 or message 28
     SH_request_accepted : BOOL
     
+
+
 INITIALISATION
     Valid_Train_Data :=  FALSE ||
     Valid_MA := FALSE ||
@@ -107,6 +109,83 @@ OPERATIONS
     		SH_request_accepted : BOOL
         )
     END
+       
+    ;
     
+    vtd <-- get_Valid_Train_Data = 
+    BEGIN
+        vtd:(
+            vtd = Valid_Train_Data
+            )
+    END
+    ;
+    
+    vma <-- get_Valid_MA = 
+    BEGIN
+        vma :(
+            vma = Valid_MA
+            )
+    END
+    ;
+    
+    vssp <-- get_Valid_SSP = 
+    BEGIN
+        vssp :(
+            vssp = Valid_SSP
+            )
+    END
+    ;
+    
+    vg <-- get_Valid_Grad = 
+    BEGIN
+        vg :(
+            vg = Valid_Grad
+            )
+    END
+    ;
+    
+    mma <-- get_M_MAMODE = 
+    BEGIN
+        mma :(
+            mma = M_MAMODE
+            )
+    END
+
+    ;
+    
+    di <-- get_driver_isolate = 
+    BEGIN
+        di :(
+            di = driver_isolate
+            )
+    END
+        ;
+    
+    daSH <-- get_driver_ask_SH = 
+    BEGIN
+        daSH :(
+            daSH = driver_ask_SH
+            )
+    END
+    
+    ;
+    
+    da <-- get_driver_ack = 
+    BEGIN
+        da :(
+            da = driver_ack
+            )
+    END
+        ;
+    
+    SHra <-- get_SH_request_accepted = 
+    BEGIN
+        SHra :(
+            SHra = SH_request_accepted
+            )
+    END
+    
+
+
 
 END

@@ -24,7 +24,8 @@ REFINES
    obu_modes_procedures
 
 SEES
-   obu_types
+    obu_types, 
+    obu_inputs
    
 IMPORTS
     Mode_management,
@@ -48,19 +49,38 @@ OPERATIONS
    intialize_mode =
    BEGIN
        M_mode := SB ;
-       M_level := level_0
+       previous_mode := SB ;
+       M_level := level_0 ;
+       previous_level := level_0 ;
+       procedure := StartOfMission
        // start_of_mission § 5.4
    END
    ;
 
    modes_procedures_management(vv) =
-   BEGIN
+   VAR previous_procedure IN
        // register of previous mode and level
        previous_mode := M_mode ;
        previous_level := M_level ;
+       // register previous procedure
+       previous_procedure := procedure ;
        // Management of the mode §4
        
-       M_mode, M_level, procedure  <-- manage_mode(previous_mode, previous_level,vv) ;
+        ASSERT
+        	// ASSERTIONS on inputs (see obu_inputs) to ensure mutual  exclusion on the conditions of the same priority
+    		// conditions 5, 6 and 50  are not TRUE in the same time
+   	 		not ( (vv = 0 & driver_ask_SH = TRUE ) & (SH_request_accepted =  TRUE & driver_ack =  TRUE) ) &
+	    	// conditions 5, 6, 10 are not TRUE in the same time
+	    	not( (vv = 0 & driver_ask_SH = TRUE ) & ( Valid_Train_Data =  TRUE & Valid_MA =  TRUE & Valid_SSP =  TRUE & 
+    						Valid_Grad =  TRUE & M_MAMODE =  ma_unknown)  ) &
+	    	// conditions 50, 10 are not TRUE in the same time
+	    	not( (SH_request_accepted =  TRUE & driver_ack =  TRUE) & ( Valid_Train_Data =  TRUE & Valid_MA =  TRUE 
+	    	        	& Valid_SSP =  TRUE &   Valid_Grad =  TRUE & M_MAMODE =  ma_unknown)  )
+		THEN
+	    	skip
+	    END   
+       ;
+       M_mode, M_level, procedure  <-- manage_mode(previous_mode, previous_level, vv, previous_procedure) ;
        
        // start_of_mission § 5.4
        // end_of_mission § 5.5
@@ -84,13 +104,13 @@ OPERATIONS
    END
    ; 
    
-    mm <--   lire_mode = 
+    mm <--   get_mode = 
     BEGIN
         mm := M_mode
     END
    ; 
    
-    ll <--   lire_level = 
+    ll <--   get_level = 
     BEGIN
         ll := M_level
     END

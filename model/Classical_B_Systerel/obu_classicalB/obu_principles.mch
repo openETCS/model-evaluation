@@ -52,7 +52,7 @@ OPERATIONS
     END
         
     ; 
-    vv <--   lire_V_train = 
+    vv <--   get_V_train = 
     BEGIN
         vv :(
             vv = V_TRAIN

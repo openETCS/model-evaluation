@@ -1,0 +1,79 @@
+/* Mode_management_i
+ * Author: Marielle Petit-Doche <marielle.doche@systerel.fr> --Systerel
+ * Creation date: 28/05/13
+ 
+  * Licensed under the EUPL V.1.1 or - as soon they will be approved by
+ * the European Commission - subsequent versions of the EUPL (the
+ * "Licence");
+ * You may not use this work except in compliance with the Licence.
+
+ * You may obtain a copy of the Licence at:
+ *   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the Licence is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied.
+
+ * See the Licence for the specific language governing permissions and
+ * limitations under the Licence.
+ */
+IMPLEMENTATION
+   Mode_management_i
+REFINES
+   Mode_management
+
+SEES
+   obu_types ,
+   obu_inputs
+
+
+OPERATIONS
+   mm , ll , pr <-- manage_mode ( pm , pl , vv , ppr) =
+   VAR di, daSH, SHra, da, vtd, vma, vssp, vg, mma IN
+       mm := pm ;
+       ll := pl ;
+       pr := ppr ;
+  
+       di <-- get_driver_isolate ;
+       IF di = TRUE  // condition 1
+       THEN
+           mm := ISo  // enter in isolate mode
+       ELSE
+           // di = FALSE
+           IF pm = SB  // previous mode is SB
+           THEN
+               daSH  <-- get_driver_ask_SH;
+               IF (vv = 0 & daSH = TRUE) // condition 5 or condition 6
+               THEN
+                   mm := SH // enter in SH
+               ELSE
+                   // condition 5 and 6 are false
+                   da  <-- get_driver_ack ;
+                   SHra  <-- get_SH_request_accepted;
+                   IF (da =  TRUE & SHra = TRUE ) // condition 50
+                   THEN
+                       mm :=  SH ;  // enter in SH
+                       pr := SHInitiatedByDriver // launch procedure SH Initiated by driver
+                   ELSE   
+                       // condition 50 is false
+						vtd <-- get_Valid_Train_Data ;
+    				    vma <-- get_Valid_MA ;
+    				    vssp <-- get_Valid_SSP ;
+    				    vg <-- get_Valid_Grad ;
+    				    mma <-- get_M_MAMODE ;
+    				    IF vtd =  TRUE & vma = TRUE & vssp = TRUE & vg = TRUE & mma = ma_unknown // condition 10
+    				    THEN
+    				        mm := FS // enter in FS
+    				    ELSE
+    				        // condition 10  is false
+    				        skip
+    				    END
+    				END
+                END
+            END
+        END
+    END
+
+
+END
