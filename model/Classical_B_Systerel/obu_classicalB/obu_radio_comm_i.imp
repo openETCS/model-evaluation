@@ -38,7 +38,7 @@ OPERATIONS
        l_mode <-- get_mode ;
         CASE l_mode OF
            EITHER SB, PS, SH, FS, LS, SR, OS, SL, NL, UN, TR, PT, SN, RV THEN
-               // §4.5.2 : This functionshall be active in SB, PS, SH, FS, LS, SR, OS, SL, NL, UN, TR, PT, SN and RV modes
+               // §4.5.2 : This function shall be active in SB, PS, SH, FS, LS, SR, OS, SL, NL, UN, TR, PT, SN and RV modes
                        
         	manage_communication  // § 3.5.3, 3.5.4, 3.5.5
         	;
@@ -47,7 +47,7 @@ OPERATIONS
         	manage_safe_indication // §3.5.7
                    		
        		OR SF, ISo, NP  THEN
-               // §4.5.2 : This functionshall be inactive in SF, ISo and NP modes
+               // §4.5.2 : This function shall be inactive in SF, ISo and NP modes
  	          skip
  	   		ELSE 
  	          // For defensive programming purpose a fault can be detect :

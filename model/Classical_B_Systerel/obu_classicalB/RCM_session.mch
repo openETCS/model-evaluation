@@ -22,12 +22,44 @@ MACHINE
     RCM_session
     
      
-SEES
-    RCM_types
+ SEES
+     obu_types, 
+    RCM_types,
+    obu_modes_procedures
     
    
 OPERATIONS
-    
+  
+       //3.5.3.4 The on-board shall establish a communication session
+    requested_comm <-- check_communication_conditions(p_equip, active_comm) =
+    PRE
+        p_equip :  t_equipment &
+        equipment_class(p_equip) = RBC &
+        active_comm : BOOL &
+        requested_comm : BOOL 
+    THEN
+        requested_comm :(
+            requested_comm : BOOL &
+            //a) At Start of Mission (only if level 2 or 3).
+            ( ( active_comm =  FALSE & procedure = StartOfMission & M_level : {level_2, level_3} ) => requested_comm =  TRUE )
+                &
+                //b) If ordered from trackside.
+            
+//c) If a mode change, not considered as an End of Mission, has to be reported to the RBC (only if level 2 or 3)
+//d) If the driver has manually changed the level to 2 or 3
+//e) When the train front reaches the end of an announced radio hole
+//f) When the previous communication session is considered as terminated due to loss of safe radio connection (refer to 3.5.4.2.1)
+//g) When a Start of Mission procedure, during which no communication session could be established, is completed in level 2 or 3
+
+//3.5.3.4.1 In respect of a), b), c), d) and e) of 3.5.3.4, the on-board shall not establish a new communication session with an RBC/RIU in case a communication session is currently being established or is already established with this RBC/RIU.
+
+			( requested_comm = bool(active_comm = FALSE) )
+
+            
+            )
+    END 
+    ;
+        
     //3.5.3.5 The order to contact an RBC shall include
 //a) The identity of the RBC.
 //b) The telephone number of the RBC.
@@ -147,54 +179,24 @@ OPERATIONS
     
 
 //3.5.4 Maintaining a communication session
-//3.5.4.1 When a communication session is established, in case of a loss of the safe radio connection, i.e., if the disconnection has not been ordered (see 3.5.5.1), the involved entities shall consider the communication session still established for a defined time. The defined time shall start as soon as EURORADIO has indicated the loss of the safe radio connection.
-//3.5.4.2 When EURORADIO indicates the loss of the safe radio connection, the ERTMS/ETCS on-board equipment shall immediately try to set-up a new safe radio connection.
-//3.5.4.2.1 If the safe radio connection is not re-established after the defined time (as defined in A3.1), both, on-board equipment and trackside, shall consider the session as terminated.
-//3.5.4.3 The attempts shall be repeated, until at least one of the following conditions is met:
-//The safe radio connection is set-up.
-//The session is considered as terminated.
-//The train passes the location indicated in the RIU order “Terminate the communication session”
-//3.5.4.3.1 Note: if the session is considered as terminated due to 3.5.4.2.1, the attempts will be resumed immediately according to 3.5.3.4 f).
-//3.5.4.4 Exception to 3.5.4.2 and 3.5.4.3: the on-board equipment shall not try to set up a new safe radio connection and shall stop any on-going attempts if the train front is inside an announced radio hole (see 3.12.1.3). The on-board equipment shall try to set it up again when the train front reaches the end of the radio hole.
-//3.5.4.5 In case a message has to be sent during the loss of the safe radio connection, this message shall be considered as sent.
 
     maintain_communication(p_equip) =
     PRE
         p_equip :  t_equipment
     THEN
+        // out of the scope of benchmark activities
         skip
     END 
     ;
     
     
 //3.5.5 Terminating a communication session
-//3.5.5.1 The termination of a communication session shall be initiated only by the on-board and in the following cases:
-//a) If an order is received from trackside (RBC, RIU or balise groups) (see sections 3.5.3.5 and 3.5.3.6 concerning the content of the order).
-//b) If an error condition requiring the termination of the communication session is detected on-board (e.g., not compatible system versions between on-board and trackside).
-//c) The train is rejected by RBC during Start of Mission.
-//d) If the driver closes the desk during Start of Mission.
-//e) In case the train has reported having exited from an RBC area and no order to terminate the session is received within a fixed waiting time (see Appendix A.3.1) from the time the position report was sent, the ERTMS/ETCS on-board equipment shall repeatedly send a position report with the fixed waiting time after each repetition, until the order to terminate the session is received, or the defined number of repetitions (see Appendix A.3.1) has been reached. If no reply is received within the fixed waiting time after the last repetition, the ERTMS/ETCS on-board equipment shall terminate the communication session.
-//f) In case of communication session with an RIU: the Level 1 is left, or, an End of Mission is executed.
-//3.5.5.2 In case a session is established, the on-board equipment shall terminate the communication session according to the following steps:
-//a) The on-board equipment shall send a Termination of communication session message. 
-//b) As soon as this information is received, the trackside shall consider the communication session terminated and send an acknowledgement to the on-board.
-//c) When the acknowledgement is received the on-board shall consider the communication session terminated and request the release of the safe radio connection with trackside.
-//
-//
-//Figure 3: Termination of a communication session
-//
-//3.5.5.3 No further message shall be sent by the on-board after the message Termination of communication session.
-//3.5.5.3.1 Exception: In case a communication session is established and no acknowledgement is received within a fixed waiting time (see Appendix A.3.1) after sending the “Termination of communication session” message, the message shall be repeated with the fixed waiting time after each repetition.
-//3.5.5.3.2 After a defined number of repetitions (see Appendix A.3.1), and if no acknowledgment is received within the fixed waiting time from the time of the last sending of “Termination of communication session”, the ERTMS/ETCS onboard equipment shall consider the communication session terminated.
-//3.5.5.4 No further message shall be sent by the trackside after the message Acknowledgement of the termination of communication session.
-//3.5.5.5 The information Termination of Communication Session and corresponding Acknowledgement shall be the same in every system version.
-//3.5.5.6 Messages from the RBC received onboard after the message “Termination of communication session” has been sent shall be ignored with the exception of the Acknowledgement of the termination of communication session.
-//3.5.5.7 In case an order to terminate the communication session is received, while the communication session is currently being established, the on-board shall abort the process of establishing it and shall release the safe radio connection.
 
     terminate_communication(p_equip) =
     PRE
         p_equip :  t_equipment
     THEN
+        // out of the scope of benchmark activities
         skip
     END 
     

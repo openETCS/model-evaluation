@@ -25,7 +25,8 @@ MACHINE
 SEES
     RCM_types
     
-CONCRETE_VARIABLES
+
+ABSTRACT_VARIABLES
     connected_equipment,
     connection_state,
     communication_session_requested
@@ -67,6 +68,7 @@ INITIALISATION
     
 OPERATIONS
     
+    // 3.5.3, 3.5.4, 3.5.5 Establishing, Maintaining and terminating
     manage_communication = 
     BEGIN
         connected_equipment,
@@ -83,66 +85,20 @@ OPERATIONS
         )    
      END
      ;
-        
+     
+// 3.5.6 Registering to  the Radio Network
     register_to_radio_network = 
     BEGIN
+        // out of the scope of benchmark activities
         skip
     END
     ;
  
 
-//3.5.7 Safe Radio Connection Indication
-//3.5.7.1 The ERTMS/ETCS on-board equipment shall inform the driver about the status of the safe radio connection. To that purpose, the following indication statuses of the safe radio connection are defined: “No Connection”, “Connection Lost/Set-Up failed”, “Connection Up”.
-//3.5.7.2 In addition, the ERTMS/ETCS on-board equipment shall use a “connection status” timer (see Appendix A.3.1), in order to manage properly the transitions to the indication status “Connection Lost/Set-Up failed”.
-//3.5.7.2.1 Note: The purpose of the “connection status” timer is to avoid distracting the driver for any short disturbance of the safe radio connection.
-//3.5.7.3 The ERTMS/ETCS on-board equipment shall start the “connection status” timer as soon as the first request to set-up a safe radio connection with the relevant RBC/RIU is sent:
-//a) for what regards the session establishment, see items b), c), d), e) in 3.5.3.4.
-//b) for what regards maintaining a communication session, see 3.5.4.2 and 3.5.4.4
-//3.5.7.4 If the “connection status” timer is ongoing, it shall be stopped if the requests to set-up a safe radio connection are stopped with the relevant RBC/RIU.
-//3.5.7.5 The ERTMS/ETCS on-board equipment shall execute the transitions between the different indication statuses of the safe radio connection with the relevant RBC/RIU as described in Table 1 according to the conditions in Table 2 (see section 4.6.1 for details about the symbols).
-//No Connection
-//< 3
-//-p2-
-//< 5, 6, 7
-//-p1-
-//1, 2 >
-//-p2-
-//Connection Lost /
-//Set-Up failed
-//<2
-//-p2-
-//4 >
-//-p1-
-//4 >
-//-p1-
-//Connection Up
-//Table 1: Transitions between the indication statuses of the safe radio connection
-//
-//Condition Id
-//Content of the conditions
-//[1]
-//(a Start of mission procedure is on-going) AND (the final attempt to set-up the safe radio connection failed)
-//[2]
-//(the “connection status” timer expires)
-//[3]
-//(no Start of mission procedure is on-going) AND (the requests to set-up a safe radio connection are stopped with the relevant RBC/RIU for reason other than the successful set-up)
-//[4]
-//(the safe radio connection is set-up)
-//[5]
-//(the safe radio connection is released)
-//[6]
-//(the safe radio connection is lost) AND (the requests to set-up a safe radio connection are stopped with the relevant RBC/RIU for reason other than the successful set-up)
-//[7]
-//(the safe radio connection is lost) AND (the train front is inside an announced radio hole)
-//Table 2: Transition conditions for the indication statuses of the safe radio connection
-//3.5.7.6 For the case of an RBC/RBC transition, the safe radio connection indicated to the driver shall switch from the indication status of the safe radio connection with the Handing over RBC to the one with the Accepting RBC as soon as one of the following conditions is met:
-//a) the ERTMS/ETCS on-board equipment sends a position report directly to the Accepting RBC with its maximum safe front end having passed the border, see 3.15.1.3.5 (i.e. the Accepting RBC becomes the supervising RBC),
-//b) the safe radio connection is released with the Handing over RBC and the minimum safe rear end of the train has crossed the border, see 3.5.5.1 e) and 3.15.1.2.7.
-//3.5.7.6.1 Note: During an RBC/RBC handover procedure, an indication status transition table and a connection status timer might have to be managed at the same time, for each RBC.
-//3.5.7.7 For the case of safe radio connection with RIU’s, the safe radio connection indicated to the driver shall be the one related to the current infill area.
-
+// 3.5.7 Safe Radio Connection Indication
     manage_safe_indication = 
     BEGIN
+        // out of the scope of benchmark activities
         skip
     END
 

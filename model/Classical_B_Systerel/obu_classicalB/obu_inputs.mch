@@ -24,12 +24,24 @@ MACHINE
 SEES
     obu_types
     
+ABSTRACT_CONSTANTS
+    c_last_known_RBC
+    
 ABSTRACT_VARIABLES
+    
+    // for §4.6.2 Transition Table
     Valid_Train_Data,
     Valid_MA, Valid_SSP, Valid_Grad,
     M_MAMODE,
     driver_isolate, driver_ask_SH, driver_ack,
     SH_request_accepted
+    
+    ,
+    // For § 3.5.3 Communication Session
+    NID_C, NID_RBC, NID_RIU
+    
+PROPERTIES
+    c_last_known_RBC = 16383
     
 INVARIANT
     Valid_Train_Data :  BOOL &
@@ -47,8 +59,10 @@ INVARIANT
     driver_ack : BOOL &
     // SH_request is accepted according message 27 or message 28
     SH_request_accepted : BOOL
-    
-
+    &
+    NID_C : 0..1023 &
+    NID_RBC : 0..c_last_known_RBC &
+    NID_RIU : 0..16383 
 
 INITIALISATION
     Valid_Train_Data :=  FALSE ||
@@ -59,7 +73,10 @@ INITIALISATION
     driver_isolate := FALSE ||
     driver_ask_SH := FALSE ||
     driver_ack := FALSE ||
-    SH_request_accepted :=  FALSE
+    SH_request_accepted :=  FALSE ||
+    NID_C := 0 ||
+    NID_RBC := 0 ||
+    NID_RIU := 0
     
 OPERATIONS
     

@@ -28,6 +28,39 @@ SEES
     
 IMPORTS
     RCM_session
+    
+      
+
+CONCRETE_VARIABLES
+    connected_equipment,
+    connection_state,
+    communication_session_requested
+    
+INVARIANT
+    
+  
+    //3.5.2.1 Each communication session managed by an entity shall allow the exchange of data with only one other entity.
+    // => We suppose that the equipment can communicate with several equipments in the same time, however each communication channel can be use only between two equipments. This is specified in B by construction :  the current equipment is connected to a set of other equipment. This shall be validated during the integration phase of this function in the whole system.
+    connected_equipment <: t_equipment &
+    
+  	// => We suppose that each equipment does not communicate with itself
+  	c_current_equipment /: connected_equipment &
+  	
+    //3.5.3.3 Note: Only communication sessions between an ERTMS/ETCS on-board equipment and a trackside equipment (RBC or Radio Infill Unit) are considered here.
+    connected_equipment <: dom(equipment_class |>{RBC, RIU }) &
+    
+    connection_state : t_equipment +-> t_communication_state &
+    connection_state(c_equipment_undef) = no_connection &
+    connection_state[dom(equipment_class |>{OBU}) ] <:  {no_connection} &
+
+
+//3.5.3.4 The on-board shall establish a communication session...
+    communication_session_requested :  BOOL
+  
+//3.5.2 General
+
+//3.5.2.2 Note: in the following sections reference is made to safe radio connections, whose definition and management is contained in Euroradio specification.
+//3.5.2.3 The information Initiation of a Communication Session and Version not Compatible (see sections 3.5.3 and 3.1.17) shall be the same in every system version.
 
 INITIALISATION
    connected_equipment := {} ;
@@ -47,26 +80,25 @@ OPERATIONS
    
     //3.5.3 Establishing a communication session
     
+    // this operation manage the communication between the current equipment and a given equipment p-equip of the whole ETCS system
    manage_single_communication ( p_equip ) =
-   BEGIN
-//3.5.3.4 The on-board shall establish a communication session
-//a) At Start of Mission (only if level 2 or 3).
-//b) If ordered from trackside.
-//c) If a mode change, not considered as an End of Mission, has to be reported to the RBC (only if level 2 or 3)
-//d) If the driver has manually changed the level to 2 or 3
-//e) When the train front reaches the end of an announced radio hole
-//f) When the previous communication session is considered as terminated due to loss of safe radio connection (refer to 3.5.4.2.1)
-//g) When a Start of Mission procedure, during which no communication session could be established, is completed in level 2 or 3
-//3.5.3.4.1 In respect of a), b), c), d) and e) of 3.5.3.4, the on-board shall not establish a new communication session with an RBC/RIU in case a communication session is currently being established or is already established with this RBC/RIU.
-
-
-
-// Check communication condition  TODO 
-
-
+   VAR l_active_comm, l_p_equip_connected, l_req_comm IN
+       
+       IF connected_equipment /= {} THEN
+           l_active_comm := TRUE ; 
+           IF p_equip : connected_equipment THEN
+               l_p_equip_connected :=  TRUE
+           ELSE
+               l_p_equip_connected := FALSE
+           END
+       ELSE
+           l_active_comm := FALSE ;
+           l_p_equip_connected := FALSE
+       END ;
+       
+		l_req_comm <-- check_communication_conditions(p_equip, l_active_comm) ;
 
 		IF equipment_class (p_equip) = RBC THEN
-
            establish_communication_to_RBC(p_equip) ;
            establish_communication_from_RBC(p_equip) ;
            establish_communication_to_Accepting_RBC(p_equip) ;
@@ -96,6 +128,8 @@ OPERATIONS
 //3.5.3.1 It shall be possible for ERTMS/ETCS on-board equipment and RBC to initiate a communication session.
        l_next := TRUE ;
        l_equipment := c_equipment_undef ;
+       // For each  possible equipment of the whole ETCS system (all the RBC, RIU and OBU)
+       // we manage the communication between the current equipment and this equipment
        WHILE l_next = TRUE DO
            l_equipment := l_equipment + 1 ;
            l_next := bool(l_equipment /= c_max_equipment) ;
@@ -111,16 +145,21 @@ OPERATIONS
 	END
    ;
 
-   register_to_radio_network =
-   BEGIN
+	// 3.5.6 Registering to  the Radio Network
+	register_to_radio_network =
+	BEGIN
+        // out of the scope of benchmark activities
        skip
-   END
-   ;
+	END
+	;
 
-   manage_safe_indication =
-   BEGIN
+	// 3.5.7 Safe Radio Connection Indication
+	manage_safe_indication =
+	BEGIN
+        // out of the scope of benchmark activities
        skip
-   END
+	END
+	
 
 
 END
