@@ -1,0 +1,247 @@
+\section{Transition table (§4.6.2)}
+% Start here
+
+this section is fully implemented in Classical B in the component Mode\_management and Mode\_management\_i
+
+\fbox{
+\begin{minipage}{14cm}
+
+
+\bf MACHINE
+
+\hspace*{0.20in}\it Mode\_management
+
+\bf SEES
+
+\hspace*{0.20in}\it obu\_types\rm ,
+
+\hspace*{0.20in}\it obu\_inputs
+
+\bf DEFINITIONS
+
+\hspace*{0.20in}\it condition\_1 \rm == \rm (\it driver\_isolate \rm =\hspace*{0.10in}\bf TRUE\rm ) \rm ;
+
+\hspace*{0.20in}\it condition\_5\rm (\it v\_train\rm , \it ll\rm ) \rm == \rm ( \it v\_train \rm = \rm 0  $\land$  \it ll  $\in$  \rm \{\it level\_0\rm , \it level\_NTC\rm , \it level\_1\rm \}  
+
+\hspace*{0.40in} $\land$  \it driver\_ask\_SH \rm = \bf TRUE\rm ) \rm ;
+
+\hspace*{0.20in}\it condition\_6\rm (\it v\_train\rm , \it ll\rm ) \rm == \rm ( \it v\_train \rm = \rm 0\hspace*{0.10in} $\land$  \it ll  $\in$  \rm \{\it level\_2\rm , \it level\_3\rm \} 
+
+\hspace*{0.40in} $\land$  \it driver\_ask\_SH \rm =\hspace*{0.10in}\bf TRUE\rm ) \rm ;
+
+\hspace*{0.20in}\it condition\_10 \rm == \rm ( \it Valid\_Train\_Data \rm =\hspace*{0.10in}\bf TRUE  $\land$  \it Valid\_MA \rm =\hspace*{0.10in}\bf TRUE  
+
+\hspace*{0.40in} $\land$  \it Valid\_SSP \rm =\hspace*{0.10in}\bf TRUE  $\land$  \it Valid\_Grad \rm =\hspace*{0.10in}\bf TRUE  $\land$  \it M\_MAMODE \rm =\hspace*{0.10in}\it ma\_unknown\rm ) \rm ;
+
+\hspace*{0.20in}\it condition\_50 \rm == \rm (\it SH\_request\_accepted \rm =\hspace*{0.10in}\bf TRUE  $\land$  \it driver\_ack \rm =\hspace*{0.10in}\bf TRUE\rm )
+
+
+\bf OPERATIONS
+
+\hspace*{0.20in}\it mm\rm , \it ll\rm , \it pr  $\leftarrow$  \it manage\_mode\rm (\it pm\rm , \it pl\rm , \it vv\rm , \it ppr\rm ) \rm =
+
+\hspace*{0.20in}\bf PRE
+
+\hspace*{0.40in}\it pm  $\in$ \hspace*{0.10in}\it t\_mode  $\land$ 
+
+\hspace*{0.40in}\it pl  $\in$ \hspace*{0.10in}\it t\_level  $\land$ 
+
+\hspace*{0.40in}\it vv  $\in$ \hspace*{0.10in}\it VITESSE  $\land$ 
+
+\hspace*{0.40in}\it mm  $\in$  \it t\_mode  $\land$ 
+
+\hspace*{0.40in}\it ll  $\in$  \it t\_level  $\land$ 
+
+\hspace*{0.40in}\it pr  $\in$  \it t\_procedure  $\land$ 
+
+\hspace*{0.40in}\it ppr  $\in$  \it t\_procedure  $\land$ 
+
+\hspace*{0.40in} $\neg$  \rm ( \rm (\it condition\_5\rm (\it vv\rm , \it pl\rm )  $\lor$  \it condition\_6\rm (\it vv\rm , \it pl\rm )\rm )  $\land$  \it condition\_50 \rm )  $\land$ 
+
+\hspace*{0.40in} $\neg$ \rm ( \rm (\it condition\_5\rm (\it vv\rm , \it pl\rm )  $\lor$  \it condition\_6\rm (\it vv\rm , \it pl\rm )\rm )  $\land$  \it condition\_10\hspace*{0.10in}\rm )  $\land$ 
+
+\hspace*{0.40in} $\neg$ \rm ( \it condition\_50  $\land$  \it condition\_10\hspace*{0.10in}\rm )
+\hspace*{0.20in}\bf THEN
+
+\hspace*{0.40in}\it mm\rm , \it ll\rm , \it pr\hspace*{0.10in}\rm :\rm (
+
+\hspace*{0.60in}\it mm  $\in$  \it t\_mode  $\land$ 
+
+\hspace*{0.60in}\it ll  $\in$  \it t\_level  $\land$ 
+
+\hspace*{0.60in}\it pr  $\in$  \it t\_procedure  $\land$ 
+
+\hspace*{0.60in}\rm ( \it condition\_1\hspace*{0.10in} $\implies$  \rm ( \it mm \rm = \it ISo  $\land$  \it ll \rm = \it pl  $\land$  \it pr \rm = \it ppr\rm ) \rm )  $\land$ 
+
+\hspace*{0.60in}\rm (  $\neg$ \rm (\it condition\_1\rm )  $\implies$  \rm (
+
+\hspace*{0.80in}\rm ( \rm ( \it condition\_5\rm (\it vv\rm , \it pl\rm )  $\lor$  \it condition\_6\rm (\it vv\rm , \it pl\rm ) \rm )\hspace*{0.25in}
+
+\hspace*{1.00in} $\land$  \it pm \rm = \it SB  $\implies$  \rm ( \it mm \rm = \it SH  $\land$  \it ll \rm = \it pl  $\land$  \it pr \rm = \it ppr\rm ) \rm )  $\land$ 
+
+\hspace*{0.80in}\rm ( \it condition\_50 
+
+\hspace*{1.00in} $\land$  \it pm \rm = \it SB  $\implies$  \rm ( \it mm \rm = \it SH\hspace*{0.10in} $\land$  \it ll \rm = \it pl  $\land$  \it pr \rm = \it SHInitiatedByDriver\rm ) \rm )  $\land$ 
+
+\hspace*{0.80in}\rm ( \it condition\_10 
+
+\hspace*{1.00in} $\land$  \it pm \rm = \it SB  $\implies$  \rm ( \it mm \rm = \it FS  $\land$  \it ll \rm = \it pl  $\land$  \it pr \rm = \it ppr\rm ) \rm )  $\land$ 
+
+\hspace*{0.80in}\rm (  $\neg$ \rm (\it condition\_5\rm (\it vv\rm , \it pl\rm )  $\lor$  \it condition\_6\rm (\it vv\rm , \it pl\rm )  $\lor$  \it condition\_50  $\lor$  \it condition\_10\rm ) 
+
+\hspace*{1.00in} $\land$  \it pm \rm = \it SB  $\implies$  \rm ( \it mm \rm = \it pm  $\land$  \it ll \rm = \it pl  $\land$  \it pr \rm = \it ppr\rm ) \rm )  $\land$ 
+
+\hspace*{0.80in}\rm ( $\neg$ \rm (\it pm\rm =\it SB\rm )  $\implies$  \rm ( \it mm \rm = \it pm  $\land$  \it ll \rm = \it pl  $\land$  \it pr \rm = \it ppr\rm ) \rm )
+
+\hspace*{0.80in}\rm ) \rm )  $\land$ 
+
+\hspace*{0.60in}\rm ( \it pm \rm = \it ISo  $\implies$  \it mm \rm = \it ISo \rm )\hspace*{0.25in} $\land$ 
+
+\hspace*{0.60in}\rm ( \rm (\it driver\_isolate \rm = \bf FALSE  $\land$  \it pm  $\not =$  \it ISo\rm )  $\implies$ \hspace*{0.10in}\it mm  $\not =$  \it ISo \rm )\hspace*{0.40in}
+
+\hspace*{0.60in}\rm )
+
+\hspace*{0.20in}\bf END
+
+\bf END
+
+\end{minipage}
+}
+
+
+\newpage
+
+
+\fbox{
+\begin{minipage}{14cm}
+
+
+\bf IMPLEMENTATION
+
+\hspace*{0.15in}\it Mode\_management\_i
+
+\bf REFINES
+
+\hspace*{0.15in}\it Mode\_management
+
+\bf SEES
+
+\hspace*{0.15in}\it obu\_types \rm ,
+
+\hspace*{0.15in}\it obu\_inputs
+
+\bf OPERATIONS
+
+\hspace*{0.15in}\it mm \rm , \it ll \rm , \it pr  $\leftarrow$  \it manage\_mode \rm ( \it pm \rm , \it pl \rm , \it vv \rm , \it ppr\rm ) \rm =
+
+\hspace*{0.15in}\bf VAR \it di\rm , \it daSH\rm , \it SHra\rm , \it da\rm , \it vtd\rm , \it vma\rm , \it vssp\rm , \it vg\rm , \it mma \bf IN
+
+\hspace*{0.35in}\it mm \rm := \it pm \rm ;
+
+\hspace*{0.35in}\it ll \rm := \it pl \rm ;
+
+\hspace*{0.35in}\it pr \rm := \it ppr \rm ;
+
+\hspace*{0.35in}\it di  $\leftarrow$  \bf get\_driver\_isolate \rm ;
+
+\hspace*{0.35in}\bf IF \it di \rm = \bf TRUE\hspace*{0.10in}\hspace*{0.35in}\bf
+
+\hspace*{0.35in} THEN
+
+\hspace*{0.55in}\it mm \rm := \it ISo\hspace*{0.10in}\hspace*{0.35in}\bf
+
+\hspace*{0.35in} ELSE
+
+\hspace*{0.55in}\bf IF \it pm \rm = \it SB\hspace*{0.10in}
+
+\hspace*{0.55in}\bf  THEN
+
+\hspace*{0.75in}\it daSH\hspace*{0.10in} $\leftarrow$  \bf get\_driver\_ask\_SH\rm ;
+
+\hspace*{0.75in}\bf IF \rm (\it vv \rm = \rm 0  $\land$  \it daSH \rm = \bf TRUE\rm )
+
+\hspace*{0.75in}\bf THEN
+
+\hspace*{0.95in}\it mm \rm := \it SH
+
+\hspace*{0.75in}\bf ELSE
+
+\hspace*{0.95in}\it da\hspace*{0.10in} $\leftarrow$  \bf get\_driver\_ack \rm ;
+
+\hspace*{0.95in}\it SHra\hspace*{0.10in} $\leftarrow$  \bf get\_SH\_request\_accepted\rm ;
+
+\hspace*{0.95in}\bf IF \rm (\it da \rm =\hspace*{0.10in}\bf TRUE  $\land$  \it SHra \rm = \bf TRUE \rm ) 
+
+\hspace*{0.95in}\bf  THEN
+
+\hspace*{1.15in}\it mm \rm :=\hspace*{0.10in}\it SH \rm ;
+
+\hspace*{1.15in}\it pr \rm := \it SHInitiatedByDriver 
+
+\hspace*{0.95in}\bf ELSE\hspace*{0.15in}
+
+\hspace*{1.20in}\it vtd  $\leftarrow$  \bf get\_Valid\_Train\_Data \rm ;
+
+\hspace*{1.20in}\it vma  $\leftarrow$  \bf get\_Valid\_MA \rm ;
+
+\hspace*{1.20in}\it vssp  $\leftarrow$  \bf get\_Valid\_SSP \rm ;
+
+\hspace*{1.20in}\it vg  $\leftarrow$  \bf get\_Valid\_Grad \rm ;
+
+\hspace*{1.20in}\it mma  $\leftarrow$  \bf get\_M\_MAMODE \rm ;
+
+\hspace*{1.20in}\bf IF \it vtd \rm =\hspace*{0.10in}\bf TRUE  $\land$  \it vma \rm = \bf TRUE  $\land$  \it vssp \rm = \bf TRUE  $\land$ 
+
+\hspace*{1.40in} \it vg \rm = \bf TRUE  $\land$  \it mma \rm = \it ma\_unknown
+
+\hspace*{1.20in}\bf  THEN
+
+\hspace*{1.40in}\it mm \rm := \it FS 
+
+\hspace*{1.20in}\bf  ELSE
+
+\hspace*{1.40in}\bf skip
+
+\hspace*{1.20in}\bf END
+
+\hspace*{1.00in}\bf END
+
+\hspace*{0.80in}\bf END
+
+\hspace*{0.60in}\bf END
+
+\hspace*{0.40in}\bf END
+
+\hspace*{0.20in}\bf END
+
+\vspace*{8mm}
+\bf END
+
+\end{minipage}
+}
+
+
+\newpage
+
+The property \textbf{PROPERTY\_4.6.2\_01}  "OBU shall never enter in isolated mode if not requested by the driver", is specified as postcondition of the operation of obu\_modes\_procedures :
+
+\fbox{
+\begin{minipage}{14cm}
+
+( \rm (\it driver\_isolate \rm = \bf FALSE  $\land$  \it previous\_mode  $\not =$  \it ISo\rm )  $\implies$ \hspace*{0.10in}\it M\_mode  $\not =$  \it ISo \rm )
+	
+\end{minipage}
+}
+	    
+	    \vspace*{8mm}
+		    
+The property \textbf{PROPERTY\_4.6.2\_02}   "OBU shall never leave Isolated mode (no transition from Isolation is specified) ie. if system  was previously  isolate, it stay isolate", is specified as an invariant of obu\_modes\_procedures :
+
+\fbox{
+\begin{minipage}{14cm}
+
+\rm ( \it previous\_mode \rm = \it ISo  $\implies$  \it M\_mode \rm = \it ISo \rm )
+
+
+\end{minipage}
+}

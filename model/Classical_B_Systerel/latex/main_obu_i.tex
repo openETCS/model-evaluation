@@ -1,0 +1,79 @@
+
+\begin{minipage}{20cm}
+
+%-------------------%
+% Debut du document %
+%-------------------%
+
+ 
+
+ 
+
+\bf IMPLEMENTATION
+
+\hspace*{0.15in}\it main\_obu\_i
+
+\bf REFINES
+
+\hspace*{0.20in}\it main\_obu
+
+\hspace*{0.20in}
+
+\bf IMPORTS
+
+\hspace*{0.20in}\it obu\_inputs\rm ,
+
+\hspace*{0.20in}\it obu\_modes\_procedures\rm ,
+
+\hspace*{0.20in}\it obu\_principles\rm ,
+
+\hspace*{0.20in}\it obu\_outputs\rm , 
+
+\hspace*{0.20in}\it obu\_types
+
+\vspace*{4mm}
+\bf OPERATIONS
+
+\hspace*{0.15in}\bf power\_up \rm =
+
+\hspace*{0.15in}\bf BEGIN
+
+\hspace*{0.35in}\bf initial\_read\_inputs \rm ;
+
+\hspace*{0.35in}
+
+\hspace*{0.35in}\bf intialize\_mode \rm ; \hspace*{0.35in}
+
+\hspace*{0.35in}\bf initialize\_data \rm ; \hspace*{0.35in}
+
+\hspace*{0.35in}\bf initial\_send\_outputs
+
+\hspace*{0.15in}\bf END
+
+\hspace*{0.15in}\rm ;
+
+\vspace*{4mm}
+\hspace*{0.15in}\bf cycle \rm =
+
+\hspace*{0.15in}\bf VAR \it vv \bf IN
+
+\hspace*{0.35in}\bf read\_inputs \rm ;
+
+\hspace*{0.35in}
+
+\hspace*{0.35in}\it vv  $\leftarrow$  \bf get\_V\_train \rm ;
+
+\hspace*{0.35in}
+
+\hspace*{0.35in}\bf modes\_procedures\_management\rm (\it vv\rm ) \rm ; \hspace*{0.75in}
+
+\hspace*{0.35in}\bf principles\_management \rm ; \hspace*{0.20in}
+
+\hspace*{0.35in}\bf send\_outputs
+
+\hspace*{0.15in}\bf END
+
+\vspace*{8mm}
+\bf END
+
+\end{minipage}

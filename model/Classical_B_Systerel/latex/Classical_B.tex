@@ -1,0 +1,321 @@
+\documentclass{template/openetcs_article}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{rotating,color}
+\usepackage{lipsum,url}
+\graphicspath{{./template/}{.}{./images/}}
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/T7.1}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Benchmark''}
+
+%set a title here
+\title{Classical B models}
+
+%set a subtitle here
+\subtitle{Introduction and notes on classical B models}
+
+%set the date of the report here
+\date{May 2013}
+
+%define a list of authors and their affiliation here
+
+\author{Marielle Petit-Doche}
+\affiliation{Systerel}
+
+
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL}
+ 
+%define the type of report
+\reporttype{Notes}
+
+
+\begin{abstract}
+This document gives a description of the models developed in Classical B  during the benchmark task T7.1.
+
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+\newpage
+%=============================
+
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & \\
+\hline
+Document title & Classical B models \\
+Document version & 00.01 \\
+Document authors (org.)  & Marielle Petit-Doche (Systerel) \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed &  \\
+\hline
+Main reviewers &  \\
+
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by    &  Marielle Petit-Doche &  & \\
+\hline
+Approved by &  &  & \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+Version &  Date & Author(s) & Justification  \\
+\hline
+00.01 & 25/05/2013 & M. Petit-Doche &  Document creation  \\
+\hline  
+\end{tabular}
+
+% The actual document starts below this line
+%=============================
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%              My macros (=> Sylvain Baro)               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tbd}{\colorbox{cyan}{\%\%To Be Defined\%\%}}
+\newcommand{\tbc}{\colorbox{cyan}{\%\%To Be Confirmed\%\%}}
+\newcommand{\todo}[1]{\colorbox{cyan}{\%\%{#1}\%\%}}
+\newlength{\origindent}
+
+\newenvironment{issue}{
+        \begin{quote}
+        \begin{itshape}Open Issue.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+\newenvironment{comment}{
+        \begin{quote}
+        \begin{itshape}Comment.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+\newenvironment{justif}{
+        \begin{quote}
+        \begin{itshape}Justification.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+%------------------------------------------
+% DEFINITION DES CARACTERES MATHEMATIQUES B
+%------------------------------------------
+\def\@setmcodes#1#2#3{{\count0=#1 \count1=#3
+	\loop \global\mathcode\count0=\count1 \ifnum \count0<#2
+	\advance\count0 by1 \advance\count1 by1 \repeat}}
+
+\@setmcodes{`A}{`Z}{"7441}
+\@setmcodes{`a}{`z}{"7461}
+
+\mathcode`\;="8000 % Makes ; active in math mode
+{\catcode`\;=\active \gdef;{\semicolon\;}}
+\mathchardef\semicolon="003B
+%    Nominal distance from top of paper to top of page
+\topmargin 0 pt
+\textheight 53\baselineskip
+
+%   Left margin on odd-numbered pages
+\oddsidemargin  0.15 in
+%   Left margin on even-numbered pages
+\evensidemargin 0.35 in
+%   Width of marginal notes.
+\marginparwidth 1 in
+%   Note that \oddsidemargin = \evensidemargin
+\oddsidemargin 0.25 in
+\evensidemargin 0.25 in
+\marginparwidth 0.75 in
+\textwidth 5.875 in % Width of text line.
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0ex}
+
+% DEFINITION DES FONTS
+%---------------------
+% The AMS extra symbol fonts are loaded.
+% Note: sometimes called euxm10
+\font\msx=msam10
+% Note: sometimes called euym10
+\font\msy=msbm10
+
+\newfam\msxfam \textfont\msxfam=\msx
+\newfam\msyfam \textfont\msyfam=\msy
+
+\def\famletter#1{\ifcase #1 0\or 1\or 2\or 3\or 4\or 5\or 6\or 7\or
+	8\or 9\or A\or B\or C\or D\or E\or F\fi}
+
+\edef\fx{\famletter\msxfam}
+\edef\fy{\famletter\msyfam}
+
+\def\bbold{\fam\msyfam \msy}
+
+% SYMBOLES B
+%-----------
+% makes a quoted expression in mathematical text
+\def\token#1{\hbox{`$#1$'}}
+% used for error messages in Z specs
+\def\report#1{\hbox{`{\tt #1}'}}
+
+% \@myop makes an operator, with a strut to defeat TeX's vertical adjustment.
+\def\@myop#1{\mathop{\mathstrut{#1}}\nolimits}
+
+% This underscore doesn't have the little kern --- you get an italic
+% correction anyway in math mode.
+\def\_{\leavevmode \vbox{\hrule width0.5em}}
+
+% Save \q as \xq for quantifiers q.
+\let\xforall=\forall
+\let\xexists=\exists
+\let\xlambda=\lambda
+\let\xmu=\mu
+
+% \p and \f make arrows with 1 and 2 crossings resp.
+\def\p#1{\mathrel{\ooalign{\hfil$\mapstochar\mkern 5mu$\hfil\cr$#1$}}}
+\def\f#1{\mathrel{\ooalign{\hfil
+	$\mapstochar\mkern 3mu\mapstochar\mkern 5mu$\hfil\cr$#1$}}}
+
+\let\mc=\mathchardef
+
+\def	\pow		{\mbox{${\cal P}$}}
+\def	\po1		{\mbox{${\cal P}_1$}}
+\let	\cross		\times
+\def	\lambda		{\@myop{\xlambda}}
+\def	\lnot		{\neg\;}
+\def	\land		{\mathrel{\wedge}}
+\def	\lor		{\mathrel{\vee}}
+\let	\implies	\Rightarrow
+\let	\iff		\Leftrightarrow
+\def	\forall		{\@myop{\xforall}}
+\def	\exists		{\@myop{\xexists}}
+\def	\semi		{\mathrel{\comp}}
+\def	\ssemi		{\mathbin{\rm ;}}
+\let	\ensembleVide	\emptyset
+\let	\rel		\leftrightarrow
+\def	\dom		{\@myop{\sf dom}}
+\def	\ran		{\@myop{\sf ran}}
+\def	\id		{\@myop{\sf id}}
+\def	\comp		{\mathbin{\raise
+			0.6ex\hbox{\oalign{\hfil$\scriptscriptstyle
+			\rm o$\hfil\cr\hfil$\scriptscriptstyle\rm 9$\hfil}}}}
+\def	\para		{\mbox{$\mid\mid$}}
+\mc	\dres		"2\fx43
+\mc	\rres		"2\fx42
+\def	\ndres		{\mathbin{{\dres} \llap{$-$}}}
+\def	\nrres		{\mathbin{{\rres}\llap{$-$}}}
+\def	\lover		{\mathbin{{\dres} \llap{$-\!\!\!\!-\!$}}}
+\def	\rover		{\mathbin{{\rres}\llap{$\!-\!\!\!-$}}}
+\let	\fun		\rightarrow
+\def	\pfun		{\p\fun}
+\def	\pinj		{\p\inj}
+\mc	\inj		"3\fx1A
+\def	\psurj		{\p\surj}
+\mc	\surj		"3\fx10
+\def	\bij		{\surj\!\!\!\!\!\!\!\inj}
+\def	\nat		{\mbox{${\cal N}$}}
+\def	\na1		{\mbox{${\cal N}_1$}}
+\def	\num		{\mbox{${\cal Z}$}}
+\def	\int		{\mbox{${\cal Z}$}}
+\def	\rat		{\mbox{${\cal Q}$}}
+\def	\div		{\mathbin{\rm /}}
+\def	\mod		{\mathbin{\bf mod}}
+\def	\upto		{\mathbin{\ldotp\ldotp}}
+\def	\finset		{\mbox{${\cal F}$}}
+\def	\finse1		{\mbox{${\cal F}_1$}}
+\def	\ffun		{\f\fun}
+\def	\finj		{\f\inj}
+\def	\seq		{\@myop{\rm seq}}
+\def	\cat		{\mathbin{\raise 0.8ex\hbox{$\mathchar"2\fx61$}}}
+\def	\sep		{\hspace*{.05in}}
+
+
+
+\newpage
+%------------------------------------------
+
+% Start here
+
+
+\input{intro.tex}
+
+\input{archi.tex}
+
+
+\input{section_5_9.tex}
+
+
+\input{section_3_5_3.tex}
+
+
+\input{section_3_13.tex}
+
+\input{section_4_6_2.tex}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Bibliography
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{erdc}
+\bibliography{process}
+
+
+
+% \begin{thebibliography}{9}
+
+% \bibitem{lamport94}
+  % Leslie Lamport,
+  % \emph{\LaTeX: A Document Preparation System}.
+  % Addison Wesley, Massachusetts,
+  % 2nd Edition,
+  % 1994.
+
+% \end{thebibliography}
+
+%===================================================
+%Do NOT change anything below this line
+
+\end{document}

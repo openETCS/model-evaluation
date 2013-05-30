@@ -1,0 +1,235 @@
+\documentclass[11pt]{article}
+\setlength{\topmargin}{13mm}
+\setlength{\headheight}{0mm}
+\setlength{\headsep}{0mm}
+\setlength{\textheight}{225mm}
+\setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm}
+\usepackage{supertabular}
+%\input{psfig}
+
+\begin{document}
+\begin{sloppypar}
+
+% DEFINITION DES CARACTERES MATHEMATIQUES B
+%------------------------------------------
+\def\@setmcodes#1#2#3{{\count0=#1 \count1=#3
+	\loop \global\mathcode\count0=\count1 \ifnum \count0<#2
+	\advance\count0 by1 \advance\count1 by1 \repeat}}
+
+\@setmcodes{`A}{`Z}{"7441}
+\@setmcodes{`a}{`z}{"7461}
+
+\mathcode`\;="8000 % Makes ; active in math mode
+{\catcode`\;=\active \gdef;{\semicolon\;}}
+\mathchardef\semicolon="003B
+%    Nominal distance from top of paper to top of page
+\topmargin 0 pt
+\textheight 53\baselineskip
+
+%   Left margin on odd-numbered pages
+\oddsidemargin  0.15 in
+%   Left margin on even-numbered pages
+\evensidemargin 0.35 in
+%   Width of marginal notes.
+\marginparwidth 1 in
+%   Note that \oddsidemargin = \evensidemargin
+\oddsidemargin 0.25 in
+\evensidemargin 0.25 in
+\marginparwidth 0.75 in
+\textwidth 5.875 in % Width of text line.
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0ex}
+
+% DEFINITION DES FONTS
+%---------------------
+% The AMS extra symbol fonts are loaded.
+% Note: sometimes called euxm10
+\font\msx=msam10
+% Note: sometimes called euym10
+\font\msy=msbm10
+
+\newfam\msxfam \textfont\msxfam=\msx
+\newfam\msyfam \textfont\msyfam=\msy
+
+\def\famletter#1{\ifcase #1 0\or 1\or 2\or 3\or 4\or 5\or 6\or 7\or
+	8\or 9\or A\or B\or C\or D\or E\or F\fi}
+
+\edef\fx{\famletter\msxfam}
+\edef\fy{\famletter\msyfam}
+
+\def\bbold{\fam\msyfam \msy}
+
+% SYMBOLES B
+%-----------
+% makes a quoted expression in mathematical text
+\def\token#1{\hbox{`$#1$'}}
+% used for error messages in Z specs
+\def\report#1{\hbox{`{\tt #1}'}}
+
+% \@myop makes an operator, with a strut to defeat TeX's vertical adjustment.
+\def\@myop#1{\mathop{\mathstrut{#1}}\nolimits}
+
+% This underscore doesn't have the little kern --- you get an italic
+% correction anyway in math mode.
+\def\_{\leavevmode \vbox{\hrule width0.5em}}
+
+% Save \q as \xq for quantifiers q.
+\let\xforall=\forall
+\let\xexists=\exists
+\let\xlambda=\lambda
+\let\xmu=\mu
+
+% \p and \f make arrows with 1 and 2 crossings resp.
+\def\p#1{\mathrel{\ooalign{\hfil$\mapstochar\mkern 5mu$\hfil\cr$#1$}}}
+\def\f#1{\mathrel{\ooalign{\hfil
+	$\mapstochar\mkern 3mu\mapstochar\mkern 5mu$\hfil\cr$#1$}}}
+
+\let\mc=\mathchardef
+
+\def	\pow		{\mbox{${\cal P}$}}
+\def	\po1		{\mbox{${\cal P}_1$}}
+\let	\cross		\times
+\def	\lambda		{\@myop{\xlambda}}
+\def	\lnot		{\neg\;}
+\def	\land		{\mathrel{\wedge}}
+\def	\lor		{\mathrel{\vee}}
+\let	\implies	\Rightarrow
+\let	\iff		\Leftrightarrow
+\def	\forall		{\@myop{\xforall}}
+\def	\exists		{\@myop{\xexists}}
+\def	\semi		{\mathrel{\comp}}
+\def	\ssemi		{\mathbin{\rm ;}}
+\let	\ensembleVide	\emptyset
+\let	\rel		\leftrightarrow
+\def	\dom		{\@myop{\sf dom}}
+\def	\ran		{\@myop{\sf ran}}
+\def	\id		{\@myop{\sf id}}
+\def	\comp		{\mathbin{\raise
+			0.6ex\hbox{\oalign{\hfil$\scriptscriptstyle
+			\rm o$\hfil\cr\hfil$\scriptscriptstyle\rm 9$\hfil}}}}
+\def	\para		{\mbox{$\mid\mid$}}
+\mc	\dres		"2\fx43
+\mc	\rres		"2\fx42
+\def	\ndres		{\mathbin{{\dres} \llap{$-$}}}
+\def	\nrres		{\mathbin{{\rres}\llap{$-$}}}
+\def	\lover		{\mathbin{{\dres} \llap{$-\!\!\!\!-\!$}}}
+\def	\rover		{\mathbin{{\rres}\llap{$\!-\!\!\!-$}}}
+\let	\fun		\rightarrow
+\def	\pfun		{\p\fun}
+\def	\pinj		{\p\inj}
+\mc	\inj		"3\fx1A
+\def	\psurj		{\p\surj}
+\mc	\surj		"3\fx10
+\def	\bij		{\surj\!\!\!\!\!\!\!\inj}
+\def	\nat		{\mbox{${\cal N}$}}
+\def	\na1		{\mbox{${\cal N}_1$}}
+\def	\num		{\mbox{${\cal Z}$}}
+\def	\int		{\mbox{${\cal Z}$}}
+\def	\rat		{\mbox{${\cal Q}$}}
+\def	\div		{\mathbin{\rm /}}
+\def	\mod		{\mathbin{\bf mod}}
+\def	\upto		{\mathbin{\ldotp\ldotp}}
+\def	\finset		{\mbox{${\cal F}$}}
+\def	\finse1		{\mbox{${\cal F}_1$}}
+\def	\ffun		{\f\fun}
+\def	\finj		{\f\inj}
+\def	\seq		{\@myop{\rm seq}}
+\def	\cat		{\mathbin{\raise 0.8ex\hbox{$\mathchar"2\fx61$}}}
+\def	\sep		{\hspace*{.05in}}
+
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{0}
+
+%-------------------%
+% Debut du document %
+%-------------------%
+
+ 
+
+\bf IMPLEMENTATION
+
+\hspace*{0.15in}\it Mode\_management\_i
+
+\bf REFINES
+
+\hspace*{0.15in}\it Mode\_management
+
+\vspace*{4mm}
+\bf SEES
+
+\hspace*{0.15in}\it obu\_types \rm ,
+
+\hspace*{0.15in}\it obu\_inputs
+
+\vspace*{8mm}
+\bf OPERATIONS
+
+\hspace*{0.15in}\it mm \rm , \it ll \rm , \it pr  $\leftarrow$  \it manage\_mode \rm ( \it pm \rm , \it pl \rm , \it vv \rm , \it ppr\rm ) \rm =
+
+\hspace*{0.15in}\bf VAR \it di\rm , \it daSH\rm , \it SHra\rm , \it da\rm , \it vtd\rm , \it vma\rm , \it vssp\rm , \it vg\rm , \it mma \bf IN
+
+\hspace*{0.35in}\it mm \rm := \it pm \rm ;
+
+\hspace*{0.35in}\it ll \rm := \it pl \rm ;
+
+\hspace*{0.35in}\it pr \rm := \it ppr \rm ;
+
+\hspace*{0.10in}
+
+\hspace*{0.35in}\it di  $\leftarrow$  \bf get\_driver\_isolate \rm ;
+
+\hspace*{0.35in}\bf IF \it di \rm = \bf TRUE\hspace*{0.10in}\hspace*{0.35in}\bf THEN
+
+\hspace*{0.55in}\it mm \rm := \it ISo\hspace*{0.10in}\hspace*{0.35in}\bf ELSE
+
+\hspace*{0.55in}\hspace*{0.55in}\bf IF \it pm \rm = \it SB\hspace*{0.10in}\hspace*{0.55in}\bf THEN
+
+\hspace*{0.75in}\it daSH\hspace*{0.10in} $\leftarrow$  \bf get\_driver\_ask\_SH\rm ;
+
+\hspace*{0.75in}\bf IF \rm (\it vv \rm = \rm 0  $\land$  \it daSH \rm = \bf TRUE\rm ) \hspace*{0.75in}\bf THEN
+
+\hspace*{0.95in}\it mm \rm := \it SH \hspace*{0.75in}\bf ELSE
+
+\hspace*{0.95in}\hspace*{0.95in}\it da\hspace*{0.10in} $\leftarrow$  \bf get\_driver\_ack \rm ;
+
+\hspace*{0.95in}\it SHra\hspace*{0.10in} $\leftarrow$  \bf get\_SH\_request\_accepted\rm ;
+
+\hspace*{0.95in}\bf IF \rm (\it da \rm =\hspace*{0.10in}\bf TRUE  $\land$  \it SHra \rm = \bf TRUE \rm ) \hspace*{0.95in}\bf THEN
+
+\hspace*{1.15in}\it mm \rm :=\hspace*{0.10in}\it SH \rm ;\hspace*{0.10in}\hspace*{1.15in}\it pr \rm := \it SHInitiatedByDriver \hspace*{0.95in}\bf ELSE\hspace*{0.15in}
+
+\hspace*{1.15in}\hspace*{1.20in}\it vtd  $\leftarrow$  \bf get\_Valid\_Train\_Data \rm ;
+
+\hspace*{1.20in}\it vma  $\leftarrow$  \bf get\_Valid\_MA \rm ;
+
+\hspace*{1.20in}\it vssp  $\leftarrow$  \bf get\_Valid\_SSP \rm ;
+
+\hspace*{1.20in}\it vg  $\leftarrow$  \bf get\_Valid\_Grad \rm ;
+
+\hspace*{1.20in}\it mma  $\leftarrow$  \bf get\_M\_MAMODE \rm ;
+
+\hspace*{1.20in}\bf IF \it vtd \rm =\hspace*{0.10in}\bf TRUE  $\land$  \it vma \rm = \bf TRUE  $\land$  \it vssp \rm = \bf TRUE  $\land$  \it vg \rm = \bf TRUE  $\land$  \it mma \rm = \it ma\_unknown \hspace*{1.20in}\bf THEN
+
+\hspace*{1.40in}\it mm \rm := \it FS \hspace*{1.20in}\bf ELSE
+
+\hspace*{1.40in}\hspace*{1.40in}\bf skip
+
+\hspace*{1.20in}\bf END
+
+\hspace*{1.00in}\bf END
+
+\hspace*{0.80in}\bf END
+
+\hspace*{0.60in}\bf END
+
+\hspace*{0.40in}\bf END
+
+\hspace*{0.20in}\bf END
+
+\vspace*{8mm}
+\bf END
+
+\newpage
+\end{sloppypar}\end{document}

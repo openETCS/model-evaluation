@@ -1,0 +1,42 @@
+\section{Introduction}
+% Start here
+
+\subsection{Classical B method}
+The B-Method is a formal method developed by J-R. Abrial and used in industry, especially in railway industry, to develop complex systems. It covers software development from formal specifications to code level. Proof mechanisms guaranty the consistency of specifications properties and the complete consistency of code regarding its formal specification. It is efficient to model  functional  elements of a critical software with respect to  EN50128 constraints.
+
+Classical B has been used successfully  in railway  industry (mainly by Alstom, Siemens and AREVA) to  develop critical software in urban (CBTC, PMI,...) and mainline domains (KVB, Eurobalise,...). Hundred of different systems are running in the world embedding software developed in B (see \url{http://www.cs.vu.nl/~wanf/pubs/handbookFFM.pdf}, \url{http://link.springer.com/chapter/10.1007/3-540-48119-2_22} and \url{http://web.tiscali.it/chiccoterri/Metod B.htm}).
+
+
+Classical B  is well adapted to describe how a system works and to develop functional  critical software. It can be completed with the Event B method to cover system analyses and to explain why a system works.
+
+The main publication on the method is :
+
+[Abrial1996] The B Book, Assigning Programs to Meanings
+
+
+Language is documented with language manual reference of the tool Atelier B (\url{http://www.atelierb.eu/ressources/manrefb1.8.6.uk.pdf}). Industrial have developed their own coding rules and guidelines.
+
+
+
+\subsection{Atelier B toolkit}
+
+AtelierB is the industrial  tool the most used to develop critical software following the Classical approach.
+The tool is partly open-source, but it is free for use.
+For more details \url{http://www.atelierb.eu/outil-atelier-b/}.
+
+
+Tool is documented with the user manual (\url{http://www.tools.clearsy.com/resources/User_uk.pdf}). 
+
+The version of the tool used to develop the models in the sequel is 4.0.2.
+However the models can be read on a more recent version of the tool.
+
+\subsection{Benchmark activities}
+
+The rest of the document describes the models developed in Classical B during the benchmark activities of WP7. The examples specified are those proposed as high priority in D2.5.
+
+\begin{description}
+\item[State machines] procedure On-sight: § 5.9 of subset 026
+\item[Time-outs] Establishing a communication session: §3.5.3 of subset 026
+\item[Arithmetic] Braking curves: parts of § 3.13 of subset 026
+\item[Truth tables and logical statements] Transition tables: parts of § 4.6.2 and § 4.6.3 of subset 026 
+\end{description}
