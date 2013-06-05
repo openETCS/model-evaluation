@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:46
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -80,6 +80,6 @@ const MoRC_orderToContactAnRBC_Type MoRC_cInvalidOrderToContactAnRBC = {
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** kcg_consts.c
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:46
 *************************************************************$ */
 

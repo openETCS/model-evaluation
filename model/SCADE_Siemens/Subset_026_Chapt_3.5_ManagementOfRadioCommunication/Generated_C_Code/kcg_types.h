@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:46
 *************************************************************$ */
 #ifndef _MoRC_KCG_TYPES_H_
 #define _MoRC_KCG_TYPES_H_
@@ -88,7 +88,8 @@ typedef enum {
 typedef enum {
   MoRC_obo_noOrder,
   MoRC_obo_initiateCommunication,
-  MoRC_obo_terminateCommunication
+  MoRC_obo_terminateCommunication,
+  MoRC_obo_registerNetwork
 } MoRC_onBoardOrder_Type;
 /* M_MODE_Type */
 typedef enum {
@@ -454,18 +455,18 @@ typedef struct {
   MoRC_rbc_phoneNo_Type telephoneNoOfTheRBC;
   MoRC_morc_RBC_action_Type actionToBePerformed;
   kcg_bool appliesAlsoToSleepingUnits;
-} MoRC_struct__10799;
+} MoRC_struct__10854;
 
 /* orderToContactAnRBC_Type */
-typedef MoRC_struct__10799 MoRC_orderToContactAnRBC_Type;
+typedef MoRC_struct__10854 MoRC_orderToContactAnRBC_Type;
 
 typedef struct {
   kcg_bool valid;
   MoRC_safeRadioConnectionStatus_Type status;
-} MoRC_struct__10807;
+} MoRC_struct__10862;
 
 /* safeRadioConnectionStatusValid_Type */
-typedef MoRC_struct__10807 MoRC_safeRadioConnectionStatusValid_Type;
+typedef MoRC_struct__10862 MoRC_safeRadioConnectionStatusValid_Type;
 
 typedef struct {
   kcg_bool valid;
@@ -473,74 +474,74 @@ typedef struct {
   MoRC_mobileSWConnectionStatus_Type connectionStatus;
   MoRC_radioNetworkID_Type registeredRadioNetworkID;
   kcg_bool settingUpConnectionHasFailed;
-} MoRC_struct__10812;
+} MoRC_struct__10867;
 
 /* mobileSWStatus_Type */
-typedef MoRC_struct__10812 MoRC_mobileSWStatus_Type;
+typedef MoRC_struct__10867 MoRC_mobileSWStatus_Type;
 
 typedef struct {
   kcg_bool valid;
   MoRC_mobileHWAction_Type action;
   MoRC_radioNetworkID_Type radioNetworkID;
-} MoRC_struct__10820;
+} MoRC_struct__10875;
 
 /* mobileHWCmd_Type */
-typedef MoRC_struct__10820 MoRC_mobileHWCmd_Type;
+typedef MoRC_struct__10875 MoRC_mobileHWCmd_Type;
 
 typedef struct {
   kcg_bool valid;
   MoRC_mobileSWAction_Type action;
   MoRC_radioNetworkID_Type radioNetworkID;
-} MoRC_struct__10826;
+} MoRC_struct__10881;
 
 /* mobileSWCmd_Type */
-typedef MoRC_struct__10826 MoRC_mobileSWCmd_Type;
+typedef MoRC_struct__10881 MoRC_mobileSWCmd_Type;
 
 typedef struct {
   kcg_bool valid;
   MoRC_mobileHWConnectionStatus_Type connectionStatus;
   kcg_bool settingUpConnectionHasFailed;
-} MoRC_struct__10832;
+} MoRC_struct__10887;
 
 /* mobileHWStatus_Type */
-typedef MoRC_struct__10832 MoRC_mobileHWStatus_Type;
+typedef MoRC_struct__10887 MoRC_mobileHWStatus_Type;
 
 typedef struct {
   kcg_bool valid;
   MoRC_radioNetworkID_Type radioNetworkID;
-} MoRC_struct__10838;
+} MoRC_struct__10893;
 
 /* validRadioNetworkID_Type */
-typedef MoRC_struct__10838 MoRC_validRadioNetworkID_Type;
+typedef MoRC_struct__10893 MoRC_validRadioNetworkID_Type;
 
-typedef struct { kcg_int k; kcg_real f; } MoRC_struct__10843;
+typedef struct { kcg_int k; kcg_real f; } MoRC_struct__10898;
 
 /* lut::LutIndex */
-typedef MoRC_struct__10843 MoRC_LutIndex_lut;
+typedef MoRC_struct__10898 MoRC_LutIndex_lut;
 
 typedef struct {
   kcg_int firstNumber;
   kcg_int secondNumber;
-} MoRC_struct__10848;
+} MoRC_struct__10903;
 
 /* M_VERSION_Type */
-typedef MoRC_struct__10848 MoRC_M_VERSION_Type;
+typedef MoRC_struct__10903 MoRC_M_VERSION_Type;
 
 typedef struct {
   kcg_bool valid;
   MoRC_NID_MESSAGE_Type NID_MESSAGE;
   MoRC_T_TRAIN_Type T_TRAIN;
   MoRC_NID_ENGINE_Type NID_ENGINE;
-} MoRC_struct__10853;
+} MoRC_struct__10908;
 
 /* m155_initiationOfACommunicationSession_Type */
-typedef MoRC_struct__10853 MoRC_m155_initiationOfACommunicationSession_Type;
+typedef MoRC_struct__10908 MoRC_m155_initiationOfACommunicationSession_Type;
 
 /* m156_terminationOfACommunicationSession_Type */
-typedef MoRC_struct__10853 MoRC_m156_terminationOfACommunicationSession_Type;
+typedef MoRC_struct__10908 MoRC_m156_terminationOfACommunicationSession_Type;
 
 /* m154_NoCompatibleVersionSupported_Type */
-typedef MoRC_struct__10853 MoRC_m154_NoCompatibleVersionSupported_Type;
+typedef MoRC_struct__10908 MoRC_m154_NoCompatibleVersionSupported_Type;
 
 typedef struct {
   kcg_bool valid;
@@ -548,10 +549,10 @@ typedef struct {
   MoRC_T_TRAIN_Type T_TRAIN;
   MoRC_NID_ENGINE_Type NID_ENGINE;
   MoRC_NID_RADIO_Type NID_RADIO;
-} MoRC_struct__10860;
+} MoRC_struct__10915;
 
 /* m159_SessionEstablished_Type */
-typedef MoRC_struct__10860 MoRC_m159_SessionEstablished_Type;
+typedef MoRC_struct__10915 MoRC_m159_SessionEstablished_Type;
 
 typedef struct {
   kcg_bool valid;
@@ -563,10 +564,10 @@ typedef struct {
   MoRC_NID_RBC_Type NID_RBC;
   MoRC_NID_RADIO_Type NID_RADIO;
   MoRC_Q_SLEEPSESSION_Type Q_SLEEPSESSION;
-} MoRC_struct__10868;
+} MoRC_struct__10923;
 
 /* p131_RBC_TransitionOrderType */
-typedef MoRC_struct__10868 MoRC_p131_RBC_TransitionOrderType;
+typedef MoRC_struct__10923 MoRC_p131_RBC_TransitionOrderType;
 
 typedef struct {
   kcg_bool valid;
@@ -574,16 +575,16 @@ typedef struct {
   MoRC_T_TRAIN_Type T_TRAIN;
   MoRC_M_ACK_Type M_ACK;
   MoRC_NID_LRBG_Type NID_LRBG;
-} MoRC_struct__10880;
+} MoRC_struct__10935;
 
 /* m24_generalMessage_Type */
-typedef MoRC_struct__10880 MoRC_m24_generalMessage_Type;
+typedef MoRC_struct__10935 MoRC_m24_generalMessage_Type;
 
 /* m38_initiationOfACommunicationSession_Type */
-typedef MoRC_struct__10880 MoRC_m38_initiationOfACommunicationSession_Type;
+typedef MoRC_struct__10935 MoRC_m38_initiationOfACommunicationSession_Type;
 
 /* m39_acknowledgementOfTerminationOfACommunicationSession_Type */
-typedef MoRC_struct__10880 MoRC_m39_acknowledgementOfTerminationOfACommunicationSession_Type;
+typedef MoRC_struct__10935 MoRC_m39_acknowledgementOfTerminationOfACommunicationSession_Type;
 
 typedef struct {
   kcg_bool valid;
@@ -592,10 +593,10 @@ typedef struct {
   MoRC_M_ACK_Type M_ACK;
   MoRC_NID_LRBG_Type NID_LRBG;
   MoRC_M_VERSION_Type M_VERSION;
-} MoRC_struct__10888;
+} MoRC_struct__10943;
 
 /* m32_RBC_RIU_systemVersion_Type */
-typedef MoRC_struct__10888 MoRC_m32_RBC_RIU_systemVersion_Type;
+typedef MoRC_struct__10943 MoRC_m32_RBC_RIU_systemVersion_Type;
 
 typedef struct {
   kcg_bool valid;
@@ -607,10 +608,10 @@ typedef struct {
   MoRC_NID_RBC_Type NID_RBC;
   MoRC_NID_RADIO_Type NID_RADIO;
   MoRC_Q_SLEEPSESSION_Type Q_SLEEPSESSION;
-} MoRC_struct__10897;
+} MoRC_struct__10952;
 
 /* p42_SessionManagement_Type */
-typedef MoRC_struct__10897 MoRC_p42_SessionManagement_Type;
+typedef MoRC_struct__10952 MoRC_p42_SessionManagement_Type;
 
 typedef struct {
   MoRC_m24_generalMessage_Type m24_generalMessage;
@@ -619,370 +620,370 @@ typedef struct {
   MoRC_m39_acknowledgementOfTerminationOfACommunicationSession_Type m39_acknowledgementOfTerminationOfACommunicationSession;
   MoRC_p131_RBC_TransitionOrderType p131_RBC_TransitionOrder;
   MoRC_p42_SessionManagement_Type p42_sessionManagement;
-} MoRC_struct__10909;
+} MoRC_struct__10964;
 
 /* track_2_train_Type */
-typedef MoRC_struct__10909 MoRC_track_2_train_Type;
+typedef MoRC_struct__10964 MoRC_track_2_train_Type;
 
 typedef struct {
   MoRC_m155_initiationOfACommunicationSession_Type m155_initiationOfACommunicationSession;
   MoRC_m156_terminationOfACommunicationSession_Type m156_terminationOfACommunicationSession;
   MoRC_m159_SessionEstablished_Type m159_SessionEstablished;
   MoRC_m154_NoCompatibleVersionSupported_Type m154_NoCompatibleVersionSupported;
-} MoRC_struct__10918;
+} MoRC_struct__10973;
 
 /* train_2_track_Type */
-typedef MoRC_struct__10918 MoRC_train_2_track_Type;
+typedef MoRC_struct__10973 MoRC_train_2_track_Type;
 
 typedef struct {
   kcg_bool valid;
   MoRC_mobileHWConnectionStatus_Type connectionStatus;
-} MoRC_struct__10925;
+} MoRC_struct__10980;
 
 /* RadioNetworkMobileHWStatusType */
-typedef MoRC_struct__10925 MoRC_RadioNetworkMobileHWStatusType;
+typedef MoRC_struct__10980 MoRC_RadioNetworkMobileHWStatusType;
 
 typedef struct {
   kcg_bool valid;
   MoRC_rbc_id_Type radioInFillUnit_id;
   MoRC_rbc_phoneNo_Type telephoneNoOfTheRadioInfillUnit;
   MoRC_morc_RBC_action_Type actionToBePerformed;
-} MoRC_struct__10930;
+} MoRC_struct__10985;
 
 /* orderToContactARadioInfillUnit_Type */
-typedef MoRC_struct__10930 MoRC_orderToContactARadioInfillUnit_Type;
+typedef MoRC_struct__10985 MoRC_orderToContactARadioInfillUnit_Type;
 
 typedef struct {
   kcg_bool valid;
   MoRC_rbc_id_Type rbc_id;
   MoRC_rbc_phoneNo_Type telephoneNoOfTheRBC;
   kcg_bool appliesAlsoToSleepingUnits;
-} MoRC_struct__10937;
+} MoRC_struct__10992;
 
 /* orderToContactAnAcceptingRBC_Type */
-typedef MoRC_struct__10937 MoRC_orderToContactAnAcceptingRBC_Type;
+typedef MoRC_struct__10992 MoRC_orderToContactAnAcceptingRBC_Type;
 
 typedef struct {
   kcg_bool valid;
   MoRC_orderToContactAnAcceptingRBC_Type orderToContactAnAcceptingRBC;
-} MoRC_struct__10944;
+} MoRC_struct__10999;
 
 /* rbc_TransitionOrder_Type */
-typedef MoRC_struct__10944 MoRC_rbc_TransitionOrder_Type;
-
-#ifndef MoRC_kcg_copy_struct__10799
-#define MoRC_kcg_copy_struct__10799(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10799)))
-#endif /* MoRC_kcg_copy_struct__10799 */
-
-#ifndef MoRC_kcg_copy_struct__10807
-#define MoRC_kcg_copy_struct__10807(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10807)))
-#endif /* MoRC_kcg_copy_struct__10807 */
-
-#ifndef MoRC_kcg_copy_struct__10812
-#define MoRC_kcg_copy_struct__10812(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10812)))
-#endif /* MoRC_kcg_copy_struct__10812 */
-
-#ifndef MoRC_kcg_copy_struct__10820
-#define MoRC_kcg_copy_struct__10820(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10820)))
-#endif /* MoRC_kcg_copy_struct__10820 */
-
-#ifndef MoRC_kcg_copy_struct__10826
-#define MoRC_kcg_copy_struct__10826(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10826)))
-#endif /* MoRC_kcg_copy_struct__10826 */
-
-#ifndef MoRC_kcg_copy_struct__10832
-#define MoRC_kcg_copy_struct__10832(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10832)))
-#endif /* MoRC_kcg_copy_struct__10832 */
-
-#ifndef MoRC_kcg_copy_struct__10838
-#define MoRC_kcg_copy_struct__10838(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10838)))
-#endif /* MoRC_kcg_copy_struct__10838 */
-
-#ifndef MoRC_kcg_copy_struct__10843
-#define MoRC_kcg_copy_struct__10843(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10843)))
-#endif /* MoRC_kcg_copy_struct__10843 */
-
-#ifndef MoRC_kcg_copy_struct__10848
-#define MoRC_kcg_copy_struct__10848(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10848)))
-#endif /* MoRC_kcg_copy_struct__10848 */
-
-#ifndef MoRC_kcg_copy_struct__10853
-#define MoRC_kcg_copy_struct__10853(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10853)))
-#endif /* MoRC_kcg_copy_struct__10853 */
-
-#ifndef MoRC_kcg_copy_struct__10860
-#define MoRC_kcg_copy_struct__10860(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10860)))
-#endif /* MoRC_kcg_copy_struct__10860 */
-
-#ifndef MoRC_kcg_copy_struct__10868
-#define MoRC_kcg_copy_struct__10868(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10868)))
-#endif /* MoRC_kcg_copy_struct__10868 */
-
-#ifndef MoRC_kcg_copy_struct__10880
-#define MoRC_kcg_copy_struct__10880(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10880)))
-#endif /* MoRC_kcg_copy_struct__10880 */
-
-#ifndef MoRC_kcg_copy_struct__10888
-#define MoRC_kcg_copy_struct__10888(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10888)))
-#endif /* MoRC_kcg_copy_struct__10888 */
-
-#ifndef MoRC_kcg_copy_struct__10897
-#define MoRC_kcg_copy_struct__10897(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10897)))
-#endif /* MoRC_kcg_copy_struct__10897 */
-
-#ifndef MoRC_kcg_copy_struct__10909
-#define MoRC_kcg_copy_struct__10909(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10909)))
-#endif /* MoRC_kcg_copy_struct__10909 */
-
-#ifndef MoRC_kcg_copy_struct__10918
-#define MoRC_kcg_copy_struct__10918(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10918)))
-#endif /* MoRC_kcg_copy_struct__10918 */
-
-#ifndef MoRC_kcg_copy_struct__10925
-#define MoRC_kcg_copy_struct__10925(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10925)))
-#endif /* MoRC_kcg_copy_struct__10925 */
-
-#ifndef MoRC_kcg_copy_struct__10930
-#define MoRC_kcg_copy_struct__10930(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10930)))
-#endif /* MoRC_kcg_copy_struct__10930 */
-
-#ifndef MoRC_kcg_copy_struct__10937
-#define MoRC_kcg_copy_struct__10937(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10937)))
-#endif /* MoRC_kcg_copy_struct__10937 */
-
-#ifndef MoRC_kcg_copy_struct__10944
-#define MoRC_kcg_copy_struct__10944(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10944)))
-#endif /* MoRC_kcg_copy_struct__10944 */
-
-#ifndef MoRC_kcg_comp_struct__10799
-extern kcg_bool MoRC_kcg_comp_struct__10799(
-  MoRC_struct__10799 *kcg_c1,
-  MoRC_struct__10799 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10799 */
-
-#ifndef MoRC_kcg_comp_struct__10807
-extern kcg_bool MoRC_kcg_comp_struct__10807(
-  MoRC_struct__10807 *kcg_c1,
-  MoRC_struct__10807 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10807 */
-
-#ifndef MoRC_kcg_comp_struct__10812
-extern kcg_bool MoRC_kcg_comp_struct__10812(
-  MoRC_struct__10812 *kcg_c1,
-  MoRC_struct__10812 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10812 */
-
-#ifndef MoRC_kcg_comp_struct__10820
-extern kcg_bool MoRC_kcg_comp_struct__10820(
-  MoRC_struct__10820 *kcg_c1,
-  MoRC_struct__10820 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10820 */
-
-#ifndef MoRC_kcg_comp_struct__10826
-extern kcg_bool MoRC_kcg_comp_struct__10826(
-  MoRC_struct__10826 *kcg_c1,
-  MoRC_struct__10826 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10826 */
-
-#ifndef MoRC_kcg_comp_struct__10832
-extern kcg_bool MoRC_kcg_comp_struct__10832(
-  MoRC_struct__10832 *kcg_c1,
-  MoRC_struct__10832 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10832 */
-
-#ifndef MoRC_kcg_comp_struct__10838
-extern kcg_bool MoRC_kcg_comp_struct__10838(
-  MoRC_struct__10838 *kcg_c1,
-  MoRC_struct__10838 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10838 */
-
-#ifndef MoRC_kcg_comp_struct__10843
-extern kcg_bool MoRC_kcg_comp_struct__10843(
-  MoRC_struct__10843 *kcg_c1,
-  MoRC_struct__10843 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10843 */
-
-#ifndef MoRC_kcg_comp_struct__10848
-extern kcg_bool MoRC_kcg_comp_struct__10848(
-  MoRC_struct__10848 *kcg_c1,
-  MoRC_struct__10848 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10848 */
-
-#ifndef MoRC_kcg_comp_struct__10853
-extern kcg_bool MoRC_kcg_comp_struct__10853(
-  MoRC_struct__10853 *kcg_c1,
-  MoRC_struct__10853 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10853 */
-
-#ifndef MoRC_kcg_comp_struct__10860
-extern kcg_bool MoRC_kcg_comp_struct__10860(
-  MoRC_struct__10860 *kcg_c1,
-  MoRC_struct__10860 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10860 */
+typedef MoRC_struct__10999 MoRC_rbc_TransitionOrder_Type;
+
+#ifndef MoRC_kcg_copy_struct__10854
+#define MoRC_kcg_copy_struct__10854(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10854)))
+#endif /* MoRC_kcg_copy_struct__10854 */
+
+#ifndef MoRC_kcg_copy_struct__10862
+#define MoRC_kcg_copy_struct__10862(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10862)))
+#endif /* MoRC_kcg_copy_struct__10862 */
+
+#ifndef MoRC_kcg_copy_struct__10867
+#define MoRC_kcg_copy_struct__10867(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10867)))
+#endif /* MoRC_kcg_copy_struct__10867 */
+
+#ifndef MoRC_kcg_copy_struct__10875
+#define MoRC_kcg_copy_struct__10875(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10875)))
+#endif /* MoRC_kcg_copy_struct__10875 */
+
+#ifndef MoRC_kcg_copy_struct__10881
+#define MoRC_kcg_copy_struct__10881(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10881)))
+#endif /* MoRC_kcg_copy_struct__10881 */
+
+#ifndef MoRC_kcg_copy_struct__10887
+#define MoRC_kcg_copy_struct__10887(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10887)))
+#endif /* MoRC_kcg_copy_struct__10887 */
+
+#ifndef MoRC_kcg_copy_struct__10893
+#define MoRC_kcg_copy_struct__10893(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10893)))
+#endif /* MoRC_kcg_copy_struct__10893 */
+
+#ifndef MoRC_kcg_copy_struct__10898
+#define MoRC_kcg_copy_struct__10898(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10898)))
+#endif /* MoRC_kcg_copy_struct__10898 */
+
+#ifndef MoRC_kcg_copy_struct__10903
+#define MoRC_kcg_copy_struct__10903(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10903)))
+#endif /* MoRC_kcg_copy_struct__10903 */
+
+#ifndef MoRC_kcg_copy_struct__10908
+#define MoRC_kcg_copy_struct__10908(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10908)))
+#endif /* MoRC_kcg_copy_struct__10908 */
+
+#ifndef MoRC_kcg_copy_struct__10915
+#define MoRC_kcg_copy_struct__10915(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10915)))
+#endif /* MoRC_kcg_copy_struct__10915 */
+
+#ifndef MoRC_kcg_copy_struct__10923
+#define MoRC_kcg_copy_struct__10923(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10923)))
+#endif /* MoRC_kcg_copy_struct__10923 */
+
+#ifndef MoRC_kcg_copy_struct__10935
+#define MoRC_kcg_copy_struct__10935(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10935)))
+#endif /* MoRC_kcg_copy_struct__10935 */
+
+#ifndef MoRC_kcg_copy_struct__10943
+#define MoRC_kcg_copy_struct__10943(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10943)))
+#endif /* MoRC_kcg_copy_struct__10943 */
+
+#ifndef MoRC_kcg_copy_struct__10952
+#define MoRC_kcg_copy_struct__10952(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10952)))
+#endif /* MoRC_kcg_copy_struct__10952 */
+
+#ifndef MoRC_kcg_copy_struct__10964
+#define MoRC_kcg_copy_struct__10964(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10964)))
+#endif /* MoRC_kcg_copy_struct__10964 */
+
+#ifndef MoRC_kcg_copy_struct__10973
+#define MoRC_kcg_copy_struct__10973(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10973)))
+#endif /* MoRC_kcg_copy_struct__10973 */
+
+#ifndef MoRC_kcg_copy_struct__10980
+#define MoRC_kcg_copy_struct__10980(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10980)))
+#endif /* MoRC_kcg_copy_struct__10980 */
+
+#ifndef MoRC_kcg_copy_struct__10985
+#define MoRC_kcg_copy_struct__10985(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10985)))
+#endif /* MoRC_kcg_copy_struct__10985 */
+
+#ifndef MoRC_kcg_copy_struct__10992
+#define MoRC_kcg_copy_struct__10992(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10992)))
+#endif /* MoRC_kcg_copy_struct__10992 */
+
+#ifndef MoRC_kcg_copy_struct__10999
+#define MoRC_kcg_copy_struct__10999(kcg_C1, kcg_C2) (kcg_assign_struct((kcg_C1), (kcg_C2), sizeof (MoRC_struct__10999)))
+#endif /* MoRC_kcg_copy_struct__10999 */
+
+#ifndef MoRC_kcg_comp_struct__10854
+extern kcg_bool MoRC_kcg_comp_struct__10854(
+  MoRC_struct__10854 *kcg_c1,
+  MoRC_struct__10854 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10854 */
+
+#ifndef MoRC_kcg_comp_struct__10862
+extern kcg_bool MoRC_kcg_comp_struct__10862(
+  MoRC_struct__10862 *kcg_c1,
+  MoRC_struct__10862 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10862 */
+
+#ifndef MoRC_kcg_comp_struct__10867
+extern kcg_bool MoRC_kcg_comp_struct__10867(
+  MoRC_struct__10867 *kcg_c1,
+  MoRC_struct__10867 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10867 */
+
+#ifndef MoRC_kcg_comp_struct__10875
+extern kcg_bool MoRC_kcg_comp_struct__10875(
+  MoRC_struct__10875 *kcg_c1,
+  MoRC_struct__10875 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10875 */
+
+#ifndef MoRC_kcg_comp_struct__10881
+extern kcg_bool MoRC_kcg_comp_struct__10881(
+  MoRC_struct__10881 *kcg_c1,
+  MoRC_struct__10881 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10881 */
+
+#ifndef MoRC_kcg_comp_struct__10887
+extern kcg_bool MoRC_kcg_comp_struct__10887(
+  MoRC_struct__10887 *kcg_c1,
+  MoRC_struct__10887 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10887 */
+
+#ifndef MoRC_kcg_comp_struct__10893
+extern kcg_bool MoRC_kcg_comp_struct__10893(
+  MoRC_struct__10893 *kcg_c1,
+  MoRC_struct__10893 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10893 */
+
+#ifndef MoRC_kcg_comp_struct__10898
+extern kcg_bool MoRC_kcg_comp_struct__10898(
+  MoRC_struct__10898 *kcg_c1,
+  MoRC_struct__10898 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10898 */
+
+#ifndef MoRC_kcg_comp_struct__10903
+extern kcg_bool MoRC_kcg_comp_struct__10903(
+  MoRC_struct__10903 *kcg_c1,
+  MoRC_struct__10903 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10903 */
+
+#ifndef MoRC_kcg_comp_struct__10908
+extern kcg_bool MoRC_kcg_comp_struct__10908(
+  MoRC_struct__10908 *kcg_c1,
+  MoRC_struct__10908 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10908 */
+
+#ifndef MoRC_kcg_comp_struct__10915
+extern kcg_bool MoRC_kcg_comp_struct__10915(
+  MoRC_struct__10915 *kcg_c1,
+  MoRC_struct__10915 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10915 */
 
-#ifndef MoRC_kcg_comp_struct__10868
-extern kcg_bool MoRC_kcg_comp_struct__10868(
-  MoRC_struct__10868 *kcg_c1,
-  MoRC_struct__10868 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10868 */
+#ifndef MoRC_kcg_comp_struct__10923
+extern kcg_bool MoRC_kcg_comp_struct__10923(
+  MoRC_struct__10923 *kcg_c1,
+  MoRC_struct__10923 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10923 */
 
-#ifndef MoRC_kcg_comp_struct__10880
-extern kcg_bool MoRC_kcg_comp_struct__10880(
-  MoRC_struct__10880 *kcg_c1,
-  MoRC_struct__10880 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10880 */
+#ifndef MoRC_kcg_comp_struct__10935
+extern kcg_bool MoRC_kcg_comp_struct__10935(
+  MoRC_struct__10935 *kcg_c1,
+  MoRC_struct__10935 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10935 */
 
-#ifndef MoRC_kcg_comp_struct__10888
-extern kcg_bool MoRC_kcg_comp_struct__10888(
-  MoRC_struct__10888 *kcg_c1,
-  MoRC_struct__10888 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10888 */
+#ifndef MoRC_kcg_comp_struct__10943
+extern kcg_bool MoRC_kcg_comp_struct__10943(
+  MoRC_struct__10943 *kcg_c1,
+  MoRC_struct__10943 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10943 */
 
-#ifndef MoRC_kcg_comp_struct__10897
-extern kcg_bool MoRC_kcg_comp_struct__10897(
-  MoRC_struct__10897 *kcg_c1,
-  MoRC_struct__10897 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10897 */
+#ifndef MoRC_kcg_comp_struct__10952
+extern kcg_bool MoRC_kcg_comp_struct__10952(
+  MoRC_struct__10952 *kcg_c1,
+  MoRC_struct__10952 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10952 */
 
-#ifndef MoRC_kcg_comp_struct__10909
-extern kcg_bool MoRC_kcg_comp_struct__10909(
-  MoRC_struct__10909 *kcg_c1,
-  MoRC_struct__10909 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10909 */
+#ifndef MoRC_kcg_comp_struct__10964
+extern kcg_bool MoRC_kcg_comp_struct__10964(
+  MoRC_struct__10964 *kcg_c1,
+  MoRC_struct__10964 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10964 */
 
-#ifndef MoRC_kcg_comp_struct__10918
-extern kcg_bool MoRC_kcg_comp_struct__10918(
-  MoRC_struct__10918 *kcg_c1,
-  MoRC_struct__10918 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10918 */
+#ifndef MoRC_kcg_comp_struct__10973
+extern kcg_bool MoRC_kcg_comp_struct__10973(
+  MoRC_struct__10973 *kcg_c1,
+  MoRC_struct__10973 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10973 */
 
-#ifndef MoRC_kcg_comp_struct__10925
-extern kcg_bool MoRC_kcg_comp_struct__10925(
-  MoRC_struct__10925 *kcg_c1,
-  MoRC_struct__10925 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10925 */
+#ifndef MoRC_kcg_comp_struct__10980
+extern kcg_bool MoRC_kcg_comp_struct__10980(
+  MoRC_struct__10980 *kcg_c1,
+  MoRC_struct__10980 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10980 */
 
-#ifndef MoRC_kcg_comp_struct__10930
-extern kcg_bool MoRC_kcg_comp_struct__10930(
-  MoRC_struct__10930 *kcg_c1,
-  MoRC_struct__10930 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10930 */
+#ifndef MoRC_kcg_comp_struct__10985
+extern kcg_bool MoRC_kcg_comp_struct__10985(
+  MoRC_struct__10985 *kcg_c1,
+  MoRC_struct__10985 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10985 */
 
-#ifndef MoRC_kcg_comp_struct__10937
-extern kcg_bool MoRC_kcg_comp_struct__10937(
-  MoRC_struct__10937 *kcg_c1,
-  MoRC_struct__10937 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10937 */
+#ifndef MoRC_kcg_comp_struct__10992
+extern kcg_bool MoRC_kcg_comp_struct__10992(
+  MoRC_struct__10992 *kcg_c1,
+  MoRC_struct__10992 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10992 */
 
-#ifndef MoRC_kcg_comp_struct__10944
-extern kcg_bool MoRC_kcg_comp_struct__10944(
-  MoRC_struct__10944 *kcg_c1,
-  MoRC_struct__10944 *kcg_c2);
-#endif /* MoRC_kcg_comp_struct__10944 */
+#ifndef MoRC_kcg_comp_struct__10999
+extern kcg_bool MoRC_kcg_comp_struct__10999(
+  MoRC_struct__10999 *kcg_c1,
+  MoRC_struct__10999 *kcg_c2);
+#endif /* MoRC_kcg_comp_struct__10999 */
 
-#define MoRC_kcg_comp_p42_SessionManagement_Type MoRC_kcg_comp_struct__10897
+#define MoRC_kcg_comp_p42_SessionManagement_Type MoRC_kcg_comp_struct__10952
 
-#define MoRC_kcg_copy_p42_SessionManagement_Type MoRC_kcg_copy_struct__10897
+#define MoRC_kcg_copy_p42_SessionManagement_Type MoRC_kcg_copy_struct__10952
 
-#define MoRC_kcg_comp_safeRadioConnectionStatusValid_Type MoRC_kcg_comp_struct__10807
+#define MoRC_kcg_comp_safeRadioConnectionStatusValid_Type MoRC_kcg_comp_struct__10862
 
-#define MoRC_kcg_copy_safeRadioConnectionStatusValid_Type MoRC_kcg_copy_struct__10807
+#define MoRC_kcg_copy_safeRadioConnectionStatusValid_Type MoRC_kcg_copy_struct__10862
 
-#define MoRC_kcg_comp_mobileSWStatus_Type MoRC_kcg_comp_struct__10812
+#define MoRC_kcg_comp_mobileSWStatus_Type MoRC_kcg_comp_struct__10867
 
-#define MoRC_kcg_copy_mobileSWStatus_Type MoRC_kcg_copy_struct__10812
+#define MoRC_kcg_copy_mobileSWStatus_Type MoRC_kcg_copy_struct__10867
 
-#define MoRC_kcg_comp_mobileHWStatus_Type MoRC_kcg_comp_struct__10832
+#define MoRC_kcg_comp_mobileHWStatus_Type MoRC_kcg_comp_struct__10887
 
-#define MoRC_kcg_copy_mobileHWStatus_Type MoRC_kcg_copy_struct__10832
+#define MoRC_kcg_copy_mobileHWStatus_Type MoRC_kcg_copy_struct__10887
 
-#define MoRC_kcg_comp_mobileSWCmd_Type MoRC_kcg_comp_struct__10826
+#define MoRC_kcg_comp_mobileSWCmd_Type MoRC_kcg_comp_struct__10881
 
-#define MoRC_kcg_copy_mobileSWCmd_Type MoRC_kcg_copy_struct__10826
+#define MoRC_kcg_copy_mobileSWCmd_Type MoRC_kcg_copy_struct__10881
 
-#define MoRC_kcg_comp_mobileHWCmd_Type MoRC_kcg_comp_struct__10820
+#define MoRC_kcg_comp_mobileHWCmd_Type MoRC_kcg_comp_struct__10875
 
-#define MoRC_kcg_copy_mobileHWCmd_Type MoRC_kcg_copy_struct__10820
+#define MoRC_kcg_copy_mobileHWCmd_Type MoRC_kcg_copy_struct__10875
 
-#define MoRC_kcg_comp_M_VERSION_Type MoRC_kcg_comp_struct__10848
+#define MoRC_kcg_comp_M_VERSION_Type MoRC_kcg_comp_struct__10903
 
-#define MoRC_kcg_copy_M_VERSION_Type MoRC_kcg_copy_struct__10848
+#define MoRC_kcg_copy_M_VERSION_Type MoRC_kcg_copy_struct__10903
 
-#define MoRC_kcg_comp_RadioNetworkMobileHWStatusType MoRC_kcg_comp_struct__10925
+#define MoRC_kcg_comp_RadioNetworkMobileHWStatusType MoRC_kcg_comp_struct__10980
 
-#define MoRC_kcg_copy_RadioNetworkMobileHWStatusType MoRC_kcg_copy_struct__10925
+#define MoRC_kcg_copy_RadioNetworkMobileHWStatusType MoRC_kcg_copy_struct__10980
 
-#define MoRC_kcg_comp_validRadioNetworkID_Type MoRC_kcg_comp_struct__10838
+#define MoRC_kcg_comp_validRadioNetworkID_Type MoRC_kcg_comp_struct__10893
 
-#define MoRC_kcg_copy_validRadioNetworkID_Type MoRC_kcg_copy_struct__10838
+#define MoRC_kcg_copy_validRadioNetworkID_Type MoRC_kcg_copy_struct__10893
 
-#define MoRC_kcg_comp_LutIndex_lut MoRC_kcg_comp_struct__10843
+#define MoRC_kcg_comp_LutIndex_lut MoRC_kcg_comp_struct__10898
 
-#define MoRC_kcg_copy_LutIndex_lut MoRC_kcg_copy_struct__10843
+#define MoRC_kcg_copy_LutIndex_lut MoRC_kcg_copy_struct__10898
 
-#define MoRC_kcg_comp_m154_NoCompatibleVersionSupported_Type MoRC_kcg_comp_struct__10853
+#define MoRC_kcg_comp_m154_NoCompatibleVersionSupported_Type MoRC_kcg_comp_struct__10908
 
-#define MoRC_kcg_copy_m154_NoCompatibleVersionSupported_Type MoRC_kcg_copy_struct__10853
+#define MoRC_kcg_copy_m154_NoCompatibleVersionSupported_Type MoRC_kcg_copy_struct__10908
 
-#define MoRC_kcg_comp_m159_SessionEstablished_Type MoRC_kcg_comp_struct__10860
+#define MoRC_kcg_comp_m159_SessionEstablished_Type MoRC_kcg_comp_struct__10915
 
-#define MoRC_kcg_copy_m159_SessionEstablished_Type MoRC_kcg_copy_struct__10860
+#define MoRC_kcg_copy_m159_SessionEstablished_Type MoRC_kcg_copy_struct__10915
 
-#define MoRC_kcg_comp_m156_terminationOfACommunicationSession_Type MoRC_kcg_comp_struct__10853
+#define MoRC_kcg_comp_m156_terminationOfACommunicationSession_Type MoRC_kcg_comp_struct__10908
 
-#define MoRC_kcg_copy_m156_terminationOfACommunicationSession_Type MoRC_kcg_copy_struct__10853
+#define MoRC_kcg_copy_m156_terminationOfACommunicationSession_Type MoRC_kcg_copy_struct__10908
 
-#define MoRC_kcg_comp_orderToContactARadioInfillUnit_Type MoRC_kcg_comp_struct__10930
+#define MoRC_kcg_comp_orderToContactARadioInfillUnit_Type MoRC_kcg_comp_struct__10985
 
-#define MoRC_kcg_copy_orderToContactARadioInfillUnit_Type MoRC_kcg_copy_struct__10930
+#define MoRC_kcg_copy_orderToContactARadioInfillUnit_Type MoRC_kcg_copy_struct__10985
 
-#define MoRC_kcg_comp_m155_initiationOfACommunicationSession_Type MoRC_kcg_comp_struct__10853
+#define MoRC_kcg_comp_m155_initiationOfACommunicationSession_Type MoRC_kcg_comp_struct__10908
 
-#define MoRC_kcg_copy_m155_initiationOfACommunicationSession_Type MoRC_kcg_copy_struct__10853
+#define MoRC_kcg_copy_m155_initiationOfACommunicationSession_Type MoRC_kcg_copy_struct__10908
 
-#define MoRC_kcg_comp_rbc_TransitionOrder_Type MoRC_kcg_comp_struct__10944
+#define MoRC_kcg_comp_rbc_TransitionOrder_Type MoRC_kcg_comp_struct__10999
 
-#define MoRC_kcg_copy_rbc_TransitionOrder_Type MoRC_kcg_copy_struct__10944
+#define MoRC_kcg_copy_rbc_TransitionOrder_Type MoRC_kcg_copy_struct__10999
 
-#define MoRC_kcg_comp_p131_RBC_TransitionOrderType MoRC_kcg_comp_struct__10868
+#define MoRC_kcg_comp_p131_RBC_TransitionOrderType MoRC_kcg_comp_struct__10923
 
-#define MoRC_kcg_copy_p131_RBC_TransitionOrderType MoRC_kcg_copy_struct__10868
+#define MoRC_kcg_copy_p131_RBC_TransitionOrderType MoRC_kcg_copy_struct__10923
 
-#define MoRC_kcg_comp_orderToContactAnAcceptingRBC_Type MoRC_kcg_comp_struct__10937
+#define MoRC_kcg_comp_orderToContactAnAcceptingRBC_Type MoRC_kcg_comp_struct__10992
 
-#define MoRC_kcg_copy_orderToContactAnAcceptingRBC_Type MoRC_kcg_copy_struct__10937
+#define MoRC_kcg_copy_orderToContactAnAcceptingRBC_Type MoRC_kcg_copy_struct__10992
 
-#define MoRC_kcg_comp_m39_acknowledgementOfTerminationOfACommunicationSession_Type MoRC_kcg_comp_struct__10880
+#define MoRC_kcg_comp_m39_acknowledgementOfTerminationOfACommunicationSession_Type MoRC_kcg_comp_struct__10935
 
-#define MoRC_kcg_copy_m39_acknowledgementOfTerminationOfACommunicationSession_Type MoRC_kcg_copy_struct__10880
+#define MoRC_kcg_copy_m39_acknowledgementOfTerminationOfACommunicationSession_Type MoRC_kcg_copy_struct__10935
 
-#define MoRC_kcg_comp_m38_initiationOfACommunicationSession_Type MoRC_kcg_comp_struct__10880
+#define MoRC_kcg_comp_m38_initiationOfACommunicationSession_Type MoRC_kcg_comp_struct__10935
 
-#define MoRC_kcg_copy_m38_initiationOfACommunicationSession_Type MoRC_kcg_copy_struct__10880
+#define MoRC_kcg_copy_m38_initiationOfACommunicationSession_Type MoRC_kcg_copy_struct__10935
 
-#define MoRC_kcg_comp_m32_RBC_RIU_systemVersion_Type MoRC_kcg_comp_struct__10888
+#define MoRC_kcg_comp_m32_RBC_RIU_systemVersion_Type MoRC_kcg_comp_struct__10943
 
-#define MoRC_kcg_copy_m32_RBC_RIU_systemVersion_Type MoRC_kcg_copy_struct__10888
+#define MoRC_kcg_copy_m32_RBC_RIU_systemVersion_Type MoRC_kcg_copy_struct__10943
 
-#define MoRC_kcg_comp_m24_generalMessage_Type MoRC_kcg_comp_struct__10880
+#define MoRC_kcg_comp_m24_generalMessage_Type MoRC_kcg_comp_struct__10935
 
-#define MoRC_kcg_copy_m24_generalMessage_Type MoRC_kcg_copy_struct__10880
+#define MoRC_kcg_copy_m24_generalMessage_Type MoRC_kcg_copy_struct__10935
 
-#define MoRC_kcg_comp_track_2_train_Type MoRC_kcg_comp_struct__10909
+#define MoRC_kcg_comp_track_2_train_Type MoRC_kcg_comp_struct__10964
 
-#define MoRC_kcg_copy_track_2_train_Type MoRC_kcg_copy_struct__10909
+#define MoRC_kcg_copy_track_2_train_Type MoRC_kcg_copy_struct__10964
 
-#define MoRC_kcg_comp_train_2_track_Type MoRC_kcg_comp_struct__10918
+#define MoRC_kcg_comp_train_2_track_Type MoRC_kcg_comp_struct__10973
 
-#define MoRC_kcg_copy_train_2_track_Type MoRC_kcg_copy_struct__10918
+#define MoRC_kcg_copy_train_2_track_Type MoRC_kcg_copy_struct__10973
 
-#define MoRC_kcg_comp_orderToContactAnRBC_Type MoRC_kcg_comp_struct__10799
+#define MoRC_kcg_comp_orderToContactAnRBC_Type MoRC_kcg_comp_struct__10854
 
-#define MoRC_kcg_copy_orderToContactAnRBC_Type MoRC_kcg_copy_struct__10799
+#define MoRC_kcg_copy_orderToContactAnRBC_Type MoRC_kcg_copy_struct__10854
 
 #endif /* _MoRC_KCG_TYPES_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** kcg_types.h
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:46
 *************************************************************$ */
 

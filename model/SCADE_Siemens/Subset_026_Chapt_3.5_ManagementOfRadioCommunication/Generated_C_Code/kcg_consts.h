@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:46
 *************************************************************$ */
 #ifndef _MoRC_KCG_CONSTS_H_
 #define _MoRC_KCG_CONSTS_H_
@@ -85,6 +85,9 @@ extern const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_Registered;
 /* cMobileHWStatus_notRegistered */
 extern const MoRC_mobileHWStatus_Type MoRC_cMobileHWStatus_notRegistered;
 
+/* cNID_MESSAGE_registerNetwork */
+#define MoRC_cNID_MESSAGE_registerNetwork 45
+
 /* cTerminateSafeRadioConnectionCmd */
 extern const MoRC_mobileSWCmd_Type MoRC_cTerminateSafeRadioConnectionCmd;
 
@@ -142,6 +145,6 @@ extern const MoRC_orderToContactAnRBC_Type MoRC_cInvalidOrderToContactAnRBC;
 #endif /* _MoRC_KCG_CONSTS_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** kcg_consts.h
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:46
 *************************************************************$ */
 
