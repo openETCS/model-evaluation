@@ -116,7 +116,6 @@ int sc_main(int argc,char *argv[])
 	safe_decel.A_gradient(A_gradient);
 	safe_decel.EBD_foot(EBD_foot);
 	safe_decel.L_TRAIN(L_TRAIN);
-	safe_decel.d_est_front(d_est_front);
 
 	/**** signal bindings braking model *****/
 	bm_stim.A_NVMAXREDADH.bind(A_NVMAXREDADH);
