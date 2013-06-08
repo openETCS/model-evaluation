@@ -113,9 +113,10 @@ void Calc_ebd::eval()
 		// put arc in EBD
 		local_EBD.arcs[current_arc.begin]=current_arc;
 
-		// go to next step in A_save before current calc
-		i--;
-
+		if (i != local.get_begin_iterator()) {
+			// go to next step in A_save before current calc
+			i--;
+		}
 	}
 	EBD.write(local_EBD);
 
