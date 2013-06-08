@@ -28,32 +28,23 @@ void safe_deceleration::calc_a_brake_emergency()
 	//initialize track_conditions selector with all brakes enabled (no track_condition applied)
 	int active_conditions_selector=ALL_BRAKES;
 
-	double iterated_position=d_est_front;
+	double iterated_position=0;
 	std::list<track_condition> active_conditions;
 
 
 	// init maps with value independent from track conditions
 	A_brake_safe.clear();
 	A_brake_emergency.clear();
-	A_brake_emergency.modify_map(d_est_front,A_break_emergency_models[special_brake_status_int]);
+	A_brake_emergency.modify_map(0,A_break_emergency_models[special_brake_status_int]);
 
 
 	//TODO check whether init position is appropriate
-	calc_a_brake_safe(d_est_front, special_brake_status_int);
+	calc_a_brake_safe(0, special_brake_status_int);
 
 	if(!track_conditions.read().empty())
 	{
 	// get first track_condition
 	auto i = std::begin(track_conditions.read());
-
-
-
-	// use track condition that does not have impact on train in current position
-	while ( i->end < d_est_front - L_TRAIN)
-	{
-		i++;
-
-	}
 
 
 	//iterate until end of track condition list or EBD_foot

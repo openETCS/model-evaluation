@@ -19,7 +19,6 @@
 
 SC_MODULE(safe_deceleration)
 {
-	sc_core::sc_in<double> d_est_front;
 	sc_core::sc_in<uint> L_TRAIN;
 	sc_core::sc_in<double> EBD_foot;
 
@@ -63,7 +62,14 @@ SC_MODULE(safe_deceleration)
 	{
 
 		SC_METHOD(calc_a_safe);
-		sensitive << d_est_front;
+		sensitive << L_TRAIN;
+		sensitive << EBD_foot;
+
+		sensitive << regenerative_brake_status;
+		sensitive << eddy_current_brake_status;
+		sensitive << magnetic_shoe_brake_status;
+		sensitive << electro_pneumatic_brake_status;
+
 		sensitive << track_conditions;
 
 		sensitive << A_gradient;
