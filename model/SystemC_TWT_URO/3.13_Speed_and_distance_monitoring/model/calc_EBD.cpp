@@ -33,7 +33,7 @@ void Calc_ebd::eval()
 	current_arc.end = position;
 	current_arc.slope=0;
 	current_arc.value = 0;
-	local_EBD.arcs[position]=current_arc;
+	//local_EBD.arcs[position]=current_arc;
 
 
 	// calculation runs from EBD_foot and accelerates until current d_est_front
@@ -74,6 +74,8 @@ void Calc_ebd::eval()
 				if(current_arc.begin < d_est_front)
 				{
 					current_arc.begin = d_est_front;
+					break;
+
 				}
 
 				local_EBD.arcs[current_arc.begin]=current_arc;

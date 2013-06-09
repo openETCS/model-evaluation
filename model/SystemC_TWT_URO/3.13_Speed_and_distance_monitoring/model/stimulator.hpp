@@ -103,7 +103,7 @@ SC_MODULE(brake_model_stim)
 		step_function magnetic_shoe_brake;
 
 		magnetic_shoe_brake[0]=0.1;
-		magnetic_shoe_brake[30]=0.3;
+		magnetic_shoe_brake[30]=0.6;
 		magnetic_shoe_brake[60]=1;
 		magnetic_shoe_brake[120]=3;
 		magnetic_shoe_brake[200]=5;
