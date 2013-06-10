@@ -2,78 +2,17 @@
 #include <stdlib.h>
 #include <systemc>
 
+#include "headers/tools.hpp"
+#include "headers/gnuplot_i.hpp"
 #include "headers/step_function.hpp"
 #include "headers/Acc_due_to_gradient.hpp"
 #include "headers/safe_deceleration.hpp"
 #include "stimulator.hpp"
 #include "headers/calc_EBD.hpp"
 #include "headers/track_condition.hpp"
-#include "headers/gnuplot_i.hpp"
+
 #include <string>
 #include <vector>
-
-using namespace sc_core;
-
-SC_MODULE(top){
-
-	sc_out<double> stim;
-	SC_CTOR(top)
-	{
-		SC_THREAD(stimulate);
-	}
-
-
-	void stimulate()
-	{
-		for(int i = 0 ; i< 60 ; i++)
-		{
-			stim=i;
-			wait(1,SC_NS);
-		}
-
-	}
-
-
-};
-
-void print_deceleration_curve_with_gnuplot(Gnuplot & plot ,const parabola_curve &curve,double print_range_begin, double print_range_end)
-{
-	try{
-	std::ostringstream function;
-
-	std::vector<double> points_begin;
-	std::vector<double> points_speed;
-
-	for (auto i : curve.arcs)
-	{
-		function << "((x>=" << i.second.begin << ")&&(x<" << i.second.end << "))? ";
-		function << "(2*("<< -i.second.slope << ")*(x-" << i.second.begin << ")+" << i.second.value << "**(2))**(1.0/2.0)";
-		function << ":";
-
-		points_begin.push_back(i.first);
-		points_speed.push_back(i.second.value);
-	}
-
-	function << "1/0" ;
-
-
-
-	plot << "set term wxt";
-	//plot_EDB.set_xrange(d_est_front.read(),EBD_foot.read()+200);
-	plot.set_style("lines");
-
-	plot.set_yautoscale();
-	plot.plot_equation(function.str(),"EBD");
-
-	plot.set_style("points lc 7 pt 7");
-
-	plot.plot_xy(points_begin,points_speed,"Begin of Arcs");
-	}
-	catch (const GnuplotException & e) {
-		std::cout << "Error while plotting EBD with Gnuplot (" << e.what() <<")" << std::endl;
-
-	}
-}
 
 
 int sc_main(int argc,char *argv[])
@@ -239,14 +178,14 @@ int sc_main(int argc,char *argv[])
 	Gnuplot plot_EBD;
 	print_deceleration_curve_with_gnuplot(plot_EBD,EBD.read(),0,0);
 
-	std::cout << "Press ENTER to leave simulation ...";
-	std::cin.ignore();
+
 	}
 	catch (GnuplotException e) {
 		std::cout << "Error while plotting EBD with Gnuplot (" << e.what() <<")" << std::endl;
 	}
 
-
+	std::cout << "Press ENTER to leave simulation ...";
+	std::cin.ignore();
 
 	//sc_close_vcd_trace_file(fp);
 	return(0);
