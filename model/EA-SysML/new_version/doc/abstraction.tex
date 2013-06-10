@@ -1,0 +1,19 @@
+\label{subsec:abstaction}
+The MoRC model has been made by direct translation of the specification described
+in ERTMS subset-026-3.5 In order to keep the complexity low, some
+abstractions have been made. The model's behavior would be refined in a next step
+of the model's design process. In a first step we focus on the communication
+protocol between the MoRC and the RTM. This leads us to abstract some behaviors.
+
+First, our representation will not consider the interfaces with the JRU
+since it only recorded existing signals and is not relevant for tests
+generation
+Secondly, the orders coming from BTM, DMI, EVC will be abstracted as only one message
+from the on-board. This message will indicate that a communication session
+should be started or be ended. We will not distinguished between the different
+events that may occurred since they follow the same connection protocol. Moreover the discrimination
+between these events is not well defined in the specification, we will assume
+that the decision is taken by another task of the EVC and that the MoRC task only
+ starts or terminates a radio communication
+Finally, the output messages from MoRC to DMI are not considered for the first version.
+

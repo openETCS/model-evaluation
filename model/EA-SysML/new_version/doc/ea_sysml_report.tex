@@ -1,0 +1,220 @@
+\documentclass{openetcs_article}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\graphicspath{{./template/}{.}{./images/}{schema/pdf/}}
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Toolchain''}
+
+
+\author{C\'ecile Braunstein}
+
+\affiliation{Bremen University}
+
+\title{Radio Communication Management \\
+{\it SRS SUBSET-026-3.5} \\SysML Model}
+
+
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL.png}
+
+\reporttype{Model Description}
+
+%\begin{document}
+\begin{abstract}
+%define an abstract here
+This document is a part of the model-evaluation project of WP7, it explores
+SysML capabilities to provide a (semi)formal model of the SRS SUBSET-026.
+\end{abstract}
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+\newpage
+% ----------------------------------------------------
+
+\section{Short Introduction to Formalism and Tool}
+\label{sec:short-intr-form}
+This document describes the modeling  of the radio communication management. The
+model has been made from the specification description of the SRS SUBSET-026-3.5
+ baseline 3 as recommended by D2.5 Methods and tools benchmarking methodology
+ \cite{D2-5}.
+
+
+The formalism used  is SysML \cite{SysML}. More particularly we had used
+block diagram, state charts and requirements diagram. 
+SysML is a graphical language that extends UML for a customize version suitable
+for system engineering. It may help modeling system within a board range of
+system variety that may include hardware, software, data, personnel and
+facilities. It supports the specification, analysis design, verification and
+validation of complex system. 
+
+Enterprise architect (EA) version 9.3 \cite{EA} has been used to implement the
+model. Note that this tool is not open source but others tools  such as Papyrus
+\cite{papyrus} provides SysML modeling capabilities and are evaluate by others
+partners.
+EA is a visual platform for designing and constructing
+software systems, for business process modeling, and for more generalized
+modeling purposes. it covers all aspects of the development cycle. The main
+advantages is the requirement management and tracing, the team work and the
+include versionning. The main cons : it is not an open source tool.
+
+We had design a test model, this model aims at generate test cases and test
+data. The test generator used here is the tool-suite RT-Tester Model-Based generator
+(\textsc{Rtt-Mbt}) \cite{Peleska2011,rttmbtreport2011}. It provides sequences of
+input data with timing constraints that are used for the stimulation of the
+system under test (SUT), concurrently with generated test oracles. 
+% ----------------------------------------------------
+
+\section{Modeling Strategy}
+\label{sec:modeling-strategy}
+Starting from the specification SUBSET-026-chap3.5, we come up with the list of
+requirements. The requirements are exactly the text of the SRS. 
+This sub-part of the specification defines the management of the radio
+communication, e.g. the protocol to follow in order to initiate, 
+maintain  and terminate a radio communication. 
+From the requirements list, we modeled the set of behaviors defined by direct translation 
+into a state chart diagram. In parallel, we implemented  a requirement diagram that
+links the requirement list and  the SRS to the model.
+
+An example  figure \ref{fig:methodo-ex} shows an overview of the translation of the specification into a
+SysML model. The rest of the document will give  more details on each
+object presented. The basic idea is starting from the textual representation, we
+can deduce: 
+\begin{itemize}
+\item Input events : "receives the system version" \\
+\verb+MessageIn = SYS_VERSION+
+\item Internal variables and constants : "The communication session shall be considered
+as established"  \\
+\verb+session == ESTABLISHED+
+\item Outputs : "shall send a session established report" \\
+\verb+MessageOut = SESSION_ESTABLISHED+.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{methodo_example}
+\caption{\label{fig:methodo-ex} Methodology example}
+\end{figure}
+
+The radio communication management task is part of the set of on-board functions
+(see SUBSET-026.4.5). The behavior of this function depends on the result of
+others functions such as the function that determine of the ETCS Mode or Level.
+This leads us to define an interface between this task
+and the other tasks of the on board unit (see section \ref{sec:deta-model-descr}).
+
+Moreover the model is designed for test generation purpose. The model of the
+system under test (SUT)  has been
+made together with the test execution environment (TE). Here the test
+environment is really trivial since it is empty, it allows any possible value
+for the inputs of the SUT. One may want to add some constrains on the input
+signals or want to sketch some behavior such as an event never happened before
+an other one. This may also be model as a state machine.
+% ----------------------------------------------------
+
+\section{Model Overview}
+\label{sec:model-overview}
+The model is composed of two packages : the \emph{system} and the
+\emph{requirement}. The system package consists of the SUT model, the TE
+model and a set of constants and enumeration types. The
+requirement package contains all the requirement and a requirement diagram.
+
+% ----------------------------------------------------
+
+  \subsection{Block and state chart view}
+  \input{interface}
+% ----------------------------------------------------
+
+  \subsection{Requirement view}
+  \input{requirements}
+% ----------------------------------------------------
+
+\section{Model Benefits}
+\label{sec:model-highlights}
+
+In the previous sections, we had describes the use of SysML for modeling
+SUBSET-026.3.5. Note that other aspect of the SRS as define in Deliverable D2.5
+may also easily represent with SysML. The study here shows the 
+modelisation of state charts and timeout. Moreover the arithmetic may be
+represented as parametric diagram with constraints block. It is also possible to
+use state charts to discretize the behavior of breaking curves.
+
+
+
+The benefits of SysML for a semi formal modeling of the SUBSET-026-3.5.
+\begin{itemize}
+\item General-purpose  modeling languages
+\item Can model different domain (arithmetic, state charts ...)
+\item Easy export : As an OMG UML 2.0 profile, SysML models are designed to be
+exchanged using the XML Meta-data Interchange (XMI) standard.
+\item Open source licensee for SysML language
+\item Requirements diagram to capture functional and/or performance requirements.
+\item Requirements link the SRS to the model
+\item Easy data structure definition
+\item Customized language via profile, may be use for domain specific purpose
+\end{itemize}
+Enterprise Architect benefits~:
+\begin{itemize}
+\item Graphical modeling
+\item Different view of the system in one tool
+\item List view of all model elements
+\item Author, date and status associated to each model element
+\item Export/Import facilities
+\item Different view for diagrams (Table views,  hierarchy or list view)
+\end{itemize}
+
+Some drawbacks~:
+\begin{itemize}
+\item SysML is only semi-formal
+\item EA is not an  open-source software
+\item EA needs to work with different tools or plug-in to animate and simulate
+the models that are not always using the same XMI definition.
+\item The semantic and a glossary should be defined before using SysML
+\item EA No requirements table representation
+\end{itemize}
+
+% ----------------------------------------------------
+
+\section{Detailed Model Description}
+\label{sec:deta-model-descr}
+% ----------------------------------------------------
+  \subsection{Abstraction}
+  \input{abstraction}
+
+% ----------------------------------------------------
+  \subsection{Inputs and outputs messages}
+  \input{inputoutput}
+
+% ----------------------------------------------------
+  \subsection{Behaviour}
+  \label{subsec:behavior}
+  \input{behavior}
+
+% ----------------------------------------------------
+  \subsection{Test cases generation}
+  \label{subsec:test_generation}
+  \input{rttester}
+
+
+\bibliographystyle{plain}
+\bibliography{model}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
