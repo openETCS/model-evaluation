@@ -229,8 +229,11 @@ SC_MODULE(Track_Condition_stim)
 
 	}
 	void stim(){
+		auto local = track_conditions.read();
+		track_condition tc1(400,500,NO_MAGNETIC_SHOE_BRAKE);
+		local.push_back(tc1);
 
-		/* keep track condition at first empty */
+		track_conditions.write(local);
 
 	};
 };
