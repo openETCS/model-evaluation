@@ -231,7 +231,12 @@ SC_MODULE(Track_Condition_stim)
 	void stim(){
 		auto local = track_conditions.read();
 		track_condition tc1(400,500,NO_MAGNETIC_SHOE_BRAKE);
+		track_condition tc2(600,700,NO_MAGNETIC_SHOE_BRAKE);
+		track_condition tc3(450,650,NO_MAGNETIC_SHOE_BRAKE);
+
 		local.push_back(tc1);
+		local.push_back(tc2);
+		local.push_back(tc3);
 
 		track_conditions.write(local);
 
