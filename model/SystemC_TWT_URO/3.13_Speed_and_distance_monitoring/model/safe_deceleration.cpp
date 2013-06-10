@@ -5,7 +5,6 @@
  *      Author: benni
  */
 
-#include "systemc.h"
 #include "headers/safe_deceleration.hpp"
 #include <list>
 #include <algorithm>
@@ -13,8 +12,12 @@
 #include <vector>
 #include "train_related_input_modules/braking_model.hpp"
 #include "headers/track_condition.hpp"
+#include "headers/tools.hpp"
 
 void safe_deceleration::calc_a_brake_emergency() {
+
+	MODULE_OUT << "Calculate A_brake_emergency" << std::endl;
+
 	//make copy of track_conditions (since it is better for further computation copy into a vector)
 	std::vector<track_condition> local_track_conditions(track_conditions.read().begin(), track_conditions.read().end());
 	//track conditions need to be sorted by begin, guarantee it
@@ -44,6 +47,8 @@ void safe_deceleration::calc_a_brake_emergency() {
 	calc_a_brake_safe(0, special_brake_status_int);
 
 	if (!track_conditions.read().empty()) {
+
+
 		// get first track_condition
 		auto i = std::begin(local_track_conditions);
 
@@ -119,6 +124,10 @@ void safe_deceleration::calc_a_brake_emergency() {
 			}
 		}
 	}
+	else
+	{
+		MODULE_OUT << "Track Condition List Empty - step over" << std::endl;
+	}
 
 }
 ;
@@ -152,8 +161,12 @@ void safe_deceleration::calc_a_brake_safe(double d,int brake_selector)
 void safe_deceleration::calc_a_safe()
 {
 
-	if(!check_inputs()) return;
-	cout << sc_delta_count() << std::endl;
+	if(!check_inputs()) {
+
+		MODULE_OUT << "Inputs not valid, stop calculation and wait for other inputs" << std::endl;
+		return;
+	}
+
 
 	calc_a_brake_emergency();
 
@@ -202,15 +215,11 @@ void safe_deceleration::calc_a_safe()
 	step_function_f local_a_safe;
 	step_function_f::add_step_function_as_scalar_on_second_order(local_a_safe,A_brake_safe,A_gradient.read());
 
+	if(!local_a_safe.step_values.empty())
+	MODULE_OUT << "A_save calculated" << std::endl;
 
 	A_safe.write(local_a_safe);
 
-
-	//TODO hack until doing right buildup in stimulator
-	if(local_a_safe.step_values.empty())
-	{
-		next_trigger(SC_ZERO_TIME);
-	}
 };
 
 brake_model_selector_type safe_deceleration::convert_trackcondition_to_brake_selector(track_condition_change_type type)

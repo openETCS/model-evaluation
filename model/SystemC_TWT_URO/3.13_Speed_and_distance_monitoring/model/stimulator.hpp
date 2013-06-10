@@ -155,6 +155,7 @@ SC_MODULE(Acc_due_to_gradient_stim)
 {
 
 	sc_core::sc_out<step_function> gradients;
+	sc_core::sc_out<double> G_TSR;
 
 	SC_CTOR(Acc_due_to_gradient_stim)
 	{
@@ -174,6 +175,7 @@ SC_MODULE(Acc_due_to_gradient_stim)
 						gradients_local.step_values[900]= 1.4;
 
 				gradients.write(gradients_local);
+		G_TSR.write(0);
 	};
 
 };

@@ -12,7 +12,7 @@
 #include "gnuplot_i.hpp"
 #include "parabola_curve.hpp"
 
-#define MODULE_OUT std::cout << "time: " << sc_time_stamp() << " | deltacycle: "<< sc_delta_count()  << " | " << name() << std::string(" | ")
+#define MODULE_OUT std::cout << "time: " << sc_core::sc_time_stamp() << " | deltacycle: "<< sc_core::sc_delta_count()  << " | " << name() << std::string(" | ")
 
 extern std::ostream cnull;
 

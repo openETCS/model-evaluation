@@ -6,6 +6,7 @@
  */
 
 #include "headers/calc_EBD.hpp"
+#include "headers/tools.hpp"
 void Calc_ebd::eval()
 {
 	parabola_curve local_EBD;
@@ -21,7 +22,13 @@ void Calc_ebd::eval()
 	step_function_f local = A_save.read();
 
 	// TODO find better solution for empty A_save in build up phase
-	if(A_save.read().step_values.empty())return;
+	if(A_save.read().step_values.empty())
+		{
+		MODULE_OUT << "A_save empty, stop calculation of EBD and wait for other inputs" << std::endl;
+		return;
+
+		}
+
 
 	local.get_iterator_on_step_return_whether_last_step(target_position,i);
 
@@ -122,6 +129,8 @@ void Calc_ebd::eval()
 			i--;
 		}
 	}
+
+	MODULE_OUT << "Calculated EBD" << std::endl;
 	EBD.write(local_EBD);
 
 
