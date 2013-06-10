@@ -38,6 +38,7 @@ SC_MODULE(top){
 
 void print_deceleration_curve_with_gnuplot(Gnuplot & plot ,const parabola_curve &curve,double print_range_begin, double print_range_end)
 {
+	try{
 	std::ostringstream function;
 
 	std::vector<double> points_begin;
@@ -67,6 +68,11 @@ void print_deceleration_curve_with_gnuplot(Gnuplot & plot ,const parabola_curve 
 	plot.set_style("points lc 7 pt 7");
 
 	plot.plot_xy(points_begin,points_speed,"Begin of Arcs");
+	}
+	catch (const GnuplotException & e) {
+		std::cout << "Error while plotting EBD with Gnuplot (" << e.what() <<")" << std::endl;
+
+	}
 }
 
 
