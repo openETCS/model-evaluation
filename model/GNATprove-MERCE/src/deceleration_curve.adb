@@ -36,7 +36,8 @@ package body Deceleration_Curve is
       while speed > final_speed and speed > Minimum_Valid_Speed loop
          Pragma Assert (Minimum_Valid_Acceleration <= Acceleration
                         and Acceleration < 0.0);
-         Pragma Assert (Minimum_Valid_Speed < speed and speed <= Initial_Speed);
+         Pragma Loop_Invariant
+           (Minimum_Valid_Speed < speed and speed <= Initial_Speed);
          Pragma Assert (0.0 < 1.0/speed and 1.0/speed < 1.0 / Minimum_Valid_Speed);
          Pragma assert
            ((Speed_t(Minimum_Valid_Acceleration) / Minimum_Valid_Speed)
