@@ -707,7 +707,7 @@ Gnuplot& Gnuplot::plot_x(const X& x, const std::string &title)
     // write the data to file
     //
     for (unsigned int i = 0; i < x.size(); i++)
-        tmp << x[i] << std::endl;
+        tmp << x[i] << '\n';
 
     tmp.flush();
     tmp.close();
@@ -748,7 +748,7 @@ Gnuplot& Gnuplot::plot_xy(const X& x, const Y& y, const std::string &title)
     // write the data to file
     //
     for (unsigned int i = 0; i < x.size(); i++)
-        tmp << x[i] << " " << y[i] << std::endl;
+        tmp << x[i] << " " << y[i] <<  '\n';
 
     tmp.flush();
     tmp.close();
@@ -791,7 +791,7 @@ Gnuplot& Gnuplot::plot_xy_err(const X &x,
     // write the data to file
     //
     for (unsigned int i = 0; i < x.size(); i++)
-        tmp << x[i] << " " << y[i] << " " << dy[i] << std::endl;
+        tmp << x[i] << " " << y[i] << " " << dy[i] <<  '\n';
 
     tmp.flush();
     tmp.close();
@@ -836,7 +836,7 @@ Gnuplot& Gnuplot::plot_xyz(const X &x,
     // write the data to file
     //
     for (unsigned int i = 0; i < x.size(); i++)
-        tmp << x[i] << " " << y[i] << " " << z[i] <<std::endl;
+        tmp << x[i] << " " << y[i] << " " << z[i] << '\n';
 
     tmp.flush();
     tmp.close();
@@ -1597,9 +1597,9 @@ Gnuplot& Gnuplot::plot_image(const unsigned char * ucPicBuf,
     // write the data to file
     //
     int iIndex = 0;
-    for(int iRow = 0; iRow < iHeight; iRow++)
+    for(unsigned int iRow = 0; iRow < iHeight; iRow++)
     {
-        for(int iColumn = 0; iColumn < iWidth; iColumn++)
+        for(unsigned int iColumn = 0; iColumn < iWidth; iColumn++)
         {
             tmp << iColumn << " " << iRow  << " " 
                 << static_cast<float>(ucPicBuf[iIndex++]) << std::endl;
@@ -1865,6 +1865,7 @@ bool Gnuplot::file_available(const std::string &filename){
             throw GnuplotException( except.str() );
             return false;
         }
+        return true;
     }
     else{
         except << "File \"" << filename << "\" does not exist";

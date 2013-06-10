@@ -33,7 +33,7 @@ void Calc_ebd::eval()
 	current_arc.end = position;
 	current_arc.slope=0;
 	current_arc.value = 0;
-	//local_EBD.arcs[position]=current_arc;
+	local_EBD.arcs[position]=current_arc;
 
 
 	// calculation runs from EBD_foot and accelerates until current d_est_front
@@ -56,7 +56,7 @@ void Calc_ebd::eval()
 
 		current_arc.end=position;
 		current_arc.slope=actual_deceleration;
-		current_arc.value=speed;
+
 
 		//presume, that the arc will go until the next position step of A_save
 		current_arc.begin=i->first;
@@ -77,6 +77,7 @@ void Calc_ebd::eval()
 					break;
 
 				}
+				current_arc.value=next_speed_step;
 
 				local_EBD.arcs[current_arc.begin]=current_arc;
 
@@ -101,7 +102,7 @@ void Calc_ebd::eval()
 
 				current_arc.end=position;
 				current_arc.slope=actual_deceleration;
-				current_arc.value=speed;
+
 
 				//again presume, that he arc will go until the next position step of A_save
 				current_arc.begin=i->first;
@@ -112,6 +113,7 @@ void Calc_ebd::eval()
 		position = current_arc.begin;
 		speed=speed_at_begin_of_arc;
 
+		current_arc.value=speed_at_begin_of_arc;
 		// put arc in EBD
 		local_EBD.arcs[current_arc.begin]=current_arc;
 
