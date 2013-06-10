@@ -48,7 +48,7 @@ void safe_deceleration::calc_a_brake_emergency()
 
 
 	//iterate until end of track condition list or EBD_foot
-	while(iterated_position < EBD_foot)
+	while(iterated_position < EBD_foot && !active_conditions.empty())
 	{
 
 		// check whether
@@ -88,7 +88,6 @@ void safe_deceleration::calc_a_brake_emergency()
 
 			//remove the condition from list
 			active_conditions.pop_front();
-
 
 		}
 
