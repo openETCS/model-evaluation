@@ -102,5 +102,10 @@ Package Section_4_6 is
    function transition(mode : etcs_mode_t) return etcs_mode_t
    with
      Post => (disjoint_condition_transitions = True);
+     -- Following more elegant contract triggers internal error with SPARK
+     -- Hi-Lite GPL 2013
+--       Contract_Cases => (condition_transition_SB_to_SH => True,
+--                          condition_transition_SB_to_FS => True,
+--                          condition_transition_SB_to_IS => True);
 end;
 
