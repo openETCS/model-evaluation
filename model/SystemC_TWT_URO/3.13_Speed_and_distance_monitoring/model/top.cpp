@@ -234,9 +234,18 @@ int sc_main(int argc,char *argv[])
 	out.EBD(EBD);
 
 	sc_start(1,sc_core::SC_NS);
-	Gnuplot plot_EBD;
 
+	try{
+	Gnuplot plot_EBD;
 	print_deceleration_curve_with_gnuplot(plot_EBD,EBD.read(),0,0);
+
+	std::cout << "Press ENTER to leave simulation ...";
+	std::cin.ignore();
+	}
+	catch (GnuplotException e) {
+		std::cout << "Error while plotting EBD with Gnuplot (" << e.what() <<")" << std::endl;
+	}
+
 
 
 	//sc_close_vcd_trace_file(fp);
