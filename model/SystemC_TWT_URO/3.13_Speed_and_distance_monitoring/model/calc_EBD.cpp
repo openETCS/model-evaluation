@@ -6,6 +6,7 @@
  */
 
 #include "headers/calc_EBD.hpp"
+#include "headers/tools.hpp"
 void Calc_ebd::eval()
 {
 	parabola_curve local_EBD;
@@ -21,7 +22,13 @@ void Calc_ebd::eval()
 	step_function_f local = A_save.read();
 
 	// TODO find better solution for empty A_save in build up phase
-	if(A_save.read().step_values.empty())return;
+	if(A_save.read().step_values.empty())
+		{
+		MODULE_OUT << "A_save empty, stop calculation of EBD and wait for other inputs" << std::endl;
+		return;
+
+		}
+
 
 	local.get_iterator_on_step_return_whether_last_step(target_position,i);
 
@@ -56,7 +63,7 @@ void Calc_ebd::eval()
 
 		current_arc.end=position;
 		current_arc.slope=actual_deceleration;
-		current_arc.value=speed;
+
 
 		//presume, that the arc will go until the next position step of A_save
 		current_arc.begin=i->first;
@@ -74,7 +81,10 @@ void Calc_ebd::eval()
 				if(current_arc.begin < d_est_front)
 				{
 					current_arc.begin = d_est_front;
+					break;
+
 				}
+				current_arc.value=next_speed_step;
 
 				local_EBD.arcs[current_arc.begin]=current_arc;
 
@@ -99,7 +109,7 @@ void Calc_ebd::eval()
 
 				current_arc.end=position;
 				current_arc.slope=actual_deceleration;
-				current_arc.value=speed;
+
 
 				//again presume, that he arc will go until the next position step of A_save
 				current_arc.begin=i->first;
@@ -110,13 +120,17 @@ void Calc_ebd::eval()
 		position = current_arc.begin;
 		speed=speed_at_begin_of_arc;
 
+		current_arc.value=speed_at_begin_of_arc;
 		// put arc in EBD
 		local_EBD.arcs[current_arc.begin]=current_arc;
 
-		// go to next step in A_save before current calc
-		i--;
-
+		if (i != local.get_begin_iterator()) {
+			// go to next step in A_save before current calc
+			i--;
+		}
 	}
+
+	MODULE_OUT << "Calculated EBD" << std::endl;
 	EBD.write(local_EBD);
 
 

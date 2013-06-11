@@ -20,6 +20,9 @@ SC_MODULE(Acc_due_to_gradient)
 	sc_core::sc_in<double> M_rotating_min;
 	sc_core::sc_in<double> M_rotating_max;
 
+	sc_core::sc_in<double> G_TSR;
+
+
 	sc_core::sc_out<step_function> A_Gradient;
 
 
@@ -39,8 +42,8 @@ SC_MODULE(Acc_due_to_gradient)
 
 private:
 	void eval();
-	void train_length_compansation();
-	step_function train_length_compensated_gradients;
+	step_function train_length_compansation();
+
 };
 
 

@@ -39,7 +39,7 @@ struct track_condition
 	};
 
 
-	bool operator<( const track_condition& rhs)
+	bool operator<( const track_condition& rhs) const
 	{return this->begin<rhs.begin;}
 
 	inline bool operator == (const track_condition & rhs) const {
