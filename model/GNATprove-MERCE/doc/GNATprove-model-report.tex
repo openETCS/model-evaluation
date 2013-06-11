@@ -341,14 +341,12 @@ Those conditions are then in turn combined into a set of functions
 defining the condition under which a mode transition can occur. See
 for example \Ada{condition_transition_SB_to_SH}.
 
-We end with a function \Ada{transition} of which post-conditions
-expresses that the different transition condition should be disjoint,
-in order to prove it. This cannot be proved using only the assumptions
-describe in §4.6 of the SRS. See
+We end with a function \Ada{transition} of which \Ada{Contract_Cases}
+expresses that the different transition condition should be disjoint
+and complete, in order to prove it. This cannot be proved using only
+the assumptions describe in §4.6 of the SRS. See
 \url{https://github.com/openETCS/model-evaluation/wiki/Open-Question-for-Modeling-Benchmark#section-46}
-for a detailed example. In a more complex model, the function
-\Ada{disjoint_condition_transitions} would probably be automatically
-generated from §4.6 mode transition table.
+for a detailed example. 
 
 \lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.adb}
