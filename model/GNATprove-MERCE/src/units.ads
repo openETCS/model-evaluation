@@ -33,6 +33,8 @@ package Units is
      (Speed >= 0.0 and Speed <= Maximum_Valid_Speed_km_per_h);
 
    function m_per_s_From_km_per_h(Speed: Speed_km_per_h_t) return Speed_t
+   is
+     (Speed_t((Speed * 1000.0) / 3600.0))
    with
      Pre => Is_Valid_Speed_km_per_h(Speed);
 
