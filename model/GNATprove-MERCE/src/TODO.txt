@@ -5,7 +5,8 @@
                        condition_transition_SB_to_FS => True,
                        condition_transition_SB_to_IS => True);
 
- Tested: triggers an internal error.
+ Tested: triggers an internal error. Work-around is to use a dummy
+         "Post => True" post-condition.
 
 == [X] [2013 Edition] Test pure function with contract ==
 
