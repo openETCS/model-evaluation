@@ -103,7 +103,7 @@ SC_MODULE(brake_model_stim)
 		step_function magnetic_shoe_brake;
 
 		magnetic_shoe_brake[0]=0.1;
-		magnetic_shoe_brake[30]=0.3;
+		magnetic_shoe_brake[30]=0.6;
 		magnetic_shoe_brake[60]=1;
 		magnetic_shoe_brake[120]=3;
 		magnetic_shoe_brake[200]=5;
@@ -155,6 +155,7 @@ SC_MODULE(Acc_due_to_gradient_stim)
 {
 
 	sc_core::sc_out<step_function> gradients;
+	sc_core::sc_out<double> G_TSR;
 
 	SC_CTOR(Acc_due_to_gradient_stim)
 	{
@@ -174,6 +175,7 @@ SC_MODULE(Acc_due_to_gradient_stim)
 						gradients_local.step_values[900]= 1.4;
 
 				gradients.write(gradients_local);
+		G_TSR.write(0);
 	};
 
 };
@@ -229,8 +231,16 @@ SC_MODULE(Track_Condition_stim)
 
 	}
 	void stim(){
+		auto local = track_conditions.read();
+		track_condition tc1(400,500,NO_MAGNETIC_SHOE_BRAKE);
+		track_condition tc2(600,700,NO_MAGNETIC_SHOE_BRAKE);
+		track_condition tc3(450,650,NO_MAGNETIC_SHOE_BRAKE);
 
-		/* keep track condition at first empty */
+		local.push_back(tc1);
+		local.push_back(tc2);
+		local.push_back(tc3);
+
+		track_conditions.write(local);
 
 	};
 };

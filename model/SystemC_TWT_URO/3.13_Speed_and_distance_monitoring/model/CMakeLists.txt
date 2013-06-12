@@ -9,7 +9,7 @@ include_directories ($ENV{SYSTEMC_HOME}/include)
 link_directories ($ENV{SYSTEMC_HOME}/lib-linux64)
 
 
-add_executable(main Acc_due_to_gradient.cpp calc_EBD.cpp parabola_curve.cpp safe_deceleration.cpp step_function.cpp step_function_of_step_functions.cpp top.cpp track_condition.cpp)
+add_executable(main Acc_due_to_gradient.cpp calc_EBD.cpp gnuplot_i.cpp parabola_curve.cpp safe_deceleration.cpp step_function.cpp step_function_of_step_functions.cpp tools.cpp top.cpp track_condition.cpp)
 
 target_link_libraries(main 
 				systemc 

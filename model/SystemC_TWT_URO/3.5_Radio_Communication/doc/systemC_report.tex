@@ -293,6 +293,8 @@ In our approach we describe use the standard SysML stereotypes to model the MoRC
 One advantage is that the modeler is not required to learn new language elements.
 However, since the code generation fixes the semantics of a given SysML model element to a certain SystemC construct the modeler needs to have a basic understanding of this mapping in order to achieve the intended result.\\
 
+\subsubsection{Structural modeling}
+
 SysML is models consist of structural and behavior elements. In our workflow we first created a top level block diagram. Blocks represent the fundamental structural unit of the SysML model. To create the SysML model we use the Eclipse modeling framework (Indigo version) with activated Papyrus plug in. Papyrus doesn't support the newest version of SysML 1.3, i.e. full and proxy ports are not defined instead we have used flow ports, which is sufficient for our needs. An example of the Eclipse user interface with activated papyrus perspective is shown in Figure~\ref{fig:eclipseIDE}.
 
 \begin{figure}
@@ -333,7 +335,12 @@ To realize the port types we introduce SystemC specific data types via interface
 %Here we map SysML to SystemC language constructs.
 %The mapping is shown in Table.
 
+\subsubsection{Behavioral modeling}
+
+SysML state machine are expecially suitable to model the SystemC event-based behavior.
 The behavior of the MoRC is modeled with a state machine diagram, which we we will describe here in a upcoming version of this document.
+The Acceleo-Eclipse plugin supports syntax hihlighting and code completion for the thus the coding is very convenient.
+Further features comprise debugging...
 
 \begin{figure}
 \begin{center}
@@ -356,7 +363,7 @@ For the moment our code generator is able to create the structure of the model. 
 \section{Model Overview}
 \label{sec:model-overview}
 
-\subsection{SystemC Model for Subset 026 Radio Communication}
+\subsection{SystemC Model for Subset 026 Radio Communication (TWT)}
 
 When creating the SystemC model for the radio communication section of Subset 026, the idea was to have one part representing the system under test (SUT) and one part for the test environment (TE) that provides inputs and evaluates outputs of the SUT. To this end, we defined two C++ \emph{namespaces}, \verb|SUT| and \verb|TE|, each of which may contain several SystemC modules. This lead to the following model structure:
 \begin{itemize}
@@ -377,13 +384,11 @@ When creating the SystemC model for the radio communication section of Subset 02
     \end{itemize}
 \end{itemize}
 
+For a more detailed description of the model please refer to Section~\ref{sct:radiocommdetailed}.
 
+\subsection{SystemC Model for Braking Curves (URO)}
 
-\subsection{SystemC Model for Subset 026 Radio Communication}
-
-%SRIE 
-%SysML/SysC Designkonzept: welche Module, etc.
-%short explanation of the model structure
+To be filled by Uni Rostock
 
 \section{Model Benefits}
 \label{sec:model-highlights}
@@ -408,15 +413,66 @@ When creating the SystemC model for the radio communication section of Subset 02
 %KRE 
 SysML mit Eclipse, Interfaces, Templates
 
-\subsection{Technical Realization SystemC}
+\subsection{Detailed Description of the SystemC Radio Communication Model (TWT)}
+\label{sct:radiocommdetailed}
 
-\subsubsection{Radio Communication Model}
+In the following we will give a more detailed description of each module of the radio communication model.
 
-\subsubsection{Braking Curves Model}
+\subsubsection{MoRC}
+
+The Module of Radio Communication (MoRC) represents represents the interface for communication of the ETCS onboard unit (OBU) with the trackside. In the model it is the system under test (SUT). Thus, the MoRC interacts with the EURORADIO module that is responsible for setting up a safe radio communication and via EURORADIO with the trackside. Orders for connection establishment can be triggered by several OBU components, such as the driver module interface (DMI) or the balise transmission module (BTM). In the our model we do not need to worry which component issues an order as they all come in at the same \emph{port}.
+
+In the code we prefix input ports with the letter \verb|i| and output ports with the letter \verb|o|. The MoRC possesses the following ports:
+\begin{description}
+  \item[\tt i\_conn\_order] Boolean FIFO port that is used by MoRC-external components to trigger the establishment of a connection. If a 1 is received the MoRC will try to establish a connection (if not already established), if a 0 is received it terminates a connection (if applicable).
+  \item[\tt o\_conn\_status] This is a Boolean signal port to indicate to MoRC-external components whether a radio connection has been established.
+  \item[\tt o\_safe\_radio\_order] This Boolean FIFO output port is used to communicate with the EURORADIO subsystem. If a message with the content 1 is transmitted, the EURORADIO subsystem shall try to establish a safe radio connection. Upon a 0, a potentially active safe radio connection shall be terminated.
+  \item[\tt i\_safe\_radio\_status] Analogous to \texttt{o\_conn\_status}, this signal port is to be used by an EURORADIO subsystem to indicate whether a safe radio connection is established. Upon the establishment of a safe radio connection by EURORADIO, the MoRC will try to connect to an RBC or RIU.
+  \item[{\tt o\_trackside} {\rm and }{\tt i\_trackside}] FIFO ports for communicating with the trackside (RBC or RIU). These ports are used for sending and receiving messages of type \verb|RadioMessage| ($\rightarrow$ radio\_message.h).
+\end{description}
+
+In its current version the MoRC module has three threads:
+\begin{description}
+  \item[\tt order\_handler()] Upon receiving a connection order via port \texttt{i\_conn\_order} a state machine for setting up the radio connection is instantiated and given control. For more details regarding state machine modeling please refer to Section~\ref{sct:modellingsm}. Connection termination is not implemented yet.
+  \item[\tt safe\_radio\_handler()] Listens on the port \texttt{i\_safe\_radio\_status} to detect the establishment or failure of a safe radio connection. Triggers the \emph{event} \verb|conn_lost_event| if the safe radio connection could not be reestablished within 5 minutes of simulation time.
+  \item[\tt conn\_status\_signal\_driver()] This is a set that \emph{drives} the \texttt{o\_conn\_status} signal by listening for the events \verb|conn_established_event| and \verb|conn_lost_event|. Actually this thread is only necessary because in SystemC it is not allowed to write to a signal channel from multiple threads.
+\end{description}
+
+
+\subsubsection{Modelling State Machines}
+\label{sct:modellingsm}
+
+In our model the MoRC also contains a SystemC representation of a state machine that is used to model the connection setup. We found that this actually simplifies the control-flow and makes it more readable. In addition this method enables the transformation of SysML state charts to SystemC in a straightforward manner.
+
+The transformation idea is quite simple: 
+\begin{enumerate}
+  \item Create a C++ function for every state in your state machine, in the following called \emph{state function}. In our model these have been prefixed with \verb|state_| and encaspulated in the subclass \verb|SMConnect|.
+  \item Each state function may execute a certain actions and before it exits must fix the consecutive state to be executed. This is achieved by assigning to a function pointer the function representing the consecutive state (in our case this function pointer is \verb|SMConnect::next_state|). There may be several alternatives depending on the state of the system. If there is no consecutive state, \verb|NULL| is assigned.
+  \item Call the function pointer in a loop until its value is \verb|NULL|. 
+\end{enumerate}
+
+\emph{Note:} You could achieve the same by introducing a \verb|switch| statement in the main loop and a \verb|case| for each state. But this is less clear in our opinion and increases the amount of code significantly.
+
+The following code excerpt from our model illustrates this process\footnote{For more clarity we removed some debug outputs.}. It shows a state function for the case that a connection order has been received. If the connection status is 1 (connection is established) we are done and assign \verb|NULL| to \verb|next_state|, otherwise we move on to the next state function \verb|state_not_connected_connection_order()|.
+
+{\small
+\begin{lstlisting}
+void MoRC::SMConnect::state_connection_order_received() {
+    if (parent.o_conn_status->read())
+        next_state = NULL;
+    else 
+	next_state = &SMConnect::state_not_connected_connection_order;
+}
+\end{lstlisting}}
+
+
+\subsubsection{EURORADIO}
+
+\subsubsection{Trackside}
 
 
 
-\subsection{Compilation of the Model}
+\subsubsection{Compilation of the Model}
 
 To compile the model we provide a CMake-Makefile (CMakeLists.txt). Assuming that you have CMake and SystemC installed and are using a compiler supporting the C++11 standard you can build the model with the following steps:
 
@@ -428,8 +484,17 @@ To compile the model we provide a CMake-Makefile (CMakeLists.txt). Assuming that
   \item Execute the simulation: "\verb|./main|" 
 \end{enumerate}
 
+\subsection{Detailed Description of the SystemC Braking Curves Model (URO)}
+
+
+\section*{Appendix}
+\section*{Fix a corrupted Papyrus model}
+Sometimes the Papyrus model can't be opened when a new Eclipse session is started. This can be the case if a model element containing a diagram was deleted. The problem is caused by a currupted di file. To repair the di file open it with an external text editor and remove all empty tags:  \verb|<availablePage/>| and \verb|<children/>|. After that the model can be opened again in Papyrus.
+
+
 \bibliographystyle{plain}
 \bibliography{systemC_report}
+
 
 \end{document}
 

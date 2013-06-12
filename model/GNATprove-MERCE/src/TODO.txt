@@ -1,0 +1,25 @@
+== [X] [2013 Edition] Test Contract_Cases on transition function ==
+
+  function transition (mode : etcs_mode_t) return etcs_mode_t with
+    Contract_Cases => (condition_transition_SB_to_SH => True,
+                       condition_transition_SB_to_FS => True,
+                       condition_transition_SB_to_IS => True);
+
+ Tested: triggers an internal error. Work-around is to use a dummy
+         "Post => True" post-condition.
+
+== [X] [2013 Edition] Test pure function with contract ==
+
+   -- Pure function that breaks GNAT GPL 2012
+     function m_per_s_From_km_per_h_bis(Speed: Speed_km_per_h_t) return Speed_t
+     is
+        (Speed_t((Speed * 1000.0) / 3600.0))
+     with
+       Pre => Is_Valid_Speed_km_per_h(Speed);
+
+ Tested: works with SPARK Hi-LIte GPL 2013.
+
+== [ ] [2013 Edition] Test Dimension_System aspect on Units.ads ==
+
+  http://www.adacore.com/adaanswers/gems/gem-136-how-tall-is-a-kilogram/
+

@@ -90,7 +90,7 @@ Package Section_4_6 is
    function condition_transition_SB_to_IS return Boolean is
      (condition_1 AND priority = 1);
 
-   -- SUBSET-026-4.6.1.5
+   -- following function is no longer needed
    function disjoint_condition_transitions return Boolean is
      (NOT(condition_transition_SB_to_SH = True
           AND condition_transition_SB_to_FS = True)
@@ -101,6 +101,11 @@ Package Section_4_6 is
 
    function transition(mode : etcs_mode_t) return etcs_mode_t
    with
-     Post => (disjoint_condition_transitions = True);
+--       Post => (disjoint_condition_transitions = True);
+     -- SUBSET-026-4.6.1.5: all cases are disjoint
+     Contract_Cases => (condition_transition_SB_to_SH => True,
+                        condition_transition_SB_to_FS => True,
+                        condition_transition_SB_to_IS => True),
+     Post => True; -- work around for bug in SPARK Hi-Lite GPL 2013
 end;
 

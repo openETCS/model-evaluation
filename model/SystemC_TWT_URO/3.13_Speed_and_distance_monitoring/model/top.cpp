@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <systemc>
 
+#include "headers/tools.hpp"
+#include "headers/gnuplot_i.hpp"
 #include "headers/step_function.hpp"
 #include "headers/Acc_due_to_gradient.hpp"
 #include "headers/safe_deceleration.hpp"
@@ -9,30 +11,9 @@
 #include "headers/calc_EBD.hpp"
 #include "headers/track_condition.hpp"
 
+#include <string>
+#include <vector>
 
-using namespace sc_core;
-
-SC_MODULE(top){
-
-	sc_out<double> stim;
-	SC_CTOR(top)
-	{
-		SC_THREAD(stimulate);
-	}
-
-
-	void stimulate()
-	{
-		for(int i = 0 ; i< 60 ; i++)
-		{
-			stim=i;
-			wait(1,SC_NS);
-		}
-
-	}
-
-
-};
 
 int sc_main(int argc,char *argv[])
 {
@@ -55,6 +36,7 @@ int sc_main(int argc,char *argv[])
 	sc_core::sc_signal<double> M_nom_val;
 	sc_core::sc_signal<double> M_nom_val_min;
 	sc_core::sc_signal<double> M_nom_val_max;
+	sc_core::sc_signal<double> G_TSR;
 
 	/******* signal bindings train data *************/
 	acc_due_to_gradient_module.L_TRAIN(L_TRAIN);
@@ -62,6 +44,7 @@ int sc_main(int argc,char *argv[])
 	acc_due_to_gradient_module.M_rotating_min(M_nom_val_min);
 	acc_due_to_gradient_module.M_rotating_max(M_nom_val_max);
 	acc_due_to_gradient_module.M_rotating_nom_valid(nom_value_valid);
+	acc_due_to_gradient_module.G_TSR(G_TSR);
 
 	td_stim.L_TRAIN(L_TRAIN);
 	td_stim.M_nom_val(M_nom_val);
@@ -72,7 +55,7 @@ int sc_main(int argc,char *argv[])
 	/*******signal binding gradients ****************/
 	acc_due_to_gradient_module.gradients(gradient_signal);
 	acc_due_to_gradient_stim.gradients(gradient_signal);
-
+	acc_due_to_gradient_stim.G_TSR(G_TSR);
 
 	/***********output signal bindings ***********/
 	acc_due_to_gradient_module.A_Gradient(A_gradient);
@@ -116,7 +99,6 @@ int sc_main(int argc,char *argv[])
 	safe_decel.A_gradient(A_gradient);
 	safe_decel.EBD_foot(EBD_foot);
 	safe_decel.L_TRAIN(L_TRAIN);
-	safe_decel.d_est_front(d_est_front);
 
 	/**** signal bindings braking model *****/
 	bm_stim.A_NVMAXREDADH.bind(A_NVMAXREDADH);
@@ -192,12 +174,22 @@ int sc_main(int argc,char *argv[])
 	calc_ebd.EBD_foot(EBD_foot);
 	out.EBD(EBD);
 
-
-
 	sc_start(1,sc_core::SC_NS);
+
+	try{
+	Gnuplot plot_EBD;
+	print_deceleration_curve_with_gnuplot(plot_EBD,EBD.read(),0,0);
+	std::cout << "Press ENTER to leave simulation ...";
+	std::cin.ignore();
+
+	}
+	catch (GnuplotException e) {
+		std::cout << "Error while plotting EBD with Gnuplot (" << e.what() <<")" << std::endl;
+	}
+
+
 
 	//sc_close_vcd_trace_file(fp);
 	return(0);
 };
-
 

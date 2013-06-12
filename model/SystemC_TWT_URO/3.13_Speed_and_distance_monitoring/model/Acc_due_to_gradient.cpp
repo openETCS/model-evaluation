@@ -1,6 +1,6 @@
 
 #include "headers/Acc_due_to_gradient.hpp"
-
+#include "headers/tools.hpp"
 
 
 
@@ -8,9 +8,20 @@
 void Acc_due_to_gradient::eval()
 {
 
-	train_length_compansation();
+	// if there are no gradients, return A_gradient with standard Gradient
+	//TODO implement special gardient step function, which allows non continuous profiles
+	step_function train_length_compensated_gradients;
+	train_length_compensated_gradients[0]=G_TSR;
+	if(!gradients.read().step_values.empty()) {
+		 train_length_compensated_gradients = train_length_compansation();
+	}
+	else
+	{
+		MODULE_OUT << "Gradient Profile empty, only calculation with standard Gradient G_TSR" << std::endl;
+	}
+
+
 	step_function local_A_Gradient;
-	local_A_Gradient.clear();
 	auto it=train_length_compensated_gradients.get_begin_iterator();
 
 
@@ -32,6 +43,7 @@ void Acc_due_to_gradient::eval()
 			}
 		}
 	}
+	MODULE_OUT << "Calculate A_Gradient" << std::endl;
 	A_Gradient.write(local_A_Gradient);
 
 
@@ -39,14 +51,10 @@ void Acc_due_to_gradient::eval()
 
 
 /* implementing §3.13.4.2*/
-void Acc_due_to_gradient::train_length_compansation()
+step_function Acc_due_to_gradient::train_length_compansation()
 {
-	train_length_compensated_gradients.clear();
+	step_function train_length_compensated_gradients;
 	step_function gradients_local = gradients.read();
-
-	// if there are no gradients, return empty A_Gradient (currently always return 0)
-	// TODO relies currently on step_function behavior of empty
-	if(gradients_local.step_values.empty()) return;
 
 	// begin at the end of gradient profile to get last profile change
 	auto it=gradients_local.get_end_iterator();
@@ -121,5 +129,6 @@ void Acc_due_to_gradient::train_length_compansation()
 
 	}
 	train_length_compensated_gradients.compress();
+	return train_length_compensated_gradients;
 
 };

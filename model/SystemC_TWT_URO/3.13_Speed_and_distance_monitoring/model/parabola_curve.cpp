@@ -44,5 +44,5 @@ double parabola_curve::get_speed(double position,double begin, double slope, dou
 
 double parabola_curve::moved_distance(double speed, double slope, double v_begin)
 {
-	return ((speed*speed - v_begin*v_begin )/2*slope);
+	return ((speed*speed - v_begin*v_begin )/(2*slope));
 }

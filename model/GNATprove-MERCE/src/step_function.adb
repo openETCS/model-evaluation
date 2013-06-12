@@ -27,8 +27,8 @@ package body Step_Function is
    function Get_Value(SFun : Step_Function_t; X: Function_Range) return Float is
    begin
       for i in Num_Delimiters_Range'First..(SFun.Number_Of_Delimiters - 1) loop
-         Pragma Assert (for all j in 1..i =>
-                          X >= SFun.Step(j).Delimiter);
+         Pragma Loop_Invariant (for all j in 1..i =>
+                                  X >= SFun.Step(j).Delimiter);
          if X >= SFun.Step(i).Delimiter and X < SFun.Step(i + 1).Delimiter then
             return SFun.Step(i).Value;
          end if;
@@ -42,11 +42,11 @@ package body Step_Function is
       min : Float := SFun.Step(Num_Delimiters_Range'First).Value;
    begin
       for i in Num_Delimiters_Range'First .. SFun.Number_Of_Delimiters loop
-         Pragma Assert
+         Pragma Loop_Invariant
            (for all j in Num_Delimiters_Range'First..i-1 =>
               (if X >= SFun.Step(j).Delimiter then
                min <= SFun.Step(j).Value));
-         Pragma Assert
+         Pragma Loop_Invariant
            (for some j in Num_Delimiters_Range'First..i =>
               (X >= SFun.Step(j).Delimiter
                and
@@ -58,12 +58,6 @@ package body Step_Function is
             Pragma Assert
               (for all j in i+1..SFun.Number_Of_Delimiters =>
                  SFun.Step(j-1).Delimiter < SFun.Step(j).Delimiter);
-            Pragma Assert (X < SFun.Step(i).Delimiter);
-            Pragma Assert
-              (for all j in i..SFun.Number_Of_Delimiters =>
-                 X < SFun.Step(j).Delimiter);
-
-            return min;
          end if;
       end loop;
 
@@ -95,30 +89,32 @@ package body Step_Function is
       Pragma Assert (SFun1.Step(0).Delimiter = SFun2.Step(0).Delimiter);
       loop
          -- im, i1 and i2 bounds
-         Pragma Assert (i1 >= 0 and i2 >= 0 and im >= 0);
-         Pragma Assert (i1 <= SFun1.Number_Of_Delimiters);
-         Pragma Assert (i2 <= SFun2.Number_Of_Delimiters);
-         Pragma Assert (i1 + i2 <= Num_Delimiters_Range'Last);
-         Pragma Assert (im <= Num_Delimiters_Range'Last);
-         Pragma Assert (im <= i1 + i2);
+         Pragma Loop_Invariant (i1 >= 0);
+         Pragma Loop_Invariant (i2 >= 0);
+         Pragma Loop_Invariant (im >= 0);
+         Pragma Loop_Invariant (i1 <= SFun1.Number_Of_Delimiters);
+         Pragma Loop_Invariant (i2 <= SFun2.Number_Of_Delimiters);
+         Pragma Loop_Invariant (i1 + i2 <= Num_Delimiters_Range'Last);
+         Pragma Loop_Invariant (im <= Num_Delimiters_Range'Last);
+         Pragma Loop_Invariant (im <= i1 + i2);
 
          -- Merge is a valid step function until im
-         Pragma Assert (for all i in 1..im-1 =>
+         Pragma Loop_Invariant (for all i in 1..im-1 =>
                           Merge.Step(i-1).Delimiter < Merge.Step(i).Delimiter);
 
          -- All merged delimiters are coming from valid delimiter in SFun1 or
          -- SFun2
-         Pragma Assert
+         Pragma Loop_Invariant
            (for all i in 0..i1-1 =>
               ((for some j in 0..im-1 =>
                   SFun1.Step(i).Delimiter = Merge.Step(j).Delimiter)));
-         Pragma Assert
+         Pragma Loop_Invariant
            (for all i in 0..i2-1 =>
               ((for some j in 0..im-1 =>
                   SFun2.Step(i).Delimiter = Merge.Step(j).Delimiter)));
 
          -- Merged value at a delimiter is the minimum of both step functions
-         Pragma Assert
+         Pragma Loop_Invariant
            (for all i in 0..im-1 =>
               Merge.Step(i).Value =
               Min(Get_Value(SFun1, Merge.Step(i).Delimiter),

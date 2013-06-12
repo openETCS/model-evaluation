@@ -7,7 +7,7 @@
 \graphicspath{{./template/}{.}{./images/}}
 
 % listings package configuration
-\lstset{basicstyle={\footnotesize \sffamily},framesep=2pt,frame=single}
+\lstset{basicstyle={\footnotesize \sffamily},framesep=2pt,frame=single,numbers=left,numberstyle=\tiny}
 \newcommand{\Ada}[1]{\lstinline[language=Ada,basicstyle={\sffamily},framesep=0pt]{#1}}
 
 \begin{document}
@@ -105,6 +105,10 @@ Programming Studio (GPS) environment.
 GNATprove and GPS programming environment are Open Source software,
 licensed under GNU GPL.
 
+All code of this report has been tested using GNAT GPL 2013 and SPARK
+Hi-Lite GPL
+2013\footnote{\url{http://libre.adacore.com/tools/spark-gpl-edition/}}.
+
 \section{A short example}
 
 As example, here is the Ada 2012 specification of a
@@ -121,11 +125,32 @@ of the sum does not raise an overflow error at execution.
 
 The implementation of this specification is rather obvious.
 
-\lstinputlisting[language=Ada]{../src/example.adb}
+\lstinputlisting[language=Ada,numbers=left]{../src/example.adb}
 
-Applying GNATprove on above two files generates 9 Verification
+Applying GNATprove on above two files generates 5 Verification
 Conditions (VC) that are all \emph{automatically} proved correct by
 the tool.
+
+\begin{lstlisting}
+example.adb:4:13: info: overflow check proved [overflow_check]
+example.adb:5:20: info: overflow check proved [overflow_check]
+example.ads:5:14: info: postcondition proved [postcondition]
+example.ads:5:21: info: overflow check proved [overflow_check]
+example.ads:5:68: info: overflow check proved [overflow_check]
+\end{lstlisting}
+
+The first two VC check the sums \Ada{X1 + X2} do not overflow on lines
+4 and 5 of \Ada{Saturated_Sum} body.
+
+The third VC checks that the post-condition of \Ada{Saturated_Sum}
+given on line 5 and 6 of its specification can be proved using the
+function body.
+
+The last two VC check there are no overflow in the annotation \Ada{X1
+  + X2} at the line 5 of the post-condition of \Ada{Saturated_Sum}. In
+fact, as those Pre and Post-conditions could be compiled to assertions
+checked at run-time, GNATprove checks that they cannot themselves
+trigger run-time exceptions.
 
 After such verifications, we are sure that for all possible executions
 no run-time errors are going to be raised and that the
@@ -316,14 +341,12 @@ Those conditions are then in turn combined into a set of functions
 defining the condition under which a mode transition can occur. See
 for example \Ada{condition_transition_SB_to_SH}.
 
-We end with a function \Ada{transition} of which post-conditions
-expresses that the different transition condition should be disjoint,
-in order to prove it. This cannot be proved using only the assumptions
-describe in §4.6 of the SRS. See
+We end with a function \Ada{transition} of which \Ada{Contract_Cases}
+expresses that the different transition condition should be disjoint
+and complete, in order to prove it. This cannot be proved using only
+the assumptions describe in §4.6 of the SRS. See
 \url{https://github.com/openETCS/model-evaluation/wiki/Open-Question-for-Modeling-Benchmark#section-46}
-for a detailed example. In a more complex model, the function
-\Ada{disjoint_condition_transitions} would probably be automatically
-generated from §4.6 mode transition table.
+for a detailed example. 
 
 \lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/section_4_6.adb}
