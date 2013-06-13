@@ -64,7 +64,7 @@ This documentation shall give a short introduction to SystemC, to our modeling p
 
 \subsection{Basic Concepts of SystemC}
 
-A SystemC model is constructed of so-called \emph{modules}, C++ classes derived from a common base class \texttt{sc\_module}. Modules may be nested and are interconnected by \emph{channels}. There is a variety of different pre-defined channels, such as signal-channels (behavior as a shared variable or a hardware wire) or FIFO-queues. In addition, it is possible to define custom, complex channels. Modules usually contain \emph{threads} and \emph{event-triggered methods} that are executed in parallel. Threads and methods may register/wait for certain events in the system, such as the transmission of a message via a channel or a value change of a signal.
+A SystemC model is constructed of so-called \emph{modules}, C++ classes derived from a common base class \verb|sc_module|. Modules may be nested and are interconnected by \emph{channels}. There is a variety of different pre-defined channels, such as signal-channels (behavior as a shared variable or a hardware wire) or FIFO-queues. In addition, it is possible to define custom, complex channels. Modules usually contain \emph{threads} and \emph{event-triggered methods} that are executed in parallel. Threads and methods may register/wait for certain events in the system, such as the transmission of a message via a channel or a value change of a signal.
 
 \subsubsection{Defining Modules, Ports and Channels}
 
@@ -133,10 +133,10 @@ SC_MODULE(ModuleC){
 \end{lstlisting}
 }
 
-As you can see, the ports are declared with the corresponding type (in this case \texttt{sc\_fifo\_out\_if}, \texttt{sc\_fifo\_in\_if}, \texttt{sc\_signal\_in\_if}, and \texttt{sc\_signal\_inout\_if}\footnote{Note that SystemC does not provide an interface that only allows writing to and not reading from signal channels. This makes sense as a read has no effect on the state of the channel (in contrary to FIFO channels). Alternatively one could use \texttt{sc\_out<int>} instead of \texttt{sc\_port<sc\_signal\_inout\_if<int> >}. We use the latter to get a unified notation for ports and to simplify code generation from, e.g., SysML.}) which are interfaces to the corresponding channels and specified as C++ template parameter. In this example all interfaces have been set up for the message/signal type \texttt{int}\footnote{Note that it is necessary to specify a type here. Of course, also custom types may be used.}.
+As you can see, the ports are declared with the corresponding type (in this case \verb|sc_fifo_out_if|, \verb|sc_fifo_in_if|, \verb|sc_signal_in_if|, and \verb|sc_signal_inout_if|\footnote{Note that SystemC does not provide an interface that only allows writing to and not reading from signal channels. This makes sense as a read has no effect on the state of the channel (in contrary to FIFO channels). Alternatively one could use \texttt{sc\_out<int>} instead of \texttt{sc\_port<sc\_signal\_inout\_if<int> >}. We use the latter to get a unified notation for ports and to simplify code generation from, e.g., SysML.}) which are interfaces to the corresponding channels and specified as C++ template parameter. In this example all interfaces have been set up for the message/signal type \verb|int|\footnote{Note that it is necessary to specify a type here. Of course, also custom types may be used.}.
 
 \subsubsection{Connecting the Modules}
-Although we have defined all three modules, the interconnections are not defined yet as no module has been instantiated and the connections between the modules have not been established by providing the corresponding channels. This could be done as follows in the \texttt{sc\_main} function:
+Although we have defined all three modules, the interconnections are not defined yet as no module has been instantiated and the connections between the modules have not been established by providing the corresponding channels. This could be done as follows in the \verb|sc_main| function:
 
 {\small
 \begin{lstlisting}
@@ -162,9 +162,9 @@ int sc_main(int argc, char* argv[]) {
 
 \subsubsection{Writing to and Reading from Ports and Channels}
 
-There is no unified way to access ports or channels as they may be intended for different purposes. E.g, where for a signal a single value suffices one could define a channel type that includes addressing and payload to simulate network protocols. For the predefined channels, such as \texttt{sc\_signal} and \texttt{sc\_fifo} methods \texttt{write} and \texttt{read} are supported to write values to and read values from a channel/port, respectively. The semantics in those cases, however, is different:
+There is no unified way to access ports or channels as they may be intended for different purposes. E.g, where for a signal a single value suffices one could define a channel type that includes addressing and payload to simulate network protocols. For the predefined channels, such as \verb|sc_signal| and \verb|sc_fifo| methods \verb|write| and \verb|read| are supported to write values to and read values from a channel/port, respectively. The semantics in those cases, however, is different:
 
-While for \texttt{sc\_signal} writes and reads are executed immediately and do not have any precondition, writes to and reads from \texttt{sc\_fifo} are blocking if the buffer is full on write or no data is available on read. However, there are also non-blocking versions (\texttt{nb\_write} and \texttt{nb\_read}) that terminate immediately and a return value may be used to determine whether actually any data was written/read.
+While for \verb|sc_signal| writes and reads are executed immediately and do not have any precondition, writes to and reads from \verb|sc_fifo| are blocking if the buffer is full on write or no data is available on read. However, there are also non-blocking versions (\verb|nb_write| and \verb|nb_read|) that terminate immediately and a return value may be used to determine whether actually any data was written/read.
 
 Thus, in our example write or read operations could look as follows:
 {\small
@@ -191,15 +191,15 @@ port4->write(0);          // Non-blocking write to a signal port
 \end{lstlisting}
 }
 
-In the above code listing it is evident that the access to the ports from the modules is preceded by the \texttt{->} operator. This is not necessary when directly writing to the channels.
+In the above code listing it is evident that the access to the ports from the modules is preceded by the \verb|->| operator. This is not necessary when directly writing to the channels.
 
 \subsubsection{Threads and Event-Triggered Methods}
 
 SystemC make heavy use of concurrency and employs an event-based architecture. Events, such as the change of a signal value, can trigger actions. SystemC provides two concepts for this, both of which are realized as member functions within a SystemC module:
 
 \begin{description}
-\item[Threads] (\texttt{SC\_THREAD}) are versatile processes that can be halted at any moment and any number of times during their execution by using a \texttt{wait} statement. A thread is run only once. Often, a thread is meant to run for the whole duration of the simulation. This can be achieved by using an infinite loop. A thread can be suspended for a certain amount of time or until an event occurs. The events that a thread is sensitive to are not necessarily statically defined.
-\item[Methods] (\texttt{SC\_METHOD}) will run more than once when they are triggered by an event and cannot be suspended during their execution. In addition, they usually have a static sensitivity list.
+\item[Threads] (\verb|SC_THREAD|) are versatile processes that can be halted at any moment and any number of times during their execution by using a \verb|wait| statement. A thread is run only once. Often, a thread is meant to run for the whole duration of the simulation. This can be achieved by using an infinite loop. A thread can be suspended for a certain amount of time or until an event occurs. The events that a thread is sensitive to are not necessarily statically defined.
+\item[Methods] (\verb|SC_METHOD|) will run more than once when they are triggered by an event and cannot be suspended during their execution. In addition, they usually have a static sensitivity list.
 \end{description}
 
 Let us look again at our example. In Module C we could define a thread that waits for an incoming integer on Port 3 (FIFO channel) and then writes it out to Port 4 (signal channel). This can be done as follows:
@@ -228,7 +228,7 @@ SC_MODULE(ModuleC){
 \end{lstlisting}
 }
 
-Equivalently, one could also use the non-blocking read of the FIFO and explicitly use the \texttt{wait} statement:
+Equivalently, one could also use the non-blocking read of the FIFO and explicitly use the \verb|wait| statement:
 
 {\small
 \begin{lstlisting}
@@ -267,7 +267,7 @@ SC_MODULE(ModuleB){
 \end{lstlisting}
 }
 
-Thus, whenever the signal connected to Port 2 changes its value, the method \texttt{print\_change} is called. Please note, that in our model of the ETCS radio communication setup we do not use \texttt{SC\_METHOD}s for a more streamlined approach. Everything that can be done with \texttt{SC\_METHOD}s can be also done with \texttt{SC\_THREAD}s.
+Thus, whenever the signal connected to Port 2 changes its value, the method \verb|print_change| is called. Please note, that in our model of the ETCS radio communication setup we do not use \verb|SC_METHOD|s for a more streamlined approach. Everything that can be done with \verb|SC_METHOD|s can be also done with \verb|SC_THREAD|s.
 
 \subsubsection{The SystemC Simulation Scheduler}
 
@@ -292,6 +292,8 @@ These are mainly realized by defining UML profiles to extend SysML by introducin
 In our approach we describe use the standard SysML stereotypes to model the MoRC and infer automatically a TLM description in SystemC using code generation.
 One advantage is that the modeler is not required to learn new language elements.
 However, since the code generation fixes the semantics of a given SysML model element to a certain SystemC construct the modeler needs to have a basic understanding of this mapping in order to achieve the intended result.\\
+
+\subsubsection{Structural modeling}
 
 SysML is models consist of structural and behavior elements. In our workflow we first created a top level block diagram. Blocks represent the fundamental structural unit of the SysML model. To create the SysML model we use the Eclipse modeling framework (Indigo version) with activated Papyrus plug in. Papyrus doesn't support the newest version of SysML 1.3, i.e. full and proxy ports are not defined instead we have used flow ports, which is sufficient for our needs. An example of the Eclipse user interface with activated papyrus perspective is shown in Figure~\ref{fig:eclipseIDE}.
 
@@ -333,7 +335,12 @@ To realize the port types we introduce SystemC specific data types via interface
 %Here we map SysML to SystemC language constructs.
 %The mapping is shown in Table.
 
+\subsubsection{Behavioral modeling}
+
+SysML state machine are expecially suitable to model the SystemC event-based behavior.
 The behavior of the MoRC is modeled with a state machine diagram, which we we will describe here in a upcoming version of this document.
+The Acceleo-Eclipse plugin supports syntax hihlighting and code completion for the thus the coding is very convenient.
+Further features comprise debugging...
 
 \begin{figure}
 \begin{center}
@@ -348,7 +355,7 @@ The behavior of the MoRC is modeled with a state machine diagram, which we we wi
 %EMF, GMF, ACCELEO
 
 In this section we describe the code generation of the SysML model using the Eclipse framework and the Acceleo Plugin.
-In Eclipse our workflow is organized with two projects. The first, a Papyrus project, contains the the SysML model and the second is an Acceleo project that defines the SystemC code generation. The Acceleo plugin implements the MOF Model To Text Transformation Language (MOFM2T). Using the language one can traverse and query the SysML model tree to access all model elements and their attributes. The SysML/SystemC mapping definition is organized in modules containing templates. These templates are assigned to model elements. The principle of the template is What You Code Is What You Get (WYSIWYG), i.e. all text in the template that is not a MOFM2T language element is put in the transformation output. The language elements contain fundamental control flow constructs, such as loops and if statements as well as variable assignments. In addition it is possible to create files and to extend a template functionality by calling external Java services. For each module we included the SysML and UML profiles, which is needed to declare all types we use in our SysML model. This is achieved by adding the respective URIs when creating a new Acceleo project. The project is linked to our SysML model in the project creation wizard as well.\\
+In Eclipse our workflow is organized with two projects. The first, a Papyrus project, contains the the SysML model and the second is an Acceleo project that defines the SystemC code generation. The Acceleo plugin implements the MOF Model To Text Transformation Language (MOFM2T). Using the language one can traverse and query the SysML model tree to access all model elements and their attributes. The SysML/SystemC mapping definition is organized in modules containing templates. These templates are assigned to model elements. The principle of the template is What You Code Is What You Get (WYCIWYG), i.e. all text in the template that is not a MOFM2T language element is put in the transformation output. The language elements contain fundamental control flow constructs, such as loops and if statements as well as variable assignments. In addition it is possible to create files and to extend a template functionality by calling external Java services. For each module we included the SysML and UML profiles, which is needed to declare all types we use in our SysML model. This is achieved by adding the respective URIs when creating a new Acceleo project. The project is linked to our SysML model in the project creation wizard as well.\\
 
 For the moment our code generator is able to create the structure of the model. For each module a one header and one cpp files is generated. In addition a main.cpp file is created which contains the channel binding according to the SysML model specification. In later version of this document we will describe the translation in more detail and include the transformation of the SysML state machines.
 
@@ -356,11 +363,32 @@ For the moment our code generator is able to create the structure of the model. 
 \section{Model Overview}
 \label{sec:model-overview}
 
-These sections will be provided as soon as possible.
+\subsection{SystemC Model for Subset 026 Radio Communication (TWT)}
 
-%SRIE 
-%SysML/SysC Designkonzept: welche Module, etc.
-%short explanation of the model structure
+When creating the SystemC model for the radio communication section of Subset 026, the idea was to have one part representing the system under test (SUT) and one part for the test environment (TE) that provides inputs and evaluates outputs of the SUT. To this end, we defined two C++ \emph{namespaces}, \verb|SUT| and \verb|TE|, each of which may contain several SystemC modules. This lead to the following model structure:
+\begin{itemize}
+  \item namespace \verb|SUT|
+    \begin{itemize}
+      \item module \verb|MoRC|: The \textbf{M}odule \textbf{o}f \textbf{R}adio \textbf{C}ommunication represents the system under test. It receives connection orders from the outside and interacts with the \verb|EURORADIO| module. Includes a state machine \verb|SMConnect| that models the connection setup. ($\rightarrow$ morc.h, morc.cpp)
+    \end{itemize}
+
+  \item namespace \verb|TE|
+    \begin{itemize}
+      \item module \verb|EURORADIO|: Simulates the behavior of an EURORADIO module setting up the safe radio connection. Failures of safe radio are simulated with an exponential probability distribution. ($\rightarrow$ euroradio.h, euroradio.cpp)
+      \item module \verb|Trackside|: Simulates the trackside (RBC or RIU). ($\rightarrow$ trackside.h, trackside.cpp)
+    \end{itemize}
+  \item Global namespace
+    \begin{itemize}
+      \item \verb|RadioMessage|: data structure for exchanging messages with the trackside; includes an enum for the message types required by Subset 026, overloaded trace and stream output operators are provided ($\rightarrow$ radiomessage.h, radiomessage.cpp)
+      \item \verb|sc_main|: the program entry point that is used for instantiating all modules, setting up the environment and starting simulation ($\rightarrow$ main.cpp)
+    \end{itemize}
+\end{itemize}
+
+For a more detailed description of the model please refer to Section~\ref{sct:radiocommdetailed}.
+
+\subsection{SystemC Model for Braking Curves (URO)}
+
+To be filled by Uni Rostock
 
 \section{Model Benefits}
 \label{sec:model-highlights}
@@ -385,18 +413,88 @@ These sections will be provided as soon as possible.
 %KRE 
 SysML mit Eclipse, Interfaces, Templates
 
-\subsection{Technical Realization SystemC}
+\subsection{Detailed Description of the SystemC Radio Communication Model (TWT)}
+\label{sct:radiocommdetailed}
 
-\subsubsection{Radio Communication Model}
+In the following we will give a more detailed description of each module of the radio communication model.
 
-\subsubsection{Braking Curves Model}
+\subsubsection{MoRC}
+
+The Module of Radio Communication (MoRC) represents represents the interface for communication of the ETCS onboard unit (OBU) with the trackside. In the model it is the system under test (SUT). Thus, the MoRC interacts with the EURORADIO module that is responsible for setting up a safe radio communication and via EURORADIO with the trackside. Orders for connection establishment can be triggered by several OBU components, such as the driver module interface (DMI) or the balise transmission module (BTM). In the our model we do not need to worry which component issues an order as they all come in at the same \emph{port}.
+
+In the code we prefix input ports with the letter \verb|i| and output ports with the letter \verb|o|. The MoRC possesses the following ports:
+\begin{description}
+  \item[\tt i\_conn\_order] Boolean FIFO port that is used by MoRC-external components to trigger the establishment of a connection. If a 1 is received the MoRC will try to establish a connection (if not already established), if a 0 is received it terminates a connection (if applicable).
+  \item[\tt o\_conn\_status] This is a Boolean signal port to indicate to MoRC-external components whether a radio connection has been established.
+  \item[\tt o\_safe\_radio\_order] This Boolean FIFO output port is used to communicate with the EURORADIO subsystem. If a message with the content 1 is transmitted, the EURORADIO subsystem shall try to establish a safe radio connection. Upon a 0, a potentially active safe radio connection shall be terminated.
+  \item[\tt i\_safe\_radio\_status] Analogous to \texttt{o\_conn\_status}, this signal port is to be used by an EURORADIO subsystem to indicate whether a safe radio connection is established. Upon the establishment of a safe radio connection by EURORADIO, the MoRC will try to connect to an RBC or RIU.
+  \item[{\tt o\_trackside} {\rm and }{\tt i\_trackside}] FIFO ports for communicating with the trackside (RBC or RIU). These ports are used for sending and receiving messages of type \verb|RadioMessage| ($\rightarrow$ radio\_message.h).
+\end{description}
+
+In its current version the MoRC module has three threads:
+\begin{description}
+  \item[\tt order\_handler()] Upon receiving a connection order via port \texttt{i\_conn\_order} a state machine for setting up the radio connection is instantiated and given control. For more details regarding state machine modeling please refer to Section~\ref{sct:modellingsm}. Connection termination is not implemented yet.
+  \item[\tt safe\_radio\_handler()] Listens on the port \texttt{i\_safe\_radio\_status} to detect the establishment or failure of a safe radio connection. Triggers the \emph{event} \verb|conn_lost_event| if the safe radio connection could not be reestablished within 5 minutes of simulation time.
+  \item[\tt conn\_status\_signal\_driver()] This is a set that \emph{drives} the \texttt{o\_conn\_status} signal by listening for the events \verb|conn_established_event| and \verb|conn_lost_event|. Actually this thread is only necessary because in SystemC it is not allowed to write to a signal channel from multiple threads.
+\end{description}
+
+
+\subsubsection{Modelling State Machines}
+\label{sct:modellingsm}
+
+In our model the MoRC also contains a SystemC representation of a state machine that is used to model the connection setup. We found that this actually simplifies the control-flow and makes it more readable. In addition this method enables the transformation of SysML state charts to SystemC in a straightforward manner.
+
+The transformation idea is quite simple: 
+\begin{enumerate}
+  \item Create a C++ function for every state in your state machine, in the following called \emph{state function}. In our model these have been prefixed with \verb|state_| and encaspulated in the subclass \verb|SMConnect|.
+  \item Each state function may execute a certain actions and before it exits must fix the consecutive state to be executed. This is achieved by assigning to a function pointer the function representing the consecutive state (in our case this function pointer is \verb|SMConnect::next_state|). There may be several alternatives depending on the state of the system. If there is no consecutive state, \verb|NULL| is assigned.
+  \item Call the function pointer in a loop until its value is \verb|NULL|. 
+\end{enumerate}
+
+\emph{Note:} You could achieve the same by introducing a \verb|switch| statement in the main loop and a \verb|case| for each state. But this is less clear in our opinion and increases the amount of code significantly.
+
+The following code excerpt from our model illustrates this process\footnote{For more clarity we removed some debug outputs.}. It shows a state function for the case that a connection order has been received. If the connection status is 1 (connection is established) we are done and assign \verb|NULL| to \verb|next_state|, otherwise we move on to the next state function \verb|state_not_connected_connection_order()|.
+
+{\small
+\begin{lstlisting}
+void MoRC::SMConnect::state_connection_order_received() {
+    if (parent.o_conn_status->read())
+        next_state = NULL;
+    else 
+	next_state = &SMConnect::state_not_connected_connection_order;
+}
+\end{lstlisting}}
+
+
+\subsubsection{EURORADIO}
+
+\subsubsection{Trackside}
 
 
 
-\subsection{Compilation of the Model}
+\subsubsection{Compilation of the Model}
+
+To compile the model we provide a CMake-Makefile (CMakeLists.txt). Assuming that you have CMake and SystemC installed and are using a compiler supporting the C++11 standard you can build the model with the following steps:
+
+\begin{enumerate}
+  \item Set the environment variable \verb|SYSTEMC_HOME| to point to the SystemC installation directory. Alternatively you can edit the file CMakeLists.txt to point to your paths. 
+  \item Create subdirectory "build" and change to it "\verb|mkdir build && cd build|". 
+  \item Execute "\verb|cmake ..|" 
+  \item Execute "\verb|make|" 
+  \item Execute the simulation: "\verb|./main|" 
+\end{enumerate}
+
+\subsection{Detailed Description of the SystemC Braking Curves Model (URO)}
+
+
+\section*{Appendix}
+\section*{Fix a corrupted Papyrus model}
+Sometimes the Papyrus model can't be opened when a new Eclipse session is started. This can be the case if a model element containing a diagram was deleted. The problem is caused by a currupted di file. To repair the di file open it with an external text editor and remove all empty tags:  \verb|<availablePage/>| and \verb|<children/>|. After that the model can be opened again in Papyrus.
+
 
 \bibliographystyle{plain}
 \bibliography{systemC_report}
+
 
 \end{document}
 

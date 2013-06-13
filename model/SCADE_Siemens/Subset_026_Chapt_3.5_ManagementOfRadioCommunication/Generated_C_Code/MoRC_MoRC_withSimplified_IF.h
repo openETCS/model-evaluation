@@ -1,12 +1,13 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:47
 *************************************************************$ */
 #ifndef _MoRC_MoRC_withSimplified_IF_H_
 #define _MoRC_MoRC_withSimplified_IF_H_
 
 #include "kcg_types.h"
 #include "MoRC_managementOfRadioCommunication.h"
+#include "MoRC_FallingEdge_digital.h"
 
 /* ========================  input structure  ====================== */
 typedef struct {
@@ -19,6 +20,11 @@ typedef struct {
   MoRC_M_LEVEL_Type /* MoRC_withSimplified_IF::M_Level */ M_Level;
   MoRC_M_MODE_Type /* MoRC_withSimplified_IF::M_Mode */ M_Mode;
   MoRC_time_Type /* MoRC_withSimplified_IF::actualTime */ actualTime;
+  MoRC_radioNetworkID_Type /* MoRC_withSimplified_IF::RadioNetworkID_memorized */ RadioNetworkID_memorized;
+  MoRC_radioNetworkID_Type /* MoRC_withSimplified_IF::RadioNetworkID_fromDriver */ RadioNetworkID_fromDriver;
+  MoRC_radioNetworkID_Type /* MoRC_withSimplified_IF::RadioNetworkID_fromTrackside */ RadioNetworkID_fromTrackside;
+  kcg_bool /* MoRC_withSimplified_IF::powerAvailable */ powerAvailable;
+  MoRC_mobileHWConnectionStatus_Type /* MoRC_withSimplified_IF::mobileHWConnectionStatus */ mobileHWConnectionStatus;
 } MoRC_inC_MoRC_withSimplified_IF;
 
 /* ========================  context type  ========================= */
@@ -28,12 +34,15 @@ typedef struct {
   kcg_bool /* MoRC_withSimplified_IF::safeRadioCommunication_requestSetUp */ safeRadioCommunication_requestSetUp;
   kcg_bool /* MoRC_withSimplified_IF::safeRadioCommunication_releaseSetUp */ safeRadioCommunication_releaseSetUp;
   kcg_bool /* MoRC_withSimplified_IF::radioComSesssionEstablished */ radioComSesssionEstablished;
+  MoRC_radioNetworkID_Type /* MoRC_withSimplified_IF::actualRadioNetworkID */ actualRadioNetworkID;
+  MoRC_mobileHWAction_Type /* MoRC_withSimplified_IF::mobileHWCmd */ mobileHWCmd;
+  kcg_bool /* MoRC_withSimplified_IF::memorizeTheLastRadioNetworkID */ memorizeTheLastRadioNetworkID;
+  MoRC_mobileSWConnectionStatus_Type /* MoRC_withSimplified_IF::mobileSWStatus */ mobileSWStatus;
   /* -----------------------  no local probes  ----------------------- */
-  /* -------------------- initialization variables  ------------------ */
-  kcg_bool init;
-  /* ----------------------- local memories  ------------------------- */
-  MoRC_SSM_ST_PowerUpSequencer /* MoRC_withSimplified_IF::PowerUpSequencer */ PowerUpSequencer_state_nxt;
+  /* -----------------  no initialization variables  ----------------- */
+  /* -----------------------  no local memory  ----------------------- */
   /* ---------------------  sub nodes' contexts  --------------------- */
+  MoRC_outC_FallingEdge_digital /* 1 */ _1_Context_1;
   MoRC_outC_managementOfRadioCommunication /* 1 */ Context_1;
   /* ----------------- no clocks of observable data ------------------ */
 } MoRC_outC_MoRC_withSimplified_IF;
@@ -51,6 +60,6 @@ extern void MoRC_MoRC_withSimplified_IF_reset(
 #endif /* _MoRC_MoRC_withSimplified_IF_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_MoRC_withSimplified_IF.h
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:47
 *************************************************************$ */
 

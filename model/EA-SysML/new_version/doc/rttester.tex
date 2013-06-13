@@ -1,0 +1,149 @@
+\subsubsection{Tool overview}
+
+The RT-Tester test automation tool, made by Verified
+\cite{verified_website}, performs automatic test generation, test
+execution and real-time test evaluation.  It supports different
+testing approach such as unit testing, software integration testing
+for component, hardware/software integration testing and system
+integration testing.  The RT-Tester version we had used, follows the
+model-based testing approach \cite{Peleska2011,rttmbtreport2011} and
+it provides the following features :
+\begin{itemize}
+\item Automated Test Case Generation 
+\item Automated Test Data Generation 
+\item Automated Test Procedure Generation 
+\item Automated Requirement Tracing 
+\item Test Management system 
+\end{itemize}
+Starting from a test model design with UML/SYML, the RT-tester fully
+automatically generates test cases. They are then specified as test
+data (sequences of stimuli with timing constraints) and used to
+stimulate the SUT and run concurently with the generated test
+oracles. The test procedure is the combination of the test oracles and
+the SUT that can be compiled and executed.
+
+The tool supports test cases/data generation for structural
+testing. It automatically generates  reach statement coverage, branch coverage and
+modified condition/decision coverage (MC/DC) as far as this is possible.
+The test cases may all be linked to requirements ensuring a complete
+requirement traceability. 
+Additionally RT-tester may produce test cases/data from a LTL
+formula, since a LTL formula describes a possible run of the model.
+
+
+Finally the tool may produce the documentation of tests for
+certification purposes. For each test cases the following document are
+produced :
+\begin{itemize}
+\item {\em Test procedure}: that specifies  how one test case can be
+  executed, its associated test data produced and how the SUT
+  reactions are evaluated against the expected results.
+\item {\em Test report}: that summarizes all relevant information
+  about the test execution.
+\end{itemize}
+
+In \cite{brauer_efficient_2012}, a general approach  on how to qualify
+model-based testing tool according to the standard ISO 26262 ad RTCA
+DO178C has been proposed and applied with success to the RT-tester
+tool. Following the same  approach compatibility with the CENELEC EN50128
+may be easily done. 
+
+
+
+
+\subsubsection{Test generation}
+RT-Tester is able to automatically generate test cases from the test
+model.
+The first step may be to generate the test cases that cover all the
+model artifacts : a test to reach all transitions, control state and
+perform MC/DC coverage of the model. The test cases are
+related to their attached requirement. This is automatically derived
+from the requirement diagram. 
+
+The test campaign may then be guided by requirement coverage, one
+can select the test cases associated to a requirement, or
+by test cases coverage, one select the tests to be covered.
+
+Finally, it is possible to add user define test cases. This has been
+done to import test cases part from the SUBSET-076. his has been made
+manually by translating the test cases description from the word
+document as an LTL formula. 
+For example the test case 1 of feature  177, tests the requirement :
+"Establishing a radio communication initiated by RBC''.  It checks
+that after receiving a connection indication of the safe radio
+from the RTM, the OBU  shall confirm the establishment and shall
+consider the session established following the process describes in
+the requirements 3.5.3. This has been translated into the following
+formula:
+\begin{multicols}{2}
+\begin{verbatim}
+// Initial state NO_COM
+[
+setUp == 0 &&
+radioComSesssionEstablished == 0 && 
+M_Level >= 3 && 
+M_Mode != 3 &&
+M_Mode != 4 &&
+M_Mode != 5 &&
+M_Mode != 9 &&
+M_Mode != 10 &&
+radioHole == NONE &&
+orderOnBoard == NONE  &&
+messageIn == NO_MESSAGE
+] && 
+[
+setUp == 0 &&
+radioComSesssionEstablished == 0 && 
+M_Level >= 3 && 
+M_Mode != 3 &&
+M_Mode != 4 &&
+M_Mode != 5 &&
+M_Mode != 9 &&
+M_Mode != 10 &&
+radioHole == NONE &&
+orderOnBoard == NONE  &&
+messageIn == NO_MESSAGE 
+]  
+Until
+(// Safe radio set up
+[
+  setUp == 1 &&
+  IMR.messageFromRBC == 38 
+] &&
+Finally 
+// Message session established send 
+// session considered as established
+[
+  IMR.messageFromRBC == 38 &&
+  IMR.messageToRBC == 159 &&
+  IMR.radioComSesssionEstablished == 1
+])
+\end{verbatim}
+\end{multicols}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lr}\toprule
+  Test cases covered & \# tests generated  \\\midrule
+  Basic state & 14 \\
+  Transition & 34 \\
+  MC/DC & 85 \\
+  LTL & 4 \\
+  Test 177 & 2 \\ \midrule
+  Total Tests& 139\\\bottomrule
+\end{tabular}
+
+\raggedleft Total Requirements cover 40
+\caption{\label{tbl:test_summary} Test cases generation summary}
+\end{table}
+
+Table \ref{tbl:test_summary} summarizes the set of test cases
+generated and the related requirements. The line LTL represents the
+requirement that has been rewrite with a LTL formula. The test 177
+represents the translation as LTL formula of the two test cases described
+in SUBSET 076. This set of test cases covers 36 requirements from SUBSET-026-chap 3.5.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "descriptionReport"
+%%% End: 
+

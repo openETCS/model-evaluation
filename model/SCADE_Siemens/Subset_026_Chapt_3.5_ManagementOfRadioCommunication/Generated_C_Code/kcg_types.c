@@ -1,13 +1,13 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:46
 *************************************************************$ */
 
 #include "kcg_types.h"
 
-kcg_bool MoRC_kcg_comp_struct__10799(
-  MoRC_struct__10799 *kcg_c1,
-  MoRC_struct__10799 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10854(
+  MoRC_struct__10854 *kcg_c1,
+  MoRC_struct__10854 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -23,9 +23,9 @@ kcg_bool MoRC_kcg_comp_struct__10799(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10807(
-  MoRC_struct__10807 *kcg_c1,
-  MoRC_struct__10807 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10862(
+  MoRC_struct__10862 *kcg_c1,
+  MoRC_struct__10862 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -35,9 +35,9 @@ kcg_bool MoRC_kcg_comp_struct__10807(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10812(
-  MoRC_struct__10812 *kcg_c1,
-  MoRC_struct__10812 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10867(
+  MoRC_struct__10867 *kcg_c1,
+  MoRC_struct__10867 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -52,9 +52,9 @@ kcg_bool MoRC_kcg_comp_struct__10812(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10820(
-  MoRC_struct__10820 *kcg_c1,
-  MoRC_struct__10820 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10875(
+  MoRC_struct__10875 *kcg_c1,
+  MoRC_struct__10875 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -65,9 +65,9 @@ kcg_bool MoRC_kcg_comp_struct__10820(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10826(
-  MoRC_struct__10826 *kcg_c1,
-  MoRC_struct__10826 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10881(
+  MoRC_struct__10881 *kcg_c1,
+  MoRC_struct__10881 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -78,9 +78,9 @@ kcg_bool MoRC_kcg_comp_struct__10826(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10832(
-  MoRC_struct__10832 *kcg_c1,
-  MoRC_struct__10832 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10887(
+  MoRC_struct__10887 *kcg_c1,
+  MoRC_struct__10887 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -92,9 +92,9 @@ kcg_bool MoRC_kcg_comp_struct__10832(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10838(
-  MoRC_struct__10838 *kcg_c1,
-  MoRC_struct__10838 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10893(
+  MoRC_struct__10893 *kcg_c1,
+  MoRC_struct__10893 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -104,9 +104,9 @@ kcg_bool MoRC_kcg_comp_struct__10838(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10843(
-  MoRC_struct__10843 *kcg_c1,
-  MoRC_struct__10843 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10898(
+  MoRC_struct__10898 *kcg_c1,
+  MoRC_struct__10898 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -116,9 +116,9 @@ kcg_bool MoRC_kcg_comp_struct__10843(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10848(
-  MoRC_struct__10848 *kcg_c1,
-  MoRC_struct__10848 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10903(
+  MoRC_struct__10903 *kcg_c1,
+  MoRC_struct__10903 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -128,9 +128,9 @@ kcg_bool MoRC_kcg_comp_struct__10848(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10853(
-  MoRC_struct__10853 *kcg_c1,
-  MoRC_struct__10853 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10908(
+  MoRC_struct__10908 *kcg_c1,
+  MoRC_struct__10908 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -142,9 +142,9 @@ kcg_bool MoRC_kcg_comp_struct__10853(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10860(
-  MoRC_struct__10860 *kcg_c1,
-  MoRC_struct__10860 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10915(
+  MoRC_struct__10915 *kcg_c1,
+  MoRC_struct__10915 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -157,9 +157,9 @@ kcg_bool MoRC_kcg_comp_struct__10860(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10868(
-  MoRC_struct__10868 *kcg_c1,
-  MoRC_struct__10868 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10923(
+  MoRC_struct__10923 *kcg_c1,
+  MoRC_struct__10923 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -176,9 +176,9 @@ kcg_bool MoRC_kcg_comp_struct__10868(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10880(
-  MoRC_struct__10880 *kcg_c1,
-  MoRC_struct__10880 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10935(
+  MoRC_struct__10935 *kcg_c1,
+  MoRC_struct__10935 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -191,14 +191,14 @@ kcg_bool MoRC_kcg_comp_struct__10880(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10888(
-  MoRC_struct__10888 *kcg_c1,
-  MoRC_struct__10888 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10943(
+  MoRC_struct__10943 *kcg_c1,
+  MoRC_struct__10943 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
   kcg_equ = kcg_true;
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10848(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10903(
       &kcg_c1->M_VERSION,
       &kcg_c2->M_VERSION);
   kcg_equ = kcg_equ && kcg_c1->NID_LRBG == kcg_c2->NID_LRBG;
@@ -209,9 +209,9 @@ kcg_bool MoRC_kcg_comp_struct__10888(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10897(
-  MoRC_struct__10897 *kcg_c1,
-  MoRC_struct__10897 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10952(
+  MoRC_struct__10952 *kcg_c1,
+  MoRC_struct__10952 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -228,59 +228,59 @@ kcg_bool MoRC_kcg_comp_struct__10897(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10909(
-  MoRC_struct__10909 *kcg_c1,
-  MoRC_struct__10909 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10964(
+  MoRC_struct__10964 *kcg_c1,
+  MoRC_struct__10964 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
   kcg_equ = kcg_true;
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10897(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10952(
       &kcg_c1->p42_sessionManagement,
       &kcg_c2->p42_sessionManagement);
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10868(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10923(
       &kcg_c1->p131_RBC_TransitionOrder,
       &kcg_c2->p131_RBC_TransitionOrder);
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10880(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10935(
       &kcg_c1->m39_acknowledgementOfTerminationOfACommunicationSession,
       &kcg_c2->m39_acknowledgementOfTerminationOfACommunicationSession);
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10880(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10935(
       &kcg_c1->m38_initiationOfACommunicationSession,
       &kcg_c2->m38_initiationOfACommunicationSession);
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10888(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10943(
       &kcg_c1->m32_RBC_RIU_systemVersion,
       &kcg_c2->m32_RBC_RIU_systemVersion);
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10880(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10935(
       &kcg_c1->m24_generalMessage,
       &kcg_c2->m24_generalMessage);
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10918(
-  MoRC_struct__10918 *kcg_c1,
-  MoRC_struct__10918 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10973(
+  MoRC_struct__10973 *kcg_c1,
+  MoRC_struct__10973 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
   kcg_equ = kcg_true;
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10853(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10908(
       &kcg_c1->m154_NoCompatibleVersionSupported,
       &kcg_c2->m154_NoCompatibleVersionSupported);
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10860(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10915(
       &kcg_c1->m159_SessionEstablished,
       &kcg_c2->m159_SessionEstablished);
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10853(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10908(
       &kcg_c1->m156_terminationOfACommunicationSession,
       &kcg_c2->m156_terminationOfACommunicationSession);
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10853(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10908(
       &kcg_c1->m155_initiationOfACommunicationSession,
       &kcg_c2->m155_initiationOfACommunicationSession);
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10925(
-  MoRC_struct__10925 *kcg_c1,
-  MoRC_struct__10925 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10980(
+  MoRC_struct__10980 *kcg_c1,
+  MoRC_struct__10980 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -290,9 +290,9 @@ kcg_bool MoRC_kcg_comp_struct__10925(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10930(
-  MoRC_struct__10930 *kcg_c1,
-  MoRC_struct__10930 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10985(
+  MoRC_struct__10985 *kcg_c1,
+  MoRC_struct__10985 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -306,9 +306,9 @@ kcg_bool MoRC_kcg_comp_struct__10930(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10937(
-  MoRC_struct__10937 *kcg_c1,
-  MoRC_struct__10937 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10992(
+  MoRC_struct__10992 *kcg_c1,
+  MoRC_struct__10992 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
@@ -322,14 +322,14 @@ kcg_bool MoRC_kcg_comp_struct__10937(
   return kcg_equ;
 }
 
-kcg_bool MoRC_kcg_comp_struct__10944(
-  MoRC_struct__10944 *kcg_c1,
-  MoRC_struct__10944 *kcg_c2)
+kcg_bool MoRC_kcg_comp_struct__10999(
+  MoRC_struct__10999 *kcg_c1,
+  MoRC_struct__10999 *kcg_c2)
 {
   kcg_bool kcg_equ;
   
   kcg_equ = kcg_true;
-  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10937(
+  kcg_equ = kcg_equ && MoRC_kcg_comp_struct__10992(
       &kcg_c1->orderToContactAnAcceptingRBC,
       &kcg_c2->orderToContactAnAcceptingRBC);
   kcg_equ = kcg_equ && kcg_c1->valid == kcg_c2->valid;
@@ -338,6 +338,6 @@ kcg_bool MoRC_kcg_comp_struct__10944(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** kcg_types.c
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:46
 *************************************************************$ */
 

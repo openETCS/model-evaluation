@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:47
 *************************************************************$ */
 #ifndef _MoRC_managementOfRadioCommunication_H_
 #define _MoRC_managementOfRadioCommunication_H_
@@ -37,6 +37,7 @@ typedef struct {
   kcg_bool /* managementOfRadioCommunication::ignoreMessagesFromRBC_exceptAckOfTerminationOfCommunicationSession */ ignoreMessagesFromRBC_exceptAckOfTerminationOfCommunicationSession;
   MoRC_safeRadioConnectionStatusValid_Type /* managementOfRadioCommunication::safeRadioConnectionStatus_toDriver */ safeRadioConnectionStatus_toDriver;
   kcg_bool /* managementOfRadioCommunication::sessionSuccessfullyEstablished */ sessionSuccessfullyEstablished;
+  MoRC_mobileSWStatus_Type /* managementOfRadioCommunication::mobileSWStatus */ mobileSWStatus;
   /* -----------------------  no local probes  ----------------------- */
   /* -------------------- initialization variables  ------------------ */
   kcg_bool init;
@@ -48,7 +49,6 @@ typedef struct {
   kcg_bool /* managementOfRadioCommunication::communicationSessionInitiatedFromTrackside */ communicationSessionInitiatedFromTrackside;
   MoRC_sessionStatus_Type /* managementOfRadioCommunication::sessionStatus */ sessionStatus;
   kcg_bool /* managementOfRadioCommunication::establishingACommunicationSessionAborted */ establishingACommunicationSessionAborted;
-  MoRC_mobileSWStatus_Type /* managementOfRadioCommunication::mobileSWStatus */ mobileSWStatus;
   kcg_bool /* managementOfRadioCommunication::prevSessionTerminatedDueToLossOfSafeRadioConnection */ prevSessionTerminatedDueToLossOfSafeRadioConnection;
   /* ---------------------  sub nodes' contexts  --------------------- */
   MoRC_outC_terminateAndEstablishSession /* 1 */ _9_Context_1;
@@ -118,6 +118,6 @@ extern void MoRC_managementOfRadioCommunication_reset(
 #endif /* _MoRC_managementOfRadioCommunication_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_managementOfRadioCommunication.h
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:47
 *************************************************************$ */
 

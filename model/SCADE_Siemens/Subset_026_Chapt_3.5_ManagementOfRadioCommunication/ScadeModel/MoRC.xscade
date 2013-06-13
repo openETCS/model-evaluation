@@ -3202,6 +3202,11 @@
 								<ed:Value oid="!ed/2f99/1154/1750/515c14e3bfa"/>
 							</pragmas>
 						</Value>
+						<Value name="obo_registerNetwork">
+							<pragmas>
+								<ed:Value oid="!ed/3294/472E/9CC/519e342a2ca8"/>
+							</pragmas>
+						</Value>
 					</values>
 				</Enum>
 			</definition>
@@ -3577,6 +3582,23 @@
 			</value>
 			<pragmas>
 				<ed:Constant oid="!ed/3261/2800/1178/519357e425b3"/>
+			</pragmas>
+		</Constant>
+		<Constant name="cNID_MESSAGE_registerNetwork">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="NID_MESSAGE_Type"/>
+					</type>
+				</NamedType>
+			</type>
+			<value>
+				<ConstValue value="45"/>
+			</value>
+			<pragmas>
+				<ed:Constant oid="!ed/32a3/472E/9CC/519e351b2c" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+					<comment>Cecile: MessageFromRBC : Messages == 45  that corresponds to register order</comment>
+				</ed:Constant>
 			</pragmas>
 		</Constant>
 	</declarations>

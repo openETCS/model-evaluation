@@ -1,0 +1,84 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{booktabs}     %fancy tables
+\usepackage[english]{babel}
+\usepackage{ae,aecompl}   % best than T1 fontenc
+\usepackage{multicol}
+\usepackage[hidelinks]{hyperref}
+\geometry{reset,
+  papersize={210mm,297mm},
+  text={170mm,250mm},
+  headheight=50pt,
+  headsep=10pt,
+  hoffset=0cm,
+  voffset=0cm,
+}
+
+\newcommand{\FIXME}[1]{\marginpar{FIXME}\textsf{FIXME: #1}}
+
+\graphicspath{{schema/pdf/}}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+
+\title{Radio Communication Management \\
+    {\it ERTMS Subset-026-3.5}}
+
+\author{C{\'e}cile Braunstein\\University of Bremen\\
+cecile@informatik.uni-bremen.de}
+\date{\today}                                           % Activate to display a given date or no date
+
+\pagestyle{plain}
+\begin{document}
+
+
+\maketitle
+
+% --------------------------------------------------------------------------------------
+\begin{abstract}
+This document describes the model of the radio communication management The
+model has be made from the specification description of the ERTMS subset-026-3.5
+baseline 3.
+\end{abstract}
+The formalism used is UML/SysML \cite{SysML} and Enterprise Architect \cite{EA} have been
+used for the modeling.
+The model is composed of two packages : the \emph{system} and the
+\emph{requirement}. The system package consists of the SUT model and the TE
+model and a set of constants and enumeration types. The
+requirement package contains all the requirement and a requirement diagram.
+package.
+
+% ----------------------------------------------------
+\section{Model description}
+\label{sec:modeldescription}
+The radio communication management module (MoRC) is the user application interacting
+with Euroradio protocol. In the following model only the general behaviors is
+presented, the actual details of how messages are transported are not relevant
+for this description.
+\input{modelDescription}
+% ----------------------------------------------------
+\section{Requirements Modeling}
+\label{sec:requirements}
+The model describes in section \ref{sec:modeldescription} is a direct
+translation of the SUBSET026-chap 3.5. This section describes how the model is
+related to the specification.
+\input{requirements}
+% ----------------------------------------------------
+\section{Test Generation}
+\label{sec:tests}
+\input{rttester}
+% ----------------------------------------------------
+%\section{Others Benchmark}
+%Further investigation have been made for modeling other part of the ETCS.
+%\include{other_bench}
+\bibliographystyle{plain}
+\bibliography{model}
+
+\end{document}  

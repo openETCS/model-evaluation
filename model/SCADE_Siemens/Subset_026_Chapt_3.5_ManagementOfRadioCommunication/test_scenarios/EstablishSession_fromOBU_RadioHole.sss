@@ -11,7 +11,19 @@ SSM::set MoRC_withSimplified_IF/systemVersionIsCompatible false
 SSM::set MoRC_withSimplified_IF/M_Level ETCS_Level_0
 SSM::set MoRC_withSimplified_IF/M_Mode ETCS_Mode_FullSupervision
 SSM::set MoRC_withSimplified_IF/actualTime 0
-SSM::cycle 3
+SSM::set MoRC_withSimplified_IF/RadioNetworkID_memorized 1111
+SSM::set MoRC_withSimplified_IF/RadioNetworkID_fromDriver 2222
+SSM::set MoRC_withSimplified_IF/RadioNetworkID_fromTrackside 3333
+SSM::set MoRC_withSimplified_IF/powerAvailable false
+SSM::set MoRC_withSimplified_IF/mobileHWConnectionStatus mhwc_notRegistered
+SSM::cycle 1
+
+SSM::set MoRC_withSimplified_IF/powerAvailable true
+SSM::cycle 1
+
+
+SSM::cycle 1
+
 
 # Now the SCADE model sets safeRadioCommunication_requestSetUp = true => waits for the mobile to register
 # The test environment acknowledges the registration with safeRadioCommunication_setUpEstablished true
@@ -25,6 +37,7 @@ SSM::set MoRC_withSimplified_IF/orderFromOnBoard obo_noOrder
 SSM::set MoRC_withSimplified_IF/systemVersionIsCompatible false
 SSM::set MoRC_withSimplified_IF/M_Level ETCS_Level_0
 SSM::set MoRC_withSimplified_IF/M_Mode ETCS_Mode_FullSupervision
+SSM::set MoRC_withSimplified_IF/mobileHWConnectionStatus mhwc_registered
 SSM::set MoRC_withSimplified_IF/actualTime 0
 SSM::cycle 1
 
@@ -113,6 +126,7 @@ SSM::set MoRC_withSimplified_IF/actualTime 0
 SSM::cycle 2
 
 # Loosing the mobile radio connection: safeRadioCommunication_setUpEstablished := false
+#		mobileHWConnectionStatus := mhwc_notRegistered
 
 # radioHole_status := rhs_begin
 SSM::set MoRC_withSimplified_IF/messageFromRBC 0
@@ -123,6 +137,7 @@ SSM::set MoRC_withSimplified_IF/orderFromOnBoard obo_noOrder
 SSM::set MoRC_withSimplified_IF/systemVersionIsCompatible false
 SSM::set MoRC_withSimplified_IF/M_Level ETCS_Level_0
 SSM::set MoRC_withSimplified_IF/M_Mode ETCS_Mode_FullSupervision
+SSM::set MoRC_withSimplified_IF/mobileHWConnectionStatus mhwc_notRegistered
 SSM::set MoRC_withSimplified_IF/actualTime 0
 # cycle 16 + 17 +18
 SSM::cycle 3
@@ -165,6 +180,7 @@ SSM::set MoRC_withSimplified_IF/orderFromOnBoard obo_noOrder
 SSM::set MoRC_withSimplified_IF/systemVersionIsCompatible false
 SSM::set MoRC_withSimplified_IF/M_Level ETCS_Level_0
 SSM::set MoRC_withSimplified_IF/M_Mode ETCS_Mode_FullSupervision
+SSM::set MoRC_withSimplified_IF/mobileHWConnectionStatus mhwc_registered
 SSM::set MoRC_withSimplified_IF/actualTime 0
 # cycle 23 + 24
 SSM::cycle 2

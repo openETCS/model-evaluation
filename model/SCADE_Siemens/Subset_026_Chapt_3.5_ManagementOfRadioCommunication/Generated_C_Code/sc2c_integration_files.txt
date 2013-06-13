@@ -14,10 +14,10 @@ MoRC_waitAndRepeatTimer.h
 MoRC_maintaining_a_CommunicationSession.h
 MoRC_countDownTimer.h
 MoRC_establish_a_CommunicationSession.h
-MoRC_isOrderToEstablishConnection.h
-MoRC_Initiate_a_Session.h
 MoRC_evaluateOrderToContactAnRBD.h
 MoRC_FallingEdge_digital.h
+MoRC_isOrderToEstablishConnection.h
+MoRC_Initiate_a_Session.h
 kcg_types.h
 kcg_consts.h
 kcg_sensors.h
@@ -38,10 +38,10 @@ MoRC_waitAndRepeatTimer.c
 MoRC_maintaining_a_CommunicationSession.c
 MoRC_countDownTimer.c
 MoRC_establish_a_CommunicationSession.c
-MoRC_isOrderToEstablishConnection.c
-MoRC_Initiate_a_Session.c
 MoRC_evaluateOrderToContactAnRBD.c
 MoRC_FallingEdge_digital.c
+MoRC_isOrderToEstablishConnection.c
+MoRC_Initiate_a_Session.c
 kcg_types.c
 kcg_consts.c
 

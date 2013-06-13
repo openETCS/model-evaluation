@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:47
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -37,7 +37,7 @@ void MoRC_registeringToTheRadioNetwork(
   /* registeringToTheRadioNetwork::RadioNetworkID_Default */MoRC_validRadioNetworkID_Type *RadioNetworkID_Default,
   MoRC_outC_registeringToTheRadioNetwork *outC)
 {
-  MoRC_struct__10826 tmp;
+  MoRC_struct__10881 tmp;
   /* registeringToTheRadioNetwork::_L32 */ kcg_bool _L32;
   /* registeringToTheRadioNetwork::_L44 */ kcg_bool _L44;
   /* registeringToTheRadioNetwork::_L76 */ MoRC_mobileSWStatus_Type _L76;
@@ -147,6 +147,6 @@ void MoRC_registeringToTheRadioNetwork(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_registeringToTheRadioNetwork.c
-** Generation date: 2013-05-15T14:10:00
+** Generation date: 2013-06-05T16:29:47
 *************************************************************$ */
 
