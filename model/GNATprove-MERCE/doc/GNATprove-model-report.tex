@@ -31,7 +31,7 @@
 \subtitle{Tool and model presentation}
 
 %set the date of the report here
-\date{8th of April 2013}
+\date{18th of June 2013}
 
 %define a list of authors and their affiliation here
 \author{David Mentré}
@@ -48,7 +48,7 @@ email: \url{d.mentre@fr.merce.mee.com}
 \coverart[width=350pt]{openETCS_EUPL.png}
 
 %define the type of report
-\reporttype{Draft Report, version 1}
+\reporttype{Draft Report, version 2}
 
 
 \begin{abstract}
@@ -225,7 +225,7 @@ advantages to using GNATprove:
 \item The description is rather concise, which we see as a very
   positive point;
 \item By writing as comment the reference to the corresponding SRS
-  paragraph, we have a basic but affective traceability. This approach
+  paragraph, we have a basic but effective traceability. This approach
   could probably be automated, for example using tools to produce
   traceability matrix for verification purpose;
 \item We were able to express formally most of requirements found in
@@ -266,15 +266,11 @@ the model. We have attempted to make such proof:
   cannot be proved.
 \end{itemize}
 
-Some formalization are generating a lot of VC, e.g. about 9,000 for
-\Ada{Step_Function.Restrictive_Merge} function. This is going to be
-fixed in the next release of GNATprove tool in
-2013\footnote{\label{fn:gnatprove-improvements}\url{http://lists.forge.open-do.org/pipermail/hi-lite-discuss/2013-April/001270.html}}.
-
-In case a VC is not proved, the GNATprove error message is sometimes
-difficult to understand or even missing. This point is going to be
-significantly improved in next release of GNATprove\footnote{Same
-  reference as footnote \ref{fn:gnatprove-improvements}}.
+In case a VC is not proved, the GNATprove message is not very
+explicit. One should select the line and do ``Proof::Prove Line'' on
+it: GNATprove will give more information on the error, for example by
+splitting conjunctions and detailing specific cases that are not
+proved.
 
 GNATprove tool is handling quite well integer types. It is therefore
 relatively easy to prove absence of Run Time Errors like overflow,
@@ -285,7 +281,7 @@ difficult to prove range checks.
 
 More fundamentally, we are formally specifying or verifying detailed
 algorithms described in the SRS, but the underlying principles,
-i.e. those related to safety, are not explicitely stated. Therefore we
+i.e. those related to safety, are not explicitly stated. Therefore we
 are not sure such a modeling effort would be worth it for a real
 development (except maybe for absence of Run Time Error).
 
@@ -435,6 +431,12 @@ All those functions can be compiled and tested (see examples below).
 
 We have tried to prove them, but except for the simplest ones some
 unproved and sometimes complex VCs are remaining.
+
+One will notice that we are using both \Ada{Assert} and
+\Ada{Loop_Invariant} annotations. \Ada{Loop_Invariant} states a loop
+invariant, i.e. a property valid at loop entry and should be true at
+next loop interation. \Ada{Assert} states a property that should be
+valid at the point it is inserted.
 
 \lstinputlisting[language=Ada,firstline=21]{../src/step_function.ads}
 \lstinputlisting[language=Ada,firstline=21]{../src/step_function.adb}
