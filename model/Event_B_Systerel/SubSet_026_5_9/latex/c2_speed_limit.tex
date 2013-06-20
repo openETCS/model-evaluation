@@ -1,0 +1,15 @@
+\begin{description}
+\CONTEXT{c2\_speed\_limit}
+\EXTENDS{c1\_mode\_profile}
+\CONSTANTS
+        \begin{description}
+                \Item{ c\_OS\_speed\_limit }
+                \Item{ f\_speed\_exceeds }
+        \end{description}
+\AXIOMS
+        \begin{description}
+                \nItem{ axm1 }{ c\_OS\_speed\_limit \in  t\_speed }\cmt{		\\\hspace*{1,4 cm}  constant OS speed limit }
+                \nItem{ axm2 }{ f\_speed\_exceeds \in  t\_speed \cprod  t\_speed \tfun  BOOL }\cmt{		\\\hspace*{1,4 cm}  f$\_$speed$\_$exceeds (x, y) is TRUE if speed x exceeds speed y, else FALSE }
+        \end{description}
+\END
+\end{description}

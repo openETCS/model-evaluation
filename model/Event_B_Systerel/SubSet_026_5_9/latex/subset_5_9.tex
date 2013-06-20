@@ -77,15 +77,15 @@ events.
 For a short introduction on Event-B and the usage of Rodin with models on github
 see~\url{https://github.com/openETCS/model-evaluation/blob/master/model/B-Systerel/Event_B/rodin-projects-github.pdf?raw=true}
 
-\begin{table}[ht]
-  \centering
-  \begin{tabular}[ht]{|l|l|}
-    \hline
-    \hline
-  \end{tabular}
-  \caption{Glossary}
-  \label{tab:glossary}
-\end{table}
+% \begin{table}[ht]
+%   \centering
+%   \begin{tabular}[ht]{|l|l|}
+%     \hline
+%     \hline
+%   \end{tabular}
+%   \caption{Glossary}
+%   \label{tab:glossary}
+% \end{table}
 
 \section{Modeling Strategy}
 \label{sec:modeling-strategy}
@@ -109,7 +109,7 @@ arrow from one context to another represents an extension relation.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=.3\textwidth]{SubSet_026_5_9}
+  \includegraphics[width=.5\textwidth]{SubSet_026_5_9}
   \caption{Overview on State Machine and Context Hierarchy}
   \label{fig:model-overview}
 \end{figure}
@@ -144,7 +144,8 @@ an extensive proof support for properties.
   be highlighted which helps understand model behavior.
 \item {\bf Safety Properties} Using Rodin's proof support and the formalization
   as invariants, it is possible to formalize and prove the identified safety
-  properties of the case study (see Section~\ref{sec:machine-3-accepting}).
+  properties of the case study (see \binv{inv2} and \binv{inv10} in
+  Section~\ref{sec:machine-5-speed}).
 \end{itemize}
 
 \section{Detailed Model Description}
@@ -161,7 +162,7 @@ initialized empty, integers with value 0 and Boolean variables with false.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=.75\textwidth]{FlowChart}
+  \includegraphics[width=.9\textwidth]{FlowChart}
   \caption{Flowchart for "On-Sight" Procedure~\cite{SRS-026-330}}
   \label{fig:flowchart-OS-mode}
 \end{figure}
