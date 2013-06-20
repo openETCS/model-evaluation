@@ -1325,7 +1325,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKRKZZITEeKeNu01Ba96ig"/>
           </children>
           <element xmi:type="uml:Region" href="model.uml#_PJ-PYJITEeKeNu01Ba96ig"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKRKZpITEeKeNu01Ba96ig" x="-50" y="-4" width="989" height="441"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKRKZpITEeKeNu01Ba96ig" width="989" height="441"/>
         </children>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKRKZ5ITEeKeNu01Ba96ig" y="15" width="989" height="441"/>
       </children>
