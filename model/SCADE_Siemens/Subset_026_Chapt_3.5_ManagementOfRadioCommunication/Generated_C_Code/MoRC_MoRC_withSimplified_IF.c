@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-06-05T16:29:47
+** Generation date: 2013-08-01T09:52:22
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -19,10 +19,10 @@ void MoRC_MoRC_withSimplified_IF(
   MoRC_inC_MoRC_withSimplified_IF *inC,
   MoRC_outC_MoRC_withSimplified_IF *outC)
 {
-  MoRC_struct__10893 tmp;
-  MoRC_struct__10893 tmp1;
-  MoRC_struct__10893 tmp2;
-  MoRC_struct__10887 tmp3;
+  MoRC_struct__10910 tmp;
+  MoRC_struct__10910 tmp1;
+  MoRC_struct__10910 tmp2;
+  MoRC_struct__10904 tmp3;
   kcg_bool tmp7;
   MoRC_orderToContactAnRBC_Type tmp6;
   kcg_bool tmp5;
@@ -177,7 +177,7 @@ void MoRC_MoRC_withSimplified_IF(
     kcg_true,
     initiateCmd_fromOBU,
     (kcg_bool) (MoRC_rhs_end == inC->radioHole_status),
-    kcg_true,
+    kcg_false,
     (kcg_bool)
       (MoRC_rhs_begin == inC->radioHole_status || inC->radioHole_status ==
         MoRC_rhs_inside),
@@ -190,13 +190,11 @@ void MoRC_MoRC_withSimplified_IF(
     outC->Context_1.memorizeTheLastRadioNetworkID;
   outC->radioComSesssionEstablished =
     outC->Context_1.sessionSuccessfullyEstablished;
-  outC->mobileHWCmd = outC->Context_1.mobileHWCmd.action;
   outC->safeRadioCommunication_requestSetUp =
-    outC->Context_1.mobileHWCmd.valid && outC->mobileHWCmd ==
-    MoRC_mhwa_register;
+    outC->Context_1.requestTheSetupOfASafeRadioConnection;
   outC->safeRadioCommunication_releaseSetUp =
-    outC->Context_1.mobileHWCmd.valid && outC->mobileHWCmd ==
-    MoRC_mhwa_unregister;
+    outC->Context_1.requestReleaseOfSafeRadioConnectionWithTrackside;
+  outC->mobileHWCmd = outC->Context_1.mobileHWCmd.action;
   if (outC->Context_1.sendTheMessageInitiationOfCommunicationSessionToTrackside) {
     outC->messageToRBC = MoRC_cNID_MESSAGE_InitiationOfACommunicationSession;
   }
@@ -219,6 +217,6 @@ void MoRC_MoRC_withSimplified_IF(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_MoRC_withSimplified_IF.c
-** Generation date: 2013-06-05T16:29:47
+** Generation date: 2013-08-01T09:52:22
 *************************************************************$ */
 

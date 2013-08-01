@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-06-05T16:29:47
+** Generation date: 2013-08-01T09:52:21
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -32,6 +32,6 @@ void MoRC_FallingEdge_digital(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_FallingEdge_digital.c
-** Generation date: 2013-06-05T16:29:47
+** Generation date: 2013-08-01T09:52:21
 *************************************************************$ */
 

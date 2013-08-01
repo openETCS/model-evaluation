@@ -196,10 +196,10 @@
 			<value>Siemens AG</value>
 		</Prop>
 		<Prop id="73" name="@STUDIO:DATE">
-			<value>2013-06-05</value>
+			<value>2013-08-01</value>
 		</Prop>
 		<Prop id="74" name="@STUDIO:INDEX">
-			<value>Version No 00.03.00</value>
+			<value>Version No 00.04.00</value>
 		</Prop>
 		<Prop id="75" name="@STUDIO:REFERENCE">
 			<value>UNISIG Subset-026-3 3.0.0, Chapter 3.5 &quot;Management of Radio Communication&quot;</value>
@@ -290,7 +290,7 @@
 			<configuration>36</configuration>
 		</Prop>
 		<Prop id="116" name="@REPORTER:IssueNr">
-			<value>Version No 00.02.00</value>
+			<value>Version No 00.04.00</value>
 			<configuration>36</configuration>
 		</Prop>
 		<Prop id="117" name="@REPORTER:ReferenceNr">

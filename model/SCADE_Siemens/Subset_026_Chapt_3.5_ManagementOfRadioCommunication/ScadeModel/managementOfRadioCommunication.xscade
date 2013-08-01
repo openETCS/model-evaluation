@@ -766,6 +766,38 @@
 						<ed:Variable oid="!ed/3283/1465/2464/519ca7247e07"/>
 					</pragmas>
 				</Variable>
+				<Variable name="requestTheSetupOfASafeRadioConnection">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<default>
+						<ConstValue value="false"/>
+					</default>
+					<pragmas>
+						<ed:Variable oid="!ed/32e3/276F/1CC8/51f912916b06"/>
+					</pragmas>
+				</Variable>
+				<Variable name="requestReleaseOfSafeRadioConnectionWithTrackside">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<default>
+						<ConstValue value="false"/>
+					</default>
+					<pragmas>
+						<ed:Variable oid="!ed/3307/276F/1CC8/51f914dd6e33" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/4">
+							<comment>3.5.5.2c)</comment>
+						</ed:Variable>
+					</pragmas>
+				</Variable>
 			</outputs>
 			<locals>
 				<Variable name="sessionEstablished">
@@ -901,7 +933,7 @@
 						<ed:Variable oid="!ed/2a73/7CA2/310/50f91f807c6e"/>
 					</pragmas>
 				</Variable>
-				<Variable name="requestTheSetupOfASafeRadioConnection">
+				<Variable name="requestTheSetupOfASafeRadioConnection_loc">
 					<type>
 						<NamedType>
 							<type>
@@ -3728,10 +3760,10 @@
 										<ed:Equation oid="!ed/2af0/7CA2/310/50f925aa6e66"/>
 									</pragmas>
 								</Equation>
-								<!-- requestTheSetupOfASafeRadioConnection = _L20; -->
+								<!-- requestTheSetupOfASafeRadioConnection_loc = _L20; -->
 								<Equation>
 									<lefts>
-										<VariableRef name="requestTheSetupOfASafeRadioConnection"/>
+										<VariableRef name="requestTheSetupOfASafeRadioConnection_loc"/>
 									</lefts>
 									<right>
 										<IdExpression>
@@ -4186,6 +4218,22 @@
 									</right>
 									<pragmas>
 										<ed:Equation oid="!ed/30de/7BA7/1910/515d2e8dc5f"/>
+									</pragmas>
+								</Equation>
+								<!-- requestTheSetupOfASafeRadioConnection = _L20; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="requestTheSetupOfASafeRadioConnection"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L20"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/32e5/276F/1CC8/51f9129e7695"/>
 									</pragmas>
 								</Equation>
 							</data>
@@ -4848,6 +4896,22 @@
 														<Point x="21193" y="16484"/>
 														<Point x="21193" y="17066"/>
 														<Point x="26538" y="17066"/>
+													</positions>
+												</Edge>
+												<EquationGE presentable="!ed/32e5/276F/1CC8/51f9129e7695">
+													<position>
+														<Point x="45297" y="18997"/>
+													</position>
+													<size>
+														<Size width="317" height="503"/>
+													</size>
+												</EquationGE>
+												<Edge leftVarIndex="2" rightExprIndex="1" srcEquation="!ed/2cbc/3E15/13D8/50f6d03632bc" dstEquation="!ed/32e5/276F/1CC8/51f9129e7695">
+													<positions>
+														<Point x="35957" y="18045"/>
+														<Point x="40640" y="18045"/>
+														<Point x="40640" y="19262"/>
+														<Point x="45350" y="19262"/>
 													</positions>
 												</Edge>
 											</presentationElements>
@@ -6781,6 +6845,22 @@
 										<ed:Equation oid="!ed/2c8d/E58/1F70/5112707f2bc0"/>
 									</pragmas>
 								</Equation>
+								<!-- requestReleaseOfSafeRadioConnectionWithTrackside = _L2; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="requestReleaseOfSafeRadioConnectionWithTrackside"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L2"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/330a/276F/1CC8/51f914f933cd"/>
+									</pragmas>
+								</Equation>
 							</data>
 							<until>
 								<Transition kind="restart">
@@ -7120,6 +7200,22 @@
 														<Point x="36777" y="11456"/>
 														<Point x="36777" y="11456"/>
 														<Point x="37941" y="11456"/>
+													</positions>
+												</Edge>
+												<EquationGE presentable="!ed/330a/276F/1CC8/51f914f933cd">
+													<position>
+														<Point x="37888" y="10213"/>
+													</position>
+													<size>
+														<Size width="318" height="503"/>
+													</size>
+												</EquationGE>
+												<Edge leftVarIndex="2" rightExprIndex="1" srcEquation="!ed/28fe/30A/EB4/50f67b657828" dstEquation="!ed/330a/276F/1CC8/51f914f933cd">
+													<positions>
+														<Point x="28443" y="10478"/>
+														<Point x="33179" y="10478"/>
+														<Point x="33179" y="10478"/>
+														<Point x="37941" y="10478"/>
 													</positions>
 												</Edge>
 											</presentationElements>
@@ -7735,7 +7831,7 @@
 						<ed:Equation oid="!ed/2c65/7CA2/310/50f94e3d2cfb"/>
 					</pragmas>
 				</Equation>
-				<!-- _L52 = requestTheSetupOfASafeRadioConnection; -->
+				<!-- _L52 = requestTheSetupOfASafeRadioConnection_loc; -->
 				<Equation>
 					<lefts>
 						<VariableRef name="_L52"/>
@@ -7743,7 +7839,7 @@
 					<right>
 						<IdExpression>
 							<path>
-								<ConstVarRef name="requestTheSetupOfASafeRadioConnection"/>
+								<ConstVarRef name="requestTheSetupOfASafeRadioConnection_loc"/>
 							</path>
 						</IdExpression>
 					</right>

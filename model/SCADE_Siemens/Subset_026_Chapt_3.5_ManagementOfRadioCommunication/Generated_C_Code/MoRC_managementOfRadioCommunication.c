@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-06-05T16:29:47
+** Generation date: 2013-08-01T09:52:22
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -81,10 +81,10 @@ void MoRC_managementOfRadioCommunication(
   /* managementOfRadioCommunication::CommunicationSession_SM::Establishing::_L23 */ kcg_bool _L23_CommunicationSession_SM_Establishing;
   /* managementOfRadioCommunication::CommunicationSession_SM::Establishing::_L24 */ kcg_bool _L24_CommunicationSession_SM_Establishing;
   /* managementOfRadioCommunication::CommunicationSession_SM::Establishing::_L25 */ kcg_bool _L25_CommunicationSession_SM_Establishing;
-  /* managementOfRadioCommunication::CommunicationSession_SM::Maintaining */ kcg_bool br_1_guard_CommunicationSession_SM_Maintaining;
   /* managementOfRadioCommunication::CommunicationSession_SM::Maintaining::_L2 */ kcg_bool _L2_CommunicationSession_SM_Maintaining;
   /* managementOfRadioCommunication::CommunicationSession_SM::Terminating::_L12 */ kcg_bool _L12_CommunicationSession_SM_Terminating;
   /* managementOfRadioCommunication::CommunicationSession_SM::Terminating::_L1 */ kcg_bool _L1_CommunicationSession_SM_Terminating;
+  /* managementOfRadioCommunication::CommunicationSession_SM::Terminating::_L2 */ kcg_bool _L2_CommunicationSession_SM_Terminating;
   /* managementOfRadioCommunication::CommunicationSession_SM::Terminating::_L3 */ kcg_bool _L3_CommunicationSession_SM_Terminating;
   /* managementOfRadioCommunication::mobileSWStatus_loc */ MoRC_mobileSWStatus_Type last_mobileSWStatus_loc;
   /* managementOfRadioCommunication::establishingACommunicationSessionAborted */ kcg_bool last_establishingACommunicationSessionAborted;
@@ -96,6 +96,7 @@ void MoRC_managementOfRadioCommunication(
   /* managementOfRadioCommunication::CommunicationSession_SM */ MoRC_SSM_ST_CommunicationSession_SM CommunicationSession_SM_state_act;
   /* managementOfRadioCommunication::CommunicationSession_SM */ kcg_bool CommunicationSession_SM_reset_sel;
   /* managementOfRadioCommunication::initiateTermination */ kcg_bool initiateTermination;
+  /* managementOfRadioCommunication::_L85 */ kcg_bool _L85;
   
   if (outC->init) {
     last_sessionSuccessfullyEstablished = kcg_false;
@@ -103,7 +104,7 @@ void MoRC_managementOfRadioCommunication(
     last_communicationSessionInitiatedByOBU = kcg_false;
     last_communicationSessionInitiatedFromTrackside = kcg_false;
     last_establishingACommunicationSessionAborted = kcg_false;
-    initiateTermination = kcg_false;
+    _L85 = kcg_false;
     MoRC_kcg_copy_mobileSWStatus_Type(
       &last_mobileSWStatus_loc,
       (MoRC_mobileSWStatus_Type *) &MoRC_cInvalidMobileSWStatus);
@@ -114,8 +115,7 @@ void MoRC_managementOfRadioCommunication(
     CommunicationSession_SM_reset_sel = kcg_false;
   }
   else {
-    initiateTermination =
-      outC->prevSessionTerminatedDueToLossOfSafeRadioConnection;
+    _L85 = outC->prevSessionTerminatedDueToLossOfSafeRadioConnection;
     MoRC_kcg_copy_mobileSWStatus_Type(
       &last_mobileSWStatus_loc,
       &outC->mobileSWStatus);
@@ -154,8 +154,8 @@ void MoRC_managementOfRadioCommunication(
     &outC->_9_Context_1);
   switch (CommunicationSession_SM_state_act) {
     case MoRC_SSM_st_Terminating_CommunicationSession_SM :
-      br_1_guard_CommunicationSession_SM_Maintaining = kcg_false;
       _L38_CommunicationSession_SM_NoSession = kcg_false;
+      outC->requestTheSetupOfASafeRadioConnection = kcg_false;
       if (CommunicationSession_SM_reset_sel) {
         /* 1 */
         MoRC_terminating_a_CommunicationSession_reset(&outC->_7_Context_1);
@@ -171,11 +171,13 @@ void MoRC_managementOfRadioCommunication(
         &outC->_7_Context_1);
       _L1_CommunicationSession_SM_Terminating =
         outC->_7_Context_1.sendATerminationOfCommunicationMessage;
+      _L2_CommunicationSession_SM_Terminating =
+        outC->_7_Context_1.requestReleaseOfSafeRadioConnectionWithTrackside;
       _L3_CommunicationSession_SM_Terminating =
         outC->_7_Context_1.ignoreMessagesFromRBC_exceptAckOfTerminationOfCommunicationSession;
       _L12_CommunicationSession_SM_Terminating =
         outC->_7_Context_1.communicationSessionTerminated;
-      if (outC->_7_Context_1.requestReleaseOfSafeRadioConnectionWithTrackside) {
+      if (_L2_CommunicationSession_SM_Terminating) {
         MoRC_kcg_copy_mobileSWCmd_Type(
           &tmp,
           (MoRC_mobileSWCmd_Type *) &MoRC_cTerminateSafeRadioConnectionCmd);
@@ -186,12 +188,11 @@ void MoRC_managementOfRadioCommunication(
           (MoRC_mobileSWCmd_Type *) &MoRC_cInvalidMobileSWCmd);
       }
       br_1_guard_CommunicationSession_SM_Establishing = kcg_false;
-      outC->prevSessionTerminatedDueToLossOfSafeRadioConnection =
-        initiateTermination;
+      outC->prevSessionTerminatedDueToLossOfSafeRadioConnection = _L85;
       break;
     case MoRC_SSM_st_Maintaining_CommunicationSession_SM :
-      br_1_guard_CommunicationSession_SM_Maintaining = kcg_false;
       _L38_CommunicationSession_SM_NoSession = kcg_false;
+      outC->requestTheSetupOfASafeRadioConnection = kcg_false;
       if (CommunicationSession_SM_reset_sel) {
         /* 1 */
         MoRC_maintaining_a_CommunicationSession_reset(&outC->_6_Context_1);
@@ -269,10 +270,10 @@ void MoRC_managementOfRadioCommunication(
         outC->_8_Context_2.sessionSuccessfullyEstablished;
       _L35_CommunicationSession_SM_Establishing =
         outC->_8_Context_2.establishingACommunicationSessionAborted;
+      outC->requestTheSetupOfASafeRadioConnection =
+        outC->_8_Context_2.requestTheSetupOfASafeRadioConnection;
       _L38_CommunicationSession_SM_NoSession =
         outC->_8_Context_2.requestsToSetupTheSafeRadioConnectionStopped;
-      br_1_guard_CommunicationSession_SM_Maintaining =
-        outC->_8_Context_2.requestTheSetupOfASafeRadioConnection;
       MoRC_kcg_copy_mobileSWCmd_Type(
         &tmp,
         (MoRC_mobileSWCmd_Type *) &MoRC_cInvalidMobileSWCmd);
@@ -282,14 +283,13 @@ void MoRC_managementOfRadioCommunication(
         outC->_8_Context_2.firstRequestToSetupASafeRadioConnection;
       break;
     case MoRC_SSM_st_NoSession_CommunicationSession_SM :
-      br_1_guard_CommunicationSession_SM_Maintaining = kcg_false;
       _L38_CommunicationSession_SM_NoSession = kcg_false;
+      outC->requestTheSetupOfASafeRadioConnection = kcg_false;
       MoRC_kcg_copy_mobileSWCmd_Type(
         &tmp,
         (MoRC_mobileSWCmd_Type *) &MoRC_cInvalidMobileSWCmd);
       br_1_guard_CommunicationSession_SM_Establishing = kcg_false;
-      outC->prevSessionTerminatedDueToLossOfSafeRadioConnection =
-        initiateTermination;
+      outC->prevSessionTerminatedDueToLossOfSafeRadioConnection = _L85;
       break;
     
   }
@@ -298,7 +298,7 @@ void MoRC_managementOfRadioCommunication(
     atPowerUp,
     afterDriverEntryOfANewRadioNetworkID,
     M_LEVEL,
-    br_1_guard_CommunicationSession_SM_Maintaining,
+    outC->requestTheSetupOfASafeRadioConnection,
     _L38_CommunicationSession_SM_NoSession,
     atPowerOff,
     RadioNetworkID_memorized,
@@ -324,8 +324,7 @@ void MoRC_managementOfRadioCommunication(
   MoRC_kcg_copy_mobileSWStatus_Type(
     &outC->mobileSWStatus,
     &outC->_5_Context_1.mobileSWStatus);
-  br_1_guard_CommunicationSession_SM_Maintaining =
-    outC->mobileSWStatus.connectionStatus == MoRC_mswc_registered;
+  _L85 = outC->mobileSWStatus.connectionStatus == MoRC_mswc_registered;
   /* 1 */
   MoRC_FallingEdge_digital(
     (kcg_bool) (M_LEVEL == MoRC_ETCS_Level_1),
@@ -346,14 +345,8 @@ void MoRC_managementOfRadioCommunication(
   outC->sendAPositionReport = outC->_3_Context_2.sendAPositionReport;
   initiateTermination = outC->_3_Context_2.initiateTermination ||
     outC->_9_Context_1.initiateTermination;
-  /* 2 */
-  MoRC_RisingEdge_digital(
-    br_1_guard_CommunicationSession_SM_Maintaining,
-    &outC->_2_Context_2);
-  /* 2 */
-  MoRC_FallingEdge_digital(
-    br_1_guard_CommunicationSession_SM_Maintaining,
-    &outC->Context_2);
+  /* 2 */ MoRC_RisingEdge_digital(_L85, &outC->_2_Context_2);
+  /* 2 */ MoRC_FallingEdge_digital(_L85, &outC->Context_2);
   /* 3 */
   MoRC_RisingEdge_digital(
     (kcg_bool)
@@ -388,6 +381,7 @@ void MoRC_managementOfRadioCommunication(
       outC->ignoreMessagesFromRBC_exceptAckOfTerminationOfCommunicationSession =
         kcg_false;
       outC->sessionSuccessfullyEstablished = kcg_false;
+      outC->requestReleaseOfSafeRadioConnectionWithTrackside = kcg_false;
       outC->sessionEstablished = kcg_false;
       _L38_CommunicationSession_SM_NoSession = /* 2 */
         MoRC_isOrderToEstablishConnection(orderReceivedFromRadio_InfillUnit);
@@ -438,6 +432,7 @@ void MoRC_managementOfRadioCommunication(
       outC->sendATerminationOfCommunicationMessage = kcg_false;
       outC->ignoreMessagesFromRBC_exceptAckOfTerminationOfCommunicationSession =
         kcg_false;
+      outC->requestReleaseOfSafeRadioConnectionWithTrackside = kcg_false;
       br_1_guard_CommunicationSession_SM_Establishing =
         _L24_CommunicationSession_SM_Establishing || initiateTermination;
       if (br_1_guard_CommunicationSession_SM_Establishing) {
@@ -483,11 +478,10 @@ void MoRC_managementOfRadioCommunication(
       outC->sendATerminationOfCommunicationMessage = kcg_false;
       outC->ignoreMessagesFromRBC_exceptAckOfTerminationOfCommunicationSession =
         kcg_false;
-      br_1_guard_CommunicationSession_SM_Maintaining = kcg_false ||
-        initiateTermination;
-      outC->CommunicationSession_SM_reset_nxt =
-        br_1_guard_CommunicationSession_SM_Maintaining;
-      if (br_1_guard_CommunicationSession_SM_Maintaining) {
+      outC->requestReleaseOfSafeRadioConnectionWithTrackside = kcg_false;
+      _L85 = kcg_false || initiateTermination;
+      outC->CommunicationSession_SM_reset_nxt = _L85;
+      if (_L85) {
         outC->CommunicationSession_SM_state_nxt =
           MoRC_SSM_st_Terminating_CommunicationSession_SM;
       }
@@ -530,6 +524,8 @@ void MoRC_managementOfRadioCommunication(
       outC->communicationSessionInitiatedByOBU =
         last_communicationSessionInitiatedByOBU;
       outC->sessionEstablished = last_sessionEstablished;
+      outC->requestReleaseOfSafeRadioConnectionWithTrackside =
+        _L2_CommunicationSession_SM_Terminating;
       outC->sessionSuccessfullyEstablished =
         last_sessionSuccessfullyEstablished;
       outC->ignoreMessagesFromRBC_exceptAckOfTerminationOfCommunicationSession =
@@ -543,6 +539,6 @@ void MoRC_managementOfRadioCommunication(
 
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_managementOfRadioCommunication.c
-** Generation date: 2013-06-05T16:29:47
+** Generation date: 2013-08-01T09:52:22
 *************************************************************$ */
 

@@ -1,6 +1,6 @@
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-06-05T16:29:47
+** Generation date: 2013-08-01T09:52:21
 *************************************************************$ */
 #ifndef _MoRC_managementOfRadioCommunication_H_
 #define _MoRC_managementOfRadioCommunication_H_
@@ -38,6 +38,8 @@ typedef struct {
   MoRC_safeRadioConnectionStatusValid_Type /* managementOfRadioCommunication::safeRadioConnectionStatus_toDriver */ safeRadioConnectionStatus_toDriver;
   kcg_bool /* managementOfRadioCommunication::sessionSuccessfullyEstablished */ sessionSuccessfullyEstablished;
   MoRC_mobileSWStatus_Type /* managementOfRadioCommunication::mobileSWStatus */ mobileSWStatus;
+  kcg_bool /* managementOfRadioCommunication::requestTheSetupOfASafeRadioConnection */ requestTheSetupOfASafeRadioConnection;
+  kcg_bool /* managementOfRadioCommunication::requestReleaseOfSafeRadioConnectionWithTrackside */ requestReleaseOfSafeRadioConnectionWithTrackside;
   /* -----------------------  no local probes  ----------------------- */
   /* -------------------- initialization variables  ------------------ */
   kcg_bool init;
@@ -118,6 +120,6 @@ extern void MoRC_managementOfRadioCommunication_reset(
 #endif /* _MoRC_managementOfRadioCommunication_H_ */
 /* $*************** KCG Version 6.1.3 (build i6) ****************
 ** MoRC_managementOfRadioCommunication.h
-** Generation date: 2013-06-05T16:29:47
+** Generation date: 2013-08-01T09:52:21
 *************************************************************$ */
 
