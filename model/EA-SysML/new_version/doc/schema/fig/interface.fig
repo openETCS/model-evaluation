@@ -81,7 +81,6 @@ Single
 4 1 0 50 -1 0 14 0.0000 0 165 525 6165 1215 RTM\001
 4 0 0 49 -1 5 10 0.0000 0 135 1995 4545 1485 MessageFromRBC(255)\001
 4 0 0 49 -1 5 10 0.0000 0 135 1575 4545 1845 NID_RBC_ID(128)\001
-4 0 0 49 -1 5 10 0.0000 0 135 4410 4545 2160 safeRadioCommunication_setUpEstablished/1(\001
 4 0 0 49 -1 5 10 0.0000 0 135 1995 4545 2520 radioHole_status(3)\001
 4 0 0 49 -1 5 10 0.0000 0 135 1785 4545 2925 MessageToRBC(255)\001
 4 0 0 49 -1 5 10 0.0000 0 135 3990 4545 3240 safeRadioCommunication_requestSetUp(1)\001
@@ -99,3 +98,4 @@ Single
 4 0 0 49 -1 5 10 0.0000 0 120 2100 4545 4005 actualNetworkID(255)\001
 4 0 0 49 -1 5 10 0.0000 0 135 3465 4590 4995 RadioNetworkID_fromTrackside(255)\001
 4 0 0 49 -1 5 10 0.0000 0 120 2835 4590 4635 mobileHWConnectionStatus(3)\001
+4 0 0 49 -1 5 10 0.0000 0 135 4410 4545 2160 safeRadioCommunication_setUpEstablished(1)\001
