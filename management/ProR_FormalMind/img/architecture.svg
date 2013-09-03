@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="400"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="architecture.svg">
+  <defs
+     id="defs4">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern5511-9"
+       id="pattern5769"
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,52.475248,-79.207921)" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1white"
+       id="pattern5511"
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,52.475248,-79.207921)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1 white"
+       id="Strips1_1white"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4789"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:white;stroke:none" />
+    </pattern>
+    <pattern
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,-239.10475,-282.56873)"
+       id="pattern5537"
+       xlink:href="#pattern5511-9"
+       inkscape:collect="always" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1white-2"
+       id="pattern5511-9"
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,1.980198,0)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1 white"
+       id="Strips1_1white-2"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4789-3"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:white;stroke:none" />
+    </pattern>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter3805-4-9-7">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.1179688"
+         id="feGaussianBlur3807-8-1-9" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter3805-42">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.1179688"
+         id="feGaussianBlur3807-36" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter3805-9-7">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.1179688"
+         id="feGaussianBlur3807-3-5" />
+    </filter>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1white-7"
+       id="pattern5511-6"
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,114.38376,579.40897)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1 white"
+       id="Strips1_1white-7"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4789-5"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:white;stroke:none" />
+    </pattern>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter3805-4-7">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.1179688"
+         id="feGaussianBlur3807-8-9" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter3805-6-7">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.1179688"
+         id="feGaussianBlur3807-7-8" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter3805-9-2-2">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.1179688"
+         id="feGaussianBlur3807-3-2-6" />
+    </filter>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern5511-9-4"
+       id="pattern5769-8"
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,114.38376,579.40897)" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1white-2-0"
+       id="pattern5511-9-4"
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,1.980198,0)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1 white"
+       id="Strips1_1white-2-0"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4789-3-1"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:white;stroke:none" />
+    </pattern>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter3805-4-1-0">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.1179688"
+         id="feGaussianBlur3807-8-4-1" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter3805-6-6-6">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.1179688"
+         id="feGaussianBlur3807-7-6-2" />
+    </filter>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1white-7-8"
+       id="pattern5511-6-4"
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,114.38376,579.40897)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1 white"
+       id="Strips1_1white-7-8"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4789-5-3"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:white;stroke:none" />
+    </pattern>
+    <pattern
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,-239.10766,-376.56027)"
+       id="pattern6754"
+       xlink:href="#pattern5769-8-3"
+       inkscape:collect="always" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern5511-9-4-8"
+       id="pattern5769-8-3"
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,114.38376,579.40897)" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1white-2-0-9"
+       id="pattern5511-9-4-8"
+       patternTransform="matrix(4.9002979,5.1734151,-22.118919,20.951207,1.980198,0)" />
+    <pattern
+       inkscape:stockid="Stripes 1:1 white"
+       id="Strips1_1white-2-0-9"
+       patternTransform="translate(0,0) scale(10,10)"
+       height="1"
+       width="2"
+       patternUnits="userSpaceOnUse"
+       inkscape:collect="always">
+      <rect
+         id="rect4789-3-1-8"
+         height="2"
+         width="1"
+         y="-0.5"
+         x="0"
+         style="fill:white;stroke:none" />
+    </pattern>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.16"
+     inkscape:cx="348.59507"
+     inkscape:cy="148.06868"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1785"
+     inkscape:window-height="943"
+     inkscape:window-x="1920"
+     inkscape:window-y="35"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-652.36218)">
+    <rect
+       style="color:#000000;fill:#cdcdcd;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect2985-5-3-4"
+       width="153.96895"
+       height="33.006134"
+       x="409.79712"
+       y="1067.7556"
+       ry="13.861386"
+       rx="13.861383" />
+    <rect
+       style="fill:url(#pattern5769-8-3);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1;color:#000000;fill-rule:nonzero;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect2985-5-3"
+       width="153.96895"
+       height="33.006134"
+       x="409.79712"
+       y="1067.7556"
+       ry="13.861386"
+       rx="13.861383" />
+    <path
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="4.9504952"
+       inkscape:original="M 232.71875 774.1875 L 201.1875 789.59375 L 169.6875 805 L 201.1875 820.40625 L 232.71875 835.8125 L 232.71875 822.0625 L 290.03125 822.0625 L 290.03125 835.8125 L 321.5625 820.40625 L 353.09375 805 L 321.5625 789.59375 L 290.03125 774.1875 L 290.03125 787.9375 L 232.71875 787.9375 L 232.71875 774.1875 z "
+       xlink:href="#path5661"
+       style="color:#000000;fill:#c5c5c5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter3805-4-9-7);enable-background:accumulate"
+       id="path5744"
+       inkscape:href="#path5661"
+       d="m 232.5625,767.25 a 4.9509903,4.9509903 0 0 0 -2.03125,0.5 L 199,783.15625 167.5,798.5625 a 4.9509903,4.9509903 0 0 0 0,8.875 L 199,822.84375 230.53125,838.25 a 4.9509903,4.9509903 0 0 0 7.125,-4.4375 l 0,-8.8125 47.4375,0 0,8.8125 a 4.9509903,4.9509903 0 0 0 7.125,4.4375 L 323.75,822.84375 355.28125,807.4375 a 4.9509903,4.9509903 0 0 0 0,-8.875 L 323.75,783.15625 292.21875,767.75 a 4.9509903,4.9509903 0 0 0 -7.125,4.4375 l 0,8.8125 -47.4375,0 0,-8.8125 A 4.9509903,4.9509903 0 0 0 232.5625,767.25 z"
+       transform="translate(1.9802028,0.990099)" />
+    <path
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="4.9504952"
+       inkscape:original="M 28.09375 769.40625 C 20.414543 769.40625 14.25 775.57079 14.25 783.25 L 14.25 830.78125 C 14.25 838.46046 20.414543 844.65625 28.09375 844.65625 L 154.84375 844.65625 C 162.52296 844.65625 168.6875 838.46046 168.6875 830.78125 L 168.6875 783.25 C 168.6875 775.57079 162.52296 769.40625 154.84375 769.40625 L 28.09375 769.40625 z "
+       xlink:href="#rect2985"
+       style="fill:#c5c5c5;fill-opacity:1;stroke:none;filter:url(#filter3805-42)"
+       id="path3779"
+       inkscape:href="#rect2985"
+       d="m 28.09375,762.46875 c -10.328571,0 -18.78125,8.45268 -18.78125,18.78125 l 0,47.53125 c 0,10.32857 8.439248,18.8125 18.78125,18.8125 l 126.75,0 c 10.342,0 18.78125,-8.48393 18.78125,-18.8125 l 0,-47.53125 c 0,-10.32857 -8.45268,-18.78125 -18.78125,-18.78125 l -126.75,0 z"
+       transform="translate(1.9801928,3.960389)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect2985"
+       width="154.45544"
+       height="75.247513"
+       x="14.24515"
+       y="769.3949"
+       ry="13.861386"
+       rx="13.861385" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="91.147644"
+       y="790.14746"
+       id="text3755"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3757"
+         x="91.147644"
+         y="790.14746"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic">.reqif</tspan><tspan
+         sodipodi:role="line"
+         x="91.147644"
+         y="812.64746"
+         id="tspan3759"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic">Exchange</tspan><tspan
+         sodipodi:role="line"
+         x="91.147644"
+         y="835.14746"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan3763">Format</tspan></text>
+    <path
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="4.9504952"
+       inkscape:original="M 367.84375 862.46875 C 360.16454 862.46875 354 868.66454 354 876.34375 L 354 923.875 C 354 931.55421 360.16454 937.71875 367.84375 937.71875 L 770.8125 937.71875 C 778.49171 937.71875 784.6875 931.55421 784.6875 923.875 L 784.6875 876.34375 C 784.6875 868.66454 778.49171 862.46875 770.8125 862.46875 L 367.84375 862.46875 z "
+       xlink:href="#rect2985-5"
+       style="fill:#c5c5c5;fill-opacity:1;stroke:none;filter:url(#filter3805-9-7)"
+       id="path3779-5"
+       inkscape:href="#rect2985-5"
+       d="m 367.84375,855.53125 c -10.342,0 -18.78125,8.48393 -18.78125,18.8125 l 0,47.53125 c 0,10.32857 8.45268,18.78125 18.78125,18.78125 l 402.96875,0 c 10.32857,0 18.8125,-8.43925 18.8125,-18.78125 l 0,-47.53125 c 0,-10.342 -8.4705,-18.8125 -18.8125,-18.8125 l -402.96875,0 z"
+       transform="translate(1.9802028,3.960399)" />
+    <rect
+       style="fill:url(#pattern5511-6);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect2985-5"
+       width="430.69308"
+       height="75.247513"
+       x="353.98849"
+       y="862.47766"
+       ry="13.861386"
+       rx="13.861384" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="568.49573"
+       y="883.23022"
+       id="text3755-6"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan3866"
+         sodipodi:role="line"
+         x="568.49573"
+         y="883.23022"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic" /><tspan
+         sodipodi:role="line"
+         x="568.49573"
+         y="905.73022"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan5640">Eclipse Modeling Framework</tspan></text>
+    <path
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="4.9504952"
+       inkscape:original="M 369.84375 769.40625 C 362.16454 769.40625 355.96875 775.57079 355.96875 783.25 L 355.96875 830.78125 C 355.96875 838.46046 362.16454 844.65625 369.84375 844.65625 L 592.59375 844.65625 C 600.27296 844.65625 606.46875 838.46046 606.46875 830.78125 L 606.46875 783.25 C 606.46875 775.57079 600.27296 769.40625 592.59375 769.40625 L 369.84375 769.40625 z "
+       xlink:href="#rect2985-3"
+       style="fill:#c5c5c5;fill-opacity:1;stroke:none;filter:url(#filter3805-4-7)"
+       id="path3779-2"
+       inkscape:href="#rect2985-3"
+       d="m 369.84375,762.46875 c -10.32857,0 -18.8125,8.43925 -18.8125,18.78125 l 0,47.53125 c 0,10.342 8.4705,18.8125 18.8125,18.8125 l 222.75,0 c 10.342,0 18.8125,-8.4705 18.8125,-18.8125 l 0,-47.53125 c 0,-10.342 -8.48393,-18.78125 -18.8125,-18.78125 l -222.75,0 z"
+       transform="translate(1.9802028,1.980199)" />
+    <rect
+       style="fill:#ededed;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect2985-3"
+       width="250.49504"
+       height="75.247513"
+       x="355.97162"
+       y="769.39984"
+       ry="13.861386"
+       rx="13.861385" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="482.87415"
+       y="790.17212"
+       id="text3755-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="482.87415"
+         y="790.17212"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan3763-2">Implementation</tspan><tspan
+         sodipodi:role="line"
+         x="482.87415"
+         y="812.67212"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan3945">of</tspan><tspan
+         sodipodi:role="line"
+         x="482.87415"
+         y="835.17212"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan3947">ReqIF Meta-Model</tspan></text>
+    <path
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="4.9504952"
+       inkscape:original="M 642.125 769.40625 C 634.44579 769.40625 628.25 775.57079 628.25 783.25 L 628.25 830.78125 C 628.25 838.46046 634.44579 844.65625 642.125 844.65625 L 768.84375 844.65625 C 776.52296 844.65625 782.71875 838.46046 782.71875 830.78125 L 782.71875 783.25 C 782.71875 775.57079 776.52296 769.40625 768.84375 769.40625 L 642.125 769.40625 z "
+       xlink:href="#rect2985-2"
+       style="fill:#c5c5c5;fill-opacity:1;stroke:none;filter:url(#filter3805-6-7)"
+       id="path3779-3"
+       inkscape:href="#rect2985-2"
+       d="m 642.125,762.46875 c -10.32857,0 -18.8125,8.43925 -18.8125,18.78125 l 0,47.53125 c 0,10.342 8.4705,18.8125 18.8125,18.8125 l 126.71875,0 c 10.342,0 18.8125,-8.4705 18.8125,-18.8125 l 0,-47.53125 c 0,-10.342 -8.48393,-18.78125 -18.8125,-18.78125 l -126.71875,0 z"
+       transform="translate(1.9801928,5.940589)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 6;stroke-dashoffset:0"
+       id="rect2985-2"
+       width="154.45544"
+       height="75.247513"
+       x="628.24884"
+       y="769.39984"
+       ry="13.861386"
+       rx="13.861385" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="705.15137"
+       y="792.13257"
+       id="text3755-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="705.15137"
+         y="792.13257"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan3763-5">Meta-</tspan><tspan
+         sodipodi:role="line"
+         x="705.15137"
+         y="814.63257"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan5558">Model</tspan><tspan
+         sodipodi:role="line"
+         x="705.15137"
+         y="837.13257"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan5560">Extensions</tspan></text>
+    <path
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="4.9504952"
+       inkscape:original="M 367.84375 956.46875 C 360.16454 956.46875 354 962.66454 354 970.34375 L 354 1017.8438 C 354 1025.523 360.16454 1031.7188 367.84375 1031.7188 L 770.8125 1031.7188 C 778.49171 1031.7188 784.6875 1025.523 784.6875 1017.8438 L 784.6875 970.34375 C 784.6875 962.66454 778.49171 956.46875 770.8125 956.46875 L 367.84375 956.46875 z "
+       xlink:href="#rect2985-5-4"
+       style="fill:#c5c5c5;fill-opacity:1;stroke:none;filter:url(#filter3805-9-2-2)"
+       id="path3779-5-3"
+       inkscape:href="#rect2985-5-4"
+       d="m 367.84375,949.53125 c -10.342,0 -18.78125,8.48393 -18.78125,18.8125 l 0,47.50005 c 0,10.3285 8.43924,18.8124 18.78125,18.8124 l 402.96875,0 c 10.34201,0 18.8125,-8.4705 18.8125,-18.8124 l 0,-47.50005 c 0,-10.342 -8.4705,-18.8125 -18.8125,-18.8125 l -402.96875,0 z"
+       transform="translate(1.9802128,3.960399)" />
+    <rect
+       style="color:#000000;fill:url(#pattern5769-8);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect2985-5-4"
+       width="430.69308"
+       height="75.247513"
+       x="353.99142"
+       y="956.46924"
+       ry="13.861386"
+       rx="13.861384" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="568.49866"
+       y="977.22168"
+       id="text3755-6-0"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan3866-6"
+         sodipodi:role="line"
+         x="568.49866"
+         y="977.22168"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic" /><tspan
+         sodipodi:role="line"
+         x="568.49866"
+         y="999.72168"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan4065">Eclipse Platform</tspan></text>
+    <path
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="4.9504952"
+       inkscape:original="M 369.84375 677.40625 C 362.16454 677.40625 355.96875 683.57079 355.96875 691.25 L 355.96875 738.78125 C 355.96875 746.46046 362.16454 752.65625 369.84375 752.65625 L 592.59375 752.65625 C 600.27296 752.65625 606.46875 746.46046 606.46875 738.78125 L 606.46875 691.25 C 606.46875 683.57079 600.27296 677.40625 592.59375 677.40625 L 369.84375 677.40625 z "
+       xlink:href="#rect2985-3-1"
+       style="fill:#c5c5c5;fill-opacity:1;stroke:none;filter:url(#filter3805-4-1-0)"
+       id="path3779-2-3"
+       inkscape:href="#rect2985-3-1"
+       d="m 369.84375,670.46875 c -10.32857,0 -18.8125,8.43925 -18.8125,18.78125 l 0,47.53125 c 0,10.342 8.4705,18.8125 18.8125,18.8125 l 222.75,0 c 10.342,0 18.8125,-8.4705 18.8125,-18.8125 l 0,-47.53125 c 0,-10.342 -8.48393,-18.78125 -18.8125,-18.78125 l -222.75,0 z"
+       transform="translate(1.9802128,1.980209)" />
+    <rect
+       style="fill:#ededed;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect2985-3-1"
+       width="250.49504"
+       height="75.247513"
+       x="355.97452"
+       y="677.40277"
+       ry="13.861386"
+       rx="13.861385" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="482.87708"
+       y="698.17505"
+       id="text3755-9-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="482.87708"
+         y="698.17505"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan3947-2">Requirements</tspan><tspan
+         sodipodi:role="line"
+         x="482.87708"
+         y="720.67505"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan5630">Capturing</tspan><tspan
+         sodipodi:role="line"
+         x="482.87708"
+         y="743.17505"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan5632">GUI</tspan></text>
+    <path
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="4.9504952"
+       inkscape:original="M 642.125 677.40625 C 634.44579 677.40625 628.25 683.57079 628.25 691.25 L 628.25 738.78125 C 628.25 746.46046 634.44579 752.65625 642.125 752.65625 L 768.84375 752.65625 C 776.52296 752.65625 782.71875 746.46046 782.71875 738.78125 L 782.71875 691.25 C 782.71875 683.57079 776.52296 677.40625 768.84375 677.40625 L 642.125 677.40625 z "
+       xlink:href="#rect2985-2-7"
+       style="fill:#c5c5c5;fill-opacity:1;stroke:none;filter:url(#filter3805-6-6-6)"
+       id="path3779-3-5"
+       inkscape:href="#rect2985-2-7"
+       d="m 642.125,670.46875 c -10.32857,0 -18.8125,8.43925 -18.8125,18.78125 l 0,47.53125 c 0,10.342 8.4705,18.8125 18.8125,18.8125 l 126.71875,0 c 10.342,0 18.8125,-8.4705 18.8125,-18.8125 l 0,-47.53125 c 0,-10.342 -8.48393,-18.78125 -18.8125,-18.78125 l -126.71875,0 z"
+       transform="translate(1.9802028,5.940599)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6, 6;stroke-dashoffset:0"
+       id="rect2985-2-7"
+       width="154.45544"
+       height="75.247513"
+       x="628.25177"
+       y="677.40277"
+       ry="13.861386"
+       rx="13.861385" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="705.1543"
+       y="708.13544"
+       id="text3755-2-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="705.1543"
+         y="708.13544"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan5558-3">GUI</tspan><tspan
+         sodipodi:role="line"
+         x="705.1543"
+         y="730.63544"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan5560-5">Extensions</tspan></text>
+    <path
+       style="color:#000000;fill:#ededed;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter3805-9-3);enable-background:accumulate"
+       d="m 232.72782,774.19333 -31.53734,15.4106 -31.51186,15.3891 31.51186,15.4106 31.53734,15.4107 0,-13.7511 57.29197,0 0,13.7511 31.53734,-15.4107 31.53733,-15.4106 -31.53733,-15.3891 -31.53734,-15.4106 0,13.7295 -57.29197,0 0,-13.7295 z"
+       id="path5661"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="261.15137"
+       y="788.13257"
+       id="text3755-2-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="261.15137"
+         y="788.13257"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan5560-6" /><tspan
+         sodipodi:role="line"
+         x="261.15137"
+         y="810.63257"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan5725">Persistence</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect2985-0"
+       width="154.45544"
+       height="33.006134"
+       x="27.944691"
+       y="1067.7556"
+       ry="13.861386"
+       rx="13.861385" />
+    <rect
+       style="fill:#ededed;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       id="rect2985-3-1-7"
+       width="153.94331"
+       height="33.006134"
+       x="219.00536"
+       y="1067.7556"
+       ry="13.861386"
+       rx="13.861385" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5.99999999, 5.99999999;stroke-dashoffset:0"
+       id="rect2985-2-9"
+       width="154.45544"
+       height="33.006134"
+       x="600.35852"
+       y="1067.7556"
+       ry="13.861386"
+       rx="13.861385" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="105.84991"
+       y="1066.7596"
+       id="text3755-6-0-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="105.84991"
+         y="1066.7596"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan4065-8" /><tspan
+         sodipodi:role="line"
+         x="105.84991"
+         y="1089.2596"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan6832">Standard</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="295.84991"
+       y="1066.7596"
+       id="text3755-6-0-7-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="295.84991"
+         y="1066.7596"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan6832-9"></tspan><tspan
+         sodipodi:role="line"
+         x="295.84991"
+         y="1089.2596"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan6860">Contribution</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="487.84991"
+       y="1066.7596"
+       id="text3755-6-0-7-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="487.84991"
+         y="1066.7596"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan4065-8-0" /><tspan
+         sodipodi:role="line"
+         x="487.84991"
+         y="1089.2596"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan6832-4">Eclipse</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="679.84991"
+       y="1066.7596"
+       id="text3755-6-0-7-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="679.84991"
+         y="1066.7596"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan4065-8-3" /><tspan
+         sodipodi:role="line"
+         x="679.84991"
+         y="1089.2596"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+         id="tspan6832-8">Extensions</tspan></text>
+  </g>
+</svg>
