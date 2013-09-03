@@ -7,5 +7,6 @@
 	<buildSpec>
 	</buildSpec>
 	<natures>
+		<nature>com.formalmind.rmf.reqif10.pror.team.prorTeamNature</nature>
 	</natures>
 </projectDescription>
