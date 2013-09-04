@@ -1188,7 +1188,6 @@
           <SOURCE>
             <SPEC-OBJECT-REF>rmf-5cd492b7-9392-4543-ab99-5e78306f3c1a</SPEC-OBJECT-REF>
           </SOURCE>
-          <TYPE/>
         </SPEC-RELATION>
       </SPEC-RELATIONS>
       <SPECIFICATIONS>
@@ -1502,7 +1501,7 @@
           <configuration:ProrSpecViewConfiguration configuration:specification="rmf-950622a4-66fd-4062-bdf7-fad51f85bfd2">
             <configuration:columns>
               <configuration:Column configuration:label="ID" configuration:width="187"/>
-              <configuration:Column configuration:label="Description" configuration:width="349"/>
+              <configuration:Column configuration:label="Description" configuration:width="540"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column configuration:label="Lead Header Column" configuration:width="66"/>
