@@ -44,7 +44,7 @@
   Email: michael.jastram@formalmind.com}
 
 % define the coverart
-\coverart[width=350pt]{openETCS_EUPL.png}
+\coverart[width=300pt]{img/pror-splash.png}
 
 %define the type of report
 \reporttype{Benchmark Report}
@@ -53,7 +53,11 @@
 \begin{abstract}
 This report documents the evaluation of Eclipse ProR, which is a candidate for the secondary tools for data, function and requirement management.
 
-Much of the basic information regarding ProR has been taken from \cite{RMF_Mark_Book_Jastram_2013}.  Further practical reading is available in English \cite{jastram_forms_2012} and German \cite{reqif_ObjektSpektrum_2013}.
+Some of the basic information regarding ProR has been taken from \cite{RMF_Mark_Book_Jastram_2013}.  Further practical reading is available in English \cite{jastram_forms_2012} and German \cite{reqif_ObjektSpektrum_2013}.
+
+This benchmark is based on the case study for the evaluation of the ``Secondary tools for data, function and requirement management''(\url{https://github.com/openETCS/model-evaluation/wiki/Secondary-tools-for-data,-function-and-requirement-management}).  This suggests to use Subset 026-3, § 6 (Management of older Version Systems - several subfunctions initiated inside other functions beside management of version (BL2/ BL3)).
+
+In this evaluation report, only a fraction of this content has been modeled, due to time constraints.  However, care has been taken to cover all activities central to the task at hand.  Therefore, this report should allow the qualitative, but not quantitative evaluation of ProR.  A discussion on performance has been provided in Section~\ref{sec:performance}.
 
 \end{abstract}
 
@@ -139,9 +143,9 @@ Figure~\ref{fig:architecture} depicts the high-level architecture of RMF. It con
 \begin{figure}[h!t]
 	\begin{center}
 	\includegraphics[width=.8\textwidth]{img/architecture.pdf}
-	\label{fig:architecture}
 	\end{center}
 	\caption{High-level architecture of RMF}
+	\label{fig:architecture}
 \end{figure}
 
 The GUI for capturing requirements is called ProR.  It operates directly on the ReqIF data model.  This is an advantage compared to existing requirements tools, where a transformation between ReqIF and the tool's data model is necessary.  Not all tools support all ReqIF features, therefore information may be lost in the process.  ProR at this time only supports the current version of ReqIF 1.0.1, not the older versions.
@@ -157,7 +161,11 @@ This is an important aspect of the project.  As we have seen in industry, heavy 
 \section{ProR}
 \label{pror}
 
-ProR is the Graphical User Interface (GUI) or RMF.  ProR is available as a stand-alone application, and it can be integrated into existing Eclipse installations.  Rather than describing it here, a quick tour of the tool will be provided in Chapter~\ref{sec:pror_tour}.
+ProR is the Graphical User Interface (GUI) or RMF.  ProR is available as a stand-alone application, and it can be integrated into existing Eclipse installations.  
+
+The rest of this document describes how to actively work with ProR, and how to use certain features for the problem at hand.  A general overview of ProR will not be provided in this document, but many descriptions of the GUI are available \cite{RMF_Mark_Book_Jastram_2013, reqif_ObjektSpektrum_2013}.  
+
+Further, the RMF website \cite{RMF} features a 15-minute video, demonstrating the most important features of the tool.  For readers not familiar with Eclipse and/or requirements tools, watching the video may be a good preparation for the next chapters.
 
 %==============================================================================
 \chapter{ProR Installation and Configuration}
@@ -203,6 +211,8 @@ Team support is part of a free suite of extensions called ProR Esssentials.  Whi
 
 \end{description}
 
+\section{Importing the Benchmark}
+
 Now that team support is installed, it still has to be configured.  Team support uses Subversion.  As gitHub allows access via subversion, we can access all projects from gitHub.
 
 \textbf{Tip:} Before proceeding please make sure you have your gitHub password ready.  You can proceed without it, but then you only have read acess.
@@ -223,39 +233,38 @@ With this, you have the Benchmark in your workspace, enabled for team work.
 \begin{figure}[h!]
 	\begin{center}
 	\includegraphics[width=.8\textwidth]{img/svn-config.png}
-	\label{fig:svn-config}
 	\end{center}
 	\caption{Importing the Benchmark into ProR.}
+	\label{fig:svn-config}
 \end{figure}
-
-
-
-%==============================================================================
-\chapter{A Quick Tour of ProR}
-\label{sec:pror_tour}
-%==============================================================================
-
-
-\section{Importing Project from gitHub}
-
 
 %==============================================================================
 \chapter{Benchmark}
 %==============================================================================
 
+This chapter describes the process of modeling the requirements with ProR and discusses various aspects of the modeling process.
+
 \section{How to Model}
+
+There are many ways to skin a cat.  This section discusses a number of general questions on how to go about modeling.
 
 \subsection{Handling IDs}
 
-It is best practice to give each element a user-readable ID.  Note that each ReqIF element has an internal unique ID that never changes, but that is not meant to be user readable.  Considering that most elements already have an ID in the ERA document, we decide to keep those.  
+It is best practice to give each element a user-readable ID.  Note that each ReqIF element has an internal unique ID that never changes, but that is not meant to be user readable.  Considering that most elements already have an ID in the ERA document, we decide to keep those.
+
+A plugin for ProR exists (a so-called Presentation) that automatically generates read-only user-readable IDs.  This would result in labels like ``REQ-1''.  This mechanism should be employed when creating new elements.  In this situation, however, they don't seem to make sense.
 
 \subsection{Plain Text or Rich Text?}
 
-The ReqIF standard, and as a consequence ProR, support rich text (formatted text).  While formatted text may seem more attractive (esecially, as the ERA documents are available as formatted Word documents), we try to avoid it for now.  The main reason is that formatted text is much harder to process by other tools (e.g. constraining the requirements text with a DSL).
+The ReqIF standard, and as a consequence ProR, support rich text (formatted text).  While formatted text may seem more attractive (especially, as the ERA documents are available as formatted Word documents), we reject it for §6.  The main reason is that formatted text is much harder to process by other tools (e.g. constraining the requirements text with a DSL).
+
+However, to demonstrate that it is possible, we used rich text for modeling sections of §3.
 
 It is possible to mix formatted and plain text.  For instance, text that exists for information only could be formatted, while the actual requirements are kept in plain text.
 
-Limited formatting could also be applied to plain text, by giving certain datatypes specific formatting.  We chose this solution and use it to format headlines.
+Limited formatting could also be applied to plain text, by giving certain datatypes specific formatting.  We chose this solution for §6 and use it to format headlines.
+
+\textbf{Note:} To use rich text, ProR requires at least Java 7 from Oracle (not OpenJDK).
 
 \subsection{Inconsistencies in the Spec}
 
@@ -274,6 +283,7 @@ There were a number of problems with the Word-based specification used.  Specifi
 \end{itemize}
 
 \subsection{Tables}
+\label{sec:tables}
 
 The document contains a number of tables, and it's not clear what the best option for modeling them is.  ReqIF supports tables, with each table cell being one SpecObject.  However, ProR currently does not support the visualization of such tables (they can be created and read, but will not be shown in a table structure).
 
@@ -287,13 +297,72 @@ Figure~\ref{fig:packet-action-table} shows how this looks in practice.  The pack
 
 Some of the entries have footnotes.  These have been modeled as links.  The link targets can be seen at the bottom, and the right column shows that select row (Packet Number 51) has two outgoing links.  The link targets don't have to be visible: Links can be expanded, and by selecting an individual link, the properties of the target will be shown in the properties view.
 
-\begin{figure}[h!]
+\begin{figure}
 	\begin{center}
 	\includegraphics[width=.8\textwidth]{img/packet-action-table.png}
-	\label{fig:packet-action-table}
 	\end{center}
 	\caption{Representing the Package Action Table in ProR, using attributes instead of columns.}
+	\label{fig:packet-action-table}
 \end{figure}
+
+\section{Rich Text and References}
+
+As mentioned earlier, parts of §3 have been modeled using rich text.  This is shown in Figure~\ref{fig:xhtml-and-links}, demonstrating some of the rich text capabilities.  For instance, bullet lists, bold and strike-through are supported.
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=.8\textwidth]{img/xhtml-and-links.png}
+	\end{center}
+	\caption{Using rich text and SpecRelations to provide references.}
+	\label{fig:xhtml-and-links}
+\end{figure}
+
+The figure also shows that the original text has been modified, with new text inserted and removed text stroked out (this has been done manually, not automatically).  This has been done mainly to remove references that have been inserted into the original document as plain text.  Doing this is highly fragile: Inserting another paragraph in Word would change the subsequent numbering, leaving an incorrect reference\footnote{Incidentally, Word does in fact support cross-referencing, which would have solved at least this problem.  Why this has not been used for a document like this is beyond me.}.  The reference has been replaced with a SpecRelation.  In the figure, the two references to 3.12.3.4.2 and .3 have been expanded.  The description text of those links is empty, but by giving the SpecRelation attributes, some information could be entered here.
+
+\section{Traceability}
+
+Traceability is a crucial feature for openETCS.  Traces in ProR are modelled using SpecRelations.  These have already been put to use for linking footnotes, as described in Section~\ref{sec:tables}.  However, that use does not show the full potential of traces.
+
+\section{Reporting}
+
+Reporting capabilities are currently limited to converting a Specification to HTML.  This is realized by selecting the editor containing the Specification to be exported and to initiate \emph{File | Print...}.  ProR will open a Web Browser with the exported Specification.
+
+A Master student at the University of Düsseldorf is implementing advanced reporting as part of his thesis.  This work is expected to be available in the open source by the end of the year.
+
+\section{Using Team Support}
+
+The team support from the ProR Essentials makes the most often used team actions available via the project's context menu (in the \emph{ProR} submenu).  The same, and more advanced actions are in the \emph{Team} context menu of the project.
+
+The team support offers more features, which are described as follows.  However, these features seem to be broken in 0.8.0.  We plan to fix them with the next version of ProR Essentials, expected in October 2013.
+
+Team support can be used to browse the history of the project or individual files (\emph{Team | Show History}).  Differences between files can be inspected by selecting two files and picking \emph{Compare with Each Other} from the context menu (currently broken).  Rather than comparing the XML files, the two model trees will be compared, as shown in Figure~\ref{fig:model-diff}.  This feature is described in detail in \cite{essentials_diff}.  A corresponding model viewer can be used to perform merges in the case of conflicts.
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=.8\textwidth]{img/model-diff.png}
+	\end{center}
+	\caption[Comparing Models with ProR Essentials Diff.]{Comparing Models with ProR Essentials Diff.  Rather than having a textual diff of the XML, the tool compares the model representation of the two versions.  The structural differences are shown in a tree (1), while the actual changes can be compared graphically next to each other (3), with the ability to look at the actual properties (4).  Step by step navigation through the changes is possible (2).}
+	\label{fig:model-diff}
+\end{figure}
+
+In addition to this, the team extension provides a number of convenience features (currently broken):
+
+\begin{description}
+\item[Auto-Add.] New files in the project will automatically be added to version control.  Currently, this has to be done by hand (can be done as part of the commit process).
+\item[Auto-Update.] Users can elect to automatically run a subversion update upon opening a project.  This ensures that they will always have the latest version of the requirements, minimizing the risk of conflicts.
+\item[Auto-Commit.] Users can elect to automatically run a subversion commit upon closing the project.  This will ensure that changes are pushed to the server as soon as possible, minimizing the risk of conflicts.
+\end{description}
+
+\section{Performance}
+\label{sec:performance}
+
+Due to time constraints, only a small number of requirements have been modeled.  Therefore, this benchmark is not adequate to evaluate the performance of the tool.
+
+However, ProR has been shown to handle thousands of requirements easily, which should be sufficient for fulfilling the needs of the openETCS project.
+
+Performance is a crucial issue in the car industry, where ProR is already deployed.  Here, users often have to deal with tens of thousands of requirements, and the goal of the project is to support that with an acceptable performance.  Therefore, performance is expected to improve over time even more.
+
+Last, a progress bar is shown upon opening a file, giving the user an indication on how long this will take.  Once open, the performance is usually fast.  Further, the progress bar slows the opening of a file down for small files, but not for big ones (this is a bug).  Thus, the speed of opening a small file should not be taken as an indication on how much longer it would take to open a big one.
 
 %==============================================================================
 \chapter{Conclusion}
