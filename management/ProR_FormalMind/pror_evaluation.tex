@@ -29,7 +29,7 @@
 \title{Using Eclipse ProR for openETCS}
 
 %set a subtitle here
-\subtitle{Requirements Management, Engineering and Traceability}
+\subtitle{Requirements Management \& Engineering and Traceability}
 
 %set the date of the report here
 \date{September 2013}
@@ -55,7 +55,7 @@ This report documents the evaluation of Eclipse ProR, which is a candidate for t
 
 Some of the basic information regarding ProR has been taken from \cite{RMF_Mark_Book_Jastram_2013}.  Further practical reading is available in English \cite{jastram_forms_2012} and German \cite{reqif_ObjektSpektrum_2013}.
 
-This benchmark is based on the case study for the evaluation of the ``Secondary tools for data, function and requirement management''(\url{https://github.com/openETCS/model-evaluation/wiki/Secondary-tools-for-data,-function-and-requirement-management}).  This suggests to use Subset 026-3, § 6 (Management of older Version Systems - several subfunctions initiated inside other functions beside management of version (BL2/ BL3)).
+This benchmark is based on the case study for the evaluation of the ``Secondary tools for data, function and requirement management'' \cite{subset026-6}.  This suggests to use Subset 026-3, § 6 (Management of older Version Systems - several subfunctions initiated inside other functions beside management of version (BL2/ BL3)).
 
 In this evaluation report, only a fraction of this content has been modeled, due to time constraints.  However, care has been taken to cover all activities central to the task at hand.  Therefore, this report should allow the qualitative, but not quantitative evaluation of ProR.  A discussion on performance has been provided in Section~\ref{sec:performance}.
 
@@ -76,7 +76,8 @@ Version & Section & Modification / Description & Author \\\hline}
 \begin{supertabular}{| m{1.2cm} | m{1.2cm} | m{6.6cm} | m{4cm} |}
 0.1 & All & Initial Version & Michael Jastram\\\hline
 0.2 & 1, 2 & Bulk of Content & Michael Jastram\\\hline
-0.2 & 4, 5 & Start on Content & Michael Jastram\\\hline
+0.3 & 4, 5 & Start on Content & Michael Jastram\\\hline
+0.4 & All & Final Round & Michael Jastram\\\hline
 \end{supertabular}
 
 \tableofcontents
@@ -102,7 +103,9 @@ This chapter is concerned with evaluating ProR for the use as the requirements m
 
 \section{Objectives}
 
-The objective of this report is to evaluate whether ProR is suited to be used for the openETCS management tasks, which include requirements engineering, requirements management and traceability to the various artefacts that will be created as part of the modeling process.  The requirements have been captured by WP2 in D2.3.
+The objective of this report is to evaluate whether ProR is suited to be used for the openETCS management tasks, which include requirements engineering, requirements management and traceability to the various artefacts that will be created as part of the modeling process.  The requirements have been captured by WP2 in D2.6-9 \cite{D2.6-9}.  
+
+As the case study, Subset 026-3, §6 \cite{subset026-6} has been used.  Due to resource constraints, this benchmark covers only a fraction of that content, which should nevertheless be sufficient for an evaluation of the tool's feature set.
 
 \section{ReqIF\footnote{This section consists in large parts of exerpts from \cite{RMF_Mark_Book_Jastram_2013}.}}
 
@@ -142,7 +145,7 @@ Figure~\ref{fig:architecture} depicts the high-level architecture of RMF. It con
 
 \begin{figure}[h!t]
 	\begin{center}
-	\includegraphics[width=.8\textwidth]{img/architecture.pdf}
+	\includegraphics[width=\textwidth]{img/architecture.pdf}
 	\end{center}
 	\caption{High-level architecture of RMF}
 	\label{fig:architecture}
@@ -311,7 +314,7 @@ As mentioned earlier, parts of §3 have been modeled using rich text.  This is s
 
 \begin{figure}
 	\begin{center}
-	\includegraphics[width=.8\textwidth]{img/xhtml-and-links.png}
+	\includegraphics[width=\textwidth]{img/xhtml-and-links.png}
 	\end{center}
 	\caption{Using rich text and SpecRelations to provide references.}
 	\label{fig:xhtml-and-links}
@@ -321,7 +324,61 @@ The figure also shows that the original text has been modified, with new text in
 
 \section{Traceability}
 
-Traceability is a crucial feature for openETCS.  Traces in ProR are modelled using SpecRelations.  These have already been put to use for linking footnotes, as described in Section~\ref{sec:tables}.  However, that use does not show the full potential of traces.
+Traceability is a crucial feature for openETCS.  Traces in ProR are modeled using SpecRelations.  These have already been put to use for linking footnotes, as described in Section~\ref{sec:tables}.  However, that use does not show the full potential of traces.
+
+For this case study, we show how traceability between §6 and §3 can be realized.  The following requirement will be used:
+
+\includegraphics[width=\textwidth]{img/R-66211.png}
+
+In contrast to the SpecRelations used earlier, a typed SpecRelation will be used this time to:
+
+\begin{itemize}
+\item Be able to annotate the trace with a description.
+\item To track whether the source or target of the SpecRelation has changed (for change management).
+\end{itemize}
+
+Change management can be realized with the ``Linkmanagement Presentation'', an extension from the ProR Essentials.  To use it, a new SpecType for SpecRelatons has to be created with two boolean flags (for source and target, respectively).  this is done via \emph{ProR | Datatype Configuration...}  Next, the presentation has to be added (via \emph{ProR | Presentation Configuration...}).
+
+Once this is set up, a link between the two elements (6.6.2.1.1 and 3.12.3.4.7.2) can be established.  There are various ways to acomplish this.  The easiest is to use the element's context menu to select \emph{Initiate Linking}, and then to select the target element, selecting \emph{} from the context menu, using the SpecType we previously created.
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\textwidth]{img/link-target-selected.png}
+	\end{center}
+	\caption{Showing the link target in the Properties View.}
+	\label{fig:link-target-selected}
+\end{figure}
+
+As a result, element 6.6.2.1.1 has now an outgoing SpecRelation, which can be expanded.  Selecting the SpecRelation's row will show the attributes of that SpecRelation.  However, selecting the last cell in that row (the \emph{Link} column), the target element will be shown in the Properties View, as shown in Figure~\ref{fig:link-target-selected}.
+
+Now the change can be applied by updating element 3.12.3.4.7.2, which can be done directly in the Properties View.  For good measure, some information on what has been done can be written in the description attribute of the SpecRelation.  Figure~\ref{fig:link-target-changed} shows this, but this time with the SpecRelation selected.  Note that the SpecRelation's description text is shown both in the main editor, as well as in the Properties View.  Also note that the ``Target'' Attribute in the Properties View now shows a yellow warning triangle.  This has been set by the Linkmanagement Presentation: It noticed that the target element had changed and set the flag correspondingly.  Users can reset it by doublecklicking it, indicating that they verified the trace.  The opposite is possible too: traces can be marked manually for inspection.
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\textwidth]{img/link-target-changed.png}
+	\end{center}
+	\caption{Showing the link target in the Properties View.}
+	\label{fig:link-target-changed}
+\end{figure} 
+
+\section{Traceability to EMF-based Models}
+
+Integrating ProR with other EMF tools is out of the scope of this document.  As mentioned before, some of this has already been explored in the Event-B benchmark \cite{event_b_benchmark}, e.g. in Figure~13 in that report.
+
+Integration with existing EMF models can take place on two levels, both which are shown in Figure~\ref{fig:proxy-1}, which has been taken from \cite{integrate-models}:
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.8\textwidth]{img/proxy-1.png}
+	\end{center}
+	\caption[Seamless integration of models and requirements]{Showing how models and requirements can be integrated seamlessly. The first row shows color highlighting in the requirements text.  The colored symbols are defined in the associated Event-B model.  The second row shows an element from the Event-B model, which is referenced and therefore never outdated.}
+	\label{fig:proxy-1}
+\end{figure} 
+
+\begin{description}
+\item[Linking to model elements.]  ProR supports a mechanism to create proxy elements that retrieve the content of other model elements and renders them in an appropriate fashion directly in the specification.
+\item[Color highlighting of model element names.] It is also possible to use color highlighting in the requirements text to identify symbols that are defined in another model.  Currently this has only been realized using plain text attributes, as interfering with the formatting of rich text attributes is tricky.
+\end{description}
 
 \section{Reporting}
 
@@ -364,13 +421,9 @@ Performance is a crucial issue in the car industry, where ProR is already deploy
 
 Last, a progress bar is shown upon opening a file, giving the user an indication on how long this will take.  Once open, the performance is usually fast.  Further, the progress bar slows the opening of a file down for small files, but not for big ones (this is a bug).  Thus, the speed of opening a small file should not be taken as an indication on how much longer it would take to open a big one.
 
-%==============================================================================
-\chapter{Conclusion}
-%==============================================================================
+\section{Issues to be Resolved}
 
-We believe that we have demonstrated that professional requirements management and traceability is possible with ProR, and that traceability in EMF-based models can be realized with reasonable effort.
-
-Having said that, there are a number of issues that need to be addressed eventually:
+We believe that this benchmark demonstrates that many of the features required for requirements management, engineering and traceability are found in ProR.  Nevertheless, a few issues that need to be resolve have been identified:
 
 \begin{description}
 
@@ -380,9 +433,29 @@ Having said that, there are a number of issues that need to be addressed eventua
 
 \item[Handling Tables.]  The ReqIF standard supports a scheme for managing tabular data, where each cell in the table is an atomic element.  ProR supports this, but the representation is not user friendly.  We recommend implementing a better representation for ReqIF tables.
 
-\item[Team Integration.]  The current implementation hints at what is possible.  We plan work on improving the diff and merge featues, as well as auto-update on open and auto-commit on close.
+\item[Team Integration.]  The current implementation hints at what is possible, but some features that were implemented before are currently broken.  These will be fixed in the next update, expected in October 2013.
 
 \end{description}
+
+%==============================================================================
+\chapter{Conclusion}
+%==============================================================================
+
+We believe that we have demonstrated that professional requirements management and traceability is possible with ProR, and that traceability in EMF-based models can be realized with reasonable effort.  As important ProR is a tool that fulfills a number of requirements that are essential for openETCS, including being open source and being based on Eclipse and EMF.
+
+This report covers essential features for openETCS, including:
+
+\begin{itemize}
+\item Version control
+\item Atomic requirements with arbitrary typed attributes
+\item Plain text and rich text requirements
+\item Organization of multiple documents
+\item Traceability with attributed traces
+\item Change Management
+\item Integration with other EMF-based tools
+\end{itemize}
+
+Last, as ProR is based on the well-documented international ReqIF standard, integration with other tools is possible and relatively easy.
 
 %\nocite{*}
 
