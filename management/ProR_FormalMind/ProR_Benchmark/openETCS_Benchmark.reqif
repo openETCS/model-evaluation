@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline">
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:linkmanagement="http://formalmind.com/pror/presentation/linkmanagement" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <THE-HEADER>
     <REQ-IF-HEADER IDENTIFIER="rmf-6f886e4f-3c5a-46ca-bac0-a0068dcfcbbc">
       <COMMENT>Created by: jastram</COMMENT>
@@ -24,6 +24,8 @@
             <ENUM-VALUE IDENTIFIER="rmf-8092138b-787a-4811-a014-5b3e3b0c2210" LAST-CHANGE="2013-09-03T22:17:20+02:00" LONG-NAME="NR = Not Relevant"/>
           </SPECIFIED-VALUES>
         </DATATYPE-DEFINITION-ENUMERATION>
+        <DATATYPE-DEFINITION-XHTML IDENTIFIER="rmf-d236bd63-f5f3-46d3-92de-433aacd2ddb8" LAST-CHANGE="2013-09-04T13:50:48+02:00" LONG-NAME="T_XHTML"/>
+        <DATATYPE-DEFINITION-BOOLEAN IDENTIFIER="rmf-924d6082-8b6c-485b-93a4-c60dd96f26b4" LAST-CHANGE="2013-09-05T12:22:23+02:00" LONG-NAME="T_Change_Flag"/>
       </DATATYPES>
       <SPEC-TYPES>
         <SPEC-OBJECT-TYPE IDENTIFIER="rmf-9ccbbf69-ad91-44d1-9c15-1e41f358a822" LAST-CHANGE="2013-09-03T14:15:26+02:00" LONG-NAME="Requirement Type">
@@ -87,6 +89,39 @@
             </ATTRIBUTE-DEFINITION-ENUMERATION>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="rmf-a7418977-6a96-4531-b018-2a8af0cd178d" LAST-CHANGE="2013-09-04T13:50:29+02:00" LONG-NAME="Rich Requirement Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68" LAST-CHANGE="2013-09-04T13:50:59+02:00" LONG-NAME="ID">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-ce2866f5-927d-4440-b675-5bd149305de0</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-XHTML IDENTIFIER="rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc" LAST-CHANGE="2013-09-04T13:51:21+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-XHTML-REF>rmf-d236bd63-f5f3-46d3-92de-433aacd2ddb8</DATATYPE-DEFINITION-XHTML-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-XHTML>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-RELATION-TYPE IDENTIFIER="rmf-b0150ec0-c2f3-4647-a91d-4b995649cbd8" LAST-CHANGE="2013-09-05T12:21:19+02:00" LONG-NAME="Trace Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="rmf-b7a247a9-9152-42c1-9b50-974a681e17c9" LAST-CHANGE="2013-09-05T12:21:24+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-ce2866f5-927d-4440-b675-5bd149305de0</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-BOOLEAN IDENTIFIER="rmf-5c9a689e-e1e4-4719-9eed-6409e1c4aa87" LAST-CHANGE="2013-09-05T12:21:44+02:00" LONG-NAME="Source">
+              <TYPE>
+                <DATATYPE-DEFINITION-BOOLEAN-REF>rmf-924d6082-8b6c-485b-93a4-c60dd96f26b4</DATATYPE-DEFINITION-BOOLEAN-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-BOOLEAN>
+            <ATTRIBUTE-DEFINITION-BOOLEAN IDENTIFIER="rmf-86f71c26-0777-4116-925b-17261e3a5da0" LAST-CHANGE="2013-09-05T12:21:59+02:00" LONG-NAME="Target">
+              <TYPE>
+                <DATATYPE-DEFINITION-BOOLEAN-REF>rmf-924d6082-8b6c-485b-93a4-c60dd96f26b4</DATATYPE-DEFINITION-BOOLEAN-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-BOOLEAN>
+          </SPEC-ATTRIBUTES>
+        </SPEC-RELATION-TYPE>
       </SPEC-TYPES>
       <SPEC-OBJECTS>
         <SPEC-OBJECT IDENTIFIER="rmf-59e031f1-12ae-41d5-b6f2-911ad7ede877" LAST-CHANGE="2013-09-03T14:27:39+02:00">
@@ -1170,6 +1205,258 @@
             <SPEC-OBJECT-TYPE-REF>rmf-9ccbbf69-ad91-44d1-9c15-1e41f358a822</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-1c2f2ad1-9231-4fa1-aa60-61a6ca58a556" LAST-CHANGE="2013-09-04T14:23:28+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:h2 style="font-size: 150%; text-align: left">Conditions for Start/End of Indication</xhtml:h2></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-c595b29e-a058-4fb0-b4a0-ee72e8b81ac0" LAST-CHANGE="2013-09-04T14:09:25+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="text-align: left;">It shall be possible to specify individual events for start/end condition of indication. </xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-d3004310-3ca0-4d2f-a76f-eca3543c2d46" LAST-CHANGE="2013-09-04T14:24:53+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:div style="text-align: left;"><xhtml:p style="font-family: 'Lucida Sans'">The following events can be used to define the start condition:</xhtml:p><xhtml:ul>
+                      <xhtml:li><xhtml:span style="font-size: 9pt;">Location</xhtml:span></xhtml:li>
+                      <xhtml:li><xhtml:span style="font-size: 9pt;">Mode (start display as soon as in mode) </xhtml:span></xhtml:li>
+                      <xhtml:li><xhtml:span style="font-size: 9pt;">Level (start display as soon as in level) </xhtml:span></xhtml:li>
+                    </xhtml:ul></xhtml:div></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.2 ">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-42e41a65-bdc3-4ca3-b2db-e14e4a082e35" LAST-CHANGE="2013-09-04T14:29:01+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="text-align: left;font-family: 'Lucida Sans';">The following events can be used to define the end condition:</xhtml:p><xhtml:ul>
+                    <xhtml:li><xhtml:span style="font-family: 'Lucida Sans';">Location </xhtml:span></xhtml:li>
+                    <xhtml:li><xhtml:span style="font-family: 'Lucida Sans';">Time</xhtml:span></xhtml:li>
+                    <xhtml:li><xhtml:span style="font-family: 'Lucida Sans';">Mode (stop display when leaving mode)</xhtml:span></xhtml:li>
+                    <xhtml:li style="text-align: left;"><xhtml:span style="font-family: 'Lucida Sans';">Level (stop display when leaving level)</xhtml:span></xhtml:li>
+                  </xhtml:ul></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.3">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-9a021bb0-91ec-4603-82f2-6c540e34b50f" LAST-CHANGE="2013-09-04T14:24:03+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">It shall be possible to define whether one or all of the events used from the <xhtml:b>referenced</xhtml:b> lists <xhtml:span style="text-decoration: line-through;">in 3.12.3.4.2/3.12.3.4.3</xhtml:span> have to be fulfilled to define the start/end condition. This definition shall apply to both start and end conditions.</xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.3.1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-f4469bb9-8caf-4c23-ae9e-d47ea0bbef82" LAST-CHANGE="2013-09-04T14:27:28+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="text-align: left;font-family: 'Lucida Sans';">In case a confirmation of the text message is requested, it shall be possible to define whether the driver acknowledgement is considered:</xhtml:p><xhtml:blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+                    <xhtml:p style="text-align: left;font-family: 'Lucida Sans';">a) As always ending the text display, regardless of the end condition defined in <xhtml:b>the linked requirement </xhtml:b><xhtml:span style="text-decoration: line-through;">3.12.3.4.3.1</xhtml:span></xhtml:p>
+                    <xhtml:p style="text-align: left;font-family: 'Lucida Sans';">b) As a necessary condition to end the text display, in addition to the end condition defined in <xhtml:b>the linked requirement </xhtml:b><xhtml:span style="text-decoration: line-through;">3.12.3.4.3.1.</xhtml:span></xhtml:p>
+                  </xhtml:blockquote></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.3.2">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-444277b9-4b09-4468-a9a2-7fa81e5ad5a5" LAST-CHANGE="2013-09-04T14:29:39+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">The end condition shall be evaluated as soon as the start condition is fulfilled. No display shall take place if the end condition is immediately fulfilled.</xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.4">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-f36eea9f-6a70-4ffb-b56a-b99acd1f7bb4" LAST-CHANGE="2013-09-04T14:30:08+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">Once the text message is displayed and the end condition is fulfilled, the start condition shall not be re-evaluated.</xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.5">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-706ece7c-b2ee-4927-b634-ebcbc949cd11" LAST-CHANGE="2013-09-04T14:30:31+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">When the end event &quot;location&quot; is used, the length on which the text is displayed shall refer to the location used for the start condition, independently from other start events.</xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.6">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-c174b903-4c10-4194-a3e2-8987e4babd47" LAST-CHANGE="2013-09-04T14:31:04+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">In case a confirmation of the text message is requested, it shall be possible to define whether the service brake or emergency brake application shall be commanded  if the driver does not acknowledge before the end condition is fulfilled..</xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.7">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-f0b5f63b-5d0d-4eb8-b574-ae4a402d1c7c" LAST-CHANGE="2013-09-04T14:31:37+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">If the driver does not acknowledge before the end condition is fulfilled, the text message shall remain displayed until acknowledged by driver.</xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.7.1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="rmf-07f305b5-aa9c-4429-a4f8-531a296c96fc" LAST-CHANGE="2013-09-05T12:41:32+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>rmf-2738397d-8a9c-48da-8a7e-b73f7c0ae0dc</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">If the driver acknowledges before the end condition is fulfilled, the on-board equipment shall consider the driver acknowledgement as always ending the text display, regardless of the end condition defined in 3.12.3.4.3.1</xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3.12.3.4.7.2">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-746c9b56-0575-4a76-8e54-d71d50d3ac68</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-a7418977-6a96-4531-b018-2a8af0cd178d</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
       </SPEC-OBJECTS>
       <SPEC-RELATIONS>
         <SPEC-RELATION IDENTIFIER="rmf-77491a5d-2253-4e8f-98bd-354ca957fb5a" LAST-CHANGE="2013-09-03T22:37:57+02:00">
@@ -1179,7 +1466,6 @@
           <SOURCE>
             <SPEC-OBJECT-REF>rmf-5cd492b7-9392-4543-ab99-5e78306f3c1a</SPEC-OBJECT-REF>
           </SOURCE>
-          <TYPE/>
         </SPEC-RELATION>
         <SPEC-RELATION IDENTIFIER="rmf-3cc3aed1-72be-47d4-9152-3522f95ba44c" LAST-CHANGE="2013-09-03T22:37:57+02:00">
           <TARGET>
@@ -1188,6 +1474,53 @@
           <SOURCE>
             <SPEC-OBJECT-REF>rmf-5cd492b7-9392-4543-ab99-5e78306f3c1a</SPEC-OBJECT-REF>
           </SOURCE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-e3884d28-bcb8-4578-b3af-f319c7b49f68" LAST-CHANGE="2013-09-04T14:22:15+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-d3004310-3ca0-4d2f-a76f-eca3543c2d46</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>rmf-9a021bb0-91ec-4603-82f2-6c540e34b50f</SPEC-OBJECT-REF>
+          </SOURCE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-d710878b-eaf6-4bb3-9812-c8795b7fc490" LAST-CHANGE="2013-09-04T14:22:22+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-42e41a65-bdc3-4ca3-b2db-e14e4a082e35</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>rmf-9a021bb0-91ec-4603-82f2-6c540e34b50f</SPEC-OBJECT-REF>
+          </SOURCE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-95ba2dad-c637-454e-b359-c2d0ef1887c6" LAST-CHANGE="2013-09-04T14:26:48+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-9a021bb0-91ec-4603-82f2-6c540e34b50f</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>rmf-f4469bb9-8caf-4c23-ae9e-d47ea0bbef82</SPEC-OBJECT-REF>
+          </SOURCE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="rmf-7ad7706a-3efb-4b55-93ec-7c433657374f" LAST-CHANGE="2013-09-05T12:29:10+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-86f71c26-0777-4116-925b-17261e3a5da0</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-BOOLEAN>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="This change has been applied.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b7a247a9-9152-42c1-9b50-974a681e17c9</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>rmf-07f305b5-aa9c-4429-a4f8-531a296c96fc</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>rmf-96f83f51-a06e-4f5c-8a07-37271b4f84e4</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-b0150ec0-c2f3-4647-a91d-4b995649cbd8</SPEC-RELATION-TYPE-REF>
+          </TYPE>
         </SPEC-RELATION>
       </SPEC-RELATIONS>
       <SPECIFICATIONS>
@@ -1491,6 +1824,86 @@
             </SPEC-HIERARCHY>
           </CHILDREN>
         </SPECIFICATION>
+        <SPECIFICATION IDENTIFIER="rmf-48b8c763-4735-4bef-8a67-023feb576abf" LAST-CHANGE="2013-09-04T13:47:32+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Subset-026-3 (v310)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-08d79d16-eb3c-4322-a4da-c2436babfcda</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>rmf-5d9e8adb-4b47-4bc4-83f5-b9f05f96c43c</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="rmf-656c4317-b154-43e2-b410-b9c04a8a5640" LAST-CHANGE="2013-09-04T13:51:45+02:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>rmf-1c2f2ad1-9231-4fa1-aa60-61a6ca58a556</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-5e8992c5-4643-4adf-88ac-558255030c49" LAST-CHANGE="2013-09-04T14:12:44+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-c595b29e-a058-4fb0-b4a0-ee72e8b81ac0</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-5751a6fd-d1ef-4197-81c7-9aa632fea0e6" LAST-CHANGE="2013-09-04T14:12:48+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-d3004310-3ca0-4d2f-a76f-eca3543c2d46</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-361b1934-6265-4a10-b118-ab6e2a2c8aa8" LAST-CHANGE="2013-09-04T14:12:52+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-42e41a65-bdc3-4ca3-b2db-e14e4a082e35</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-170ceadf-0686-4fcb-86f0-62a0ed85c77e" LAST-CHANGE="2013-09-04T14:13:08+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-9a021bb0-91ec-4603-82f2-6c540e34b50f</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-1182e86f-ce2a-4f01-bae9-c2824e1e3bb6" LAST-CHANGE="2013-09-04T14:24:03+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-f4469bb9-8caf-4c23-ae9e-d47ea0bbef82</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-aa7ac6f0-c35c-4a7d-8b2f-5237a1090ca8" LAST-CHANGE="2013-09-04T14:29:01+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-444277b9-4b09-4468-a9a2-7fa81e5ad5a5</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-2c17d02e-68be-421d-a332-855367b169af" LAST-CHANGE="2013-09-04T14:29:39+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-f36eea9f-6a70-4ffb-b56a-b99acd1f7bb4</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-0f1241c1-952d-41d7-b821-d35e1577a677" LAST-CHANGE="2013-09-04T14:30:08+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-706ece7c-b2ee-4927-b634-ebcbc949cd11</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="rmf-b997e9a8-5a52-4023-8ab5-5a57329fb49b" LAST-CHANGE="2013-09-04T14:30:31+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>rmf-c174b903-4c10-4194-a3e2-8987e4babd47</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-b82b4ef0-4278-4bfd-9c7e-c9aef8cd14f6" LAST-CHANGE="2013-09-04T14:31:21+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-f0b5f63b-5d0d-4eb8-b574-ae4a402d1c7c</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="rmf-7d8ccb7f-d2f6-4342-bfe6-6b022ffae0ab" LAST-CHANGE="2013-09-04T14:31:37+02:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>rmf-07f305b5-aa9c-4429-a4f8-531a296c96fc</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
       </SPECIFICATIONS>
     </REQ-IF-CONTENT>
   </CORE-CONTENT>
@@ -1500,11 +1913,20 @@
         <configuration:specViewConfigurations>
           <configuration:ProrSpecViewConfiguration configuration:specification="rmf-950622a4-66fd-4062-bdf7-fad51f85bfd2">
             <configuration:columns>
-              <configuration:Column configuration:label="ID" configuration:width="187"/>
+              <configuration:Column configuration:label="ID" configuration:width="156"/>
               <configuration:Column configuration:label="Description" configuration:width="540"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column configuration:label="Lead Header Column" configuration:width="66"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+          <configuration:ProrSpecViewConfiguration configuration:specification="rmf-48b8c763-4735-4bef-8a67-023feb576abf">
+            <configuration:columns>
+              <configuration:Column configuration:label="ID" configuration:width="155"/>
+              <configuration:Column configuration:label="Description" configuration:width="456"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column configuration:label="Lead Header Column" configuration:width="30"/>
             </configuration:leftHeaderColumn>
           </configuration:ProrSpecViewConfiguration>
         </configuration:specViewConfigurations>
@@ -1522,6 +1944,7 @@
           <configuration:ProrPresentationConfigurations>
             <configuration:presentationConfigurations>
               <headline:HeadlineConfiguration configuration:datatype="rmf-9debdbc8-f3ff-4cfd-9a7f-e99b1ce9a4f5" headline:size="12"/>
+              <linkmanagement:LinkmanagementConfiguration configuration:datatype="rmf-924d6082-8b6c-485b-93a4-c60dd96f26b4" linkmanagement:linkRelationType="rmf-b0150ec0-c2f3-4647-a91d-4b995649cbd8" linkmanagement:sourceStatus="rmf-5c9a689e-e1e4-4719-9eed-6409e1c4aa87" linkmanagement:targetStatus="rmf-86f71c26-0777-4116-925b-17261e3a5da0"/>
             </configuration:presentationConfigurations>
           </configuration:ProrPresentationConfigurations>
         </configuration:presentationConfigurations>
