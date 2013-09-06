@@ -121,7 +121,7 @@ In general terms, a ReqIF model contains attributed requirements that are connec
 
 The most important construct is a {\em SpecObject}, which represents a requirement. A SpecObject has a number of {\em AttributeValues}, which hold the actual content of the SpecObject. SpecObjects are organized in {\em Specifications}, which are hierarchical structures holding {\em SpecHierarchy} elements. Each SpecHierarchy refers to exactly one SpecObject. This way, the same SpecObject can be referenced from various SpecHierarchies.
 
-SpecObjects can be connected with \textbf{SpecRelations}, which are links between SpecObjects. Each SpecRelation contains a source and a target.  In addition, a SpecRelation can have a SpecType and therefore AttributeValues.
+SpecObjects can be connected with \emph{SpecRelations}, which are links between SpecObjects. Each SpecRelation contains a source and a target.  In addition, a SpecRelation can have a SpecType and therefore AttributeValues.
 
 ReqIF contains a sophisticated data model for {\em Datatypes}, support for permission management, facilities for grouping data and hooks for tool extensions.
 
@@ -133,11 +133,11 @@ These are just a few constructs of of ReqIF, others exist for permission managem
 
 Even though ReqIF was initially created as a file-based exchange format, we believe that it can be much more than that.  By employing ReqIF directly as the underlying data model for an application, we can take full advantage of the model's versatility.  Conveniently, the OMG made the data model available in the CMOF format, thereby facilitating the process of instantiating the data model in a concrete development environment.  As we will see in the next section, RMF is based on EMF \cite{emf}, which can use CMOF as an input.
 
-On the significance on ReqIF and our first-clean room implementation of the standard, we draw comparisons to model-driven software development: After the specification of UML, a lot of publications and work concentrated on this standard, paving the way for low-cost and open source tools. We hope that our open source reference implementation of the standard based on Eclipse can serve as the basis for both innovative conceptual work and new tools.
+On the significance on ReqIF and our reference implementation of the standard, we draw comparisons to model-driven software development: After the specification of UML, a lot of publications and work concentrated on this standard, paving the way for low-cost and open source tools. We hope that our open source reference implementation of the standard based on Eclipse can serve as the basis for both innovative conceptual work and new tools.
 
 \section{The Requirements Modeling Framework (RMF)}
 
-RMF is an Eclipse Foundation project that unifies a generic core engine to work with ReqIF content, and a GUI called ProR.  The vision or RMF is to have at least one reference implementation of the OMG ReqIF standard in form of an EMF model and some rudimentary tooling to edit these models. The idea is to implement the standard so that it is compatible with Eclipse technologies like GMF, Xpand, Acceleo, Sphinx, etc. and other key technologies like CDO.
+RMF is an Eclipse Foundation project that unifies a generic core engine to work with ReqIF content, and a GUI called ProR \cite{RMF}.  The vision or RMF is to have at least one reference implementation of the OMG ReqIF standard in form of an EMF model and some rudimentary tooling to edit these models. The idea is to implement the standard so that it is compatible with Eclipse technologies like GMF, Xpand, Acceleo, Sphinx, etc. and other key technologies like CDO.
 
 \subsection{High-Level Structure}
 
@@ -159,16 +159,24 @@ These contributions have their origins in research projects, where they are acti
 
 RMF is designed as a generic framework for requirements modeling, and the ProR GUI is designed as an extensible application.  It has been used and extended in various projects. Particularly relevant for openETCS, the Event-B evaluation used the Rodin extension of ProR to create a traceability of textual requirements to the Event-B benchmark \cite{event_b_benchmark}.
 
-This is an important aspect of the project.  As we have seen in industry, heavy tailoring to the processes used and integration with other tools is what makes requirements tools successful.  By using Eclipse as the platform for this tool, we can provide integration with modeling tools like Rodin \cite{jastram_forms_2012} or Topcased \cite{topcase-JaGr2011}.  By providing a versatile extension point, the behavior of the application can be adapted to the process employed.
+This is an important aspect of the project.  As we have seen in industry, heavy tailoring to the processes used and integration with other tools is what makes requirements tools successful.  By using Eclipse as the platform for this tool, we can provide integration with modeling tools like Rodin \cite{jastram_forms_2012} or Topcased \cite{topcase-JaGr2011}.  By providing a versatile extension point, the behavior of the application can be adapted to the process employed.  Some specific examples are given in Section~\ref{sec:emf-traceability}.
 
 \section{ProR}
 \label{pror}
 
-ProR is the Graphical User Interface (GUI) or RMF.  ProR is available as a stand-alone application, and it can be integrated into existing Eclipse installations.  
+ProR is the Graphical User Interface (GUI) or RMF.  ProR is available as a stand-alone application, and it can be integrated into existing Eclipse installations.  A screenshot of the ProR application is shown in Figure~\ref{fig:pror}.
 
 The rest of this document describes how to actively work with ProR, and how to use certain features for the problem at hand.  A general overview of ProR will not be provided in this document, but many descriptions of the GUI are available \cite{RMF_Mark_Book_Jastram_2013, reqif_ObjektSpektrum_2013}.  
 
 Further, the RMF website \cite{RMF} features a 15-minute video, demonstrating the most important features of the tool.  For readers not familiar with Eclipse and/or requirements tools, watching the video may be a good preparation for the next chapters.
+
+\begin{figure}[h!]
+	\begin{center}
+	\includegraphics[width=\textwidth]{img/pror.png}
+	\end{center}
+	\caption{The ProR GUI.}
+	\label{fig:pror}
+\end{figure} 
 
 %==============================================================================
 \chapter{ProR Installation and Configuration}
@@ -224,7 +232,7 @@ Now that team support is installed, it still has to be configured.  Team support
 \item[File | Import...] This will open a dialog.
 \item[Project from SVN.] In the folder SVN, select the option ``Project from SVN''
 \item[Select a Connector.] This will trigger a new dialog.  There are many ways for giving Eclipse access to Subversion, broadly separated into native connectors (that use your locally installed Subversion) or connectors programmed in pure Java (not relying on any OS resources).  We recommend the second, specifically SVN Kit 1.7.10.  This will trigger an installation wizard, which you have to follow through and eventually restart ProR.
-\item[Restart]
+\item[Restart.]
 \item[Redo the previous steps.]  Du to the installation, you have to repeat the previous steps: File | Import... | Project from SVN.
 \item[Provide the Project URL.] For the Benchmark, we use the Subversion-URL from gitHub, extended by the path to the project, which is \url{https://github.com/openETCS/model-evaluation/trunk/management/ProR_FormalMind/ProR_Benchmark}.  How the dialog is supposed to look is shown in Figure~\ref{fig:svn-config}.  Of course, you have to provide your own credentials.
 \item[Complete the Wizard.]  Complete the wizards with all the given defaults.   \textbf{Tip:} Providing your gitHub credentials may trigger the secure storage.  This is an Eclipse-specific or OS-specific storage which will hold your gitHub password --- you can set any password, not (necessarily) the gitHub password.
@@ -362,6 +370,7 @@ Now the change can be applied by updating element 3.12.3.4.7.2, which can be don
 \end{figure} 
 
 \section{Traceability to EMF-based Models}
+\label{sec:emf-traceability}
 
 Integrating ProR with other EMF tools is out of the scope of this document.  As mentioned before, some of this has already been explored in the Event-B benchmark \cite{event_b_benchmark}, e.g. in Figure~13 in that report.
 
