@@ -1,0 +1,56 @@
+*****************************
+*** Generated KCG H files ***
+*****************************
+RadioManagement_MoRC_System_Architecture.h
+MoRC_withSimplified_IF.h
+managementOfRadioCommunication.h
+terminateAndEstablishSession.h
+initiateTerminatingASession.h
+safeRadioConnectionIndication.h
+registeringToTheRadioNetwork.h
+radioNetworkMobile.h
+RisingEdge_digital.h
+terminating_a_CommunicationSession.h
+waitAndRepeatTimer.h
+maintaining_a_CommunicationSession.h
+countDownTimer.h
+establish_a_CommunicationSession.h
+evaluateOrderToContactAnRBD.h
+FallingEdge_digital.h
+isOrderToEstablishConnection.h
+Initiate_a_Session.h
+kcg_types.h
+kcg_consts.h
+kcg_sensors.h
+
+*****************************
+*** Generated KCG C files ***
+*****************************
+RadioManagement_MoRC_System_Architecture.c
+MoRC_withSimplified_IF.c
+managementOfRadioCommunication.c
+terminateAndEstablishSession.c
+initiateTerminatingASession.c
+safeRadioConnectionIndication.c
+registeringToTheRadioNetwork.c
+radioNetworkMobile.c
+RisingEdge_digital.c
+terminating_a_CommunicationSession.c
+waitAndRepeatTimer.c
+maintaining_a_CommunicationSession.c
+countDownTimer.c
+establish_a_CommunicationSession.c
+evaluateOrderToContactAnRBD.c
+FallingEdge_digital.c
+isOrderToEstablishConnection.c
+Initiate_a_Session.c
+kcg_types.c
+kcg_consts.c
+
+*****************************
+*** Include Directories   ***
+*****************************
+.
+$(SCADE)
+D:\programme\Esterel Technologies\Esterel SCADE 6.4.2\SCADE\libraries\libmathext
+

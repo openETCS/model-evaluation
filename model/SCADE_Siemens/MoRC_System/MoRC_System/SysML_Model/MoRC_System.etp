@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project id="1" oid_count="49" defaultConfiguration="2">
+	<props>
+		<Prop id="3" name="@STUDIO:PRODUCT">
+			<value>SYSTEM</value>
+		</Prop>
+		<Prop id="4" name="@SYSTEM:VERSION">
+			<value>2.0.1</value>
+		</Prop>
+		<Prop id="8" name="@REPORTER:SCRIPT">
+			<value>Reporter\ScadeSystemReport.tcl</value>
+			<configuration>7</configuration>
+		</Prop>
+		<Prop id="9" name="@REPORTER:RotateLandscape">
+			<value>true</value>
+			<configuration>7</configuration>
+		</Prop>
+		<Prop id="10" name="@REPORTER:cstDisplayType">
+			<value>Flat</value>
+			<configuration>7</configuration>
+		</Prop>
+		<Prop id="11" name="@STUDIO:TOOLCONF">
+			<value>Reporter</value>
+			<value>7</value>
+			<value>12</value>
+		</Prop>
+		<Prop id="13" name="@REPORTER:FORMAT">
+			<value>rtf</value>
+			<configuration>12</configuration>
+		</Prop>
+		<Prop id="14" name="@REPORTER:SCRIPT">
+			<value>Reporter\ScadeSystemReport.tcl</value>
+			<configuration>12</configuration>
+		</Prop>
+		<Prop id="15" name="@REPORTER:RotateLandscape">
+			<value>true</value>
+			<configuration>12</configuration>
+		</Prop>
+		<Prop id="16" name="@REPORTER:cstDisplayType">
+			<value>Flat</value>
+			<configuration>12</configuration>
+		</Prop>
+		<Prop id="18" name="@SYSTEM_CHECKER:CONSTRAINT_ENABLEMENT">
+			<value>;Predefined rules|Connector path rules|Check connector path for a connector connected to a reference|true;Predefined rules|Connector path rules|Verify if the connector path of NestedConnectorEnds are correct|true;Predefined rules|Diagram representation rules|Check the representation on graphical diagrams|true;Predefined rules|connector_compatibility_uml.ocl|connector_between_internal_external_ports_with_compatible_flow_direction|true;Predefined rules|connector_compatibility_uml.ocl|connector_between_internal_external_ports_with_identical_flow_direction|true;Predefined rules|connector_compatibility_uml.ocl|connector_between_internal_ports_with_compatible_flow_direction|true;Predefined rules|connector_compatibility_uml.ocl|connector_between_internal_ports_with_exact_flow_direction|true;Predefined rules|connector_compatibility_uml.ocl|connector_between_ports_with_compatible_datatype_dimension|true;Predefined rules|connector_compatibility_uml.ocl|connector_between_ports_with_compatible_type|true;Predefined rules|connector_compatibility_uml.ocl|connector_connects_only_flow_ports|true;Predefined rules|connector_compatibility_uml.ocl|connector_does_not_connect_external_ports|true;Predefined rules|connector_compatibility_uml.ocl|connector_has_two_connector_ends|true;Predefined rules|datatypes_system.tcl|CheckUnitAndDimensionConsistency|true;Predefined rules|flow_ports_uml.ocl|external_output_flow_port_is_produced_only_once|false;Predefined rules|flow_ports_uml.ocl|flow_port_is_connected|true;Predefined rules|flow_ports_uml.ocl|internal_intput_flow_port_is_produced_only_once|true;Predefined rules|grouped_ports_uml.ocl|connector_between_grouped_port_and_flow_port_has_compatible_name_type_and_dimension|false;Predefined rules|grouped_ports_uml.ocl|connector_between_grouped_port_and_flow_port_has_compatible_type_and_dimension|true;Predefined rules|grouped_ports_uml.ocl|connector_between_grouped_port_without_flowspecification_and_port_with_flow_specification|true;Predefined rules|grouped_ports_uml.ocl|connector_between_two_grouped_ports_has_compatible_name_type_and_dimension|false;Predefined rules|grouped_ports_uml.ocl|connector_between_two_grouped_ports_has_compatible_type_and_dimension|true;Predefined rules|grouped_ports_uml.ocl|grouped_port_should_have_type|true</value>
+			<configuration>17</configuration>
+		</Prop>
+		<Prop id="19" name="@STUDIO:TOOLCONF">
+			<value>System Checker</value>
+			<value>17</value>
+			<value>20</value>
+		</Prop>
+		<Prop id="25" name="@SCCClearCase:PROJNAME">
+			<value>MoRC_System</value>
+		</Prop>
+		<Prop id="26" name="@SCCClearCase:AUXPROJPATH">
+			<value></value>
+		</Prop>
+		<Prop id="27" name="@SYSTEM_CHECKER:DEFAULT_ROOT">
+			<value>MoRC_System::Architecture;MoRC_System::FunctionalComposition</value>
+			<configuration>17</configuration>
+		</Prop>
+		<Prop id="28" name="@SYSTEM_CHECKER:DEFAULT_ROOT">
+			<value>MoRC_System::Architecture;MoRC_System::FunctionalComposition</value>
+			<configuration>20</configuration>
+		</Prop>
+		<Prop id="31" name="@STUDIO:AUTHORS">
+			<value>Uwe Steinke</value>
+		</Prop>
+		<Prop id="32" name="@STUDIO:COMPAGNY">
+			<value>Siemens AG</value>
+		</Prop>
+		<Prop id="33" name="@STUDIO:DATE">
+			<value>2013-09-12</value>
+		</Prop>
+		<Prop id="34" name="@TRACEABILITY:Project">
+			<value>MoRC_System.rqtf</value>
+		</Prop>
+		<Prop id="35" name="@STUDIO:TOOLCONF">
+			<value>Design Verifier</value>
+			<value>2</value>
+			<value>7</value>
+			<value>12</value>
+			<value>17</value>
+			<value>20</value>
+		</Prop>
+		<Prop id="36" name="@STUDIO:TOOLCONF">
+			<value>DiffAnalyzer</value>
+			<value>2</value>
+			<value>7</value>
+			<value>12</value>
+			<value>17</value>
+			<value>20</value>
+		</Prop>
+		<Prop id="37" name="@STUDIO:TOOLCONF">
+			<value>Code Generator</value>
+			<value>2</value>
+			<value>7</value>
+			<value>12</value>
+			<value>17</value>
+			<value>20</value>
+		</Prop>
+		<Prop id="38" name="@STUDIO:TOOLCONF">
+			<value>Instrumenter</value>
+			<value>2</value>
+			<value>7</value>
+			<value>12</value>
+			<value>17</value>
+			<value>20</value>
+		</Prop>
+		<Prop id="39" name="@STUDIO:TITLE">
+			<value>openETCS UNISIG Subset-026 SysML Model</value>
+		</Prop>
+		<Prop id="40" name="@STUDIO:SUBTITLE">
+			<value>From &quot;Train&quot; down to &quot;Management of Radio Communication&quot;</value>
+		</Prop>
+		<Prop id="41" name="@STUDIO:DESCRIPTION">
+			<value>This SysML model incorporates a functional (de)composition of the ETCS onboard functions as listed in SUBSET-026-4 v330, 4.5.2 (see package&quot;FunctionalCompostion&quot; in the model). The most detailed function in the functional break down structure is the &quot;Management of Radio Communication&quot; from Subset-026, Chapt. 3.5.  &#xA;&#xA;In parallel to the functional structure the package &quot;Architecture&quot; makes up an architecural view on the system with physical components at top level starting with &quot;Train&quot; and a &quot;Radio&quot; with &quot;RadioManagement&quot; in detail. &#xA;&#xA;The &quot;Management of Radio Communication&quot; function in the functional view is allocated to the &quot;RadioManagement&quot; component in the architecture as can be seen in the &quot;FunctionAllocation&quot; table. &#xA;&#xA;The &quot;RadioManagement&quot; block is designated for implementation with SCADE Suite, see &quot;MoRC_impl&quot; attached to this model. &#xA;&#xA;----&#xA;&#xA;openETCS / UNISIG Subset-026 SysML Model: From top level &quot;Train&quot; down to &quot;Management of Radio Communication&quot;&#xA;&#xA;- Name: MoRC_System.etp&#xA;- Description: SUBSET-026-3, ISSUE : 3.3.0, SysML model with &quot;3.5 Management of Radio Communication&quot; in detail &#xA;- Copyright Siemens AG, 2013&#xA;- Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl )&#xA;- Gist URL: ---&#xA;- Cryptography: No&#xA;- Author(s): Uwe Steinke&#xA;&#xA;The use of this software is limited to non-vital applications. &#xA;It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss. &#xA;&#xA;THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OTHER KIND OF USE. &#xA;&#xA;</value>
+		</Prop>
+		<Prop id="42" name="@STUDIO:REFERENCE">
+			<value>UNISIG Subset-026-3 3.0.0, Chapter 3.5 &quot;Management of Radio Communication&quot;</value>
+		</Prop>
+		<Prop id="43" name="@STUDIO:INDEX">
+			<value>Version No 00.01.00</value>
+		</Prop>
+		<Prop id="44" name="@REPORTER:IssueNr">
+			<value>Version No 00.01.00</value>
+			<configuration>12</configuration>
+		</Prop>
+		<Prop id="45" name="@REPORTER:ReferenceNr">
+			<value>UNISIG Subset-026-3 3.0.0, Chapter 3.5 &quot;Management of Radio Communication&quot;</value>
+			<configuration>12</configuration>
+		</Prop>
+		<Prop id="46" name="@REPORTER:Classification">
+			<value>SysML Semiformal Model Documentation</value>
+			<configuration>12</configuration>
+		</Prop>
+		<Prop id="47" name="@REPORTER:Distribution">
+			<value>https://github.com/openETCS/model-evaluation/tree/master/model/SCADE_Siemens</value>
+			<configuration>12</configuration>
+		</Prop>
+		<Prop id="48" name="@REPORTER:Summary">
+			<value>SysML model from top level &quot;Train&quot; down to &quot;Management of Radio Communication&quot; with export to SCADE Suite for formal modelling.&#xA;</value>
+			<configuration>12</configuration>
+		</Prop>
+		<Prop id="49" name="@REPORTER:Footer">
+			<value></value>
+			<value>Siemens AG, 2013</value>
+			<value></value>
+			<configuration>12</configuration>
+		</Prop>
+	</props>
+	<roots>
+		<Folder id="5" extensions="di;uml;notation" name="SCADE System Model Files">
+			<elements>
+				<Folder id="6" extensions="di;uml;notation" name="Separate Files"/>
+				<FileRef id="21" persistAs="MoRC_System.di">
+					<props>
+						<Prop id="22" name="@SYSTEM:ROOTDIFILE"/>
+					</props>
+				</FileRef>
+				<FileRef id="23" persistAs="MoRC_System.uml"/>
+				<FileRef id="24" persistAs="MoRC_System.notation"/>
+			</elements>
+		</Folder>
+	</roots>
+	<configurations>
+		<Configuration id="2" name="Default"/>
+		<Configuration id="7" name="HTML"/>
+		<Configuration id="12" name="RTF"/>
+		<Configuration id="17" name="BasicCheck"/>
+		<Configuration id="20" name="ExtendedCheck"/>
+	</configurations>
+</Project>
