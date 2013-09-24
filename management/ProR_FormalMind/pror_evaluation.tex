@@ -389,6 +389,17 @@ Integration with existing EMF models can take place on two levels, both which ar
 \item[Color highlighting of model element names.] It is also possible to use color highlighting in the requirements text to identify symbols that are defined in another model.  Currently this has only been realized using plain text attributes, as interfering with the formatting of rich text attributes is tricky.
 \end{description}
 
+\section{Traceability to Other Artefacts}
+\label{sec:other-traceability}
+
+It is conceivable that traceability to other artefacts may become necessary, like test cases, test reports, source code, or other not-EMF-based models.  ProR is capable to provide such traceability in a modular manner, but additional implementation effort is required for this.
+
+If the artefact to be traced is available as a file in the same folder (i.e. the same Eclipse project), then adapter can be developed that monitors that file and reacts to changes.  ProR provides an extension point that allows the seamless integration into the GUI, using the same mechanism described in Section~\ref{sec:emf-traceability}.  Such an integration would probably require more work, as the plug-in would have to provide a parser (while an EMF-based model is already parsed).  It would probably be slower as well, as the whole file has to be monitored not just the model element in question.  Nevertheless, all this can be neatly packaged in a separate plug-in, thereby guaranteeing maintainability.
+
+It is also possible to monitor resources other than files (e.g. web services).  If this is of interest, it may be useful to look into existing frameworks like OSLC.
+
+To give a practical example, it would be possible to provide an adapter for JUnit unit tests (which stores the test results as an XML file).  A requirement could reference a test (using a SpecRelation).  The result could then be represented as a colored String attribute which would be green if all is ok, and showing the error condition in red, if there is a problem.
+
 \section{Reporting}
 
 Reporting capabilities are currently limited to converting a Specification to HTML.  This is realized by selecting the editor containing the Specification to be exported and to initiate \emph{File | Print...}.  ProR will open a Web Browser with the exported Specification.
