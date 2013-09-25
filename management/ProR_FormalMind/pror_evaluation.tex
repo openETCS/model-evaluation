@@ -392,7 +392,7 @@ Integration with existing EMF models can take place on two levels, both which ar
 \section{Traceability to Other Artefacts}
 \label{sec:other-traceability}
 
-It is conceivable that traceability to other artefacts may become necessary, like test cases, test reports, source code, or other not-EMF-based models.  ProR is capable to provide such traceability in a modular manner, but additional implementation effort is required for this.
+It is certain that traceability to other artefacts may become necessary, like test cases, test reports, source code, or other not-EMF-based models.  ProR is capable to provide such traceability in a modular manner, but additional implementation effort is required for this.
 
 If the artefact to be traced is available as a file in the same folder (i.e. the same Eclipse project), then adapter can be developed that monitors that file and reacts to changes.  ProR provides an extension point that allows the seamless integration into the GUI, using the same mechanism described in Section~\ref{sec:emf-traceability}.  Such an integration would probably require more work, as the plug-in would have to provide a parser (while an EMF-based model is already parsed).  It would probably be slower as well, as the whole file has to be monitored not just the model element in question.  Nevertheless, all this can be neatly packaged in a separate plug-in, thereby guaranteeing maintainability.
 
