@@ -156,20 +156,54 @@
             </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
         </SPEC-OBJECT-TYPE>
-        <SPEC-OBJECT-TYPE IDENTIFIER="_kxPOUDsuEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:28:02.405+02:00" LONG-NAME="Safety Property Type">
+        <SPEC-OBJECT-TYPE IDENTIFIER="_zXJlADvBEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:01:46.170+02:00" LONG-NAME="Safety Criteria Type">
           <SPEC-ATTRIBUTES>
-            <ATTRIBUTE-DEFINITION-XHTML LONG-NAME="Safety Property">
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_91XQUDvBEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:03:04.769+02:00" LONG-NAME="Name">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-3576232c-dac7-4f2b-8013-abe22775bce9</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-XHTML IDENTIFIER="_-znoUDvBEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:03:04.753+02:00" LONG-NAME="Description">
               <TYPE>
                 <DATATYPE-DEFINITION-XHTML-REF>_29f6125b34adaaad59a7c50c06dc2121</DATATYPE-DEFINITION-XHTML-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-XHTML>
-            <ATTRIBUTE-DEFINITION-STRING LONG-NAME="ID">
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_B2oGUDvCEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:03:39.047+02:00" LONG-NAME="Type"/>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="_vTtIQDvCEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:08:42.827+02:00" LONG-NAME="Safety Criteria">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_x2BUADvCEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:09:02.065+02:00" LONG-NAME="Description">
               <TYPE>
-                <DATATYPE-DEFINITION-STRING-REF>deb4565a769ce2d3904429dfee330ffe</DATATYPE-DEFINITION-STRING-REF>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-3576232c-dac7-4f2b-8013-abe22775bce9</DATATYPE-DEFINITION-STRING-REF>
               </TYPE>
             </ATTRIBUTE-DEFINITION-STRING>
           </SPEC-ATTRIBUTES>
-        </SPEC-OBJECT-TYPE>
+        </SPECIFICATION-TYPE>
+        <SPEC-RELATION-TYPE IDENTIFIER="_Gx2GUTvGEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:32:53.024+02:00" LONG-NAME="Safety Criteria Link Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-XHTML IDENTIFIER="_cE83kDvGEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:35:19.450+02:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-XHTML-REF>_29f6125b34adaaad59a7c50c06dc2121</DATATYPE-DEFINITION-XHTML-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-XHTML>
+            <ATTRIBUTE-DEFINITION-BOOLEAN IDENTIFIER="_d0xPYDvGEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:35:30.804+02:00" LONG-NAME="Source Changed">
+              <TYPE>
+                <DATATYPE-DEFINITION-BOOLEAN-REF>rmf-72ebea4c-60e1-4e69-a759-9ead23c8b792</DATATYPE-DEFINITION-BOOLEAN-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-BOOLEAN>
+            <ATTRIBUTE-DEFINITION-BOOLEAN IDENTIFIER="_h6d5cDvGEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:35:55.548+02:00" LONG-NAME="Target Changed">
+              <TYPE>
+                <DATATYPE-DEFINITION-BOOLEAN-REF>rmf-72ebea4c-60e1-4e69-a759-9ead23c8b792</DATATYPE-DEFINITION-BOOLEAN-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-BOOLEAN>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_fmbaQDvGEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:35:30.813+02:00" LONG-NAME="Type">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>rmf-83867e2c-871f-4ad6-b308-b5cda7200b1b</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-RELATION-TYPE>
       </SPEC-TYPES>
       <SPEC-OBJECTS>
         <SPEC-OBJECT IDENTIFIER="_11104b4d0f7b3fd95e0357838b3cddcb" LAST-CHANGE="2012-12-06T15:05:48.000+01:00">
@@ -6769,66 +6803,56 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-OBJECT-TYPE-REF>rmf-8aa24fa7-43b3-482d-a543-da0e35269dab</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_WoZEUDsuEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:26:37.171+02:00">
-          <TYPE>
-            <SPEC-OBJECT-TYPE-REF>f34aca591c730a01eec348f3579e127-2</SPEC-OBJECT-TYPE-REF>
-          </TYPE>
-        </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_aKSdwDsuEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:26:42.558+02:00">
-          <TYPE>
-            <SPEC-OBJECT-TYPE-REF>f34aca591c730a01eec348f3579e127-2</SPEC-OBJECT-TYPE-REF>
-          </TYPE>
-        </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_6KlxgDsuEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:36:11.076+02:00">
+        <SPEC-OBJECT IDENTIFIER="_QvDoQDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:01.613+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_001">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="text-align: left;">The Mobile Terminal shall be safely registered to a Radio Network.</xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left"><xhtml:span style="font-family: Sans;">The Mobile Terminal shall be safely registered to a Radio Network.</xhtml:span></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_FQrVIDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:25.134+02:00">
+        <SPEC-OBJECT IDENTIFIER="_bySsMDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:30.621+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_002">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">The driver shall be safely informed of the state of the radio communication (resulting of the different steps: registration of the Mobile Terminal to the Radio Network, establishment of the communication, end of communication).</xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p><xhtml:span style="font-family: 'Lucida Sans'; font-size: 13px; text-align: left;">The driver shall be safely informed of the state of the radio communication (resulting of the different steps: registration of the Mobile Terminal to the Radio Network, establishment of the communication, end of communication).</xhtml:span></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_Jrt9EDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:34.468+02:00">
+        <SPEC-OBJECT IDENTIFIER="_gG5U8DvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:22:30.974+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_003">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
                 <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">If a communication through a Radio Network is active, registration to another Radio Network mustn't be performed.</xhtml:p></xhtml:div>
@@ -6836,147 +6860,147 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_LEwzoDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:33:34.935+02:00">
+        <SPEC-OBJECT IDENTIFIER="_g_GIQDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:30:29.755+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_004">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">A safety protocol shall be used to performed communication between the Mobile Terminal and the Radio Network.</xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:span style="font-family: 'Lucida Sans';">A safety protocol shall be used to performed communication between the Mobile Terminal and the Radio Network.</xhtml:span></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_LQ4kEDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:33:30.280+02:00">
+        <SPEC-OBJECT IDENTIFIER="_h14mUDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:24:20.741+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_005">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">If a communication with trackside equipment is active, set-up of safe radio connection with another trackside equipment mustn't beformed. Exception in case of handover with RBC.</xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:span style="font-family: 'Lucida Sans';">If a communication with trackside equipment is active, set-up of safe radio connection with another trackside equipment mustn't beformed. Exception in case of handover with RBC.</xhtml:span></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_LqDSADsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:34:49.567+02:00">
+        <SPEC-OBJECT IDENTIFIER="_iZLgoDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:49.413+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_006">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">Communication session with trackside equipment shall be safely established.</xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:span style="font-family: 'Lucida Sans'; font-size: 13px;">Communication session with trackside equipment shall be safely established.</xhtml:span></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_L7YSkDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:35:00.750+02:00">
+        <SPEC-OBJECT IDENTIFIER="_i53L0DvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:26:07.374+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_007">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">Establishment of communication session shall be performed when no communication is active. Exception in case of handover with RBC.</xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:span style="font-family: 'Lucida Sans';">Establishment of communication session shall be performed when no communication is active. Exception in case of handover with RBC.</xhtml:span></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_MIHHADsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:33:11.075+02:00">
+        <SPEC-OBJECT IDENTIFIER="_jYYT0DvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:25:57.368+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_008">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">Communication session shall be safely maintained.</xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p style="text-align: left;"><xhtml:span style="font-family: 'Lucida Sans';">Communication session shall be safely maintained.</xhtml:span></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_MMf3wDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:35:11.520+02:00">
+        <SPEC-OBJECT IDENTIFIER="_j6dGIDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:59.980+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_009">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="text-align: left;">Terminate a communication session shall be safely defined.</xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p><xhtml:span style="font-family: Sans; font-size: 13px; text-align: left;">Terminate a communication session shall be safely defined.</xhtml:span></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="_MQr0MDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:35:04.002+02:00">
+        <SPEC-OBJECT IDENTIFIER="_kem8EDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:59.889+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="REQ_FMEA_ID_010">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>//@coreContent/@specTypes.6/@specAttributes.1</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_91XQUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
             <ATTRIBUTE-VALUE-XHTML>
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-XHTML-REF>//@coreContent/@specTypes.6/@specAttributes.0</ATTRIBUTE-DEFINITION-XHTML-REF>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_-znoUDvBEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-XHTML-REF>
               </DEFINITION>
               <THE-VALUE>
-                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">The release of the safe radioo connection with trackside shall be performed only when the communication session is terminated.</xhtml:p></xhtml:div>
+                <xhtml:div><xhtml:p><xhtml:span style="font-family: 'Lucida Sans'; font-size: 13px; text-align: left;">The release of the safe radio connection with trackside shall be performed only when the communication session is terminated.</xhtml:span></xhtml:p></xhtml:div>
               </THE-VALUE>
             </ATTRIBUTE-VALUE-XHTML>
           </VALUES>
           <TYPE>
-            <SPEC-OBJECT-TYPE-REF>_kxPOUDsuEeOUHtOdC6Frhg</SPEC-OBJECT-TYPE-REF>
+            <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
       </SPEC-OBJECTS>
@@ -7586,6 +7610,320 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
           </SOURCE>
           <TYPE>
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_MLfPEDvHEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:40:39.407+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_cE83kDvGEeOjT_Ho8bZrqA</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p style="font-family: 'Lucida Sans'; text-align: left">Link to general function.</xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>_79483d6afb37b032722ce9cfafd5f86</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_QvDoQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_g968MDvHEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:43:01.528+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>e51c36e73bb936c1806e42b1581a0d3a</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_QvDoQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_iZ7nMDvHEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:43:11.713+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_8f4be7e95b36d08db14f80607a858cfe</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_QvDoQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_6T8JQDvHEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:45:52.554+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_5b7359366683b5c264fd879615ac8741</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_QvDoQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_8Ct_QDvHEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:46:04.004+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>f96e222d2b0221c5ede3688753e9833c</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_QvDoQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_8DHA0DvHEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:46:04.004+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_7753c734b74155b36683be238e348720</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_QvDoQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_P49J4DvIEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:48:17.436+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_93232122d666d33c0457a99e0081a789</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_bySsMDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_P5XZkDvIEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:48:17.436+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_216d01efe8c055661633b03c2e55043c</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_bySsMDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_P6bwkDvIEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:48:17.437+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_cE83kDvGEeOjT_Ho8bZrqA</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p><xhtml:span style="font-family: 'Lucida Sans'; font-size: 13px; text-align: left;">Link to general function.</xhtml:span></xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>_68890cc006462be84c27346a472bd72d</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_bySsMDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_P7h8wDvIEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:48:17.437+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>abe5dda6618bb2665b0c7639ab2d047b</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_bySsMDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_qOdeADvIEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:51:13.857+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>dade3cd51ea32c389fdfdd0029523789</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_gG5U8DvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_0XfjgDvIEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:52:11.990+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_34ab24447c7cca5b6f654b1c41369d20</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_g_GIQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_0X5MIDvIEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:52:11.990+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_3a3559c4bb2560c7364f72a1ff26f8e9</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_g_GIQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_55z8kDvIEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:52:58.602+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>f71c9e7b55cf0636a1b3a5e0e538e3df</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_h14mUDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_4Kh60DvJEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:59:56.780+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>b5ba7722f0ea5fd70d723463d59b73f4</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_iZLgoDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_4K6VUDvJEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:59:56.780+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_65593444371453abb574a57779675dfd</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_iZLgoDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_4L-sUDvJEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:59:56.780+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>f71c9e7b55cf0636a1b3a5e0e538e3df</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_iZLgoDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_4M_Y8DvJEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:59:56.780+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_cE83kDvGEeOjT_Ho8bZrqA</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p><xhtml:span style="font-family: 'Lucida Sans'; font-size: 13px; text-align: left;">Link to general function.</xhtml:span></xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>_9f9e7bc0702441398de4eef8dac2df20</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_iZLgoDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_4OBTsDvJEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:59:56.780+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>fa207231e4461d6c8a045a804fce2f4a</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_iZLgoDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_4O8gwDvJEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T11:59:56.781+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_4b5cb210efb59432090c88738ad764c7</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_iZLgoDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_-X8fUDvJEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T12:00:39.003+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>f71c9e7b55cf0636a1b3a5e0e538e3df</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_i53L0DvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_FLXT4DvKEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T12:01:24.059+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_cE83kDvGEeOjT_Ho8bZrqA</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p><xhtml:span style="font-family: 'Lucida Sans'; font-size: 13px; text-align: left;">Link to general function.</xhtml:span></xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>_3c9c5f69d3fc4b8a89b8306e4f07319e</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_jYYT0DvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_Hpcf4DvKEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T12:01:41.100+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_cE83kDvGEeOjT_Ho8bZrqA</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:p><xhtml:span style="font-family: 'Lucida Sans'; font-size: 13px; text-align: left;">Link to general function.</xhtml:span></xhtml:p></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TARGET>
+            <SPEC-OBJECT-REF>_26e77f62eed2e980619f8bdadfd5b704</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_j6dGIDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_LkJa4DvKEeOjT_Ho8bZrqA" LAST-CHANGE="2013-10-23T12:02:07.145+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_6e71622f5071816e29a8d50a300499a8</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_kem8EDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
       </SPEC-RELATIONS>
@@ -8607,66 +8945,66 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             </SPEC-HIERARCHY>
           </CHILDREN>
         </SPECIFICATION>
-        <SPECIFICATION IDENTIFIER="_UFlJUDsuEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:26:22.344+02:00">
+        <SPECIFICATION IDENTIFIER="_HvLjMDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:18:26.929+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-STRING THE-VALUE="Safety Criteria">
               <DEFINITION>
-                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-af794eb2-448f-42ec-8375-2eaa4937ad2d</ATTRIBUTE-DEFINITION-STRING-REF>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_x2BUADvCEeO8frgGozh-Nw</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-STRING>
           </VALUES>
           <TYPE>
-            <SPECIFICATION-TYPE-REF>ReXSpecType</SPECIFICATION-TYPE-REF>
+            <SPECIFICATION-TYPE-REF>_vTtIQDvCEeO8frgGozh-Nw</SPECIFICATION-TYPE-REF>
           </TYPE>
           <CHILDREN>
-            <SPEC-HIERARCHY IDENTIFIER="_6K7vwDsuEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:30:37.602+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_Qvd38DvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:19:39.859+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_6KlxgDsuEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_QvDoQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="_FRZt4DsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:31:55.378+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_by1ewDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:01.555+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_FQrVIDsvEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_bySsMDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="_Jsc84DsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:25.057+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_gHfK0DvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:30.559+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_Jrt9EDsvEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_gG5U8DvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="_LFdXMDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:34.394+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_g_wPkDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:36.452+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_LEwzoDsvEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_g_GIQDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="_LRkgkDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:35.664+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_h2mYADvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:42.197+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_LQ4kEDsvEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_h14mUDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="_LqxqwDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:38.304+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_iZ_Y8DvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:45.898+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_LqDSADsvEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_iZLgoDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="_L8GrUDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:40.121+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_i6s5UDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:49.325+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_L7YSkDsvEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_i53L0DvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="_MI04sDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:41.456+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_jZQdkDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:52.525+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_MIHHADsvEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_jYYT0DvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="_MNLNMDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:41.916+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_j7ox4DvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:56.098+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_MMf3wDsvEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_j6dGIDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
-            <SPEC-HIERARCHY IDENTIFIER="_MRYXwDsvEeOUHtOdC6Frhg" LAST-CHANGE="2013-10-22T17:32:42.355+02:00">
+            <SPEC-HIERARCHY IDENTIFIER="_kfeewDvEEeO8frgGozh-Nw" LAST-CHANGE="2013-10-23T11:21:59.889+02:00">
               <OBJECT>
-                <SPEC-OBJECT-REF>_MQr0MDsvEeOUHtOdC6Frhg</SPEC-OBJECT-REF>
+                <SPEC-OBJECT-REF>_kem8EDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
               </OBJECT>
             </SPEC-HIERARCHY>
           </CHILDREN>
@@ -8685,7 +9023,7 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
               <configuration:Column label="Description" width="800"/>
               <configuration:Column label="Type" width="35"/>
               <configuration:Column label="WRSPM" width="57"/>
-              <configuration:Column label="Source Changed" width="50"/>
+              <configuration:Column label="Source Changed" width="52"/>
               <configuration:Column label="Target Changed" width="43"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
@@ -8703,10 +9041,21 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
               <configuration:Column label="Lead Header Column" width="30"/>
             </configuration:leftHeaderColumn>
           </configuration:ProrSpecViewConfiguration>
-          <configuration:ProrSpecViewConfiguration specification="_UFlJUDsuEeOUHtOdC6Frhg">
+          <configuration:ProrSpecViewConfiguration>
             <configuration:columns>
               <configuration:Column label="ID" width="168"/>
               <configuration:Column label="Safety Property" width="649"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+          <configuration:ProrSpecViewConfiguration specification="_HvLjMDvEEeO8frgGozh-Nw">
+            <configuration:columns>
+              <configuration:Column label="Name" width="170"/>
+              <configuration:Column label="Description" width="684"/>
+              <configuration:Column label="Source Changed" width="51"/>
+              <configuration:Column label="Target Changed" width="48"/>
             </configuration:columns>
             <configuration:leftHeaderColumn>
               <configuration:Column label="Lead Header Column" width="30"/>
