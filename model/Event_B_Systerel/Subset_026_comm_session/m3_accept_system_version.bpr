@@ -243,7 +243,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -271,7 +271,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p5,p10,p8,p2,p6,p11,p7,p9,p13,p12,p15"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p14,p3,p4,p1,p5,p10,p8,p2,p6,p11,p7,p9,p13,p12,p15">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -313,7 +313,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p5,p10,p8,p2,p6,p11,p7,p9,p13,p12,p15"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p14,p4,p3,p1,p5,p10,p8,p2,p6,p11,p7,p9,p13,p12,p15">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -355,7 +355,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p9,p4,p13,p2,p5,p12,p7,p10,p8,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p11,p6,p3,p1,p9,p4,p13,p2,p5,p12,p7,p10,p8,p14">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -396,7 +396,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -420,7 +420,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p7,p10,p3,p8,p4,p12,p9,p5,p11,p15,p16"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p14,p6,p13,p2,p1,p7,p10,p3,p8,p4,p12,p9,p5,p11,p15,p16">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -463,7 +463,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p9,p3,p7,p4,p12,p8,p5,p11,p15,p16"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p14,p10,p13,p2,p1,p6,p9,p3,p7,p4,p12,p8,p5,p11,p15,p16">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -615,7 +615,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p8,p3,p12,p2,p4,p11,p6,p9,p7,p13"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p10,p5,p1,p8,p3,p12,p2,p4,p11,p6,p9,p7,p13">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -655,7 +655,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -677,7 +677,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p8,p3,p2,p9,p4,p10,p1,p11,p12"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p7,p6,p5,p8,p3,p2,p9,p4,p10,p1,p11,p12">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -714,7 +714,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p16,p15,p17"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p14,p12,p5,p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p16,p15,p17">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -758,7 +758,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p5,p9,p8,p1,p6,p3,p10,p7,p4,p13,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p12,p11,p2,p5,p9,p8,p1,p6,p3,p10,p7,p4,p13,p14">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -798,7 +798,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p15,p14,p17"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p12,p5,p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p15,p14,p17">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -842,7 +842,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p5,p10,p8,p2,p6,p3,p13,p7,p4,p9,p16,p15,p14,p17"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p11,p12,p1,p5,p10,p8,p2,p6,p3,p13,p7,p4,p9,p16,p15,p14,p17">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -886,7 +886,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p16,p15,p14,p17"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p12,p5,p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p16,p15,p14,p17">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -930,7 +930,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1000,7 +1000,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p11,p9,p2,p7,p3,p12,p8,p10,p15,p14,p13"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p4,p5,p1,p6,p11,p9,p2,p7,p3,p12,p8,p10,p15,p14,p13">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1043,7 +1043,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p11,p9,p2,p7,p3,p12,p8,p10,p15,p14,p13"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p5,p4,p1,p6,p11,p9,p2,p7,p3,p12,p8,p10,p15,p14,p13">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1215,7 +1215,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p9,p2,p7,p4,p11,p8,p5,p10,p15,p14,p13"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p12,p3,p1,p6,p9,p2,p7,p4,p11,p8,p5,p10,p15,p14,p13">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1258,7 +1258,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p5,p8,p2,p6,p3,p10,p7,p4,p9,p14,p13,p12"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p15,p11,p1,p5,p8,p2,p6,p3,p10,p7,p4,p9,p14,p13,p12">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1387,7 +1387,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p9,p3,p7,p4,p12,p8,p5,p11,p16,p15,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p17,p10,p13,p2,p1,p6,p9,p3,p7,p4,p12,p8,p5,p11,p16,p15,p14">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1431,7 +1431,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p7,p10,p3,p8,p4,p12,p9,p5,p11,p16,p15,p14"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p17,p6,p13,p2,p1,p7,p10,p3,p8,p4,p12,p9,p5,p11,p16,p15,p14">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1475,7 +1475,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p5,p8,p2,p6,p3,p12,p7,p4,p9,p15,p14,p13"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p10,p11,p1,p5,p8,p2,p6,p3,p12,p7,p4,p9,p15,p14,p13">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1518,7 +1518,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p4,p7,p2,p5,p3,p10,p6,p9,p13,p12,p11"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p14,p8,p1,p4,p7,p2,p5,p3,p10,p6,p9,p13,p12,p11">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1560,7 +1560,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p5,p8,p2,p6,p3,p10,p7,p9,p13,p12,p11"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p14,p4,p1,p5,p8,p2,p6,p3,p10,p7,p9,p13,p12,p11">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1601,7 +1601,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p5,p8,p2,p6,p3,p12,p7,p4,p9,p15,p14,p13"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p10,p11,p1,p5,p8,p2,p6,p3,p12,p7,p4,p9,p15,p14,p13">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1644,7 +1644,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p5,p10,p8,p2,p6,p3,p13,p7,p4,p9,p16,p15,p14,p17"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p11,p12,p1,p5,p10,p8,p2,p6,p3,p13,p7,p4,p9,p16,p15,p14,p17">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1688,7 +1688,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p15,p14,p17"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p12,p5,p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p15,p14,p17">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1732,7 +1732,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p16,p15,p17"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p14,p12,p5,p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p16,p15,p17">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1884,7 +1884,7 @@
 <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p16,p15,p14,p17"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p12,p5,p1,p6,p11,p9,p2,p7,p3,p13,p8,p4,p10,p16,p15,p14,p17">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="org.eventb.smt.cvc3.cvc3_pp_smt2"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>

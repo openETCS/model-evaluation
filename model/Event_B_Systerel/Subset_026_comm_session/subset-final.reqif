@@ -7003,16 +7003,28 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-OBJECT-TYPE-REF>_zXJlADvBEeO8frgGozh-Nw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_hH148TviEeOVHNG4OIcf3Q" LAST-CHANGE="2013-10-23T14:56:22.269+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="inv5: ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC = ∅ ∨(∃ entity·entity ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ (accepting ∪ terminating_sessions)) ∩ RBC⇒ (∀entity2·entity2 ∈ ((outgoing_sessions ∪ contacted ∪ contacted_by) ∖ terminating_sessions) ∩ RBC ∧ entity2 ≠ entity ⇒ entity2 ∈ accepting))~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.invariant#evtJ">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
       </SPEC-OBJECTS>
       <SPEC-RELATIONS>
-        <SPEC-RELATION IDENTIFIER="rmf-3953f9e7-21c3-4ffa-b057-9fedae0ea686">
+        <SPEC-RELATION IDENTIFIER="rmf-3953f9e7-21c3-4ffa-b057-9fedae0ea686" LAST-CHANGE="2013-10-23T13:43:03.223+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7028,14 +7040,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-bef4466c-4ce1-44a4-84a8-63608ea298d7">
+        <SPEC-RELATION IDENTIFIER="rmf-bef4466c-4ce1-44a4-84a8-63608ea298d7" LAST-CHANGE="2013-10-23T13:43:01.286+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7051,14 +7063,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-52729ac1-2180-4d4b-89b9-06f6e6bb0497">
+        <SPEC-RELATION IDENTIFIER="rmf-52729ac1-2180-4d4b-89b9-06f6e6bb0497" LAST-CHANGE="2013-10-23T13:42:59.522+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7074,14 +7086,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-cf4c8953-2019-48f4-9fc6-9e33d9db8bc5">
+        <SPEC-RELATION IDENTIFIER="rmf-cf4c8953-2019-48f4-9fc6-9e33d9db8bc5" LAST-CHANGE="2013-10-23T13:42:58.479+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7313,14 +7325,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-50624645-4a34-411e-a332-ca633e433ce5">
+        <SPEC-RELATION IDENTIFIER="rmf-50624645-4a34-411e-a332-ca633e433ce5" LAST-CHANGE="2013-10-23T13:43:06.362+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7336,14 +7348,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-c4b63523-ded8-42b4-a144-c4af7b7fed6b">
+        <SPEC-RELATION IDENTIFIER="rmf-c4b63523-ded8-42b4-a144-c4af7b7fed6b" LAST-CHANGE="2013-10-23T13:43:12.370+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7359,14 +7371,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-e6c433d2-ab4b-493b-a254-8c82edc9ed21">
+        <SPEC-RELATION IDENTIFIER="rmf-e6c433d2-ab4b-493b-a254-8c82edc9ed21" LAST-CHANGE="2013-10-23T13:43:21.594+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7382,14 +7394,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-9674fd91-825b-40ab-ba76-c1dff5a0623d">
+        <SPEC-RELATION IDENTIFIER="rmf-9674fd91-825b-40ab-ba76-c1dff5a0623d" LAST-CHANGE="2013-10-23T13:43:20.175+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7405,14 +7417,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-3c9f113d-61ca-4e82-b1b2-0826f65c4971">
+        <SPEC-RELATION IDENTIFIER="rmf-3c9f113d-61ca-4e82-b1b2-0826f65c4971" LAST-CHANGE="2013-10-23T13:43:14.970+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7428,14 +7440,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-31d979dc-1680-43a4-a915-35876a842577">
+        <SPEC-RELATION IDENTIFIER="rmf-31d979dc-1680-43a4-a915-35876a842577" LAST-CHANGE="2013-10-23T13:43:18.578+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7451,14 +7463,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-c6bcbb89-29c4-4813-bb8a-f0c52671c508">
+        <SPEC-RELATION IDENTIFIER="rmf-c6bcbb89-29c4-4813-bb8a-f0c52671c508" LAST-CHANGE="2013-10-23T13:43:17.370+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7474,14 +7486,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-db57a628-7052-446d-abf1-372eeca6e29f">
+        <SPEC-RELATION IDENTIFIER="rmf-db57a628-7052-446d-abf1-372eeca6e29f" LAST-CHANGE="2013-10-23T13:43:26.442+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7497,14 +7509,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-e30b6f01-635d-4dfa-885f-d993f6c4e0e8">
+        <SPEC-RELATION IDENTIFIER="rmf-e30b6f01-635d-4dfa-885f-d993f6c4e0e8" LAST-CHANGE="2013-10-23T13:43:24.674+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7520,14 +7532,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-eccb1363-0da2-460d-85da-b4a3a66fdb63">
+        <SPEC-RELATION IDENTIFIER="rmf-eccb1363-0da2-460d-85da-b4a3a66fdb63" LAST-CHANGE="2013-10-23T13:43:08.967+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7543,14 +7555,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-34febce7-29eb-415c-995d-d6c7168fd22b">
+        <SPEC-RELATION IDENTIFIER="rmf-34febce7-29eb-415c-995d-d6c7168fd22b" LAST-CHANGE="2013-10-23T13:43:10.688+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7566,14 +7578,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-b6372268-a02d-4856-887d-e6ead73fd57e">
+        <SPEC-RELATION IDENTIFIER="rmf-b6372268-a02d-4856-887d-e6ead73fd57e" LAST-CHANGE="2013-10-23T13:43:30.218+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7589,14 +7601,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-33271546-1558-4f97-a195-70df3f7d531f">
+        <SPEC-RELATION IDENTIFIER="rmf-33271546-1558-4f97-a195-70df3f7d531f" LAST-CHANGE="2013-10-23T13:43:13.722+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
@@ -7931,6 +7943,17 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
           </SOURCE>
           <TYPE>
             <SPEC-RELATION-TYPE-REF>_Gx2GUTvGEeOjT_Ho8bZrqA</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_5TuOIDviEeOVHNG4OIcf3Q" LAST-CHANGE="2013-10-23T14:59:04.578+02:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_hH148TviEeOVHNG4OIcf3Q</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_i53L0DvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
       </SPEC-RELATIONS>
