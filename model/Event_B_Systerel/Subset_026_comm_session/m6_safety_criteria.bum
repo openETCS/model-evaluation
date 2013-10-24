@@ -118,11 +118,11 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="varZ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="make_RBC_accepting">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="make_RBC_accepting"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ establish_ER_connection ∪ ER_connections"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ establish_ER_connection"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="var[" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="make_RBC_non_accepting">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="make_RBC_non_accepting"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ establish_ER_connection ∪ ER_connections"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ establish_ER_connection"/>
 </org.eventb.core.event>
-<org.eventb.core.invariant name="var\" org.eventb.core.label="inv1" org.eventb.core.predicate="(outgoing_sessions ∪ incoming_sessions) ≠ ∅&#10;⇒ establish_ER_connection = ∅ ∨&#10;   (establish_ER_connection ⊆ RBC ∩ accepting)"/>
+<org.eventb.core.invariant name="var\" org.eventb.core.comment="REQ_FMEA_ID_005" org.eventb.core.label="inv1" org.eventb.core.predicate="incoming_sessions ∪ outgoing_sessions ≠ ∅ ∧ establish_ER_connection ≠ ∅&#10;⇒&#10;(establish_ER_connection ⊆ RBC ∩ accepting ∨&#10; incoming_sessions ∪ outgoing_sessions ⊆ terminating_sessions)"/>
 </org.eventb.core.machineFile>

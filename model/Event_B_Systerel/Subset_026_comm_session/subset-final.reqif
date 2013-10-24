@@ -6625,9 +6625,9 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
-        <SPEC-OBJECT IDENTIFIER="rmf-722e9887-73d4-4aa9-9d87-0b6f8ac6e13d">
+        <SPEC-OBJECT IDENTIFIER="rmf-722e9887-73d4-4aa9-9d87-0b6f8ac6e13d" LAST-CHANGE="2013-10-24T15:01:37.164+02:00">
           <VALUES>
-            <ATTRIBUTE-VALUE-STRING THE-VALUE="event receive_contact_order_non_accept  where    @grd3 l_partner ∈ RIU ∪ (RBC ∖ (RBC ∩ accepting))  then    @act2 termination_sessions ≔ termination_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))end~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.event#evtB">
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="event receive_contact_order_non_accept  any l_partner   where    @grd1 l_partner ∉ contacted ∪ contacted_by ∪ incoming_sessions ∪ outgoing_sessions    @grd3 l_partner ∈ RIU ∪ (RBC ∖ accepting)  then    @act1 contacted_by ≔ contacted_by ∪ {l_partner}    @act2 terminating_sessions ≔ terminating_sessions ∪ (on_track ∩ (incoming_sessions ∪ outgoing_sessions))end~/Subset_026_comm_session/m3_accept_system_version.bum|org.eventb.core.machineFile#m3_accept_system_version|org.eventb.core.event#evtB">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
               </DEFINITION>
@@ -7325,14 +7325,14 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
           </TYPE>
         </SPEC-RELATION>
-        <SPEC-RELATION IDENTIFIER="rmf-50624645-4a34-411e-a332-ca633e433ce5" LAST-CHANGE="2013-10-23T13:43:06.362+02:00">
+        <SPEC-RELATION IDENTIFIER="rmf-50624645-4a34-411e-a332-ca633e433ce5" LAST-CHANGE="2013-10-24T15:01:37.201+02:00">
           <VALUES>
             <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-81deb865-315b-4003-b399-f4b4ee153c58</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
             </ATTRIBUTE-VALUE-BOOLEAN>
-            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="false">
+            <ATTRIBUTE-VALUE-BOOLEAN THE-VALUE="true">
               <DEFINITION>
                 <ATTRIBUTE-DEFINITION-BOOLEAN-REF>rmf-68f88cf7-b832-4a37-87ac-ac3103adffee</ATTRIBUTE-DEFINITION-BOOLEAN-REF>
               </DEFINITION>
