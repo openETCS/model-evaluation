@@ -229,4 +229,5 @@
 <org.eventb.core.invariant name="varH" org.eventb.core.label="inv7" org.eventb.core.predicate="establish_ER_connection ∩ terminated_ER_connections = ∅"/>
 <org.eventb.core.invariant name="varI" org.eventb.core.label="inv8" org.eventb.core.predicate="contacted_by ∩ establish_ER_connection = ∅"/>
 <org.eventb.core.invariant name="varK" org.eventb.core.label="inv9" org.eventb.core.predicate="contacted_by ∩ ER_connections = ∅"/>
+<org.eventb.core.invariant name="varL" org.eventb.core.label="inv10" org.eventb.core.predicate="ER_connections ⊆ on_track"/>
 </org.eventb.core.machineFile>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
 <org.eventb.core.refinesMachine name="'" org.eventb.core.target="m5_safe_radio"/>
-<org.eventb.core.seesContext name="evt?" org.eventb.core.target="c3_ERTMS_level"/>
+<org.eventb.core.seesContext name="evt?" org.eventb.core.target="c4_finite_entities"/>
 <org.eventb.core.variable name="var1" org.eventb.core.identifier="incoming_sessions"/>
 <org.eventb.core.variable name="var2" org.eventb.core.comment="" org.eventb.core.identifier="outgoing_sessions"/>
 <org.eventb.core.variable name="evt2" org.eventb.core.comment="" org.eventb.core.identifier="contacted"/>
@@ -49,36 +49,47 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="varC" org.eventb.core.comment="(cf. 3.5.3.4 b) / (cf. 3.5.3.5.2)" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_after_contact_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_after_contact_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="no connection or only handing over RBC" org.eventb.core.label="grd4" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varD" org.eventb.core.comment="no contact order, i.e., one ofthe other cases of 3.5.3.4" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_SOM_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_SOM_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="no connection or only handing over RBC" org.eventb.core.label="grd10" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varE" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_SOM_non_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_SOM_non_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varF" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_mode_change_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_mode_change_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd11" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varG" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_mode_change_non_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_mode_change_non_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd11" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varH" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_manual_change_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_manual_change_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varI" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_manual_change_non_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_manual_change_non_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varJ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_leave_radio_hole_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_leave_radio_hole_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varK" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_leave_radio_hole_non_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_leave_radio_hole_non_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varL" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_after_timeout_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_after_timeout_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varM" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_after_timeout_non_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_after_timeout_non_accept"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="ER_connections = ∅ ∨ (ER_connections ⊆ RBC ∧ l_partner ∈ RBC)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varN" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="establish_ER_connection_SOM">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="establish_ER_connection_SOM"/>
@@ -119,10 +130,12 @@
 <org.eventb.core.event name="varZ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="make_RBC_accepting">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="make_RBC_accepting"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ establish_ER_connection"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ ER_connections"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="var[" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="make_RBC_non_accepting">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="make_RBC_non_accepting"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ establish_ER_connection"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ ER_connections"/>
 </org.eventb.core.event>
-<org.eventb.core.invariant name="var\" org.eventb.core.comment="REQ_FMEA_ID_005" org.eventb.core.label="inv1" org.eventb.core.predicate="incoming_sessions ∪ outgoing_sessions ≠ ∅ ∧ establish_ER_connection ≠ ∅&#10;⇒&#10;(establish_ER_connection ⊆ RBC ∩ accepting ∨&#10; incoming_sessions ∪ outgoing_sessions ⊆ terminating_sessions)"/>
+<org.eventb.core.invariant name="var\" org.eventb.core.comment="REQ_FMEA_ID_005" org.eventb.core.label="inv1" org.eventb.core.predicate="(incoming_sessions ∪ outgoing_sessions) ∖ (RBC ∪ terminating_sessions) ≠ ∅&#10;⇒&#10;establish_ER_connection ⊆ RBC ∩ accepting"/>
 </org.eventb.core.machineFile>
