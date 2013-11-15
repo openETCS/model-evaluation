@@ -19,7 +19,9 @@
 <org.eventb.core.variable name="evt{" org.eventb.core.comment="set of ER connections with timeouts" org.eventb.core.identifier="terminated_ER_connections"/>
 <org.eventb.core.variable name="evt~" org.eventb.core.comment="set of entities which whom ER connections should be established" org.eventb.core.identifier="establish_ER_connection"/>
 <org.eventb.core.variable name="var7" org.eventb.core.identifier="signal_RBC_border"/>
-<org.eventb.core.event name="var8" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION"/>
+<org.eventb.core.event name="var8" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="hand_over_RBC ≔ ∅" org.eventb.core.label="act19"/>
+</org.eventb.core.event>
 <org.eventb.core.event name="var9" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="change_pos_radio_hole">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="change_pos_radio_hole"/>
 </org.eventb.core.event>
@@ -157,14 +159,24 @@
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="make_RBC_accepting"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ establish_ER_connection"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ ER_connections"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd6" org.eventb.core.predicate="l_partner ∉ hand_over_RBC"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="var[" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="make_RBC_non_accepting">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="make_RBC_non_accepting"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ establish_ER_connection"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ ER_connections"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd6" org.eventb.core.predicate="l_partner ∉ hand_over_RBC"/>
 </org.eventb.core.event>
-<org.eventb.core.invariant name="var\" org.eventb.core.comment="REQ_FMEA_ID_005" org.eventb.core.label="inv1" org.eventb.core.predicate="(incoming_sessions ∪ outgoing_sessions) ∖ terminating_sessions  ≠ ∅&#10;⇒&#10;establish_ER_connection ⊆ accepting"/>
+<org.eventb.core.invariant name="var\" org.eventb.core.label="inv1" org.eventb.core.predicate="(incoming_sessions ∪ outgoing_sessions) ∖ terminating_sessions  ≠ ∅&#10;⇒&#10;establish_ER_connection ⊆ accepting"/>
 <org.eventb.core.invariant name="var]" org.eventb.core.label="inv2" org.eventb.core.predicate="(incoming_sessions ∪ outgoing_sessions) ∖ (RBC ∪ terminating_sessions) ≠ ∅&#10;⇒&#10;establish_ER_connection = ∅"/>
 <org.eventb.core.invariant name="var^" org.eventb.core.label="inv3" org.eventb.core.predicate="(incoming_sessions ∪ outgoing_sessions) ∖ terminating_sessions  ≠ ∅&#10;⇒&#10;contacted ⊆ accepting"/>
 <org.eventb.core.invariant name="var_" org.eventb.core.label="inv4" org.eventb.core.predicate="ER_connections  ≠ ∅&#10;⇒&#10;establish_ER_connection ⊆ accepting"/>
+<org.eventb.core.invariant name="var`" org.eventb.core.label="inv5" org.eventb.core.predicate="((incoming_sessions ∪ outgoing_sessions) ∖ terminating_sessions) ∩ RBC  ≠ ∅&#10;⇒&#10;establish_ER_connection ⊆ accepting"/>
+<org.eventb.core.invariant name="vara" org.eventb.core.label="inv6" org.eventb.core.predicate="card(establish_ER_connection) ≤ 1"/>
+<org.eventb.core.invariant name="varb" org.eventb.core.label="inv7" org.eventb.core.predicate="ER_connections ∖ terminating_sessions ≠ ∅ ⇒ establish_ER_connection ⊆ accepting"/>
+<org.eventb.core.invariant name="varc" org.eventb.core.comment="REQ_FMEA_ID_005" org.eventb.core.label="inv8" org.eventb.core.predicate="  (incoming_sessions ∪ outgoing_sessions) ∖ terminating_sessions  ≠ ∅&#10;∧ establish_ER_connection ≠ ∅&#10;⇒&#10;  (incoming_sessions ∪ outgoing_sessions) ∖ terminating_sessions ⊆ RBC&#10;∧ establish_ER_connection ⊆ accepting"/>
+<org.eventb.core.invariant name="vard" org.eventb.core.label="inv9" org.eventb.core.predicate="card(ER_connections ∖ terminating_sessions) &gt; 1 ⇒ ER_connections ∖ terminating_sessions ⊆ RBC"/>
+<org.eventb.core.variable name="vare" org.eventb.core.comment="set of RBC to hand over, cardinality is less or equal to 1" org.eventb.core.identifier="hand_over_RBC"/>
+<org.eventb.core.invariant name="varf" org.eventb.core.comment="typing invariant" org.eventb.core.label="inv10" org.eventb.core.predicate="hand_over_RBC ⊆ accepting"/>
+<org.eventb.core.invariant name="varg" org.eventb.core.comment="cardinality check" org.eventb.core.label="inv11" org.eventb.core.predicate="card(hand_over_RBC) ≤ 1"/>
 </org.eventb.core.machineFile>

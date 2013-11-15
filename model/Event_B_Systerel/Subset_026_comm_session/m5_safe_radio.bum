@@ -204,11 +204,13 @@
 <org.eventb.core.action name=")" org.eventb.core.assignment="ER_connections ≔ ER_connections ∖ {l_partner}" org.eventb.core.label="act3"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="terminated_ER_connections ≔ terminated_ER_connections ∪ {l_partner}" org.eventb.core.label="act4"/>
 <org.eventb.core.refinesEvent name="." org.eventb.core.target="drop_session"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ terminating_sessions"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evtw" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="terminate_communication">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="terminate_communication"/>
 <org.eventb.core.guard name="internal2" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.action name="internal3" org.eventb.core.assignment="ER_connections ≔ ER_connections ∖ {l_partner}" org.eventb.core.label="act4"/>
+<org.eventb.core.guard name="internal4" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∈ ER_connections"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evtx" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="make_RBC_accepting">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="make_RBC_accepting"/>
@@ -230,4 +232,7 @@
 <org.eventb.core.invariant name="varI" org.eventb.core.label="inv8" org.eventb.core.predicate="contacted_by ∩ establish_ER_connection = ∅"/>
 <org.eventb.core.invariant name="varK" org.eventb.core.label="inv9" org.eventb.core.predicate="contacted_by ∩ ER_connections = ∅"/>
 <org.eventb.core.invariant name="varL" org.eventb.core.label="inv10" org.eventb.core.predicate="ER_connections ⊆ on_track"/>
+<org.eventb.core.invariant name="varM" org.eventb.core.label="inv11" org.eventb.core.predicate="terminating_sessions ∩ establish_ER_connection = ∅"/>
+<org.eventb.core.invariant name="varN" org.eventb.core.label="inv12" org.eventb.core.predicate="establish_ER_connection ∩ (incoming_sessions ∪ outgoing_sessions) = ∅"/>
+<org.eventb.core.invariant name="varO" org.eventb.core.label="inv13" org.eventb.core.predicate="terminating_sessions ⊆ incoming_sessions ∪ outgoing_sessions"/>
 </org.eventb.core.machineFile>
