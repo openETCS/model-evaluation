@@ -7015,6 +7015,42 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
             <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_DpqdgVH4EeO9m_21vZ8zeg" LAST-CHANGE="2013-11-20T16:25:58.991+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="inv6: card(ER_connections) ≤ 2~/Subset_026_comm_session/m6_hand_over_RBC.bum|org.eventb.core.machineFile#m6_hand_over_RBC|org.eventb.core.invariant#vard">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_EorDcFH4EeO9m_21vZ8zeg" LAST-CHANGE="2013-11-20T16:26:05.607+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="inv7: ∃x·ER_connections = {x}⇒(establish_ER_connection ⊆ accepting)~/Subset_026_comm_session/m6_hand_over_RBC.bum|org.eventb.core.machineFile#m6_hand_over_RBC|org.eventb.core.invariant#vare">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Fbtp8FH4EeO9m_21vZ8zeg" LAST-CHANGE="2013-11-20T16:26:10.959+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="inv8: ∃x·ER_connections = {x} ∧ establish_ER_connection ≠ ∅⇒x ∈ hand_over_RBC~/Subset_026_comm_session/m6_hand_over_RBC.bum|org.eventb.core.machineFile#m6_hand_over_RBC|org.eventb.core.invariant#varf">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>rmf-b3402a71-2d8a-48db-9b9f-c43e98b9995d</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>rmf-896eef82-cd00-4462-bf5c-13fd283db9c9</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
       </SPEC-OBJECTS>
       <SPEC-RELATIONS>
         <SPEC-RELATION IDENTIFIER="rmf-3953f9e7-21c3-4ffa-b057-9fedae0ea686" LAST-CHANGE="2013-10-23T13:43:03.223+02:00">
@@ -7951,6 +7987,39 @@ Note: During an RBC/RBC handover procedure, an indication status transition tabl
           </TARGET>
           <SOURCE>
             <SPEC-OBJECT-REF>_i53L0DvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_DrKSUFH4EeO9m_21vZ8zeg" LAST-CHANGE="2013-11-20T16:25:59.157+01:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_DpqdgVH4EeO9m_21vZ8zeg</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_h14mUDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_Ep_5IFH4EeO9m_21vZ8zeg" LAST-CHANGE="2013-11-20T16:26:05.746+01:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_EorDcFH4EeO9m_21vZ8zeg</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_h14mUDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
+          </SOURCE>
+          <TYPE>
+            <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>
+          </TYPE>
+        </SPEC-RELATION>
+        <SPEC-RELATION IDENTIFIER="_FdZE8FH4EeO9m_21vZ8zeg" LAST-CHANGE="2013-11-20T16:26:11.134+01:00">
+          <TARGET>
+            <SPEC-OBJECT-REF>_Fbtp8FH4EeO9m_21vZ8zeg</SPEC-OBJECT-REF>
+          </TARGET>
+          <SOURCE>
+            <SPEC-OBJECT-REF>_h14mUDvEEeO8frgGozh-Nw</SPEC-OBJECT-REF>
           </SOURCE>
           <TYPE>
             <SPEC-RELATION-TYPE-REF>rmf-c69ac45e-9284-4999-ac19-d8cd019dde9a</SPEC-RELATION-TYPE-REF>

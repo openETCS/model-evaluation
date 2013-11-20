@@ -159,5 +159,7 @@
 <org.eventb.core.invariant name="vara" org.eventb.core.comment="limit current ER connections to establish to one" org.eventb.core.label="inv3" org.eventb.core.predicate="card(establish_ER_connection) ≤ 1"/>
 <org.eventb.core.invariant name="varb" org.eventb.core.label="inv4" org.eventb.core.predicate="card(ER_connections) &gt; 1 ⇒ ER_connections ⊆ RBC"/>
 <org.eventb.core.invariant name="varc" org.eventb.core.label="inv5" org.eventb.core.predicate="card(ER_connections) &gt; 1 ⇒ ER_connections ∩ hand_over_RBC ≠ ∅"/>
-<org.eventb.core.invariant name="vard" org.eventb.core.label="inv6" org.eventb.core.predicate="card(ER_connections) ≤ 2"/>
+<org.eventb.core.invariant name="vard" org.eventb.core.comment="at most 2 connections at the same time" org.eventb.core.label="inv6" org.eventb.core.predicate="card(ER_connections) ≤ 2"/>
+<org.eventb.core.invariant name="vare" org.eventb.core.comment="if an established connection exists, then only&#10;an accepting RBC for hand_over is accepted for&#10;a new connection" org.eventb.core.label="inv7" org.eventb.core.predicate="∃x·ER_connections = {x}&#10;⇒&#10;(establish_ER_connection ⊆ accepting)"/>
+<org.eventb.core.invariant name="varf" org.eventb.core.comment="if an additional connection should be established,&#10;then the existing one is a handing over RBC" org.eventb.core.label="inv8" org.eventb.core.predicate="∃x·ER_connections = {x} ∧ establish_ER_connection ≠ ∅&#10;⇒&#10;x ∈ hand_over_RBC"/>
 </org.eventb.core.machineFile>
