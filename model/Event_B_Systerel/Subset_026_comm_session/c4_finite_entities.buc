@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;org.animb.valuation.valBase" version="3">
+<org.eventb.core.axiom name="(" org.eventb.core.label="axm1" org.eventb.core.predicate="finite(entities)"/>
+<org.eventb.core.extendsContext name=")" org.eventb.core.target="c3_ERTMS_level"/>
+<org.eventb.core.axiom name="*" org.eventb.core.label="axm2" org.eventb.core.predicate="finite(RBC)" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="+" org.eventb.core.label="axm3" org.eventb.core.predicate="finite(RIU)" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="," org.eventb.core.label="axm4" org.eventb.core.predicate="finite(OBU)" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="-" org.eventb.core.label="axm5" org.eventb.core.predicate="finite(on_track)" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="." org.eventb.core.label="axm6" org.eventb.core.predicate="finite(on_board)" org.eventb.core.theorem="true"/>
+</org.eventb.core.contextFile>
