@@ -492,6 +492,65 @@ Implements the interface counterparts of Radio->RadioManagement avoiding the nee
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_qX1w8RnxEeOWOPuyf1_I4A"/>
         </ownedLiteral>
       </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_ZM2xQFtQEeOLC8qofcjFwg" name="Q_SCALE">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_TyRicFtREeOLC8qofcjFwg" annotatedElement="_ZM2xQFtQEeOLC8qofcjFwg">
+          <body>Chapter=&quot;7.5.1.129&quot;&#xD;
+Qualifier for the distance scale.&#xD;
+Qualifier to indicate the same scale used for describing all distances inside the packet that contains Q_SCALE.&#xD;
+</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_bnu4QFtQEeOLC8qofcjFwg" name="Q_SCALE_10_cm_scale">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_3IXtUFtREeOLC8qofcjFwg" annotatedElement="_bnu4QFtQEeOLC8qofcjFwg">
+            <body>10 cm scale</body>
+          </ownedComment>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_bnu4QVtQEeOLC8qofcjFwg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_85cJgFtQEeOLC8qofcjFwg" name="Q_SCALE_1_m_scale">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4nR7UFtREeOLC8qofcjFwg" annotatedElement="_85cJgFtQEeOLC8qofcjFwg">
+            <body>1 m scale</body>
+          </ownedComment>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_85cJgVtQEeOLC8qofcjFwg"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_9g3V4FtQEeOLC8qofcjFwg" name="Q_SCALE_10_m_scale">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_6TvdIFtREeOLC8qofcjFwg" annotatedElement="_9g3V4FtQEeOLC8qofcjFwg">
+            <body>10 m scale</body>
+          </ownedComment>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_9hBG4FtQEeOLC8qofcjFwg"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_IsgScFtSEeOLC8qofcjFwg" name="D_LINK">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_V4WosFtSEeOLC8qofcjFwg" annotatedElement="_IsgScFtSEeOLC8qofcjFwg">
+          <body>Chapter=&quot;7.5.1.10&quot;&#xD;
+Incremental linking distance to next linked balise group.&#xD;
+10 cm, 1 m or 10 m depending on Q_SCALE</body>
+        </ownedComment>
+        <templateBinding xmi:type="uml:TemplateBinding" xmi:id="_4CTJgFtSEeOLC8qofcjFwg">
+          <parameterSubstitution xmi:type="uml:TemplateParameterSubstitution" xmi:id="_4CTJgVtSEeOLC8qofcjFwg">
+            <actual xmi:type="uml:DataType" href="pathmap://SCADE_LIBRARIES/SCADE_Library.library.uml#SCADE__int"/>
+            <formal xmi:type="uml:ClassifierTemplateParameter" href="pathmap://SCADE_LIBRARIES/SCADE_Library.library.uml#SCADE__typedef__T"/>
+          </parameterSubstitution>
+          <signature xmi:type="uml:RedefinableTemplateSignature" href="pathmap://SCADE_LIBRARIES/SCADE_Library.library.uml#SCADE__typedef__template_signature"/>
+        </templateBinding>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_H22nYFtTEeOLC8qofcjFwg" name="tDim_Length">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_chwJIFtTEeOLC8qofcjFwg" annotatedElement="_H22nYFtTEeOLC8qofcjFwg">
+          <body>Dimension &quot;Length&quot; for all length and distance calculations</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ftba8FtTEeOLC8qofcjFwg" name="tUn_cm">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_vRCSwFtTEeOLC8qofcjFwg" annotatedElement="_ftba8FtTEeOLC8qofcjFwg">
+          <body>Unit type &quot;cm&quot; for length calculations</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_xLeJsFtUEeOLC8qofcjFwg" name="tLength">
+        <templateBinding xmi:type="uml:TemplateBinding" xmi:id="_0Q5CgFtUEeOLC8qofcjFwg">
+          <parameterSubstitution xmi:type="uml:TemplateParameterSubstitution" xmi:id="_0Q5CgVtUEeOLC8qofcjFwg">
+            <actual xmi:type="uml:DataType" href="pathmap://SCADE_LIBRARIES/SCADE_Library.library.uml#SCADE__int"/>
+            <formal xmi:type="uml:ClassifierTemplateParameter" href="pathmap://SCADE_LIBRARIES/SCADE_Library.library.uml#SCADE__typedef__T"/>
+          </parameterSubstitution>
+          <signature xmi:type="uml:RedefinableTemplateSignature" href="pathmap://SCADE_LIBRARIES/SCADE_Library.library.uml#SCADE__typedef__template_signature"/>
+        </templateBinding>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_ltx_AApuEeOlSqpEMoECyw" name="FunctionalComposition">
       <ownedComment xmi:type="uml:Comment" xmi:id="_BmwaoBrOEeO7vNtCNASb9A" annotatedElement="_asRn4AsHEeO4ZtWAU8yhwA">
@@ -1051,6 +1110,116 @@ THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OTHER KIND OF USE. </body
       <packagedElement xmi:type="uml:Abstraction" xmi:id="_RpwX4BViEeOtqauheDkRvw" name="Allocate7" client="_HjwNAA8nEeOoB4GxzLHuHA" supplier="_ypH9YA_7EeOwE-DPVPxMLw"/>
       <packagedElement xmi:type="uml:Abstraction" xmi:id="_VtaakBViEeOtqauheDkRvw" name="Allocate8" client="_Ox2LYA8nEeOoB4GxzLHuHA" supplier="_oZvfoA_4EeOwE-DPVPxMLw"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_mBFWgDs3EeOaKatcHoKQ8w" name="DataStore">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_-PmwADs3EeOaKatcHoKQ8w" name="tDataStoredOnboard">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_joLI8Ds4EeOaKatcHoKQ8w" name="Trackside" type="_2qCQUDs4EeOaKatcHoKQ8w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nvXAwDs4EeOaKatcHoKQ8w" name="OnboardState" type="_x9zxwDs4EeOaKatcHoKQ8w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_x9zxwDs4EeOaKatcHoKQ8w" name="tOnboardState">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vBf8MDs5EeOaKatcHoKQ8w" name="Mode" type="_vea20Ds7EeOaKatcHoKQ8w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_v31R0Ds6EeOaKatcHoKQ8w" name="TrainPosition" type="_HQPiQDu1EeOv9Yg1_nRF7A"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VuwasDs7EeOaKatcHoKQ8w" name="SystemData" type="_YYzmIDs7EeOaKatcHoKQ8w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_w3rBYDs-EeOaKatcHoKQ8w" name="SupervisionState" type="_e7w8YDu1EeOv9Yg1_nRF7A"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_2qCQUDs4EeOaKatcHoKQ8w" name="tTrackside">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5MxWADs8EeOaKatcHoKQ8w" name="TrackImage" type="_8N4WkDs8EeOaKatcHoKQ8w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MI-hUDs9EeOaKatcHoKQ8w" name="TrackParameters" type="_Syw4wDs9EeOaKatcHoKQ8w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Ss_kwDs5EeOaKatcHoKQ8w" name="tLinkingInformation"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UxZsgDs5EeOaKatcHoKQ8w" name="tMovementAuthority"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_ZJr7YDs5EeOaKatcHoKQ8w" name="tTrackDescription"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_loTYMDs5EeOaKatcHoKQ8w" name="tModeProfile"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_YYzmIDs7EeOaKatcHoKQ8w" name="tSystemData">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_h7hSgDs7EeOaKatcHoKQ8w" name="Level" type="_xBpkIDs7EeOaKatcHoKQ8w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_vea20Ds7EeOaKatcHoKQ8w" name="tMode"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_xBpkIDs7EeOaKatcHoKQ8w" name="tLevel"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_8N4WkDs8EeOaKatcHoKQ8w" name="tTrackImage">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_X3LYYDs-EeOaKatcHoKQ8w" annotatedElement="_8N4WkDs8EeOaKatcHoKQ8w">
+          <body>Location dependant&#xD;
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BDxugTs9EeOaKatcHoKQ8w" name="MovementAuthority" type="_UxZsgDs5EeOaKatcHoKQ8w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BDxugjs9EeOaKatcHoKQ8w" name="TrackDescription" type="_ZJr7YDs5EeOaKatcHoKQ8w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BDxuhjs9EeOaKatcHoKQ8w" name="TSRs"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BDxugzs9EeOaKatcHoKQ8w" name="ModeProfile" type="_loTYMDs5EeOaKatcHoKQ8w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BDxuhTs9EeOaKatcHoKQ8w" name="LevelTransitionOrder"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BDxugDs9EeOaKatcHoKQ8w" name="LinkingInformation" type="_Ss_kwDs5EeOaKatcHoKQ8w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BDxuhDs9EeOaKatcHoKQ8w" name="NationalValuesProfile"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Syw4wDs9EeOaKatcHoKQ8w" name="tTrackParameters">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Tq-dsDs-EeOaKatcHoKQ8w" annotatedElement="_Syw4wDs9EeOaKatcHoKQ8w">
+          <body>Not location dependent paramters&#xD;
+</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Uw7OkDs9EeOaKatcHoKQ8w" name="MA_RequestParameters"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Xo0BsDs9EeOaKatcHoKQ8w" name="PositionReportParameters"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bmeKEDs9EeOaKatcHoKQ8w" name="TableOfPriorityOfTracksideSupportedLevels"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_tSya0Ds9EeOaKatcHoKQ8w" name="VirtualBaliseCover"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3jBUgDs9EeOaKatcHoKQ8w" name="StopShuntingOnDeskOpening"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_EsGqoDs-EeOaKatcHoKQ8w" name="SR_SupervisionInfo"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_HQPiQDu1EeOv9Yg1_nRF7A" name="tTrainPosition"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UlUF8Du1EeOv9Yg1_nRF7A" name="tSystemState"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_e7w8YDu1EeOv9Yg1_nRF7A" name="tSupervisionState"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_-picEDu9EeOv9Yg1_nRF7A" name="WP3_Sample_01">
+      <packagedElement xmi:type="uml:Class" xmi:id="_D8lqEDu-EeOv9Yg1_nRF7A" name="GeographicPositionReporting">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fe-BADu-EeOv9Yg1_nRF7A" name="StoreGeographicPosition" type="_ffQ78Du-EeOv9Yg1_nRF7A" aggregation="composite" association="_ff3Y4Du-EeOv9Yg1_nRF7A"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jYw9EDu-EeOv9Yg1_nRF7A" name="ManageGeographicPosInfo" type="_jY6HADu-EeOv9Yg1_nRF7A" aggregation="composite" association="_jZpt4Du-EeOv9Yg1_nRF7A"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_n0UiYDu-EeOv9Yg1_nRF7A" name="ShowGeographicPosition" type="_n0eTYDu-EeOv9Yg1_nRF7A" aggregation="composite" association="_n06_UDu-EeOv9Yg1_nRF7A"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_U_22cDvBEeOv9Yg1_nRF7A" name="GeographicPositionStore" type="_VAAncDvBEeOv9Yg1_nRF7A" aggregation="composite" association="_VAwOUDvBEeOv9Yg1_nRF7A"/>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_EfDEoDvDEeOv9Yg1_nRF7A" name="connector1">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_EfM1oDvDEeOv9Yg1_nRF7A" partWithPort="_U_22cDvBEeOv9Yg1_nRF7A" role="_WOUYMDvCEeOv9Yg1_nRF7A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_EfM1oTvDEeOv9Yg1_nRF7A" partWithPort="_jYw9EDu-EeOv9Yg1_nRF7A" role="_P9EugDvAEeOv9Yg1_nRF7A"/>
+        </ownedConnector>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ffQ78Du-EeOv9Yg1_nRF7A" name="StoreGeographicPosition">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ojVvEDu_EeOv9Yg1_nRF7A" annotatedElement="_ffQ78Du-EeOv9Yg1_nRF7A">
+          <body>Stores received geographic position information sets in a List</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_zTHrgDu_EeOv9Yg1_nRF7A" name="CurrentGeographicPosition" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_GtjD4DvAEeOv9Yg1_nRF7A" name="ListOfGeographicPositions" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_iCZVIDvAEeOv9Yg1_nRF7A" name="Packet_79" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_ff3Y4Du-EeOv9Yg1_nRF7A" name="Association1" memberEnd="_fe-BADu-EeOv9Yg1_nRF7A _ff3Y4zu-EeOv9Yg1_nRF7A">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ff3Y4Tu-EeOv9Yg1_nRF7A" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ff3Y4ju-EeOv9Yg1_nRF7A" key="nature" value="SysML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_ff3Y4zu-EeOv9Yg1_nRF7A" name="" type="_D8lqEDu-EeOv9Yg1_nRF7A" association="_ff3Y4Du-EeOv9Yg1_nRF7A"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_jY6HADu-EeOv9Yg1_nRF7A" name="ManageGeographicPosInfo">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_-nEE8Du_EeOv9Yg1_nRF7A" name="SelectCurrentGeographicPosition" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_P9EugDvAEeOv9Yg1_nRF7A" name="ListOfGeographicPositions" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_jZpt4Du-EeOv9Yg1_nRF7A" name="Association2" memberEnd="_jYw9EDu-EeOv9Yg1_nRF7A _jZpt4zu-EeOv9Yg1_nRF7A">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jZpt4Tu-EeOv9Yg1_nRF7A" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jZpt4ju-EeOv9Yg1_nRF7A" key="nature" value="SysML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_jZpt4zu-EeOv9Yg1_nRF7A" name="" type="_D8lqEDu-EeOv9Yg1_nRF7A" association="_jZpt4Du-EeOv9Yg1_nRF7A"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_n0eTYDu-EeOv9Yg1_nRF7A" name="ShowGeographicPosition">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_xWcY4Du-EeOv9Yg1_nRF7A" name="DriverSelectsGeoPos" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_n06_UDu-EeOv9Yg1_nRF7A" name="Association3" memberEnd="_n0UiYDu-EeOv9Yg1_nRF7A _n06_Uzu-EeOv9Yg1_nRF7A">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n06_UTu-EeOv9Yg1_nRF7A" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n06_Uju-EeOv9Yg1_nRF7A" key="nature" value="SysML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_n06_Uzu-EeOv9Yg1_nRF7A" name="" type="_D8lqEDu-EeOv9Yg1_nRF7A" association="_n06_UDu-EeOv9Yg1_nRF7A"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_VAAncDvBEeOv9Yg1_nRF7A" name="GeographicPositionStore">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_rNKmIDvBEeOv9Yg1_nRF7A" name="GeographicPositions_in" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_xAYh8DvBEeOv9Yg1_nRF7A" name="GeographicPositions_out" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_WOUYMDvCEeOv9Yg1_nRF7A" name="ListOfGeographicPositions" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_c7ieIDvCEeOv9Yg1_nRF7A" name="CurrentGeographicPosition" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_VAwOUDvBEeOv9Yg1_nRF7A" name="Association4" memberEnd="_U_22cDvBEeOv9Yg1_nRF7A _VAwOUzvBEeOv9Yg1_nRF7A">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VAwOUTvBEeOv9Yg1_nRF7A" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VAwOUjvBEeOv9Yg1_nRF7A" key="nature" value="SysML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_VAwOUzvBEeOv9Yg1_nRF7A" name="" type="_D8lqEDu-EeOv9Yg1_nRF7A" association="_VAwOUDvBEeOv9Yg1_nRF7A"/>
+      </packagedElement>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_3inqsgpPEeOlSqpEMoECyw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3inqswpPEeOlSqpEMoECyw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#/"/>
@@ -1326,4 +1495,26 @@ THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OTHER KIND OF USE. </body
   <scade:Block xmi:id="_0bvFoBrfEeOebtqUTNQMFQ" singleton="true" base_Class="_0aUJUBrfEeOebtqUTNQMFQ"/>
   <Blocks:Block xmi:id="_663FMBrfEeOebtqUTNQMFQ" base_Class="_660B4BrfEeOebtqUTNQMFQ"/>
   <scade:Block xmi:id="_67xEIBrfEeOebtqUTNQMFQ" singleton="true" base_Class="_660B4BrfEeOebtqUTNQMFQ"/>
+  <Blocks:Block xmi:id="_D8lqETu-EeOv9Yg1_nRF7A" base_Class="_D8lqEDu-EeOv9Yg1_nRF7A"/>
+  <Blocks:Block xmi:id="_ffas8Du-EeOv9Yg1_nRF7A" base_Class="_ffQ78Du-EeOv9Yg1_nRF7A"/>
+  <scade:Block xmi:id="_fftn4Du-EeOv9Yg1_nRF7A" singleton="true" base_Class="_ffQ78Du-EeOv9Yg1_nRF7A"/>
+  <Blocks:Block xmi:id="_jY6HATu-EeOv9Yg1_nRF7A" base_Class="_jY6HADu-EeOv9Yg1_nRF7A"/>
+  <scade:Block xmi:id="_jZWy8Du-EeOv9Yg1_nRF7A" singleton="true" base_Class="_jY6HADu-EeOv9Yg1_nRF7A"/>
+  <Blocks:Block xmi:id="_n0eTYTu-EeOv9Yg1_nRF7A" base_Class="_n0eTYDu-EeOv9Yg1_nRF7A"/>
+  <scade:Block xmi:id="_n0xOUDu-EeOv9Yg1_nRF7A" singleton="true" base_Class="_n0eTYDu-EeOv9Yg1_nRF7A"/>
+  <PortAndFlows:FlowPort xmi:id="_xWmJ4Du-EeOv9Yg1_nRF7A" base_Port="_xWcY4Du-EeOv9Yg1_nRF7A" direction="in"/>
+  <PortAndFlows:FlowPort xmi:id="_zTHrgTu_EeOv9Yg1_nRF7A" base_Port="_zTHrgDu_EeOv9Yg1_nRF7A" direction="out"/>
+  <PortAndFlows:FlowPort xmi:id="_-nN18Du_EeOv9Yg1_nRF7A" base_Port="_-nEE8Du_EeOv9Yg1_nRF7A" direction="out"/>
+  <PortAndFlows:FlowPort xmi:id="_GtjD4TvAEeOv9Yg1_nRF7A" base_Port="_GtjD4DvAEeOv9Yg1_nRF7A" direction="out"/>
+  <PortAndFlows:FlowPort xmi:id="_P9OfgDvAEeOv9Yg1_nRF7A" base_Port="_P9EugDvAEeOv9Yg1_nRF7A" direction="in"/>
+  <PortAndFlows:FlowPort xmi:id="_iCZVITvAEeOv9Yg1_nRF7A" base_Port="_iCZVIDvAEeOv9Yg1_nRF7A" direction="in"/>
+  <Blocks:Block xmi:id="_VAJxYDvBEeOv9Yg1_nRF7A" base_Class="_VAAncDvBEeOv9Yg1_nRF7A"/>
+  <scade:Block xmi:id="_VAcsUDvBEeOv9Yg1_nRF7A" singleton="true" base_Class="_VAAncDvBEeOv9Yg1_nRF7A"/>
+  <PortAndFlows:FlowPort xmi:id="_rNUXIDvBEeOv9Yg1_nRF7A" base_Port="_rNKmIDvBEeOv9Yg1_nRF7A" direction="in"/>
+  <PortAndFlows:FlowPort xmi:id="_xAYh8TvBEeOv9Yg1_nRF7A" base_Port="_xAYh8DvBEeOv9Yg1_nRF7A" direction="out"/>
+  <PortAndFlows:FlowPort xmi:id="_WOeJMDvCEeOv9Yg1_nRF7A" base_Port="_WOUYMDvCEeOv9Yg1_nRF7A" direction="out"/>
+  <PortAndFlows:FlowPort xmi:id="_c7sPIDvCEeOv9Yg1_nRF7A" base_Port="_c7ieIDvCEeOv9Yg1_nRF7A" direction="out"/>
+  <Blocks:Dimension xmi:id="_H4C6MFtTEeOLC8qofcjFwg" base_InstanceSpecification="_H22nYFtTEeOLC8qofcjFwg"/>
+  <Blocks:Unit xmi:id="_fv9KgFtTEeOLC8qofcjFwg" base_InstanceSpecification="_ftba8FtTEeOLC8qofcjFwg" dimension="_H4C6MFtTEeOLC8qofcjFwg"/>
+  <Blocks:ValueType xmi:id="_30hhUFtUEeOLC8qofcjFwg" base_DataType="_xLeJsFtUEeOLC8qofcjFwg" unit="_fv9KgFtTEeOLC8qofcjFwg" dimension="_H4C6MFtTEeOLC8qofcjFwg"/>
 </xmi:XMI>

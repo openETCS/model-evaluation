@@ -28,6 +28,15 @@
       </availablePage>
       <availablePage emfPageIdentifier="/1"/>
       <availablePage emfPageIdentifier="/3"/>
+      <availablePage>
+        <emfPageIdentifier href="MoRC_System.notation#_9AXq0Ds5EeOaKatcHoKQ8w"/>
+      </availablePage>
+      <availablePage>
+        <emfPageIdentifier href="MoRC_System.notation#_oATeADvAEeOv9Yg1_nRF7A"/>
+      </availablePage>
+      <availablePage>
+        <emfPageIdentifier href="MoRC_System.notation#_4pYwIDvAEeOv9Yg1_nRF7A"/>
+      </availablePage>
     </pageList>
     <sashModel xmi:id="_3iUvwwpPEeOlSqpEMoECyw" currentSelection="_3iUvxApPEeOlSqpEMoECyw">
       <windows xmi:id="_3iUvxQpPEeOlSqpEMoECyw">
