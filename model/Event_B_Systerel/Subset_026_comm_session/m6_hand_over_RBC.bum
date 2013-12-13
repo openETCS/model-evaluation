@@ -16,7 +16,6 @@
 <org.eventb.core.variable name="evt`" org.eventb.core.comment="" org.eventb.core.identifier="position_radio_hole"/>
 <org.eventb.core.variable name="evtd" org.eventb.core.comment="" org.eventb.core.identifier="signal_radio_hole"/>
 <org.eventb.core.variable name="evt{" org.eventb.core.comment="set of ER connections with timeouts" org.eventb.core.identifier="terminated_ER_connections"/>
-<org.eventb.core.variable name="evt~" org.eventb.core.comment="set of entities which whom ER connections should be established" org.eventb.core.identifier="establish_ER_connection"/>
 <org.eventb.core.variable name="var7" org.eventb.core.identifier="signal_RBC_border"/>
 <org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="var8" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
 <org.eventb.core.action name="internal1" org.eventb.core.assignment="incoming_sessions ≔ ∅" org.eventb.core.label="act2"/>
@@ -33,7 +32,6 @@
 <org.eventb.core.action name="internal11" org.eventb.core.assignment="position_radio_hole ≔ FALSE" org.eventb.core.comment="" org.eventb.core.label="act13"/>
 <org.eventb.core.action name="internal12" org.eventb.core.assignment="signal_radio_hole ≔ FALSE" org.eventb.core.label="act14"/>
 <org.eventb.core.action name="internal14" org.eventb.core.assignment="terminated_ER_connections ≔ ∅" org.eventb.core.comment="" org.eventb.core.label="act16"/>
-<org.eventb.core.action name="internal15" org.eventb.core.assignment="establish_ER_connection ≔ ∅" org.eventb.core.comment="" org.eventb.core.label="act17"/>
 <org.eventb.core.action name="internal16" org.eventb.core.assignment="signal_RBC_border ≔ FALSE" org.eventb.core.label="act18"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="comm_partner ≔ default_partner" org.eventb.core.label="act20"/>
 <org.eventb.core.action name=")" org.eventb.core.assignment="comm_partner_defined ≔ FALSE" org.eventb.core.label="act21"/>
@@ -90,7 +88,7 @@
 <org.eventb.core.guard name="internal2" org.eventb.core.comment="either RIU or accepting RBC" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∩ accepting)"/>
 <org.eventb.core.action name=")" org.eventb.core.assignment="contacted_by ≔ contacted_by ∪ {l_partner}" org.eventb.core.label="act1"/>
 <org.eventb.core.guard name="internal3" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
-<org.eventb.core.guard name="internal4" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ establish_ER_connection"/>
+<org.eventb.core.guard name="internal4" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ≠ establish_partner"/>
 <org.eventb.core.guard name="internal5" org.eventb.core.label="grd6" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 </org.eventb.core.event>
@@ -102,13 +100,18 @@
 <org.eventb.core.action name="internal1" org.eventb.core.assignment="contacted_by ≔ contacted_by ∪ {l_partner}" org.eventb.core.label="act1"/>
 <org.eventb.core.action name=")" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (on_track ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act2"/>
 <org.eventb.core.guard name="internal3" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
-<org.eventb.core.guard name="internal4" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ establish_ER_connection"/>
+<org.eventb.core.guard name="internal4" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ≠ establish_partner"/>
 <org.eventb.core.guard name="internal5" org.eventb.core.label="grd6" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varC" org.eventb.core.comment="(cf. 3.5.3.4 b) / (cf. 3.5.3.5.2)" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_after_contact_accept">
+<org.eventb.core.event name="varC" org.eventb.core.comment="(cf. 3.5.3.4 b) / (cf. 3.5.3.5.2)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_after_contact_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_after_contact_accept"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="-" org.eventb.core.comment="" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ contacted_by"/>
+<org.eventb.core.action name="internal1" org.eventb.core.assignment="contacted ≔ contacted ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="contacted_by ≔ contacted_by ∖ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
+<org.eventb.core.guard name="0" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd6" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act4"/>
@@ -124,8 +127,7 @@
 <org.eventb.core.guard name="internal4" org.eventb.core.label="grd7" org.eventb.core.predicate="current_level ∈ {L2, L3}"/>
 <org.eventb.core.guard name="internal5" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.guard name="internal6" org.eventb.core.label="grd9" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
-<org.eventb.core.action name="internal3" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∪ {l_partner}" org.eventb.core.label="act3"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd11" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd12" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act4"/>
@@ -142,8 +144,7 @@
 <org.eventb.core.action name="0" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act3"/>
 <org.eventb.core.guard name="internal3" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.guard name="internal4" org.eventb.core.label="grd9" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∪ {l_partner}" org.eventb.core.label="act4"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd11" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd12" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act5"/>
@@ -161,8 +162,7 @@
 <org.eventb.core.action name="+" org.eventb.core.assignment="signal_mode_change ≔ FALSE" org.eventb.core.label="act3"/>
 <org.eventb.core.guard name="internal6" org.eventb.core.label="grd9" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.guard name="internal7" org.eventb.core.label="grd10" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
-<org.eventb.core.action name="internal4" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∪ {l_partner}" org.eventb.core.label="act4"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd11" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd11" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd12" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd13" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act6"/>
@@ -180,8 +180,7 @@
 <org.eventb.core.action name="0" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act3"/>
 <org.eventb.core.guard name="internal3" org.eventb.core.label="grd9" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.guard name="internal4" org.eventb.core.label="grd10" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∪ {l_partner}" org.eventb.core.label="act4"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd11" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd11" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd12" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd13" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act6"/>
@@ -198,8 +197,7 @@
 <org.eventb.core.action name="*" org.eventb.core.assignment="signal_manual_level_change ≔ FALSE" org.eventb.core.label="act3"/>
 <org.eventb.core.guard name="internal5" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.guard name="internal6" org.eventb.core.label="grd9" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
-<org.eventb.core.action name="internal3" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∪ {l_partner}" org.eventb.core.label="act4"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd11" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd12" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act6"/>
@@ -216,8 +214,7 @@
 <org.eventb.core.action name="0" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act3"/>
 <org.eventb.core.guard name="internal3" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.guard name="internal4" org.eventb.core.label="grd9" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∪ {l_partner}" org.eventb.core.label="act4"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd11" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd12" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act6"/>
@@ -234,8 +231,7 @@
 <org.eventb.core.action name="*" org.eventb.core.assignment="signal_radio_hole ≔ FALSE" org.eventb.core.label="act3"/>
 <org.eventb.core.guard name="internal5" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.guard name="internal6" org.eventb.core.label="grd9" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
-<org.eventb.core.action name="internal3" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∪ {l_partner}" org.eventb.core.label="act4"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd11" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd12" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act6"/>
@@ -252,24 +248,34 @@
 <org.eventb.core.action name="0" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act3"/>
 <org.eventb.core.guard name="internal3" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.guard name="internal4" org.eventb.core.label="grd9" org.eventb.core.predicate="l_partner ∉ {comm_partner, hand_over_partner}"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∪ {l_partner}" org.eventb.core.label="act4"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd11" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd12" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner ≔ l_partner" org.eventb.core.label="act5"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varL" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_after_timeout_accept">
+<org.eventb.core.event name="varL" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_after_timeout_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_after_timeout_accept"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.parameter name="/" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="internal1" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions ∪ contacted ∪ contacted_by ∪ terminating_sessions"/>
+<org.eventb.core.guard name="internal2" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∩ accepting)"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="contacted ≔ contacted ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
+<org.eventb.core.guard name="internal3" org.eventb.core.label="grd6" org.eventb.core.predicate="l_partner ∈ terminated_ER_connections"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="terminated_ER_connections ≔ terminated_ER_connections ∖ {l_partner}" org.eventb.core.label="act3"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd9" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner ≔ l_partner" org.eventb.core.label="act5"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varM" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_after_timeout_non_accept">
+<org.eventb.core.event name="varM" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initiate_session_after_timeout_non_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_after_timeout_non_accept"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="establish_ER_connection = ∅"/>
+<org.eventb.core.parameter name="/" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="internal1" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ incoming_sessions ∪ outgoing_sessions ∪ contacted ∪ contacted_by ∪ terminating_sessions"/>
+<org.eventb.core.guard name="internal2" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∖ accepting)"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="contacted ≔ contacted ∪ {l_partner}" org.eventb.core.comment="" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="terminating_sessions ≔ terminating_sessions ∪ (RBC ∩ (incoming_sessions ∪ outgoing_sessions))" org.eventb.core.label="act3"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd6" org.eventb.core.predicate="l_partner ∈ terminated_ER_connections"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="terminated_ER_connections ≔ terminated_ER_connections ∖ {l_partner}" org.eventb.core.label="act4"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd9" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ TRUE" org.eventb.core.label="act6"/>
@@ -279,9 +285,8 @@
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="establish_ER_connection_SOM"/>
 <org.eventb.core.parameter name="+" org.eventb.core.identifier="l_partner"/>
 <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
-<org.eventb.core.guard name="internal1" org.eventb.core.comment="" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
+<org.eventb.core.guard name="internal1" org.eventb.core.comment="" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner = establish_partner"/>
 <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="current_status = SOM"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act1"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="(comm_partner_defined = FALSE ∧ hand_over_defined = FALSE) ∨&#10;(comm_partner_defined = TRUE ∧ hand_over_defined = FALSE ∧ l_partner ∈ accepting)"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act7"/>
@@ -292,55 +297,91 @@
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="establish_ER_connection"/>
 <org.eventb.core.parameter name="'" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
 <org.eventb.core.guard name="internal1" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
-<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner = establish_partner"/>
 <org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="current_status ≠ SOM"/>
-<org.eventb.core.action name="+" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act1"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="(comm_partner_defined = FALSE ∧ hand_over_defined = FALSE) ∨&#10;(comm_partner_defined = TRUE ∧ hand_over_defined = FALSE ∧ l_partner ∈ accepting)"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act7"/>
 <org.eventb.core.guard name="grd1" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ≠ default_partner"/>
 <org.eventb.core.guard name="grd2" org.eventb.core.label="grd9" org.eventb.core.predicate="establish_partner_defined = FALSE"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varP" org.eventb.core.comment="perform EOM while establishing session" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="est_perform_end_of_mission">
+<org.eventb.core.event name="varP" org.eventb.core.comment="perform EOM while establishing session" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_perform_end_of_mission">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="est_perform_end_of_mission"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="'" org.eventb.core.comment="" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="l_pa" org.eventb.core.predicate="l_partner = establish_partner"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_mode_change = TRUE"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_status = EOM"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act2"/>
 <org.eventb.core.action name=")" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="est_terminate_order">
+<org.eventb.core.event name="varQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_terminate_order">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="est_terminate_order"/>
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="contacted ≔ contacted ∖ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="internal1" org.eventb.core.comment="" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner = establish_partner"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="current_status ≠ SOM"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act4"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varR" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="est_pass_level_transition">
+<org.eventb.core.event name="varR" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_pass_level_transition">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="est_pass_level_transition"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner = establish_partner"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_level_change = TRUE"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_status ≠ SOM"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd5" org.eventb.core.predicate="current_level ∈ {L0, L1, NTC}"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act2"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varS" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="est_pass_radio_hole">
+<org.eventb.core.event name="varS" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_pass_radio_hole">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="est_pass_radio_hole"/>
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner = establish_partner"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_radio_hole = TRUE ∧ position_radio_hole = TRUE"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_status ≠ SOM"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act2"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varT" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="est_RIU_leave_L1">
+<org.eventb.core.event name="varT" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_RIU_leave_L1">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="est_RIU_leave_L1"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ RIU"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_level_change = TRUE"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd5" org.eventb.core.predicate="current_level ≠ L1"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_status ≠ SOM"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act2"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act3"/>
-<org.eventb.core.guard name="act3" org.eventb.core.label="grd6" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
+<org.eventb.core.guard name="act3" org.eventb.core.label="grd6" org.eventb.core.predicate="l_partner = establish_partner"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varU" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="est_RBC_border">
+<org.eventb.core.event name="varU" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_RBC_border">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="est_RBC_border"/>
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ RBC"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="signal_RBC_border = TRUE"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_status ≠ SOM"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act2"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act3"/>
-<org.eventb.core.guard name="act3" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
+<org.eventb.core.guard name="act3" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner = establish_partner"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varV" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="indicate_RBC_border">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="indicate_RBC_border"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="varW" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="est_other_RBC_non_accept">
+<org.eventb.core.event name="varW" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="est_other_RBC_non_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="est_other_RBC_non_accept"/>
+<org.eventb.core.parameter name="'" org.eventb.core.comment="" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ RBC"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="RBC ∩ accepting ∩ contacted_by ≠ ∅"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="current_status ≠ SOM"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act2"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act3"/>
-<org.eventb.core.guard name="act3" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
+<org.eventb.core.guard name="act3" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner = establish_partner"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="varX" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="timeout_ER_connection">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="timeout_ER_connection"/>
