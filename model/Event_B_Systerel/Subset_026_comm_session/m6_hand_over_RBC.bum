@@ -262,7 +262,7 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="varN" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="establish_ER_connection_SOM">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="establish_ER_connection_SOM"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="ER_connections = ∅ ∨ (card(ER_connections) = 1 ∧ hand_over_defined = TRUE ∧ hand_over_partner ∈ ER_connections ∧ l_partner ∈ accepting)"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="ER_connections = ∅ ∨ (card(ER_connections) = 1 ∧ comm_partner_defined = TRUE ∧ comm_partner ∈ ER_connections ∧ l_partner ∈ accepting)"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act7"/>
 <org.eventb.core.guard name="grd1" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ≠ default_partner"/>
@@ -270,7 +270,7 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="varO" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="establish_ER_connection">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="establish_ER_connection"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="ER_connections = ∅ ∨ (card(ER_connections) = 1 ∧ hand_over_defined = TRUE ∧ hand_over_partner ∈ ER_connections ∧ l_partner ∈ accepting)"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="ER_connections = ∅ ∨ (card(ER_connections) = 1 ∧ comm_partner_defined = TRUE ∧ comm_partner ∈ ER_connections ∧ l_partner ∈ accepting)"/>
 <org.eventb.core.action name="act1" org.eventb.core.assignment="establish_partner_defined ≔ FALSE" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="act2" org.eventb.core.assignment="establish_partner ≔ default_partner" org.eventb.core.label="act7"/>
 <org.eventb.core.guard name="grd1" org.eventb.core.label="grd8" org.eventb.core.predicate="l_partner ≠ default_partner"/>
@@ -423,4 +423,5 @@
 <org.eventb.core.invariant name="vas-" org.eventb.core.label="inv30" org.eventb.core.predicate="ER_connections ⊆ {comm_partner, hand_over_partner}"/>
 <org.eventb.core.invariant name="vas." org.eventb.core.label="inv31" org.eventb.core.predicate="default_partner ∉ contacted"/>
 <org.eventb.core.invariant name="vas/" org.eventb.core.label="inv32" org.eventb.core.predicate="default_partner ∉ contacted_by"/>
+<org.eventb.core.invariant name="vas0" org.eventb.core.label="inv33" org.eventb.core.predicate="(entities ∖ {comm_partner, hand_over_partner}) ∩ ER_connections = ∅"/>
 </org.eventb.core.machineFile>
