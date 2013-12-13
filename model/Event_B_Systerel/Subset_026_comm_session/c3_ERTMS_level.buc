@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;org.animb.valuation.valBase" version="3">
+<org.eventb.core.extendsContext name="4" org.eventb.core.target="c2_system_version_mode"/>
 <org.eventb.core.carrierSet name="(" org.eventb.core.comment="" org.eventb.core.identifier="ERTMS_level"/>
 <org.eventb.core.constant name=")" org.eventb.core.comment="" org.eventb.core.identifier="NTC"/>
 <org.eventb.core.constant name="*" org.eventb.core.identifier="L0"/>
@@ -12,5 +13,4 @@
 <org.eventb.core.constant name="1" org.eventb.core.comment="while mission" org.eventb.core.identifier="MIS"/>
 <org.eventb.core.carrierSet name="2" org.eventb.core.identifier="train_status"/>
 <org.eventb.core.axiom name="3" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(train_status, {SOM}, {EOM}, {MIS})"/>
-<org.eventb.core.extendsContext name="4" org.eventb.core.target="c2_system_version_mode"/>
 </org.eventb.core.contextFile>
