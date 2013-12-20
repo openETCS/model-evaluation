@@ -27,11 +27,20 @@
 <org.eventb.core.event name="evti" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="change_mode">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="change_mode"/>
 </org.eventb.core.event>
+<org.eventb.core.event name="varQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="reset_mode_flag">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="reset_mode_flag"/>
+</org.eventb.core.event>
 <org.eventb.core.event name="var&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="manual_change_level">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="manual_change_level"/>
 </org.eventb.core.event>
+<org.eventb.core.event name="varS" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="reset_manual_level_flag">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="reset_manual_level_flag"/>
+</org.eventb.core.event>
 <org.eventb.core.event name="evtk" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="change_level">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="change_level"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="varR" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="reset_level_flag">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="reset_level_flag"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evtm" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="incoming_communication">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="incoming_communication"/>
@@ -45,8 +54,8 @@
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_information_incompatible"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∈ ER_connections"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="evtp" org.eventb.core.comment="order to contact a RIU or accepting RBC" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_contact_order_accept">
-<org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_contact_order_accept"/>
+<org.eventb.core.event name="evtp" org.eventb.core.comment="order to contact a RIU or accepting RBC" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_contact_order_RIU_RBC_accept">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_contact_order_RIU_RBC_accept"/>
 <org.eventb.core.guard name="internal2" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.guard name="internal3" org.eventb.core.label="grd5" org.eventb.core.predicate="l_partner ∉ establish_ER_connection"/>
 <org.eventb.core.guard name="internal4" org.eventb.core.label="grd6" org.eventb.core.predicate="l_partner ∉ ER_connections"/>
@@ -61,6 +70,7 @@
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_after_contact"/>
 <org.eventb.core.guard name="0" org.eventb.core.comment="" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
 <org.eventb.core.action name="1" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∪ {l_partner}" org.eventb.core.label="act3"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd4" org.eventb.core.predicate="l_partner ∈ RIU ∪ (RBC ∩ accepting)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evts" org.eventb.core.comment="no contact order, i.e., one ofthe other cases of 3.5.3.4" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initiate_session_no_contact_SOM_accept">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initiate_session_no_contact_SOM_accept"/>
@@ -206,6 +216,9 @@
 <org.eventb.core.action name=")" org.eventb.core.assignment="ER_connections ≔ ER_connections ∖ {l_partner}" org.eventb.core.label="act3"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="terminated_ER_connections ≔ terminated_ER_connections ∪ {l_partner}" org.eventb.core.label="act4"/>
 </org.eventb.core.event>
+<org.eventb.core.event name="varT" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="start_session_termination">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="start_session_termination"/>
+</org.eventb.core.event>
 <org.eventb.core.event name="evtw" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="terminate_communication">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="terminate_communication"/>
 <org.eventb.core.guard name="internal2" org.eventb.core.label="grd3" org.eventb.core.predicate="l_partner ∉ terminated_ER_connections"/>
@@ -235,4 +248,15 @@
 <org.eventb.core.invariant name="varM" org.eventb.core.label="inv11" org.eventb.core.predicate="terminating_sessions ∩ establish_ER_connection = ∅"/>
 <org.eventb.core.invariant name="varN" org.eventb.core.label="inv12" org.eventb.core.predicate="establish_ER_connection ∩ (incoming_sessions ∪ outgoing_sessions) = ∅"/>
 <org.eventb.core.invariant name="varO" org.eventb.core.label="inv13" org.eventb.core.predicate="terminating_sessions ⊆ incoming_sessions ∪ outgoing_sessions"/>
+<org.eventb.core.event name="varP" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="drop_establish_session">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="l_partner"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="l_partner ∈ contacted"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="contacted ≔ contacted ∖ {l_partner}" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="establish_ER_connection ≔ establish_ER_connection ∖ {l_partner}" org.eventb.core.label="act2"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="l_partner ∈ establish_ER_connection"/>
+<org.eventb.core.refinesEvent name="+" org.eventb.core.target="drop_contact"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="varU" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="drop_contacted_by">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="drop_contacted_by"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

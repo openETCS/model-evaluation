@@ -1226,4 +1226,89 @@
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
+<org.eventb.core.prProof name="drop_contacted_by/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p6,p3,p7,p5,p2"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p1,p6,p3,p7,p5,p2">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="RBC" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="RIU" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="contacted" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="contacted_by" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="incoming_sessions" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="l_partner" org.eventb.core.type="entities"/>
+<org.eventb.core.prIdent name="on_track" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="outgoing_sessions" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="contacted∩contacted_by=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="l_partner∈contacted_by"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="incoming_sessions∪outgoing_sessions⊆on_track"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="contacted_by⊆on_track"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="contacted_by ∖ {l_partner}⊆on_track"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="contacted_by∩(incoming_sessions∪outgoing_sessions)=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="on_track=RIU∪RBC"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="contacted⊆on_track"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="drop_contacted_by/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p8,p3,p4,p7,p6,p2"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p1,p8,p3,p4,p7,p6,p2">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="RIU" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="contacted" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="contacted_by" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="incoming_sessions" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="l_partner" org.eventb.core.type="entities"/>
+<org.eventb.core.prIdent name="on_track" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="outgoing_sessions" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="sessions" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="contacted∩contacted_by=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="l_partner∈contacted_by"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="incoming_sessions∪outgoing_sessions⊆on_track"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="contacted_by⊆on_track"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="contacted_by∩(incoming_sessions∪outgoing_sessions)=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="incoming_sessions∩RIU=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="(contacted_by ∖ {l_partner})∩(incoming_sessions∪outgoing_sessions)=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="contacted∩(incoming_sessions∪outgoing_sessions)=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="partition(sessions,incoming_sessions,outgoing_sessions)"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="drop_contacted_by/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p5,p3,p4,p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3 SMT2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p5,p3,p4,p6">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3 SMT2"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="contacted" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="contacted_by" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="incoming_sessions" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="l_partner" org.eventb.core.type="entities"/>
+<org.eventb.core.prIdent name="on_track" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prIdent name="outgoing_sessions" org.eventb.core.type="ℙ(entities)"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="l_partner∈contacted_by"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="contacted∩contacted_by=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="contacted_by⊆on_track"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="contacted_by∩(incoming_sessions∪outgoing_sessions)=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="contacted∩(contacted_by ∖ {l_partner})=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="contacted∩(incoming_sessions∪outgoing_sessions)=(∅ ⦂ ℙ(entities))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="contacted⊆on_track"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+</org.eventb.core.prProof>
 </org.eventb.core.prFile>
