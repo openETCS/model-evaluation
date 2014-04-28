@@ -1,11 +1,37 @@
-/* $*************** KCG Version 6.1.3 (build i6) ****************
-** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-08-01T09:52:21
+/* $************* KCG Version 6.4 beta3 (build i9) **************
+** Command: kcg64.exe -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG/config.txt
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 
 #include "kcg_consts.h"
 #include "kcg_sensors.h"
 #include "MoRC_registeringToTheRadioNetwork.h"
+
+void MoRC_registeringToTheRadioNetwork_init(
+  MoRC_outC_registeringToTheRadioNetwork *outC)
+{
+  outC->init = kcg_true;
+  outC->_L108 = kcg_true;
+  outC->noValidActualRadioNetworkID_available = kcg_true;
+  outC->mobileSWStatus.settingUpConnectionHasFailed = kcg_true;
+  outC->mobileSWStatus.registeredRadioNetworkID = 0;
+  outC->mobileSWStatus.connectionStatus = MoRC_mswc_unregistered;
+  outC->mobileSWStatus.mobileHW_available = kcg_true;
+  outC->mobileSWStatus.valid = kcg_true;
+  outC->mobileHWCmd.radioNetworkID = 0;
+  outC->mobileHWCmd.action = MoRC_mhwa_nop;
+  outC->mobileHWCmd.valid = kcg_true;
+  outC->rejectOrderToContactRBC_or_RIU = kcg_true;
+  outC->actualRadioNetworkID.radioNetworkID = 0;
+  outC->actualRadioNetworkID.valid = kcg_true;
+  outC->memorizeTheLastRadioNetworkID = kcg_true;
+  outC->orderTheRegistrationOfItsConnectedMobiles = kcg_true;
+  MoRC_radioNetworkMobile_init(&outC->Context_1);
+  MoRC_RisingEdge_init_digital(&outC->Context_4);
+  MoRC_RisingEdge_init_digital(&outC->Context_2);
+  MoRC_RisingEdge_init_digital(&outC->Context_3);
+}
+
 
 void MoRC_registeringToTheRadioNetwork_reset(
   MoRC_outC_registeringToTheRadioNetwork *outC)
@@ -17,27 +43,24 @@ void MoRC_registeringToTheRadioNetwork_reset(
   /* 3 */ MoRC_RisingEdge_reset_digital(&outC->Context_3);
 }
 
-/** Subset 096, REQ 3.5.6 */
-/** Implements the registration to the radio network. */
-/** "Remark_1" {Description = "- Name: registeringToTheRadioNetwork - Description: Implements the registration to the radio network. - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE."} */
 /* registeringToTheRadioNetwork */
 void MoRC_registeringToTheRadioNetwork(
-  /* registeringToTheRadioNetwork::atPowerUp */kcg_bool atPowerUp,
-  /* registeringToTheRadioNetwork::afterDriverEntryOfANewRadioNetworkID */kcg_bool afterDriverEntryOfANewRadioNetworkID,
-  /* registeringToTheRadioNetwork::etcs_level */MoRC_M_LEVEL_Type etcs_level,
-  /* registeringToTheRadioNetwork::registrationOrderedFromTrackside */kcg_bool registrationOrderedFromTrackside,
-  /* registeringToTheRadioNetwork::registrationOrderFromTracksideCancelled */kcg_bool registrationOrderFromTracksideCancelled,
-  /* registeringToTheRadioNetwork::atPowerOff */kcg_bool atPowerOff,
-  /* registeringToTheRadioNetwork::RadioNetworkID_memorized */MoRC_validRadioNetworkID_Type *RadioNetworkID_memorized,
-  /* registeringToTheRadioNetwork::RadioNetworkID_fromDriver */MoRC_validRadioNetworkID_Type *RadioNetworkID_fromDriver,
-  /* registeringToTheRadioNetwork::RadioNetworkID_fromTrackside */MoRC_validRadioNetworkID_Type *RadioNetworkID_fromTrackside,
-  /* registeringToTheRadioNetwork::triggerDecisionThatNoRadioNetworkIDAvailable */kcg_bool triggerDecisionThatNoRadioNetworkIDAvailable,
-  /* registeringToTheRadioNetwork::mobileHWStatus */MoRC_mobileHWStatus_Type *mobileHWStatus,
-  /* registeringToTheRadioNetwork::mobileSWCmd */MoRC_mobileSWCmd_Type *mobileSWCmd,
-  /* registeringToTheRadioNetwork::RadioNetworkID_Default */MoRC_validRadioNetworkID_Type *RadioNetworkID_Default,
+  /* registeringToTheRadioNetwork::atPowerUp */ kcg_bool atPowerUp,
+  /* registeringToTheRadioNetwork::afterDriverEntryOfANewRadioNetworkID */ kcg_bool afterDriverEntryOfANewRadioNetworkID,
+  /* registeringToTheRadioNetwork::etcs_level */ MoRC_M_LEVEL_Type etcs_level,
+  /* registeringToTheRadioNetwork::registrationOrderedFromTrackside */ kcg_bool registrationOrderedFromTrackside,
+  /* registeringToTheRadioNetwork::registrationOrderFromTracksideCancelled */ kcg_bool registrationOrderFromTracksideCancelled,
+  /* registeringToTheRadioNetwork::atPowerOff */ kcg_bool atPowerOff,
+  /* registeringToTheRadioNetwork::RadioNetworkID_memorized */ MoRC_validRadioNetworkID_Type *RadioNetworkID_memorized,
+  /* registeringToTheRadioNetwork::RadioNetworkID_fromDriver */ MoRC_validRadioNetworkID_Type *RadioNetworkID_fromDriver,
+  /* registeringToTheRadioNetwork::RadioNetworkID_fromTrackside */ MoRC_validRadioNetworkID_Type *RadioNetworkID_fromTrackside,
+  /* registeringToTheRadioNetwork::triggerDecisionThatNoRadioNetworkIDAvailable */ kcg_bool triggerDecisionThatNoRadioNetworkIDAvailable,
+  /* registeringToTheRadioNetwork::mobileHWStatus */ MoRC_mobileHWStatus_Type *mobileHWStatus,
+  /* registeringToTheRadioNetwork::mobileSWCmd */ MoRC_mobileSWCmd_Type *mobileSWCmd,
+  /* registeringToTheRadioNetwork::RadioNetworkID_Default */ MoRC_validRadioNetworkID_Type *RadioNetworkID_Default,
   MoRC_outC_registeringToTheRadioNetwork *outC)
 {
-  MoRC_struct__10898 tmp;
+  MoRC_mobileSWCmd_Type tmp;
   /* registeringToTheRadioNetwork::_L32 */ kcg_bool _L32;
   /* registeringToTheRadioNetwork::_L44 */ kcg_bool _L44;
   /* registeringToTheRadioNetwork::_L76 */ MoRC_mobileSWStatus_Type _L76;
@@ -48,24 +71,25 @@ void MoRC_registeringToTheRadioNetwork(
   /* registeringToTheRadioNetwork::_L120 */ kcg_bool _L120;
   
   /* 3 */ MoRC_RisingEdge_digital(atPowerUp, &outC->Context_3);
+  if (outC->init) {
+    _L32 = kcg_true;
+    MoRC_kcg_copy_mobileSWStatus_Type(
+      &_L76,
+      (MoRC_mobileSWStatus_Type *) &MoRC_cInvalidMobileSWStatus);
+  }
+  else {
+    _L32 = outC->noValidActualRadioNetworkID_available;
+    MoRC_kcg_copy_mobileSWStatus_Type(&_L76, &outC->mobileSWStatus);
+  }
+  _L89 = (*RadioNetworkID_Default).valid &&
+    triggerDecisionThatNoRadioNetworkIDAvailable && _L32;
   _L32 = (*RadioNetworkID_fromDriver).valid &&
     afterDriverEntryOfANewRadioNetworkID;
   _L44 = (*RadioNetworkID_fromTrackside).valid &&
     registrationOrderedFromTrackside;
-  if (outC->init) {
-    outC->_L108 = kcg_false;
-    _L89 = kcg_true;
-  }
-  else {
-    outC->_L108 = !registrationOrderFromTracksideCancelled &&
-      (registrationOrderedFromTrackside || outC->_L108);
-    _L89 = outC->noValidActualRadioNetworkID_available;
-  }
-  _L95 = (*RadioNetworkID_Default).valid &&
-    triggerDecisionThatNoRadioNetworkIDAvailable && _L89;
   if (((*RadioNetworkID_memorized).valid && outC->Context_3.RE_Output) ||
-    _L32 || _L44 || _L95) {
-    if (_L95) {
+    _L32 || _L44 || _L89) {
+    if (_L89) {
       MoRC_kcg_copy_validRadioNetworkID_Type(
         &outC->actualRadioNetworkID,
         RadioNetworkID_Default);
@@ -101,15 +125,6 @@ void MoRC_registeringToTheRadioNetwork(
   /* 2 */ MoRC_RisingEdge_digital(atPowerOff, &outC->Context_2);
   outC->memorizeTheLastRadioNetworkID = outC->Context_2.RE_Output &&
     outC->actualRadioNetworkID.valid;
-  if (outC->init) {
-    outC->init = kcg_false;
-    MoRC_kcg_copy_mobileSWStatus_Type(
-      &_L76,
-      (MoRC_mobileSWStatus_Type *) &MoRC_cInvalidMobileSWStatus);
-  }
-  else {
-    MoRC_kcg_copy_mobileSWStatus_Type(&_L76, &outC->mobileSWStatus);
-  }
   _L89 = _L76.connectionStatus == MoRC_mswc_unregistered;
   _L95 = _L89 || (MoRC_mswc_unregistered != _L76.connectionStatus &&
       _L76.registeredRadioNetworkID !=
@@ -118,6 +133,14 @@ void MoRC_registeringToTheRadioNetwork(
       _L76.connectionStatus == MoRC_mswc_sessionEstablished);
   _L103 = !(_L76.connectionStatus == MoRC_mswc_connecting ||
       _L76.connectionStatus == MoRC_mswc_connected);
+  if (outC->init) {
+    outC->init = kcg_false;
+    outC->_L108 = kcg_false;
+  }
+  else {
+    outC->_L108 = !registrationOrderFromTracksideCancelled &&
+      (registrationOrderedFromTrackside || outC->_L108);
+  }
   /* 4 */
   MoRC_RisingEdge_digital(
     (kcg_bool) (outC->_L108 && _L95 && _L99 && _L103),
@@ -145,8 +168,8 @@ void MoRC_registeringToTheRadioNetwork(
     MoRC_mswc_registering;
 }
 
-/* $*************** KCG Version 6.1.3 (build i6) ****************
+/* $************* KCG Version 6.4 beta3 (build i9) **************
 ** MoRC_registeringToTheRadioNetwork.c
-** Generation date: 2013-08-01T09:52:21
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 

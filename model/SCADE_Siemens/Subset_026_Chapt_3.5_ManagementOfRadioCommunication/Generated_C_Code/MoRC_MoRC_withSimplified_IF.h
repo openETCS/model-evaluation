@@ -1,6 +1,6 @@
-/* $*************** KCG Version 6.1.3 (build i6) ****************
-** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-08-01T09:52:21
+/* $************* KCG Version 6.4 beta3 (build i9) **************
+** Command: kcg64.exe -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG/config.txt
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 #ifndef _MoRC_MoRC_withSimplified_IF_H_
 #define _MoRC_MoRC_withSimplified_IF_H_
@@ -38,9 +38,12 @@ typedef struct {
   MoRC_mobileHWAction_Type /* MoRC_withSimplified_IF::mobileHWCmd */ mobileHWCmd;
   kcg_bool /* MoRC_withSimplified_IF::memorizeTheLastRadioNetworkID */ memorizeTheLastRadioNetworkID;
   MoRC_mobileSWConnectionStatus_Type /* MoRC_withSimplified_IF::mobileSWStatus */ mobileSWStatus;
+  kcg_bool /* MoRC_withSimplified_IF::ready */ ready;
   /* -----------------------  no local probes  ----------------------- */
-  /* -----------------  no initialization variables  ----------------- */
-  /* -----------------------  no local memory  ----------------------- */
+  /* -------------------- initialization variables  ------------------ */
+  kcg_bool init;
+  /* ----------------------- local memories  ------------------------- */
+  MoRC_SSM_ST_PowerUpSequencer /* MoRC_withSimplified_IF::PowerUpSequencer */ PowerUpSequencer_state_nxt;
   /* ---------------------  sub nodes' contexts  --------------------- */
   MoRC_outC_FallingEdge_digital /* 1 */ _1_Context_1;
   MoRC_outC_managementOfRadioCommunication /* 1 */ Context_1;
@@ -48,7 +51,6 @@ typedef struct {
 } MoRC_outC_MoRC_withSimplified_IF;
 
 /* ===========  node initialization and cycle functions  =========== */
-/** "Remark_1" {Description = "- Name: managementOfRadioCommunication - Description: This a interface adapter at the top level of the "Management of Radio Communication" function - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE."} */
 /* MoRC_withSimplified_IF */
 extern void MoRC_MoRC_withSimplified_IF(
   MoRC_inC_MoRC_withSimplified_IF *inC,
@@ -56,10 +58,12 @@ extern void MoRC_MoRC_withSimplified_IF(
 
 extern void MoRC_MoRC_withSimplified_IF_reset(
   MoRC_outC_MoRC_withSimplified_IF *outC);
+extern void MoRC_MoRC_withSimplified_IF_init(
+  MoRC_outC_MoRC_withSimplified_IF *outC);
 
 #endif /* _MoRC_MoRC_withSimplified_IF_H_ */
-/* $*************** KCG Version 6.1.3 (build i6) ****************
+/* $************* KCG Version 6.4 beta3 (build i9) **************
 ** MoRC_MoRC_withSimplified_IF.h
-** Generation date: 2013-08-01T09:52:21
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 

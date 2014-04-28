@@ -1,11 +1,29 @@
-/* $*************** KCG Version 6.1.3 (build i6) ****************
-** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-08-01T09:52:21
+/* $************* KCG Version 6.4 beta3 (build i9) **************
+** Command: kcg64.exe -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG/config.txt
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 
 #include "kcg_consts.h"
 #include "kcg_sensors.h"
 #include "MoRC_maintaining_a_CommunicationSession.h"
+
+void MoRC_maintaining_a_CommunicationSession_init(
+  MoRC_outC_maintaining_a_CommunicationSession *outC)
+{
+  outC->init = kcg_true;
+  outC->init1 = kcg_true;
+  outC->Maintaining_SM_state_nxt =
+    MoRC_SSM_st_CommunicationSessionNotEstablished_Maintaining_SM;
+  outC->RadioConnection_SM_state_nxt_Maintaining_SM_CommunicationSessionEstablished =
+    MoRC_SSM_st_SafeRadio_connected_Maintaining_SM_CommunicationSessionEstablished_RadioConnection_SM;
+  outC->requestsToSetupTheSafeRadioConnectionStopped = kcg_true;
+  outC->finalAttemptToSetupTheSafeRadioConnectionFailed = kcg_true;
+  outC->firstRequestToSetupASafeRadioConnection = kcg_true;
+  outC->informTheDriverThatNoConnectionWasSetup = kcg_true;
+  outC->tryToSetupANewSafeRadioConnection = kcg_true;
+  MoRC_countDownTimer_init(&outC->Context_1);
+}
+
 
 void MoRC_maintaining_a_CommunicationSession_reset(
   MoRC_outC_maintaining_a_CommunicationSession *outC)
@@ -15,17 +33,14 @@ void MoRC_maintaining_a_CommunicationSession_reset(
   /* 1 */ MoRC_countDownTimer_reset(&outC->Context_1);
 }
 
-/** Subset 096, REQ 3.5.4 */
-/** Maintains an established communcation session. */
-/** "Remark_1" {Description = "- Name: maintaining_a_CommunicationSession - Description: Maintains an established communcation session.   - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE."} */
 /* maintaining_a_CommunicationSession */
 void MoRC_maintaining_a_CommunicationSession(
-  /* maintaining_a_CommunicationSession::communicationSessionEstablished */kcg_bool communicationSessionEstablished,
-  /* maintaining_a_CommunicationSession::safeRadioConnectionReestablished */kcg_bool safeRadioConnectionReestablished,
-  /* maintaining_a_CommunicationSession::lossOfTheSafeRadioConnection */kcg_bool lossOfTheSafeRadioConnection,
-  /* maintaining_a_CommunicationSession::disconnectionHasNotBeenOrdered */kcg_bool disconnectionHasNotBeenOrdered,
-  /* maintaining_a_CommunicationSession::trainFrontInsideInAnAnnouncedRadioHole */kcg_bool trainFrontInsideInAnAnnouncedRadioHole,
-  /* maintaining_a_CommunicationSession::actualTime */MoRC_time_Type actualTime,
+  /* maintaining_a_CommunicationSession::communicationSessionEstablished */ kcg_bool communicationSessionEstablished,
+  /* maintaining_a_CommunicationSession::safeRadioConnectionReestablished */ kcg_bool safeRadioConnectionReestablished,
+  /* maintaining_a_CommunicationSession::lossOfTheSafeRadioConnection */ kcg_bool lossOfTheSafeRadioConnection,
+  /* maintaining_a_CommunicationSession::disconnectionHasNotBeenOrdered */ kcg_bool disconnectionHasNotBeenOrdered,
+  /* maintaining_a_CommunicationSession::trainFrontInsideInAnAnnouncedRadioHole */ kcg_bool trainFrontInsideInAnAnnouncedRadioHole,
+  /* maintaining_a_CommunicationSession::actualTime */ MoRC_time_Type actualTime,
   MoRC_outC_maintaining_a_CommunicationSession *outC)
 {
   MoRC_SSM_TR_Maintaining_SM tmp1;
@@ -253,8 +268,8 @@ void MoRC_maintaining_a_CommunicationSession(
     outC->finalAttemptToSetupTheSafeRadioConnectionFailed || tmp;
 }
 
-/* $*************** KCG Version 6.1.3 (build i6) ****************
+/* $************* KCG Version 6.4 beta3 (build i9) **************
 ** MoRC_maintaining_a_CommunicationSession.c
-** Generation date: 2013-08-01T09:52:21
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 

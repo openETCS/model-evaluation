@@ -1,11 +1,34 @@
-/* $*************** KCG Version 6.1.3 (build i6) ****************
-** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-08-01T09:52:21
+/* $************* KCG Version 6.4 beta3 (build i9) **************
+** Command: kcg64.exe -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG/config.txt
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 
 #include "kcg_consts.h"
 #include "kcg_sensors.h"
 #include "MoRC_evaluateOrderToContactAnRBD.h"
+
+void MoRC_evaluateOrderToContactAnRBD_init(
+  MoRC_outC_evaluateOrderToContactAnRBD *outC)
+{
+  outC->init = kcg_true;
+  outC->rem_order_in.appliesAlsoToSleepingUnits = kcg_true;
+  outC->rem_order_in.actionToBePerformed = MoRC_morc_rbca_noAction;
+  outC->rem_order_in.telephoneNoOfTheRBC = 0;
+  outC->rem_order_in.rbc_id = 0;
+  outC->rem_order_in.valid = kcg_true;
+  outC->_L16.appliesAlsoToSleepingUnits = kcg_true;
+  outC->_L16.actionToBePerformed = MoRC_morc_rbca_noAction;
+  outC->_L16.telephoneNoOfTheRBC = 0;
+  outC->_L16.rbc_id = 0;
+  outC->_L16.valid = kcg_true;
+  outC->order_out.appliesAlsoToSleepingUnits = kcg_true;
+  outC->order_out.actionToBePerformed = MoRC_morc_rbca_noAction;
+  outC->order_out.telephoneNoOfTheRBC = 0;
+  outC->order_out.rbc_id = 0;
+  outC->order_out.valid = kcg_true;
+  MoRC_FallingEdge_init_digital(&outC->Context_1);
+}
+
 
 void MoRC_evaluateOrderToContactAnRBD_reset(
   MoRC_outC_evaluateOrderToContactAnRBD *outC)
@@ -14,13 +37,10 @@ void MoRC_evaluateOrderToContactAnRBD_reset(
   /* 1 */ MoRC_FallingEdge_reset_digital(&outC->Context_1);
 }
 
-/** Subset 096, REQ 3.5.3.13, 3.5.3.16, 3.5.3.13.1, 3.5.3.14, 3.5.3.15: */
-/** Evaluates the order to contact a RBC, i. e. establish, maintain or terminate a communication session. */
-/** "Remark_1" {Description = "- Name: evaluateOrderToContactAnRBD - Description: Evaluates the orders to establish, maintain or terminate a communication session - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE."} */
 /* evaluateOrderToContactAnRBD */
 void MoRC_evaluateOrderToContactAnRBD(
-  /* evaluateOrderToContactAnRBD::order_in */MoRC_orderToContactAnRBC_Type *order_in,
-  /* evaluateOrderToContactAnRBD::onBoardStoredShortPhoneNo */MoRC_rbc_phoneNo_Type onBoardStoredShortPhoneNo,
+  /* evaluateOrderToContactAnRBD::order_in */ MoRC_orderToContactAnRBC_Type *order_in,
+  /* evaluateOrderToContactAnRBD::onBoardStoredShortPhoneNo */ MoRC_rbc_phoneNo_Type onBoardStoredShortPhoneNo,
   MoRC_outC_evaluateOrderToContactAnRBD *outC)
 {
   /* evaluateOrderToContactAnRBD::_L35 */ MoRC_orderToContactAnRBC_Type _L35;
@@ -65,8 +85,8 @@ void MoRC_evaluateOrderToContactAnRBD(
   MoRC_kcg_copy_orderToContactAnRBC_Type(&outC->rem_order_in, order_in);
 }
 
-/* $*************** KCG Version 6.1.3 (build i6) ****************
+/* $************* KCG Version 6.4 beta3 (build i9) **************
 ** MoRC_evaluateOrderToContactAnRBD.c
-** Generation date: 2013-08-01T09:52:21
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 

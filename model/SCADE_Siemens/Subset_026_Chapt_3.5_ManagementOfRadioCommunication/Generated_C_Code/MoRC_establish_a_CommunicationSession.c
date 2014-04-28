@@ -1,11 +1,42 @@
-/* $*************** KCG Version 6.1.3 (build i6) ****************
-** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-08-01T09:52:21
+/* $************* KCG Version 6.4 beta3 (build i9) **************
+** Command: kcg64.exe -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG/config.txt
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 
 #include "kcg_consts.h"
 #include "kcg_sensors.h"
 #include "MoRC_establish_a_CommunicationSession.h"
+
+void MoRC_establish_a_CommunicationSession_init(
+  MoRC_outC_establish_a_CommunicationSession *outC)
+{
+  outC->init = kcg_true;
+  outC->init1 = kcg_true;
+  outC->init2 = kcg_true;
+  outC->init3 = kcg_true;
+  outC->EstablishmentOfACommunicationSession_SM_state_nxt =
+    MoRC_SSM_st_Idle_EstablishmentOfACommunicationSession_SM;
+  outC->_L3_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfMission =
+    0;
+  outC->RepeatSetupConnection_SM_state_nxt_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfM =
+    MoRC_SSM_st_Start_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfMission_RepeatSetu;
+  outC->RepeatSetupConnection_SM_state_nxt_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isNotPartOfStart =
+    MoRC_SSM_st_Start_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isNotPartOfStartOfMission_RepeatS;
+  outC->RequestConnectionWithTrackSide_SM_state_nxt_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU =
+    MoRC_SSM_st_Start_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM;
+  outC->establishingACommunicationSessionAborted = kcg_true;
+  outC->sessionSuccessfullyEstablished = kcg_true;
+  outC->requestsToSetupTheSafeRadioConnectionStopped = kcg_true;
+  outC->finalAttemptToSetupTheSafeRadioConnectionFailed = kcg_true;
+  outC->firstRequestToSetupASafeRadioConnection = kcg_true;
+  outC->sendASessionEstablishedReportToTrackside = kcg_true;
+  outC->terminateTheCommunicationSession = kcg_true;
+  outC->sendMessage_NoCompatibleVersionSupported = kcg_true;
+  outC->sendTheMessageInitiationOfCommunicationSessionToTrackside = kcg_true;
+  outC->requestTheSetupOfASafeRadioConnection = kcg_true;
+  outC->InformTheDriverThatNoConnectionWasSetup = kcg_true;
+}
+
 
 void MoRC_establish_a_CommunicationSession_reset(
   MoRC_outC_establish_a_CommunicationSession *outC)
@@ -16,25 +47,22 @@ void MoRC_establish_a_CommunicationSession_reset(
   outC->init3 = kcg_true;
 }
 
-/** Subset 096, REQ 3.5.3 */
-/** Implements the establishing process of a communication session */
-/** "Remark_1" {Description = "- Name: establish_a_CommunicationSession - Description: Implements the establishing process of a communication session - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE."} */
 /* establish_a_CommunicationSession */
 void MoRC_establish_a_CommunicationSession(
-  /* establish_a_CommunicationSession::isPartOfAnOngoingStartOfMissionProcedure */kcg_bool isPartOfAnOngoingStartOfMissionProcedure,
-  /* establish_a_CommunicationSession::connectionSuccessfullyEstablished */kcg_bool connectionSuccessfullyEstablished,
-  /* establish_a_CommunicationSession::settingUpSafeConnectionHasFailed */kcg_bool settingUpSafeConnectionHasFailed,
-  /* establish_a_CommunicationSession::endOfMissionIsPerformed */kcg_bool endOfMissionIsPerformed,
-  /* establish_a_CommunicationSession::trainPassesALevelTransitionBorder */kcg_bool trainPassesALevelTransitionBorder,
-  /* establish_a_CommunicationSession::orderToEstablishACommunicationSession_fromTrackside */MoRC_orderToContactAnRBC_Type *orderToEstablishACommunicationSession_fromTrackside,
-  /* establish_a_CommunicationSession::orderToEstablishACommunicationSession_fromOBU */MoRC_orderToContactAnRBC_Type *orderToEstablishACommunicationSession_fromOBU,
-  /* establish_a_CommunicationSession::orderDoesNotRequestToContactAnAcceptingRBC */kcg_bool orderDoesNotRequestToContactAnAcceptingRBC,
-  /* establish_a_CommunicationSession::trainPassesA_RBC_RBC_border_WithItsFrontEnd */kcg_bool trainPassesA_RBC_RBC_border_WithItsFrontEnd,
-  /* establish_a_CommunicationSession::systemVersionFromTracksideSupported */kcg_bool systemVersionFromTracksideSupported,
-  /* establish_a_CommunicationSession::systemVersionReceived */kcg_bool systemVersionReceived,
-  /* establish_a_CommunicationSession::initiationOfACommunicationSession_receivedFromTrackside */kcg_bool initiationOfACommunicationSession_receivedFromTrackside,
-  /* establish_a_CommunicationSession::communicationSessionInitiatedByOBU_ */kcg_bool communicationSessionInitiatedByOBU_,
-  /* establish_a_CommunicationSession::communicationSessionInitiatedFromTrackside_ */kcg_bool communicationSessionInitiatedFromTrackside_,
+  /* establish_a_CommunicationSession::isPartOfAnOngoingStartOfMissionProcedure */ kcg_bool isPartOfAnOngoingStartOfMissionProcedure,
+  /* establish_a_CommunicationSession::connectionSuccessfullyEstablished */ kcg_bool connectionSuccessfullyEstablished,
+  /* establish_a_CommunicationSession::settingUpSafeConnectionHasFailed */ kcg_bool settingUpSafeConnectionHasFailed,
+  /* establish_a_CommunicationSession::endOfMissionIsPerformed */ kcg_bool endOfMissionIsPerformed,
+  /* establish_a_CommunicationSession::trainPassesALevelTransitionBorder */ kcg_bool trainPassesALevelTransitionBorder,
+  /* establish_a_CommunicationSession::orderToEstablishACommunicationSession_fromTrackside */ MoRC_orderToContactAnRBC_Type *orderToEstablishACommunicationSession_fromTrackside,
+  /* establish_a_CommunicationSession::orderToEstablishACommunicationSession_fromOBU */ MoRC_orderToContactAnRBC_Type *orderToEstablishACommunicationSession_fromOBU,
+  /* establish_a_CommunicationSession::orderDoesNotRequestToContactAnAcceptingRBC */ kcg_bool orderDoesNotRequestToContactAnAcceptingRBC,
+  /* establish_a_CommunicationSession::trainPassesA_RBC_RBC_border_WithItsFrontEnd */ kcg_bool trainPassesA_RBC_RBC_border_WithItsFrontEnd,
+  /* establish_a_CommunicationSession::systemVersionFromTracksideSupported */ kcg_bool systemVersionFromTracksideSupported,
+  /* establish_a_CommunicationSession::systemVersionReceived */ kcg_bool systemVersionReceived,
+  /* establish_a_CommunicationSession::initiationOfACommunicationSession_receivedFromTrackside */ kcg_bool initiationOfACommunicationSession_receivedFromTrackside,
+  /* establish_a_CommunicationSession::communicationSessionInitiatedByOBU_ */ kcg_bool communicationSessionInitiatedByOBU_,
+  /* establish_a_CommunicationSession::communicationSessionInitiatedFromTrackside_ */ kcg_bool communicationSessionInitiatedFromTrackside_,
   MoRC_outC_establish_a_CommunicationSession *outC)
 {
   MoRC_SSM_TR_EstablishmentOfACommunicationSession_SM tmp6;
@@ -391,17 +419,17 @@ void MoRC_establish_a_CommunicationSession(
             RequestConnectionWithTrackSide_SM_fired_strong_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU !=
             MoRC_SSM_TR_no_trans_RequestConnectionWithTrackSide_SM_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU;
           if (tmp2) {
-            outC->init3 = kcg_true;
+            outC->init2 = kcg_true;
           }
           break;
         
       }
       if (tmp) {
-        outC->init3 = kcg_true;
+        outC->init2 = kcg_true;
       }
       switch (RequestConnectionWithTrackSide_SM_state_act_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU) {
         case MoRC_SSM_st_TryToEstablishConnection_isPartOfStartOfMission_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM :
-          if (outC->init3) {
+          if (outC->init2) {
             RepeatSetupConnection_SM_state_sel_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfM =
               MoRC_SSM_st_Start_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfMission_RepeatSetu;
           }
@@ -422,18 +450,18 @@ void MoRC_establish_a_CommunicationSession(
           break;
         case MoRC_SSM_st_TryToEstablishConnection_isNotPartOfStartOfMission_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM :
           if (tmp2) {
-            outC->init2 = kcg_true;
+            outC->init3 = kcg_true;
           }
           break;
         
       }
       if (tmp) {
-        outC->init2 = kcg_true;
+        outC->init3 = kcg_true;
       }
       outC->sessionSuccessfullyEstablished = kcg_false;
       switch (RequestConnectionWithTrackSide_SM_state_act_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU) {
         case MoRC_SSM_st_TryToEstablishConnection_isNotPartOfStartOfMission_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM :
-          if (outC->init2) {
+          if (outC->init3) {
             RepeatSetupConnection_SM_state_sel_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isNotPartOfStart =
               MoRC_SSM_st_Start_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isNotPartOfStartOfMission_RepeatS;
           }
@@ -527,8 +555,7 @@ void MoRC_establish_a_CommunicationSession(
               break;
             case MoRC_SSM_st_Start_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfMission_RepeatSetu :
               if (br_1_guard_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfMission_RepeatSetupConnec) {
-                outC->requestTheSetupOfASafeRadioConnection =
-                  br_1_guard_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfMission_RepeatSetupConnec;
+                outC->requestTheSetupOfASafeRadioConnection = kcg_true;
                 RepeatSetupConnection_SM_state_act_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfM =
                   MoRC_SSM_st_Retry_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM_TryToEstablishConnection_isPartOfStartOfMission_RepeatSetu;
               }
@@ -546,7 +573,7 @@ void MoRC_establish_a_CommunicationSession(
           else {
             tmp5 = 0;
           }
-          if (outC->init3) {
+          if (outC->init2) {
             tmp4 = 0;
           }
           else {
@@ -689,7 +716,7 @@ void MoRC_establish_a_CommunicationSession(
       break;
     case MoRC_SSM_st_NoCompatibleSystemVersionSupported_EstablishmentOfACommunicationSession_SM :
       if (tmp1) {
-        tmp3 = tmp1;
+        tmp3 = kcg_true;
       }
       else {
         tmp3 = kcg_false;
@@ -734,19 +761,55 @@ void MoRC_establish_a_CommunicationSession(
     outC->finalAttemptToSetupTheSafeRadioConnectionFailed ||
     connectionSuccessfullyEstablished;
   switch (EstablishmentOfACommunicationSession_SM_state_sel) {
-    case MoRC_SSM_st_Idle_EstablishmentOfACommunicationSession_SM :
+    case MoRC_SSM_st_ConsiderTheCommunicationSessionEstablished_EstablishmentOfACommunicationSession_SM :
+      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
+      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
       outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
         kcg_false;
+      break;
+    case MoRC_SSM_st_WaitForMessage_InitiationOfCommunicationSession_FromTrackside_EstablishmentOfACommunicationSession_SM :
       outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
-      if (br_1_guard_EstablishmentOfACommunicationSession_SM_Idle) {
-        outC->firstRequestToSetupASafeRadioConnection = kcg_true;
+      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
+      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
+        kcg_false;
+      break;
+    case MoRC_SSM_st_RequestSetupOfASafeRadioConnection_initiatedByTrackside_EstablishmentOfACommunicationSession_SM :
+      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
+      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
+      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
+        kcg_false;
+      break;
+    case MoRC_SSM_st_WaitTil_CommunicationSessionTerminated_EstablishmentOfACommunicationSession_SM :
+      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
+      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
+      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
+        kcg_false;
+      break;
+    case MoRC_SSM_st_NoCompatibleSystemVersionSupported_EstablishmentOfACommunicationSession_SM :
+      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
+      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
+      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
+        kcg_false;
+      break;
+    case MoRC_SSM_st_CompatibleSystemVersionSupported_EstablishmentOfACommunicationSession_SM :
+      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
+      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
+      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
+        kcg_false;
+      break;
+    case MoRC_SSM_st_WaitForSystemVersionFromTrackSide_EstablishmentOfACommunicationSession_SM :
+      if (br_1_guard_EstablishmentOfACommunicationSession_SM_WaitForSystemVersionFromTrackSide) {
+        outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
       }
-      else if (communicationSessionInitiatedFromTrackside_) {
-        outC->firstRequestToSetupASafeRadioConnection = kcg_true;
+      else if (br_2_guard_EstablishmentOfACommunicationSession_SM_WaitForSystemVersionFromTrackSide) {
+        outC->sendMessage_NoCompatibleVersionSupported = kcg_true;
       }
       else {
-        outC->firstRequestToSetupASafeRadioConnection = kcg_false;
+        outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
       }
+      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
+      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
+        kcg_false;
       break;
     case MoRC_SSM_st_RequestSetupOfASafeRadioConnection_initiatedByOBU_EstablishmentOfACommunicationSession_SM :
       outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
@@ -760,55 +823,19 @@ void MoRC_establish_a_CommunicationSession(
           kcg_false;
       }
       break;
-    case MoRC_SSM_st_WaitForSystemVersionFromTrackSide_EstablishmentOfACommunicationSession_SM :
+    case MoRC_SSM_st_Idle_EstablishmentOfACommunicationSession_SM :
+      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
       outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
         kcg_false;
-      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
-      if (br_1_guard_EstablishmentOfACommunicationSession_SM_WaitForSystemVersionFromTrackSide) {
-        outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
+      if (br_1_guard_EstablishmentOfACommunicationSession_SM_Idle) {
+        outC->firstRequestToSetupASafeRadioConnection = kcg_true;
       }
-      else if (br_2_guard_EstablishmentOfACommunicationSession_SM_WaitForSystemVersionFromTrackSide) {
-        outC->sendMessage_NoCompatibleVersionSupported = kcg_true;
+      else if (communicationSessionInitiatedFromTrackside_) {
+        outC->firstRequestToSetupASafeRadioConnection = kcg_true;
       }
       else {
-        outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
+        outC->firstRequestToSetupASafeRadioConnection = kcg_false;
       }
-      break;
-    case MoRC_SSM_st_CompatibleSystemVersionSupported_EstablishmentOfACommunicationSession_SM :
-      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
-        kcg_false;
-      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
-      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
-      break;
-    case MoRC_SSM_st_NoCompatibleSystemVersionSupported_EstablishmentOfACommunicationSession_SM :
-      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
-        kcg_false;
-      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
-      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
-      break;
-    case MoRC_SSM_st_WaitTil_CommunicationSessionTerminated_EstablishmentOfACommunicationSession_SM :
-      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
-        kcg_false;
-      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
-      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
-      break;
-    case MoRC_SSM_st_RequestSetupOfASafeRadioConnection_initiatedByTrackside_EstablishmentOfACommunicationSession_SM :
-      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
-        kcg_false;
-      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
-      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
-      break;
-    case MoRC_SSM_st_WaitForMessage_InitiationOfCommunicationSession_FromTrackside_EstablishmentOfACommunicationSession_SM :
-      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
-        kcg_false;
-      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
-      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
-      break;
-    case MoRC_SSM_st_ConsiderTheCommunicationSessionEstablished_EstablishmentOfACommunicationSession_SM :
-      outC->sendTheMessageInitiationOfCommunicationSessionToTrackside =
-        kcg_false;
-      outC->sendMessage_NoCompatibleVersionSupported = kcg_false;
-      outC->firstRequestToSetupASafeRadioConnection = kcg_false;
       break;
     
   }
@@ -839,7 +866,7 @@ void MoRC_establish_a_CommunicationSession(
       switch (RequestConnectionWithTrackSide_SM_state_act_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU) {
         case MoRC_SSM_st_TryToEstablishConnection_isNotPartOfStartOfMission_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM :
           tmp2 = kcg_false;
-          outC->init2 = kcg_false;
+          outC->init3 = kcg_false;
           break;
         case MoRC_SSM_st_NoSuccess_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM :
           tmp2 = kcg_false;
@@ -857,7 +884,7 @@ void MoRC_establish_a_CommunicationSession(
           else {
             tmp2 = kcg_false;
           }
-          outC->init3 = kcg_false;
+          outC->init2 = kcg_false;
           break;
         case MoRC_SSM_st_Start_EstablishmentOfACommunicationSession_SM_RequestSetupOfASafeRadioConnection_initiatedByOBU_RequestConnectionWithTrackSide_SM :
           tmp2 = kcg_false;
@@ -874,8 +901,8 @@ void MoRC_establish_a_CommunicationSession(
     outC->sendMessage_NoCompatibleVersionSupported || tmp2;
 }
 
-/* $*************** KCG Version 6.1.3 (build i6) ****************
+/* $************* KCG Version 6.4 beta3 (build i9) **************
 ** MoRC_establish_a_CommunicationSession.c
-** Generation date: 2013-08-01T09:52:21
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 

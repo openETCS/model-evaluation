@@ -1,10 +1,8 @@
-kcg.log
-kcg_xml_filter_out.scade
-kcg_s2c_config.txt
 kcg_trace.xml
 kcg_metrics.txt
 MoRC_MoRC_withSimplified_IF.c
 MoRC_managementOfRadioCommunication.c
+MoRC_EitherEdge_digital.c
 MoRC_terminateAndEstablishSession.c
 MoRC_initiateTerminatingASession.c
 MoRC_safeRadioConnectionIndication.c
@@ -22,6 +20,7 @@ MoRC_isOrderToEstablishConnection.c
 MoRC_Initiate_a_Session.c
 MoRC_MoRC_withSimplified_IF.h
 MoRC_managementOfRadioCommunication.h
+MoRC_EitherEdge_digital.h
 MoRC_terminateAndEstablishSession.h
 MoRC_initiateTerminatingASession.h
 MoRC_safeRadioConnectionIndication.h

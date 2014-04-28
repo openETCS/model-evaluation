@@ -1,6 +1,6 @@
-/* $*************** KCG Version 6.1.3 (build i6) ****************
-** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-08-01T09:52:21
+/* $************* KCG Version 6.4 beta3 (build i9) **************
+** Command: kcg64.exe -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG/config.txt
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 #ifndef _MoRC_radioNetworkMobile_H_
 #define _MoRC_radioNetworkMobile_H_
@@ -29,20 +29,18 @@ typedef struct {
 } MoRC_outC_radioNetworkMobile;
 
 /* ===========  node initialization and cycle functions  =========== */
-/** Subset 096, REQ 3.5.6.3.2, 3.5.6.5 */
-/** Controls the registration to the radio network for a single mobile terminal. */
-/** "Remark_1" {Description = "- Name: radioNetworkMobile - Description: Controls the registration to the radio network for a single mobile terminal.  - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE."} */
 /* radioNetworkMobile */
 extern void MoRC_radioNetworkMobile(
-  /* radioNetworkMobile::mobileHWStatus */MoRC_mobileHWStatus_Type *mobileHWStatus,
-  /* radioNetworkMobile::mobileSWCmd */MoRC_mobileSWCmd_Type *mobileSWCmd,
+  /* radioNetworkMobile::mobileHWStatus */ MoRC_mobileHWStatus_Type *mobileHWStatus,
+  /* radioNetworkMobile::mobileSWCmd */ MoRC_mobileSWCmd_Type *mobileSWCmd,
   MoRC_outC_radioNetworkMobile *outC);
 
 extern void MoRC_radioNetworkMobile_reset(MoRC_outC_radioNetworkMobile *outC);
+extern void MoRC_radioNetworkMobile_init(MoRC_outC_radioNetworkMobile *outC);
 
 #endif /* _MoRC_radioNetworkMobile_H_ */
-/* $*************** KCG Version 6.1.3 (build i6) ****************
+/* $************* KCG Version 6.4 beta3 (build i9) **************
 ** MoRC_radioNetworkMobile.h
-** Generation date: 2013-08-01T09:52:21
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 

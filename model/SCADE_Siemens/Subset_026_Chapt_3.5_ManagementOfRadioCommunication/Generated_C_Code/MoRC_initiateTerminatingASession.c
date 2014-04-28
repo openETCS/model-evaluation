@@ -1,11 +1,23 @@
-/* $*************** KCG Version 6.1.3 (build i6) ****************
-** Command: s2c613 -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG\kcg_s2c_config.txt
-** Generation date: 2013-08-01T09:52:22
+/* $************* KCG Version 6.4 beta3 (build i9) **************
+** Command: kcg64.exe -config S:/SDVAL_RAMS/Förderprojekte/openETCS/section/030_System/Components/OBU/S026_3_C3_5_ManagementOfRadioCommuniction/MoRC/KCG/config.txt
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 
 #include "kcg_consts.h"
 #include "kcg_sensors.h"
 #include "MoRC_initiateTerminatingASession.h"
+
+void MoRC_initiateTerminatingASession_init(
+  MoRC_outC_initiateTerminatingASession *outC)
+{
+  outC->init = kcg_true;
+  outC->TrainExitedFromRBCArea_SM_state_nxt =
+    MoRC_SSM_st_Idle_TrainExitedFromRBCArea_SM;
+  outC->sendAPositionReport = kcg_true;
+  outC->initiateTermination = kcg_true;
+  MoRC_waitAndRepeatTimer_init(&outC->Context_1);
+}
+
 
 void MoRC_initiateTerminatingASession_reset(
   MoRC_outC_initiateTerminatingASession *outC)
@@ -14,21 +26,18 @@ void MoRC_initiateTerminatingASession_reset(
   /* 1 */ MoRC_waitAndRepeatTimer_reset(&outC->Context_1);
 }
 
-/** Subset 096, REQ 3.5.5.1 */
-/** Initiates and processes the termination of a communication session. */
-/** "Remark_1" {Description = "- Name: initiateTerminatingASession - Description: Initiates and processes the termination of a communication session.  - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE."} */
 /* initiateTerminatingASession */
 void MoRC_initiateTerminatingASession(
-  /* initiateTerminatingASession::orderReceivedFromTrackside */MoRC_orderToContactAnRBC_Type *orderReceivedFromTrackside,
-  /* initiateTerminatingASession::errorConditionRequiringTerminationDetected */kcg_bool errorConditionRequiringTerminationDetected,
-  /* initiateTerminatingASession::trainIsRejectedByRBC_duringStartOfMission */kcg_bool trainIsRejectedByRBC_duringStartOfMission,
-  /* initiateTerminatingASession::driverClosesTheDeskduringStartOfMission */kcg_bool driverClosesTheDeskduringStartOfMission,
-  /* initiateTerminatingASession::trainExitedFromAnRBCArea */kcg_bool trainExitedFromAnRBCArea,
-  /* initiateTerminatingASession::receivedOrderToTerminateTheSession */MoRC_orderToContactAnRBC_Type *receivedOrderToTerminateTheSession,
-  /* initiateTerminatingASession::actualTime */MoRC_time_Type actualTime,
-  /* initiateTerminatingASession::isInCommunicationSessionWithAnRIU */kcg_bool isInCommunicationSessionWithAnRIU,
-  /* initiateTerminatingASession::level_1_isLeft */kcg_bool level_1_isLeft,
-  /* initiateTerminatingASession::endOfMissionIsExecuted */kcg_bool endOfMissionIsExecuted,
+  /* initiateTerminatingASession::orderReceivedFromTrackside */ MoRC_orderToContactAnRBC_Type *orderReceivedFromTrackside,
+  /* initiateTerminatingASession::errorConditionRequiringTerminationDetected */ kcg_bool errorConditionRequiringTerminationDetected,
+  /* initiateTerminatingASession::trainIsRejectedByRBC_duringStartOfMission */ kcg_bool trainIsRejectedByRBC_duringStartOfMission,
+  /* initiateTerminatingASession::driverClosesTheDeskduringStartOfMission */ kcg_bool driverClosesTheDeskduringStartOfMission,
+  /* initiateTerminatingASession::trainExitedFromAnRBCArea */ kcg_bool trainExitedFromAnRBCArea,
+  /* initiateTerminatingASession::receivedOrderToTerminateTheSession */ MoRC_orderToContactAnRBC_Type *receivedOrderToTerminateTheSession,
+  /* initiateTerminatingASession::actualTime */ MoRC_time_Type actualTime,
+  /* initiateTerminatingASession::isInCommunicationSessionWithAnRIU */ kcg_bool isInCommunicationSessionWithAnRIU,
+  /* initiateTerminatingASession::level_1_isLeft */ kcg_bool level_1_isLeft,
+  /* initiateTerminatingASession::endOfMissionIsExecuted */ kcg_bool endOfMissionIsExecuted,
   MoRC_outC_initiateTerminatingASession *outC)
 {
   MoRC_SSM_TR_TrainExitedFromRBCArea_SM tmp1;
@@ -145,8 +154,8 @@ void MoRC_initiateTerminatingASession(
       (isInCommunicationSessionWithAnRIU && endOfMissionIsExecuted));
 }
 
-/* $*************** KCG Version 6.1.3 (build i6) ****************
+/* $************* KCG Version 6.4 beta3 (build i9) **************
 ** MoRC_initiateTerminatingASession.c
-** Generation date: 2013-08-01T09:52:22
+** Generation date: 2014-04-28T16:05:35
 *************************************************************$ */
 

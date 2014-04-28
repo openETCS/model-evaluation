@@ -1164,7 +1164,7 @@
 					doc &quot;GdC_1&quot; {Author = &quot;Author : Uwe Steinke&quot;, DateC = &quot;Created : 2012-10-15&quot;, DateM = &quot;Modified : 2012-12-20&quot;, Version = &quot;Version : 00.00.00.001&quot;}
 				</kcg:Pragma>
 				<kcg:Pragma>
-					doc &quot;Remark_1&quot; {Description = &quot;- Name: countDownTimer - Description: Implements a generic Count Down Timer  - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE. &quot;}
+					doc &quot;Remark_1&quot; {Description = &quot;- Name: countDownTimer - Description: Implements a generic Count Down Timer  - Copyright Siemens AG, 2013 - Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl ) - Gist URL: --- - Cryptography: No - Author(s): Uwe Steinke  The use of this software is limited to non-vital applications.  It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss.  THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OTHER KIND OF USE. &quot;}
 				</kcg:Pragma>
 			</pragmas>
 		</Operator>

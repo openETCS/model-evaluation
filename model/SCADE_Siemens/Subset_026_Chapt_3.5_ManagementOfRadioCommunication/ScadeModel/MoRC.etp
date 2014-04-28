@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="134" defaultConfiguration="21">
+<Project id="1" oid_count="141" defaultConfiguration="21">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -13,7 +13,7 @@
 			<configuration>13</configuration>
 		</Prop>
 		<Prop id="16" name="@GENERATOR:GENERATOR">
-			<value>C QUAL613</value>
+			<value>C QUAL64</value>
 			<configuration>13</configuration>
 		</Prop>
 		<Prop id="17" name="@GENERATOR:OPTLEVEL">
@@ -44,7 +44,7 @@
 			<configuration>21</configuration>
 		</Prop>
 		<Prop id="24" name="@GENERATOR:GENERATOR">
-			<value>C QUAL613</value>
+			<value>C QUAL64</value>
 			<configuration>21</configuration>
 		</Prop>
 		<Prop id="26" name="@GENERATOR:DEBUG">
@@ -52,10 +52,6 @@
 			<configuration>21</configuration>
 		</Prop>
 		<Prop id="27" name="@GENERATOR:PROBES">
-			<value>true</value>
-			<configuration>21</configuration>
-		</Prop>
-		<Prop id="28" name="@GENERATOR:SKIP_UNUSED">
 			<value>true</value>
 			<configuration>21</configuration>
 		</Prop>
@@ -187,7 +183,7 @@
 			<value>3.5 Management of Radio Communication (MoRC)</value>
 		</Prop>
 		<Prop id="70" name="@STUDIO:DESCRIPTION">
-			<value>This SCADE model implements the behaviour of the ETCS OBU user application interacting with Euroradio protocols. &#xA;&#xA;The top level of this model is represented by the node &quot;managementOfRadioCommunication&quot;.&#xA;&#xA;A simplified interface intended to be used in conjunction with the SYS/ML model and RT-Tester residing at https://github.com/openETCS/model-evaluation/tree/master/model/EA-SysML/ to achieve automatic test case generation is provided by the node &quot;MoRC_withSimplified_IF&quot;. &#xA;This node serves as a wrapper to the top level operator managementOfRadioCommunication. &#xA;It simplifies the MoRC external interface so that it suits to the SYS/ML model and RT-Tester approach residing on https://github.com/openETCS/model-evaluation/tree/master/model/EA-SysML/. &#xA;This enables the SCADE model to be used as the &quot;System under test&quot; and the SYS/ML model as a test model for automatic test sequence generateion with RT-Tester.&#xA; &#xA;Due to the interface simplification the functionaliy of the underlying &quot;Management Of Radio Communication&quot; is limited by the simplificaition.&#xA;&#xA;If the complete functionality is required without restrictions, the operator &quot;managementOfRadioCommunication&quot; should be used directly. &#xA;----&#xA;&#xA;D3.5 Management of Radio Communication&#xA;&#xA;- Name: MoRC.etp&#xA;- Description: SUBSET-026-3, ISSUE : 3.3.0, 3.5 Management of Radio Communication) &#xA;- Copyright Siemens AG, 2013&#xA;- Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl )&#xA;- Gist URL: ---&#xA;- Cryptography: No&#xA;- Author(s): Uwe Steinke&#xA;&#xA;The use of this software is limited to non-vital applications. &#xA;It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss. &#xA;&#xA;THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OHER KIND OF USE. &#xA;&#xA;</value>
+			<value>This SCADE model implements the behaviour of the ETCS OBU user application interacting with Euroradio protocols. &#xA;&#xA;The top level of this model is represented by the node &quot;managementOfRadioCommunication&quot;.&#xA;&#xA;A simplified interface intended to be used in conjunction with the SYS/ML model and RT-Tester residing at https://github.com/openETCS/model-evaluation/tree/master/model/EA-SysML/ to achieve automatic test case generation is provided by the node &quot;MoRC_withSimplified_IF&quot;. &#xA;This node serves as a wrapper to the top level operator managementOfRadioCommunication. &#xA;It simplifies the MoRC external interface so that it suits to the SYS/ML model and RT-Tester approach residing on https://github.com/openETCS/model-evaluation/tree/master/model/EA-SysML/. &#xA;This enables the SCADE model to be used as the &quot;System under test&quot; and the SYS/ML model as a test model for automatic test sequence generateion with RT-Tester.&#xA; &#xA;Due to the interface simplification the functionaliy of the underlying &quot;Management Of Radio Communication&quot; is limited by the simplificaition.&#xA;&#xA;If the complete functionality is required without restrictions, the operator &quot;managementOfRadioCommunication&quot; should be used directly. &#xA;----&#xA;&#xA;D3.5 Management of Radio Communication&#xA;&#xA;- Name: MoRC.etp&#xA;- Description: SUBSET-026-3, ISSUE : 3.3.0, 3.5 Management of Radio Communication) &#xA;- Copyright Siemens AG, 2013&#xA;- Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl )&#xA;- Gist URL: ---&#xA;- Cryptography: No&#xA;- Author(s): Uwe Steinke&#xA;&#xA;The use of this software is limited to non-vital applications. &#xA;It has not been developed for vital operation purposes and must not be used for applications which may cause harm to people, physical accidents or financial loss. &#xA;&#xA;THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OTHER KIND OF USE. &#xA;&#xA;</value>
 		</Prop>
 		<Prop id="71" name="@STUDIO:AUTHORS">
 			<value>Uwe Steinke</value>
@@ -196,10 +192,10 @@
 			<value>Siemens AG</value>
 		</Prop>
 		<Prop id="73" name="@STUDIO:DATE">
-			<value>2013-08-01</value>
+			<value>2014-04-28</value>
 		</Prop>
 		<Prop id="74" name="@STUDIO:INDEX">
-			<value>Version No 00.04.00</value>
+			<value>Version No 00.05.00</value>
 		</Prop>
 		<Prop id="75" name="@STUDIO:REFERENCE">
 			<value>UNISIG Subset-026-3 3.0.0, Chapter 3.5 &quot;Management of Radio Communication&quot;</value>
@@ -290,7 +286,7 @@
 			<configuration>36</configuration>
 		</Prop>
 		<Prop id="116" name="@REPORTER:IssueNr">
-			<value>Version No 00.04.00</value>
+			<value>Version No 00.05.00</value>
 			<configuration>36</configuration>
 		</Prop>
 		<Prop id="117" name="@REPORTER:ReferenceNr">
@@ -327,10 +323,6 @@
 			<value>2</value>
 			<configuration>21</configuration>
 		</Prop>
-		<Prop id="128" name="@GENERATOR:NO_BITWISE">
-			<value>true</value>
-			<configuration>21</configuration>
-		</Prop>
 		<Prop id="129" name="@GENERATOR:SIGNIFICANCE_LENGTH">
 			<value>200</value>
 			<configuration>21</configuration>
@@ -340,6 +332,14 @@
 			<configuration>36</configuration>
 		</Prop>
 		<Prop id="133" name="@GENERATOR:MACRO_ON_ASSERT">
+			<value>true</value>
+			<configuration>13</configuration>
+		</Prop>
+		<Prop id="140" name="@GENERATOR:SKIP_UNUSED">
+			<value>true</value>
+			<configuration>21</configuration>
+		</Prop>
+		<Prop id="141" name="@GENERATOR:SKIP_UNUSED">
 			<value>true</value>
 			<configuration>13</configuration>
 		</Prop>
@@ -380,6 +380,12 @@
 		<Folder id="76" name="Design Verifier File">
 			<elements>
 				<FileRef id="77" persistAs="MoRC.l4"/>
+			</elements>
+		</Folder>
+		<Folder id="137" name="S026_Libs">
+			<elements>
+				<FileRef id="138" persistAs="..\..\S026_7\Model\S026_7.etp"/>
+				<FileRef id="139" persistAs="..\..\S026_8\Model\S026_8.etp"/>
 			</elements>
 		</Folder>
 	</roots>

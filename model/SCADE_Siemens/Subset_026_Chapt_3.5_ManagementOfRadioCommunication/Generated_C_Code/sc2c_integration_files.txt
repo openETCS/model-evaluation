@@ -3,6 +3,7 @@
 *****************************
 MoRC_MoRC_withSimplified_IF.h
 MoRC_managementOfRadioCommunication.h
+MoRC_EitherEdge_digital.h
 MoRC_terminateAndEstablishSession.h
 MoRC_initiateTerminatingASession.h
 MoRC_safeRadioConnectionIndication.h
@@ -27,6 +28,7 @@ kcg_sensors.h
 *****************************
 MoRC_MoRC_withSimplified_IF.c
 MoRC_managementOfRadioCommunication.c
+MoRC_EitherEdge_digital.c
 MoRC_terminateAndEstablishSession.c
 MoRC_initiateTerminatingASession.c
 MoRC_safeRadioConnectionIndication.c
@@ -50,5 +52,5 @@ kcg_consts.c
 *****************************
 .
 $(SCADE)
-D:\programme\Esterel Technologies\Esterel SCADE 6.4.1\SCADE\libraries\libmathext
+D:\programme\Esterel Technologies\Esterel SCADE 6.4.2\SCADE\libraries\libmathext
 
